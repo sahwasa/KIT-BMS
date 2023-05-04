@@ -1,0 +1,161 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')
+  @@include('../inc/nav.html')
+  <main id="content" class="container">
+    @@include('../inc/snb/approval.html')
+    <section class="contents">
+      @@include('../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>전자결재</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">전자결재</a></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="box_compact my_form">
+          <header>
+            <h1>자주쓰는 결재</h1>
+            <div class="btn_wrap">
+              <a href="#" class="myform_set">설정</a>
+            </div>
+          </header>
+          <ul>
+            <li><a href="#">지출결의서</a></li>
+            <li><a href="#">출장복명서</a></li>
+          </ul>
+        </article>
+        <div class="my_approval">
+          <article class="box_default status">
+            <header><h1>내 결재현황</h1></header>
+            <ul>
+              <li>
+                <a href="">
+                  <i class="badge fin">결재완료</i>
+                  <strong>휴가신청서</strong>
+                  <span class="date">2023-01-01 12:30</span>
+                  <em>박상건 수석</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="badge reject">반려</i>
+                  <strong>휴가신청서</strong>
+                  <span class="date">2023-01-01 12:30</span>
+                  <em>박상건 수석</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="badge request">결재요청</i>
+                  <strong>휴가신청서</strong>
+                  <span class="date">2023-01-01 12:30</span>
+                  <em>박상건 수석</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="badge cc">수신참조</i>
+                  <strong>휴가신청서</strong>
+                  <span class="date">2023-01-01 12:30</span>
+                  <em>박상건 수석</em>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <i class="badge agree">합의요청</i>
+                  <strong>휴가신청서</strong>
+                  <span class="date">2023-01-01 12:30</span>
+                  <em>박상건 수석</em>
+                </a>
+              </li>
+            </ul>
+          </article>
+          <section class="flex_right box_default">
+            <article class="stand_by">
+              <header><h1>결재 대기<i class="new_bedge">3</i></h1>
+                <div class="btn_wrap">
+                  <a href="#" class="more">더보기</a>
+                </div>
+              </header>
+              <ul class="ls_stand_by">
+                <li>
+                  <a href="">
+                    <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
+                    <i>중요</i>
+                    <span>2023-01-01 12:30</span>
+                    <ul class="approval_path">
+                      <li>홍길동 연구원(기안)</li>
+                      <li>유관순 책임(결재완료)</li>
+                      <li>이도 수석(결재대기)</li>
+                    </ul>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
+                    <i>중요</i>
+                    <span>2023-01-01 12:30</span>
+                    <ul class="approval_path">
+                      <li>홍길동 연구원(기안)</li>
+                      <li>유관순 책임(결재완료)</li>
+                      <li>이도 수석(결재대기)</li>
+                    </ul>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
+                    <i>중요</i>
+                    <span>2023-01-01 12:30</span>
+                    <ul class="approval_path">
+                      <li>홍길동 연구원(기안)</li>
+                      <li>유관순 책임(결재완료)</li>
+                      <li>이도 수석(결재대기)</li>
+                    </ul>
+                  </a>
+                </li>
+              </ul>
+            </article>
+            <article class="carbon_copy">
+              <header><h1>수신 참조<i class="new_bedge">2</i></h1>
+                <div class="btn_wrap">
+                  <a href="#" class="more">더보기</a>
+                </div>
+              </header>
+              <ul class="ls_stand_by">
+                <li>
+                  <a href="">
+                    <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
+                    <span>2023-01-01 12:30</span>
+                    <ul class="approval_path">
+                      <li>홍길동 연구원(기안)</li>
+                      <li>유관순 책임(결재완료)</li>
+                      <li>이도 수석(결재대기)</li>
+                    </ul>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
+                    <span>2023-01-01 12:30</span>
+                    <ul class="approval_path">
+                      <li>홍길동 연구원(기안)</li>
+                      <li>유관순 책임(결재완료)</li>
+                      <li>이도 수석(결재대기)</li>
+                    </ul>
+                  </a>
+                </li>
+              </ul>
+            </article>
+          </section>
+        </div>        
+      </div>
+    </section>
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')

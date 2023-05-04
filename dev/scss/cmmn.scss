@@ -155,7 +155,9 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 
 
 //btn
-.btn_wrap{display:flex;gap:4px;}
+.btn_wrap{display:flex;gap:4px;
+  .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;}
+}
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color: #999;text-align:left;line-height:34px;
   &[disabled]{cursor:default;}
   &::before{position:absolute;top:2px;right:16px;display:inline-block;content:"";width:11px;height:11px;background-color:#fff;border-radius:50%;transition:.1s;}
@@ -184,7 +186,8 @@ $btn_gray:#979797;
   &:hover{background-color:$btn_gray;}
 }
 .btn_save,
-.btn_add{@include btn;color:$btn_red;border-color:$btn_red;
+.btn_add,
+.btn_workset .btn_default{@include btn;color:$btn_red;border-color:$btn_red;
   &:hover{background-color:$btn_red;}
 }
 .btn_cancel,
@@ -197,6 +200,9 @@ $btn_gray:#979797;
 }
 .btn_form{@include form_btn;
   &:hover{background-color:$btn_gray;}
+}
+.myform_set{@include shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align: center;
+  &::before{@include fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
 }
 
 // search
