@@ -11,7 +11,7 @@
         <section class="bredcrumb">
           <ul>
             <li><a href="">Home</a></li>
-            <li><a href="">전자결재</a></li>
+            <li>전자결재</li>
           </ul>
         </section>
       </header>
@@ -31,6 +31,7 @@
         <div class="my_approval">
           <article class="box_default status">
             <header><h1>내 결재현황</h1></header>
+            <!-- 최대 5개 -->
             <ul>
               <li>
                 <a href="">
@@ -76,16 +77,17 @@
           </article>
           <section class="flex_right box_default">
             <article class="stand_by">
-              <header><h1>결재 대기<i class="new_bedge">3</i></h1>
+              <header><h1>결재 대기<i class="new_bedge">5</i></h1>
                 <div class="btn_wrap">
                   <a href="#" class="more">더보기</a>
                 </div>
               </header>
+              <!-- 최대 3개 -->
               <ul class="ls_stand_by">
                 <li>
                   <a href="">
                     <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
-                    <i>중요</i>
+                    <i class="high_prio" title="중요도 높음">중요도 높음</i>
                     <span>2023-01-01 12:30</span>
                     <ul class="approval_path">
                       <li>홍길동 연구원(기안)</li>
@@ -97,7 +99,7 @@
                 <li>
                   <a href="">
                     <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
-                    <i>중요</i>
+                    <i class="normal_prio" title="중요도 보통">중요도 보통</i>
                     <span>2023-01-01 12:30</span>
                     <ul class="approval_path">
                       <li>홍길동 연구원(기안)</li>
@@ -109,7 +111,7 @@
                 <li>
                   <a href="">
                     <strong><em>연차신청서</em>2월 20일 연차신청서 입니다.</strong>
-                    <i>중요</i>
+                    <i class="low_prio" title="중요도 낮음">중요도 낮음</i>
                     <span>2023-01-01 12:30</span>
                     <ul class="approval_path">
                       <li>홍길동 연구원(기안)</li>
@@ -126,6 +128,7 @@
                   <a href="#" class="more">더보기</a>
                 </div>
               </header>
+              <!-- 최대 2개 -->
               <ul class="ls_stand_by">
                 <li>
                   <a href="">

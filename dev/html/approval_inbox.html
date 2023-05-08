@@ -1,0 +1,72 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')
+  @@include('../inc/nav.html')
+  <main id="content" class="container">
+    @@include('../inc/snb/approval.html')
+    <section class="contents">
+      @@include('../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>결재대기<span>전자결재</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">전자결재</a></li>
+            <li>결재대기</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">
+          <header class="blind">
+            <h1>결재대기 목록</h1>
+          </header>
+          <section class="search_area">
+            <ul class="search_list">
+              <li>
+                <div class="select_custom">
+                  <button class="label"><span class="t_gray">중요도</span></button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0"><i class="ico_select high_prio">high icon</i>높음</li>
+                    <li class="optionItem" tabindex="0"><i class="ico_select normal_prio">common icon</i>보통</li>
+                    <li class="optionItem" tabindex="0"><i class="ico_select low_prio">row icon</i>낮음</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <select name="" id="" title="결재양식">
+                  <option>결재양식 선택</option>
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어">
+              </li>
+              <li>
+                <div class="period_group">
+                  <label type="button" class="on">
+                    <input type="radio" name="select_period" id="" />1주
+                  </label>
+                  <label type="button">
+                    <input type="radio" name="select_period" id="" />1달
+                  </label>
+                  <label type="button">
+                    <input type="radio" name="select_period" id="" />1년
+                  </label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" />
+                  <input type="date" title="종료일" data-type="to" />
+                </div>
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
