@@ -57,6 +57,8 @@ $white:#fff;
 $black:#363636;
 $red:#e42b29;
 $skyblue:#05b4d9;
+$blue:#2974e4;
+$yellow:#ff9702;
 
 // font
 .t{
@@ -110,6 +112,9 @@ input[type='time']::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator{position:relative;z-index:2;right:0;width:13px;height:14px;background: transparent;}
 textarea{min-height:200px;max-height:300px;resize:none;}
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 10px center no-repeat, rgba(255,255,255,.9);
+  option:nth-of-type(1){color:#989898;}
+}
 
 // layout
 hr,
@@ -151,12 +156,24 @@ input[type="date"]{
 }
 input[type="date"]::after{@include fontello('\f133');font-size:15px;}
 input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
-
+.period_custom{@include flex_between();gap:20px;position:relative;
+  input{width:auto;}
+  &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
+}
+.period_group{display:flex;width:118px;border-radius:3px;
+  .label{flex:1;color:$white;background-color:#ff959d;border:1px solid #d93945;border-left-width:0;font-weight:bold;
+    &[data-period="week"]{border-left-width:1px;border-radius:3px 0 0 3px;}
+    &[data-period="year"]{border-radius:0 3px 3px 0;}
+    &:hover,&.on{background-color: #f25460;}
+  }
+  
+}
 
 
 //btn
 .btn_wrap{display:flex;gap:4px;
-  .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;}
+  .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
+  &:hover{color:#777;}}
 }
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color: #999;text-align:left;line-height:34px;
   &[disabled]{cursor:default;}
@@ -171,6 +188,26 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     &::after{left:0;}
   }
 }
+
+.select_custom{position:relative;z-index:9999;min-width:150px;cursor:pointer;background:url(../images/btn_select.png) right 10px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
+  &.active{
+    &>.label{background:url(../images/btn_select.png) right 10px center no-repeat,#f8f8f8;}
+    .optionList{max-height:500px;top:calc(100% + 1px);}
+  }
+  .label{align-items:center;display:block;width:100%;height:26px;padding-left:5px;cursor:pointer;text-align:left;}
+  &>ul{position:absolute;top:100%;left:-1px;width:calc(100% + 2px);max-height:0;border:1px solid #ccc;border-top-width:0;background:#fff;color:#000;list-style-type:none;overflow:hidden;
+    &>li{position:relative;border-bottom:1px dashed #cccccc85;transition:.1s;line-height:26px;padding:0 10px;
+      &:hover{background:#f5f5f5;}
+      &:last-child{border-bottom-width:0;}
+    }
+  }
+  .ico_select{position:relative;top:-2px;@include shape(20px, 20px);display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-right:5px;}  
+}
+$prio_fontSize:20px;
+.high_prio::before{@include fontello('\f102');color:$red;font-size:$prio_fontSize;}
+.normal_prio::before{@include shape(14px, 7px);border:2px solid $yellow;border-width:2px 0;margin-top:1px;}
+.low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}
+
 
 @mixin btn{
   line-height:26px;border:1px solid #aaa;border-radius:2px;padding:0 10px;
@@ -205,6 +242,7 @@ $btn_pink:#ff949c;
 }
 .myform_set{@include shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align: center;
   &::before{@include fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
+  &:hover{outline:4px solid #bec7d2;background-color:transparent;}
 }
 .btn_tree{@include form_btn;color:#979797;border-color:#b4b4b4;background-color:#f7f7f7;cursor:pointer;font-weight:bold;
   &:hover{background-color:$btn_gray;}
@@ -230,6 +268,7 @@ $btn_pink:#ff949c;
   }
   &.long{width:276px;}
 }
+.search_list{display:flex;flex-flow:row wrap;gap:5px;}
 
 // table
 $th_border_color:#c0c0c0;

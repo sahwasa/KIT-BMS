@@ -282,5 +282,17 @@ $(function () {
     (snbBtn.value == 'on')?snb.animate({'width':0}, speed) : snb.animate({'width': snbWidth},speed);
   });
   
-
+  const select_custom = $('.select_custom');
+  const label = select_custom.find('.label');
+  const options = select_custom.find('.optionItem');
+  const handleSelect = function (item) {
+    label.html(item.innerHTML);
+    label.parent().removeClass('active');
+  }
+  options.on('click',function(e){
+    handleSelect(e.target);
+  });
+  label.on('click',function(){
+    (label.parent().hasClass('active')) ? label.parent().removeClass('active') : label.parent().addClass('active')
+  })
 });
