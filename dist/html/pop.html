@@ -69,12 +69,16 @@
     </header>
     <div class="cont_body">
       <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;margin-bottom:20px;font-size:20px;font-weight:bold;">esc 누르시면 팝업이
-        닫힙니다요</span>
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</span>
       <ul>
         <li><button class="btn_default btnMngDel">경고</button>
         <li><button class="btn_default btnMngTree">조직도 팝업</button>
-        </li>
+      </ul>
+      <br>
+      <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">전자결재</span>
+      <ul>
+        <li><button class="btn_default btnApproval1">자주 쓰는 결재 설정</button></li>
       </ul>
     </div>
   </main>
@@ -90,9 +94,11 @@
     </div>
     <div class="p_body">
       <div class="warning_wrap"><img src="../images/ic_warning.png" alt="경고 이미지"></div>
-      <div><span class="del_org">결제 프로세스 변경 시 기존에<br>
-        등록한 결재자 정보가 삭제됩니다.
-        </div>
+      <div>
+        <span class="del_org">결제 프로세스 변경 시 기존에<br>
+          등록한 결재자 정보가 삭제됩니다.
+        </span>
+      </div>
       <div class="btn_wrap">
         <button class="btn_cancel">취소</button>
         <button class="btn_save" type="button">확인</button>
@@ -495,6 +501,98 @@
     </div>
   </form>
 </dialog> <!--// 조직도(공통) -->
+<dialog class="p_approval01">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>자주 쓰는 결재 설정</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_info">
+      <h3>자주 쓰는 결재를 설정합니다.</h3>
+      <p>사용자가 자주 쓰는 결재 양식을 추가하거나 드래그하여 순서를 변경할 수 있습니다</p>
+    </div>
+    <div class="p_body">
+      <div class="approval_often_wrap">
+        <div class="approval_often">
+          <div class="p_body_tit">
+            <h1>자주 쓰는 결재</h1>
+            <button type="button" class="reset">초기화</button>
+          </div>
+          <div class="tab_wrap my_form">
+            <ul class="approval_often_sort">
+              <li><a href="#">휴가 신청서<button type="button" class="ico_del">닫기</button></a></li>
+              <li><a href="#">연장근무 신청서<button type="button" class="ico_del">닫기</button></a></li>
+              <li><a href="#">출장 신청서<button type="button" class="ico_del">닫기</button></a></li>
+              <li><a href="#">외근 신청서<button type="button" class="ico_del">닫기</button></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="approval_list">
+          <div class="p_body_tit">
+            <h1>추가할 결재 양식 선택</h1>
+          </div>
+          <div class="tab_wrap">
+            <ul class="tab">
+              <li><a href="#tab01">근태문서</a></li>
+              <li><a href="#tab02">신청문서</a></li>
+              <li><a href="#tab03">보고문서</a></li>
+              <li><a href="#tab04">기안문서</a></li>
+            </ul>
+          </div>
+          <section id="tab01" class="tab_contents my_form">
+            <ul>
+              <li><a href="#">휴가 신청서</a></li>
+              <li><a href="#">연장근무 신청서</a></li>
+              <li><a href="#">출장 신청서</a></li>
+              <li><a href="#">외근 신청서</a></li>
+              <li><a href="#">휴직 신청서</a></li>
+              <li><a href="#">퇴직 신청서</a></li>
+              <li><a href="#">복직 신청서</a></li>
+            </ul>
+          </section>
+          <section id="tab02" class="tab_contents my_form">
+            <ul>
+              <li><a href="#">휴가 신청서</a></li>
+              <li><a href="#">연장근무 신청서</a></li>
+              <li><a href="#">외근 신청서</a></li>
+              <li><a href="#">채용 계획서</a></li>
+              <li><a href="#">휴직 신청서</a></li>
+              <li><a href="#">퇴직 신청서</a></li>
+              <li><a href="#">복직 신청서</a></li>
+            </ul>
+          </section>
+          <section id="tab03" class="tab_contents my_form">
+            <ul>
+              <li><a href="#">휴가 신청서</a></li>
+              <li><a href="#">외근 신청서</a></li>
+              <li><a href="#">복직 신청서</a></li>
+              <li><a href="#">휴직 신청서</a></li>
+              <li><a href="#">출장 신청서</a></li>
+              <li><a href="#">퇴직 신청서</a></li>
+              <li><a href="#">연장근무 신청서</a></li>
+            </ul>
+          </section>
+          <section id="tab04" class="tab_contents my_form">
+            <ul>
+              <li><a href="#">출장 신청서</a></li>
+              <li><a href="#">휴가 신청서</a></li>
+              <li><a href="#">채용 계획서</a></li>
+              <li><a href="#">휴직 신청서</a></li>
+              <li><a href="#">복직 신청서</a></li>
+              <li><a href="#">퇴직 신청서</a></li>
+              <li><a href="#">외근 신청서</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_cancel">취소</button>
+        <button class="btn_save" type="button">확인</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+ <!--// 자주 쓰는 결재 설정 -->
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
@@ -510,7 +608,14 @@
   document.querySelector('.btnMngTree').addEventListener('click', function () {
     document.querySelector('.p_mngTree').showModal();
   }) // 조직도(공통)
+  document.querySelector('.btnApproval1').addEventListener('click', function () {
+    document.querySelector('.p_approval01').showModal();
+  }) // 자주 쓰는 결재 설정
   document.querySelector('.btnClose').addEventListener('click', function () {
     document.querySelector('dialog').close();
   })
+  $(".approval_often_sort").sortable({
+    forcePlaceholderSize: true,
+    placeholder: 'ph'
+  });
 </script>

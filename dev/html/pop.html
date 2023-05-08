@@ -8,12 +8,16 @@
     </header>
     <div class="cont_body">
       <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;margin-bottom:20px;font-size:20px;font-weight:bold;">esc 누르시면 팝업이
-        닫힙니다요</span>
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</span>
       <ul>
         <li><button class="btn_default btnMngDel">경고</button>
         <li><button class="btn_default btnMngTree">조직도 팝업</button>
-        </li>
+      </ul>
+      <br>
+      <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">전자결재</span>
+      <ul>
+        <li><button class="btn_default btnApproval1">자주 쓰는 결재 설정</button></li>
       </ul>
     </div>
   </main>
@@ -21,6 +25,7 @@
 </div>
 @@include('../inc/pop/p_mngOrg.html') <!--// 경고(공통) -->
 @@include('../inc/pop/p_mngTree.html') <!--// 조직도(공통) -->
+@@include('../inc/pop/p_approval_01.html') <!--// 자주 쓰는 결재 설정 -->
 @@include('../inc/script.html')
 <script>
   document.querySelector('.btnMngDel').addEventListener('click', function () {
@@ -29,7 +34,14 @@
   document.querySelector('.btnMngTree').addEventListener('click', function () {
     document.querySelector('.p_mngTree').showModal();
   }) // 조직도(공통)
+  document.querySelector('.btnApproval1').addEventListener('click', function () {
+    document.querySelector('.p_approval01').showModal();
+  }) // 자주 쓰는 결재 설정
   document.querySelector('.btnClose').addEventListener('click', function () {
     document.querySelector('dialog').close();
   })
+  $(".approval_often_sort").sortable({
+    forcePlaceholderSize: true,
+    placeholder: 'ph'
+  });
 </script>
