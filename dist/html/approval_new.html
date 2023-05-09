@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <!-- <ul class="gnb_lst">
+      <li><a href=""></a></li>
+    </ul> -->
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="#">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/main.html">HOME</a></li>
+    <li><a href="/html/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval.html">전자결재</a></li>
+    <li><a href="/html/work.html">업무보고</a></li>
+    <li><a href="/html/plan.html">일정</a></li>
+    <li><a href="/html/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp.html">ERP</a></li>
+    <li><a href="/html/board.html">게시판</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>  
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>전자결재</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="#" class="btn_default">신규기안</a>
+    </div>
+    <div class="data_count">
+      <ul class="list_wrap">
+        <li>요청<em>3</em></li>
+        <li>진행<em>1</em></li>
+        <li>참조<em>2</em></li>
+      </ul>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="">결재 상신함</a>
+        <ul>
+          <li><a href="#">결재진행</a></li>
+          <li><a href="#">결재완료</a></li>
+          <li><a href="#">반려문서</a></li>
+          <li><a href="#">임시저장</a></li>
+        </ul>        
+      </li>
+      <li><a href="/html/approval_inbox.html">결재 수신함</a>
+        <ul>
+          <li><a href="/html/approval_inbox.html">결재대기</a></li>
+          <li><a href="/html/approval_inbox.html">결재완료</a></li>
+          <li><a href="/html/approval_inbox.html">수신참조</a></li>
+        </ul>
+      </li>
+      <li><a href="">공개 문서함</a></li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>신규기안<span>전자결재</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">전자결재</a></li>
+            <li>결재대기</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="approval_often box_compact my_form">
+          <header>
+            <div>
+              <h1>자주쓰는 결재
+                <span class="explanation">사용자가 가장 많이 사용하는 결재양식입니다. <b>양식 선택 시 결재 작성 화면으로 이동</b>됩니다.</span>
+              </h1>
+            </div>
+            <div class="btn_wrap">
+              <a href="#" class="myform_set">설정</a>
+            </div>
+          </header>
+          <ul>
+            <li><a href="#">휴가신청서<i class="badge">보고문서</i></a></li>
+            <li><a href="#">연장근무 신청서<i class="badge">근태문서</i></a></li>
+            <li><a href="#">휴가 신청서<i class="badge">대외문서</i></a></li>
+          </ul>
+        </article>
+        <section class="approval_new tit_bullet my_form">
+          <article>
+            <header><h1>근태문서<i class="new_bedge">9</i></h1>
+            </header>
+            <ul>
+              <li><a href="#">휴가 신청서</a></li>
+              <li><a href="#">휴가 변경 신청서</a></li>
+              <li><a href="#">휴일 근무 신청서</a></li>
+              <li><a href="#">출장 신청서</a></li>
+              <li><a href="#">출장 복명서</a></li>
+              <li><a href="#">외근 신청서</a></li>
+              <li><a href="#">휴직 신청서</a></li>
+              <li><a href="#">퇴직 신청서</a></li>
+              <li><a href="#">복직 신청서</a></li>
+            </ul>
+          </article>
+          <article>
+            <header><h1>신청문서<i class="new_bedge">2</i></h1>
+            </header>
+            <ul>
+              <li><a href="#">경조비 신청서</a></li>
+              <li><a href="#">구매 요청서</a></li>
+            </ul>
+          </article>
+          <article>
+            <header><h1>보고문서<i class="new_bedge">5</i></h1>
+            </header>
+            <ul>
+              <li><a href="#">업무보고</a></li>
+              <li><a href="#">회의록</a></li>
+              <li><a href="#">업무인수인계서</a></li>
+              <li><a href="#">경위서</a></li>
+              <li><a href="#">시말서</a></li>
+            </ul>
+          </article>
+          <article>
+            <header><h1>기안문서<i class="new_bedge">4</i></h1>
+            </header>
+            <ul>
+              <li><a href="#">기안서</a></li>
+              <li><a href="#">품의서</a></li>
+              <li><a href="#">협조문</a></li>
+              <li><a href="#">지출결의서</a></li>
+            </ul>
+          </article>
+          <article>
+            <header><h1>대외문서<i class="new_bedge">1</i></h1>
+            </header>
+            <ul>
+              <li><a href="#">공문서 발급신청서</a></li>
+            </ul>
+          </article>
+          <article>
+            <header><h1>회계문서<i class="new_bedge">0</i></h1>
+            </header>
+            <ul>
+            </ul>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jquery-ui.min.js"></script>
+<script src="../plugins/jquery.MultiFile.js"></script>
+<script src="../plugins/ckeditor5/ckeditor.js"></script>
+<script src="../plugins/ckeditor5/editor.js" type="module"></script>
+<script src="../js/ui_cmmn.js"></script>
+</body>
+</html>

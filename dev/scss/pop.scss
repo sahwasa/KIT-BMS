@@ -96,11 +96,11 @@
     .my_form{
       ul{flex-wrap:wrap;justify-content:flex-start;overflow-y:auto;
         li{color:#717889;cursor:pointer;
-          a:has(button){padding-right:0;
+          a:has(span){padding-right:0;
             &:hover{
-              button::before{color:#ff6664;}
+              span::before{color:#ff6664;}
             }
-            button{@include ico_only;vertical-align:top;line-height:28px;
+            span{@include ico_only;vertical-align:top;line-height:28px;
               &::before{@include fontello('\eb2e');font-size:12px;padding:0 8px;color:#ebebeb;vertical-align:middle;}
             }
           }
