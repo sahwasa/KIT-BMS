@@ -276,7 +276,7 @@ z-index:10;
     b{font-weight:bold;}
     &::before{@include fontello('\e877');margin:0 5px;color:#848890;font-size:14px;vertical-align:middle;}
   }
-  .badge{@include badge_style(40px);margin-left:3px;padding:0.5px 2.5px;border:1px solid #c0c5cf;background-color:#fff;font-size:11px;color:#7c869e;font-weight:bold;}
+  .badge{@include badge_style(40px);display:inline;margin-left:3px;padding:0.5px 2.5px;border:1px solid #c0c5cf;background-color:#fff;color:#7c869e;font-weight:bold;}
 }
 .approval_new{margin-top:50px;
   ul{flex-wrap:wrap;margin-bottom:50px;
