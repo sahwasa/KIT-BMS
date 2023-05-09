@@ -295,4 +295,9 @@ $(function () {
   label.on('click',function(){
     (label.parent().hasClass('active')) ? label.parent().removeClass('active') : label.parent().addClass('active')
   })
+  $('select').on('change',function(){
+    $(this).css('color','inherit');
+  });
 });
+  
+  
