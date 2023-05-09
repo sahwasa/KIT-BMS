@@ -116,7 +116,6 @@ textarea{min-height:200px;max-height:300px;resize:none;}
 select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 8px center no-repeat, rgba(255,255,255,.9);
   option:nth-of-type(1){color:#989898;}
 }
-<<<<<<< HEAD
 textarea.line1{height:28px;min-height:28px;}
 input, select{
   &.w_day{width:30px;
@@ -130,7 +129,6 @@ input, select{
   }
   &.w_auto{width:auto;}
 }
-=======
 ::-webkit-input-placeholder{color:$gray;}
 :-ms-input-placeholder{color:$gray;}
 ::placeholder,
@@ -139,7 +137,6 @@ select{color:$gray;}
 select option{color:#333;}
 option.opt_label{display:none;}
 
->>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 // layout
 hr,
 .blind{@include blind}
@@ -195,17 +192,6 @@ input[type="time"]::after{@include fontello('\eb02');top:0;font-size:18px;}
   input{width:auto;}
   &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
 }
-<<<<<<< HEAD
-.period_group{display:flex;width:118px;border-radius:3px;
-  .label{flex:1;color:$white;background-color:#ff959d;border:1px solid #d93945;border-left-width:0;font-weight:bold;
-    &[data-period="week"]{border-left-width:1px;border-radius:3px 0 0 3px;}
-    &[data-period="year"]{border-radius:0 3px 3px 0;}
-    &:hover,&.on{background-color: #f25460;}
-  }
-  
-}
-=======
->>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 
 //btn
 .btn_wrap{display:flex;gap:4px;
@@ -246,15 +232,9 @@ $prio_fontSize:20px;
 .low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}
 
 
-<<<<<<< HEAD
-@mixin btn{
-  line-height:26px;border:1px solid #aaa;border-radius:2px;padding:0 10px;background-color:#fff;
-  &:hover{color:#fff;}
-=======
 @mixin btn($color){
-  line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;color:$color;font-weight:bold;letter-spacing:-.32px;
+  line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
   &:hover,&:hover::before{color:#fff;background-color:$color;}
->>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 }
 @mixin form_btn{
   line-height:23px;border:1px solid #aaa;border-radius:2px;padding:0 7px;font-size:12px;
@@ -262,34 +242,17 @@ $prio_fontSize:20px;
 }
 $btn_red:#f05050;
 $btn_gray:#979797;
-<<<<<<< HEAD
-$btn_pink:#ff949c;
-
-.btn_default{@include btn;
-  &:hover{background-color:$btn_gray;}
-}
-=======
 .btn_default{@include btn($btn_gray);}
->>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 .btn_save,
 .btn_add,
 .btn_workset .btn_default{@include btn($btn_red);}
 .btn_cancel,
 .btn_modify,
-<<<<<<< HEAD
-.btn_del{@include btn;color:$btn_gray;border-color:$btn_gray;
-  &:hover{background-color:$btn_gray;}
-}
-.btn_ogt{@include btn;color:#111;border-color:#aaa;background-color:#ebebeb;cursor:pointer;
-  &:hover{background-color:$btn_gray;}
-}
-.btn_request{@include btn;color:#fff;border-color:#d83c47;background-color:$btn_red;cursor:pointer;
-  &:hover{background-color:#d83c47;}
-}
-=======
 .btn_del{@include btn($btn_gray);}
 .btn_ogt{@include btn(#aaa);color:#111;background-color:#ebebeb;cursor:pointer;}
->>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
+.btn_request{@include btn($btn_gray);color:#fff;border-color:#d83c47;background-color:$btn_red;cursor:pointer;
+  &:hover{background-color:#d83c47;}
+}
 .btn_form{@include form_btn;
   &:hover{background-color:$btn_gray;}
 }
@@ -300,7 +263,7 @@ $btn_pink:#ff949c;
 .btn_tree{@include form_btn;color:#979797;border-color:#b4b4b4;background-color:#f7f7f7;cursor:pointer;font-weight:bold;
   &:hover{background-color:$btn_gray;}
 }
-.btn_approval{@include form_btn;color:#fff;border-color:$btn_red;background-color:$btn_pink;font-weight:bold;
+.btn_approval{@include form_btn;color:#fff;border-color:$btn_red;background-color:#ff949c;font-weight:bold;
   &:hover{background-color:$btn_red;}
 }
 .btn_switch{display:flex;padding:2px;
