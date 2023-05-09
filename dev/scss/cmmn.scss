@@ -59,6 +59,7 @@ $red:#e42b29;
 $skyblue:#05b4d9;
 $blue:#2974e4;
 $yellow:#ff9702;
+$gray:#999;
 
 // font
 .t{
@@ -104,7 +105,7 @@ input[type="radio"]{border-radius:50%;}
 input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
 input[type="radio"]:checked{background-position-y:-23px;}
 input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;margin:0;}
 input[type="number"]{-moz-appearance:textfield;}
 input[type="time"],
 input[type="date"]{position:relative;}
@@ -112,9 +113,10 @@ input[type='time']::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator{position:relative;z-index:2;right:0;width:13px;height:14px;background: transparent;}
 textarea{min-height:200px;max-height:300px;resize:none;}
-select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 10px center no-repeat, rgba(255,255,255,.9);
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 8px center no-repeat, rgba(255,255,255,.9);
   option:nth-of-type(1){color:#989898;}
 }
+<<<<<<< HEAD
 textarea.line1{height:28px;min-height:28px;}
 input, select{
   &.w_day{width:30px;
@@ -128,6 +130,16 @@ input, select{
   }
   &.w_auto{width:auto;}
 }
+=======
+::-webkit-input-placeholder{color:$gray;}
+:-ms-input-placeholder{color:$gray;}
+::placeholder,
+.opt_label,
+select{color:$gray;}
+select option{color:#333;}
+option.opt_label{display:none;}
+
+>>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 // layout
 hr,
 .blind{@include blind}
@@ -143,6 +155,17 @@ hr,
 }
 @mixin full{display:block;width:100%!important;min-width:auto;}
 .scroll{overflow-y:scroll;background-color:#f5f5f5;}
+
+//badge
+@mixin badge_style($max_w){display:inline-block;max-width:$max_w;
+color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;border-style:solid;border-width:1px;}
+.fin{background-color:#56b1b6;}
+.reject{background-color:#fc9734;}
+.request{background-color:#347bfc;}
+.cc{background-color:#9167df;}
+.agree{background-color:#ff7575;}
+.public{background-color:#fff;border-color:#7d879f;color: #7d879f !important;}
+.private{background-color: #aab3c8;}
 
 //icon
 @mixin shape($w_size,$h_size){
@@ -166,12 +189,13 @@ input[type="time"],
 input[type="date"]{
   &::after{position:absolute;z-index:1;right:5px;color:$red;}
 }
-input[type="date"]::after{@include fontello('\f133');font-size:15px;}
-input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
-.period_custom{@include flex_between();gap:20px;position:relative;
+input[type="date"]::after{@include fontello('\f133');top:2px;font-size:15px;}
+input[type="time"]::after{@include fontello('\eb02');top:0;font-size:18px;}
+.period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;
   input{width:auto;}
   &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
 }
+<<<<<<< HEAD
 .period_group{display:flex;width:118px;border-radius:3px;
   .label{flex:1;color:$white;background-color:#ff959d;border:1px solid #d93945;border-left-width:0;font-weight:bold;
     &[data-period="week"]{border-left-width:1px;border-radius:3px 0 0 3px;}
@@ -180,6 +204,8 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   }
   
 }
+=======
+>>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 
 //btn
 .btn_wrap{display:flex;gap:4px;
@@ -199,10 +225,9 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     &::after{left:0;}
   }
 }
-
-.select_custom{position:relative;z-index:9999;min-width:150px;cursor:pointer;background:url(../images/btn_select.png) right 10px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
+.select_custom{position:relative;z-index:9999;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
   &.active{
-    &>.label{background:url(../images/btn_select.png) right 10px center no-repeat,#f8f8f8;}
+    &>.label{background:url(../images/btn_select.png) right 8px center no-repeat,#f8f8f8;}
     .optionList{max-height:500px;top:calc(100% + 1px);}
   }
   .label{align-items:center;display:block;width:100%;height:26px;padding-left:5px;cursor:pointer;text-align:left;}
@@ -214,15 +239,22 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   }
   .ico_select{position:relative;top:-2px;@include shape(20px, 20px);display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-right:5px;}  
 }
+.select_custom.prio{width:90px;}
 $prio_fontSize:20px;
 .high_prio::before{@include fontello('\f102');color:$red;font-size:$prio_fontSize;}
 .normal_prio::before{@include shape(14px, 7px);border:2px solid $yellow;border-width:2px 0;margin-top:1px;}
 .low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}
 
 
+<<<<<<< HEAD
 @mixin btn{
   line-height:26px;border:1px solid #aaa;border-radius:2px;padding:0 10px;background-color:#fff;
   &:hover{color:#fff;}
+=======
+@mixin btn($color){
+  line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;color:$color;font-weight:bold;letter-spacing:-.32px;
+  &:hover,&:hover::before{color:#fff;background-color:$color;}
+>>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 }
 @mixin form_btn{
   line-height:23px;border:1px solid #aaa;border-radius:2px;padding:0 7px;font-size:12px;
@@ -230,18 +262,21 @@ $prio_fontSize:20px;
 }
 $btn_red:#f05050;
 $btn_gray:#979797;
+<<<<<<< HEAD
 $btn_pink:#ff949c;
 
 .btn_default{@include btn;
   &:hover{background-color:$btn_gray;}
 }
+=======
+.btn_default{@include btn($btn_gray);}
+>>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 .btn_save,
 .btn_add,
-.btn_workset .btn_default{@include btn;color:$btn_red;border-color:$btn_red;
-  &:hover{background-color:$btn_red;}
-}
+.btn_workset .btn_default{@include btn($btn_red);}
 .btn_cancel,
 .btn_modify,
+<<<<<<< HEAD
 .btn_del{@include btn;color:$btn_gray;border-color:$btn_gray;
   &:hover{background-color:$btn_gray;}
 }
@@ -251,6 +286,10 @@ $btn_pink:#ff949c;
 .btn_request{@include btn;color:#fff;border-color:#d83c47;background-color:$btn_red;cursor:pointer;
   &:hover{background-color:#d83c47;}
 }
+=======
+.btn_del{@include btn($btn_gray);}
+.btn_ogt{@include btn(#aaa);color:#111;background-color:#ebebeb;cursor:pointer;}
+>>>>>>> 04011b1612063313a5e9826f5e42d7408f27969a
 .btn_form{@include form_btn;
   &:hover{background-color:$btn_gray;}
 }
@@ -272,6 +311,17 @@ $btn_pink:#ff949c;
   }
 }
 
+@mixin btn_switch($def,$hover,$checked){display:inline-flex;
+  input{position:absolute;flex:1;opacity:0;
+    &+label{flex:1;cursor:pointer;border:1px solid $checked;border-left-width:0;font-size:13px;font-weight:bold;color:$hover;text-align:center;line-height:26px;background-color:$white;}
+    &+label:first-of-type{border-left-width:1px;border-radius:3px 0 0 3px;}
+    &+label:last-of-type{border-radius:0 3px 3px 0;}
+    &:hover+label{background-color:$def;color:$white;}
+    &:checked+label{color:$white;background-color:$hover;transition:0.5s;}
+  }
+}
+.period_group{@include btn_switch(#ff959d,#f25460,#d93945);width:118px;}
+
 // search
 .search_box{
   $b_color:#c5c5c5;
@@ -282,7 +332,10 @@ $btn_pink:#ff949c;
   }
   &.long{width:276px;}
 }
-.search_list{display:flex;flex-flow:row wrap;gap:5px;}
+.search_list{display:flex;flex-flow:row wrap;gap:5px;margin-bottom:9px;}
+.btn_search{@include btn($btn_red);
+  &::before{@include fontello('\e802');color:$red;font-size:15px;margin-right:3px;}
+}
 
 // table
 $th_border_color:#c0c0c0;
@@ -359,6 +412,9 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   &.basis_asc .ico_asc::before,
   &.basis_desc .ico_desc::before{color:$red}
 }
+.tbl_ico{@include shape(19px, 19px);display:inline-flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
+.ico_attach::before{@include fontello('\ec66');color:#848484;font-size:14px;}
+.tbl_badge{@include badge_style(50px);min-width:50px;font-size:11px;}
 
 // tab
 .tab{
