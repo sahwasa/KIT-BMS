@@ -170,7 +170,7 @@ color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5
   width:$w_size;height:$h_size;
 }
 @mixin fontello($ic){
-  display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;
+  display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;line-height:normal;
 }
 @mixin ico_only{font-size:0;vertical-align:middle;}
 
@@ -186,8 +186,8 @@ input[type="time"],
 input[type="date"]{
   &::after{position:absolute;z-index:1;right:5px;color:$red;}
 }
-input[type="date"]::after{@include fontello('\f133');top:2px;font-size:15px;}
-input[type="time"]::after{@include fontello('\eb02');top:0;font-size:18px;}
+input[type="date"]::after{@include fontello('\f133');top:50%;font-size:15px;margin-top:-8px;}
+input[type="time"]::after{@include fontello('\eb02');top:50%;margin-top:-10px;font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;
   input{width:auto;}
   &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
@@ -392,6 +392,8 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   .on a{color:$red;background-color:$white;font-weight:bold;border-color:#bec7d2;border-bottom-color:transparent;}
 }
 .tab_contents{margin-top:20px;}
+.tab_s .tab{gap:2px;}
+.tab_s ~ .tab_contents{margin-top:10px;}
 
 /* paginate */
 .paginate{margin-top:32px;text-align:center;
@@ -479,12 +481,13 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   .multi{position:relative;width:72px;height:28px;float:right;overflow:visible;border-color:#aaa;
     &::before{position:absolute;content:'파일선택';top:-1px;left:-1px;width:72px;line-height:28px;padding:0 10px;background-color:#ebebeb;cursor:pointer;}
   }
-  .MultiFile-list{float:left;width:calc(100% - 76px);min-height:28px;margin-right:4px;padding:0 6px;border:1px solid #c5c5c5;border-radius:2px;
-    .MultiFile-remove{position:relative;display:inline-block;width:12px;height:12px;font-size:0;margin-left:5px;
-      &+span{float:left;}
-      &::before{@include fontello('\e928');position:absolute;top:-4px;font-size:13px;color:$red;} 
+  .MultiFile-list{width:calc(100% - 76px);min-height:28px;margin-right:4px;padding:0 5px 5px;border:1px solid #c5c5c5;border-radius:2px;
+    .MultiFile-remove{@include shape(12px,24px);
+      &::before{@include fontello('\e928');font-size:13px;color:$red;} 
     }}
-  .MultiFile-label{line-height:25px;}
+  .MultiFile-label{display:flex;flex-direction:row-reverse;gap:5px;margin-top:5px;
+    & > span{flex-grow:1;line-height:1.4;}
+  }
 }
 
 

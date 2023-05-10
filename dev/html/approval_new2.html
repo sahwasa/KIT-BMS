@@ -57,7 +57,7 @@
                   </colgroup>
                   <tbody>
                     <tr>
-                      <th scope="col" rowspan="3">결<br>재</th>
+                      <th scope="col" rowspan="3">결<br />재</th>
                       <th scope="col">멋쟁이</th>
                       <th scope="col">귀요미</th>
                       <th scope="col">귀요미</th>
@@ -138,8 +138,10 @@
                       <label for="form_businesstrip_period" class="required">출장기간</label>
                     </th>
                     <td>
-                      <input type="date" id="form_businesstrip_period" value="2023-04-14">&nbsp;-&nbsp;
-                      <input type="date" title="출장기간" value="2023-04-17">
+                      <div class="period_custom">
+                        <input type="date" id="form_businesstrip_period" name="" title="시작일">
+                        <input type="date" title="종료일" name="">
+                      </div>
                       <input type="text" title="총 출장기간" class="w_day alignC">
                       <span>일간</span>
                     </td>
@@ -361,8 +363,8 @@
           <section class="approval_appointed tit_bullet">
             <article class="box_default_w">
               <h1>결재자 지정</h1>
-              <div class="tab_wrap">
-                <ul class="tab tab_s">
+              <div class="tab_wrap tab_s">
+                <ul class="tab">
                   <li class="on"><a href="#tab01">조직도</a></li>
                   <li><a href="#tab02">부서내</a></li>
                   <li><a href="#tab03">임의지정</a></li>
@@ -448,8 +450,20 @@
             <article class="box_default_w">
               <h1>첨부파일</h1>
               <span class="file_input">
-                <input type="file" id="form_file" class="multi">
+                <input type="file" id="form_file" class="multi" multiple>
               </span>
+
+              <div class="file_attach btn_attach">
+                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>              
+                <div id="file-drop" class="drop_zone">
+                  <div class="drop_info">                    
+                    <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭 후</span> 파일을 선택해주세요!</p>
+                  </div>
+                  <ul id="fileList" class="attach_list">
+                  </ul>
+                  </ul>
+                </div>
+              </div>
             </article>
           </section>
         </div>
@@ -459,3 +473,6 @@
   @@include('../inc/footer.html')
 </div>
 @@include('../inc/script.html')
+<script>
+$(function(){fileDropEvt();})
+</script>

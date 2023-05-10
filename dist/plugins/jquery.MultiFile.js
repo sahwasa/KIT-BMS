@@ -27,7 +27,6 @@ if (window.jQuery)(function ($) {
 	// plugin initialization
 	$.fn.MultiFile = function (options) {
 		if (this.length == 0) return this; // quick fail
-
 		// Handle API methods
 		if (typeof arguments[0] == 'string') {
 			// Perform API methods on individual elements
@@ -911,6 +910,7 @@ if (window.jQuery)(function ($) {
 	The plugin will attach itself to file inputs
 	with the class 'multi' when the page loads
 	*/
+
 	$(function () {
 		//$("input:file.multi").MultiFile();
 		$("input[type=file].multi").MultiFile();
