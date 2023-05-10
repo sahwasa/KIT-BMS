@@ -124,6 +124,23 @@
           <section class="approval_form flex_right">
             <p class="form_validity required validity">표시는 필수 입력 항목입니다.</p>
             <div class="form_wrap">
+              <table class="tbl_row">
+                <caption>출장복명서 양식 테이블</caption>
+                <colgroup>
+                  <col style="width:150px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_num" class="required">제목</label>
+                    </th>
+                    <td>
+                      <input type="text" id="form_num" value="KIT-">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
               <div class="tit_form">
                 <h2>출장복명서</h2>
                 <table class="tbl_row">
@@ -392,6 +409,49 @@
                 </p>
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
+              <table class="tbl_row">
+                <caption>출장복명서 양식 테이블</caption>
+                <colgroup>
+                  <col style="width:150px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_importance" class="required">중요도</label>
+                    </th>
+                    <td>
+                      <div class="btn_switch">
+                        <input type="radio" id="high" name="importance">
+                        <label for="high">높음</label>
+                        <input type="radio" id="common" name="importance" checked="">
+                        <label for="common" class="disabled">보통</label>
+                        <input type="radio" id="row" name="importance">
+                        <label for="row">낮음</label>
+                      </div>
+                    </td>
+                    <th scope="row">
+                      <label for="open" class="required">공개여부</label>
+                    </th>
+                    <td>
+                      <div class="btn_switch">
+                        <input type="radio" id="open" name="disclosure" checked="">
+                        <label for="open">공개</label>
+                        <input type="radio" id="private" name="disclosure">
+                        <label for="private">비공개</label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_comment">코멘트</label>
+                    </th>
+                    <td colspan="3">
+                      <textarea id="form_comment"></textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
           <section class="approval_appointed tit_bullet">

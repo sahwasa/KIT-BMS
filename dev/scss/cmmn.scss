@@ -112,7 +112,7 @@ input[type="date"]{position:relative;}
 input[type='time']::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator{position:relative;z-index:2;right:0;width:13px;height:14px;background: transparent;}
-textarea{min-height:200px;max-height:300px;resize:none;}
+textarea{min-height:100px;max-height:300px;resize:none;}
 select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 8px center no-repeat, rgba(255,255,255,.9);
   option:nth-of-type(1){color:#989898;}
 }
