@@ -1,7 +1,7 @@
 var fIndex = 0;
 var totalfSize = 0;
-var fList = new Array([]);
-var fSizeList = new Array([]);
+var fList = new Array();
+var fSizeList = new Array();
 var uploadSize = 10 * 1024 * 1024; //MB
 var maxUploadSize = 200 * 1024 * 1024; //MB
 var fLenthList = new Array();
@@ -74,8 +74,8 @@ function selectFile(fileObject){
         totalfSize += fSize;// 전체 파일 사이즈
         fList[fIndex] = files[i];// 파일 배열에 넣기
         fSizeList[fIndex] = fSize;// 파일 사이즈 배열에 넣기
-        fLenthList.push(files);
-        console.log(fLenthList.length)
+        fLenthList.push(files[i]);
+        console.log(fLenthList,fLenthList.length)
         addFileList(fIndex, fName, fSize, fExt);// 업로드 파일 목록 생성
         fIndex++;// 파일 번호 증가
       }
