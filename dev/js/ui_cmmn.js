@@ -298,6 +298,10 @@ $(function () {
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
+
+  
+
+
 });
   
   

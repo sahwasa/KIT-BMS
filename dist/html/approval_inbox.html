@@ -133,14 +133,37 @@
               </li>
               <li>
                 <select name="" id="" title="결재양식">
-                  <option disabled selected class="opt_label">결재양식</option>
-                  <option value="">휴가계</option>
-                  <option value="">휴가계</option>
-                  <option value="">휴가계</option>
+                  <optgroup class="opt_label" label="결재양식">
+                    <option disabled selected>결재양식</option>
+                  </optgroup>
+                  <optgroup label="근태문서">
+                    <option value="">출장신청서</option>
+                    <option value="">출장복명서</option>
+                    <option value="">휴가신청서</option>
+                  </optgroup>
+                  <optgroup label="기안문서">
+                    <option value="">기안서</option>
+                    <option value="">품의서</option>
+                    <option value="">지출결의서</option>
+                  </optgroup>
                 </select>
               </li>
-              <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어">
+              <li>                
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList">
+                <datalist id="nameList">
+                  <optgroup label="개발본부">
+                    <option value="대장발핑">개발본부</option>
+                    <option value="개발핑">개발 1팀</option>
+                    <option value="새발핑">개발 1팀</option>
+                    <option value="말발핑">개발 2팀</option>
+                    <option value="소발핑">개발 2팀</option>
+                    <option value="곰발핑">개발 2팀</option>
+                  </optgroup>
+                  <optgroup label="경영관리">
+                    <option value="경영핑">경영관리</option>
+                    <option value="관리핑">경영관리</option>
+                  </optgroup>                  
+                </datalist>
               </li>
               <li>
                 <div class="period_group">

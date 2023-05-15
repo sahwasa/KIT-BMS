@@ -164,9 +164,9 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td>2023-04-17 12:00:00</td>
-                      <td>2023-04-17 12:00:00</td>
-                      <td>2023-04-17 12:00:00</td>
+                      <td>23-04-17</td>
+                      <td>23-04-17</td>
+                      <td>23-04-17</td>
                     </tr>
                   </tbody>
                 </table>
@@ -244,23 +244,45 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      <label for="form_businesstrip_people" class="required">출장인원</label>
+                      <label for="biz traveler" class="required">출장인원</label>
                     </th>
                     <td>
                       <span class="file_input">
-                        <input type="text" id="form_businesstrip_people">
+                        <input type="text" id="biz traveler" list="nameList">
+                        <datalist id="nameList">
+                          <optgroup label="개발본부">
+                            <option value="대장발핑">개발본부</option>
+                            <option value="개발핑">개발 1팀</option>
+                            <option value="새발핑">개발 1팀</option>
+                            <option value="말발핑">개발 2팀</option>
+                            <option value="소발핑">개발 2팀</option>
+                            <option value="곰발핑">개발 2팀</option>
+                          </optgroup>
+                          <optgroup label="경영관리">
+                            <option value="경영핑">경영관리</option>
+                            <option value="관리핑">경영관리</option>
+                          </optgroup>                  
+                        </datalist>
+                        <button type="button" class="btn_default">추가</button>
                         <button type="button" class="btn_ogt">조직도</button>
                       </span>
+                      <div class="btn_slideclose">
+                        <div>
+                          <p>유한아름</p>
+                          <div>삭제</div>
+                        </div>
+                        <div>
+                          <p>임선</p>
+                          <div>삭제</div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row" class="required">일별 업무계획</th>
                     <td>
                       <div class="tbl_workinfo">
-                        <p class="validity">※ 출장시간 :
-                          <span class="t_skyblue">00시간 00분</span>
-                        </p>
-                        <div>
+                        <div class="btn_wrap">
                           <button type="button" class="btn_form">일정추가</button>
                           <button type="button" class="btn_form">삭제</button>
                         </div>
@@ -270,20 +292,14 @@
                         <colgroup>
                           <col style="width:auto;">
                           <col style="width:120px;">
-                          <col style="width:auto;">
-                          <col style="width:120px;">
                           <col style="width:120px;">
                           <col style="width:auto;">
-                          <col style="width:250px;">
-                          <col style="width:auto;">
+                          <col style="width:120px;">
                         </colgroup>
                         <tbody>
                           <tr>
                             <th scope="col">선택</th>
                             <th scope="col">일자</th>
-                            <th scope="col">요일</th>
-                            <th scope="col">시작시간</th>
-                            <th scope="col">종료시간</th>
                             <th scope="col">출장장소</th>
                             <th scope="col">업무내용</th>
                             <th scope="col">교통수단</th>
@@ -291,32 +307,16 @@
                           <tr>
                             <td><input type="checkbox" class="row_check" title="글선택"></td>
                             <td><input type="date" title="일자 선택"></td>
-                            <td>
-                              <select name="day_select" class="w_week" title="요일 선택">
-                                <option value="선택">선택</option>
-                                <option value="월">월</option>
-                                <option value="화">화</option>
-                                <option value="수">수</option>
-                                <option value="목">목</option>
-                                <option value="금">금</option>
-                                <option value="토">토</option>
-                                <option value="일">일</option>
-                              </select>
+                            <td><input type="text" title="출장장소"></input>
+                            <td class="alignL"><input type="text" title="업무내용 입력"></input>
                             </td>
-                            <td><input type="time" title="시작시간 입력"></td>
-                            <td><input type="time" title="종료시간 입력"></td>
-                            <td><input type="text" title="출장장소 입력"></td>
-                            <td><textarea class="line1" title="업무내용 입력">저는 권대표님의 의지에 따라 작아질수도 커질수도 있습니다</textarea></td>
                             <td><input type="text" title="교통수단 입력"></td>
                           </tr>
                           <tr>
                             <td><input type="checkbox" class="row_check" title="글선택" checked></td>
                             <td>2023-04-14</td>
-                            <td>월</td>
-                            <td>09:00</td>
-                            <td>18:00</td>
                             <td>ㅇㅇㅇ 기관</td>
-                            <td></td>
+                            <td class="alignL">유지보수</td>
                             <td>자차</td>
                           </tr>
                         </tbody>
@@ -411,53 +411,10 @@
                 </p>
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
-              <table class="tbl_row">
-                <caption>출장복명서 양식 테이블</caption>
-                <colgroup>
-                  <col style="width:150px">
-                  <col style="width:auto">
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <label for="form_importance" class="required">중요도</label>
-                    </th>
-                    <td>
-                      <div class="btn_switch">
-                        <input type="radio" id="high" name="importance">
-                        <label for="high" class="high_prio">높음</label>
-                        <input type="radio" id="common" name="importance" checked>
-                        <label for="common" class="normal_prio">보통</label>
-                        <input type="radio" id="row" name="importance">
-                        <label for="row" class="low_prio">낮음</label>
-                      </div>
-                    </td>
-                    <th scope="row">
-                      <label for="open" class="required">공개여부</label>
-                    </th>
-                    <td>
-                      <div class="btn_switch">
-                        <input type="radio" id="open" name="disclosure" checked="">
-                        <label for="open">공개</label>
-                        <input type="radio" id="private" name="disclosure">
-                        <label for="private">비공개</label>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <label for="form_comment">코멘트</label>
-                    </th>
-                    <td colspan="3">
-                      <textarea id="form_comment"></textarea>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </section>
-          <section class="approval_appointed tit_bullet">
-            <article class="box_default_w">
+          <article class="approval_set">
+            <section class="box_default_w">
               <h1>결재자 지정</h1>
               <div class="tab_wrap tab_s">
                 <ul class="tab">
@@ -497,8 +454,8 @@
               <section id="tab03" class="tab_contents">
                 여기도 못했답니다!
               </section>
-            </article>
-            <article class="box_default_w">
+            </section>
+            <section class="box_default_w">
               <h1>참조자 지정</h1>
               <span class="file_input">
                 <input type="text" id="form_referrer" placeholder="참조자를 입력하세요.">
@@ -542,8 +499,8 @@
                   <div>삭제</div>
                 </div>
               </div>
-            </article>
-            <article class="box_default_w">
+            </section>
+            <section class="box_default_w">
               <h1>첨부파일</h1>
               <span class="file_input">
                 <input type="file" id="form_file" class="multi" multiple>
@@ -560,8 +517,36 @@
                   </ul>
                 </div>
               </div>
-            </article>
-          </section>
+            </section>
+            <section class="box_default_w">
+              <dl class="set_list">
+                <dt>중요도</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="high" name="importance">
+                    <label for="high" class="high_prio">높음</label>
+                    <input type="radio" id="common" name="importance" checked>
+                    <label for="common" class="normal_prio">보통</label>
+                    <input type="radio" id="row" name="importance">
+                    <label for="row" class="low_prio">낮음</label>
+                  </div>
+                </dd>
+                <dt>공개여부</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="open" name="disclosure" checked="">
+                    <label for="open">공개</label>
+                    <input type="radio" id="private" name="disclosure">
+                    <label for="private">비공개</label>
+                  </div>
+                </dd> 
+                <dt><label for="comment">코멘트</label></dt> 
+                <dd>
+                  <textarea name="" id="comment" cols="5" rows="5" class="full"></textarea>
+                </dd>
+              </dl>                           
+            </section>
+          </article>
         </div>
       </div>
     </section>
