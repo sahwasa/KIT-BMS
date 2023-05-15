@@ -86,7 +86,7 @@ $columnGap:25px;
 }
 
 //footer
-.footer{display:flex;align-items:center;grid-row:3;grid-column:2;border-top:1px solid #e1e1e1;padding:0 $columnGap;
+.footer{display:flex;align-items:center;justify-content:center;grid-row:3;grid-column:2;border-top:1px solid #e1e1e1;padding:0 $columnGap;
   .copy{font-size:14px;color:#818181;}
 }
 
@@ -264,11 +264,12 @@ z-index:10;
 .new_bedge{position:relative;top:-1px;@include badge_style(null);background-color:$red;padding:0 7px 1px;margin-left:5px;}
 
 // 공통으로 쓰면 유용할 것 같은 아이들..!
-.tit_bullet{
-  h1{font-size:16px;color:#000;font-weight:500;margin-bottom:15px;
-    &::before{position:relative;top:-3px;display:inline-block;content:'';width:6px;height:6px;margin-right:7px;border-radius:6px;background-color:#c4c4c4;}
+@mixin tit_bullet($target){
+  #{$target}{font-size:16px;color:#000;font-weight:500;margin-bottom:15px;
+    &::before{position:relative;top:-3px;display:inline-block;@include shape(6px,6px);margin-right:7px;border-radius:6px;background-color:#c4c4c4;}
   }
 }
+
 // 신규기안 approval_new : 작업중
 .approval_often{
   ul{flex-wrap:wrap;}
@@ -289,7 +290,9 @@ z-index:10;
 }
 .approval_form{min-width:900px;background-color:#fff;
   .form_validity{margin-bottom:5px;}
-  .tbl_workinfo{@include flex_between;margin:3px 0 5px;}
+  .tbl_workinfo{@include flex_between;margin:3px 0 5px;
+    .btn_wrap{margin-left:auto;}
+  }
   &>*{padding:0 5px;}
   .form_wrap{display:grid;padding:15px;border:1px solid #c0c0c0;border-width:2px 0;
     input[type='date']{width:auto;}
@@ -320,11 +323,12 @@ z-index:10;
     }
   }
 }
-.approval_appointed{min-width:370px;width:370px;margin:20px 0 0 20px;
-  &>article{margin-bottom:25px;
+.approval_set{min-width:370px;width:370px;margin:20px 0 0 20px;
+  & > .box_default_w{margin-bottom:25px;
     &:last-of-type{margin-bottom:10px;}
+    @include tit_bullet(h1);
+    h1{font-size:14px;}
   }
-  h1{font-size:14px;}
   .tab_contents{
     li{@include flex_between;margin-bottom:4px;padding:6px 7px 7px 15px;border: 1px solid #ebebeb;border-radius:2px;
       span{font-size:11px;color:#717889;
@@ -332,19 +336,11 @@ z-index:10;
       }
     }
   }
-  .btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;margin-top:5px;
-    &>div{display:inline-block;position:relative;overflow:hidden;border-radius:3px;background:#ececec;cursor:pointer;transition:.2s;text-align:center;
-      &:hover{background-color:#dbdbdb;
-        div{right:0;}
-        p{padding-left:5px;padding-right:15px;}
-      }
-      div{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
-        &::after{@include fontello('\eb2e');font-size:12px;}
-      }
-      p{padding:2px 10px;color:#717889;transition:.3s;}
-    }
+  .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;
+    dt{font-size:14px;}
   }
 }
+
 
 .file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;}
 .drop_zone,

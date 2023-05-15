@@ -111,9 +111,10 @@ input[type="time"],
 input[type="date"]{position:relative;}
 input[type='time']::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator{position:relative;z-index:2;right:0;width:13px;height:14px;background: transparent;}
+input[type="date"]::-webkit-calendar-picker-indicator{position:relative;z-index:2;right:0;width:13px;height:14px;background:transparent;}
 textarea{min-height:100px;max-height:300px;resize:none;}
-select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 8px center no-repeat, rgba(255,255,255,.9);
+input[list]::-webkit-calendar-picker-indicator,
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 8px center no-repeat, rgba(255,255,255,.9);list-style:none!important;
   option:nth-of-type(1){color:#989898;}
 }
 textarea.line1{height:28px;min-height:28px;}
@@ -135,7 +136,9 @@ input, select{
 .opt_label,
 select{color:$gray;}
 select option{color:#333;}
-option.opt_label{display:none;}
+optgroup.opt_label,
+.opt_label option{display:none;}
+optgroup{display: block; border-top:1px solid red;}
 
 // layout
 hr,
@@ -151,6 +154,7 @@ hr,
   &::after{clear:both;}
 }
 @mixin full{display:block;width:100%!important;min-width:auto;}
+.full{@include full;}
 .scroll{overflow-y:scroll;background-color:#f5f5f5;}
 
 //badge
@@ -267,17 +271,17 @@ $btn_gray:#979797;
   &:hover{background-color:$btn_red;}
 }
 .btn_switch{display:flex;padding:2px;
-  $unselectedColor:#868686;
+  $unselectedColor:#e5e5e5;$hoverColor:#868686;
   input{position:absolute;opacity:0;width:0;height:0;
-    &+label{display:flex;align-items:center;justify-content:center; gap:5px;position:relative;min-width:70px;margin-right:5px;padding:3px 10px 4px;cursor:pointer;border:1px solid #e5e5e5;font-size:13px;font-weight:bold;color:#e5e5e5;z-index:100;}
-    &:hover+label{border-color:$unselectedColor;color:$unselectedColor;}
+    &+label{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px;position:relative;min-width:70px;padding:3px 10px 4px;cursor:pointer;border:1px solid $unselectedColor;font-size:13px;font-weight:bold;color:$unselectedColor;z-index:100;}
+    &:hover+label{border-color:$hoverColor;color:$hoverColor;}
     &:checked+label{border-color:#000;color:#000;transition:0.5s;}   
     :not(&:checked)+label::before{color:$unselectedColor;border-color:$unselectedColor;}   
   }
   label::before{line-height:17px;}
 }
 
-@mixin btn_switch_group($def,$hover,$checked){display:inline-flex;
+@mixin btn_switch_group($def,$hover,$checked){display:inline-flex;vertical-align:middle;
   input{position:absolute;flex:1;opacity:0;
     &+label{flex:1;cursor:pointer;border:1px solid $checked;border-left-width:0;font-size:13px;font-weight:bold;color:$hover;text-align:center;line-height:26px;background-color:$white;}
     &+label:first-of-type{border-left-width:1px;border-radius:3px 0 0 3px;}
@@ -287,6 +291,19 @@ $btn_gray:#979797;
   }
 }
 .period_group{@include btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
+
+.btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;margin-top:5px;
+  &>div{display:inline-block;position:relative;overflow:hidden;border-radius:3px;background:#ececec;cursor:pointer;transition:.2s;text-align:center;
+    &:hover{background-color:#dbdbdb;
+      div{right:0;}
+      p{padding-left:5px;padding-right:15px;}
+    }
+    div{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
+      &::after{@include fontello('\eb2e');font-size:12px;}
+    }
+    p{padding:2px 10px;color:#717889;transition:.3s;}
+  }
+}
 
 // search
 .search_box{
