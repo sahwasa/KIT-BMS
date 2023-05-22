@@ -1,3 +1,4 @@
+@import "./mixin";
 @font-face {
   font-family: 'notokrB';
   src: url('../css/font/notoKR_subset/NotoSans-Bold.eot');
@@ -8,10 +9,6 @@
        url('../css/font/notoKR_subset/NotoSans-Bold.svg#NotoSans-Bold') format('svg');
   font-weight: normal;
   font-style: normal;
-}
-
-@mixin blind{
-  font-size:0;line-height:0;position:absolute!important;left:0;top:0;text-indent:-9999px;visibility:hidden;overflow:hidden;
 }
 
 *{margin:0;padding:0;font:inherit;color:inherit;}
@@ -35,22 +32,6 @@ strong{font-weight:bold;} // 웹에디터 용
   }
 }
 
-// responsive range
-@mixin mobile_only{
-  @media (max-width: 767px){ 
-    @content;
-  }
-}
-@mixin tablet_only{
-  @media (min-width: 768px) and (max-width: 1200px){
-    @content;
-  }
-}
-@mixin mobile_tablet{
-  @media (max-width: 1200px){
-    @content;
-  }
-}
 
 // color
 $white:#fff;
@@ -80,9 +61,6 @@ $tit_spacing:.45px;
 }
 
 //ipt custom
-@mixin ipt_common{
-  width:100%;padding:2px;border:1px solid #c5c5c5;border-radius:2px;vertical-align:middle;background:#fff;
-}
 select,
 textarea,
 input[type="text"],
@@ -138,28 +116,22 @@ select{color:$gray;}
 select option{color:#333;}
 optgroup.opt_label,
 .opt_label option{display:none;}
-optgroup{display: block; border-top:1px solid red;}
 
 // layout
 hr,
 .blind{@include blind}
-@mixin f_blind{
-  font-size:0!important;line-height:0;color:transparent!important;overflow:hidden;
-}
 .f_blind{@include f_blind;}
-@mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
+
 .clearfix{*zoom:1;
   &::before,
   &::after{display:block;content:"";line-height:0;}
   &::after{clear:both;}
 }
-@mixin full{display:block;width:100%!important;min-width:auto;}
+
 .full{@include full;}
 .scroll{overflow-y:scroll;background-color:#f5f5f5;}
 
 //badge
-@mixin badge_style($max_w){display:inline-block;max-width:$max_w;
-color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;border-style:solid;border-width:1px;}
 .fin{background-color:#56b1b6;}
 .reject{background-color:#fc9734;}
 .request{background-color:#347bfc;}
@@ -167,16 +139,6 @@ color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5
 .agree{background-color:#ff7575;}
 .public{background-color:#fff;border-color:#7d879f;color: #7d879f !important;}
 .private{background-color: #aab3c8;}
-
-//icon
-@mixin shape($w_size,$h_size){
-  display:inline-block;content:"";@include f_blind;overflow:hidden;
-  width:$w_size;height:$h_size;
-}
-@mixin fontello($ic){
-  display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;
-}
-@mixin ico_only{font-size:0;vertical-align:middle;}
 
 // ico_fontello
 .ico_org{vertical-align:middle;
@@ -236,14 +198,6 @@ $prio_fontSize:20px;
 .low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}
 
 
-@mixin btn($color){
-  line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
-  &:hover,&:hover::before{color:#fff;background-color:$color;}
-}
-@mixin form_btn{
-  line-height:23px;border:1px solid #aaa;border-radius:2px;padding:0 7px;font-size:12px;
-  &:hover{color:#fff;}
-}
 $btn_red:#f05050;
 $btn_gray:#979797;
 .btn_default{@include btn($btn_gray);}
@@ -273,7 +227,7 @@ $btn_gray:#979797;
 .btn_switch{display:flex;padding:2px;
   $unselectedColor:#e5e5e5;$hoverColor:#868686;
   input{position:absolute;opacity:0;width:0;height:0;
-    &+label{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px;position:relative;min-width:70px;padding:3px 10px 4px;cursor:pointer;border:1px solid $unselectedColor;font-size:13px;font-weight:bold;color:$unselectedColor;z-index:100;}
+    &+label{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px;position:relative;left:-1px;min-width:70px;padding:3px 10px 4px;cursor:pointer;border:1px solid $unselectedColor;font-size:13px;font-weight:bold;color:$unselectedColor;z-index:100;}
     &:hover+label{border-color:$hoverColor;color:$hoverColor;}
     &:checked+label{border-color:#000;color:#000;transition:0.5s;}   
     :not(&:checked)+label::before{color:$unselectedColor;border-color:$unselectedColor;}   
@@ -281,15 +235,6 @@ $btn_gray:#979797;
   label::before{line-height:17px;}
 }
 
-@mixin btn_switch_group($def,$hover,$checked){display:inline-flex;vertical-align:middle;
-  input{position:absolute;flex:1;opacity:0;
-    &+label{flex:1;cursor:pointer;border:1px solid $checked;border-left-width:0;font-size:13px;font-weight:bold;color:$hover;text-align:center;line-height:26px;background-color:$white;}
-    &+label:first-of-type{border-left-width:1px;border-radius:3px 0 0 3px;}
-    &+label:last-of-type{border-radius:0 3px 3px 0;}
-    &:hover+label{background-color:$def;color:$white;}
-    &:checked+label{color:$white;background-color:$hover;transition:0.5s;}
-  }
-}
 .period_group{@include btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
 
 .btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;margin-top:5px;
@@ -512,7 +457,6 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 
 
 /* ico_fileName Extention */
-@mixin ico_ext($x,$y) {display:inline-block;width:17px;height:17px;background:url(../images/ico_fileExt.png) #{$x} #{$y} no-repeat;margin:-4px 7px 0 0px;vertical-align:middle;font-size:0;overflow:hidden;text-indent:-9999px;}
 .ext_bmp{@include ico_ext(-3px, -2px);}
 .ext_jpg{@include ico_ext(-23px, -2px);}
 .ext_gif{@include ico_ext(-43px, -2px);}

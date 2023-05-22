@@ -11,7 +11,8 @@ function fileDropEvt(){
   var file_drop = $('#file-drop');
   $('#attachFiles').on('change',function(e){
     var files = e.target.files;
-    selectFile(files);
+    selectFile(e,files);
+    //setThumbnail(e);
   });
   file_drop.on("dragover",function drop(e){
     e.stopPropagation();
@@ -34,15 +35,19 @@ function fileDropEvt(){
           }
         }
       }
-      selectFile(files);
+      selectFile(e,files);
     }else{
         alert("ERROR");
     }
   });
 };
 
-function selectFile(fileObject){
+function selectFile(event,fileObject){
   var files = null;
+  const file = event.target.files[0];
+
+ 
+  
 
   if(fileObject != null){
     files = fileObject;
@@ -59,6 +64,10 @@ function selectFile(fileObject){
       var fNameArr = fName.split("\."); //경로
       var fExt = fNameArr[fNameArr.length - 1]; //확장자
       var fSize = files[i].size / 1024; //사이즈
+      const fileArr = Array.prototype.slice.call(event.target.files);  
+      var fSrc = URL.createObjectURL(fileArr[i]);
+      var type = files[i].type.split("/")[0];
+    
       if($.inArray(fExt, ['exe', 'bat', 'sh', 'java', 'jsp', 'html', 'js', 'css', 'xml']) >= 0){
         // 확장자 체크
         alert("등록 불가 확장자");
@@ -70,39 +79,39 @@ function selectFile(fileObject){
       }else if(fLenthList.length >= maxFileLength){
         alert("파일첨부갯수 초과");
         break;
-      }else{
+      }else{       
         totalfSize += fSize;// 전체 파일 사이즈
         fList[fIndex] = files[i];// 파일 배열에 넣기
         fSizeList[fIndex] = fSize;// 파일 사이즈 배열에 넣기
         fLenthList.push(files[i]);
-        console.log(fLenthList,fLenthList.length)
-        addFileList(fIndex, fName, fSize, fExt);// 업로드 파일 목록 생성
+        addFileList(fIndex, fName, fSize, fExt, fSrc, type);// 업로드 파일 목록 생성
         fIndex++;// 파일 번호 증가
-      }
-    }
+      }      
+    }    
   }else{
     alert("ERROR");
   }
 }
-function addFileList(fIndex, fName, fSize, fExt){
+function addFileList(fIndex, fName, fSize, fExt, fSrc, type){
   var viewList = $('#fileList');
   var html = "";
-  var fUnit = "KB";    
+  var fUnit = "KB";
   if(fSize > 1024){
     fSize = fSize / 1024;
     fUnit = "MB";
   }
   fSize = Math.floor(fSize*100)/100;
-
   html += "<li id='fItem_" + fIndex + "'>";  
   //html += "<i class='ico_ext ext_" + fExt + "'></i>";
   html += fName;
   //html += "<span class='file_size'>" + fSize + fUnit + "</span>";
   html += "<a href='#' onclick='deleteFile(" + fIndex + "); return false;' class='file_del' title='삭제'>삭제</a>";
+  if (type === "image") html += "<img src='"+fSrc+"' class='attach_thumb'>";
   html += "</li>";
   viewList.append(html);
   infoView();
 }
+
 function deleteFile(fIndex){
   totalfSize -= fSizeList[fIndex];// 전체 파일 사이즈 수정
   delete fList[fIndex];// 파일 배열에서 삭제
