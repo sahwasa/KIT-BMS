@@ -70,7 +70,7 @@
       <h2>전자결재</h2>
     </header>
     <div class="btn_workset">
-      <a href="#" class="btn_default">신규기안</a>
+      <a href="./approval_new.html" class="btn_default">신규기안</a>
     </div>
     <div class="data_count">
       <ul class="list_wrap">
@@ -112,8 +112,8 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body">
-        <article class="box_compact my_form">
+      <div class="cont_body approval_draft">
+        <article class="box_compact box_tool">
           <button type="button" class="btn_default">양식 재선택</button>
           <span class="floatR">
             <button type="button" class="btn_request">상신</button>
@@ -250,19 +250,19 @@
                       <span class="file_input">
                         <input type="text" id="biz traveler" list="nameList">
                         <datalist id="nameList">
-                          <optgroup label="개발본부">
-                            <option value="대장발핑">개발본부</option>
-                            <option value="개발핑">개발 1팀</option>
-                            <option value="새발핑">개발 1팀</option>
-                            <option value="말발핑">개발 2팀</option>
-                            <option value="소발핑">개발 2팀</option>
-                            <option value="곰발핑">개발 2팀</option>
-                          </optgroup>
-                          <optgroup label="경영관리">
-                            <option value="경영핑">경영관리</option>
-                            <option value="관리핑">경영관리</option>
-                          </optgroup>                  
-                        </datalist>
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
                         <button type="button" class="btn_default">추가</button>
                         <button type="button" class="btn_ogt">조직도</button>
                       </span>
@@ -424,68 +424,122 @@
                 </ul>
               </div>
               <section id="tab01" class="tab_contents">
-                <ul>
+                <ul class="appr_path">
                   <li>
                     <span><b>1. 조아핑 연구원</b>(재난예경보MA팀)</span>
-                    <div>
-                      <button class="btn_approval" type="button">결재</button>
-                      <button class="btn_form" type="button">합의</button>
+                    <div class="btn_switch">
+                      <input type="radio" id="appr1" name="path1" checked>
+                      <label for="appr1">결재</label>
+                      <input type="radio" id="agree1" name="path1">
+                      <label for="agree1">합의</label>
                     </div>
                   </li>
                   <li>
                     <span><b>2. 퇴근핑 연구원</b>(재난예경보MA팀)</span>
-                    <div>
-                      <button class="btn_approval" type="button">결재</button>
-                      <button class="btn_form" type="button">합의</button>
+                    <div class="btn_switch">
+                      <input type="radio" id="appr2" name="path2" checked>
+                      <label for="appr2">결재</label>
+                      <input type="radio" id="agree2" name="path2">
+                      <label for="agree2">합의</label>
                     </div>
                   </li>
                   <li>
                     <span><b>3. 방글핑 대표</b></span>
-                    <div>
-                      <button class="btn_approval" type="button">결재</button>
-                      <button class="btn_form" type="button">합의</button>
+                    <div class="btn_switch">
+                      <input type="radio" id="appr3" name="path3" checked>
+                      <label for="appr3">결재</label>
+                      <input type="radio" id="agree3" name="path3">
+                      <label for="agree3">합의</label>
                     </div>
                   </li>
                 </ul>
               </section>
               <section id="tab02" class="tab_contents">
-                하하 아직 못했답니다!
+                <ul class="appr_path">
+                  <li>
+                    <span><b>1. 막내핑 연구원</b>(재난예경보MA팀)</span>
+                    <div class="btn_switch">
+                      <input type="radio" id="appr01" name="path01" checked>
+                      <label for="appr01">결재</label>
+                      <input type="radio" id="agree01" name="path01">
+                      <label for="agree01">합의</label>
+                    </div>
+                  </li>
+                  <li>
+                    <span><b>2. 중간핑 연구원</b>(재난예경보MA팀)</span>
+                    <div class="btn_switch">
+                      <input type="radio" id="appr02" name="path02" checked>
+                      <label for="appr02">결재</label>
+                      <input type="radio" id="agree02" name="path02">
+                      <label for="agree02">합의</label>
+                    </div>
+                  </li>
+                  <li>
+                    <span><b>3. 대장핑 대표</b></span>
+                    <div class="btn_switch">
+                      <input type="radio" id="appr03" name="path03" checked>
+                      <label for="appr03">결재</label>
+                      <input type="radio" id="agree03" name="path03">
+                      <label for="agree03">합의</label>
+                    </div>
+                  </li>
+                </ul>
               </section>
               <section id="tab03" class="tab_contents">
-                여기도 못했답니다!
+                <span class="file_input">
+                  <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList">
+                  <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                  <button type="button" class="btn_default">추가</button>
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                </span>  
+                <ul class="appr_path">
+                  <li>
+                    <span><b>1. 막내핑 연구원</b>(재난예경보MA팀)</span>
+                    <div class="btn_switch">
+                      <input type="radio" id="appr" name="path" checked>
+                      <label for="appr">결재</label>
+                      <input type="radio" id="agree" name="path">
+                      <label for="agree">합의</label>
+                    </div>
+                  </li>
+                </ul>              
               </section>
             </section>
             <section class="box_default_w">
               <h1>참조자 지정</h1>
               <span class="file_input">
-                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요.">
-                <button type="button" class="btn_ogt btnMngTree">지정</button>
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt btnMngTree">조직도</button>
               </span>
               <div class="btn_slideclose">
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
                 <div>
                   <p>박상건</p>
                   <div>삭제</div>
@@ -502,21 +556,21 @@
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
-              <span class="file_input">
+              <!-- <span class="file_input">
                 <input type="file" id="form_file" class="multi" multiple>
-              </span>
+              </span> -->
 
               <div class="file_attach btn_attach">
-                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>              
+                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
                 <div id="file-drop" class="drop_zone">
                   <div class="drop_info">                    
-                    <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭 후</span> 파일을 선택해주세요!</p>
+                    <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
                   </div>
                   <ul id="fileList" class="attach_list">
-                  </ul>
-                  </ul>
+                  </ul>                  
                 </div>
               </div>
+              <div>
             </section>
             <section class="box_default_w">
               <dl class="set_list">
