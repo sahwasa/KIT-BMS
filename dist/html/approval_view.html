@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <!-- <ul class="gnb_lst">
+      <li><a href=""></a></li>
+    </ul> -->
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="#">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/main.html">HOME</a></li>
+    <li><a href="/html/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval.html">전자결재</a></li>
+    <li><a href="/html/work.html">업무보고</a></li>
+    <li><a href="/html/plan.html">일정</a></li>
+    <li><a href="/html/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp.html">ERP</a></li>
+    <li><a href="/html/board.html">게시판</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>  
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>전자결재</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="./approval_new.html" class="btn_default">신규기안</a>
+    </div>
+    <div class="data_count">
+      <ul class="list_wrap">
+        <li>요청<em>3</em></li>
+        <li>진행<em>1</em></li>
+        <li>참조<em>2</em></li>
+      </ul>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="">결재 상신함</a>
+        <ul>
+          <li><a href="#">결재진행</a></li>
+          <li><a href="#">결재완료</a></li>
+          <li><a href="#">반려문서</a></li>
+          <li><a href="#">임시저장</a></li>
+        </ul>        
+      </li>
+      <li><a href="/html/approval_inbox.html">결재 수신함</a>
+        <ul>
+          <li><a href="/html/approval_inbox.html">결재대기</a></li>
+          <li><a href="/html/approval_inbox.html">결재완료</a></li>
+          <li><a href="/html/approval_inbox.html">수신참조</a></li>
+        </ul>
+      </li>
+      <li><a href="">공개 문서함</a></li>
+      <li><a href="">보관함</a>
+        <button type="button" class="nav_btn_add">추가</button>
+        <ul class="sortable move_sortable hasLayer">
+          <li><a href="#">내 보관함</a></li>
+          <li><a href="#">회의록
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li>
+          <li><a href="#">업무보고
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>수신결재<span>전자결재</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">전자결재</a></li>
+            <li>수신결재</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_view">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_default">목록</button>
+          <span class="floatR">
+            <button type="button" class="btn_request">승인</button>
+            <button type="button" class="btn_request">반려</button>
+            <button type="button" class="btn_request">전결</button>
+            <button type="button" class="btn_request">후결</button>
+            <button type="button" class="btn_default">인쇄</button>
+          </span>
+        </article>
+        <div class="my_approval">
+          <section class="approval_form flex_right">
+            <header>
+              <h1>제목 텍스트</h1>          
+            </header>
+            <div class="form_wrap">
+              <div class="tit_form">
+                <h2>휴가신청서</h2>
+                <table class="tbl_row">
+                  <caption>결재 상황 테이블</caption>
+                  <colgroup>
+                    <col style="width:30px;">
+                    <col style="width:110px;">
+                    <col style="width:110px;">
+                    <col style="width:110px;">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="col" rowspan="3">결 재</th>
+                      <th scope="col">멋쟁이</th>
+                      <th scope="col">귀요미</th>
+                      <th scope="col">귀요미</th>
+                    </tr>
+                    <tr>
+                      <td><img src="http://placehold.it/95x41" alt="사인+"></td>
+                      <td><i class="stamp_blue"><b>승인</b></i></td>
+                      <td><i class="stamp_red"><b>반려</b></i></td>
+                    </tr>
+                    <tr>
+                      <td>23-04-17</td>
+                      <td>23-04-17</td>
+                      <td>23-04-17</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <table class="tbl_row">
+                <caption>출장복명서 양식 테이블</caption>
+                <colgroup>
+                  <col style="width:150px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">문서번호</th>
+                    <td>KIT-출장복명서-202301000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">휴가기간</th>
+                    <td>2023-03-02 ~ 2023-03-08 (총 5일)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">신청사유</th>
+                    <td>개인사유</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">기타</th>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="sign_wrap">
+                <p>상기와 같이 휴가를 신청합니다.<br>
+                  <span>2023년 3월 20일</span>
+                </p>
+                <p>신청인 : <span>멋쟁이</span> (인)</p>
+              </div>
+            </div>
+            <div class="comments">
+              
+            </div>
+          </section>
+          <article class="approval_set">
+            <section class="box_default_w">
+              <h1>결재자</h1>
+              <ul class="appr_path">
+                <li>
+                  <span class="user_module">
+                    <figure class="user_photo"><img src="../images/ic_user.png" alt=""></figure> 
+                    <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                  </span>
+                  <p class="appr_result">2023-02-10 10:00 기안</p>
+                </li>
+                <li>
+                  <span class="user_module">
+                    <figure class="user_photo"><img src="../images/ic_user.png" alt=""></figure><em>퇴근핑 연구원</em><b>(재난예경보MA팀)</b></span>
+                  <p class="appr_result">2023-02-10 10:00 승인</p>
+                </li>
+                <li>
+                  <span class="user_module">
+                    <figure class="user_photo"><img src="../images/ic_user.png" alt=""></figure><em>방글핑 대표</em></span>
+                  <p class="appr_result">2023-02-10 10:00 반려</p>
+                </li>
+              </ul>
+            </section>
+            <section class="box_default_w">
+              <h1>참조자</h1>
+              <span class="file_input">
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt btnMngTree">조직도</button>
+              </span>
+              <div class="btn_slideclose">
+                <div>
+                  <p>
+                    박상건
+                  </p>
+                  <div>삭제</div>
+                </div>
+                <div>
+                  <p>유한아름</p>
+                  <div>삭제</div>
+                </div>
+                <div>
+                  <p>임선</p>
+                  <div>삭제</div>
+                </div>
+              </div>
+            </section>
+            <section class="box_default_w">
+              <h1>첨부파일</h1>
+              <div class="file_attach btn_attach">
+                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+                <div id="file-drop" class="drop_zone">
+                  <div class="drop_info">                    
+                    <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+                  </div>
+                  <ul id="fileList" class="attach_list">
+                  </ul>                  
+                </div>
+              </div>
+              <div>
+            </section>
+            <section class="box_default_w">
+              <dl class="set_list">
+                <dt>중요도</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="high" name="importance" readonly>
+                    <label for="high" class="high_prio">높음</label>
+                    <input type="radio" id="common" name="importance" checked readonly>
+                    <label for="common" class="normal_prio">보통</label>
+                    <input type="radio" id="row" name="importance" readonly>
+                    <label for="row" class="low_prio">낮음</label>
+                  </div>
+                </dd>
+                <dt>공개여부</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="open" name="disclosure" checked="">
+                    <label for="open">공개</label>
+                    <input type="radio" id="private" name="disclosure">
+                    <label for="private">비공개</label>
+                  </div>
+                </dd> 
+                <dt><label for="comment">코멘트</label></dt> 
+                <dd>
+                  <textarea name="" id="comment" cols="5" rows="5" class="full"></textarea>
+                </dd>
+              </dl>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jquery-ui.min.js"></script>
+<script src="../plugins/jquery.MultiFile.js"></script>
+<script src="../plugins/ckeditor5/ckeditor.js"></script>
+<script src="../plugins/ckeditor5/editor.js" type="module"></script>
+<script src="../js/ui_cmmn.js"></script>
+<script src="../js/file_upload.js"></script>
+</body>
+</html>
+<script>
+$(function(){fileDropEvt();})
+</script>

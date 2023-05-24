@@ -158,17 +158,27 @@ $snbWidth:200px;
     }
     em{color:#ff5654;font-size:13px;margin-left:5px;}
   }
-  .snb_lst{$border-color:#ebebeb;text-align:left;
-    & > li{font-size:14px;border-bottom: 1px solid $border-color;background-color:#f9fafc;
+  .snb_lst{$snb-border-color:#ebebeb;text-align:left;
+    & > li{position:relative;font-size:14px;border-bottom: 1px solid $snb-border-color;background-color:#f9fafc;
       & > a{display:block;font-weight:bold;padding:10px #{$columnGap - 10px};letter-spacing:-.35px;}
-      ul{border-top: 1px solid $border-color;background-color:$white;padding:10px 0;}
-      ul a{display:block;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
-        &::before{content:"·";font-weight:bold;font-size:18px;line-height:12px;margin:0 8px;}
+      ul{border-top: 1px solid $snb-border-color;background-color:$white;padding:10px 0;}
+      ul a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
+        &::before{content:"·";font-weight:bold;font-size:18px;margin:0 8px;line-height:17px;}
+        &:hover .layer_tool{display:block;}
       }
       &.on > a,&:hover > a{color:$red;}
       & li.on a,& li:hover a{background-color:#fee;color:#424242;}
     }
-  }  
+  }
+  .nav_btn_add{position:absolute;top:10px;right:15px;@include ico_only;
+    &::before{display:flex;align-items:center;justify-content:center;width:21px;height:20px;padding-bottom:1px;font-size:13px;content:"╊";border:1px solid $border-color;color: #989898;border-radius:2px;}
+    &:hover::before{border-color:#989898;}
+  }
+  .layer_tool{display:none;margin-left:auto;
+    .btn_ellipsis::before{height:16px;line-height:16px;font-size:11px;}
+  }
+
+
 }
 
 //container
@@ -213,12 +223,12 @@ z-index:10;
   }
 }
 
-.box_compact{@include box_style(20px,15px);}
+.box_compact{@include box_style(15px,10px);}
 .box_default{@include box_style(20px,20px);}
-.box_default_w{@include box_style(20px,20px);background-color:#fff;border:1px solid #dddddd;}
+.box_default_w{@include box_style(15px,15px);background-color:#fff;border:1px solid #dddddd;}
 
 // approval
-.my_form,.box_tool{margin-bottom:20px;
+.my_form,.box_tool{margin-bottom:15px;
   .btn_wrap{align-self:flex-start;}
   ul{display:flex;gap:4px;}
   li{background-color:$white;border:1px solid #aaa;border-radius:3px;
@@ -273,7 +283,9 @@ z-index:10;
   }
 }
 .approval_form{min-width:900px;background-color:#fff;
-  .form_validity{margin-bottom:5px;}
+  header{padding-bottom:5px;}
+  header h1{font-size:16px;font-weight:bold;}
+  .form_validity{margin-bottom:10px;}
   .tbl_workinfo{@include flex_between;margin:3px 0 5px;
     .btn_wrap{margin-left:auto;}
   }
@@ -307,42 +319,60 @@ z-index:10;
     }
   }
 }
+.approval_view .my_approval,
 .approval_draft .my_approval{gap:20px;}
-@include desktop{
-  .approval_draft .my_approval{flex-flow:column wrap;
-    .approval_set{order:-1;width:100%;display:grid;gap:15px;
-    grid-template-areas:"path etc""path etc""refer attach"; 
-      & > .box_default_w{margin:0;}
-      & > .box_default_w:nth-of-type(1){grid-area:path;}
-      & > .box_default_w:nth-of-type(2){grid-area:refer;}
-      & > .box_default_w:nth-of-type(3){grid-area:attach;}
-      & > .box_default_w:nth-of-type(4){grid-area:etc;}
-    }
-  }
-}
+
 .approval_set{min-width:370px;width:370px;
-  & > .box_default_w{margin-top:20px;
+  & > .box_default_w{margin-top:10px;
     &:last-of-type{margin-bottom:10px;}
     @include tit_bullet(h1);
     h1{font-size:14px;}
   }
-  .tab_contents{
-    li{@include flex_between;margin-bottom:4px;padding:6px 7px 7px 15px;border: 1px solid #ebebeb;border-radius:2px;
-      span{font-size:11px;color:#717889;
-        b{font-size:13px;color:#000;font-weight:500;}
+  .appr_path{counter-reset:appr_path;
+    li{@include flex_between;margin-bottom:4px;padding:6px 7px 7px 30px;border: 1px solid #ebebeb;border-radius:2px;counter-increment:appr_path;font-size:11px;
+      .user_module{left:-15px;font-size:13px;color:#000;font-weight:500;
+        &::before{content:counter(appr_path)".";display:inline-block;width:15px;}
       }
+      p{margin-top:5px;}
+    }
+    .btn_switch{gap:3px;padding:0;
+      label{min-width:40px;border-width:1px;border-radius:2px;line-height:23px;font-size:12px;padding:0;border-color:#aaa;color:inherit;font-weight:normal;
+        &:hover{font-weight:bold;}
+      }
+      input:checked+label{background-color:#f05050;border-color:#f05050;color:#fff;font-weight:bold;}
     }
   }
-  .appr_path .btn_switch{gap:3px;padding:0;
-    label{min-width:40px;border-width:1px;border-radius:2px;line-height:23px;font-size:12px;padding:0;border-color:#aaa;color:inherit;font-weight:normal;
-      &:hover{font-weight:bold;}
-    }
-    input:checked+label{background-color:#f05050;border-color:#f05050;color:#fff;font-weight:bold;}
-  }
+  .tab_contents :not(first).appr_path{margin-top:4px;}
   .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;
     dt{font-size:14px;}
   }
 }
+.approval_view{
+  .approval_set{margin-top:8px;}
+  .appr_path li{flex-direction:column;align-items:flex-start;
+    .appr_result{align-self:flex-end;color:$red;}
+  }
+}
+@include desktop{
+  .my_approval{flex-flow:column wrap;
+    .approval_set{order:-1;width:100%;display:grid;gap:5px;
+    grid-template-areas:"path etc""path etc""refer attach"; 
+      & > .box_default_w{margin:0;padding:15px;
+        &:nth-of-type(1){grid-area:path;}
+        &:nth-of-type(2){grid-area:refer;}
+        &:nth-of-type(3){grid-area:attach;}
+        &:nth-of-type(4){grid-area:etc;}
+      }
+    }
+  }
+}
+.user_module{display:flex;gap:5px;align-items:center;position:relative;
+  .user_photo{display:inline-block;width:18px;height:18px;overflow:hidden;border-radius:50%;border:1px solid #ccc;
+    img{width: 100%;height:auto;}
+  }
+  b{font-size:11px;color:#717889;align-self:flex-end;}
+}
+  
 
 .file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;}
 .drop_zone,
@@ -361,3 +391,5 @@ z-index:10;
 .file_del{@include shape(15px,17px);flex-shrink:0;
   &::before{@include fontello('\e928');font-size:13px;color:$red;line-height:17px;} 
 }
+.stamp_blue{@include stamp($skyblue);}
+.stamp_red{@include stamp($red);}

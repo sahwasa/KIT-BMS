@@ -1,10 +1,9 @@
+//const { eventNames } = require("process");
+
 $(function () {
   // nav
   var $deps1 = $('.lnb>li'),
     $deps2 = $('.sub li'),
-    //$locate=$('.locate_list>li'),
-    //$loca1=$('.loca1 > li'),
-    //$loca2=$('.loca2 > li'),
     preLocate,
     deps1Locate,
     deps2Locate,
@@ -41,19 +40,6 @@ $(function () {
 
     $deps1.eq(deps1Locate).addClass('on')
     $deps1.eq(deps1Locate).find($deps2).eq(deps2Locate).addClass('on')
-    //$loca1.eq(deps1Locate).addClass('on');
-    //$loca2.eq(deps2Locate).addClass('on');
-    // $loca1.each(function(index,item){
-    // 	getAttr=$(this).children('a').attr('href');
-    // 	index+=1;
-    // 	indexDeps1=$(this).children('a').attr('href', getAttr + "?index="+ index +',1');
-    // });
-    var locaDeps1 = deps1Locate + 1
-    // $loca2.each(function(index,item){
-    // 	getAttr=$(this).children('a').attr('href');
-    // 	index+=1;
-    // 	$loca2=$(this).children('a').attr('href', getAttr + "?index="+locaDeps1 +',' + index);
-    // });
   }
 
   function menu1Open(onItem) {
@@ -78,12 +64,6 @@ $(function () {
     menu2Open($(this))
   })
 
-  // $locate.on('click', function(e){
-  // 	e.stopPropagation();
-  // 	$(this).toggleClass('on');
-  // 	$(this).children('.sub_loca').slideToggle();
-  // });
-
   //gnb
   $('.profile').on({
     click: function () {
@@ -94,8 +74,58 @@ $(function () {
     },
     focusout: function () {
       $(this).removeClass('on')
-    },
+    }
   })
+
+  //snb
+   $.editNewBox = function () {
+    const editIptWrap = $(this).parent('a');
+    let editIpt = $(this).val();
+    if (editIpt === '') editIpt = '새보관함 ';
+    let html = editIpt;
+        html += '<div class="layer_tool">';
+        html += '<button type="button" class="btn_ellipsis" title="더보기">더보기</button>';
+        html += '<div class="btn_layer">';
+        html += '<button type="button" data-clickevt="modify">수정</button>';
+        html += '<button type="button" data-clickevt="del">삭제</button>';
+        html += '</div></div>';
+
+    $(editIptWrap).html(html).children('input').remove();
+  }
+   // add item
+   const iptEvt = (ipt) => { 
+    ipt.focus();
+    ipt.focusout($.editNewBox);
+    ipt.on('keydown', function(e){
+      if((e.keyCode) == 13) ipt.focusout();
+    })
+  }
+  $('.nav_btn_add').on('click', function () {
+    const target = $(this).next('ul');
+    const addLi = document.createElement("li");
+    let tmpl = "";
+        tmpl += "<a href='" + "#" + "'>"
+        tmpl += "<input type='text' placeholder='새보관함'>"
+        tmpl += "</a>"
+    addLi.innerHTML = tmpl;
+    const ipt = target.append(addLi).find('input');
+    iptEvt(ipt);
+  });
+  // delete item
+  $(':has(.hasLayer)').on('click','[data-clickevt]',function(e){
+    let btnType = e.target.dataset.clickevt;
+    if(btnType == "del"){
+      (!confirm('선택한 보관함을 정말 삭제하시겠습니까?\n해당 보관함의 문서는 내 보관함으로 이동합니다.')) ? alert('취소 되었습니다.') : $(this).parentsUntil('li').remove();
+    }else{
+      const target = $(this).parents('a');
+      console.log(target);
+      const getTxt= target[0];
+      console.log(getTxt)
+      let editIpt = "<input type='text' value='"+ target[0].firstChild +"' >";
+      target.html(editIpt);
+    }
+  })
+  
 
   // table_row checked
   $('.row_check').on({
@@ -122,6 +152,15 @@ $(function () {
         cur ? thisRow.addClass(checkName) : thisRow.removeClass(checkName)
       }
     },
+  })
+
+  //layer_tool
+  $(":has(.hasLayer)").on('click focusin','.layer_tool',function(e){
+      e.stopPropagation();
+      e.preventDefault();
+      $(this).addClass('on')
+  }).on('focusout','.layer_tool',function(){
+    $(this).removeClass('on');
   })
 
   //tab

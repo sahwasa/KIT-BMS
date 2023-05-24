@@ -93,3 +93,8 @@ color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5
     &::before{position:relative;top:-3px;display:inline-block;@include shape(6px,6px);margin-right:7px;border-radius:6px;background-color:#c4c4c4;}
   }
 }
+
+@mixin stamp($color){display:inline-flex;justify-content: center;align-items: center;width:40px;height:40px;
+  border:2px solid $color;border-radius:50%;
+  b{transform:rotate(-25deg);color:$color;font-weight:bold;letter-spacing:-.5px;font-size:15px;}
+}
