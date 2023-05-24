@@ -12,8 +12,8 @@ function fileDropEvt(){
   $('#attachFiles').on('change',function(e){
     var files = e.target.files;
     selectFile(e,files);
-    //setThumbnail(e);
   });
+  
   file_drop.on("dragover",function drop(e){
     e.stopPropagation();
     e.preventDefault();
@@ -43,11 +43,8 @@ function fileDropEvt(){
 };
 
 function selectFile(event,fileObject){
-  var files = null;
+  let files = null;
   const file = event.target.files[0];
-
- 
-  
 
   if(fileObject != null){
     files = fileObject;
