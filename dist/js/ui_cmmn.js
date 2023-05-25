@@ -80,9 +80,9 @@ $(function () {
   //snb
    $.editNewBox = function () {
     const editIptWrap = $(this).parent('a');
-    let editIpt = $(this).val();
-    if (editIpt === '') editIpt = '새보관함 ';
-    let html = editIpt;
+    let editedIpt = $(this).val();
+    if (editedIpt === '') editedIpt = '새보관함 ';
+    let html = editedIpt;
         html += '<div class="layer_tool">';
         html += '<button type="button" class="btn_ellipsis" title="더보기">더보기</button>';
         html += '<div class="btn_layer">';
@@ -111,18 +111,20 @@ $(function () {
     const ipt = target.append(addLi).find('input');
     iptEvt(ipt);
   });
-  // delete item
+  // delete,edit item
   $(':has(.hasLayer)').on('click','[data-clickevt]',function(e){
     let btnType = e.target.dataset.clickevt;
     if(btnType == "del"){
       (!confirm('선택한 보관함을 정말 삭제하시겠습니까?\n해당 보관함의 문서는 내 보관함으로 이동합니다.')) ? alert('취소 되었습니다.') : $(this).parentsUntil('li').remove();
-    }else{
+    }else if(btnType == "modify"){
       const target = $(this).parents('a');
-      console.log(target);
-      const getTxt= target[0];
-      console.log(getTxt)
-      let editIpt = "<input type='text' value='"+ target[0].firstChild +"' >";
-      target.html(editIpt);
+      const getTxt = target.contents().filter(function() {
+          return this.nodeType === 3; // Select only text nodes
+      }).text().trim();
+      let editNewIpt = "<input type='text' value='"+ getTxt +"' >";
+      target.html(editNewIpt);
+      const editIpt = target.find('input');
+      iptEvt(editIpt);
     }
   })
   

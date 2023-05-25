@@ -171,7 +171,7 @@ $snbWidth:200px;
     }
   }
   .nav_btn_add{position:absolute;top:10px;right:15px;@include ico_only;
-    &::before{display:flex;align-items:center;justify-content:center;width:21px;height:20px;padding-bottom:1px;font-size:13px;content:"╊";border:1px solid $border-color;color: #989898;border-radius:2px;}
+    &::before{display:flex;align-items:center;justify-content:center;width:21px;height:21px;padding-bottom:2px;font-size:13px;content:"╊";border:1px solid $border-color;color: #989898;border-radius:2px;}
     &:hover::before{border-color:#989898;}
   }
   .layer_tool{display:none;margin-left:auto;
