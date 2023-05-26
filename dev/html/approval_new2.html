@@ -50,14 +50,14 @@
                 <table class="tbl_row">
                   <caption>결재 상황 테이블</caption>
                   <colgroup>
-                    <col style="width:70px;">
+                    <col style="width:30px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                   </colgroup>
                   <tbody>
                     <tr>
-                      <th scope="col" rowspan="3">결<br />재</th>
+                      <th scope="col" rowspan="3">결 재</th>
                       <th scope="col">멋쟁이</th>
                       <th scope="col">귀요미</th>
                       <th scope="col">귀요미</th>
@@ -82,14 +82,14 @@
                   <col style="width:auto">
                 </colgroup>
                 <tbody>
-                  <tr>
+                  <!-- <tr>
                     <th scope="row">
                       <label for="form_num" class="required">문서번호</label>
                     </th>
                     <td>
                       <input type="text" id="form_num" value="KIT-">
                     </td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <th scope="row">
                       <label for="form_project" class="required">프로젝트</label>
@@ -102,9 +102,8 @@
                         <select title="기관선택">
                           <option value="기관 선택">기관 선택</option>
                         </select>
-                        <select title="프로젝트 선택">
-                          <option value="프로젝트 선택">프로젝트 선택</option>
-                        </select>
+                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList">
+                        @@include('../inc/data_project_name.html')
                       </span>
                     </td>
                   </tr>

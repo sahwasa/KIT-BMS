@@ -145,7 +145,7 @@ background:$black;
 }
 
 $snbWidth:200px;
-.snb{width:$snbWidth;border-right:1px solid #eee;text-align:center;padding:15px 0 30px;overflow:hidden;flex-shrink:0;
+.snb{width:$snbWidth;border-right:1px solid #eee;text-align:center;padding:15px 0 30px;overflow:hidden;flex-shrink:0;background-color:#f9fafc;
   $border-color:#bec7d2;
   .snb_container{min-width:$snbWidth;}
   h2{padding:0 15px 12px;font-size:20px;font-weight:bold;letter-spacing:-.5px;border-bottom:1px solid $border-color;overflow:hidden;}
@@ -162,6 +162,7 @@ $snbWidth:200px;
     & > li{position:relative;font-size:14px;border-bottom: 1px solid $snb-border-color;background-color:#f9fafc;
       & > a{display:block;font-weight:bold;padding:10px #{$columnGap - 10px};letter-spacing:-.35px;}
       ul{border-top: 1px solid $snb-border-color;background-color:$white;padding:10px 0;}
+      .hasLayer:empty{padding:0;border-top-width:0;}
       ul a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
         &::before{content:"·";font-weight:bold;font-size:18px;margin:0 8px;line-height:17px;}
         &:hover .layer_tool{display:block;}
@@ -300,6 +301,12 @@ z-index:10;
         }
       }
     }
+    .approval_status{      
+      strong{margin-right:5px;font-size:11px;}
+      th:first-child{width:30px;}
+      td{font-size:11px;width:110px;padding:3px;}
+      tr:last-child td{height:25px;}
+    }
     .tit_form{display:grid;grid-template-columns:1fr auto;min-height:90px;margin-bottom:15px;padding:8px;
       h2{font-size:17px;color:#000;font-weight:bold;text-align:center;align-self:center;white-space:pre;margin-right:20px;}
       table{
@@ -322,7 +329,7 @@ z-index:10;
 .approval_view .my_approval,
 .approval_draft .my_approval{gap:20px;}
 
-.approval_set{min-width:370px;width:370px;
+.approval_set{width:400px;
   & > .box_default_w{margin-top:10px;
     &:last-of-type{margin-bottom:10px;}
     @include tit_bullet(h1);
@@ -348,13 +355,14 @@ z-index:10;
   }
 }
 .approval_view{
-  .approval_set{margin-top:8px;}
+  .approval_set{margin-top:18px;}
   .appr_path li{flex-direction:column;align-items:flex-start;
     .appr_result{align-self:flex-end;color:$red;}
   }
 }
 @include desktop{
-  .my_approval{flex-flow:column wrap;
+  .approval_view .my_approval,
+  .approval_draft .my_approval{flex-flow:column wrap;
     .approval_set{order:-1;width:100%;display:grid;gap:5px;
     grid-template-areas:"path etc""path etc""refer attach"; 
       & > .box_default_w{margin:0;padding:15px;
@@ -371,8 +379,7 @@ z-index:10;
     img{width: 100%;height:auto;}
   }
   b{font-size:11px;color:#717889;align-self:flex-end;}
-}
-  
+}  
 
 .file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;}
 .drop_zone,
@@ -393,3 +400,19 @@ z-index:10;
 }
 .stamp_blue{@include stamp($skyblue);}
 .stamp_red{@include stamp($red);}
+
+.comment_area{border-top:1px solid #ccc;margin-top:30px;padding:20px 0;}
+.comment_lst > li{border-bottom:1px solid #ccc;padding:15px 0;
+  .comment_txt{padding-left:22px;margin-top:10px;
+    p{border:1px solid #ccc;border-radius:3px;padding:5px;background-color:#f9fafc;}
+  }
+  .comment_info{padding-left:22px;font-size:11px;color:#666;margin-top:5px;}
+}
+.reply_area{padding:10px 10px 10px 42px;margin-top:10px;background-color:#f5f5f5;
+  li{position:relative;border-top:1px solid #ccc;padding:10px 0;
+    &::before{position: absolute;left:-15px;top:10px;@include shape(10px,12px);border:1px solid #aaa;border-width:0 0 1px 1px;}
+    &:first-child{border-top-width:0;}
+  }
+  
+}
+.comment_write{margin-top:30px;}

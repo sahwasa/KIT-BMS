@@ -260,7 +260,7 @@ $btn_gray:#979797;
   }
   &.long{width:276px;}
 }
-.search_list{display:flex;flex-flow:row wrap;gap:5px;margin-bottom:9px;}
+.search_list{display:flex;flex-flow:row wrap;gap:5px;}
 .btn_search{@include btn($btn_red);
   &::before{@include fontello('\e802');color:$red;font-size:15px;margin-right:3px;}
 }
@@ -268,6 +268,7 @@ $btn_gray:#979797;
 // table
 $th_border_color:#c0c0c0;
 $td_border_color:#ebebeb;
+.tbl_top_area{@include flex_between;margin-bottom:9px;}
 td{white-space:nowrap;text-overflow:ellipsis;}
 .tbl_header{@include flex_between;border-top:2px solid $th_border_color;
   .tbl_caption{display:flex;align-items:center;line-height:37px;
@@ -438,6 +439,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   &:has(.MultiFile-wrap){width:100%;}
   &>input,
   &>select{flex:1;}
+  &>[list]{min-width:50%;}
   &>*{width:auto;margin-right:4px;align-self:center;vertical-align:middle;
     &:last-child{margin-right:0;}
   }
@@ -454,8 +456,6 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     & > span{flex-grow:1;line-height:1.4;}
   }
 }
-
-
 /* ico_fileName Extention */
 .ext_bmp{@include ico_ext(-3px, -2px);}
 .ext_jpg{@include ico_ext(-23px, -2px);}

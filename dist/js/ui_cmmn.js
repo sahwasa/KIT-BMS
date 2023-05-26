@@ -115,7 +115,7 @@ $(function () {
   $(':has(.hasLayer)').on('click','[data-clickevt]',function(e){
     let btnType = e.target.dataset.clickevt;
     if(btnType == "del"){
-      (!confirm('선택한 보관함을 정말 삭제하시겠습니까?\n해당 보관함의 문서는 내 보관함으로 이동합니다.')) ? alert('취소 되었습니다.') : $(this).parentsUntil('li').remove();
+      (!confirm('선택한 보관함을 정말 삭제하시겠습니까?\n해당 보관함의 문서는 내 보관함으로 이동합니다.')) ? alert('취소 되었습니다.') : $(this).parentsUntil('.hasLayer').remove();
     }else if(btnType == "modify"){
       const target = $(this).parents('a');
       const getTxt = target.contents().filter(function() {

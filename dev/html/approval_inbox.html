@@ -21,7 +21,7 @@
           <header class="blind">
             <h1>결재대기 목록</h1>
           </header>
-          <section class="search_area">
+          <section class="tbl_top_area">
             <ul class="search_list">
               <li>
                 <div class="select_custom prio">
@@ -84,6 +84,9 @@
                 <button type="button" class="btn_search">검색</button>
               </li>
             </ul>
+            <div class="flex_right">
+              @@include('../inc/opt_lineNum.html')
+            </div>
           </section>
           <section>
             <table class="tbl_default tbl_hover">
@@ -103,6 +106,150 @@
                 </tr>
               </thead>
               <tbody>
+                <tr tabindex="0" onclick="location.href='../html/approval_view.html'">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge request">결재요청</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge reject">반려</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge request">결재요청</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge reject">반려</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge request">결재요청</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge reject">반려</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge request">결재요청</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico ico_attach">첨부</i></td>
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>김개발</td>
+                  <td><i class="tbl_badge reject">반려</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
                 <tr tabindex="0">
                   <td><i class="tbl_ico ico_attach">첨부</i></td>
                   <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
@@ -141,6 +288,7 @@
                 </tr>
               </tbody>
             </table>
+            @@include('../inc/paginate.html')
           </section>
         </article>
       </div>

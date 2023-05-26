@@ -98,10 +98,8 @@
       <li><a href="">공개 문서함</a></li>
       <li><a href="">보관함</a>
         <button type="button" class="nav_btn_add">추가</button>
-        <ul class="sortable move_sortable hasLayer">
-          <li><a href="#">내 보관함</a></li>
-          <li><a href="#">회의록
-            <div class="layer_tool">
+        <ul class="sortable move_sortable hasLayer"><!--<li><a href="#">내보관함
+          <div class="layer_tool">
               <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
               <div class="btn_layer">
                 <button type="button" data-clickevt="modify">수정</button>
@@ -117,8 +115,7 @@
                 <button type="button" data-clickevt="del">삭제</button>
               </div>
             </div>
-          </a></li>
-        </ul>
+          </a></li>--></ul>
       </li>
     </ul>
   </div>
@@ -170,14 +167,14 @@
                 <table class="tbl_row">
                   <caption>결재 상황 테이블</caption>
                   <colgroup>
-                    <col style="width:70px;">
+                    <col style="width:30px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                   </colgroup>
                   <tbody>
                     <tr>
-                      <th scope="col" rowspan="3">결<br />재</th>
+                      <th scope="col" rowspan="3">결 재</th>
                       <th scope="col">멋쟁이</th>
                       <th scope="col">귀요미</th>
                       <th scope="col">귀요미</th>
@@ -202,14 +199,14 @@
                   <col style="width:auto">
                 </colgroup>
                 <tbody>
-                  <tr>
+                  <!-- <tr>
                     <th scope="row">
                       <label for="form_num" class="required">문서번호</label>
                     </th>
                     <td>
                       <input type="text" id="form_num" value="KIT-">
                     </td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <th scope="row">
                       <label for="form_project" class="required">프로젝트</label>
@@ -222,9 +219,12 @@
                         <select title="기관선택">
                           <option value="기관 선택">기관 선택</option>
                         </select>
-                        <select title="프로젝트 선택">
-                          <option value="프로젝트 선택">프로젝트 선택</option>
-                        </select>
+                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList">
+                        <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
                       </span>
                     </td>
                   </tr>
