@@ -1,0 +1,84 @@
+<section class="comment_area">
+  <header>
+    <h1>코멘트</h1>
+  </header>
+  <ul class="comment_lst">
+    <li>
+      <div class="comment_user">
+        @@include('../inc/module_user.html')
+      </div>
+      <div class="comment_txt">
+        <p>승인합니다.</p>
+      </div>
+      <div class="comment_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+    <li>
+      <div class="comment_user">
+        @@include('../inc/module_user.html')
+      </div>
+      <div class="comment_txt">
+        <p>반려합니다.</p>
+      </div>
+      <div class="comment_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+      <div class="reply_area">
+        <ul>
+          <li>
+            <div class="comment_user">
+              @@include('../inc/module_user.html')
+            </div>
+            <div class="comment_txt">
+              <p>왜요?</p>
+            </div>
+            <div class="comment_info">
+              <span class="date">2023-05-23 11:35</span>
+              <button type="button">답글</button>
+            </div>
+          </li>
+          <li>
+            <div class="comment_user">
+              @@include('../inc/module_user.html')
+            </div>
+            <div class="comment_txt">
+              <textarea name="" id="" cols="30" rows="2" title="답글" placeholder="홍길동님에게 답글쓰기"></textarea>
+            </div>
+            <div class="comment_attach">
+              <button type="button">등록</button>
+            </div>            
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="comment_user">
+        @@include('../inc/module_user.html')
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="comment_txt">
+        <p>나는나는나는 꼬마 음악가~ 노래를 하는걸 좋아해<br />훌륭한 솜씨를 맘껏 보여줘 뽐내주세요~<br />랄랄라 랄랄라 랄랄라랄랄라</p>
+      </div>
+      <div class="comment_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+  </ul>
+  <div class="comment_write">
+    @@include('../inc/module_user.html')
+    <textarea name="" id="" cols="30" rows="2" title="코멘트 작성" placeholder="코멘트 작성"></textarea>
+    <div class="comment_attach">
+      <button type="button">등록</button>
+    </div>
+  </div>            
+</section>

@@ -240,12 +240,13 @@ $btn_gray:#979797;
 .btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;margin-top:5px;
   &>div{display:inline-block;position:relative;overflow:hidden;border-radius:3px;background:#ececec;cursor:pointer;transition:.2s;text-align:center;
     &:hover{background-color:#dbdbdb;
-      div{right:0;}
+      div,button{right:0;}
+      button{right:0;}
       p{padding-left:5px;padding-right:15px;}
     }
-    div{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
+    div,button{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
       &::after{@include fontello('\eb2e');font-size:12px;}
-    }
+    }    
     p{padding:2px 10px;color:#717889;transition:.3s;}
   }
 }

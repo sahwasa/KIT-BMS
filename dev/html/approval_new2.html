@@ -158,12 +158,10 @@
                       </span>
                       <div class="btn_slideclose">
                         <div>
-                          <p>유한아름</p>
-                          <div>삭제</div>
+                          <p>유한아름</p><button type="button">삭제</button>
                         </div>
                         <div>
-                          <p>임선</p>
-                          <div>삭제</div>
+                          <p>임선</p><button type="button">삭제</button>
                         </div>
                       </div>
                     </td>
@@ -302,6 +300,7 @@
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
             </div>
+            @@include('../inc/comment_area.html')
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -439,10 +438,6 @@
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
-              <!-- <span class="file_input">
-                <input type="file" id="form_file" class="multi" multiple>
-              </span> -->
-
               <div class="file_attach btn_attach">
                 <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
                 <div id="file-drop" class="drop_zone">
@@ -477,9 +472,18 @@
                     <label for="private">비공개</label>
                   </div>
                 </dd> 
-                <dt><label for="comment">코멘트</label></dt> 
-                <dd>
-                  <textarea name="" id="comment" cols="5" rows="5" class="full"></textarea>
+                <dt class="rel_doc">관련문서</dt>
+                <dd>                  
+                  <select id="" name="" title="문서종류">
+                    <option value="문서종류">휴일근무신청서</option>
+                  </select>
+                  <select id="" name="" title="관련문서 선택">
+                    <option value="문서1">23-04-17 휴일근무신청서</option>
+                    <option value="문서2">23-04-18 휴일근무신청서</option>
+                  </select>
+                  <label for="allDoc">
+                    <input type="checkbox" id="allDoc"> 전체문서 보기
+                  </label>
                 </dd>
               </dl>                           
             </section>

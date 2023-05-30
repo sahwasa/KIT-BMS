@@ -75,7 +75,7 @@ color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5
   }
 }
 
-@mixin ico_ext($x,$y) {display:inline-block;width:17px;height:17px;background:url(../images/ico_fileExt.png) #{$x} #{$y} no-repeat;margin:-4px 7px 0 0px;vertical-align:middle;font-size:0;overflow:hidden;text-indent:-9999px;}
+@mixin ico_ext($x,$y) {display:inline-block;width:17px;height:17px;background:url(../images/ico_fileExt.png) #{$x} #{$y} no-repeat;vertical-align:middle;font-size:0;overflow:hidden;text-indent:-9999px;}
 
 @mixin box_style($w_pd,$h_pd){background-color:#edf0f3;padding:$h_pd $w_pd;border-radius:5px;
   header{@include flex_between;margin-bottom:if($h_pd >= 20, 15px, 12px);}
