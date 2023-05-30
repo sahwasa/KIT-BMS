@@ -50,14 +50,14 @@
                 <table class="tbl_row">
                   <caption>결재 상황 테이블</caption>
                   <colgroup>
-                    <col style="width:70px;">
+                    <col style="width:30px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                   </colgroup>
                   <tbody>
                     <tr>
-                      <th scope="col" rowspan="3">결<br />재</th>
+                      <th scope="col" rowspan="3">결 재</th>
                       <th scope="col">멋쟁이</th>
                       <th scope="col">귀요미</th>
                       <th scope="col">귀요미</th>
@@ -82,14 +82,14 @@
                   <col style="width:auto">
                 </colgroup>
                 <tbody>
-                  <tr>
+                  <!-- <tr>
                     <th scope="row">
                       <label for="form_num" class="required">문서번호</label>
                     </th>
                     <td>
                       <input type="text" id="form_num" value="KIT-">
                     </td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <th scope="row">
                       <label for="form_project" class="required">프로젝트</label>
@@ -102,9 +102,8 @@
                         <select title="기관선택">
                           <option value="기관 선택">기관 선택</option>
                         </select>
-                        <select title="프로젝트 선택">
-                          <option value="프로젝트 선택">프로젝트 선택</option>
-                        </select>
+                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList">
+                        @@include('../inc/data_project_name.html')
                       </span>
                     </td>
                   </tr>
@@ -159,12 +158,10 @@
                       </span>
                       <div class="btn_slideclose">
                         <div>
-                          <p>유한아름</p>
-                          <div>삭제</div>
+                          <p>유한아름</p><button type="button">삭제</button>
                         </div>
                         <div>
-                          <p>임선</p>
-                          <div>삭제</div>
+                          <p>임선</p><button type="button">삭제</button>
                         </div>
                       </div>
                     </td>
@@ -303,6 +300,7 @@
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
             </div>
+            @@include('../inc/comment_area.html')
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -440,10 +438,6 @@
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
-              <!-- <span class="file_input">
-                <input type="file" id="form_file" class="multi" multiple>
-              </span> -->
-
               <div class="file_attach btn_attach">
                 <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
                 <div id="file-drop" class="drop_zone">
@@ -478,9 +472,18 @@
                     <label for="private">비공개</label>
                   </div>
                 </dd> 
-                <dt><label for="comment">코멘트</label></dt> 
-                <dd>
-                  <textarea name="" id="comment" cols="5" rows="5" class="full"></textarea>
+                <dt class="rel_doc">관련문서</dt>
+                <dd>                  
+                  <select id="" name="" title="문서종류">
+                    <option value="문서종류">휴일근무신청서</option>
+                  </select>
+                  <select id="" name="" title="관련문서 선택">
+                    <option value="문서1">23-04-17 휴일근무신청서</option>
+                    <option value="문서2">23-04-18 휴일근무신청서</option>
+                  </select>
+                  <label for="allDoc">
+                    <input type="checkbox" id="allDoc"> 전체문서 보기
+                  </label>
                 </dd>
               </dl>                           
             </section>

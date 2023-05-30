@@ -98,10 +98,8 @@
       <li><a href="">공개 문서함</a></li>
       <li><a href="">보관함</a>
         <button type="button" class="nav_btn_add">추가</button>
-        <ul class="sortable move_sortable hasLayer">
-          <li><a href="#">내 보관함</a></li>
-          <li><a href="#">회의록
-            <div class="layer_tool">
+        <ul class="sortable move_sortable hasLayer"><!--<li><a href="#">내보관함
+          <div class="layer_tool">
               <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
               <div class="btn_layer">
                 <button type="button" data-clickevt="modify">수정</button>
@@ -117,8 +115,7 @@
                 <button type="button" data-clickevt="del">삭제</button>
               </div>
             </div>
-          </a></li>
-        </ul>
+          </a></li>--></ul>
       </li>
     </ul>
   </div>
@@ -170,14 +167,14 @@
                 <table class="tbl_row">
                   <caption>결재 상황 테이블</caption>
                   <colgroup>
-                    <col style="width:70px;">
+                    <col style="width:30px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                     <col style="width:150px;">
                   </colgroup>
                   <tbody>
                     <tr>
-                      <th scope="col" rowspan="3">결<br />재</th>
+                      <th scope="col" rowspan="3">결 재</th>
                       <th scope="col">멋쟁이</th>
                       <th scope="col">귀요미</th>
                       <th scope="col">귀요미</th>
@@ -202,14 +199,14 @@
                   <col style="width:auto">
                 </colgroup>
                 <tbody>
-                  <tr>
+                  <!-- <tr>
                     <th scope="row">
                       <label for="form_num" class="required">문서번호</label>
                     </th>
                     <td>
                       <input type="text" id="form_num" value="KIT-">
                     </td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <th scope="row">
                       <label for="form_project" class="required">프로젝트</label>
@@ -222,9 +219,12 @@
                         <select title="기관선택">
                           <option value="기관 선택">기관 선택</option>
                         </select>
-                        <select title="프로젝트 선택">
-                          <option value="프로젝트 선택">프로젝트 선택</option>
-                        </select>
+                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList">
+                        <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
                       </span>
                     </td>
                   </tr>
@@ -292,12 +292,10 @@
                       </span>
                       <div class="btn_slideclose">
                         <div>
-                          <p>유한아름</p>
-                          <div>삭제</div>
+                          <p>유한아름</p><button type="button">삭제</button>
                         </div>
                         <div>
-                          <p>임선</p>
-                          <div>삭제</div>
+                          <p>임선</p><button type="button">삭제</button>
                         </div>
                       </div>
                     </td>
@@ -436,6 +434,108 @@
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
             </div>
+            <section class="comment_area">
+  <header>
+    <h1>코멘트</h1>
+  </header>
+  <ul class="comment_lst">
+    <li>
+      <div class="comment_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+      </div>
+      <div class="comment_txt">
+        <p>승인합니다.</p>
+      </div>
+      <div class="comment_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+    <li>
+      <div class="comment_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+      </div>
+      <div class="comment_txt">
+        <p>반려합니다.</p>
+      </div>
+      <div class="comment_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+      <div class="reply_area">
+        <ul>
+          <li>
+            <div class="comment_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="comment_txt">
+              <p>왜요?</p>
+            </div>
+            <div class="comment_info">
+              <span class="date">2023-05-23 11:35</span>
+              <button type="button">답글</button>
+            </div>
+          </li>
+          <li>
+            <div class="comment_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="comment_txt">
+              <textarea name="" id="" cols="30" rows="2" title="답글" placeholder="홍길동님에게 답글쓰기"></textarea>
+            </div>
+            <div class="comment_attach">
+              <button type="button">등록</button>
+            </div>            
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="comment_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="comment_txt">
+        <p>나는나는나는 꼬마 음악가~ 노래를 하는걸 좋아해<br />훌륭한 솜씨를 맘껏 보여줘 뽐내주세요~<br />랄랄라 랄랄라 랄랄라랄랄라</p>
+      </div>
+      <div class="comment_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+  </ul>
+  <div class="comment_write">
+    <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    <textarea name="" id="" cols="30" rows="2" title="코멘트 작성" placeholder="코멘트 작성"></textarea>
+    <div class="comment_attach">
+      <button type="button">등록</button>
+    </div>
+  </div>            
+</section>
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -599,10 +699,6 @@
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
-              <!-- <span class="file_input">
-                <input type="file" id="form_file" class="multi" multiple>
-              </span> -->
-
               <div class="file_attach btn_attach">
                 <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
                 <div id="file-drop" class="drop_zone">
@@ -637,9 +733,18 @@
                     <label for="private">비공개</label>
                   </div>
                 </dd> 
-                <dt><label for="comment">코멘트</label></dt> 
-                <dd>
-                  <textarea name="" id="comment" cols="5" rows="5" class="full"></textarea>
+                <dt class="rel_doc">관련문서</dt>
+                <dd>                  
+                  <select id="" name="" title="문서종류">
+                    <option value="문서종류">휴일근무신청서</option>
+                  </select>
+                  <select id="" name="" title="관련문서 선택">
+                    <option value="문서1">23-04-17 휴일근무신청서</option>
+                    <option value="문서2">23-04-18 휴일근무신청서</option>
+                  </select>
+                  <label for="allDoc">
+                    <input type="checkbox" id="allDoc"> 전체문서 보기
+                  </label>
                 </dd>
               </dl>                           
             </section>
