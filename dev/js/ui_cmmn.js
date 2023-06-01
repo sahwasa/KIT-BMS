@@ -8,7 +8,6 @@ $(function () {
     deps1Locate,
     deps2Locate,
     indexDeps1,
-    getDeps,
     indexDeps2,
     locate = window.location.href
 
@@ -21,8 +20,6 @@ $(function () {
         .children('a')
         .attr('href', getAttr + '?index=' + index + ',1')
       indexDeps2 = $(this).find($deps2)
-
-      getDeps = $(this).children('a').attr('href')
       indexDeps2.each(function (index2, item) {
         getAttr = $(this).children('a').attr('href')
         index2 += 1
@@ -339,10 +336,6 @@ $(function () {
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
-
-  
-
-
 });
   
   
