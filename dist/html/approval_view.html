@@ -80,12 +80,12 @@
       </ul>
     </div>
     <ul class="snb_lst">
-      <li><a href="">결재 상신함</a>
+      <li><a href="/html/approval_outbox.html">결재 상신함</a>
         <ul>
-          <li><a href="#">결재진행</a></li>
-          <li><a href="#">결재완료</a></li>
-          <li><a href="#">반려문서</a></li>
-          <li><a href="#">임시저장</a></li>
+          <li><a href="/html/approval_outbox.html">결재진행</a></li>
+          <li><a href="/html/approval_outbox.html">결재완료</a></li>
+          <li><a href="/html/approval_outbox.html">반려문서</a></li>
+          <li><a href="/html/approval_outbox.html">임시저장</a></li>
         </ul>        
       </li>
       <li><a href="/html/approval_inbox.html">결재 수신함</a>
@@ -187,7 +187,7 @@
                   </tr>
                   <tr>
                     <th scope="row">휴가종류</th>
-                    <td>하기휴가</td>
+                    <td>연차</td>
                   </tr>
                   <tr>
                     <th scope="row">휴가기간</th>
@@ -210,68 +210,53 @@
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
             </div>
-            <section class="comment_area">
+            <section class="cmt_area">
   <header>
-    <h1>코멘트</h1>
+    <h1>댓글</h1>
   </header>
-  <ul class="comment_lst">
+  <ul class="cmt_lst">
     <li>
-      <div class="comment_user">
+      <div class="cmt_user">
         <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
       </div>
-      <div class="comment_txt">
-        <p>승인합니다.</p>
-      </div>
-      <div class="comment_info">
-        <span class="date">2023-05-23 11:35</span>
-        <button type="button">답글</button>
-      </div>
-    </li>
-    <li>
-      <div class="comment_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-      </div>
-      <div class="comment_txt">
+      <div class="cmt_txt">
         <p>반려합니다.</p>
       </div>
-      <div class="comment_info">
+      <div class="cmt_info">
         <span class="date">2023-05-23 11:35</span>
         <button type="button">답글</button>
       </div>
       <div class="reply_area">
         <ul>
           <li>
-            <div class="comment_user">
+            <div class="cmt_user">
               <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
             </div>
-            <div class="comment_txt">
+            <div class="cmt_txt">
               <p>왜요?</p>
             </div>
-            <div class="comment_info">
+            <div class="cmt_info">
               <span class="date">2023-05-23 11:35</span>
               <button type="button">답글</button>
             </div>
           </li>
           <li>
-            <div class="comment_user">
+            <div class="cmt_user">
               <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
             </div>
-            <div class="comment_txt">
+            <div class="cmt_txt">
               <textarea name="" id="" cols="30" rows="2" title="답글" placeholder="홍길동님에게 답글쓰기"></textarea>
             </div>
-            <div class="comment_attach">
+            <div class="cmt_attach">
               <button type="button">등록</button>
             </div>            
           </li>
@@ -279,7 +264,7 @@
       </div>
     </li>
     <li>
-      <div class="comment_user">
+      <div class="cmt_user">
         <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
@@ -292,22 +277,29 @@
           </div>
         </div>
       </div>
-      <div class="comment_txt">
-        <p>나는나는나는 꼬마 음악가~ 노래를 하는걸 좋아해<br />훌륭한 솜씨를 맘껏 보여줘 뽐내주세요~<br />랄랄라 랄랄라 랄랄라랄랄라</p>
+      <div class="cmt_txt">
+        <p>
+          이 댓글은 로그인한 사람이 작성한 글입니다.<br />
+          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br />
+          댓글이 없을 때는 아래와 같이 보여줍니다.  
+        </p>
       </div>
-      <div class="comment_info">
+      <div class="cmt_info">
         <span class="date">2023-05-23 11:35</span>
         <button type="button">답글</button>
       </div>
     </li>
+    <li>
+      작성된 댓글이 없습니다.
+    </li>
   </ul>
-  <div class="comment_write">
+  <div class="cmt_write">
     <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-    <textarea name="" id="" cols="30" rows="2" title="코멘트 작성" placeholder="코멘트 작성"></textarea>
-    <div class="comment_attach">
+    <textarea name="" id="" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea>
+    <div class="cmt_attach">
       <button type="button">등록</button>
     </div>
   </div>            
@@ -322,21 +314,30 @@
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-                  <p class="appr_result">2023-02-10 10:00 기안</p>
+                  <p class="review_txt">빠른 검토 부탁드려요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="draft">기안</b></p>
                 </li>
                 <li>
                   <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-                  <p class="appr_result">2023-02-10 10:00 반려</p>
+                  <p class="review_txt">연차가 아닌 대체휴가로 올리세요.<br />관련문서는 날자 확인해주시구요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
                 </li>
                 <li>
                   <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-                  <p class="appr_result">2023-02-10 10:00 승인</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="approve">승인</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="appr_result">2023-02-10 10:00 <b class="agree">합의</b></p>
                 </li>
               </ul>
             </section>
@@ -361,21 +362,36 @@
                 <button type="button" class="btn_default">추가</button>
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
               </span>
-              <div class="btn_slideclose">
-                <div>
-                  <p title="SI사업본부">박상건</p><button type="button">삭제</button>
-                </div>
-                <div>
-                  <p>유한아름</p><button type="button">삭제</button></div>
-                <div>
-                  <p>임선</p><button type="button">삭제</button>
-                </div>
-              </div>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
             </section>
             <section class="box_default_w">              
               <h1>첨부파일</h1>
               <div class="file_attached">
                 <ul class="attach_list">
+                  <li>- 첨부된 파일이 없습니다.</li>
                   <li>
                     <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
                     <a href="#" target="_blank" class="preview">미리보기</a>
@@ -425,6 +441,7 @@
     </section>
   </main>
   <footer class="footer">
+  <strong class="connect">관리자 연락처 010-1234-5678</strong>
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>

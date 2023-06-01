@@ -41,6 +41,7 @@ $skyblue:#05b4d9;
 $blue:#2974e4;
 $yellow:#ff9702;
 $gray:#999;
+$green:#3eb156;
 
 // font
 .t{
@@ -238,17 +239,23 @@ $btn_gray:#979797;
 .period_group{@include btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
 
 .btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;margin-top:5px;
-  &>div{display:inline-block;position:relative;overflow:hidden;border-radius:3px;background:#ececec;cursor:pointer;transition:.2s;text-align:center;
-    &:hover{background-color:#dbdbdb;
-      div,button{right:0;}
-      button{right:0;}
-      p{padding-left:5px;padding-right:15px;}
-    }
-    div,button{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
-      &::after{@include fontello('\eb2e');font-size:12px;}
+  & > li{display:inline-block;position:relative;
+    & > div:first-child{position:relative;background:#ececec;border-radius:3px;overflow:hidden;
+      button{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
+        &::after{@include fontello('\eb2e');font-size:12px;}
+      }
+      p{padding:2px 10px;color:#717889;transition:.3s;}
+      &:hover{background-color:#dbdbdb;
+        button{right:0;}
+        p{padding-left:5px;padding-right:15px;}
+      }
     }    
-    p{padding:2px 10px;color:#717889;transition:.3s;}
+    &:hover{.tooltip{visibility:visible;}}
   }
+}
+
+.tooltip{position:absolute;top:calc(100% + 10px);left:0;background-color:$white;padding:5px 10px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
+  *{flex-shrink:0;}
 }
 
 // search
@@ -295,7 +302,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 .tbl_row{border:2px solid $th_border_color;border-width:2px 0;font-size:13px;
   th,
   td{height:37px;padding:3px 7px;border:1px solid $td_border_color;text-align:left;word-break:keep-all;vertical-align:middle;
-    ul{@include flex_between;justify-content:flex-start;
+    .check_group{@include flex_between;justify-content:flex-start;
       li{margin-right:10px;}
       *{align-self:center;vertical-align:middle;}
     }
@@ -320,6 +327,11 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   &::-webkit-scrollbar{width:17px;background: transparent;}
   &::-webkit-scrollbar-thumb{background-color:#e5e6e8;border-radius:10px;background-clip:padding-box;border:5px solid transparent;}
   &::-webkit-scrollbar-track {background:#fff;}
+}
+.cmt_num{color:$red;font-weight:bold;margin-left:5px;
+  $cmtmargin : 2px;
+  &::before{content:"[";margin-right:$cmtmargin;}
+  &::after{content:"]";margin-left:$cmtmargin;}
 }
 .layer_tool{position:relative;
   .btn_ellipsis{@include ico_only;
@@ -457,6 +469,34 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     & > span{flex-grow:1;line-height:1.4;}
   }
 }
+.cmt_area{margin-top:30px;padding:20px 0;
+  .cmt_lst > li{border-bottom:1px solid #ccc;padding:15px 0;}
+  .cmt_txt{padding-left:22px;margin-top:10px;
+    p{border:1px solid #ccc;border-radius:3px;padding:5px;background-color:#f9fafc;}
+  }
+  .cmt_user{position:relative;
+    .layer_tool{position:absolute;right:5px;top:0;}
+    .btn_ellipsis::before{font-size:17px;color:#888;}
+  }
+  .cmt_info{padding-left:22px;font-size:11px;color:#666;margin-top:5px;}
+  textarea{padding:5px;min-height:fit-content;}
+  button:hover{text-decoration:underline;}
+}
+.reply_area{padding:10px 10px 10px 42px;margin-top:10px;background-color:#f5f5f5;
+  li{position:relative;border-top:1px solid #ccc;padding:10px 0;
+    &::before{position:absolute;left:-15px;top:10px;@include shape(10px,12px);border:1px solid #aaa;border-width:0 0 1px 1px;}
+    &:first-child{border-top-width:0;}
+  }  
+}
+.cmt_write{margin-top:30px;border:2px solid #ccc;padding:10px;border-radius:5px;
+  textarea{min-height:none;border:none;margin-top:5px;}
+}
+.cmt_attach{text-align:right;margin-top:5px;
+  button{font-weight:bold;color:#888;padding:5px;
+    &:hover{color:#666;}
+  }
+}
+
 /* ico_fileName Extention */
 .ext_bmp{@include ico_ext(-3px, -2px);}
 .ext_jpg{@include ico_ext(-23px, -2px);}

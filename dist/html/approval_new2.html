@@ -80,12 +80,12 @@
       </ul>
     </div>
     <ul class="snb_lst">
-      <li><a href="">결재 상신함</a>
+      <li><a href="/html/approval_outbox.html">결재 상신함</a>
         <ul>
-          <li><a href="#">결재진행</a></li>
-          <li><a href="#">결재완료</a></li>
-          <li><a href="#">반려문서</a></li>
-          <li><a href="#">임시저장</a></li>
+          <li><a href="/html/approval_outbox.html">결재진행</a></li>
+          <li><a href="/html/approval_outbox.html">결재완료</a></li>
+          <li><a href="/html/approval_outbox.html">반려문서</a></li>
+          <li><a href="/html/approval_outbox.html">임시저장</a></li>
         </ul>        
       </li>
       <li><a href="/html/approval_inbox.html">결재 수신함</a>
@@ -157,7 +157,7 @@
                       <label for="form_num" class="required">제목</label>
                     </th>
                     <td>
-                      <input type="text" id="form_num" value="KIT-">
+                      <input type="text" id="form_num" value="OOO기관 출장복명서">
                     </td>
                   </tr>
                 </tbody>
@@ -175,9 +175,9 @@
                   <tbody>
                     <tr>
                       <th scope="col" rowspan="3">결 재</th>
-                      <th scope="col">멋쟁이</th>
-                      <th scope="col">귀요미</th>
-                      <th scope="col">귀요미</th>
+                      <th scope="col"><strong>상신</strong> 조아핑</th>
+                      <th scope="col"><strong>결재</strong> 퇴근핑</th>
+                      <th scope="col"><strong>합의</strong> 방글핑</th>
                     </tr>
                     <tr>
                       <td></td>
@@ -185,9 +185,9 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
                     </tr>
                   </tbody>
                 </table>
@@ -233,7 +233,7 @@
                       <label for="form_businesstrip" class="required">출장구분</label>
                     </th>
                     <td>
-                      <ul>
+                      <ul class="check_group">
                         <li>
                           <input type="radio" id="form_businesstrip" name="form_businesstrip" checked>
                           <label for="form_businesstrip">국내출장</label>
@@ -290,14 +290,30 @@
                         <button type="button" class="btn_default">추가</button>
                         <button type="button" class="btn_ogt">조직도</button>
                       </span>
-                      <div class="btn_slideclose">
-                        <div>
-                          <p>유한아름</p><button type="button">삭제</button>
-                        </div>
-                        <div>
-                          <p>임선</p><button type="button">삭제</button>
-                        </div>
-                      </div>
+                      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
                     </td>
                   </tr>
                   <tr>
@@ -360,8 +376,7 @@
                         <colgroup>
                           <col style="width:150px;">
                           <col style="width:auto;">
-                          <col style="width:200px;">
-                          <col style="width:200px;">
+                          <col span="2" style="width:200px;">
                         </colgroup>
                         <tbody>
                           <tr>
@@ -434,68 +449,53 @@
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
             </div>
-            <section class="comment_area">
+            <section class="cmt_area">
   <header>
-    <h1>코멘트</h1>
+    <h1>댓글</h1>
   </header>
-  <ul class="comment_lst">
+  <ul class="cmt_lst">
     <li>
-      <div class="comment_user">
+      <div class="cmt_user">
         <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
       </div>
-      <div class="comment_txt">
-        <p>승인합니다.</p>
-      </div>
-      <div class="comment_info">
-        <span class="date">2023-05-23 11:35</span>
-        <button type="button">답글</button>
-      </div>
-    </li>
-    <li>
-      <div class="comment_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-      </div>
-      <div class="comment_txt">
+      <div class="cmt_txt">
         <p>반려합니다.</p>
       </div>
-      <div class="comment_info">
+      <div class="cmt_info">
         <span class="date">2023-05-23 11:35</span>
         <button type="button">답글</button>
       </div>
       <div class="reply_area">
         <ul>
           <li>
-            <div class="comment_user">
+            <div class="cmt_user">
               <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
             </div>
-            <div class="comment_txt">
+            <div class="cmt_txt">
               <p>왜요?</p>
             </div>
-            <div class="comment_info">
+            <div class="cmt_info">
               <span class="date">2023-05-23 11:35</span>
               <button type="button">답글</button>
             </div>
           </li>
           <li>
-            <div class="comment_user">
+            <div class="cmt_user">
               <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
             </div>
-            <div class="comment_txt">
+            <div class="cmt_txt">
               <textarea name="" id="" cols="30" rows="2" title="답글" placeholder="홍길동님에게 답글쓰기"></textarea>
             </div>
-            <div class="comment_attach">
+            <div class="cmt_attach">
               <button type="button">등록</button>
             </div>            
           </li>
@@ -503,7 +503,7 @@
       </div>
     </li>
     <li>
-      <div class="comment_user">
+      <div class="cmt_user">
         <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
@@ -516,22 +516,29 @@
           </div>
         </div>
       </div>
-      <div class="comment_txt">
-        <p>나는나는나는 꼬마 음악가~ 노래를 하는걸 좋아해<br />훌륭한 솜씨를 맘껏 보여줘 뽐내주세요~<br />랄랄라 랄랄라 랄랄라랄랄라</p>
+      <div class="cmt_txt">
+        <p>
+          이 댓글은 로그인한 사람이 작성한 글입니다.<br />
+          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br />
+          댓글이 없을 때는 아래와 같이 보여줍니다.  
+        </p>
       </div>
-      <div class="comment_info">
+      <div class="cmt_info">
         <span class="date">2023-05-23 11:35</span>
         <button type="button">답글</button>
       </div>
     </li>
+    <li>
+      작성된 댓글이 없습니다.
+    </li>
   </ul>
-  <div class="comment_write">
+  <div class="cmt_write">
     <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-    <textarea name="" id="" cols="30" rows="2" title="코멘트 작성" placeholder="코멘트 작성"></textarea>
-    <div class="comment_attach">
+    <textarea name="" id="" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea>
+    <div class="cmt_attach">
       <button type="button">등록</button>
     </div>
   </div>            
@@ -682,20 +689,30 @@
                 <button type="button" class="btn_default">추가</button>
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
               </span>
-              <div class="btn_slideclose">
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>유한아름</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>임선</p>
-                  <div>삭제</div>
-                </div>
-              </div>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
@@ -727,24 +744,18 @@
                 <dt>공개여부</dt>
                 <dd>
                   <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure" checked="">
+                    <input type="radio" id="open" name="disclosure">
                     <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure">
+                    <input type="radio" id="private" name="disclosure" checked>
                     <label for="private">비공개</label>
                   </div>
                 </dd> 
                 <dt class="rel_doc">관련문서</dt>
-                <dd>                  
-                  <select id="" name="" title="문서종류">
-                    <option value="문서종류">휴일근무신청서</option>
-                  </select>
-                  <select id="" name="" title="관련문서 선택">
-                    <option value="문서1">23-04-17 휴일근무신청서</option>
-                    <option value="문서2">23-04-18 휴일근무신청서</option>
-                  </select>
-                  <label for="allDoc">
-                    <input type="checkbox" id="allDoc"> 전체문서 보기
-                  </label>
+                <dd>
+                  <div class="file_input">
+                    <input type="text" />
+                    <button type="button" class="btn_default">검색</button>
+                  </div>                  
                 </dd>
               </dl>                           
             </section>
@@ -754,6 +765,7 @@
     </section>
   </main>
   <footer class="footer">
+  <strong class="connect">관리자 연락처 010-1234-5678</strong>
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>

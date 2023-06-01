@@ -1,12 +1,12 @@
 @import "./variables";
 
 @mixin mobile_only {
-  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+  @media (max-width: #{$breakpoint-mobile}) {
     @content;
   }
 }
 @mixin mobile_tablet {
-  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+  @media (min-width: #{$breakpoint-mobile_tablet}) and (max-width: #{$breakpoint-tablet - 1px}) {
     @content;
   }
 }
@@ -38,6 +38,12 @@
 
 @mixin f_blind{
   font-size:0!important;line-height:0;color:transparent!important;overflow:hidden;
+}
+
+@mixin alignL($numbers){
+  @each $num in $numbers{
+   &:nth-of-type(#{$num}){text-align:left;}
+  } 
 }
 
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}

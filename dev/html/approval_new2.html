@@ -40,7 +40,7 @@
                       <label for="form_num" class="required">제목</label>
                     </th>
                     <td>
-                      <input type="text" id="form_num" value="KIT-">
+                      <input type="text" id="form_num" value="OOO기관 출장복명서">
                     </td>
                   </tr>
                 </tbody>
@@ -58,9 +58,9 @@
                   <tbody>
                     <tr>
                       <th scope="col" rowspan="3">결 재</th>
-                      <th scope="col">멋쟁이</th>
-                      <th scope="col">귀요미</th>
-                      <th scope="col">귀요미</th>
+                      <th scope="col"><strong>상신</strong> 조아핑</th>
+                      <th scope="col"><strong>결재</strong> 퇴근핑</th>
+                      <th scope="col"><strong>합의</strong> 방글핑</th>
                     </tr>
                     <tr>
                       <td></td>
@@ -68,9 +68,9 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
                     </tr>
                   </tbody>
                 </table>
@@ -112,7 +112,7 @@
                       <label for="form_businesstrip" class="required">출장구분</label>
                     </th>
                     <td>
-                      <ul>
+                      <ul class="check_group">
                         <li>
                           <input type="radio" id="form_businesstrip" name="form_businesstrip" checked>
                           <label for="form_businesstrip">국내출장</label>
@@ -156,14 +156,7 @@
                         <button type="button" class="btn_default">추가</button>
                         <button type="button" class="btn_ogt">조직도</button>
                       </span>
-                      <div class="btn_slideclose">
-                        <div>
-                          <p>유한아름</p><button type="button">삭제</button>
-                        </div>
-                        <div>
-                          <p>임선</p><button type="button">삭제</button>
-                        </div>
-                      </div>
+                      @@include('../inc/module_slide_user.html')
                     </td>
                   </tr>
                   <tr>
@@ -226,8 +219,7 @@
                         <colgroup>
                           <col style="width:150px;">
                           <col style="width:auto;">
-                          <col style="width:200px;">
-                          <col style="width:200px;">
+                          <col span="2" style="width:200px;">
                         </colgroup>
                         <tbody>
                           <tr>
@@ -421,20 +413,7 @@
                 <button type="button" class="btn_default">추가</button>
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
               </span>
-              <div class="btn_slideclose">
-                <div>
-                  <p>박상건</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>유한아름</p>
-                  <div>삭제</div>
-                </div>
-                <div>
-                  <p>임선</p>
-                  <div>삭제</div>
-                </div>
-              </div>
+              @@include('../inc/module_slide_user.html')
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
@@ -466,24 +445,18 @@
                 <dt>공개여부</dt>
                 <dd>
                   <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure" checked="">
+                    <input type="radio" id="open" name="disclosure">
                     <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure">
+                    <input type="radio" id="private" name="disclosure" checked>
                     <label for="private">비공개</label>
                   </div>
                 </dd> 
                 <dt class="rel_doc">관련문서</dt>
-                <dd>                  
-                  <select id="" name="" title="문서종류">
-                    <option value="문서종류">휴일근무신청서</option>
-                  </select>
-                  <select id="" name="" title="관련문서 선택">
-                    <option value="문서1">23-04-17 휴일근무신청서</option>
-                    <option value="문서2">23-04-18 휴일근무신청서</option>
-                  </select>
-                  <label for="allDoc">
-                    <input type="checkbox" id="allDoc"> 전체문서 보기
-                  </label>
+                <dd>
+                  <div class="file_input">
+                    <input type="text" />
+                    <button type="button" class="btn_default">검색</button>
+                  </div>                  
                 </dd>
               </dl>                           
             </section>

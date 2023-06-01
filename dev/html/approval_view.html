@@ -70,7 +70,7 @@
                   </tr>
                   <tr>
                     <th scope="row">휴가종류</th>
-                    <td>하기휴가</td>
+                    <td>연차</td>
                   </tr>
                   <tr>
                     <th scope="row">휴가기간</th>
@@ -101,15 +101,21 @@
               <ul class="appr_path">
                 <li>
                   @@include('../inc/module_user.html')
-                  <p class="appr_result">2023-02-10 10:00 기안</p>
+                  <p class="review_txt">빠른 검토 부탁드려요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="draft">기안</b></p>
                 </li>
                 <li>
                   @@include('../inc/module_user.html')
-                  <p class="appr_result">2023-02-10 10:00 반려</p>
+                  <p class="review_txt">연차가 아닌 대체휴가로 올리세요.<br />관련문서는 날자 확인해주시구요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
                 </li>
                 <li>
                   @@include('../inc/module_user.html')
-                  <p class="appr_result">2023-02-10 10:00 승인</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="approve">승인</b></p>
+                </li>
+                <li>
+                  @@include('../inc/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00 <b class="agree">합의</b></p>
                 </li>
               </ul>
             </section>
@@ -121,21 +127,13 @@
                 <button type="button" class="btn_default">추가</button>
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
               </span>
-              <div class="btn_slideclose">
-                <div>
-                  <p title="SI사업본부">박상건</p><button type="button">삭제</button>
-                </div>
-                <div>
-                  <p>유한아름</p><button type="button">삭제</button></div>
-                <div>
-                  <p>임선</p><button type="button">삭제</button>
-                </div>
-              </div>
+              @@include('../inc/module_slide_user.html')
             </section>
             <section class="box_default_w">              
               <h1>첨부파일</h1>
               <div class="file_attached">
                 <ul class="attach_list">
+                  <li>- 첨부된 파일이 없습니다.</li>
                   <li>
                     <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
                     <a href="#" target="_blank" class="preview">미리보기</a>

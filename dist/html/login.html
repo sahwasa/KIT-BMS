@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="login_join_wrap">
+  <main id="content" class="login">
+    <header>
+      <h1 class="logo">케이아이티밸리</h1>
+    </header>
+    <section class="cont_body pannel">
+      <h2>업무관리 시스템(임직원용)</h2>
+      <div class="ipt_wrap">
+        <div class="ipt_box">
+          <input type="text" title="ID" placeholder="아이디" />
+          <button type="button" class="btn_clear">입력내용지우기</button>
+        </div>
+        <div class="ipt_box">
+          <input type="password" title="password" placeholder="패스워드">
+          <button type="button" class="btn_clear">입력내용지우기</button>
+        </div>
+        <div class="set_login">
+          <label for="remember_id"><input type="checkbox" id="remember_id">아이디 기억하기</label>
+          <label for="keep_login"><input type="checkbox" id="keep_login">로그인 유지</label>
+        </div>
+        <button type="submit" class="btn_login">로그인</button>        
+      </div>
+      <div class="login_link">
+        <a href="">회원가입</a>
+        <ul>
+          <li><a href="">아이디 찾기</a></li>
+          <li><a href="">비밀번호 찾기</a></li>
+        </ul>
+      </div>
+    </section>    
+    <footer class="footer">
+  <strong class="connect">관리자 연락처 010-1234-5678</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+  </main>
+</div>
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jquery-ui.min.js"></script>
+<script src="../plugins/jquery.MultiFile.js"></script>
+<script src="../plugins/ckeditor5/ckeditor.js"></script>
+<script src="../plugins/ckeditor5/editor.js" type="module"></script>
+<script src="../js/ui_cmmn.js"></script>
+<script src="../js/file_upload.js"></script>
+</body>
+</html>
+<script>
+$(function(){
+  const iptBox = $('.ipt_box');
+  function clearView(ipt){
+    const btnClear = ipt.next('.btn_clear');
+    (ipt.val() === "") ? btnClear.css('visibility','hidden') : btnClear.css('visibility','visible');
+  }
+  iptBox.on('keyup','input', function(){
+    clearView($(this));
+  })
+  iptBox.each(function() {
+    clearView($(this).find('input'));
+  });
+  iptBox.on('click','.btn_clear',function(){
+    $(this).prev('input').val("");
+  })
+})
+</script>
