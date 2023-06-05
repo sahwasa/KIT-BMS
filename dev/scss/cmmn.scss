@@ -61,6 +61,9 @@ $tit_spacing:.45px;
   &R{float:right !important;}
 }
 
+.att::before{@include fontello('\e876');margin-right:10px;}
+.info::before{@include fontello('\eaf1');margin-right:3px;}
+
 //ipt custom
 select,
 textarea,
