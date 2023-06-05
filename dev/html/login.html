@@ -6,48 +6,86 @@
     </header>
     <section class="cont_body pannel">
       <h2>업무관리 시스템(임직원용)</h2>
-      <div class="ipt_wrap">
-        <div class="ipt_box">
-          <input type="text" title="ID" placeholder="아이디" />
-          <button type="button" class="btn_clear">입력내용지우기</button>
+      <article class="login_step01">
+        <div class="ipt_wrap">
+          <div class="ipt_box">
+            <input type="text" title="ID" placeholder="아이디" />
+            <button type="button" class="btn_clear">입력내용지우기</button>
+          </div>
+          <div class="ipt_box">
+            <input type="password" title="password" placeholder="패스워드">
+            <button type="button" class="btn_clear">입력내용지우기</button>
+          </div>
+          <div class="set_login">
+            <label for="remember_id"><input type="checkbox" id="remember_id">아이디 기억하기</label>
+            <label for="keep_login"><input type="checkbox" id="keep_login">로그인 유지</label>
+          </div>
+          <ul class="btn_lst">
+            <li><button type="submit" class="btn_login">로그인</button></li>
+          </ul>
         </div>
-        <div class="ipt_box">
-          <input type="password" title="password" placeholder="패스워드">
-          <button type="button" class="btn_clear">입력내용지우기</button>
+        <div class="login_link">
+          <a href="">회원가입</a>
+          <ul>
+            <li><a href="">아이디 찾기</a></li>
+            <li><a href="">비밀번호 찾기</a></li>
+          </ul>
         </div>
-        <div class="set_login">
-          <label for="remember_id"><input type="checkbox" id="remember_id">아이디 기억하기</label>
-          <label for="keep_login"><input type="checkbox" id="keep_login">로그인 유지</label>
+      </article>
+
+      <article class="login_step02">
+        <div class="auth">
+          <p class="att"><em>외부에서 접속</em>을 시도한 것이 확인되어 <em>인증 절차를 시작</em>합니다.</p>
+          <button type="button">인증번호 요청</button>
+          <p><b>010-****-1234</b> 번호로 메시지가 전송되었습니다.<br />전송된 인증번호를 입력해주세요.</p>
         </div>
-        <button type="submit" class="btn_login">로그인</button>        
-      </div>
-      <div class="login_link">
-        <a href="">회원가입</a>
-        <ul>
-          <li><a href="">아이디 찾기</a></li>
-          <li><a href="">비밀번호 찾기</a></li>
+        <div class="ipt_wrap">
+          <div class="ipt_box">
+            <input type="number" placeholder="인증번호 입력" title="인증번호" />
+            <button type="button" class="btn_clear">입력내용지우기</button>
+            <div class="re_wrap">
+              <strong class="t_red">3:30</strong>
+              <button type="button" class="re_code">재요청</button>
+            </div>
+          </div>
+          <ul class="btn_lst">
+            <li><button type="button" class="btn_login">확인</button></li>
+            <li><button type="button" class="btn_default">취소</button></li>
+          </ul>
+        </div>
+        <p class="info">휴대폰 번호가 변경되었다면 관리자에게 문의해 주세요.</p>
+      </article>
+
+      <article class="login_step03">
+        <div class="auth">
+          <h1>본인인증 실패</h1>
+          <p class="info">인증을 실패하였습니다. 문제가 지속되면 관리자에게 문의해 주세요.</p>
+        </div>
+        <ul class="btn_lst">
+          <li><button type="button" class="btn_login">재시도</button></li>
+          <li><button type="button" class="btn_default">취소</button></li>
         </ul>
-      </div>
-    </section>    
+      </article>
+    </section>
     @@include('../inc/footer.html')
   </main>
 </div>
 @@include('../inc/script.html')
 <script>
-$(function(){
-  const iptBox = $('.ipt_box');
-  function clearView(ipt){
-    const btnClear = ipt.next('.btn_clear');
-    (ipt.val() === "") ? btnClear.css('visibility','hidden') : btnClear.css('visibility','visible');
-  }
-  iptBox.on('keyup','input', function(){
-    clearView($(this));
+  $(function () {
+    const iptBox = $('.ipt_box');
+    function clearView(ipt) {
+      const btnClear = ipt.next('.btn_clear');
+      (ipt.val() === "") ? btnClear.css('visibility', 'hidden') : btnClear.css('visibility', 'visible');
+    }
+    iptBox.on('keyup focusout', 'input', function () {
+      clearView($(this));
+    })
+    iptBox.each(function () {
+      clearView($(this).find('input'));
+    });
+    iptBox.on('click', '.btn_clear', function () {
+      $(this).css('visibility', 'hidden').prev('input').val("");
+    })
   })
-  iptBox.each(function() {
-    clearView($(this).find('input'));
-  });
-  iptBox.on('click','.btn_clear',function(){
-    $(this).prev('input').val("");
-  })
-})
 </script>
