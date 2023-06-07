@@ -1,0 +1,188 @@
+@@include('../inc/top.html')
+<div id="wrap" class="login_join_wrap">
+  <main id="content" class="join">
+    <ul class="tab" style="position:fixed;z-index:1;bottom:0;left:0;">
+      <li class="on"><a href="#tab01">기본정보</a></li>
+      <li><a href="#tab02">주소 및 연락처</a></li>
+      <li><a href="#tab03">프로필 정보</a></li>
+      <li><a href="#tab04">회원가입 완료</a></li>
+    </ul>
+    <header>
+      <h1 class="logo">케이아이티밸리</h1>
+    </header>
+    <section class="cont_body">
+      <div id="tab01" class="tab_contents">
+        <h2>기본 정보를 입력해 주세요</h2>
+        <ul class="join_step">
+          <li class="join_step_cur">기본정보 단계</li>
+          <li>연락망 단계</li>
+          <li>프로필정보 단계</li>
+          <li>가입완료 단계</li>
+        </ul>
+        <div class="ipt_wrap">
+          <div class="ipt_box">
+            <label for="join_ID">아이디</label>
+            <div class="ipt_box">
+              <p class="join_info">사용 가능한 아이디입니다.</p>
+              <input type="text" id="join_ID" placeholder="아이디 입력" value="kitvalley1234">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+              <button type="button" class="btn_dplc">중복확인</button>
+            </div>
+          </div>
+          <div class="ipt_box">
+            <label for="join_PW">패스워드</label>
+            <div class="ipt_box">
+              <input type="password" id="join_PW" placeholder="패스워드 입력(영문,숫자 혼용  6자리 이상)">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+            <div class="ipt_box">
+              <p class="join_info warn">패스워드가 일치하지 않습니다. 다시 한 번 확인해 주세요.</p>
+              <input type="password" title="패스워드 재확인" placeholder="패스워드 재확인">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+          </div>
+          <div class="ipt_box">
+            <label for="join_name">이름</label>
+            <div class="ipt_box">
+              <input type="text" id="join_name" placeholder="이름(한글)">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+            <div class="ipt_box">
+              <input type="text" title="이름(영문)" placeholder="이름(영문)">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+          </div>
+          <ul class="btn_lst">
+            <li><button type="submit" class="btn_login" disabled>계속하기</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="tab02" class="tab_contents">
+        <h2>주소 및 연락처를 입력해 주세요</h2>
+        <ul class="join_step">
+          <li class="join_step_cur">기본정보 단계</li>
+          <li class="join_step_cur">연락망 단계</li>
+          <li>프로필정보 단계</li>
+          <li>가입완료 단계</li>
+        </ul>
+        <div class="ipt_wrap">
+          <div class="ipt_box">
+            <label for="join_phone">휴대폰</label>
+            <div class="ipt_box">
+              <input type="text" id="join_phone" placeholder="- 없이 번호만 입력">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+          </div>
+          <div class="ipt_box">
+            <label for="join_email">이메일 주소</label>
+            <div class="ipt_box">
+              <input type="text" id="join_email" placeholder="이메일주소 입력">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+          </div>
+          <div class="ipt_box">
+            <label for="join_address">주소</label>
+            <div class="ipt_box">
+              <input type="text" placeholder="우편번호" title="우편번호" disabled>
+              <button type="button" class="btn_clear">입력내용지우기</button>
+              <button type="button" class="btn_dplc">우편번호</button>
+            </div>
+            <div class="ipt_box">
+              <input type="text" id="join_address" placeholder="주소">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+            <div class="ipt_box">
+              <input type="text" title="상세주소" placeholder="상세주소">
+              <button type="button" class="btn_clear">입력내용지우기</button>
+            </div>
+          </div>
+          <ul class="btn_lst">
+            <li><button type="submit" class="btn_login" disabled>계속하기</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="tab03" class="tab_contents">
+        <h2>프로필 정보를 입력해 주세요</h2>
+        <ul class="join_step">
+          <li class="join_step_cur">기본정보 단계</li>
+          <li class="join_step_cur">연락망 단계</li>
+          <li class="join_step_cur">프로필정보 단계</li>
+          <li>가입완료 단계</li>
+        </ul>
+        <div class="ipt_wrap">
+          <div class="profile_pic_wrap">
+            <div>
+              <div class="emp_img">
+                <input type="file" id="join_img" accept=".gif, .jpg, .png">
+                <label for="join_img">
+                  <img src="../images/img_pic.png" alt="임직원 증명 임시 이미지">
+                </label>
+                <span class="btn_del_photo">닫기</span>
+              </div>
+              <h3>사진</h3>
+              <p>size 100*100픽셀</p>
+            </div>
+            <div>
+              <div class="emp_sign">
+                <input type="file" id="join_sign" accept=".gif, .jpg, .png">
+                <label for="join_sign">
+                  <img src="../images/img_sign.png" alt="전자결재 서명 임시 이미지">
+                </label>
+                <span class="btn_del_photo">닫기</span>
+              </div>
+              <h3>결재용 서명 </h3>
+              <p>size 95*41픽셀</p>
+            </div>
+          </div>
+          <p class="join_info">사진 및 서명은 gif, jpg png 포맷만 가능합니다.</p>
+          <ul class="btn_lst">
+            <li><button type="submit" class="btn_login btn_skip">이 단계 건너뛰기</button></li>
+            <li><button type="submit" class="btn_login" disabled>계속하기</button></li>
+          </ul>
+        </div>
+      </div>
+      <div id="tab04" class="tab_contents">
+        <h2>회원가입이 완료되었습니다</h2>
+        <ul class="join_step">
+          <li class="join_step_cur">기본정보 단계</li>
+          <li class="join_step_cur">연락망 단계</li>
+          <li class="join_step_cur">프로필정보 단계</li>
+          <li class="join_step_cur">가입완료 단계</li>
+        </ul>
+        <div class="ipt_wrap">
+          <dl class="join_result">
+            <dt>이 름</dt>
+            <dd>홍길동</dd>
+            <dt>아 이 디</dt>
+            <dd>kitvalley1234</dd>
+          </dl>
+          <ul class="btn_lst">
+            <li><button type="submit" class="btn_login btn_skip">홈으로</button></li>
+            <li><button type="submit" class="btn_login">로그인</button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    @@include('../inc/footer.html')
+  </main>
+</div>
+@@include('../inc/script.html')
+<script>
+  $(function () {
+    const iptBox = $('.ipt_box');
+    function clearView(ipt) {
+      const btnClear = ipt.next('.btn_clear');
+      (ipt.val() === "") ? btnClear.css('visibility', 'hidden') : btnClear.css('visibility', 'visible');
+    }
+    iptBox.on('keyup', 'input', function () {
+      clearView($(this));
+    })
+    iptBox.each(function () {
+      clearView($(this).find('input'));
+    });
+    iptBox.on('click', '.btn_clear', function () {
+      $(this).prev('input').val("");
+      $(this).css('visibility', 'hidden'); // val 삭제 후 버튼 안 보이게 추가했습니다!
+    })
+  })
+</script>
