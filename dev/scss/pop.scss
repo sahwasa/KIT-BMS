@@ -117,3 +117,24 @@
     }
   }
 }
+
+// relDoc
+.p_relDoc{width:1100px;min-width:905px;
+  .split_area{background-color:#edf0f3;
+    border:1px solid #bec7d2;align-items:stretch;
+    & > section{max-height:612px;flex-grow:1;overflow-y:auto;}
+    .doc_lst{
+      li{border-bottom: 1px solid #ebebeb;padding:10px;white-space:nowrap;background-color:#fff;box-shadow:0 1px 0 rgba(0, 0, 0, .2);
+        &:hover{background-color:#f9fafc;cursor:pointer;}
+        &.on{background-color:lighten($red, 45%);}
+      }
+      .infoDoc{display:flex;gap:5px;margin-bottom:5px;
+        i:last-of-type{flex-shrink:0; margin-left:auto;}
+      }
+      .user_module{display:inline-flex;vertical-align:middle;}
+      .badge{@include badge_style(null);padding:0 5px;border:1px solid $red; vertical-align:middle;font-size:11px;color:$red;}
+      .subject{@include flex_between;}
+    }
+    & > .flex_right{width:50%;border-left:1px solid #bec7d2;padding:15px 10px;min-width:500px;}
+  }
+}

@@ -7,17 +7,18 @@
       <h1>팝업 모음</h1>
     </header>
     <div class="cont_body">
-      <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</span>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</h2>
       <ul>
-        <li><button class="btn_default btnMngDel">경고</button>
-        <li><button class="btn_default btnMngTree">조직도 팝업</button>
+        <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button>
+        <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button>
       </ul>
       <br>
-      <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">전자결재</span>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">전자결재</h2>
       <ul>
-        <li><button class="btn_default btnApproval1">자주 쓰는 결재 설정</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_approval01">자주 쓰는 결재 설정</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_relDoc">관련문서</button></li>
       </ul>
     </div>
   </main>
@@ -26,20 +27,23 @@
 @@include('../inc/pop/p_mngOrg.html') <!--// 경고(공통) -->
 @@include('../inc/pop/p_mngTree.html') <!--// 조직도(공통) -->
 @@include('../inc/pop/p_approval_01.html') <!--// 자주 쓰는 결재 설정 -->
+@@include('../inc/pop/p_relDoc.html')<!--// 관련문서 설정 -->
 @@include('../inc/script.html')
 <script>
-  document.querySelector('.btnMngDel').addEventListener('click', function () {
-    document.querySelector('.p_mngDel').showModal();
-  }) // 경고(공통)
-  document.querySelector('.btnMngTree').addEventListener('click', function () {
-    document.querySelector('.p_mngTree').showModal();
-  }) // 조직도(공통)
-  document.querySelector('.btnApproval1').addEventListener('click', function () {
-    document.querySelector('.p_approval01').showModal();
-  }) // 자주 쓰는 결재 설정
-  document.querySelector('.btnClose').addEventListener('click', function () {
-    document.querySelector('dialog').close();
+  $(function () {
+    $('.btn_default').on('click', function (e) {
+      //const target = Array.prototype.slice.call(e.target.classList).pop().split("btn")[1];
+      //const format = ".p_" + target.charAt(0).toLowerCase() + target.slice(1);
+      const modal = e.target.dataset.modal;
+      document.querySelector('.' + modal).showModal();
+    })
+
+    $('.btnClose').on('click', function () {
+      document.querySelector('dialog').close();
+    })
+    document.querySelector('.p_relDoc').showModal();
   })
+
   $(".approval_often_sort").sortable({
     forcePlaceholderSize: true,
     placeholder: 'ph'

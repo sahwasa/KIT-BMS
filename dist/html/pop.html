@@ -60,25 +60,27 @@
     <li><a href="/html/svc.html">임직원 업무</a></li>
     <li><a href="/html/erp.html">ERP</a></li>
     <li><a href="/html/board.html">게시판</a></li>
+    <li><a href="/html/pop.html">팝업샘플</a></li>
     <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
-  </ul>  
+  </ul>
 </nav>
   <main id="content" class="container main">
     <header>
       <h1>팝업 모음</h1>
     </header>
     <div class="cont_body">
-      <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</span>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</h2>
       <ul>
-        <li><button class="btn_default btnMngDel">경고</button>
-        <li><button class="btn_default btnMngTree">조직도 팝업</button>
+        <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button>
+        <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button>
       </ul>
       <br>
-      <span style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">전자결재</span>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">전자결재</h2>
       <ul>
-        <li><button class="btn_default btnApproval1">자주 쓰는 결재 설정</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_approval01">자주 쓰는 결재 설정</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_relDoc">관련문서</button></li>
       </ul>
     </div>
   </main>
@@ -119,7 +121,7 @@
           <div class="p_body_tit">
             <h1>조직도</h1>
           </div>
-          <ul class="sortable move_sortable tree ui-sortable">
+          <ul class="sortable move_sortable tree">
             <li class="ui-sortable-handle arrow">
               <span>그룹 접기/열기</span>
               <div>
@@ -594,6 +596,307 @@
   </form>
 </dialog>
  <!--// 자주 쓰는 결재 설정 -->
+<dialog class="p_relDoc">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>관련문서</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div class="">
+        <div class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <select name="" id="" title="결재양식">
+                <optgroup class="opt_label" label="결재양식">
+                  <option disabled selected>결재양식</option>
+                </optgroup>
+                <optgroup label="근태문서">
+                  <option value="">출장신청서</option>
+                  <option value="">출장복명서</option>
+                  <option value="">휴가신청서</option>
+                </optgroup>
+                <optgroup label="기안문서">
+                  <option value="">기안서</option>
+                  <option value="">품의서</option>
+                  <option value="">지출결의서</option>
+                </optgroup>
+              </select>
+            </li>
+            <li>
+              <input type="text" name="" id="" title="기안자" placeholder="기안자" list="nameList">
+              <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+            </li>
+            <li>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
+                <input type="date" title="종료일" data-type="to" id="end-date" name="end-date" />
+              </div>
+            </li>
+            <li>
+              <button type="button" class="btn_search">검색</button>
+            </li>
+          </ul>
+          <div class="flex_right">
+            <label for="allDoc"><input type="checkbox" id="allDoc"> 전체문서</label>
+          </div>
+        </div>
+        <section class="split_area">
+          <!-- <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover tbl_approval_inbox tbl_use_select">
+              <caption>관련문서 리스트</caption>
+              <colgroup>
+                <col style="width:60px;">
+                <col span="2" style="width:120px;">
+                <col style="width:auto;">
+                <col span="2" style="width:150px;">
+                <col style="width:95px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">선택</th>
+                  <th scope="col">문서종류</th>
+                  <th scope="col">문서번호</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">기안자</th>
+                  <th scope="col">기안일자</th>
+                  <th scope="col">공개여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0">
+                  <td><input type="radio" class="row_check" title="줄선택" name="rowCheck" /></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01</td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="radio" class="row_check" title="줄선택" name="rowCheck" /></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01</td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+          <section class="doc_lst">
+            <ul>
+              <li tabindex="0" class="on">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_public">공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+              <li tabindex="0">
+                <div class="infoDoc">
+                  <i class="badge">휴일근무신청서</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <i class="i_private">비공개</i>
+                </div>
+                <div class="subject">
+                  <strong>5월 휴일근무신청서</strong>
+                  <span class="txt_date">2023-05-01 20:33</span>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="approval_form flex_right preview">
+            <header>
+              <h1>제목 텍스트</h1>
+            </header>
+            <div class="form_wrap">
+              <div class="tit_form">
+                <h2>휴가신청서</h2>
+              </div>
+              <table class="tbl_row">
+                <caption>출장복명서 양식 테이블</caption>
+                <colgroup>
+                  <col style="width:100px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">문서번호</th>
+                    <td>KIT-출장복명서-20230100</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">휴가종류</th>
+                    <td>연차</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">휴가기간</th>
+                    <td>2023-03-02 ~ 2023-03-08 (총 5일)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">신청사유</th>
+                    <td>개인사유</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">기타</th>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="sign_wrap">
+                <p>상기와 같이 휴가를 신청합니다.<br>
+                  <span>2023년 3월 20일</span>
+                </p>
+                <p>신청인 : <span>멋쟁이</span> (인)</p>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_cancel">취소</button>
+        <button class="btn_save" type="button">확인</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 관련문서 설정 -->
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
@@ -604,18 +907,20 @@
 </body>
 </html>
 <script>
-  document.querySelector('.btnMngDel').addEventListener('click', function () {
-    document.querySelector('.p_mngDel').showModal();
-  }) // 경고(공통)
-  document.querySelector('.btnMngTree').addEventListener('click', function () {
-    document.querySelector('.p_mngTree').showModal();
-  }) // 조직도(공통)
-  document.querySelector('.btnApproval1').addEventListener('click', function () {
-    document.querySelector('.p_approval01').showModal();
-  }) // 자주 쓰는 결재 설정
-  document.querySelector('.btnClose').addEventListener('click', function () {
-    document.querySelector('dialog').close();
+  $(function () {
+    $('.btn_default').on('click', function (e) {
+      //const target = Array.prototype.slice.call(e.target.classList).pop().split("btn")[1];
+      //const format = ".p_" + target.charAt(0).toLowerCase() + target.slice(1);
+      const modal = e.target.dataset.modal;
+      document.querySelector('.' + modal).showModal();
+    })
+
+    $('.btnClose').on('click', function () {
+      document.querySelector('dialog').close();
+    })
+    document.querySelector('.p_relDoc').showModal();
   })
+
   $(".approval_often_sort").sortable({
     forcePlaceholderSize: true,
     placeholder: 'ph'
