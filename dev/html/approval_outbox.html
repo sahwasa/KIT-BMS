@@ -52,22 +52,9 @@
                   </optgroup>
                 </select>
               </li>
-              <li>                
+              <li>
                 <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList">
-                <datalist id="nameList">
-                  <optgroup label="개발본부">
-                    <option value="대장발핑">개발본부</option>
-                    <option value="개발핑">개발 1팀</option>
-                    <option value="새발핑">개발 1팀</option>
-                    <option value="말발핑">개발 2팀</option>
-                    <option value="소발핑">개발 2팀</option>
-                    <option value="곰발핑">개발 2팀</option>
-                  </optgroup>
-                  <optgroup label="경영관리">
-                    <option value="경영핑">경영관리</option>
-                    <option value="관리핑">경영관리</option>
-                  </optgroup>                  
-                </datalist>
+                @@include('../inc/data_emp_name.html')
               </li>
               <li>
                 <div class="period_group">
@@ -77,7 +64,7 @@
                 </div>
                 <div class="period_custom">
                   <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
-                  <input type="date" title="종료일" data-type="to" id="end-date" name="end-date"/>
+                  <input type="date" title="종료일" data-type="to" id="end-date" name="end-date" />
                 </div>
               </li>
               <li>

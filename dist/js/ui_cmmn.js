@@ -123,8 +123,7 @@ $(function () {
       const editIpt = target.find('input');
       iptEvt(editIpt);
     }
-  })
-  
+  })  
 
   // table_row checked
   $('.row_check').on({
