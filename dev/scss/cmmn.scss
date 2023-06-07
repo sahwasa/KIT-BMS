@@ -157,7 +157,7 @@ hr,
 
 //badge
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;padding-top:1px;
-  &::before{font-size:14px;}
+  &::before{font-size:14px;margin-left:1px;}
 }
 .fin{background-color:#56b1b6;}
 .reject{background-color:#fc9734;}
