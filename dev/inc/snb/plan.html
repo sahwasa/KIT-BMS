@@ -4,18 +4,31 @@
       <h2>일정</h2>
     </header>
     <div class="btn_workset">
-      <a href="#" class="btn_default">쪽지보내기</a>
+      <button type="button" class="btn_default" id="addEvt">일정추가</button>
+      <button type="button" class="btn_default" id="">전체일정보기??</button>
+      <button type="button" class="btn_default" id="">회사 근태일정???</button>
     </div>
-    <ul class="snb_lst">
-      <li><a href="">받은 쪽지함</a>
+
+    <ul class="snb_lst plan_lst">
+      <li>
+        <h3>일정관리</h3>
         <ul>
-          <li><a href="#">개인쪽지함</a></li>
-          <li><a href="#">부서쪽지함</a></li>
-          <li><a href="#">전체쪽지함</a></li>
+          <li><label for="my_plan"><input type="checkbox" id="my_plan">나의 일정</label>
+          </li>
+          <li><label for="team_plan"><input type="checkbox" id="team_plan">팀원 일정</label>
+          <li><label for="all_plan"><input type="checkbox" id="all_plan">전사 일정</label>
+          </li>
         </ul>
       </li>
-      <li><a href="">보낸 쪽지함</a></li>
-      <li><a href="">쪽지 보관함</a></li>
+      <li>
+        <h3>협업일정</h3>
+        <ul>
+          <li><label for="p1"><input type="checkbox" id="p1">OOO 유지보수</label>
+          </li>
+          <li><label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 </section>
