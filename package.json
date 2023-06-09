@@ -31,7 +31,7 @@
     "sass": "^1.59.3"
   },
   "dependencies": {
-    "fullcalendar": "^6.1.7",
+    "fullcalendar": "^6.1.8",
     "jquery": "^3.6.4"
   }
 }

@@ -21,8 +21,9 @@ $columnGap:25px;
   .logo{display:inline-block;width:180px;height:40px;background:url(../images/logo.svg) 0 0 no-repeat;background-size:contain;font-size:0;}
   .pannel{padding:70px 87px;border-radius:5px;border:1px solid #d7d7d7;margin-top:40px;
     h2{font-size:30px;font-weight:600;color:#000;letter-spacing:-2.25px;}
+    .auth{max-width:308px;}
   }
-  p{font-size:16px;color:#000;letter-spacing:-.4px;text-align:left;}
+  p{font-size:16px;color:#000;letter-spacing:-.4px;text-align:left;word-break: keep-all;}
   .att{&::before,em{color:$red;}}
   .info{font-size:12px;color:#979797;margin-top:14px;line-height:15px;
     &::before{margin-left:5px;font-size:15px;color:#d7d7d7;}
@@ -213,7 +214,7 @@ $snbWidth:200px;
   .snb_container{min-width:$snbWidth;}
   h2{padding:0 15px 12px;font-size:20px;font-weight:bold;letter-spacing:-.5px;border-bottom:1px solid $border-color;overflow:hidden;}
   .btn_workset{background-color:#edf0f3;border-bottom:1px solid $border-color;border-width:1px 0;padding:13px #{$columnGap - 10px};
-    a{display:block;font-weight:bold;font-size:14px;letter-spacing:-.35px;border-radius:5px;line-height:32px;background-color:$white;}
+    button,a{display:block;width:100%;font-weight:bold;font-size:14px;letter-spacing:-.35px;border-radius:5px;line-height:32px;background-color:$white;}
   }
   .data_count .list_wrap{@include flex_between;padding:16px 0;border-bottom:1px solid $border-color;
     li{flex:1;font-weight:bold;font-size:12px;color:#000;border-left:1px solid #cdcdcd;line-height:10px;text-align:center;
@@ -223,16 +224,22 @@ $snbWidth:200px;
   }
   .snb_lst{$snb-border-color:#ebebeb;text-align:left;
     & > li{position:relative;font-size:14px;border-bottom:1px solid $snb-border-color;background-color:#f9fafc;
+      & > h3,
       & > a{display:block;font-weight:bold;padding:10px #{$columnGap - 10px};letter-spacing:-.35px;}
-      ul{border-top:1px solid $snb-border-color;background-color:$white;padding:10px 0;}
-      .hasLayer:empty{padding:0;border-top-width:0;}
-      ul a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
-        &::before{content:"·";font-weight:bold;font-size:18px;margin:0 8px;line-height:17px;}
-        &:hover .layer_tool{display:block;}
+      ul{border-top:1px solid $snb-border-color;background-color:$white;padding:10px 0;
+        button,a,label{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
+          &::before{content:"·";font-weight:bold;font-size:18px;margin:0 8px;line-height:17px;}
+          &:hover .layer_tool{display:block;}
+        }      
       }
+      .hasLayer:empty{padding:0;border-top-width:0;}
       &.on > a,&:hover > a{color:$red;}
       & li.on a,& li:hover a{background-color:#fee;color:#424242;}
     }
+  }
+  .plan_lst ul label{
+    input{margin:1px 3px 0;}
+    &::before{display:none;}
   }
   .nav_btn_add{position:absolute;top:10px;right:15px;@include ico_only;
     &::before{display:flex;align-items:center;justify-content:center;width:21px;height:21px;padding-bottom:2px;font-size:13px;content:"╊";border:1px solid $border-color;color:#989898;border-radius:2px;}
