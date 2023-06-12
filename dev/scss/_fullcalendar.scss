@@ -1,3 +1,5 @@
 #calendar{max-height:calc(100vh - 220px);}
-.holiday{border:none;background-color:transparent;color:#f00;}
-.gcal-event{background-color:red;}
+.gcal-holiday{border:none;background-color:transparent;
+  .fc-event-title{color:#f00;}
+}
+.anniv{border:none;background-color:transparent;color:#00f;}
