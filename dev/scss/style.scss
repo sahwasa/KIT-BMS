@@ -17,14 +17,19 @@ $columnGap:25px;
 }
 // login
 .login_join_wrap{
-  display:flex;align-items:center;justify-content:center; flex-direction:column;position:relative;text-align:center;min-height:100vh;
+  display:flex;align-items:center;flex-direction:column;position:relative;text-align:center;min-height:100vh;padding-top:50px;
   .logo{display:inline-block;width:180px;height:40px;background:url(../images/logo.svg) 0 0 no-repeat;background-size:contain;font-size:0;}
   .pannel{padding:70px 87px;border-radius:5px;border:1px solid #d7d7d7;margin-top:40px;
     h2{font-size:30px;font-weight:600;color:#000;letter-spacing:-2.25px;}
     .auth{max-width:308px;}
   }
-  p{font-size:16px;color:#000;letter-spacing:-.4px;text-align:left;word-break: keep-all;}
-  .att{&::before,em{color:$red;}}
+  p{font-size:16px;color:#000;letter-spacing:-.4px;text-align:left;word-break:keep-all;}
+  .att{padding-left:13px;text-indent:-13px;margin-bottom:30px;
+    &::before,em{color:$red;}
+    &+p{background:#edf0f3;padding:10px;font-size:13px;border-radius:3px;
+      b{font-weight: bold;}
+    }
+  }
   .info{font-size:12px;color:#979797;margin-top:14px;line-height:15px;
     &::before{margin-left:5px;font-size:15px;color:#d7d7d7;}
   }
@@ -68,7 +73,7 @@ $columnGap:25px;
     .copy{font-size:11px;}
   }
   .login_step01{margin-top:95px;}
-  .login_step02{margin-top:80px;
+  .login_step02{margin-top:50px;
     .auth{
       button{@extend .btn_default;margin:44px 0;}
     }
@@ -82,8 +87,10 @@ $columnGap:25px;
   }
   .login_step03{
     .auth{margin:100px 0 40px;}
-    h1{color:$red;font-size:30px;font-weight:bold;letter-spacing:-.3px;padding-bottom: 10px;}
-    .info{font-size:14px;color:#000;line-height:1.2;padding-left:10px;text-indent:-10px;}
+    h1{color:$red;font-size:30px;font-weight:bold;letter-spacing:-.3px;padding-bottom:20px;}
+    .info{font-size:16px;color:#000;line-height:1.5;padding-left:18px;text-indent:-13px;
+      &::before{font-size:22px;margin-right:5px;vertical-align:middle;}
+    }
   }
   .join{width:525px;max-width:100%;padding:20px;
     h2{margin-top:65px;font-size:26px;font-weight:600;color:#000;letter-spacing:-1.95px;}
@@ -93,22 +100,23 @@ $columnGap:25px;
       }
     }
     .ipt_wrap{margin-top:50px;
+      %info{font-size:14px;letter-spacing:-0.3px;color:#000;text-align:center;
+        &::before{@include fontello('\eb77');margin-right:5px;font-size:15px;vertical-align:middle;color:#d0d0d0;}
+      } 
       .ipt_box{
         &:has(.btn_dplc)>.btn_clear{right:105px;}
         &:has(.btn_dplc)>input{padding-right:125px;}
         .btn_clear+.btn_dplc{position:absolute;top:calc(50% - 15px);right:10px;min-width:80px;border-radius:20px;font-size:13px;line-height:28px;}
         label{display:block;text-align:left;margin-top:50px;font-size:14px;color:#000;font-weight:bold;}
-        .join_info{position:absolute;;top:calc(100% + 5px);color:#0652de;font-weight:500;font-size:12px;
+        .join_info{@extend %info;position:absolute;top:calc(100% + 5px);color:#0652de;font-weight:500;font-size:12px;
           &::before{content:'\e814';color:inherit;}
-        }
-      }
-      .join_info{font-size:14px;letter-spacing:-0.3px;color:#000;text-align:center;
-        &::before{@include fontello('\eb77');margin-right:5px;font-size:15px;vertical-align:middle;color:#d0d0d0;}
-        &.warn{color:$red;
-          &::before{content:'\eb77';font-size:13px;vertical-align:top;}
-          &+input{margin-bottom:0;border-bottom:2px solid #f84a4a;}
-        }
-      }
+        }        
+        .warn{@extend %info;@extend .join_info;color:$red;
+        &::before{content:'\eb77';font-size:13px;vertical-align:top;}
+        &+input{margin-bottom:0;border-bottom:2px solid #f84a4a;}
+         }
+      }      
+      .info{@extend %info;}
     }
     .profile_pic_wrap{@include flex_between;justify-content:space-evenly;align-items:flex-end;margin-bottom:30px;
       input[type="file"]{position:absolute;width:0;height:0;padding:0;overflow:hidden;border:0;}
@@ -127,7 +135,7 @@ $columnGap:25px;
         img{max-width:inherit;cursor:pointer;}
       }
       .emp_img{
-        &>label{width:100px;height:100px;}
+        &>label{width:115px;height:140px;}
       }
       .emp_sign{
         &>label{width:95px;height:41px;}
@@ -365,7 +373,7 @@ z-index:10;
       &.tbl_use_select{
         tr{
           &>*{text-align:center;}
-          &>td:first-child{text-align:center;}
+          &>td:first-child{text-align:center;padding:5px;}
         }
       }
     }

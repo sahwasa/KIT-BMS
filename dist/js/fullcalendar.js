@@ -70,7 +70,7 @@
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,list'
+        right: 'gcalSync,multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,list'
       },
       buttonText: {
         today: '오늘',
@@ -80,6 +80,14 @@
         timeGridDay: '일간',
         list: '목록',
       },
+      customButtons:{
+        gcalSync : {
+          text:'구글 동기화(예정)',
+          click: function() {
+            alert('구글동기화 하나요???');
+          }
+        }
+      },      
       editable: true,
       selectable: true,
       initialView: 'dayGridMonth',
@@ -199,7 +207,7 @@
         groupId: 'all_plan'
       }
     ];
-    const filterCheck = document.querySelectorAll('.plan_lst ul label');
+    const filterCheck = document.querySelectorAll('.plan .snb_lst ul label');
     var addedSources = [];
 
     for (var i = 0; i < filterCheck.length; i++) {
