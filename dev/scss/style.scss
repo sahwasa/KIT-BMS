@@ -227,7 +227,8 @@ $snbWidth:200px;
       & > h3,
       & > a{display:block;font-weight:bold;padding:10px #{$columnGap - 10px};letter-spacing:-.35px;}
       ul{border-top:1px solid $snb-border-color;background-color:$white;padding:10px 0;
-        button,a,label{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
+        %sublst,
+        a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
           &::before{content:"·";font-weight:bold;font-size:18px;margin:0 8px;line-height:17px;}
           &:hover .layer_tool{display:block;}
         }      
@@ -237,12 +238,12 @@ $snbWidth:200px;
       & li.on a,& li:hover a{background-color:#fee;color:#424242;}
     }
   }
-  .plan_lst ul label{
-    input{margin:1px 3px 0;}
+  .plan ul label{@extend %sublst;
+    input{margin:1px 5px 0 0;}
     &::before{display:none;}
   }
   .nav_btn_add{position:absolute;top:10px;right:15px;@include ico_only;
-    &::before{display:flex;align-items:center;justify-content:center;width:21px;height:21px;padding-bottom:2px;font-size:13px;content:"╊";border:1px solid $border-color;color:#989898;border-radius:2px;}
+    &::before{display:flex;align-items:center;justify-content:center;width:21px;height:21px;font-size:13px;content:"╊";border:1px solid $border-color;color:#989898;border-radius:2px;}
     &:hover::before{border-color:#989898;}
   }
   .layer_tool{display:none;margin-left:auto;

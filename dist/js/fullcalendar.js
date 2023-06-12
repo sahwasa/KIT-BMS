@@ -66,7 +66,7 @@
     // -----------------------------------------------------------------
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c',
+      googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c', //APIKEY 누구꺼쓰죠,,?
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
