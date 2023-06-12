@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <!-- <ul class="gnb_lst">
+      <li><a href=""></a></li>
+    </ul> -->
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="/html/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/main.html">HOME</a></li>
+    <li><a href="/html/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval.html">전자결재</a></li>
+    <li><a href="/html/work.html">업무보고</a></li>
+    <li><a href="/html/plan.html">일정</a></li>
+    <li><a href="/html/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp.html">ERP</a></li>
+    <li><a href="/html/board.html">게시판</a></li>
+    <li><a href="/html/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="contents">
+      <header class="cont_tit">
+        <h1>내정보<span>항목 확정 전 임시 페이지</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <!-- <li><a href="#">내정보</a></li> -->
+            <li>내정보 <!--수정--></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">
+          <header class="blind">
+            <h1>내정보</h1>
+          </header>
+          <article class="box_compact box_tool alignR">
+            <button type="button" class="btn_request">저장</button>
+            <button type="button" class="btn_default">취소</button>
+          </article>
+          <div class="profile_wrap infolist_wrap">
+            <dl>
+              <dt>아이디(ID)</dt>
+              <dd>dandy</dd>
+              <dt><label for="emp_pw" class="required">패스워드</label></dt>
+              <dd>
+                <input type="password" id="emp_pw" value="1234">
+                <p class="required_info">6자 이상 &sol; 영문 숫자 혼용</p>
+              </dd>
+              <dt><label for="emp_num">사번</label></dt>
+              <dd>
+                <span class="file_input">
+                  <input type="text" id="emp_num" value="0088">
+                  <button type="button" class="btn_ogt">중복확인</button>
+                </span>
+                <p class="required_info t_red">중복된 사번입니다.</p>
+              </dd>
+              <dt><label for="emp_pw_check" class="required">패스워드 확인</label></dt>
+              <dd>
+                <input type="password" id="emp_pw_check" value="1234">
+                <p class="required_info t_red">비밀번호가 일치하지 않습니다.</p>
+              </dd>
+              <dt><label for="emp_name_kr" class="required">한글이름</label></dt>
+              <dd><input type="text" id="emp_name_kr" value="멋쟁이"></dd>
+              <dt><label for="emp_name_en">영문이름</label></dt>
+              <dd><input type="text" id="emp_name_en" value="meosjaeng-e"></dd>
+            </dl>
+            <dl>
+              <dt><label for="emp_phone" class="required">연락처</label></dt>
+              <dd><input type="tel" value="01012345678" id="emp_phone"></dd>
+              <dt><label for="emp_email" class="required">이메일</label></dt>
+              <dd><input type="email" id="emp_email" value="dandy@kitvalley.com"></dd>
+              <dt><label for="emp_call">비상연락망</label></dt>
+              <dd><input type="tel" id="emp_call"></dd>
+              <dt><label for="emp_call2">관계</label></dt>
+              <dd><input type="text" id="emp_call2" title="비상연락망 관계 입력"></dd>
+              <dt><label for="address">주소</label></dt>
+              <dd class="profile_address span3">
+                <span class="file_input">
+                  <input type="text" id="address" title="우편번호" disabled>
+                  <button type="button" class="btn_ogt">우편번호</button>
+                </span>
+                <input type="text" name="address2" title="주소">
+                <input type="text" name="address3" title="상세주소">
+              </dd>
+            </dl>
+            <dl style="align-items:center;">
+              <dt><label for="emp_img">사진</label></dt>
+              <dd>
+                <div class="profile_pic_wrap">
+                  <div class="emp_img">
+                    <input type="file" id="emp_img" accept=".gif, .jpg, .png">
+                    <label for="emp_img">
+                      <img src="../images/img_pic.png" alt="임직원 증명 임시 이미지">
+                    </label>
+                    <span class="btn_del_photo">닫기</span>
+                  </div>
+                </div>
+              </dd>
+              <dt><label for="emp_sign">전자결재 서명</label></dt>
+              <dd>
+                <div class="profile_pic_wrap">
+                  <div class="emp_sign">
+                    <input type="file" id="emp_sign" accept=".gif, .jpg, .png">
+                    <label for="emp_sign">
+                      <img src="../images/img_sign.png" alt="전자결재 서명 임시 이미지">
+                    </label>
+                    <span class="btn_del_photo">닫기</span>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 010-1234-5678</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jquery-ui.min.js"></script>
+<script src="../plugins/jquery.MultiFile.js"></script>
+<script src="../plugins/ckeditor5/ckeditor.js"></script>
+<script src="../plugins/ckeditor5/editor.js" type="module"></script>
+<script src="../js/ui_cmmn.js"></script>
+<script src="../js/file_upload.js"></script>
+</body>
+
+</html>
