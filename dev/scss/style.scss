@@ -499,3 +499,60 @@ z-index:10;
 }
 .tbl_approval_outbox td,
 .tbl_approval_inbox td{@include alignL(4);}
+
+
+// 내정보 임시
+.profile_wrap{display:grid;gap:20px;grid-template-columns:repeat(auto-fit, minmax(700px, 1fr));
+  &>.profile_pic_wrap{padding:13px 15px 13px 0;border:1px solid #ddd;border-radius:5px;
+    dl{flex:1;padding:0;border:none;}
+  }
+  dl{
+    display:grid;grid-template:auto / 130px 1fr 130px 1fr;align-items:start;align-content:space-around;
+    & > dd{width:100%;}
+    .span3{grid-column:2 / span 3;}
+  }
+  .profile_address{&>*{margin-bottom:3px;}
+    .file_input{max-width:calc(50% - 130px);}
+  }
+  .profile_password_reset{@include flex_between;justify-content:flex-start;align-items:center;
+    &>button{margin-left:10px;border-radius:5px;font-weight:normal;line-height:21px;}
+  }
+  .profile_pic_wrap{@include flex_between;
+    input[type="file"]{position:absolute;width:0;height:0;padding:0;overflow:hidden;border:0;}
+    &>table{flex:1;}
+    &>div{position:relative;overflow:hidden;margin:0 10px;border-radius:5px;border:1px solid #bdbdbd;
+      &>label{display:flex;overflow:hidden;align-items:center;justify-content:center;overflow:hidden;background-color:#ebebeb;}
+      &:hover{
+        .btn_del_photo{display:block;}
+        }
+      &>.btn_del_photo{display:none;position:absolute;top:0;right:0;background-color:$red;color:#fff;font-size:0;
+        &::before{@include fontello('\eb2e');width:20px;font-size:12px;line-height:20px;text-align:center;cursor:pointer;}
+      }
+    }
+    .emp_img{
+      &>label{width:100px;height:128px;}
+    }
+    .emp_sign{margin:0;
+      &>label{width:220px;height:60px;}
+    }
+    img{cursor:pointer;}
+  }
+}
+.infolist_wrap{
+  dl{display:grid;column-gap:30px;padding:13px 15px 13px 0;border:1px solid #ddd;border-radius:5px;
+    .file_input>*{flex:auto;}
+    .file_input>button{flex:none;}
+    &>*{padding:6px 5px;}
+    &>dt{padding-left:30px;font-size:13px;font-weight:bold;color:#111;}   
+    &.emp_group_wrap{grid-template:auto/130px 1fr;}
+    }
+  dt.required{position:relative;
+    &::before{left:19px;}
+  }
+  dt:has(.required)label{position:relative;}
+  [required]::before,
+  .required::before{position:absolute;left:-10px;}
+  .required_info{font-size:11px;letter-spacing:-0.28px;line-height:17px;
+    &::before{@include fontello('\eaf1');position:relative;top:1px;margin-right:5px;font-size:15px;}
+  }
+}
