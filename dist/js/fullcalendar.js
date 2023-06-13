@@ -70,7 +70,7 @@
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'gcalSync,multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,list'
+        right: 'gcalSync multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,list'
       },
       buttonText: {
         today: '오늘',

@@ -112,8 +112,8 @@ $columnGap:25px;
           &::before{content:'\e814';color:inherit;}
         }        
         .warn{@extend %info;@extend .join_info;color:$red;
-        &::before{content:'\eb77';font-size:13px;vertical-align:top;}
-        &+input{margin-bottom:0;border-bottom:2px solid #f84a4a;}
+          &::before{content:'\eb77';font-size:13px;vertical-align:top;}
+          &+input{margin-bottom:0;border-bottom:2px solid #f84a4a;}
          }
       }      
       .info{@extend %info;}
