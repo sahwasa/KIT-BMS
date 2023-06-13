@@ -8,6 +8,12 @@
     </header>
     <div class="cont_body">
       <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">로그인</h2>
+      <ul>
+        <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button>
+      </ul>
+      <br>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
       -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button>
@@ -24,6 +30,7 @@
   </main>
   @@include('../inc/footer.html')
 </div>
+@@include('../inc/pop/p_login_01.html') <!--// 아이디/비밀번호 찾기 -->
 @@include('../inc/pop/p_mngOrg.html') <!--// 경고(공통) -->
 @@include('../inc/pop/p_mngTree.html') <!--// 조직도(공통) -->
 @@include('../inc/pop/p_approval_01.html') <!--// 자주 쓰는 결재 설정 -->

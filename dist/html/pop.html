@@ -70,6 +70,12 @@
     </header>
     <div class="cont_body">
       <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">로그인</h2>
+      <ul>
+        <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button>
+      </ul>
+      <br>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
       -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button>
@@ -89,6 +95,117 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<dialog class="p_loginId">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>아이디 &sol; 비밀번호 찾기</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <ul class="tab" style="position:absolute;z-index:1;bottom:0;left:0;">
+        <li class="on"><a href="#id01">아이디 찾기</a></li>
+        <li><a href="#id02">아이디 찾기 결과</a></li>
+        <li><a href="#id03">비밀번호 찾기</a></li>
+        <li><a href="#id04">비밀번호 찾기 결과</a></li>
+      </ul>
+      <div class="tab_contents login_join_wrap" id="id01">
+        <article class="login_step02 join">
+          <div class="auth">
+            <h2>아이디 찾기</h2>
+            <p>회원정보에 등록된 휴대폰 번호를 인증하여<br>회원님의 아이디를 찾을 수 있습니다.</p>
+          </div>
+          <div class="ipt_wrap">
+            <div class="ipt_box">
+              <input type="text" title="이름 입력 박스" placeholder="이름">
+              <button type="button" class="btn_clear" style="visibility: hidden;">입력내용지우기</button>
+            </div>
+            <div class="ipt_box">
+              <input type="number" placeholder="휴대폰 번호" title="휴대폰 번호 입력 박스" />
+              <button type="button" class="btn_clear">입력내용지우기</button>
+              <div class="re_wrap">
+                <strong class="t_red">3:30</strong>
+                <button type="button" class="re_code">인증번호</button>
+              </div>
+            </div>
+            <div class="ipt_box">
+              <input type="number" title="인증번호 입력" placeholder="인증번호">
+              <button type="button" class="btn_clear" style="visibility: hidden;">입력내용지우기</button>
+            </div>
+            <ul class="btn_lst">
+              <li><button type="button" class="btn_login" disabled>아이디 찾기(disabled)</button></li>
+              <li><button type="button" class="btn_login">아이디 찾기</button></li>
+            </ul>
+          </div>
+          <p class="info">휴대폰 번호가 변경되었다면 관리자에게 문의해 주세요.</p>
+        </article>
+      </div>
+      <div class="tab_contents login_join_wrap" id="id02">
+        <article class="login_step02 join">
+          <div class="auth">
+            <h2>아이디 찾기</h2>
+            <p>고객님의 회원정보와 일치하는 아이디입니다.</p>
+          </div>
+          <div class="ipt_wrap">
+            <dl class="join_result">
+              <dt>아 이 디</dt>
+              <dd>kitvalley1234</dd>
+            </dl>
+            <ul class="btn_lst">
+              <li><button type="submit" class="btn_login btn_skip">비밀번호 찾기</button></li>
+              <li><button type="submit" class="btn_login">로그인</button></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <div class="tab_contents login_join_wrap" id="id03">
+        <article class="login_step02 join">
+          <div class="auth">
+            <h2>비밀번호 찾기</h2>
+            <p>회원정보에 등록된 아이디와 휴대폰 번호를 인증하여<br>임시 비밀번호를 발급 받을 수 있습니다.</p>
+          </div>
+          <div class="ipt_wrap">
+            <div class="ipt_box">
+              <input type="text" title="이름 입력 박스" placeholder="이름">
+              <button type="button" class="btn_clear" style="visibility: hidden;">입력내용지우기</button>
+            </div>
+            <div class="ipt_box">
+              <input type="text" title="아이디 입력 박스" placeholder="아이디">
+              <button type="button" class="btn_clear" style="visibility: hidden;">입력내용지우기</button>
+            </div>
+            <div class="ipt_box">
+              <input type="number" placeholder="휴대폰 번호" title="휴대폰 번호 입력 박스" />
+              <button type="button" class="btn_clear">입력내용지우기</button>
+              <div class="re_wrap">
+                <strong class="t_red">3:30</strong>
+                <button type="button" class="re_code">인증번호</button>
+              </div>
+            </div>
+            <div class="ipt_box">
+              <input type="number" title="인증번호 입력" placeholder="인증번호">
+              <button type="button" class="btn_clear" style="visibility: hidden;">입력내용지우기</button>
+            </div>
+            <ul class="btn_lst">
+              <li><button type="button" class="btn_login" disabled>비밀번호 찾기(disabled)</button></li>
+              <li><button type="button" class="btn_login">비밀번호 찾기</button></li>
+            </ul>
+          </div>
+          <p class="info">휴대폰 번호가 변경되었다면 관리자에게 문의해 주세요.</p>
+        </article>
+      </div>
+      <div class="tab_contents login_join_wrap" id="id04">
+        <article class="login_step02 join">
+          <div class="auth">
+            <h2>비밀번호 찾기</h2>
+            <p>회원정보의 연락처로 임시비밀번호를 발급하였습니다.<br>로그인 후 비밀번호를 꼭 변경해주세요.</p>
+          </div>
+          <ul class="btn_lst">
+            <li><button type="submit" class="btn_login">로그인</button></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </form>
+</dialog> <!--// 아이디/비밀번호 찾기 -->
 <dialog class="p_mngDel">
   <form method="dialog">
     <div class="p_header">
