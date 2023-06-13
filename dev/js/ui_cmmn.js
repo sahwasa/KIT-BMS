@@ -2,7 +2,7 @@
 
 $(function () {
   // nav
-  var $deps1 = $('.lnb>li'),
+  var $deps1 = $('.nav_lst>li'),
     $deps2 = $('.sub li'),
     preLocate,
     deps1Locate,
