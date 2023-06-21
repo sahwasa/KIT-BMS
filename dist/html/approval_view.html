@@ -97,6 +97,27 @@
         </ul>
       </li>
       <li><a href="">공개 문서함</a></li>
+      <li><a href="">보관함</a>
+        <button type="button" class="nav_btn_add">추가</button>
+        <ul class="sortable move_sortable hasLayer"><!--<li><a href="#">내보관함
+          <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li>
+          <li><a href="#">업무보고
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li>--></ul>
+      </li>
     </ul>
   </div>
 </section>
@@ -238,7 +259,7 @@
             </div>
             <div class="cmt_attach">
               <button type="button">등록</button>
-            </div>            
+            </div>
           </li>
         </ul>
       </div>
@@ -261,7 +282,7 @@
         <p>
           이 댓글은 로그인한 사람이 작성한 글입니다.<br />
           따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br />
-          댓글이 없을 때는 아래와 같이 보여줍니다.  
+          댓글이 없을 때는 아래와 같이 보여줍니다.
         </p>
       </div>
       <div class="cmt_info">
@@ -272,6 +293,46 @@
     <li>
       작성된 댓글이 없습니다.
     </li>
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmt_txt">
+        <p>╭◜◝ ͡ ◜◝ ╮<br>( Ꮚ ´ ꒳ ` Ꮚ 저는 바로바로 파일이 첨부된 댓글입니당<br>╰◟◞ ͜ ◟◞╯<br></p>
+      </div>
+      <div class="cmt_file">
+        <a href="../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <p>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</p>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_file">
+        <a href="../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <p>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</p>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-06-16 15:00</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
   </ul>
   <div class="cmt_write">
     <div class="user_module">
@@ -280,10 +341,18 @@
 </div>
     <textarea name="" id="" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea>
     <div class="cmt_attach">
+      <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
+      <div class="file_attach btn_attach">
+        <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+        <div id="file-drop" class="drop_zone">
+          <ul id="fileList" class="attach_list"></ul>
+        </div>
+      </div>
     </div>
-  </div>            
+  </div>
 </section>
+            <mini-editor placeholder="내용을 입력하세요 (#해시태그 @멘션)"  ></mini-editor>
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -370,19 +439,18 @@
             <section class="box_default_w">
               <h1>첨부파일</h1>
               <div class="file_attached">
-                <ul class="attach_list">
-                  <li>- 첨부된 파일이 없습니다.</li>
-                  <li>
-                    <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
+  <ul class="attach_list">
+    <li>- 첨부된 파일이 없습니다.</li>
+    <li>
+      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+      <a href="#" target="_blank" class="preview">미리보기</a>
+    </li>
+    <li>
+      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+      <a href="#" target="_blank" class="preview">미리보기</a>
+    </li>
+  </ul>
+</div>
             </section>
             <section class="box_default_w">
               <dl class="set_list">
@@ -432,6 +500,10 @@
 <script src="../plugins/ckeditor5/editor.js" type="module"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
+<script src="../js/mention.js"></script>
+<script>
+  $(function () {fileDropEvt();})
+</script>
 </body>
 
 </html>

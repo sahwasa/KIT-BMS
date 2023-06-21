@@ -1,0 +1,146 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')
+  @@include('../inc/nav.html')
+  <main id="content" class="container">
+    @@include('../inc/snb/plan.html')
+    <section class="contents">
+      @@include('../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>일정 추가</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li>일정 추가</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="approval_often box_compact box_tool">
+          <header>
+            <h1 class="blind">일정 안내</h1>
+            <span class="explanation"><b>용역관리 홍길동 사원</b> 님의 일정입니다.</span>
+            <span>
+              <button type="button" class="btn_request">저장</button>
+              <button type="button" class="btn_cancel">취소</button>
+            </span>
+          </header>
+        </article>
+        <section class="plan_new">
+          <table class="tbl_default tbl_row">
+            <caption>일정 추가 테이블</caption>
+            <colgroup>
+              <col style="width:200px">
+              <col style="width:auto">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="row"><label for="plan_period" class="required">기간</label></th>
+                <td>
+                  <span class="period_custom">
+                    <span>
+                      <input type="date" id="plan_period" name="start_date" title="시작일">
+                      <input type="time" name="start_time" title="시작시간">
+                    </span>
+                    <span>
+                      <input type="date" title="종료일" name="end_date">
+                      <input type="time" title="종료시간" name="end_time">
+                    </span>
+                  </span>
+                  <ul class="check_group">
+                    <li>
+                      <input type="radio" id="period_repeat" name="plan_period" checked>
+                      <label for="period_repeat">반복</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="period_allday" name="plan_period">
+                      <label for="period_allday">종일</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="period_private" name="plan_period">
+                      <label for="period_private">비공개</label>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="plan_tit" class="required">제목</label></th>
+                <td>
+                  <span class="file_input">
+                    <select name="plan_type" id="plan_tit" style="flex:0;">
+                      <option value="선택">선택</option>
+                      <option value="업무">업무</option>
+                      <option value="중요">중요</option>
+                      <option value="회의">회의</option>
+                      <option value="행사">행사</option>
+                    </select>
+                    <input type="text" title="제목 상세 입력 박스">
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="plan_place">일정공유</label></th>
+                <td>
+                  <div style="border:2px dashed #ff8800;">
+                    <p style="font-size:19px;font-weight:bold;color:#ff6600;">&nbsp;&nbsp;설계서 논의 필요</p>
+                    <img src="../images/img_sample.png" alt="일정추가 페이지 일정공유란 설계 임시 이미지">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="plan_place">장소</label></th>
+                <td><input type="text" id="plan_place"></td>
+              </tr>
+              <tr>
+                <th scope="row">회의실 예약</th>
+                <td>
+                  <span class="file_input">
+                    <button type="button" class="btn_form">회의실 검색</button>
+                    <ul class="btn_slideclose">
+                      <li>
+                        <div>
+                          <p>회의실A</p><button type="button">삭제</button>
+                        </div>
+                      </li>
+                    </ul>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th><label for="plan_participants">참여자</label></th>
+                <td>
+                  <span class="file_input">
+                    <input type="text" id="plan_participants" placeholder="참여자를 입력하세요." list="nameList">
+                    @@include('../inc/data_emp_name.html')
+                    <button type="button" class="btn_default">추가</button>
+                    <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                  </span>
+                  <span class="alignR"><label><input type="checkbox"> 참여 여부 확인 요청</label></span>
+                  @@include('../inc/module_slide_user.html')
+                </td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="plan_cont">내용</label></th>
+                <td><textarea id="plan_cont"></textarea></td>
+              </tr>
+              <tr>
+                <th scope="row"><label for="form_expense">파일첨부</label></th>
+                <td>
+                  @@include('../inc/module_file_attach.html')
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </section>
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
+<script>
+  $(function () { fileDropEvt(); })
+</script>
+</body>
+
+</html>

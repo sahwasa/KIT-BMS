@@ -1,0 +1,86 @@
+<dialog class="p_planView">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>일정 조회</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div>
+        <table class="tbl_default tbl_row">
+          <caption>일정 추가 테이블</caption>
+          <colgroup>
+            <col style="width:150px">
+            <col style="width:auto">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row"><label for="plan_period">기간</label></th>
+              <td>
+                <span class="file_input">
+                  <p>2023-04-14 13:00 ~ 2023-04-14 14:00</p>
+                  <span>반복</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_tit">제목</label></th>
+              <td>
+                <span class="file_input">
+                  <span>[중요]</span>
+                  <p>제목 상세 입력 박스 임시 일정</p>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_place">일정공유</label></th>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_place">장소</label></th>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">회의실 예약</th>
+              <td>
+                <ul class="btn_slideclose">
+                  <li>
+                    <div>
+                      <p>회의실A</p><button type="button">삭제</button>
+                    </div>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="plan_participants">참여자</label></th>
+              <td>
+                  @@include('../data_emp_name.html')
+                @@include('../module_slide_user.html')
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_cont">내용</label></th>
+              <td>
+                <div class="plan_cot">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="form_expense">파일첨부</label></th>
+              <td>
+                <div class="approval_set">
+                  @@include('../module_file_attached.html')
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_cancel">취소</button>
+        <button class="btn_save" type="button">적용</button>
+      </div>
+    </div>
+  </form>
+</dialog>

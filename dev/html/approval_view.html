@@ -93,7 +93,8 @@
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
             </div>
-            @@include('../inc/comment_area.html')
+            @@include('../inc/comment_area_file.html')
+            <mini-editor placeholder="내용을 입력하세요 (#해시태그 @멘션)"  ></mini-editor>
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -131,20 +132,7 @@
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
-              <div class="file_attached">
-                <ul class="attach_list">
-                  <li>- 첨부된 파일이 없습니다.</li>
-                  <li>
-                    <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
+              @@include('../inc/module_file_attached.html')
             </section>
             <section class="box_default_w">
               <dl class="set_list">
@@ -185,6 +173,9 @@
   @@include('../inc/footer.html')
 </div>
 @@include('../inc/script.html')
+<script>
+  $(function () {fileDropEvt();})
+</script>
 </body>
 
 </html>

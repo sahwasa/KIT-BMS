@@ -46,14 +46,18 @@ function selectFile(event,fileObject){
   let files = null;
   const file = event.target.files[0];
 
+  if (document.querySelector('.cmt_area') !== null) { // 파일첨부개수 지정
+    maxFileLength = 3
+    console.log('댓글창이 있군요!')
+  }
   if(fileObject != null){
     files = fileObject;
   }else{
     files = $('#multipaartFileList_' + fIndex)[0].files; //직접등록
   }
   if (files != null){
-    if(files.length >= maxFileLength){
-      alert("파일첨부갯수 초과");
+    if(files.length > maxFileLength){ // =제거
+      alert("파일첨부갯수 초과1");
       return
     }    
     for(var i = 0; i < files.length; i++){

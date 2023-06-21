@@ -26,6 +26,12 @@
         <li><button type="button" class="btn_default" data-modal="p_approval01">자주 쓰는 결재 설정</button></li>
         <li><button type="button" class="btn_default" data-modal="p_relDoc">관련문서</button></li>
       </ul>
+      <br>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">일정</h2>
+      <ul>
+        <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회</button></li>
+      </ul>
     </div>
   </main>
   @@include('../inc/footer.html')
@@ -35,6 +41,7 @@
 @@include('../inc/pop/p_mngTree.html') <!--// 조직도(공통) -->
 @@include('../inc/pop/p_approval_01.html') <!--// 자주 쓰는 결재 설정 -->
 @@include('../inc/pop/p_relDoc.html')<!--// 관련문서 설정 -->
+@@include('../inc/pop/p_planView.html')<!--// 관련문서 설정 -->
 @@include('../inc/script.html')
 <script>
   $(function () {

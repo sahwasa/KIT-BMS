@@ -271,8 +271,8 @@ $btn_gray:#979797;
 }
 
 .period_group{@include btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
-
-.btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;margin-top:5px;
+.file_input + .btn_slideclose{margin-top:5px;}
+.btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;
   & > li{display:inline-block;position:relative;
     & > div:first-child{position:relative;background:#ececec;border-radius:3px;overflow:hidden;
       button{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
@@ -490,6 +490,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   &>*{width:auto;margin-right:4px;align-self:center;vertical-align:middle;
     &:last-child{margin-right:0;}
   }
+  &>.btn_slideclose{margin-top:0;}
 }
 .MultiFile-wrap{width:100%;
   .multi{position:relative;width:72px;height:28px;float:right;overflow:visible;border-color:#aaa;
@@ -508,6 +509,20 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   .cmt_txt{padding-left:22px;margin-top:10px;
     p{border:1px solid #ccc;border-radius:3px;padding:5px;background-color:#f9fafc;}
   }
+  .cmt_file{position:relative;margin-top:10px;padding-left:22px;
+    &>a:first-child{@include flex_between;border-radius:3px;padding:10px 20px;background-color:#e9e9e9}
+    .cmt_file_info{position:relative;padding-left:40px;
+      &::before{@include fontello('\eb7c');position:absolute;left:0;top:calc(50% - 15px);font-size:20px;}
+      &>p{font-size:13px;font-weight:bold;color:#3a3a3a;}
+      &>span{font-size:12px;color:#7a7a7a;}
+    }
+    & >a:last-child{position:absolute;top:10px;right:20px;width:37px;border:1px solid #ccc;border-radius:3px;background-color:#b3b3b3;font-size:0;color:#fff;
+      &::before{@include fontello('\ea57');padding:0 10px;font-size:20px;line-height:35px;color:#fff;}
+      &:hover{background-color:#fafafa;
+        &::before{color:#999999;}
+      }
+    }
+  }
   .cmt_user{position:relative;
     .layer_tool{position:absolute;right:5px;top:0;}
     .btn_ellipsis::before{font-size:17px;color:#888;}
@@ -515,6 +530,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   .cmt_info{padding-left:22px;font-size:11px;color:#666;margin-top:5px;}
   textarea{padding:5px;min-height:fit-content;}
   button:hover{text-decoration:underline;}
+  
 }
 .reply_area{padding:10px 10px 10px 42px;margin-top:10px;background-color:#f5f5f5;
   li{position:relative;border-top:1px solid #ccc;padding:10px 0;
@@ -526,8 +542,16 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   textarea{min-height:none;border:none;margin-top:5px;}
 }
 .cmt_attach{text-align:right;margin-top:5px;
+  .btn_label_attach,
   button{font-weight:bold;color:#888;padding:5px;
     &:hover{color:#666;}
+  }
+  .btn_label_attach{cursor:pointer;vertical-align:middle;
+    &:hover{text-decoration:underline}
+  }
+  .file_attach{min-height:auto;border:none;
+    .attach_list{padding-bottom:0;}
+    &:has(.attach_list>li){border: 2px dashed #ebebeb;padding-bottom:10px;}
   }
 }
 

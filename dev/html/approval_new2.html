@@ -292,7 +292,7 @@
                 <p>신청인 : <span>멋쟁이</span> (인)</p>
               </div>
             </div>
-            @@include('../inc/comment_area.html')
+            @@include('../inc/comment_area_file.html')
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -418,17 +418,7 @@
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
-              <div class="file_attach btn_attach">
-                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
-                <div id="file-drop" class="drop_zone">
-                  <div class="drop_info">
-                    <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
-                  </div>
-                  <ul id="fileList" class="attach_list">
-                  </ul>
-                </div>
-              </div>
-              <div>
+              @@include('../inc/module_file_attach.html')
             </section>
             <section class="box_default_w">
               <dl class="set_list">
@@ -470,7 +460,7 @@
 </div>
 @@include('../inc/script.html')
 <script>
-  $(function () { fileDropEvt(); })
+  $(function () {fileDropEvt();})
 </script>
 </body>
 

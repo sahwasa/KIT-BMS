@@ -148,7 +148,10 @@
     }
     & > .flex_right{width:50%;border-left:1px solid #bec7d2;padding:15px 10px;min-width:500px;}
   }
+}
 
-
-
+// planView
+.p_planView{width:600px;
+  td{white-space: normal}
+  .plan_cot{height:100px;overflow-y:auto;}
 }
