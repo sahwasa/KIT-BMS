@@ -66,34 +66,30 @@
 </nav>
   <main id="content" class="container">
     <section class="snb">
-  <div class="snb_container plan">
+  <div class="snb_container svc">
     <header>
-      <h2>일정</h2>
+      <h2>임직원 업무</h2>
     </header>
     <div class="btn_workset">
-      <button type="button" class="btn_default" id="addEvt">일정추가</button>
+      <button type="button" class="btn_default" id="">출근</button>
+      <button type="button" class="btn_default" id="">퇴근</button>      
     </div>
-
     <ul class="snb_lst">
-      <li>
-        <h3>일정관리</h3>
+      <li><a href="">근태관리</a></li>
+      <li><a href="../html/svc_mettingRoom.html">자원</a>        
         <ul>
-          <li><label for="my_plan"><input type="checkbox" id="my_plan">나의 일정</label>
-          </li>
-          <li><label for="team_plan"><input type="checkbox" id="team_plan">팀원 일정</label>
-          <li><label for="all_plan"><input type="checkbox" id="all_plan">전사 일정</label>
-          </li>
+          <li><a href="../html/svc_meetingRoom.html">회의실 예약</a></li>
+          <li><a href="#">장비대여</a></li>
+          <li><a href="#">도서대여</a></li>
+          <li><a href="#">사물함 신청</a></li>
+          <li><a href="#">구매신청</a></li>
+          <li><a href="#">사용이력??</a></li>
         </ul>
       </li>
-      <li>
-        <h3>협업일정</h3>
-        <ul>
-          <li><label for="p1"><input type="checkbox" id="p1">OOO 유지보수</label>
-          </li>
-          <li><label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
-          </li>
-        </ul>
-      </li>
+      <li><a href="">경비청구</a></li>
+      <li><a href="">증명서 발급</a></li>
+      <li><a href="">사업자관리</a></li>
+      <li><a href="">주소록관리</a></li>
     </ul>
   </div>
 </section>
@@ -101,18 +97,32 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>일정</h1>
+        <h1>회의실 예약<span>임직원 업무</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="">Home</a></li>
-            <li>일정</li>
+            <li><a href="">임직원 업무</a></li>
+            <li>회의실 예약</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
-        <div id='calendar-container'>
-          <div id='calendar'></div>
-        </div>
+        <section class="cal_wrap">
+          <div class="remote_room">
+            <label for="all"><input type="checkbox" id="all" class="all_lst_ctrl">전체</label>
+            <ul class="lst_room lst_ctrl">
+              <li>
+                <label for="room1"><input type="checkbox" id="room1">제 1회의실</label>
+              </li>
+              <li><label for="room2"><input type="checkbox" id="room2">제 2회의실</label>
+              <li><label for="room3"><input type="checkbox" id="room3">제 3회의실</label>
+              </li>
+            </ul>
+          </div>
+          <div id='calendar-container' class="calendar_container">
+            <div id='calendar'></div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -132,8 +142,6 @@
 <!-- https://github.com/frappe/charts -->
 <script src='../plugins/fullcalendar/index.global.min.js'></script>
 <script src='../plugins/google-calendar/index.global.min.js'></script>
-<script src="../js/plan_fullcalendar.js"></script>
+<script src="../js/book_meeting_room.js"></script>
 
 </body>
-
-</html>

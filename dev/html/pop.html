@@ -38,19 +38,21 @@
 @@include('../inc/script.html')
 <script>
   $(function () {
+    function tabInit(modal){
+      $('.' + modal).find('.tab li').first().addClass('on')
+      $('.tab_contents').hide();
+      $('.' + modal).find('.tab_contents').first().show();
+    }
     $('.btn_default').on('click', function (e) {
-      //const target = Array.prototype.slice.call(e.target.classList).pop().split("btn")[1];
-      //const format = ".p_" + target.charAt(0).toLowerCase() + target.slice(1);
       const modal = e.target.dataset.modal;
       document.querySelector('.' + modal).showModal();
+      tabInit(modal);
     })
 
     $('.btnClose').on('click', function () {
       document.querySelector('dialog').close();
     })
-    // document.querySelector('.p_relDoc').showModal();
   })
-
   $(".approval_often_sort").sortable({
     forcePlaceholderSize: true,
     placeholder: 'ph'
