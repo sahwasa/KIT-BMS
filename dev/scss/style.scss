@@ -102,7 +102,7 @@ $columnGap:25px;
     .ipt_wrap{margin-top:50px;
       %info{font-size:14px;letter-spacing:-0.3px;color:#000;text-align:center;
         &::before{@include fontello('\eb77');margin-right:5px;font-size:15px;vertical-align:middle;color:#d0d0d0;}
-      } 
+      }
       .ipt_box{
         &:has(.btn_dplc)>.btn_clear{right:105px;}
         &:has(.btn_dplc)>input{padding-right:125px;}
@@ -110,13 +110,16 @@ $columnGap:25px;
         label{display:block;text-align:left;margin-top:50px;font-size:14px;color:#000;font-weight:bold;}
         .join_info{@extend %info;position:absolute;top:calc(100% + 5px);color:#0652de;font-weight:500;font-size:12px;
           &::before{content:'\e814';color:inherit;}
-        }        
+        }
         .warn{@extend %info;@extend .join_info;color:$red;
           &::before{content:'\eb77';font-size:13px;vertical-align:top;}
           &+input{margin-bottom:0;border-bottom:2px solid #f84a4a;}
         }
-      }      
+      }
       .info{@extend %info;}
+      .info_com{@extend %info;@extend .join_info;position:relative;margin-top:5px;padding-left:20px;font-size:12px;color:$black;text-align:left;
+        &::before{position:absolute;top:-1px;left:0;}
+      }
     }
     .profile_pic_wrap{@include flex_between;justify-content:space-evenly;align-items:flex-end;margin-bottom:30px;
       input[type="file"]{position:absolute;width:0;height:0;padding:0;overflow:hidden;border:0;}
@@ -610,10 +613,21 @@ z-index:10;
 }
 
 
-//test
-mini-editor {
-  width:100vw;
-  height:5em;
-  font-family:sans-serif;
-  background-color: #0652de;
+// 테스트중 테스트중 임시 임시
+#mini-editor {
+  display:block;
+  height:100px;
+  background-color: #c1d6ff;
+}
+
+div.editable {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #dcdcdc;
+  overflow-y: auto;
+
+  &:empty:before {
+    content: attr(placeholder);
+    color: #000;
+  }
 }
