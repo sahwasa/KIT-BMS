@@ -88,6 +88,12 @@
         <li><button type="button" class="btn_default" data-modal="p_approval01">자주 쓰는 결재 설정</button></li>
         <li><button type="button" class="btn_default" data-modal="p_relDoc">관련문서</button></li>
       </ul>
+      <br>
+      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
+      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">일정</h2>
+      <ul>
+        <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회</button></li>
+      </ul>
     </div>
   </main>
   <footer class="footer">
@@ -967,7 +973,141 @@
       </div>
       <div class="btn_wrap">
         <button class="btn_cancel">취소</button>
-        <button class="btn_save" type="button">확인</button>
+        <button class="btn_save" type="button">적용</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 관련문서 설정 -->
+<dialog class="p_planView">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>일정 조회</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div>
+        <table class="tbl_default tbl_row">
+          <caption>일정 추가 테이블</caption>
+          <colgroup>
+            <col style="width:150px">
+            <col style="width:auto">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row"><label for="plan_period">기간</label></th>
+              <td>
+                <span class="file_input">
+                  <p>2023-04-14 13:00 ~ 2023-04-14 14:00</p>
+                  <span>반복</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_tit">제목</label></th>
+              <td>
+                <span class="file_input">
+                  <span>[중요]</span>
+                  <p>제목 상세 입력 박스 임시 일정</p>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_place">일정공유</label></th>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_place">장소</label></th>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">회의실 예약</th>
+              <td>
+                <ul class="btn_slideclose">
+                  <li>
+                    <div>
+                      <p>회의실A</p><button type="button">삭제</button>
+                    </div>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="plan_participants">참여자</label></th>
+              <td>
+                  <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_cont">내용</label></th>
+              <td>
+                <div class="plan_cot">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="form_expense">파일첨부</label></th>
+              <td>
+                <div class="approval_set">
+                  <div class="file_attached">
+  <ul class="attach_list">
+    <li>- 첨부된 파일이 없습니다.</li>
+    <li>
+      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+      <a href="#" target="_blank" class="preview">미리보기</a>
+    </li>
+    <li>
+      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+      <a href="#" target="_blank" class="preview">미리보기</a>
+    </li>
+  </ul>
+</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_cancel">취소</button>
+        <button class="btn_save" type="button">적용</button>
       </div>
     </div>
   </form>
@@ -979,6 +1119,7 @@
 <script src="../plugins/ckeditor5/editor.js" type="module"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
+<script src="../js/mention.js"></script>
 <script>
   $(function () {
     function tabInit(modal){
