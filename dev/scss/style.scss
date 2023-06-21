@@ -100,25 +100,28 @@ $columnGap:25px;
       }
     }
     .ipt_wrap{margin-top:50px;
-      %info{font-size:14px;letter-spacing:-0.3px;color:#000;text-align:center;
-        &::before{@include fontello('\eb77');margin-right:5px;font-size:15px;vertical-align:middle;color:#d0d0d0;}
+      %info{margin-top:3px;color:#000;letter-spacing:-0.3px;
+        &::before{@include fontello('\eb77');margin-right:5px;font-size:13px;color:#d0d0d0;vertical-align:middle;}
+      }
+      .info{
+        &_import{@extend %info;font-size:14px;text-align:center;
+          &::before{content:'\eb77';}
+        }
+        &_com{@extend %info;font-weight:500;font-size:12px;text-align:left;color:$black;
+          &::before{content:'\eb77';}
+        }
+        &_ok{@extend .info_com;color:#0652de;
+          &::before{content:'\e814';font-size:15px;color:inherit;}
+        }
+        &_warn{@extend .info_com;color:$red;
+          &::before{content:'\eb77';color:inherit;}
+        }
       }
       .ipt_box{
         &:has(.btn_dplc)>.btn_clear{right:105px;}
         &:has(.btn_dplc)>input{padding-right:125px;}
         .btn_clear+.btn_dplc{position:absolute;top:calc(50% - 15px);right:10px;min-width:80px;border-radius:20px;font-size:13px;line-height:28px;}
-        label{display:block;text-align:left;margin-top:50px;font-size:14px;color:#000;font-weight:bold;}
-        .join_info{@extend %info;position:absolute;top:calc(100% + 5px);color:#0652de;font-weight:500;font-size:12px;
-          &::before{content:'\e814';color:inherit;}
-        }
-        .warn{@extend %info;@extend .join_info;color:$red;
-          &::before{content:'\eb77';font-size:13px;vertical-align:top;}
-          &+input{margin-bottom:0;border-bottom:2px solid #f84a4a;}
-        }
-      }
-      .info{@extend %info;}
-      .info_com{@extend %info;@extend .join_info;position:relative;margin-top:5px;padding-left:20px;font-size:12px;color:$black;text-align:left;
-        &::before{position:absolute;top:-1px;left:0;}
+        label{display:block;text-align:left;margin-top:35px;font-size:14px;color:#000;font-weight:bold;}
       }
     }
     .profile_pic_wrap{@include flex_between;justify-content:space-evenly;align-items:flex-end;margin-bottom:30px;
@@ -138,7 +141,7 @@ $columnGap:25px;
         img{max-width:inherit;cursor:pointer;}
       }
       .emp_img{
-        &>label{width:115px;height:115px;}
+        &>label{width:115px;height:140px;}
       }
       .emp_sign{
         &>label{width:95px;height:41px;}
