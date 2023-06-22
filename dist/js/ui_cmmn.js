@@ -176,7 +176,7 @@ $(function () {
 
   //tab
   $('.tab li').first().addClass('on')
-  $('.tab_contents').not(':first').hide();
+  $('.tab_container').find('.tab_contents').not(':first').hide();
   $('.tab li').on('click', function (e) {
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on')
@@ -185,8 +185,9 @@ $(function () {
     $('.m_tab option')
       .eq(link_num - 1)
       .prop('selected', 'selected')
-    $('.tab_contents').hide()
-    $(link).show()
+    var findTarget = $(this).parents('.tab_wrap').next('.tab_container');
+    findTarget.find('.tab_contents').hide();
+    $(link).show();
   })
 
   // sortable
