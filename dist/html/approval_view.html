@@ -352,7 +352,6 @@
     </div>
   </div>
 </section>
-            <mini-editor placeholder="내용을 입력하세요 (#해시태그 @멘션)"  ></mini-editor>
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -483,6 +482,13 @@
                 </dd>
               </dl>
             </section>
+            <textarea id="mini-editor" contenteditable="true">
+              <p>Edit this content to add your own quote</p>
+            </textarea>
+            <div class="editable" contenteditable="true" placeholder="이게 보일까요?">
+              <span style="background-color: aqua;">안녕하세요</span>
+              반갑습니다
+            </div>
           </article>
         </div>
       </div>
@@ -502,7 +508,7 @@
 <script src="../js/file_upload.js"></script>
 <script src="../js/mention.js"></script>
 <script>
-  $(function () {fileDropEvt();})
+  $(function () { fileDropEvt();})
 </script>
 </body>
 
