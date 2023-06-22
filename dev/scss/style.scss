@@ -623,6 +623,13 @@ z-index:10;
   background-color: #c1d6ff;
 }
 
+//svc
+.cal_wrap{@include flex_between;gap:$columnGap;align-items:flex-start;}
+.remote_room{width:110px;padding-top:55px;}
+.calendar_container{flex-grow:1;}
+.lst_room li{margin-top:15px;
+  label::after{@include shape(12px, 12px);background-color:#05b4d9;margin-left:5px;vertical-align:middle;margin-top:-1px;}
+
 div.editable {
   width: 300px;
   height: 200px;
@@ -633,4 +640,5 @@ div.editable {
     content: attr(placeholder);
     color: #000;
   }
+
 }

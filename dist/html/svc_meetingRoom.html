@@ -97,16 +97,32 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>자원예약<span>전자결재</span></h1>
+        <h1>회의실 예약<span>임직원 업무</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="">Home</a></li>
-            <li><a href="">전자결재</a></li>
-            <li>결재대기</li>
+            <li><a href="">임직원 업무</a></li>
+            <li>회의실 예약</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
+        <section class="cal_wrap">
+          <div class="remote_room">
+            <label for="all"><input type="checkbox" id="all" class="all_lst_ctrl">전체</label>
+            <ul class="lst_room lst_ctrl">
+              <li>
+                <label for="room1"><input type="checkbox" id="room1">제 1회의실</label>
+              </li>
+              <li><label for="room2"><input type="checkbox" id="room2">제 2회의실</label>
+              <li><label for="room3"><input type="checkbox" id="room3">제 3회의실</label>
+              </li>
+            </ul>
+          </div>
+          <div id='calendar-container' class="calendar_container">
+            <div id='calendar'></div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -123,6 +139,10 @@
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
 <script src="../js/mention.js"></script>
-</body>
 
-</html>
+<!-- https://github.com/frappe/charts -->
+<script src='../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../plugins/google-calendar/index.global.min.js'></script>
+<script src="../js/book_meeting_room.js"></script>
+
+</body>

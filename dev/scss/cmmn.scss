@@ -139,6 +139,8 @@ select{color:$gray;}
 select option{color:#333;}
 optgroup.opt_label,
 .opt_label option{display:none;}
+label>input[type="radio"],
+label>input[type="checkbox"]{position:relative;top:-1px;margin-right:5px;vertical-align:middle;}
 
 // layout
 hr,
@@ -155,8 +157,8 @@ hr,
 .scroll{overflow-y:scroll;background-color:#f5f5f5;}
 
 //badge
-.i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;padding-top:1px;
-  &::before{font-size:14px;margin-left:1px;}
+.i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
+  &::before{font-size:14px;}
 }
 .fin{background-color:#56b1b6;}
 .reject{background-color:#fc9734;}
@@ -166,10 +168,10 @@ hr,
 .public{background-color:#fff;border-color:#7d879f;color: #7d879f !important;}
 .private{background-color:#aab3c8;border-color:transparent;color:#fff !important;}
 .i_public{@extend .i_badge;@extend .public;
-  &::before{@include fontello('\eca1');color:#7d879f;}
+  &::before{@include fontello('\e823');color:#7d879f;}
 }
 .i_private{@extend .i_badge;@extend .private;
-  &::before{@include fontello('\eca0');color:#fff;}
+  &::before{@include fontello('\e822');color:#fff;}
 }
 
 // ico_fontello

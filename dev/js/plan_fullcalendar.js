@@ -55,11 +55,11 @@
             start: '2023-06-29T20:00:00'
           },
           {// 그룹 아이디가 같다면 해당 영역에만 들어올 수 있음(회의가능일자가 예시인데 쓸일이 있을까...?)
-            groupId: 'availableForMeeting',
-            start: '2023-06-19T10:00:00',
-            end: '2023-06-23T16:00:00',
-            display: 'background',
-            color: '#ff0000'
+            //groupId: 'availableForMeeting',
+            //start: '2023-06-19T10:00:00',
+            //end: '2023-06-23T16:00:00',
+            //display: 'background',
+            //color: '#ff0000'
           }];
 
     // initialize the calendar
@@ -184,7 +184,8 @@
       {
         title: '생일파티',
         start: '2023-06-29T20:00:00',
-        groupId: 'my_plan'
+        groupId: 'my_plan',
+        description : '설명'
       },
       {
         title: '저녁약속',

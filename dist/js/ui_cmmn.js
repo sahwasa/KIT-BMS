@@ -152,6 +152,19 @@ $(function () {
     },
   })
 
+  // list all check
+  $('.all_lst_ctrl').on('click change',function(){
+    const allCtrl =  $(this).prop('checked'),
+          thisChild = $(this).parent('label').next('.lst_ctrl').find('input');
+    thisChild.prop('checked',allCtrl);
+  })
+  $('.lst_ctrl').on('click change','input',function(){
+      var thisP = $(this).parents('ul'),
+          checkSize = thisP.find('input:checked').length,
+          allCtrl = thisP.prev('label').find('input');
+     (thisP.find('input').length <= checkSize) ? allCtrl.prop('checked',true) : allCtrl.prop('checked',false)
+  })
+
   //layer_tool
   $(":has(.hasLayer)").on('click focusin','.layer_tool',function(e){
       e.stopPropagation();
@@ -163,7 +176,7 @@ $(function () {
 
   //tab
   $('.tab li').first().addClass('on')
-  $('.tab_contents').not(':first').hide()
+  $('.tab_contents').not(':first').hide();
   $('.tab li').on('click', function (e) {
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on')
@@ -336,5 +349,7 @@ $(function () {
     $(this).css('color','inherit');
   });
 });
+
+
   
   

@@ -2,7 +2,11 @@
 .gcal-holiday{border:none;background-color:transparent;
   .fc-event-title{color:#f00;}
 }
+.fc-day-sat{color:$blue;}
+.fc-day-sun{color:$red;}
 .anniv{border:none;background-color:transparent;color:#00f;}
 .fc-header-toolbar{
   // .fc-gcalSync-button{background-color:$red;}
 }
+.fc-day-sun,
+.fc-day-sat{max-width:15%;}
