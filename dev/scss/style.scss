@@ -244,7 +244,7 @@ $columnGap:25px;
 .profile{
   position:relative;width:160px;height:inherit;padding:0 19px;
   .account{position:relative;top:50%;transform:translateY(-50%); display:inline-flex;align-items:center;font-size:13px;letter-spacing:-.33px;
-    img{border-radius:50%;overflow:hidden;}
+    img{border-radius:50%;overflow:hidden;object-fit:cover;}
     b{margin-left:10px;
       &::before{position:absolute;left:0;top:0; @include shape(32px,32px);border:1px solid #ddd;border-radius:50%;}
       &::after{@include fontello("\f004");margin-left:8px;font-size:11px;}
