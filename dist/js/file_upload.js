@@ -2,8 +2,7 @@ var fIndex = 0;
 var totalfSize = 0;
 var fList = new Array();
 var fSizeList = new Array();
-var uploadSize = 10 * 1024 * 1024; //MB
-var maxUploadSize = 200 * 1024 * 1024; //MB
+var maxUploadSize = 10 * 1024 * 1024; //MB
 var fLenthList = new Array();
 var maxFileLength = 10; //첨부최대갯수
 
@@ -46,18 +45,14 @@ function selectFile(event,fileObject){
   let files = null;
   const file = event.target.files[0];
 
-  if (document.querySelector('.cmt_area') !== null) { // 파일첨부개수 지정
-    maxFileLength = 3
-    console.log('댓글창이 있군요!')
-  }
   if(fileObject != null){
     files = fileObject;
   }else{
     files = $('#multipaartFileList_' + fIndex)[0].files; //직접등록
   }
   if (files != null){
-    if(files.length > maxFileLength){ // =제거
-      alert("파일첨부갯수 초과1");
+    if(files.length >= maxFileLength){
+      alert("파일첨부갯수 초과");
       return
     }    
     for(var i = 0; i < files.length; i++){
@@ -73,9 +68,9 @@ function selectFile(event,fileObject){
         // 확장자 체크
         alert("등록 불가 확장자");
         break;
-      }else if(fSize > uploadSize){
+      }else if(fSize * 1024 > maxUploadSize){
         // 파일 사이즈 체크
-        alert("용량 초과\n업로드 가능 용량 : " + uploadSize + " KB");
+        alert("용량 초과\n업로드 가능 용량 : " + (maxUploadSize/(1024*1024)) + " MB");
         break;
       }else if(fLenthList.length >= maxFileLength){
         alert("파일첨부갯수 초과");
