@@ -2,7 +2,7 @@ var fIndex = 0;
 var totalfSize = 0;
 var fList = new Array();
 var fSizeList = new Array();
-var maxUploadSize = 10 * 1024 * 1024; //MB
+//var maxUploadSize = 10 * 1024 * 1024; //MB
 var fLenthList = new Array();
 var maxFileLength = 10; //첨부최대갯수
 
@@ -68,10 +68,10 @@ function selectFile(event,fileObject){
         // 확장자 체크
         alert("등록 불가 확장자");
         break;
-      }else if(fSize * 1024 > maxUploadSize){
+      //}else if(fSize * 1024 > maxUploadSize){
         // 파일 사이즈 체크
-        alert("용량 초과\n업로드 가능 용량 : " + (maxUploadSize/(1024*1024)) + " MB");
-        break;
+      // alert("용량 초과\n업로드 가능 용량 : " + (maxUploadSize/(1024*1024)) + " MB");
+      //  break;
       }else if(fLenthList.length >= maxFileLength){
         alert("파일첨부갯수 초과");
         break;
