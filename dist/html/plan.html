@@ -38,7 +38,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="/html/user_info.html">내정보</a></li>
+            <li><a href="../html/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -71,30 +71,79 @@
       <h2>일정</h2>
     </header>
     <div class="btn_workset">
-      <button type="button" class="btn_default" id="addEvt">일정추가</button>
+      <a href="../html/plan_new.html" class="btn_default" >일정추가</a>
     </div>
 
     <ul class="snb_lst">
       <li>
-        <h3>일정관리</h3>
-        <ul>
-          <li><label for="my_plan"><input type="checkbox" id="my_plan">나의 일정</label>
+        <h3 class="all_lst_ctrl"><label for="my_cal"><input type="checkbox" id="my_cal"  checked>내 캘린더</label></h3>
+        <ul class="lst_ctrl">
+          <li><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label>
           </li>
-          <li><label for="team_plan"><input type="checkbox" id="team_plan">팀원 일정</label>
-          <li><label for="all_plan"><input type="checkbox" id="all_plan">전사 일정</label>
+          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>근태 일정</label>
+          <li><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label>
           </li>
         </ul>
       </li>
       <li>
-        <h3>협업일정</h3>
-        <ul>
-          <li><label for="p1"><input type="checkbox" id="p1">OOO 유지보수</label>
+        <h3 class="all_lst_ctrl" ><label for="p_cal"><input type="checkbox" id="p_cal" >프로젝트 캘린더</label></h3>
+        <ul class="lst_ctrl">
+          <li>
+            <label for="p1"><input type="checkbox" id="p1">OOOOOOOOOOOO 유지보수</label>
+            <input type="color" class="ipt_color" id="" name="" value="#ff0000" />
           </li>
-          <li><label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
+          <li>
+            <label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
+            <input type="color" class="ipt_color" id="" name="" value="#ff0000" />
           </li>
         </ul>
       </li>
+      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" >전 사원 근태</label></h3></li>
     </ul>
+    <section class="plan_add">
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="이름, 조직명" list="nameList">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+        <button type="button" class="btn_default">추가</button>
+      </span>
+      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+    </section>
   </div>
 </section>
     <section class="contents">

@@ -30,14 +30,14 @@
             start: '2023-06-21T11:00:00',
             color: '#257e4a',
             description: '2회의실',
-            className: 'room2'
+            className: 'roomB'
           },
           {
             title: '회의',
             start: '2023-06-22T11:00:00',
             color: '#05b4d9',
             description: '1회의실',
-            className: 'room1'
+            className: 'roomA'
           },
           {
             title: '월간공정보고 검토',
@@ -45,7 +45,7 @@
             end: '2023-06-30',
             color: '#05b4d9',
             description: '1회의실',
-            className: 'room1'
+            className: 'roomC'
           }];
 
     // initialize the calendar
@@ -54,7 +54,7 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
       googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c', //APIKEY 누구꺼쓰죠,,?
       headerToolbar: {
-        left: 'prevYear,prev,next,nextYear today',
+        left: 'prev,next today',
         center: 'title',
         right: 'book timeGridWeek,timeGridDay'
       },
@@ -67,29 +67,31 @@
         book : {
           text:'회의실 예약',
           click: function() {
-            var date = selectedDate;
-            if (date == null) {
-              var dateStr = prompt('일정을 추가할 날자를 YYYY-MM-DD 형식으로 입력해주세요.');
-              date = new Date(dateStr + 'T00:00:00'); // will be in local time
-            }
-            if (!isNaN(date.valueOf()) || !(date.end == null)) { // valid?
-              var start = date;
-              var end;
-              if(date.end){
-                start = date.start;
-                end = date.end;
-              }
-              calendar.addEvent({
-                title: '동적 일정추가',
-                start: start,
-                end: end,
-                allDay: true
-              });
-              alert('일정을 추가했습니다.');
-            } else {
-              alert('날자형식이 올바르지 않습니다.');
-            }
-            selectedDate = null;
+            $('.plan_new').toggle();
+            calendar.updateSize();
+            // var date = selectedDate;
+            // if (date == null) {
+            //   var dateStr = prompt('일정을 추가할 날자를 YYYY-MM-DD 형식으로 입력해주세요.');
+            //   date = new Date(dateStr + 'T00:00:00'); // will be in local time
+            // }
+            // if (!isNaN(date.valueOf()) || !(date.end == null)) { // valid?
+            //   var start = date;
+            //   var end;
+            //   if(date.end){
+            //     start = date.start;
+            //     end = date.end;
+            //   }
+            //   calendar.addEvent({
+            //     title: '동적 일정추가',
+            //     start: start,
+            //     end: end,
+            //     allDay: true
+            //   });
+            //   alert('일정을 추가했습니다.');
+            // } else {
+            //   alert('날자형식이 올바르지 않습니다.');
+            // }
+            // selectedDate = null;
           }
         }
       },      

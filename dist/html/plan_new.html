@@ -38,7 +38,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="/html/user_info.html">내정보</a></li>
+            <li><a href="../html/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -71,30 +71,79 @@
       <h2>일정</h2>
     </header>
     <div class="btn_workset">
-      <button type="button" class="btn_default" id="addEvt">일정추가</button>
+      <a href="../html/plan_new.html" class="btn_default" >일정추가</a>
     </div>
 
     <ul class="snb_lst">
       <li>
-        <h3>일정관리</h3>
-        <ul>
-          <li><label for="my_plan"><input type="checkbox" id="my_plan">나의 일정</label>
+        <h3 class="all_lst_ctrl"><label for="my_cal"><input type="checkbox" id="my_cal"  checked>내 캘린더</label></h3>
+        <ul class="lst_ctrl">
+          <li><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label>
           </li>
-          <li><label for="team_plan"><input type="checkbox" id="team_plan">팀원 일정</label>
-          <li><label for="all_plan"><input type="checkbox" id="all_plan">전사 일정</label>
+          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>근태 일정</label>
+          <li><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label>
           </li>
         </ul>
       </li>
       <li>
-        <h3>협업일정</h3>
-        <ul>
-          <li><label for="p1"><input type="checkbox" id="p1">OOO 유지보수</label>
+        <h3 class="all_lst_ctrl" ><label for="p_cal"><input type="checkbox" id="p_cal" >프로젝트 캘린더</label></h3>
+        <ul class="lst_ctrl">
+          <li>
+            <label for="p1"><input type="checkbox" id="p1">OOOOOOOOOOOO 유지보수</label>
+            <input type="color" class="ipt_color" id="" name="" value="#ff0000" />
           </li>
-          <li><label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
+          <li>
+            <label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
+            <input type="color" class="ipt_color" id="" name="" value="#ff0000" />
           </li>
         </ul>
       </li>
+      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" >전 사원 근태</label></h3></li>
     </ul>
+    <section class="plan_add">
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="이름, 조직명" list="nameList">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+        <button type="button" class="btn_default">추가</button>
+      </span>
+      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+    </section>
   </div>
 </section>
     <section class="contents">
@@ -109,19 +158,202 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body">
-        <article class="approval_often box_compact box_tool">
+      <div class="cont_body plan_new">
+        <div class="box_compact box_tool">
           <header>
-            <h1 class="blind">일정 안내</h1>
-            <span class="explanation"><b>용역관리 홍길동 사원</b> 님의 일정입니다.</span>
+            <h1><div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> 님의 일정입니다.</h1>
             <span>
               <button type="button" class="btn_request">저장</button>
-              <button type="button" class="btn_cancel">취소</button>
+              <button type="button" class="btn_cancel" onclick="location.href='../html/plan.html'" >취소</button>
             </span>
           </header>
-        </article>
-        <section class="plan_new">
-          <table class="tbl_default tbl_row">
+        </div>
+
+        <section class="new_contents">
+          <fieldset class="ipt_wrap ipt_set">
+            <dl>
+              <dt><label for="plan_period" class="required">기간</label></dt>
+              <dd>
+                <div class="period_custom">
+                  <span>
+                    <input type="date" id="plan_period" name="start_date" title="시작일">
+                    <input type="time" name="start_time" title="시작시간">
+                  </span>
+                  <span>
+                    <input type="date" title="종료일" name="end_date">
+                    <input type="time" title="종료시간" name="end_time">
+                  </span>
+                </div>
+              </dd>
+              <dd class="divideL">
+                <ul class="check_group">
+                  <li>
+                    <label for="period_allday"><input type="checkbox" id="period_allday">종일</label>
+                  </li>
+                  <li>
+                     <label for="period_repeat"><input type="checkbox" id="period_repeat" data-checkEvt="repeat">반복</label>
+                  </li>
+                </ul>
+              </dd>
+              <dd class="opt_wrap" name="repeat">
+                <dl class="opt_lst">
+                  <dt>빈도</dt>
+                  <dd>
+                    <div class="flex_ipt">
+                      <input type="number" min="1" value="1" title="반복 주기" />
+                      <select name="" id="" title="반복 단위">
+                        <option value="">주</option>
+                        <option value="">월</option>
+                        <option value="">년</option>
+                      </select>
+                      마다
+                    </div>
+                    <ul class="check_group">
+                      <li><label for="sun"><input type="checkbox" id="sun">일</label></li>
+                      <li><label for="mon"><input type="checkbox" id="mon">월</label></li>
+                      <li><label for="tue"><input type="checkbox" id="tue">화</label></li>
+                      <li><label for="wed"><input type="checkbox" id="wed">수</label></li>
+                      <li><label for="thu"><input type="checkbox" id="thu">목</label></li>
+                      <li><label for="fri"><input type="checkbox" id="fri">금</label></li>
+                      <li><label for="sat"><input type="checkbox" id="sat">토</label></li>
+                    </ul>
+                  </dd>
+                  <dt>범위</dt>
+                  <dd>
+                    <div class="period_custom">
+                      <input type="date" id="" name="start_date" title="시작일">
+                      <input type="date" id="" name="end_date" title="종료일">
+                    </div>
+                    <label for="indefinitely"><input type="checkbox" id="indefinitely">무기한</label>
+                  </dd>
+                  <dt>요약</dt>
+                  <dd><p>1주 화요일 마다(2023-12-10 ~ )</p></dd>
+                </dl>
+              </dd>              
+              <dt><label for="plan_place">장소</label></dt>
+              <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>
+              <dt>회의실</dt>
+              <dd>
+                <div class="file_input">
+                  <div class="select_custom meeting_room">
+                    <button class="label">
+                      <span class="opt_label">선택</span>
+                    </button>
+                    <ul class="optionList">
+                      <li class="optionItem" tabindex="0"><span class="opt_label">선택안함</span></li>
+                      <li class="optionItem" tabindex="0"><i class="roomA">A</i>회의실A</li>
+                      <li class="optionItem" tabindex="0"><i class="roomB">B</i>회의실B</li>
+                      <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
+                    </ul>
+                  </div>
+                  <button type="button" class="btn_form">회의실 예약현황</button>                  
+                </div>                
+              </dd>
+              <dt>참여자</dt>
+              <dd>
+                <div class="file_input">
+                  <select name="" id="" title="참여자 검색옵션">
+                    <option value="">프로젝트</option>
+                    <option value="">이름</option>
+                   </select>
+                  <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
+                  <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                  <button type="button" class="btn_default">추가</button>
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                </div>
+                <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+                <p class="ipt_info">참여자와 일정이 공유됩니다.</p>
+              </dd>
+              <dt>공개여부</dt>
+              <dd>
+                <div class="btn_switch">
+                    <input type="radio" id="open" name="disclosure" checked>
+                    <label for="open">공개</label>
+                    <input type="radio" id="private" name="disclosure">
+                    <label for="private">비공개</label>
+                </div>
+              </dd>
+            </dl>
+          </fieldset>
+          <fieldset class="ipt_wrap">
+            <dl>
+              <dt><label for="plan_tit" class="required">제목</label></dt>
+              <dd>
+                <div class="select_custom meeting_room">
+                  <button class="label">
+                    <span class="opt_label">선택</span>
+                  </button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0"><i class="roomB">B</i>업무</li>
+                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>중요</li>
+                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의</li>
+                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>행사</li>
+                  </ul>
+                </div>
+              </dd>              
+              <dd class="flex_full divideL"><input type="text" id="plan_tit" title="제목 상세 입력 박스" required></dd>
+              <dt><label for="plan_cont">내용</label></dt>
+              <dd class="flex_full"><textarea id="plan_cont"></textarea></dd>
+              <dt>파일첨부</dt>
+              <dd class="flex_full"><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="fileList" class="attach_list">
+    </ul>
+  </div>
+</div></dd>
+            </dl>
+          </fieldset>
+          <!-- <section class="opt_wrap">
+            <h1>회의실 예약현황</h1>
+            <div id='calendar-container' class="calendar_container">
+              <div id='calendar'></div>
+            </div>
+          </section> -->
+
+          <!-- <table class="tbl_default tbl_row">
             <caption>일정 추가 테이블</caption>
             <colgroup>
               <col style="width:200px">
@@ -131,7 +363,7 @@
               <tr>
                 <th scope="row"><label for="plan_period" class="required">기간</label></th>
                 <td>
-                  <span class="period_custom">
+                  <div class="period_custom">
                     <span>
                       <input type="date" id="plan_period" name="start_date" title="시작일">
                       <input type="time" name="start_time" title="시작시간">
@@ -140,7 +372,7 @@
                       <input type="date" title="종료일" name="end_date">
                       <input type="time" title="종료시간" name="end_time">
                     </span>
-                  </span>
+                  </div>
                   <ul class="check_group">
                     <li>
                       <input type="radio" id="period_repeat" name="plan_period" checked>
@@ -160,7 +392,7 @@
               <tr>
                 <th scope="row"><label for="plan_tit" class="required">제목</label></th>
                 <td>
-                  <span class="file_input">
+                  <div class="file_input">
                     <select name="plan_type" id="plan_tit" style="flex:0;">
                       <option value="선택">선택</option>
                       <option value="업무">업무</option>
@@ -169,7 +401,7 @@
                       <option value="행사">행사</option>
                     </select>
                     <input type="text" title="제목 상세 입력 박스">
-                  </span>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -188,16 +420,22 @@
               <tr>
                 <th scope="row">회의실 예약</th>
                 <td>
-                  <span class="file_input">
-                    <button type="button" class="btn_form">회의실 검색</button>
-                    <ul class="btn_slideclose">
-                      <li>
-                        <div>
-                          <p>회의실A</p><button type="button">삭제</button>
-                        </div>
-                      </li>
-                    </ul>
-                  </span>
+                  <div class="file_input">
+                    <div class="select_custom meeting_room">
+                      <button class="label">
+                        <span class="opt_label">선택</span>
+                      </button>
+                      <ul class="optionList">
+                        <li class="optionItem" tabindex="0"><i class="roomA">A</i>회의실A</li>
+                        <li class="optionItem" tabindex="0"><i class="roomB">B</i>회의실B</li>
+                        <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
+                      </ul>
+                    </div>
+                    <button type="button" class="btn_form">회의실 예약현황</button>
+                  </div>
+                  <div id='calendar-container' class="calendar_container">
+                    <div id='calendar'></div>
+                  </div> 팝업으로..?
                 </td>
               </tr>
               <tr>
@@ -222,7 +460,6 @@
                     <button type="button" class="btn_default">추가</button>
                     <button type="button" class="btn_ogt btnMngTree">조직도</button>
                   </span>
-                  <span class="alignR"><label><input type="checkbox"> 참여 여부 확인 요청</label></span>
                   <ul class="btn_slideclose">
   <li>
     <div>
@@ -269,7 +506,7 @@
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
         </section>
       </div>
     </section>
@@ -288,7 +525,9 @@
 <script src="../js/file_upload.js"></script>
 <script src="../js/mention.js"></script>
 <script>
-  $(function () { fileDropEvt(); })
+  $(function(){
+    fileDropEvt();    
+  })
 </script>
 </body>
 

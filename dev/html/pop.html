@@ -46,7 +46,7 @@
 <script>
   $(function () {
     function tabInit(modal){
-      $('.' + modal).find('.tab li').first().addClass('on')
+      $('.' + modal).find('.tab li').removeClass('on').first().addClass('on')
       $('.tab_contents').hide();
       $('.' + modal).find('.tab_contents').first().show();
     }
@@ -59,11 +59,18 @@
     $('.btnClose').on('click', function () {
       document.querySelector('dialog').close();
     })
+
+    $('dialog').on('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      }
+    });
   })
   $(".approval_often_sort").sortable({
     forcePlaceholderSize: true,
     placeholder: 'ph'
   });
+  
 </script>
 </body>
 
