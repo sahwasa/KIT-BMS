@@ -306,13 +306,14 @@ $snbWidth:200px;
     }
     em{color:#ff5654;font-size:13px;margin-left:5px;}
   }
+  $snb_item_padding:10px #{$columnGap - 10px};
   .snb_lst{$snb-border-color:#ebebeb;text-align:left;
     & > li{position:relative;font-size:14px;border-bottom:1px solid $snb-border-color;background-color:#f9fafc;
       & > h3,
-      & > a{display:block;font-weight:bold;padding:10px #{$columnGap - 10px};letter-spacing:-.35px;}
+      & > a{display:block;font-weight:bold;padding: $snb_item_padding;letter-spacing:-.35px;}
       ul{border-top:1px solid $snb-border-color;background-color:$white;padding:10px 0;
         %sublst,
-        a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px #{$columnGap - 10px} 6px;
+        a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px 5px 6px #{$columnGap - 10px};max-width:#{$snbWidth  - 30px};
           &::before{content:"·";font-weight:bold;font-size:18px;margin:0 8px;line-height:17px;}
           &:hover .layer_tool{display:block;}
         }      
@@ -322,10 +323,14 @@ $snbWidth:200px;
       & li.on a,& li:hover a{background-color:#fee;color:#424242;}
     }
   }
-  .plan ul label{@extend %sublst;
-    input{margin:1px 5px 0 0;}
+  label input{flex-shrink:0;margin-right:5px;top:0;}
+  .ipt_color{width:20px;height:25px;min-height:auto;padding:0;border:none; vertical-align:initial;}
+  .plan .snb_lst > li ul label{@extend %sublst;display:inline-flex;padding-left:25px;
     &::before{display:none;}
   }
+  .plan_add{padding: $snb_item_padding;}
+  .user_module{flex-direction:column;gap:0;}
+
   .nav_btn_add{position:absolute;top:10px;right:15px;@include ico_only;
     &::before{display:flex;align-items:center;justify-content:center;width:21px;height:21px;font-size:13px;content:"╊";border:1px solid $border-color;color:#989898;border-radius:2px;}
     &:hover::before{border-color:#989898;}
@@ -419,10 +424,7 @@ z-index:10;
 
 .approval_often{
   ul{flex-wrap:wrap;}
-  .explanation{display:block;margin-top:5px;font-size:12px;font-weight:normal;
-    b{font-weight:bold;}
-    &::before{@include fontello('\e877');margin:0 5px;color:#848890;font-size:14px;vertical-align:middle;}
-  }
+  .explanation{@include explanation;}
   .badge{@include badge_style(40px);display:inline;margin-left:3px;padding:0.5px 2.5px;border:1px solid #c0c5cf;background-color:#fff;color:#7c869e;font-weight:bold;}
 }
 .approval_new{margin-top:50px;
@@ -579,9 +581,38 @@ z-index:10;
 
 // plan
  // tree common
+.ipt_wrap{border:none;
+  dl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  dt{@include form_label;width:100%;margin-top:15px;}
+  dt:first-of-type{margin-top:0;}
+  .flex_full{flex-grow:1;}
+  //dd:first-of-type::before{display:none;}
+  .divideL{position:relative;padding-left:20px;
+    li{line-height:28px;}
+    &::before{position:absolute;left:0;top:0;content:"/";font-size:20px;}
+  }
+  .opt_wrap{display:none;width:100%;
+    .opt_lst{display:grid;grid-template-columns:80px 1fr;align-items:stretch; padding:15px 20px 0;border-top:1px solid #c5c5c5;
+    }
+    dt,p{margin-top:0;line-height:28px;}
+  }
+  .ipt_info{@include explanation;}
+
+}
+.flex_ipt{display:flex;gap:4px;align-items: center;word-break:keep-all;
+  input,select{flex:0 1 60px;}
+}
 .plan_new{
+  .new_contents{display:flex;gap:$columnGap;flex-wrap:wrap;}
+  .ipt_wrap{flex:1 500px;}
+  .ipt_set{max-width:630px;}
+  .box_compact h1{display:flex;gap:5px;}
   label:has(input[type=checkbox]){display:inline-block;margin-top:2px;}
-  .period_custom+.check_group{display:inline-flex;margin-left:10px;}
+  .period_custom +.check_group{display:inline-flex;margin-left:10px;}
+  
+
+
+
   .org_wrap{@include flex_between;justify-content:flex-start;gap:10px;
     &>.tree_wrap{min-width:30%;height:100%;}
   }
@@ -624,9 +655,12 @@ z-index:10;
 }
 
 //svc
-.cal_wrap{@include flex_between;gap:$columnGap;align-items:flex-start;}
-.remote_room{width:110px;padding-top:55px;}
-.calendar_container{flex-grow:1;}
+.cal_wrap{@include flex_between;gap:$columnGap;align-items:flex-start;flex-wrap:wrap;
+  .remote_room{flex-shrink:0;width:90px;padding-top:55px;}
+  .calendar_container{flex:1 0 auto;}
+  .plan_new{flex:1 0 480px;}
+}
+
 .lst_room li{margin-top:15px;
   label::after{@include shape(12px, 12px);background-color:#05b4d9;margin-left:5px;vertical-align:middle;margin-top:-1px;}
 

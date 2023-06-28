@@ -70,6 +70,9 @@ color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5
   line-height:23px;border:1px solid #aaa;border-radius:2px;padding:0 7px;font-size:12px;
   &:hover{color:#fff;}
 }
+@mixin form_label{
+  font-size:13px;font-weight:bold;color:#111;
+}
 
 @mixin btn_switch_group($def,$hover,$checked){display:inline-flex;vertical-align:middle;
   input{position:absolute;flex:1;opacity:0;
@@ -101,6 +104,11 @@ color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5
   #{$target}{font-size:16px;color:#000;font-weight:500;margin-bottom:15px;
     &::before{position:relative;top:-3px;display:inline-block;@include shape(6px,6px);margin-right:7px;border-radius:6px;background-color:#c4c4c4;}
   }
+}
+
+@mixin explanation{display:block;margin-top:5px;font-size:12px;font-weight:normal;
+  b{font-weight:bold;}
+  &::before{@include fontello('\e877');margin:0 5px;color:#848890;font-size:14px;vertical-align:middle;}
 }
 
 @mixin stamp($color){display:inline-flex;justify-content: center;align-items: center;width:40px;height:40px;

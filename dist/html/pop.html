@@ -38,7 +38,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="/html/user_info.html">내정보</a></li>
+            <li><a href="../html/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -101,13 +101,13 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
-<dialog class="p_loginId">
+<dialog class="p_loginId" tabindex="0">
   <form method="dialog">
     <div class="p_header">
       <strong>아이디 &sol; 비밀번호 찾기</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </div>
-    <div class="p_body">
+    <div class="p_body tab_container">
       <ul class="tab tab_wrap" style="position:absolute;z-index:1;bottom:0;left:0;">
         <li class="on"><a href="#id01">아이디 찾기</a></li>
         <li><a href="#id02">아이디 찾기 결과</a></li>
@@ -1127,7 +1127,7 @@
 <script>
   $(function () {
     function tabInit(modal){
-      $('.' + modal).find('.tab li').first().addClass('on')
+      $('.' + modal).find('.tab li').removeClass('on').first().addClass('on')
       $('.tab_contents').hide();
       $('.' + modal).find('.tab_contents').first().show();
     }
@@ -1140,11 +1140,18 @@
     $('.btnClose').on('click', function () {
       document.querySelector('dialog').close();
     })
+
+    $('dialog').on('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      }
+    });
   })
   $(".approval_often_sort").sortable({
     forcePlaceholderSize: true,
     placeholder: 'ph'
   });
+  
 </script>
 </body>
 

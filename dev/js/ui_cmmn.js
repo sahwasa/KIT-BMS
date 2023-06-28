@@ -153,16 +153,16 @@ $(function () {
   })
 
   // list all check
-  $('.all_lst_ctrl').on('click change',function(){
+  $('.all_lst_ctrl').on('click change','input:checkbox',function(){
     const allCtrl =  $(this).prop('checked'),
-          thisChild = $(this).parent('label').next('.lst_ctrl').find('input');
-    thisChild.prop('checked',allCtrl);
+          thisChild = $(this).closest('.all_lst_ctrl').next('.lst_ctrl').find('input:checkbox');
+    thisChild.prop('checked', allCtrl);
   })
   $('.lst_ctrl').on('click change','input',function(){
-      var thisP = $(this).parents('ul'),
+      var thisP = $(this).parents('.lst_ctrl'),
           checkSize = thisP.find('input:checked').length,
-          allCtrl = thisP.prev('label').find('input');
-     (thisP.find('input').length <= checkSize) ? allCtrl.prop('checked',true) : allCtrl.prop('checked',false)
+          allCtrl = thisP.prev('.all_lst_ctrl').find('input');
+     (thisP.find('input').length <= checkSize) ? allCtrl.prop('checked',true) : allCtrl.prop('checked',false);
   })
 
   //layer_tool
@@ -175,19 +175,27 @@ $(function () {
   })
 
   //tab
-  $('.tab li').first().addClass('on')
+  $('.tab li').first().addClass('on');
   $('.tab_container').find('.tab_contents').not(':first').hide();
   $('.tab li').on('click', function (e) {
     e.preventDefault()
-    $(this).addClass('on').siblings().removeClass('on')
-    var link = $(this).find('a').attr('href')
-    var link_num = link.substr(link.length - 1)
+    $(this).addClass('on').siblings().removeClass('on');
+    var link = $(this).find('a').attr('href');
+    var link_num = link.substr(link.length - 1);
     $('.m_tab option')
       .eq(link_num - 1)
       .prop('selected', 'selected')
     var findTarget = $(this).parents('.tab_wrap').next('.tab_container');
+    console.log(findTarget.children('.tab_contents'));
     findTarget.find('.tab_contents').hide();
     $(link).show();
+  })
+
+  //addOPT
+  $('[data-checkEvt]').on('change',function(e){
+    const getTarget = e.target.dataset.checkevt,
+          target = $("[name ="+getTarget +"]");
+    ($(this).prop('checked')) ? target.show() : target.hide();
   })
 
   // sortable
@@ -337,14 +345,15 @@ $(function () {
   const label = select_custom.find('.label');
   const options = select_custom.find('.optionItem');
   const handleSelect = function (item) {
-    label.html(item.innerHTML);
-    label.parent().removeClass('active');
+    const result = $(item).closest('.select_custom').find('.label');
+    result.html(item.innerHTML);
+    result.parent().removeClass('active');
   }
   options.on('click',function(e){
     handleSelect(e.target);
   });
   label.on('click',function(){
-    (label.parent().hasClass('active')) ? label.parent().removeClass('active') : label.parent().addClass('active')
+    ($(this).parent().hasClass('active')) ? $(this).parent().removeClass('active') : $(this).parent().addClass('active')
   })
   $('select').on('change',function(){
     $(this).css('color','inherit');

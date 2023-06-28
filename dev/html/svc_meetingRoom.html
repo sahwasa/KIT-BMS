@@ -19,19 +19,22 @@
       <div class="cont_body">
         <section class="cal_wrap">
           <div class="remote_room">
-            <label for="all"><input type="checkbox" id="all" class="all_lst_ctrl">전체</label>
+            <label for="all" class="all_lst_ctrl"><input type="checkbox" id="all">전체</label>
             <ul class="lst_room lst_ctrl">
               <li>
-                <label for="room1"><input type="checkbox" id="room1">제 1회의실</label>
+                <label for="roomA"><input type="checkbox" id="roomA">회의실A</label>
               </li>
-              <li><label for="room2"><input type="checkbox" id="room2">제 2회의실</label>
-              <li><label for="room3"><input type="checkbox" id="room3">제 3회의실</label>
+              <li><label for="roomB"><input type="checkbox" id="roomB">회의실B</label>
+              <li><label for="roomC"><input type="checkbox" id="roomC">회의실C</label>
               </li>
             </ul>
           </div>
           <div id='calendar-container' class="calendar_container">
             <div id='calendar'></div>
           </div>
+          <article class="plan_new">
+            @@include('svc_meetingRoom_book.html')
+          </article>
         </section>
       </div>
     </section>
