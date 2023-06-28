@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>작업 페이지 목록</title>
+	<style type="text/css">
+		*::-webkit-scrollbar {width: 10px;}
+		*::-webkit-scrollbar-thumb {background-color: #ffe8e8;}
+		*::-webkit-scrollbar-track {background-color: #ff9f9f;box-shadow: inset 0px 0px 5px white;}
+		body {width: 100%;height: 100%;}
+		body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,input,button {font-family: NanumGothic;}
+		body {margin: 0;padding: 0;font-size: 0.75em;color: #444;word-break: break-all;}
+		input,select,button,img {vertical-align: middle;}
+		button {cursor: pointer;}
+		a {text-decoration: none;}
+		a:hover {text-decoration: none}
+		table {width: 100%;border-top: 1px #ffe8e8 solid;}
+		table th,table td {padding: 10px;border-bottom: 1px #ffe8e8 solid;}
+		table th {background: #ffe8e8;}
+		table td {background: #fff;color: #666;}
+		.wrap {margin: 15px;}
+		.infoBox {height: 100px;margin-bottom: 20px;padding: 20px;border: 1px solid #ffd1d1;background: #fff;overflow-y: auto;}
+		.infoBox b {font-size: 16px;}
+		.infoBox ol {padding: 0;}
+		.infoBox ol li {padding: 0;list-style: none;font-size: 14px;line-height: 22px;}
+		th,td {text-align: center;}
+		tr>td:nth-child(n+3):nth-child(-n+4) {text-align: left;}
+		.pop::before{display:inline-block;content:'P';background-color: #ff6868;width:14px;margin-right:5px;border-radius:3px;line-height:14px;font-weight:bold;color:#fff;text-align:center;}
+	</style>
+
+</head>
+
+<body style="background:rgb(255, 255, 255);">
+	<div class="wrap">
+		<h1>🚩𝕂𝕀𝕋 업무관리시스템 리스트</h1>
+
+		<div class="infoBox">
+			<b>개발 일정</b>
+			<ol>
+				<li><b>1-1</b> 전자결재 : 7월 말</li>
+				<li><b>1-2</b> 일정관리 : 8월 말</li>
+				<li><b>1-3</b> 프로젝트 및 업무보고 : 11월 말</li>
+				<li><b>1-4</b> 사내쪽지 : 12월 말</li>
+				<li><b>2-1</b> 업무관리, ERP, 게시판, 기능개선 : 미정</li>
+			</ol>
+		</div>
+		<p class="pop">= 팝업 페이지</p>
+		<h3>공통</h3>
+		<table>
+			<colgroup>
+				<col style="width:50px;">
+				<col style="width:150px;">
+				<col style="width:300px;">
+				<col style="width:300px;">
+				<col style="width:80px;">
+				<col style="width:80px;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>파일명</th>
+					<th>메뉴Path</th>
+					<th>화면설명</th>
+					<th>퍼블리싱</th>
+					<th>개발</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>main.html</td>
+					<td>메인</td>
+					<td>현재 보류상태</td>
+					<td>보류</td>
+					<td>보류</td>
+				<tr>
+					<td>join.html</td>
+					<td>회원가입</td>
+					<td>약관동의, 기본정보, 주소 및 연락처, 프로필 정보, 회원가입 완료</td>
+					<td>완료</td>
+					<td>완료</td>
+				<tr>
+					<td>login.html</td>
+					<td>로그인</td>
+					<td>기본로그인, 인증화면, 본인인증 실패</td>
+					<td>완료</td>
+					<td>완료</td>
+				<tr>
+					<td>user_info.html</td>
+					<td>메인 &gt; 내정보</td>
+					<td>항목 미결정으로 임시 작업</td>
+					<td>임시</td>
+					<td></td>
+			</tbody>
+		</table>
+
+		<h3>1-1 전자결재(상신함, 수신함, 공개 문서함)</h3>
+		<table>
+			<colgroup>
+				<col style="width:50px;">
+				<col style="width:150px;">
+				<col style="width:300px;">
+				<col style="width:300px;">
+				<col style="width:80px;">
+				<col style="width:80px;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>파일명</th>
+					<th>메뉴Path</th>
+					<th>화면설명</th>
+					<th>퍼블리싱</th>
+					<th>개발</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>approval.html</td>
+					<td>전자결재</td>
+					<td></td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>pop.html</td>
+					<td class="pop">전자결재 &gt; 자주쓰는 결재 설정</td>
+					<td></td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>approval_new.html</td>
+					<td>전자결재 &gt; 신규기안</td>
+					<td></td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>approval_new2.html</td>
+					<td>전자결재 &gt; 신규기안 &gt; 신규기안 작성</td>
+					<td></td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>pop.html</td>
+					<td class="pop">전자결재 &gt; 신규기안 &gt; 신규기안 작성 &gt; 졀재자 지정</td>
+					<td>팝업 공통의 조직도 팝업 사용하시면 됩니다</td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>pop.html</td>
+					<td class="pop">전자결재 &gt; 신규기안 &gt; 신규기안 작성 &gt; 기존 결재자 정보 삭제</td>
+					<td>팝업 공통의 경고 팝업 사용하시면 됩니다</td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>pop.html</td>
+					<td class="pop">전자결재 &gt; 신규기안 &gt; 신규기안 작성 &gt; 관련문서 검색</td>
+					<td></td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>approval_outbox.html</td>
+					<td>전자결재 &gt; 결재상신함, 결재수신함 &gt; 문서함(결재진행, 결재대기 등)</td>
+					<td></td>
+					<td>완료</td>
+					<td></td>
+				<tr>
+					<td>approval_view.html</td>
+					<td>전자결재 &gt; 결재상신함, 결재수신함 &gt; 문서함(결재진행, 결재대기 등) &gt; 문서 상세</td>
+					<td>멘션 기능 작업중입니다</td>
+					<td>작업중</td>
+					<td></td>
+				<tr>
+					<td>pop.html</td>
+					<td class="pop">전자결재 &gt; 결재상신함, 결재수신함 &gt; 문서함 &gt; 문서 상세 &gt; 승인 or 반려 처리</td>
+					<td></td>
+					<td>작업중</td>
+					<td></td>
+			</tbody>
+		</table>
+
+		<h3>1-2 일정관리(개인일정, 공유일정), 근태관리, 자원예약</h3>
+		<table>
+			<colgroup>
+				<col style="width:50px;">
+				<col style="width:150px;">
+				<col style="width:300px;">
+				<col style="width:300px;">
+				<col style="width:80px;">
+				<col style="width:80px;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>파일명</th>
+					<th>메뉴Path</th>
+					<th>화면설명</th>
+					<th>퍼블리싱</th>
+					<th>개발</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>plan.html</td>
+					<td>일정관리</td>
+					<td>월간, 주간, 일간, 목록 확인 가능합니다</td>
+					<td>작업중</td>
+					<td></td>
+				<tr>
+					<td>plan_new.html</td>
+					<td>일정관리 &gt; 일정 추가</td>
+					<td></td>
+					<td>작업중</td>
+					<td></td>
+				<tr>
+					<td>svc.html</td>
+					<td>임직원 업무</td>
+					<td></td>
+					<td>임시</td>
+					<td></td>
+				<tr>
+					<td>svc.html</td>
+					<td>임직원 업무 &gt; 자원예약</td>
+					<td></td>
+					<td>작업중</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>svc_meetingRoom.html</td>
+					<td>임직원 업무 &gt; 자원 &gt; 회의실 예약</td>
+					<td></td>
+					<td>작업중</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>1-3 프로젝트 (프로젝트 관리), 업무보고(내 업무함, 업무 실적관리, 업무보고함), 일정관리(협업일정)</h3>
+		<table>
+			<colgroup>
+				<col style="width:50px;">
+				<col style="width:150px;">
+				<col style="width:300px;">
+				<col style="width:300px;">
+				<col style="width:80px;">
+				<col style="width:80px;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>파일명</th>
+					<th>메뉴Path</th>
+					<th>화면설명</th>
+					<th>퍼블리싱</th>
+					<th>개발</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+			</tbody>
+		</table>
+		
+		<h3>1-4 사내쪽지(받은 쪽지함, 보낸 쪽지함, 쪽지 보관함)</h3>
+		<table>
+			<colgroup>
+				<col style="width:50px;">
+				<col style="width:150px;">
+				<col style="width:300px;">
+				<col style="width:300px;">
+				<col style="width:80px;">
+				<col style="width:80px;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>파일명</th>
+					<th>메뉴Path</th>
+					<th>화면설명</th>
+					<th>퍼블리싱</th>
+					<th>개발</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>message.html</td>
+					<td>사내쪽지</td>
+					<td></td>
+					<td>작업중</td>
+					<td></td>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+<script src="plugins/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("td").each(function () {
+			if ($(this)[0].innerHTML === '') {
+				$(this)[0].innerHTML = '-';
+				$(this).css('textAlign', 'center');
+			}
+			if ($(this).text().indexOf('.asp') > 0 || $(this).text().indexOf('.php') > 0 || $(this).text().indexOf('.jsp') > 0 || $(this).text().indexOf('.jsp') > 0 || $(this).text().indexOf('.htm') > 0) {
+				$(this).css({ 'cursor': 'pointer', 'text-decoration': 'underline' });
+				$(this).click(function () {
+					window.open('html/' + $(this).text(), '', '');
+				});
+			}
+		});
+		$("tr td:nth-last-child(-n+2)").each(function () {
+			var done = '완료';
+			var work = '작업중';
+			if ($(this).text().indexOf(done) != -1) {
+				$(this).css('color', '#02b742');
+			} else if ($(this).text().indexOf(work) != -1) {
+				$(this).css('color', '#f00');
+			}
+		});
+	});
+
+	window.addEventListener('DOMContentLoaded', (event) => {
+		var tbody = document.querySelectorAll('tbody');
+		for (let i = 0; i < tbody.length; i++) {
+			console.log(tbody);
+			var rows = tbody[i].querySelectorAll('tr');
+			for (let j = 0; j < rows.length; j++) {
+				const rowNumberCell = document.createElement('td');
+				rowNumberCell.textContent = j + 1;
+				rows[j].insertBefore(rowNumberCell, rows[j].firstChild);
+			}
+		}
+	});
+</script>
+</html>

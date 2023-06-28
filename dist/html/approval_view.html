@@ -482,12 +482,7 @@
                 </dd>
               </dl>
             </section>
-            <textarea id="mini-editor" contenteditable="true">
-              <p>Edit this content to add your own quote</p>
-            </textarea>
             <div class="editable" contenteditable="true" placeholder="이게 보일까요?">
-              <span style="background-color: aqua;">안녕하세요</span>
-              반갑습니다
             </div>
           </article>
         </div>
@@ -508,7 +503,28 @@
 <script src="../js/file_upload.js"></script>
 <script src="../js/mention.js"></script>
 <script>
-  $(function () { fileDropEvt();})
+  $(function () {
+    fileDropEvt();
+
+    // 작업중입니다_임선
+    $('.editable').keypress(function (e) {
+      var addUl = '<ul class="btn_slideclose">'
+      $(this).prepend(addUl);
+      if ((e.which && e.which == 64) || (e.keyCode && e.keyCode == 64)) {
+        $(this).keypress(function (e) {
+          if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+            var value = $('.editable')[0].innerText;
+            console.log(value+'1');
+            var addLi = `<li><div><p>` + value + `</p><button type="button">삭제</button></div></li>`
+            addUl.append(addLi)
+            $('.editable')[0].innerText = '';
+            console.log(value+'2');
+            return false;
+          }
+        });
+      }
+    });
+  })
 </script>
 </body>
 
