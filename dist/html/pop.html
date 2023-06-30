@@ -54,7 +54,7 @@
     <li class="on"><a href="/html/main.html">HOME</a></li>
     <li><a href="/html/message.html">사내쪽지</a></li>
     <li><a href="/html/approval.html">전자결재</a></li>
-    <li><a href="/html/work.html">업무보고</a></li>
+    <li><a href="/html/work.html">업무</a></li>
     <li><a href="/html/plan.html">일정</a></li>
     <li><a href="/html/projectList.html">프로젝트</a></li>
     <li><a href="/html/svc.html">임직원 업무</a></li>
@@ -93,6 +93,7 @@
       -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">일정</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_status_roomBook">회의실 예약현황</button></li>
       </ul>
     </div>
   </main>
@@ -733,6 +734,24 @@
       <div class="">
         <div class="tbl_top_area">
           <ul class="search_list">
+            <li class="file_input">
+              <label for="allDoc"><input type="checkbox" id="allDoc" data-checkEvt="draftsman">전체문서</label>
+              <input type="text" name="" id="draftsman" title="기안자" placeholder="기안자" list="nameList">
+              <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+            </li>
             <li>
               <select name="" id="" title="결재양식">
                 <optgroup class="opt_label" label="결재양식">
@@ -749,25 +768,7 @@
                   <option value="">지출결의서</option>
                 </optgroup>
               </select>
-            </li>
-            <li><label for="allDoc"><input type="checkbox" id="allDoc"> 전체문서</label></li>
-            <li>
-              <input type="text" name="" id="" title="기안자" placeholder="기안자" list="nameList">
-              <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-            </li>
+            </li>            
             <li>
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
@@ -1116,6 +1117,22 @@
     </div>
   </form>
 </dialog><!--// 관련문서 설정 -->
+<dialog class="p_status_roomBook">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>회의실 예약현황</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div id='calendar-container' class="calendar_container">
+        <div id='calendar'></div>
+      </div>
+    </div>
+  </form>
+</dialog>
+<script src='../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../plugins/google-calendar/index.global.min.js'></script>
+<script src="../js/book_meeting_room.js"></script><!--// 관련문서 설정 -->
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
@@ -1135,6 +1152,7 @@
       const modal = e.target.dataset.modal;
       document.querySelector('.' + modal).showModal();
       tabInit(modal);
+      if (modal == 'p_status_roomBook') calendar.updateSize();
     })
 
     $('.btnClose').on('click', function () {
@@ -1142,8 +1160,8 @@
     })
 
     $('dialog').on('keydown', function (event) {
-    if (event.key === 'Enter') {
-      event.preventDefault();
+      if (event.key === 'Enter') {
+        event.preventDefault();
       }
     });
   })

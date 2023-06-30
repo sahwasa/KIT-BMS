@@ -1,4 +1,5 @@
 
+  var calendar;
   document.addEventListener('DOMContentLoaded', function () {
     var Draggable = FullCalendar.Calendar.Draggable;
     var calendarEl = document.getElementById('calendar');
@@ -29,14 +30,14 @@
             title: '회의',
             start: '2023-06-21T11:00:00',
             color: '#257e4a',
-            description: '2회의실',
+            description: '회의실A',
             className: 'roomB'
           },
           {
             title: '회의',
             start: '2023-06-22T11:00:00',
             color: '#05b4d9',
-            description: '1회의실',
+            description: '회의실B',
             className: 'roomA'
           },
           {
@@ -44,14 +45,14 @@
             start: '2023-06-28',
             end: '2023-06-30',
             color: '#05b4d9',
-            description: '1회의실',
+            description: '회의실C',
             className: 'roomC'
           }];
 
     // initialize the calendar
     // -----------------------------------------------------------------
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+    calendar = new FullCalendar.Calendar(calendarEl, {
       googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c', //APIKEY 누구꺼쓰죠,,?
       headerToolbar: {
         left: 'prev,next today',
@@ -68,6 +69,7 @@
           text:'회의실 예약',
           click: function() {
             $('.plan_new').toggle();
+            $('.cal_wrap').toggleClass('add_plan_new');
             calendar.updateSize();
             // var date = selectedDate;
             // if (date == null) {
@@ -145,11 +147,10 @@
       views: {        
         timeGrid: {// options apply to timeGridWeek and timeGridDay views
           nowIndicator: true,
-          now: nowTime
-        },
-        week: { // options apply to dayGridWeek and timeGridWeek views
-        },
-        day: { // options apply to dayGridDay and timeGridDay views
+          now: nowTime,
+          weekends : false,
+          slotMinTime:"08:00:00",
+          slotMaxTime:"19:00:00"
         }
       }
     });

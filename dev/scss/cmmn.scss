@@ -105,9 +105,9 @@ overflow:hidden;
 input[type="radio"]{border-radius:50%;}
 input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
 input[type="radio"]:checked{background-position-y:-23px;}
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;margin:0;}
-input[type="number"]{-moz-appearance:textfield;}
+// input[type="number"]::-webkit-outer-spin-button,
+// input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;margin:0;}
+// input[type="number"]{-moz-appearance:textfield;}
 input[type="time"],
 input[type="date"]{position:relative;}
 input[type='time']::-webkit-calendar-picker-indicator,
@@ -117,6 +117,10 @@ textarea{min-height:100px;max-height:300px;resize:none;}
 input[list]::-webkit-calendar-picker-indicator,
 select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 8px center no-repeat, rgba(255,255,255,.9);list-style:none!important;
   option:nth-of-type(1){color:#989898;}
+}
+progress{appearance:none;height:5px;
+  &::-webkit-progress-bar {background:#f0f0f0;border-radius:5px;box-shadow: inset 3px 3px 5px #ccc;}
+  &::-webkit-progress-value{border-radius:10px;background:#ff6664;}
 }
 textarea.line1{height:28px;min-height:28px;}
 input, select{
@@ -161,12 +165,14 @@ hr,
   &::before{font-size:14px;}
 }
 .fin{background-color:#56b1b6;}
+.ready,
 .reject{background-color:#fc9734;}
+.ing,
 .request{background-color:#347bfc;}
 .cc{background-color:#9167df;}
 .agree{background-color:#ff7575;}
-.public{background-color:#fff;border-color:#7d879f;color: #7d879f !important;}
-.private{background-color:#aab3c8;border-color:transparent;color:#fff !important;}
+.public{background-color:#fff;border-color:#7d879f!important;color: #7d879f !important;}
+.private{background-color:#aab3c8;color:#fff !important;}
 .i_public{@extend .i_badge;@extend .public;
   &::before{@include fontello('\e823');color:#7d879f;}
 }
@@ -261,6 +267,12 @@ $btn_gray:#979797;
 .myform_set{@include shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align: center;
   &::before{@include fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
   &:hover{outline:4px solid #bec7d2;background-color:transparent;}
+}
+.btn_search_square{@include btn_square('\e802');}
+.btn_more_square{@include btn_square(null);position:relative;
+  &::before,
+  &::after{@include shape(12px, 2px);position:absolute;left:50%;top:50%;transform: translate(-50%,-50%); border-radius:1px;background-color:#848890;}
+  &::after{transform: rotate(90deg);left:25%;top:45%;}
 }
 .btn_tree{@include form_btn;color:#979797;border-color:#b4b4b4;background-color:#f7f7f7;cursor:pointer;font-weight:bold;
   &:hover{background-color:$btn_gray;}

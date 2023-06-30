@@ -1,0 +1,55 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')
+  @@include('../inc/nav.html')
+  <main id="content" class="container">
+    @@include('../inc/snb/projectList.html')
+    <section class="contents">
+      @@include('../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>프로젝트</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">프로젝트</a></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="box_compact my_form">
+          <header>
+            <h1>최근 업데이트 된 프로젝트</h1>
+            <div class="btn_wrap">
+              <a href="#" class="myform_set">설정</a>
+            </div>
+          </header>
+          <ul>
+            <li><a href="#">지출결의서</a></li>
+            <li><a href="#">출장복명서</a></li>
+          </ul>
+        </article>
+        <article class="box_default status">
+          <header>
+            <h1>내 결재현황</h1>
+          </header>
+          <!-- 최대 5개 -->
+          <ul>
+            <li>
+              <a href="">
+                <i class="badge fin">결재완료</i>
+                <strong>휴가신청서</strong>
+                <span class="date">2023-01-01 12:30</span>
+                <em>박상건 수석</em>
+              </a>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
+</body>
+
+</html>
