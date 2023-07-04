@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a href="" title="조직도">조직도</a></li>
+      <li><a href="" title="자리배치도">자리배치도</a></li>
+      <li><a href="" title="통합알림">통합알림</a><i class="new_bedge">8</i></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/main.html">HOME</a></li>
+    <li><a href="/html/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval.html">전자결재</a></li>
+    <li><a href="/html/work.html">업무</a></li>
+    <li><a href="/html/plan.html">일정</a></li>
+    <li><a href="/html/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp.html">ERP</a></li>
+    <li><a href="/html/board.html">게시판</a></li>
+    <li><a href="/html/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container proj">
+    <header>
+      <h2>프로젝트</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="#" class="btn_default">프로젝트 추가</a>
+    </div>
+    <ul class="tab tab_wrap">
+      <li><a href="#tab01">내 프로젝트 (1)</a></li>
+      <li><a href="#tab02">전체 (12)</a></li>
+    </ul>
+    <section class="tab_container">
+      <article class="tab_contents" id="tab01">
+        <div class="filter">
+          <div class="flex_ipt">
+            <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span>
+            <button class="btn_search_square">검색</button>
+            <button class="btn_more_square">더보기</button>
+          </div>
+        </div>
+        <div class="proj_count">
+          <ul class="list_wrap">
+            <li class="ing">수행중<em>3</em></li>
+            <li class="fin">종료<em>1</em></li>
+            <li class="ready">준비<em>2</em></li>
+          </ul>
+        </div>
+        <ul class="proj_lst">
+          <li class="on">
+            <a href="">
+              <div class="tag_wrap">
+                <i class="type">R&amp;D</i>
+                <i class="public">공개</i>
+                <i class="ing">수행중</i>
+              </div>
+              <div class="proj_name">
+                <b>도시폭염을 고려한 폭염저감기술 최적화</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+                <li>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="32" max="100" title="진행율">32%</progress>
+                </li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="tag_wrap">
+                <i class="type">TF</i>
+                <i class="private">비공개</i>
+                <i class="fin">종료</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+                <li>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="32" max="100" title="진행율">32%</progress>
+                </li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="tag_wrap">
+                <i class="type">용역</i>
+                <i class="">공개</i>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+                <li>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="32" max="100" title="진행율">32%</progress>
+                </li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="tag_wrap">
+                <i class="type">용역</i>
+                <i class="">공개</i>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+                <li>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="32" max="100" title="진행율">32%</progress>
+                </li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="tag_wrap">
+                <i class="type">용역</i>
+                <i class="">공개</i>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+                <li>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="32" max="100" title="진행율">32%</progress>
+                </li>
+              </ul>
+            </a>
+          </li>
+        </ul>
+      </article>
+      <article class="tab_contents" id="tab02">
+      </article>
+    </section>   
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>프로젝트</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">프로젝트</a></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body proj_home">
+        <article class="box_compact past_proj">
+          <header>
+            <h1>최근 업데이트 된 프로젝트</h1>
+          </header>
+          <ul class="past_lst">
+            <li>
+              <a href="#">
+                <i class="type">TF</i>
+                <div class="proj_name">KIT업무관리시스템</div>              
+                <span class="past">1시간전</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="type">R&amp;D</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <span class="past">1일전</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+        <article class="box_default my_proj">
+          <header>
+            <h1>내 프로젝트<i class="new_bedge">3</i></h1>
+          </header>
+          <section class="my_proj_lst">
+          <ul>
+            <li>
+              <a href="">
+                <i class="ing">수행중</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>30&percnt;</em>완료<span class="check_progress">(<em>5</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="30" max="100" title="진행율">30&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="fin">종료</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>100&percnt;</em>완료<span class="check_progress">(20/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="100" max="100" title="진행율">100&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="ready">준비</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>5&percnt;</em>완료<span class="check_progress">(<em>1</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="5" max="100" title="진행율">5&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="ready">준비</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>5&percnt;</em>완료<span class="check_progress">(<em>1</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="5" max="100" title="진행율">5&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <i class="ready">준비</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>5&percnt;</em>완료<span class="check_progress">(<em>1</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="5" max="100" title="진행율">5&percnt;</progress>
+                </div>
+              </a>
+            </li>
+          </ul>
+          </section>
+          <section class="proj_summary">
+            <div class="proj_box">
+              <header>
+                <h2>프로젝트 개요</h2>
+                <ul class="chart_legend">
+                  <li class="chart_fin">완료됨<span>47&percnt; (13/20)</span></li>
+                  <li class="chart_delay">마감일 지남<span>2&percnt; (13/20)</span></li>
+                  <li class="chart_todo">계획됨<span>6&percnt; (13/20)</span></li>
+                  <li class="chart_termless">마감일 없음<span>47&percnt; (13/20)</span></li>
+                </ul>
+              </header>              
+              <ul class="stacked_bar">
+                <li class="chart_fin" style="width:40%;">완료</li>
+                <li class="chart_delay" style="width:2%;">지연</li>
+                <li class="chart_todo" style="width:6%;">계획</li>
+                <li class="chart_termless">마감일 없음</li>
+              </ul>
+            </div>            
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../plugins/jquery.min.js"></script>
+<script src="../plugins/jquery-ui.min.js"></script>
+<script src="../plugins/jquery.MultiFile.js"></script>
+<script src="../plugins/ckeditor5/ckeditor.js"></script>
+<script src="../plugins/ckeditor5/editor.js" type="module"></script>
+<script src="../js/ui_cmmn.js"></script>
+<script src="../js/file_upload.js"></script>
+<script src="../js/mention.js"></script>
+</body>
+
+</html>

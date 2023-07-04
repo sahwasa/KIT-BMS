@@ -8,6 +8,11 @@
       <div class="">
         <div class="tbl_top_area">
           <ul class="search_list">
+            <li class="file_input">
+              <label for="allDoc"><input type="checkbox" id="allDoc" data-checkEvt="draftsman">전체문서</label>
+              <input type="text" name="" id="draftsman" title="기안자" placeholder="기안자" list="nameList">
+              @@include('../data_emp_name.html')
+            </li>
             <li>
               <select name="" id="" title="결재양식">
                 <optgroup class="opt_label" label="결재양식">
@@ -24,12 +29,7 @@
                   <option value="">지출결의서</option>
                 </optgroup>
               </select>
-            </li>
-            <li><label for="allDoc"><input type="checkbox" id="allDoc"> 전체문서</label></li>
-            <li>
-              <input type="text" name="" id="" title="기안자" placeholder="기안자" list="nameList">
-              @@include('../data_emp_name.html')
-            </li>
+            </li>            
             <li>
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />

@@ -156,3 +156,33 @@
   td{white-space: normal}
   .plan_cot{height:100px;overflow-y:auto;}
 }
+.p_status_roomBook{width:600px;
+  #calendar{height:585px;}
+  .fc-book-button{display:none;}
+}
+
+//alert
+.p_alert{position:absolute;top:59px;right:10px;width:300px;max-height:100vh;background-color:$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;
+  header{@include flex_between;height:40px;padding:0 15px;border-bottom:1px solid #d7d7d7;
+    h1{font-size:15px;color:#404654;font-weight:bold;letter-spacing:-.7px;}
+  }
+  .alert_lst{max-height:100vh;overflow-y:auto;
+    li{border-top:1px solid #d7d7d7;padding:15px;
+      &:first-child{border-top:none;}
+    }
+  }
+  .alert_tit{@include flex_between;margin-bottom:20px;  
+    h2{flex:1 auto;font-size:14px;font-weight:bold;:letter-spacing:-.35px;
+      &::before{float: left;width:34px;height:34px;border-radius:50%;background-color:#ffecec; @include fontello('\e978');font-size:14px;color:$red;text-align: center;line-height:34px;margin-right:12px;}
+    }
+    em{display:block;color:$red;font-size:12px;letter-spacing:-.6px;}
+    .alert_info{display:flex;flex-direction:column;align-items:flex-end;color:#b6b5b5;font-size:11px;letter-spacing:-.28px;}
+  }
+  .alert_txt{color:#71798a;font-size:12px;line-height:17px;}
+  .alert_result{margin-top:15px;background-color:#ecf0fa;border-radius:3px;padding:12px;font-size:12px;
+    .result_txt{display:flex;gap:4px;font-weight:bold;color:#71798a;
+      em{color:#5d85d9;}
+    }
+    .date{color:#b6b5b5;}
+  }
+}

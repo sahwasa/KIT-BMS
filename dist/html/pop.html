@@ -28,9 +28,11 @@
     </a>
   </h1>    
   <section class="gnb">
-    <!-- <ul class="gnb_lst">
-      <li><a href=""></a></li>
-    </ul> -->
+    <ul class="gnb_lst">
+      <li><a href="" title="조직도">조직도</a></li>
+      <li><a href="" title="자리배치도">자리배치도</a></li>
+      <li><a href="" title="통합알림">통합알림</a><i class="new_bedge">8</i></li>
+    </ul>
     <div class="util">
       <div class="profile">
         <button type="button" class="account">
@@ -55,7 +57,7 @@
     <li class="on"><a href="/html/main.html">HOME</a></li>
     <li><a href="/html/message.html">사내쪽지</a></li>
     <li><a href="/html/approval.html">전자결재</a></li>
-    <li><a href="/html/work.html">업무보고</a></li>
+    <li><a href="/html/work.html">업무</a></li>
     <li><a href="/html/plan.html">일정</a></li>
     <li><a href="/html/projectList.html">프로젝트</a></li>
     <li><a href="/html/svc.html">임직원 업무</a></li>
@@ -79,8 +81,9 @@
       <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
       -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</h2>
       <ul>
-        <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button>
-        <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button>
+        <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
+        <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert">통합알림</label></li> 
       </ul>
       <br>
       <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
@@ -94,6 +97,7 @@
       -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">일정</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_status_roomBook">회의실 예약현황</button></li>
       </ul>
     </div>
   </main>
@@ -734,6 +738,24 @@
       <div class="">
         <div class="tbl_top_area">
           <ul class="search_list">
+            <li class="file_input">
+              <label for="allDoc"><input type="checkbox" id="allDoc" data-checkEvt="draftsman">전체문서</label>
+              <input type="text" name="" id="draftsman" title="기안자" placeholder="기안자" list="nameList">
+              <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+            </li>
             <li>
               <select name="" id="" title="결재양식">
                 <optgroup class="opt_label" label="결재양식">
@@ -750,25 +772,7 @@
                   <option value="">지출결의서</option>
                 </optgroup>
               </select>
-            </li>
-            <li><label for="allDoc"><input type="checkbox" id="allDoc"> 전체문서</label></li>
-            <li>
-              <input type="text" name="" id="" title="기안자" placeholder="기안자" list="nameList">
-              <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-            </li>
+            </li>            
             <li>
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
@@ -1117,6 +1121,70 @@
     </div>
   </form>
 </dialog><!--// 관련문서 설정 -->
+<dialog class="p_status_roomBook">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>회의실 예약현황</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div id='calendar-container' class="calendar_container">
+        <div id='calendar'></div>
+      </div>
+    </div>
+  </form>
+</dialog>
+<script src='../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../plugins/google-calendar/index.global.min.js'></script>
+<script src="../js/book_meeting_room.js"></script><!--// 관련문서 설정 -->
+<article class="p_alert" id="alert">  
+  <header>
+    <h1>통합알림</h1>
+    <button class="btnClose" aria-label="close">닫기</button>
+  </header>
+  <section>
+    <ul class="alert_lst">
+      <li>
+        <div class="alert_tit">        
+          <h2><em>업무</em>프로젝트 만들기</h2>
+          <div class="alert_info">
+            <span class="date">23-02-10 12:30</span>
+            <span class="writer">권기봉</span>
+          </div>
+        </div>
+        <div class="alert_txt">
+          <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수 있습니다.</p>
+        </div>
+        <div class="alert_result">
+          <div class="result_txt">
+            <em>업무 종료</em>
+            모든 담당자가 업무를 완료함</p>
+          </div>
+          <span class="date">2023-01-01 12:30</span>
+        </div>
+      </li>
+      <li>
+        <div class="alert_tit">        
+          <h2><em>업무</em>프로젝트 만들기</h2>
+          <div class="alert_info">
+            <span class="date">23-02-10 12:30</span>
+            <span class="writer">권기봉</span>
+          </div>
+        </div>
+        <div class="alert_txt">
+          <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수 있습니다.</p>
+        </div>
+        <div class="alert_result">
+          <div class="result_txt">
+            <em>업무 종료</em>
+            모든 담당자가 업무를 완료함</p>
+          </div>
+          <span class="date">2023-01-01 12:30</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+</article><!--// 통합알림 -->
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
@@ -1136,6 +1204,7 @@
       const modal = e.target.dataset.modal;
       document.querySelector('.' + modal).showModal();
       tabInit(modal);
+      if (modal == 'p_status_roomBook') calendar.updateSize();
     })
 
     $('.btnClose').on('click', function () {
@@ -1143,8 +1212,8 @@
     })
 
     $('dialog').on('keydown', function (event) {
-    if (event.key === 'Enter') {
-      event.preventDefault();
+      if (event.key === 'Enter') {
+        event.preventDefault();
       }
     });
   })

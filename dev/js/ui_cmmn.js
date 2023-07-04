@@ -161,8 +161,8 @@ $(function () {
   $('.lst_ctrl').on('click change','input',function(){
       var thisP = $(this).parents('.lst_ctrl'),
           checkSize = thisP.find('input:checked').length,
-          allCtrl = thisP.prev('.all_lst_ctrl').find('input');
-     (thisP.find('input').length <= checkSize) ? allCtrl.prop('checked',true) : allCtrl.prop('checked',false);
+          allCtrl = thisP.prev('.all_lst_ctrl').find('input:checkbox');
+     (thisP.find('input:checkbox').length <= checkSize) ? allCtrl.prop('checked',true) : allCtrl.prop('checked',false);
   })
 
   //layer_tool
@@ -178,6 +178,7 @@ $(function () {
   $('.tab li').first().addClass('on');
   $('.tab_container').find('.tab_contents').not(':first').hide();
   $('.tab li').on('click', function (e) {
+    console.log('dd')
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on');
     var link = $(this).find('a').attr('href');
@@ -186,7 +187,6 @@ $(function () {
       .eq(link_num - 1)
       .prop('selected', 'selected')
     var findTarget = $(this).parents('.tab_wrap').next('.tab_container');
-    console.log(findTarget.children('.tab_contents'));
     findTarget.find('.tab_contents').hide();
     $(link).show();
   })
@@ -194,9 +194,12 @@ $(function () {
   //addOPT
   $('[data-checkEvt]').on('change',function(e){
     const getTarget = e.target.dataset.checkevt,
-          target = $("[name ="+getTarget +"]");
+          target = $("#" + getTarget);
     ($(this).prop('checked')) ? target.show() : target.hide();
   })
+
+  const getYear = new Date();
+  $("[name='ipt_year']").val(getYear.getFullYear());
 
   // sortable
   function sortable() {
