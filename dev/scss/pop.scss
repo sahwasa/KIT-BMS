@@ -146,6 +146,18 @@
       .user_module{display:inline-flex;vertical-align:middle;}
       .badge{@include badge_style(null);padding:0 5px;border:1px solid $red; vertical-align:middle;font-size:11px;color:$red;}
       .subject{@include flex_between;}
+      .txt_date{font-size:11px;}
+    }
+    .rel_mem_lst{border-top:1px solid #ebebeb;margin-top:5px;padding-top:5px;
+      dl{display:flex;gap:3px;}
+      dt{
+        &::before{content:"·";margin-right:3px;}
+        &::after{content:":";margin:0 3px;}
+      }
+      .approval_lst dd{
+        &::after{content:"→";margin:0 3px;}
+        &:last-of-type::after{display:none;}
+      }      
     }
     & > .flex_right{width:50%;border-left:1px solid #bec7d2;padding:15px 10px;min-width:500px;}
   }
@@ -162,11 +174,11 @@
 }
 
 //alert
-.p_alert{position:absolute;top:59px;right:10px;width:300px;max-height:100vh;background-color:$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;
+.p_alert{position:absolute;top:59px;right:10px;width:300px; background-color:$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;
   header{@include flex_between;height:40px;padding:0 15px;border-bottom:1px solid #d7d7d7;
     h1{font-size:15px;color:#404654;font-weight:bold;letter-spacing:-.7px;}
   }
-  .alert_lst{max-height:100vh;overflow-y:auto;
+  .alert_lst{max-height:calc(100vh - 120px);overflow-y:auto;
     li{border-top:1px solid #d7d7d7;padding:15px;
       &:first-child{border-top:none;}
     }

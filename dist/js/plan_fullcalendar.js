@@ -51,7 +51,19 @@
             end: '2023-06-20'
           },
           {
-            title: '생일파티',
+            title: '생일파티1',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티2',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티3',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티4',
             start: '2023-06-29T20:00:00'
           },
           {// 그룹 아이디가 같다면 해당 영역에만 들어올 수 있음(회의가능일자가 예시인데 쓸일이 있을까...?)
@@ -70,7 +82,7 @@
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'gcalSync multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,list'
+        right: 'multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,list'
       },
       buttonText: {
         today: '오늘',

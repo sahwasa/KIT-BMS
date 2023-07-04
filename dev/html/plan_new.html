@@ -42,7 +42,7 @@
                   </span>
                 </div>
               </dd>
-              <dd class="divideL">
+              <!-- <dd class="divideL">
                 <ul class="check_group">
                   <li>
                     <label for="period_allday"><input type="checkbox" id="period_allday">종일</label>
@@ -86,9 +86,9 @@
                   <dt>요약</dt>
                   <dd><p>1주 화요일 마다(2023-12-10 ~ )</p></dd>
                 </dl>
-              </dd>              
+              </dd>               -->
               <dt><label for="plan_place">장소</label></dt>
-              <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>
+              <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>              
               <dt>회의실</dt>
               <dd>
                 <div class="file_input">
@@ -105,6 +105,13 @@
                   </div>
                   <button type="button" class="btn_form">회의실 예약현황</button>                  
                 </div>                
+              </dd>
+              <dt>회의 참여방식</dt>
+              <dd>
+                <div class="file_input">
+                  <label for="type_offline"><input type="checkbox" id="type_offline">대면회의</label>
+                  <label for="type_online"><input type="checkbox" id="type_online">온라인</label>
+                </div>
               </dd>
               <dt>참여자</dt>
               <dd>
@@ -141,10 +148,9 @@
                     <span class="opt_label">선택</span>
                   </button>
                   <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><i class="roomB">B</i>업무</li>
-                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>중요</li>
+                    <li class="optionItem" tabindex="0"><i class="roomB">B</i>개인</li>
+                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>업무</li>
                     <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의</li>
-                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>행사</li>
                   </ul>
                 </div>
               </dd>              
@@ -154,123 +160,7 @@
               <dt>파일첨부</dt>
               <dd class="flex_full">@@include('../inc/module_file_attach.html')</dd>
             </dl>
-          </fieldset>
-          <!-- <section class="opt_wrap">
-            <h1>회의실 예약현황</h1>
-            <div id='calendar-container' class="calendar_container">
-              <div id='calendar'></div>
-            </div>
-          </section> -->
-
-          <!-- <table class="tbl_default tbl_row">
-            <caption>일정 추가 테이블</caption>
-            <colgroup>
-              <col style="width:200px">
-              <col style="width:auto">
-            </colgroup>
-            <tbody>
-              <tr>
-                <th scope="row"><label for="plan_period" class="required">기간</label></th>
-                <td>
-                  <div class="period_custom">
-                    <span>
-                      <input type="date" id="plan_period" name="start_date" title="시작일">
-                      <input type="time" name="start_time" title="시작시간">
-                    </span>
-                    <span>
-                      <input type="date" title="종료일" name="end_date">
-                      <input type="time" title="종료시간" name="end_time">
-                    </span>
-                  </div>
-                  <ul class="check_group">
-                    <li>
-                      <input type="radio" id="period_repeat" name="plan_period" checked>
-                      <label for="period_repeat">반복</label>
-                    </li>
-                    <li>
-                      <input type="radio" id="period_allday" name="plan_period">
-                      <label for="period_allday">종일</label>
-                    </li>
-                    <li>
-                      <input type="radio" id="period_private" name="plan_period">
-                      <label for="period_private">비공개</label>
-                    </li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label for="plan_tit" class="required">제목</label></th>
-                <td>
-                  <div class="file_input">
-                    <select name="plan_type" id="plan_tit" style="flex:0;">
-                      <option value="선택">선택</option>
-                      <option value="업무">업무</option>
-                      <option value="중요">중요</option>
-                      <option value="회의">회의</option>
-                      <option value="행사">행사</option>
-                    </select>
-                    <input type="text" title="제목 상세 입력 박스">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label for="plan_place">일정공유</label></th>
-                <td>
-                  <div style="border:2px dashed #ff8800;">
-                    <p style="font-size:19px;font-weight:bold;color:#ff6600;">&nbsp;&nbsp;설계서 논의 필요</p>
-                    <img src="../images/img_sample.png" alt="일정추가 페이지 일정공유란 설계 임시 이미지">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label for="plan_place">장소</label></th>
-                <td><input type="text" id="plan_place"></td>
-              </tr>
-              <tr>
-                <th scope="row">회의실 예약</th>
-                <td>
-                  <div class="file_input">
-                    <div class="select_custom meeting_room">
-                      <button class="label">
-                        <span class="opt_label">선택</span>
-                      </button>
-                      <ul class="optionList">
-                        <li class="optionItem" tabindex="0"><i class="roomA">A</i>회의실A</li>
-                        <li class="optionItem" tabindex="0"><i class="roomB">B</i>회의실B</li>
-                        <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn_form">회의실 예약현황</button>
-                  </div>
-                  <div id='calendar-container' class="calendar_container">
-                    <div id='calendar'></div>
-                  </div> 팝업으로..?
-                </td>
-              </tr>
-              <tr>
-                <th><label for="plan_participants">참여자</label></th>
-                <td>
-                  <span class="file_input">
-                    <input type="text" id="plan_participants" placeholder="참여자를 입력하세요." list="nameList">
-                    @@include('../inc/data_emp_name.html')
-                    <button type="button" class="btn_default">추가</button>
-                    <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                  </span>
-                  @@include('../inc/module_slide_user.html')
-                </td>
-              </tr>
-              <tr>
-                <th scope="row"><label for="plan_cont">내용</label></th>
-                <td><textarea id="plan_cont"></textarea></td>
-              </tr>
-              <tr>
-                <th scope="row"><label for="form_expense">파일첨부</label></th>
-                <td>
-                  @@include('../inc/module_file_attach.html')
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
+          </fieldset>          
         </section>
       </div>
     </section>
