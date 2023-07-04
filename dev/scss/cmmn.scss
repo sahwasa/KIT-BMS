@@ -118,8 +118,8 @@ input[list]::-webkit-calendar-picker-indicator,
 select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:30px;background:url(../images/btn_select.png) right 8px center no-repeat, rgba(255,255,255,.9);list-style:none!important;
   option:nth-of-type(1){color:#989898;}
 }
-progress{appearance:none;height:5px;
-  &::-webkit-progress-bar {background:#f0f0f0;border-radius:5px;box-shadow: inset 3px 3px 5px #ccc;}
+progress{appearance:none;height:8px;
+  &::-webkit-progress-bar {background:#edf0f3;border-radius:5px;}
   &::-webkit-progress-value{border-radius:10px;background:#ff6664;}
 }
 textarea.line1{height:28px;min-height:28px;}

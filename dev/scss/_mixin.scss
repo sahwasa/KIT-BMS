@@ -98,6 +98,7 @@ border:1px solid transparent;}
     &:empty{margin-bottom:0;}
   }
   h1{font-weight:bold;font-size:if($h_pd >= 20,16px,null);}
+  h2{font-weight:bold;}
 }
 @mixin inner_box{position:relative;background-color:$white;border-radius:5px;padding:12px 15px;box-shadow:0 0 8px rgba(0, 0, 0, 0.07);
   &:hover{box-shadow:0 0 8px rgba(3, 3, 3, .2);}

@@ -16,8 +16,9 @@
       <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
       -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</h2>
       <ul>
-        <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button>
-        <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button>
+        <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
+        <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert">통합알림</label></li> 
       </ul>
       <br>
       <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
@@ -44,6 +45,7 @@
 @@include('../inc/pop/p_relDoc.html')<!--// 관련문서 설정 -->
 @@include('../inc/pop/p_planView.html')<!--// 관련문서 설정 -->
 @@include('../inc/pop/p_status_roomBook.html')<!--// 관련문서 설정 -->
+@@include('../inc/pop/p_alert.html')<!--// 통합알림 -->
 @@include('../inc/script.html')
 <script>
   $(function () {
