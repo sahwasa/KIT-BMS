@@ -578,6 +578,11 @@ z-index:10;
 }
 .tbl_approval_outbox td,
 .tbl_approval_inbox td{@include alignL(4);}
+.file_upload{display:none;position:fixed;top:0;width:100vw;height:100vh;z-index:9999;background:rgba(0, 0, 0, 0.466);
+  &>*{position:absolute;}
+  &>p{top:50%;left:50%;transform:translateX(-50%);font-size:20px;font-weight:bold;color:#fff;text-align:center;}
+  &>i{top:39%;left:47.5%;color:#fff;font-size:65px;}
+}
 
 // plan
  // tree common

@@ -7,6 +7,7 @@
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <title>KIT 업무관리시스템</title>
   <link rel="stylesheet" href="../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../font/fontello/css/animation.css">
   <link rel="stylesheet" href="../css/merge.css">
 </head>
 <body>
@@ -676,6 +677,10 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<div class="file_upload">
+  <i class="demo-icon icon-spin4 animate-spin"></i>
+  <p>파일을 업로드 중입니다<br>잠시만 기다려주세요</p>
+</div>
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
@@ -685,7 +690,11 @@
 <script src="../js/file_upload.js"></script>
 <script src="../js/mention.js"></script>
 <script>
-  $(function () {fileDropEvt();})
+  $(function () {
+    fileDropEvt();
+    $('.btn_request').on('click', function(){$('.file_upload').show();})
+    $('.file_upload').on('click', function(){$(this).hide();})
+  })
 </script>
 </body>
 
