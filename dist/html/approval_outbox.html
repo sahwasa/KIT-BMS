@@ -146,13 +146,13 @@
             <ul class="search_list">
               <li>
                 <div class="select_custom prio">
-                  <button class="label">
+                  <button id="prio" class="label">
                     <span class="opt_label">중요도</span>
                   </button>
                   <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><i class="ico_select high_prio">high icon</i>높음</li>
-                    <li class="optionItem" tabindex="0"><i class="ico_select normal_prio">common icon</i>보통</li>
-                    <li class="optionItem" tabindex="0"><i class="ico_select low_prio">row icon</i>낮음</li>
+                    <li class="optionItem" tabindex="0" data-value="1"><i class="ico_select high_prio">high icon</i>높음</li>
+                    <li class="optionItem" tabindex="0" data-value="2"><i class="ico_select normal_prio">common icon</i>보통</li>
+                    <li class="optionItem" tabindex="0" data-value="3"><i class="ico_select low_prio">row icon</i>낮음</li>
                   </ul>
                 </div>
               </li>
@@ -175,7 +175,7 @@
               </li>
               <li>
                 <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList">
-                <datalist id="nameList">
+                <datalist id="nameList" autocomplete="off">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -202,9 +202,15 @@
                 </div>
               </li>
               <li>
-                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_search" onclick="getVal();">검색</button>
               </li>
             </ul>
+            <script>
+              function getVal(){
+                var getCustomSel = document.getElementById("prio");
+                console.log(getCustomSel.dataset.value)
+              }
+            </script>
             <div class="flex_right">
               <select name="" id="" title="목록개수 선택">
   <option value="15">15줄 보기</option>
