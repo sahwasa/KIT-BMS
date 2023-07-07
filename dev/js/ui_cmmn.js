@@ -1,5 +1,13 @@
 //const { eventNames } = require("process");
 
+const handleSelect = function (item) {
+  const result = $(item).closest('.select_custom').find('.label');
+  const resultVal = item.dataset.value;
+  result.html(item.innerHTML).attr('data-value',resultVal);
+  result.parent().removeClass('active');
+  console.log(resultVal);
+}
+
 $(function () {
   // nav
   var $deps1 = $('.nav_lst>li'),
@@ -347,11 +355,6 @@ $(function () {
   const select_custom = $('.select_custom');
   const label = select_custom.find('.label');
   const options = select_custom.find('.optionItem');
-  const handleSelect = function (item) {
-    const result = $(item).closest('.select_custom').find('.label');
-    result.html(item.innerHTML);
-    result.parent().removeClass('active');
-  }
   options.on('click',function(e){
     handleSelect(e.target);
   });
