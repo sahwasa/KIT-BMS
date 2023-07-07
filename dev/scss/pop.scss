@@ -184,7 +184,7 @@
     }
   }
   .alert_tit{@include flex_between;margin-bottom:20px;  
-    h2{flex:1 auto;font-size:14px;font-weight:bold;:letter-spacing:-.35px;
+    h2{flex:1 auto;font-size:14px;font-weight:bold;letter-spacing:-.35px;
       &::before{float: left;width:34px;height:34px;border-radius:50%;background-color:#ffecec; @include fontello('\e978');font-size:14px;color:$red;text-align: center;line-height:34px;margin-right:12px;}
     }
     em{display:block;color:$red;font-size:12px;letter-spacing:-.6px;}

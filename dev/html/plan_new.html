@@ -21,7 +21,7 @@
             <h1>@@include('../inc/module_user.html') 님의 일정입니다.</h1>
             <span>
               <button type="button" class="btn_request">저장</button>
-              <button type="button" class="btn_cancel" onclick="location.href='../html/plan.html'" >취소</button>
+              <button type="button" class="btn_cancel" onclick="location.href='../html/plan.html'">취소</button>
             </span>
           </header>
         </div>
@@ -29,6 +29,20 @@
         <section class="new_contents">
           <fieldset class="ipt_wrap ipt_set">
             <dl>
+              <dt><label for="plan_tit" class="required">제목</label></dt>
+              <dd>
+                <div class="select_custom meeting_room">
+                  <button class="label">
+                    <span class="opt_label">선택</span>
+                  </button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0"><i class="roomB">B</i>개인</li>
+                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>업무</li>
+                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의</li>
+                  </ul>
+                </div>
+              </dd>
+              <dd class="flex_full divideL"><input type="text" id="plan_tit" title="제목 상세 입력 박스" required></dd>
               <dt><label for="plan_period" class="required">기간</label></dt>
               <dd>
                 <div class="period_custom">
@@ -88,7 +102,7 @@
                 </dl>
               </dd>               -->
               <dt><label for="plan_place">장소</label></dt>
-              <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>              
+              <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>
               <dt>회의실</dt>
               <dd>
                 <div class="file_input">
@@ -103,8 +117,8 @@
                       <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
                     </ul>
                   </div>
-                  <button type="button" class="btn_form">회의실 예약현황</button>                  
-                </div>                
+                  <button type="button" class="btn_form">회의실 예약현황</button>
+                </div>
               </dd>
               <dt>회의 참여방식</dt>
               <dd>
@@ -113,54 +127,136 @@
                   <label for="type_online"><input type="checkbox" id="type_online">온라인</label>
                 </div>
               </dd>
-              <dt>참여자</dt>
-              <dd>
-                <div class="file_input">
-                  <select name="" id="" title="참여자 검색옵션">
-                    <option value="">프로젝트</option>
-                    <option value="">이름</option>
-                   </select>
-                  <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
-                  @@include('../inc/data_emp_name.html')
-                  <button type="button" class="btn_default">추가</button>
-                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                </div>
-                @@include('../inc/module_slide_user.html')
-                <p class="ipt_info">참여자와 일정이 공유됩니다.</p>
-              </dd>
+
               <dt>공개여부</dt>
               <dd>
                 <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure" checked>
-                    <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure">
-                    <label for="private">비공개</label>
+                  <input type="radio" id="open" name="disclosure" checked>
+                  <label for="open">공개</label>
+                  <input type="radio" id="private" name="disclosure">
+                  <label for="private">비공개</label>
                 </div>
               </dd>
             </dl>
           </fieldset>
           <fieldset class="ipt_wrap">
             <dl>
-              <dt><label for="plan_tit" class="required">제목</label></dt>
-              <dd>
-                <div class="select_custom meeting_room">
-                  <button class="label">
-                    <span class="opt_label">선택</span>
-                  </button>
-                  <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><i class="roomB">B</i>개인</li>
-                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>업무</li>
-                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의</li>
-                  </ul>
-                </div>
-              </dd>              
-              <dd class="flex_full divideL"><input type="text" id="plan_tit" title="제목 상세 입력 박스" required></dd>
               <dt><label for="plan_cont">내용</label></dt>
               <dd class="flex_full"><textarea id="plan_cont"></textarea></dd>
               <dt>파일첨부</dt>
               <dd class="flex_full">@@include('../inc/module_file_attach.html')</dd>
+              <dt>참여자</dt>
+              <dd class="flex_full">
+                <div class="file_input">
+                  <select name="" id="" title="참여자 검색옵션">
+                    <option value="">프로젝트</option>
+                    <option value="">이름</option>
+                  </select>
+                  <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
+                  @@include('../inc/data_emp_name.html')
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                </div>
+                @@include('../inc/module_slide_user.html')
+                <p class="ipt_info">참여자와 일정이 공유됩니다.</p>
+                <section>
+                  <header>
+                    <h2>참여자일정</h2>
+                  </header>
+                  <div class="tbl_top">
+
+                  </div>
+
+
+                  <div class="css-t367i5">
+                    <div class="css-123spcd">
+                      <div class="member_lst">
+                        <div class="css-uy0k09">
+                          <div class="css-1d6a2ik">
+                            <div class="css-1efww0j"></div>
+                          </div>
+                          <div height="25" class="member">
+                            <div class="css-xrrjrp" aria-expanded="false">
+                              <div class="css-u4lj 
+                              
+                              jo">유한아름</div>
+                            </div>
+                          </div>
+                          <div height="25" class="member">
+                            <div class="css-xrrjrp" aria-expanded="false">
+                              <div class="css-u4ljjo">임선</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="css-wed81r">
+                        <div class="css-uy0k09">
+                          <div class="timelabel">
+                            <div>8</div> <div>9</div> <div>10</div> <div>11</div> <div>12</div> <div>13</div> <div>14</div> <div>15</div> <div>16</div> <div>17</div> <div>18</div> <div>19</div> <div>20</div>
+                          </div>
+                          <div class="timeline">
+                            <div class="col_wrap">
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                              <div class="hour_wrap">
+                                <div></div>
+                              </div>
+                            </div>
+                            <div class="row_wrap">
+                              <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+                            </div>
+                            <div class="row_wrap">
+                              <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+                            </div>
+                          </div>
+                          <div class="mark_wrap">
+                            <div class="marks">
+                              <div data-testid="controller-recommend" width="15.384615384615385" class="recommend">
+                              </div>
+                              <div width="15.384615384615385" class="select"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </dd>
             </dl>
-          </fieldset>          
+          </fieldset>
         </section>
       </div>
     </section>
@@ -172,8 +268,8 @@
 <script src='../plugins/google-calendar/index.global.min.js'></script>
 <script src="../js/book_meeting_room.js"></script>
 <script>
-  $(function(){
-    fileDropEvt();    
+  $(function () {
+    fileDropEvt();
   })
 </script>
 </body>
