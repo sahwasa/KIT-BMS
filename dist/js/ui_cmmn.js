@@ -5,7 +5,6 @@ const handleSelect = function (item) {
   const resultVal = item.dataset.value;
   result.html(item.innerHTML).attr('data-value',resultVal);
   result.parent().removeClass('active');
-  console.log(resultVal);
 }
 
 $(function () {
@@ -174,11 +173,11 @@ $(function () {
   })
 
   //layer_tool
-  $(":has(.hasLayer)").on('click focusin','.layer_tool',function(e){
+  $(".layer_tool").on('click focusin', function(e){
       e.stopPropagation();
       e.preventDefault();
       $(this).addClass('on')
-  }).on('focusout','.layer_tool',function(){
+  }).on('focusout',$(this), function(){
     $(this).removeClass('on');
   })
 
@@ -347,7 +346,7 @@ $(function () {
   $('.snb_fold').on('click',function(e){
     var snbBtn =  e.target.dataset,
         snb = $('.snb'),
-        snbWidth = '200px',
+        snbWidth = '250px',
         speed = 500;
     (snbBtn.value == 'on')?snb.animate({'width':0}, speed) : snb.animate({'width': snbWidth},speed);
   });
@@ -365,4 +364,45 @@ $(function () {
     $(this).css('color','inherit');
   });
 });
-  
+
+
+// editor
+function setEditor() {
+  ClassicEditor.create(document.querySelector('#editor'), {
+    licenseKey: '',
+    list: {
+      properties: {
+        styles: true,
+        startIndex: true,
+        reversed: true,
+      },
+    },
+    fontFamily: {
+      options: ['나눔고딕', '맑은고딕', '굴림', '돋움', '바탕', '궁서'],
+    },
+    fontSize: {
+      options: [13, 15, 17, 19, 21],
+    },
+    htmlSupport: {
+      allow: [
+        {
+          name: /.*/,
+          attributes: true,
+          classes: true,
+          styles: true,
+        },
+      ],
+      disallow: [
+        /* HTML features to disallow */
+      ],
+    },
+  })
+    .then(editor => {
+      window.editor = editor
+    })
+    .catch(error => {
+      console.error('Oops, something went wrong!')
+      console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
+      console.error(error)
+    })
+}

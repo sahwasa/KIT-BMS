@@ -54,16 +54,16 @@
   <nav id="nav" class="nav">
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
-    <li class="on"><a href="/html/main.html">HOME</a></li>
-    <li><a href="/html/message.html">사내쪽지</a></li>
-    <li><a href="/html/approval.html">전자결재</a></li>
-    <li><a href="/html/work.html">업무</a></li>
-    <li><a href="/html/plan.html">일정</a></li>
-    <li><a href="/html/projectList.html">프로젝트</a></li>
-    <li><a href="/html/svc.html">임직원 업무</a></li>
-    <li><a href="/html/erp.html">ERP</a></li>
-    <li><a href="/html/board.html">게시판</a></li>
-    <li><a href="/html/pop.html">팝업샘플</a></li>
+    <li class="on"><a href="main.html">HOME</a></li>
+    <li><a href="message.html">사내쪽지</a></li>
+    <li><a href="approval.html">전자결재</a></li>
+    <li><a href="work.html">업무</a></li>
+    <li><a href="plan.html">일정</a></li>
+    <li><a href="projectList.html">프로젝트</a></li>
+    <li><a href="svc.html">임직원 업무</a></li>
+    <li><a href="erp.html">ERP</a></li>
+    <li><a href="board.html">게시판</a></li>
+    <li><a href="pop.html">팝업샘플</a></li>
     <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
   </ul>
 </nav>
@@ -84,19 +84,19 @@
       </ul>
     </div>
     <ul class="snb_lst">
-      <li><a href="../html/approval_outbox.html">결재 상신함</a>
+      <li class="on"><a href="../html/approval_outIng.html">결재 상신함</a>
         <ul>
-          <li><a href="../html/approval_outbox.html">결재진행</a></li>
-          <li><a href="../html/approval_outbox.html">결재완료</a></li>
-          <li><a href="../html/approval_outbox.html">반려문서</a></li>
-          <li><a href="../html/approval_outbox.html">임시저장</a></li>
+          <li class="on"><a href="../html/approval_outIng.html">결재진행</a></li>
+          <li><a href="../html/approval_outFin.html">결재완료</a></li>
+          <li><a href="../html/approval_outReject.html">반려문서</a></li>
+          <li><a href="../html/approval_outDrafts.html">임시저장</a></li>
         </ul>        
       </li>
-      <li><a href="../html/approval_inbox.html">결재 수신함</a>
+      <li><a href="../html/approval_inIng.html">결재 수신함</a>
         <ul>
-          <li><a href="../html/approval_inbox.html">결재요청</a></li>
-          <li><a href="../html/approval_inbox.html">결재완료</a></li>
-          <li><a href="../html/approval_inbox.html">수신참조</a></li>
+          <li><a href="../html/approval_inIng.html">수신결재</a></li>
+          <li><a href="../html/approval_inFin.html">결재내역</a></li>
+          <li><a href="../html/approval_inCc.html">수신참조</a></li>
         </ul>
       </li>
       <li><a href="">공개 문서함</a></li>
@@ -261,7 +261,14 @@
               <textarea name="" id="" cols="30" rows="2" title="답글" placeholder="홍길동님에게 답글쓰기"></textarea>
             </div>
             <div class="cmt_attach">
+              <label for="attachFiles" class="btn_label_attach">첨부</label>
               <button type="button">등록</button>
+              <div class="file_attach btn_attach">
+                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+                <div id="file-drop" class="drop_zone">
+                  <ul id="fileList" class="attach_list"></ul>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
@@ -485,8 +492,6 @@
                 </dd>
               </dl>
             </section>
-            <div class="editable" contenteditable="true" placeholder="이게 보일까요?">
-            </div>
           </article>
         </div>
       </div>
@@ -500,33 +505,12 @@
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
-<script src="../plugins/ckeditor5/ckeditor.js"></script>
-<script src="../plugins/ckeditor5/editor.js" type="module"></script>
+<script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
-<script src="../js/mention.js"></script>
 <script>
   $(function () {
     fileDropEvt();
-
-    // 작업중입니다_임선
-    $('.editable').keypress(function (e) {
-      var addUl = '<ul class="btn_slideclose">'
-      $(this).prepend(addUl);
-      if ((e.which && e.which == 64) || (e.keyCode && e.keyCode == 64)) {
-        $(this).keypress(function (e) {
-          if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
-            var value = $('.editable')[0].innerText;
-            console.log(value+'1');
-            var addLi = `<li><div><p>` + value + `</p><button type="button">삭제</button></div></li>`
-            addUl.append(addLi)
-            $('.editable')[0].innerText = '';
-            console.log(value+'2');
-            return false;
-          }
-        });
-      }
-    });
   })
 </script>
 </body>

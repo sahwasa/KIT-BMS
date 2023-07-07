@@ -7,19 +7,20 @@
     <section class="contents">
       @@include('../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>결재대기<span>전자결재</span></h1>
+        <h1>결재진행<span>결재 상신함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="">Home</a></li>
             <li><a href="">전자결재</a></li>
-            <li>결재대기</li>
+            <li><a href="">결재 상신함</a></li>
+            <li>결재진행</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
         <article class="">
           <header class="blind">
-            <h1>결재대기 목록</h1>
+            <h1>결재진행 목록</h1>
           </header>
           <section class="tbl_top_area">
             <ul class="search_list">
@@ -57,17 +58,6 @@
                 @@include('../inc/data_emp_name.html')
               </li>
               <li>
-                <div class="period_group">
-                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
-                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
-                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
-                </div>
-                <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
-                  <input type="date" title="종료일" data-type="to" id="end-date" name="end-date" />
-                </div>
-              </li>
-              <li>
                 <button type="button" class="btn_search">검색</button>
               </li>
             </ul>
@@ -93,7 +83,6 @@
                   <th scope="col">제목</th>
                   <th scope="col">기안일시</th>
                   <th scope="col">최종결재자</th>
-                  <th scope="col">참조</th>
                   <th scope="col">상태</th>
                   <th scope="col">공개여부</th>
                 </tr>
@@ -101,24 +90,22 @@
               <tbody>
                 <tr tabindex="0" onclick="location.href='../html/approval_view.html'">
                   <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
-                  <td>교통비지출서</td>
+                  <td>지출결의서</td>
                   <td>KIT-001-0001</td>
                   <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서<a href="#" class="cmt_num">4</a></td>
                   <td>2023-05-01 01:30:11</td>
                   <td>홍길동(개발1팀)</td>
-                  <td>홍길동(개발1팀):접수,홍길동(개발1팀):확인</td>
-                  <td><i class="tbl_badge request">결재요청</i></td>
+                  <td><i class="tbl_badge ing">진행</i></td>
                   <td><i class="tbl_badge public">공개</i></td>
                 </tr>
                 <tr tabindex="0">
-                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td><i class="tbl_ico low_prio" title="중요도 낮음">중요도 낮음</i></td>
                   <td>교통비지출서</td>
                   <td>KIT-001-0001</td>
                   <td>5월 교통비지출서<a href="#" class="cmt_num">2</a></td>
                   <td>2023-05-01 01:30:11</td>
                   <td>홍길동(개발1팀)</td>
-                  <td>홍길동(개발1팀):접수,홍길동(개발1팀):확인</td>
-                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge retrieve">회수</i></td>
                   <td><i class="tbl_badge private">비공개</i></td>
                 </tr>
               </tbody>

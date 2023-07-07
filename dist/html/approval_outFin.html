@@ -128,98 +128,146 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>신규상신<span>전자결재</span></h1>
+        <h1>결재완료<span>결재 상신함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="">Home</a></li>
             <li><a href="">전자결재</a></li>
-            <li>신규상신</li>
+            <li><a href="">결재 상신함</a></li>
+            <li>결재완료</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
-        <article class="approval_often box_compact my_form">
-          <header>
-            <div>
-              <h1>자주쓰는 결재
-                <span class="explanation">사용자가 가장 많이 사용하는 결재양식입니다. <b>양식 선택 시 결재 작성 화면으로 이동</b>됩니다.</span>
-              </h1>
-            </div>
-            <div class="btn_wrap">
-              <a href="#" class="myform_set">설정</a>
-            </div>
+        <article class="">
+          <header class="blind">
+            <h1>결재완료 목록</h1>
           </header>
-          <ul>
-            <li><a href="#">휴가신청서<i class="badge">보고문서</i></a></li>
-            <li><a href="#">연장근무 신청서<i class="badge">근태문서</i></a></li>
-            <li><a href="#">휴가 신청서<i class="badge">대외문서</i></a></li>
-          </ul>
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <div class="select_custom prio">
+                  <button class="label">
+                    <span class="opt_label">중요도</span>
+                  </button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0"><i class="ico_select high_prio">high icon</i>높음</li>
+                    <li class="optionItem" tabindex="0"><i class="ico_select normal_prio">common icon</i>보통</li>
+                    <li class="optionItem" tabindex="0"><i class="ico_select low_prio">row icon</i>낮음</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <select name="" id="" title="결재양식">
+                  <optgroup class="opt_label" label="결재양식">
+                    <option disabled selected>결재양식</option>
+                  </optgroup>
+                  <optgroup label="근태문서">
+                    <option value="">출장신청서</option>
+                    <option value="">출장복명서</option>
+                    <option value="">휴가신청서</option>
+                  </optgroup>
+                  <optgroup label="기안문서">
+                    <option value="">기안서</option>
+                    <option value="">품의서</option>
+                    <option value="">지출결의서</option>
+                  </optgroup>
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+                <datalist id="nameList" autocomplete="off">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+              </li>
+              <li>
+                <div class="period_group">
+                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
+                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
+                  <input type="date" title="종료일" data-type="to" id="end-date" name="end-date" />
+                </div>
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>
+            <div class="flex_right">
+              <select name="" id="" title="목록개수 선택">
+  <option value="15">15줄 보기</option>
+  <option value="50" selected>50줄 보기</option>
+  <option value="100">100줄 보기</option>
+  <option value="200">200줄 보기</option>
+</select>
+            </div>
+          </section>
+          <section>
+            <table class="tbl_default tbl_hover tbl_approval_outbox">
+              <caption>결재완료 리스트</caption>
+              <colgroup>
+                <col style="width:50px;">
+                <col span="2" style="width:120px;">
+                <col style="width:auto;">
+                <col span="2" style="width:150px;">
+                <col style="width:100px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">중요도</th>
+                  <th scope="col">문서종류</th>
+                  <th scope="col">문서번호</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">기안일시</th>
+                  <th scope="col">최종결재자</th>
+                  <th scope="col">공개여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0" onclick="location.href='../html/approval_view.html'">
+                  <td><i class="tbl_ico high_prio" title="중요도 높음">중요도 높음</i></td>
+                  <td>지출결의서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서<a href="#" class="cmt_num">4</a></td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+  <a href="#" class="first" title="처음">〈〈</a>
+  <a href="#" class="pre" title="이전">〈</a>
+  <span>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#" class="on">6</a>
+    <a href="#">7</a>
+    <a href="#">8</a>
+    <a href="#">9</a>
+    <a href="#">10</a>
+  </span>
+  <a href="#" class="next" title="다음">〉</a>
+  <a href="#" class="last" title="마지막">〉〉</a>
+</div>
+          </section>
         </article>
-        <section class="approval_new my_form">
-          <article>
-            <header>
-              <h1>근태문서</h1>
-            </header>
-            <ul>
-              <li><a href="./approval_new2.html">휴가 신청서</a></li>
-              <li><a href="#">휴가 변경 신청서</a></li>
-              <li><a href="#">휴일 근무 신청서</a></li>
-              <li><a href="#">출장 신청서</a></li>
-              <li><a href="#">출장 복명서</a></li>
-              <li><a href="#">외근 신청서</a></li>
-              <li><a href="#">휴직 신청서</a></li>
-              <li><a href="#">퇴직 신청서</a></li>
-              <li><a href="#">복직 신청서</a></li>
-            </ul>
-          </article>
-          <article>
-            <header>
-              <h1>신청문서</h1>
-            </header>
-            <ul>
-              <li><a href="#">경조비 신청서</a></li>
-              <li><a href="#">완전히 길어버리는 제목의 구매 요청서</a></li>
-            </ul>
-          </article>
-          <article>
-            <header>
-              <h1>보고문서</h1>
-            </header>
-            <ul>
-              <li><a href="#">업무보고</a></li>
-              <li><a href="#">회의록</a></li>
-              <li><a href="#">업무인수인계서</a></li>
-              <li><a href="#">경위서</a></li>
-              <li><a href="#">시말서</a></li>
-            </ul>
-          </article>
-          <article>
-            <header>
-              <h1>기안문서</h1>
-            </header>
-            <ul>
-              <li><a href="#">기안서</a></li>
-              <li><a href="#">품의서</a></li>
-              <li><a href="#">협조문</a></li>
-              <li><a href="#">지출결의서</a></li>
-            </ul>
-          </article>
-          <article>
-            <header>
-              <h1>대외문서</h1>
-            </header>
-            <ul>
-              <li><a href="#">공문서 발급신청서</a></li>
-            </ul>
-          </article>
-          <article>
-            <header>
-              <h1>회계문서</h1>
-            </header>
-            <ul>
-            </ul>
-          </article>
-        </section>
       </div>
     </section>
   </main>

@@ -36,7 +36,14 @@
               <textarea name="" id="" cols="30" rows="2" title="답글" placeholder="홍길동님에게 답글쓰기"></textarea>
             </div>
             <div class="cmt_attach">
+              <label for="attachFiles" class="btn_label_attach">첨부</label>
               <button type="button">등록</button>
+              <div class="file_attach btn_attach">
+                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+                <div id="file-drop" class="drop_zone">
+                  <ul id="fileList" class="attach_list"></ul>
+                </div>
+              </div>
             </div>
           </li>
         </ul>
