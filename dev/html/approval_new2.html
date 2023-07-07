@@ -102,7 +102,7 @@
                         <select title="기관선택">
                           <option value="기관 선택">기관 선택</option>
                         </select>
-                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList">
+                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList" autocomplete="off">
                         @@include('../inc/data_project_name.html')
                       </span>
                     </td>
@@ -151,7 +151,7 @@
                     </th>
                     <td>
                       <span class="file_input">
-                        <input type="text" id="biz traveler" list="nameList">
+                        <input type="text" id="biz traveler" list="nameList" autocomplete="off">
                         @@include('../inc/data_emp_name.html')
                         <button type="button" class="btn_default">추가</button>
                         <button type="button" class="btn_ogt">조직도</button>
@@ -385,7 +385,7 @@
                 </section>
                 <section id="tab03" class="tab_contents">
                   <span class="file_input">
-                    <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList">
+                    <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
                     @@include('../inc/data_emp_name.html')
                     <button type="button" class="btn_default">추가</button>
                     <button type="button" class="btn_ogt btnMngTree">조직도</button>
@@ -410,7 +410,7 @@
             <section class="box_default_w">
               <h1>참조자 지정</h1>
               <span class="file_input">
-                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList">
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
                 @@include('../inc/data_emp_name.html')
                 <button type="button" class="btn_default">추가</button>
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
