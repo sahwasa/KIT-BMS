@@ -5,6 +5,7 @@ const handleSelect = function (item) {
   const resultVal = item.dataset.value;
   result.html(item.innerHTML).attr('data-value',resultVal);
   result.parent().removeClass('active');
+  console.log(resultVal);
 }
 
 $(function () {
