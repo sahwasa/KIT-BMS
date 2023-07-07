@@ -54,16 +54,16 @@
   <nav id="nav" class="nav">
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
-    <li class="on"><a href="/html/main.html">HOME</a></li>
-    <li><a href="/html/message.html">사내쪽지</a></li>
-    <li><a href="/html/approval.html">전자결재</a></li>
-    <li><a href="/html/work.html">업무</a></li>
-    <li><a href="/html/plan.html">일정</a></li>
-    <li><a href="/html/projectList.html">프로젝트</a></li>
-    <li><a href="/html/svc.html">임직원 업무</a></li>
-    <li><a href="/html/erp.html">ERP</a></li>
-    <li><a href="/html/board.html">게시판</a></li>
-    <li><a href="/html/pop.html">팝업샘플</a></li>
+    <li class="on"><a href="main.html">HOME</a></li>
+    <li><a href="message.html">사내쪽지</a></li>
+    <li><a href="approval.html">전자결재</a></li>
+    <li><a href="work.html">업무</a></li>
+    <li><a href="plan.html">일정</a></li>
+    <li><a href="projectList.html">프로젝트</a></li>
+    <li><a href="svc.html">임직원 업무</a></li>
+    <li><a href="erp.html">ERP</a></li>
+    <li><a href="board.html">게시판</a></li>
+    <li><a href="pop.html">팝업샘플</a></li>
     <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
   </ul>
 </nav>
@@ -84,19 +84,19 @@
       </ul>
     </div>
     <ul class="snb_lst">
-      <li><a href="../html/approval_outbox.html">결재 상신함</a>
+      <li class="on"><a href="../html/approval_outIng.html">결재 상신함</a>
         <ul>
-          <li><a href="../html/approval_outbox.html">결재진행</a></li>
-          <li><a href="../html/approval_outbox.html">결재완료</a></li>
-          <li><a href="../html/approval_outbox.html">반려문서</a></li>
-          <li><a href="../html/approval_outbox.html">임시저장</a></li>
+          <li class="on"><a href="../html/approval_outIng.html">결재진행</a></li>
+          <li><a href="../html/approval_outFin.html">결재완료</a></li>
+          <li><a href="../html/approval_outReject.html">반려문서</a></li>
+          <li><a href="../html/approval_outDrafts.html">임시저장</a></li>
         </ul>        
       </li>
-      <li><a href="../html/approval_inbox.html">결재 수신함</a>
+      <li><a href="../html/approval_inIng.html">결재 수신함</a>
         <ul>
-          <li><a href="../html/approval_inbox.html">결재요청</a></li>
-          <li><a href="../html/approval_inbox.html">결재완료</a></li>
-          <li><a href="../html/approval_inbox.html">수신참조</a></li>
+          <li><a href="../html/approval_inIng.html">수신결재</a></li>
+          <li><a href="../html/approval_inFin.html">결재내역</a></li>
+          <li><a href="../html/approval_inCc.html">수신참조</a></li>
         </ul>
       </li>
       <li><a href="">공개 문서함</a></li>
@@ -174,8 +174,8 @@
                 </select>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList">
-                <datalist id="nameList" autocomplete="off">
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+                <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -237,7 +237,7 @@
                   <th scope="col">문서번호</th>
                   <th scope="col">제목</th>
                   <th scope="col">기안일시</th>
-                  <th scope="col">최종결제자</th>
+                  <th scope="col">최종결재자</th>
                   <th scope="col">상태</th>
                   <th scope="col">공개여부</th>
                 </tr>
@@ -252,6 +252,16 @@
                   <td>홍길동(개발1팀)</td>
                   <td><i class="tbl_badge request">결재요청</i></td>
                   <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서<a href="#" class="cmt_num">2</a></td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
                 </tr>
                 <tr tabindex="0">
                   <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
@@ -296,11 +306,9 @@
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
-<script src="../plugins/ckeditor5/ckeditor.js"></script>
-<script src="../plugins/ckeditor5/editor.js" type="module"></script>
+<script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
-<script src="../js/mention.js"></script>
 </body>
 
 </html>

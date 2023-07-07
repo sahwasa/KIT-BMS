@@ -128,12 +128,13 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>결재대기<span>전자결재</span></h1>
+        <h1>수신결재<span>전자결재</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="">Home</a></li>
             <li><a href="">전자결재</a></li>
-            <li>결재대기</li>
+            <li><a href="">결재 수신함</a></li>
+            <li>수신결재</li>
           </ul>
         </section>
       </header>
@@ -174,7 +175,7 @@
                 </select>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList">
                 <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
@@ -191,17 +192,6 @@
 </datalist>
               </li>
               <li>
-                <div class="period_group">
-                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
-                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
-                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
-                </div>
-                <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
-                  <input type="date" title="종료일" data-type="to" id="end-date" name="end-date" />
-                </div>
-              </li>
-              <li>
                 <button type="button" class="btn_search">검색</button>
               </li>
             </ul>
@@ -216,12 +206,12 @@
           </section>
           <section>
             <table class="tbl_default tbl_hover tbl_approval_outbox">
-              <caption>결재진행 리스트</caption>
+              <caption>수신결재 리스트</caption>
               <colgroup>
                 <col style="width:50px;">
                 <col span="2" style="width:120px;">
                 <col style="width:auto;">
-                <col span="2" style="width:150px;">
+                <col span="3" style="width:150px;">
                 <col span="2" style="width:95px;">
               </colgroup>
               <thead>
@@ -230,9 +220,9 @@
                   <th scope="col">문서종류</th>
                   <th scope="col">문서번호</th>
                   <th scope="col">제목</th>
+                  <th scope="col">기안자</th>
                   <th scope="col">기안일시</th>
                   <th scope="col">최종결재자</th>
-                  <th scope="col">참조</th>
                   <th scope="col">상태</th>
                   <th scope="col">공개여부</th>
                 </tr>
@@ -243,10 +233,10 @@
                   <td>교통비지출서</td>
                   <td>KIT-001-0001</td>
                   <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서<a href="#" class="cmt_num">4</a></td>
+                  <td>홍길동(개발1팀)</td>
                   <td>2023-05-01 01:30:11</td>
                   <td>홍길동(개발1팀)</td>
-                  <td>홍길동(개발1팀):접수,홍길동(개발1팀):확인</td>
-                  <td><i class="tbl_badge request">결재요청</i></td>
+                  <td><i class="tbl_badge defer">후결대기</i></td>
                   <td><i class="tbl_badge public">공개</i></td>
                 </tr>
                 <tr tabindex="0">
@@ -254,10 +244,21 @@
                   <td>교통비지출서</td>
                   <td>KIT-001-0001</td>
                   <td>5월 교통비지출서<a href="#" class="cmt_num">2</a></td>
+                  <td></td>
                   <td>2023-05-01 01:30:11</td>
                   <td>홍길동(개발1팀)</td>
-                  <td>홍길동(개발1팀):접수,홍길동(개발1팀):확인</td>
-                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge wait">결재대기</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서<a href="#" class="cmt_num">2</a></td>
+                  <td></td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td><i class="tbl_badge agree">합의요청</i></td>
                   <td><i class="tbl_badge private">비공개</i></td>
                 </tr>
               </tbody>

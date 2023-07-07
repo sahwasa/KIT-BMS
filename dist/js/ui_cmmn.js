@@ -365,4 +365,45 @@ $(function () {
     $(this).css('color','inherit');
   });
 });
-  
+
+
+// editor
+function setEditor() {
+  ClassicEditor.create(document.querySelector('#editor'), {
+    licenseKey: '',
+    list: {
+      properties: {
+        styles: true,
+        startIndex: true,
+        reversed: true,
+      },
+    },
+    fontFamily: {
+      options: ['나눔고딕', '맑은고딕', '굴림', '돋움', '바탕', '궁서'],
+    },
+    fontSize: {
+      options: [13, 15, 17, 19, 21],
+    },
+    htmlSupport: {
+      allow: [
+        {
+          name: /.*/,
+          attributes: true,
+          classes: true,
+          styles: true,
+        },
+      ],
+      disallow: [
+        /* HTML features to disallow */
+      ],
+    },
+  })
+    .then(editor => {
+      window.editor = editor
+    })
+    .catch(error => {
+      console.error('Oops, something went wrong!')
+      console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
+      console.error(error)
+    })
+}
