@@ -63,9 +63,15 @@ border:1px solid transparent;}
 }
 @mixin ico_only{font-size:0;vertical-align:middle;}
 
-@mixin btn($color){
+@mixin btn($color,$addTxt:false){
+  
   line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
   &:hover,&:hover::before{color:#fff;background-color:$color;}
+  &::before{
+    @if($addTxt){
+      color:$color;font-size:15px;margin-right:3px;
+    }
+  }
 }
 @mixin form_btn{
   line-height:23px;border:1px solid #aaa;border-radius:2px;padding:0 7px;font-size:12px;

@@ -330,8 +330,11 @@ $btn_gray:#979797;
   &.long{width:276px;}
 }
 .search_list{display:flex;flex-flow:row wrap;gap:5px;margin-right:10px;}
-.btn_search{@include btn($btn_red);
-  &::before{@include fontello('\e802');color:$red;font-size:15px;margin-right:3px;}
+.btn_search{@include btn($btn_red,true);
+  &::before{@include fontello('\e802');}
+}
+.btn_refresh{@include btn($btn_gray,true);
+  &::before{@include fontello('\e8a7');}
 }
 
 // table
