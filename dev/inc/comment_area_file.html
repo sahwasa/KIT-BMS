@@ -115,11 +115,13 @@
   </ul>
   <div class="cmt_write">
     @@include('../inc/module_user.html')
-    <!-- <textarea name="" id="textarea" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea> -->
 
-
-    <div class="editable" id="textarea" contenteditable="true" placeholder="댓글을 입력해주세요."></div>
-    <div id="menu" class="menu" role="listbox"></div>
+    <!-- 멘션 못하겠어요 ㅡㅡ; 살려주세요!! -->
+    <div class="write_wrap">
+      <div id="copy-txt" class="copy-txt"></div>
+      <textarea id="textarea" data-mention="copy-txt"></textarea>
+    </div>
+    <!-- 멘션 못하겠어요 ㅡㅡ; 살려주세요!! __e -->
     <div class="cmt_attach">
       <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>

@@ -44,27 +44,6 @@ const isFirefox = typeof window !== 'undefined' && window['mozInnerScreenX'] != 
  * @param {HTMLTextAreaElement} element
  * @param {number} position
  */
-function getDivSelectionStart(element) {
-    let start = 0;
-    if (typeof window.getSelection !== 'undefined') {
-      const range = window.getSelection().getRangeAt(0);
-      const preSelectionRange = range.cloneRange();
-      preSelectionRange.selectNodeContents(element);
-      preSelectionRange.setEnd(range.startContainer, range.startOffset);
-      start = preSelectionRange.toString().length;
-    }
-    return start;
-}
-function setDivSelectionRange(element, start, end) {
-  const range = document.createRange();
-  range.setStart(element.firstChild, start);
-  range.setEnd(element.firstChild, end);
-  
-  const selection = window.getSelection();
-  selection.removeAllRanges();
-  selection.addRange(range);
-}
-
 function getCaretCoordinates(element, position) {
 	const div = document.createElement('div')
 	document.body.appendChild(div)
@@ -73,8 +52,9 @@ function getCaretCoordinates(element, position) {
 	const computed = getComputedStyle(element)
 
 	style.whiteSpace = 'pre-wrap'
-	style.wordWrap = 'break-word'
+	style.wordwrap = 'break-word'
 	style.position = 'absolute'
+	style.backgroundColor = 'red'
 	style.visibility = 'hidden'
 
 	properties.forEach(prop => {
@@ -88,12 +68,10 @@ function getCaretCoordinates(element, position) {
 		style.overflow = 'hidden'
 	}
 
-  const elContent= element.innerText;
-	// div.textContent = element.value.substring(0, position)
-	div.textContent = elContent.substring(0, position)
+	div.textContent = element.value.substring(0, position)
+
 	const span = document.createElement('span')
-	span.textContent = elContent.substring(position) || '.'
-	// span.textContent = element.value.substring(position) || '.'
+	span.textContent = element.value.substring(position) || '.'
 	div.appendChild(span)
 
 	const coordinates = {
@@ -102,9 +80,7 @@ function getCaretCoordinates(element, position) {
 		// height: parseInt(computed['lineHeight'])
 		height: span.offsetHeight
 	}
-
 	div.remove()
-
 	return coordinates
 }
 
@@ -150,27 +126,22 @@ class Mentionify {
   
   selectItem(active) {
     return () => {
-      var refVal = this.ref.innerText; //this.ref.value 대체
-      const preMention = refVal.substr(0, this.triggerIdx)
+      const preMention = this.ref.value.substr(0, this.triggerIdx)
       const option = this.options[active]
-      const mention = this.replaceFn(option, refVal[this.triggerIdx])
-      // const postMention = refVal.substr(this.ref.selectionStart)
-      const postMention = refVal.substr(getDivSelectionStart(this.ref))
+      const mention = this.replaceFn(option, this.ref.value[this.triggerIdx])
+      const postMention = this.ref.value.substr(this.ref.selectionStart)
       const newValue = `${preMention}${mention}${postMention}`
-      this.ref.innerText = newValue
-      const caretPosition = this.ref.innerText.length - postMention.length
-      // this.ref.setSelectionRange(caretPosition, caretPosition)
-      setDivSelectionRange(this.ref,caretPosition, caretPosition)
+      this.ref.value = newValue
+      const caretPosition = this.ref.value.length - postMention.length
+      this.ref.setSelectionRange(caretPosition, caretPosition)
       this.closeMenu()
       this.ref.focus()
     }
   }
   
   onInput(ev) {
-    // const positionIndex = this.ref.selectionStart
-    const positionIndex = getDivSelectionStart(this.ref)
-    // const textBeforeCaret = this.ref.value.slice(0, positionIndex)
-    const textBeforeCaret = this.ref.innerText.slice(0, positionIndex)
+    const positionIndex = this.ref.selectionStart
+    const textBeforeCaret = this.ref.value.slice(0, positionIndex)
     const tokens = textBeforeCaret.split(/\s/)
     const lastToken = tokens[tokens.length - 1]
     const triggerIdx = textBeforeCaret.endsWith(lastToken)
@@ -230,8 +201,7 @@ class Mentionify {
     if (this.top === undefined) {
       this.menuRef.hidden = true
       return
-    }
-    
+    }    
     this.menuRef.style.left = this.left + 'px'
     this.menuRef.style.top = this.top + 'px'
     this.menuRef.innerHTML = ''
@@ -248,15 +218,16 @@ class Mentionify {
 }
 
 const users = [
-  { username: '김길동' },
-  { username: '이개발' },
-  { username: '산토끼' },
+  { username: '귀요미' },
+  { username: '멋쟁이' },
+  { username: '홍OO' },
 ]
 
 const resolveFn = prefix => prefix === ''
   ? users
   : users.filter(user => user.username.startsWith(prefix))
 
+// const replaceFn = (user, trigger) => `<span class="mention">${trigger}${user.username}</span>`
 const replaceFn = (user, trigger) => `${trigger}${user.username}`
 
 const menuItemFn = (user, setItem, selected) => {
@@ -277,5 +248,5 @@ new Mentionify(
   document.getElementById('menu'),
   resolveFn,
   replaceFn,
-  menuItemFn
+  menuItemFn,
 )

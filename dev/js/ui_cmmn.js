@@ -366,17 +366,27 @@ $(function () {
   });
   
   //editDIV
-  $('.editable').each(function(){
-    this.contentEditable = true;
+  // $('.editable').each(function(){
+  //   this.contentEditable = true;
+  // });
+  $('[data-mention]').on('keyup scroll click', function(e){  
+    const html = d($(this));
+    const target = e.target;  
+    const des = target.dataset.mention;
+    $('#' + des).html(html).scrollTop(e.target.scrollTop);
   });
-  $('.editable').on('keyup', function(e){
-    let thisContent = e.target.innerText.split(" ");
-    // .matchAll(/ @/g);
-    // let splitTxt = Array.from(thisContent)
-  
+  $('#menu').on('click',function(){
+    const html = d($('[data-mention]'));
+    $('#copy-txt').html(html);    
   })
-
 });
+
+function d(target){  
+  const thisVal = target.val().replace(/\n/g, '<br>')
+  .replace(/\B@[ㄱ-ㅎ가-힣\w-]+/g, '<span class="mention">$&</span>');  
+  let html = thisVal;
+  return html;
+}
 
 
 // editor
