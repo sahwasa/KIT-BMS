@@ -364,6 +364,20 @@ $(function () {
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
+  
+  //editDIV
+  $('.editable').each(function(){
+    this.contentEditable = true;
+  });
+  $('.editable').on('keyup', function(e){
+    let thisContent = e.target.innerText.split(" ");
+    // .matchAll(/ @/g);
+    // let splitTxt = Array.from(thisContent)
+  
+
+    
+  })
+
 });
 
 

@@ -348,7 +348,11 @@
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-    <textarea name="" id="" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea>
+    <!-- <textarea name="" id="textarea" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea> -->
+
+
+    <div class="editable" id="textarea" contenteditable="true" placeholder="댓글을 입력해주세요."></div>
+    <div id="menu" class="menu" role="listbox"></div>
     <div class="cmt_attach">
       <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
@@ -507,6 +511,7 @@
 <script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
+<script src="../js/mention.js"></script>
 <script>
   $(function () {
     fileDropEvt();

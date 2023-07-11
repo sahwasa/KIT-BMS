@@ -580,6 +580,13 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     &:has(.attach_list>li){border: 2px dashed #ebebeb;padding-bottom:10px;}
   }
 }
+.editable:empty:after{content:"댓글을 입력하세요."}
+
+.menu{background-color:$white;position:absolute;}
+.menu-item{padding:.5em;
+  &.selected {background-color:#e8e8e9;}
+  &:hover:not(.selected){background-color:#f5f5f5;}
+}
 
 /* ckeditor */
 .editor_wrap{
