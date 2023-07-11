@@ -7,7 +7,6 @@
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <title>KIT 업무관리시스템</title>
   <link rel="stylesheet" href="../font/fontello/css/fontello.css">
-  <link rel="stylesheet" href="../font/fontello/css/animation.css">
   <link rel="stylesheet" href="../css/merge.css">
 </head>
 <body>
@@ -54,16 +53,16 @@
   <nav id="nav" class="nav">
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
-    <li class="on"><a href="main.html">HOME</a></li>
-    <li><a href="message.html">사내쪽지</a></li>
-    <li><a href="approval.html">전자결재</a></li>
-    <li><a href="work.html">업무</a></li>
-    <li><a href="plan.html">일정</a></li>
-    <li><a href="projectList.html">프로젝트</a></li>
-    <li><a href="svc.html">임직원 업무</a></li>
-    <li><a href="erp.html">ERP</a></li>
-    <li><a href="board.html">게시판</a></li>
-    <li><a href="pop.html">팝업샘플</a></li>
+    <li class="on"><a href="../html/main.html">HOME</a></li>
+    <li><a href="../html/message.html">사내쪽지</a></li>
+    <li><a href="../html/approval.html">전자결재</a></li>
+    <li><a href="../html/work.html">업무</a></li>
+    <li><a href="../html/plan.html">일정</a></li>
+    <li><a href="../html/projectList.html">프로젝트</a></li>
+    <li><a href="../html/svc.html">임직원 업무</a></li>
+    <li><a href="../html/erp.html">ERP</a></li>
+    <li><a href="../html/board.html">게시판</a></li>
+    <li><a href="../html/pop.html">팝업샘플</a></li>
     <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
   </ul>
 </nav>
@@ -218,7 +217,7 @@
   <header>
     <h1>댓글</h1>
   </header>
-  <ul class="cmt_lst">
+  <ul class="cmt_lst hasLayer">
     <li>
       <div class="cmt_user">
         <div class="user_module">
@@ -349,7 +348,11 @@
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-    <textarea name="" id="" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea>
+    <!-- <textarea name="" id="textarea" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea> -->
+
+
+    <div class="editable" id="textarea" contenteditable="true" placeholder="댓글을 입력해주세요."></div>
+    <div id="menu" class="menu" role="listbox"></div>
     <div class="cmt_attach">
       <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
@@ -402,8 +405,8 @@
             <section class="box_default_w">
               <h1>참조자</h1>
               <span class="file_input">
-                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList">
-                <datalist id="nameList" autocomplete="off">
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+                <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -477,7 +480,7 @@
                 <dt>공개여부</dt>
                 <dd>
                   <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure" checked="">
+                    <input type="radio" id="open" name="disclosure" checked>
                     <label for="open">공개</label>
                     <input type="radio" id="private" name="disclosure">
                     <label for="private">비공개</label>
@@ -508,6 +511,7 @@
 <script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
+<script src="../js/mention.js"></script>
 <script>
   $(function () {
     fileDropEvt();

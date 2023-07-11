@@ -7,7 +7,6 @@
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <title>KIT 업무관리시스템</title>
   <link rel="stylesheet" href="../font/fontello/css/fontello.css">
-  <link rel="stylesheet" href="../font/fontello/css/animation.css">
   <link rel="stylesheet" href="../css/merge.css">
 </head>
 <body>
@@ -54,16 +53,16 @@
   <nav id="nav" class="nav">
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
-    <li class="on"><a href="main.html">HOME</a></li>
-    <li><a href="message.html">사내쪽지</a></li>
-    <li><a href="approval.html">전자결재</a></li>
-    <li><a href="work.html">업무</a></li>
-    <li><a href="plan.html">일정</a></li>
-    <li><a href="projectList.html">프로젝트</a></li>
-    <li><a href="svc.html">임직원 업무</a></li>
-    <li><a href="erp.html">ERP</a></li>
-    <li><a href="board.html">게시판</a></li>
-    <li><a href="pop.html">팝업샘플</a></li>
+    <li class="on"><a href="../html/main.html">HOME</a></li>
+    <li><a href="../html/message.html">사내쪽지</a></li>
+    <li><a href="../html/approval.html">전자결재</a></li>
+    <li><a href="../html/work.html">업무</a></li>
+    <li><a href="../html/plan.html">일정</a></li>
+    <li><a href="../html/projectList.html">프로젝트</a></li>
+    <li><a href="../html/svc.html">임직원 업무</a></li>
+    <li><a href="../html/erp.html">ERP</a></li>
+    <li><a href="../html/board.html">게시판</a></li>
+    <li><a href="../html/pop.html">팝업샘플</a></li>
     <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
   </ul>
 </nav>
@@ -762,7 +761,7 @@
             <li class="file_input">
               <label for="allDoc"><input type="checkbox" id="allDoc" data-checkEvt="draftsman">공개문서</label>
               <input type="text" name="" id="draftsman" title="관련자" placeholder="관련자" list="nameList">
-              <datalist id="nameList" autocomplete="off">
+              <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -1068,7 +1067,7 @@
             <tr>
               <th><label for="plan_participants">참여자</label></th>
               <td>
-                  <datalist id="nameList" autocomplete="off">
+                  <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -1292,6 +1291,7 @@
 <script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
+<script src="../js/mention.js"></script>
 <script>
   $(function () {
     function tabInit(modal){

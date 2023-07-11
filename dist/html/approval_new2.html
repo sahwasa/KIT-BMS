@@ -7,7 +7,6 @@
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
   <title>KIT 업무관리시스템</title>
   <link rel="stylesheet" href="../font/fontello/css/fontello.css">
-  <link rel="stylesheet" href="../font/fontello/css/animation.css">
   <link rel="stylesheet" href="../css/merge.css">
 </head>
 <body>
@@ -54,16 +53,16 @@
   <nav id="nav" class="nav">
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
-    <li class="on"><a href="main.html">HOME</a></li>
-    <li><a href="message.html">사내쪽지</a></li>
-    <li><a href="approval.html">전자결재</a></li>
-    <li><a href="work.html">업무</a></li>
-    <li><a href="plan.html">일정</a></li>
-    <li><a href="projectList.html">프로젝트</a></li>
-    <li><a href="svc.html">임직원 업무</a></li>
-    <li><a href="erp.html">ERP</a></li>
-    <li><a href="board.html">게시판</a></li>
-    <li><a href="pop.html">팝업샘플</a></li>
+    <li class="on"><a href="../html/main.html">HOME</a></li>
+    <li><a href="../html/message.html">사내쪽지</a></li>
+    <li><a href="../html/approval.html">전자결재</a></li>
+    <li><a href="../html/work.html">업무</a></li>
+    <li><a href="../html/plan.html">일정</a></li>
+    <li><a href="../html/projectList.html">프로젝트</a></li>
+    <li><a href="../html/svc.html">임직원 업무</a></li>
+    <li><a href="../html/erp.html">ERP</a></li>
+    <li><a href="../html/board.html">게시판</a></li>
+    <li><a href="../html/pop.html">팝업샘플</a></li>
     <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
   </ul>
 </nav>
@@ -223,8 +222,8 @@
                         <select title="기관선택">
                           <option value="기관 선택">기관 선택</option>
                         </select>
-                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList">
-                        <datalist id="projectList" autocomplete="off">
+                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList" autocomplete="off">
+                        <datalist id="projectList">
   <option value="조기경보">기상청</option>
   <option value="기상긴급">행안부 연구과제</option>
   <option value="KIT업무관리">사내업무</option>
@@ -276,8 +275,8 @@
                     </th>
                     <td>
                       <span class="file_input">
-                        <input type="text" id="biz traveler" list="nameList">
-                        <datalist id="nameList" autocomplete="off">
+                        <input type="text" id="biz traveler" list="nameList" autocomplete="off">
+                        <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -571,8 +570,8 @@
                 </section>
                 <section id="tab03" class="tab_contents">
                   <span class="file_input">
-                    <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList">
-                    <datalist id="nameList" autocomplete="off">
+                    <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
+                    <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -612,8 +611,8 @@
             <section class="box_default_w">
               <h1>참조자 지정</h1>
               <span class="file_input">
-                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList">
-                <datalist id="nameList" autocomplete="off">
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+                <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -719,6 +718,7 @@
 <script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
+<script src="../js/mention.js"></script>
 <script>
   $(function () {
     setEditor();// editor common

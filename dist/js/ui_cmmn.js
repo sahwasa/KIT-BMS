@@ -5,6 +5,7 @@ const handleSelect = function (item) {
   const resultVal = item.dataset.value;
   result.html(item.innerHTML).attr('data-value',resultVal);
   result.parent().removeClass('active');
+  console.log(resultVal);
 }
 
 $(function () {
@@ -173,11 +174,11 @@ $(function () {
   })
 
   //layer_tool
-  $(".layer_tool").on('click focusin', function(e){
+  $(":has(.hasLayer)").on('click focusin','.layer_tool',function(e){
       e.stopPropagation();
       e.preventDefault();
       $(this).addClass('on')
-  }).on('focusout',$(this), function(){
+  }).on('focusout','.layer_tool',function(){
     $(this).removeClass('on');
   })
 
@@ -346,7 +347,7 @@ $(function () {
   $('.snb_fold').on('click',function(e){
     var snbBtn =  e.target.dataset,
         snb = $('.snb'),
-        snbWidth = '250px',
+        snbWidth = '200px',
         speed = 500;
     (snbBtn.value == 'on')?snb.animate({'width':0}, speed) : snb.animate({'width': snbWidth},speed);
   });
@@ -363,6 +364,18 @@ $(function () {
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
+  
+  //editDIV
+  $('.editable').each(function(){
+    this.contentEditable = true;
+  });
+  $('.editable').on('keyup', function(e){
+    let thisContent = e.target.innerText.split(" ");
+    // .matchAll(/ @/g);
+    // let splitTxt = Array.from(thisContent)
+  
+  })
+
 });
 
 

@@ -2,7 +2,7 @@
   <header>
     <h1>댓글</h1>
   </header>
-  <ul class="cmt_lst">
+  <ul class="cmt_lst hasLayer">
     <li>
       <div class="cmt_user">
         @@include('../inc/module_user.html')
@@ -115,7 +115,11 @@
   </ul>
   <div class="cmt_write">
     @@include('../inc/module_user.html')
-    <textarea name="" id="" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea>
+    <!-- <textarea name="" id="textarea" cols="30" rows="2" title="댓글을작성" placeholder="댓글을 입력해주세요."></textarea> -->
+
+
+    <div class="editable" id="textarea" contenteditable="true" placeholder="댓글을 입력해주세요."></div>
+    <div id="menu" class="menu" role="listbox"></div>
     <div class="cmt_attach">
       <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
