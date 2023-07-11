@@ -437,14 +437,22 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 .tab_s ~ .tab_contents{margin-top:10px;}
 
 /* paginate */
-.paginate{margin-top:32px;text-align:center;
+.tui-pagination{display:flex;align-items:center;justify-content:center;margin-top:32px;text-align:center;gap:2px;
   span{vertical-align:top;}
-  a, .on{display:inline-block;position:relative;_width /**/:14px;min-width:30px;padding:5px 5px 5px 4px;color:#333;font-size:15px;line-height:normal;box-sizing:border-box;font-weight:normal;margin:0 2px 0 1px;font-family:"Malgun Gothic","맑은고딕","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;}
-  a:hover, .on{border-radius: 2px;color:#fff;background-color:$red;}
-  .pre,
-  .next,
-  .first,
-  .last{_width /**/:47px;width:30px;height:30px;color:#777;background-color:#fff;margin:0 1px;font-size:10px;line-height:19px;font-weight:bold;}
+  .tui-page-btn{position:relative;flex:0 30px;padding:5px;color:#333;font-size:15px;line-height:normal;font-weight:normal;border-radius:2px;font-family:"Malgun Gothic","맑은고딕","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;
+    &.tui-is-selected,
+    &:hover{color:#fff;background-color:$red;}
+    &.tui-is-disabled ::before,
+    &.tui-is-disabled:hover{background-color:transparent;color:#ccc;}
+  }
+  $_tui_ico_btn:( 'prev':'〈', 'next':'〉', 'first':'〈〈', 'last':'〉〉' );
+  @each $type, $txt in $_tui_ico_btn{
+    .tui-#{$type}{_width /**/:47px;width:30px;height:30px;background-color:#fff;margin:0 1px;
+      &:hover{background-color:#edf0f3;}
+    }
+    .tui-ico-#{$type}{@include f-blind;}
+    .tui-ico-#{$type}::before{font-size:10px;line-height:19px;font-weight:bold;color:#000;content:$txt;}
+  }
 }
 
 /* validity */

@@ -374,8 +374,6 @@ $(function () {
     // .matchAll(/ @/g);
     // let splitTxt = Array.from(thisContent)
   
-
-    
   })
 
 });
