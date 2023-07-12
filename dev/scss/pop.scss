@@ -159,7 +159,10 @@
         &:last-of-type::after{display:none;}
       }      
     }
-    & > .flex_right{width:50%;border-left:1px solid #bec7d2;padding:15px 10px;min-width:500px;}
+    & > .flex_right{width:50%;border-left:1px solid #bec7d2;padding:15px 10px;min-width:500px;
+      .form_wrap{padding:0;}
+      input.w_money, select.w_money{width:100%;}
+    }
   }
 }
 
