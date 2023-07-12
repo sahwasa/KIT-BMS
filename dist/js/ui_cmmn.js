@@ -366,9 +366,9 @@ $(function () {
   });
   
   //editDIV
-  // $('.editable').each(function(){
-  //   this.contentEditable = true;
-  // });
+  $('.editable').each(function(){
+    this.contentEditable = true;
+  });
   $('[data-mention]').on('keyup scroll click', function(e){  
     const html = d($(this));
     const target = e.target;  
@@ -381,14 +381,12 @@ $(function () {
   })
 });
 
+
 function d(target){  
-  const thisVal = target.val().replace(/\n/g, '<br>')
-  .replace(/\B@[ㄱ-ㅎ가-힣\w-]+/g, '<span class="mention">$&</span>');  
-  let html = thisVal;
+  const thisVal = target.val().replace(/\n/g, '<br>').replace(/\B@[ㄱ-ㅎ가-힣\w-]+/g, '<span class="mention">$&</span>');  
+  html = thisVal;
   return html;
 }
-
-
 // editor
 function setEditor() {
   ClassicEditor.create(document.querySelector('#editor'), {

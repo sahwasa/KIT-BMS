@@ -113,9 +113,12 @@ border:1px solid transparent;}
   span{display:inline-block;line-height:16px;}
 }
 
-@mixin tit_bullet($target){
+@mixin tit_bullet($target,$size:6){
   #{$target}{font-size:16px;color:#000;font-weight:500;margin-bottom:15px;
-    &::before{position:relative;top:-3px;display:inline-block;@include shape(6px,6px);margin-right:7px;border-radius:6px;background-color:#c4c4c4;}
+    &::before{position:relative;top:-3px;display:inline-block;@include shape(#{$size}px,#{$size}px);margin-right:7px;border-radius:50%;background-color:#c4c4c4;}
+  }
+  @if($size < 4){
+    #{$target}{font-size:13px;margin-bottom:0;}
   }
 }
 

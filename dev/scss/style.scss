@@ -494,7 +494,7 @@ z-index:10;
     }
     .approval_status{      
       strong{margin-right:5px;font-size:11px;}
-      th:first-child{width:28px;}
+      th:first-child{width:27px;}
       td{font-size:11px;width:110px;padding:3px;}
       tr:last-child td{height:25px;}
     }
@@ -562,10 +562,19 @@ z-index:10;
     .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;}
     .appr_result{align-self:flex-end;
       b{@include badge_style(null);background:#ddd;padding:1px 5px 0;font-size:11px;}
-      .draft{background-color:$blue;}
-      .reject{background-color:$red;}
-      .approve{background-color:$green;}
-      .agree{background-color:$yellow;}
+      $_signType:( 'draft':$blue, 'reject':$red, 'approve':$green, 'agree':$yellow);
+      @each $type, $color in $_signType{
+        .#{$type}{background-color:$color;}
+      }      
+    }
+  }
+  .act_lst{padding-left:3px;
+    @include tit_bullet('.date-time',3);
+    li{border-left: 1px solid #ccc;padding:0 0 20px 10px;
+      &:last-child{padding-bottom:5px;}
+    }
+    .date-time{position:relative;left:-10px;top:-7px;font-size:12px;color:$gray;margin-bottom:-5px;
+      &::before{left:-2px;}
     }
   }
 }
@@ -573,12 +582,13 @@ z-index:10;
   .approval_view .my_approval,
   .approval_draft .my_approval{flex-flow:column wrap;
     .approval_set{order:-1;width:100%;display:grid;gap:5px;margin-top:0;
-    grid-template-areas:"path refer""path etc""path attach"; 
+    grid-template-areas:"path etc""path refer""path attach""act act"; 
       & > .box_default_w{margin:0;padding:15px;
         &:nth-of-type(1){grid-area:path;min-width:450px;}
         &:nth-of-type(2){grid-area:refer;}
         &:nth-of-type(3){grid-area:attach;}
         &:nth-of-type(4){grid-area:etc;}
+        &:nth-of-type(5){grid-area:act;}
       }
     }
   }
@@ -786,41 +796,6 @@ z-index:10;
 .recommend { position: absolute; width: calc(15.3846% + 1px); top: -1px; bottom: 0px; left: 84.6154%; border: 1px dashed rgb(18, 93, 230); z-index: 2; }
 .mark_wrap{ position: absolute; display: flex; top: 24px; left: 0px; width: 100%; height: 50px; flex-direction: column; }
 .marks{ position: relative; display: flex; width: 100%; height: 100%; border-bottom: 0px solid rgb(224, 224, 224); z-index: 1; }
-
-
-//   .org_wrap{@include flex_between;justify-content:flex-start;gap:10px;
-//     &>.tree_wrap{min-width:30%;height:100%;}
-//   }
-//   .btn_tree{display:block;margin-bottom:4px;}
-//   .tree_wrap{
-//     .tree_result,
-//     .tree_selected{height:90px;padding:10px 0;border:1px solid #ddd;overflow-y:auto;background-color:#fff;
-//       li{display:flex;align-items:center;position:relative;z-index:1;padding:0 10px;margin-bottom:5px;
-//         &:last-child{margin-bottom:0;}
-//         label{vertical-align:middle;
-//           &::before{position:absolute;z-index:-1;top:0;left:0;display:none;content:'';width:100%;height:100%;background-color:#f9fafc;}
-//         }
-//         &:hover{
-//           label::before{display:inline-block;}
-//         }
-//         input[type=checkbox]{margin-right:3px;
-//           &:checked{
-//             &+label::before{display:inline-block;}
-//           }
-//           &+label{display:inline-block;
-//             &>span{
-//               &:first-child{font-size:12px;color:#000;
-//                 b{font-weight:bold;}
-//               }
-//               &:last-child{font-size:11px;color:#717889;}
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
 
 // 테스트중 테스트중 임시 임시
 #mini-editor {

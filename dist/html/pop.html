@@ -957,50 +957,249 @@
             </ul>
           </section>
 
-          <section class="approval_form flex_right preview">
+          <section class="approval_form flex_right preview" style="height:612px;">
             <header>
-              <h1>제목 텍스트</h1>
+              <h1 id="dialog_sj">출장신청서</h1>
             </header>
-            <div class="form_wrap">
-              <div class="tit_form">
-                <h2>휴가신청서</h2>
-              </div>
-              <table class="tbl_row">
-                <caption>출장복명서 양식 테이블</caption>
-                <colgroup>
-                  <col style="width:100px">
-                  <col style="width:auto">
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">문서번호</th>
-                    <td>KIT-출장복명서-20230100</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">휴가종류</th>
-                    <td>연차</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">휴가기간</th>
-                    <td>2023-03-02 ~ 2023-03-08 (총 5일)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">신청사유</th>
-                    <td>개인사유</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">기타</th>
-                    <td>-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="sign_wrap">
-                <p>상기와 같이 휴가를 신청합니다.<br>
-                  <span>2023년 3월 20일</span>
-                </p>
-                <p>신청인 : <span>멋쟁이</span> (인)</p>
-              </div>
-            </div>
+            <div class="form_wrap" id="dialog_html">		<div class="tit_form">
+            <h2 id="title">출장신청서</h2>
+            <table class="tbl_row approval_status">
+              <caption>결재 상황 테이블</caption>
+              <tbody>
+                <tr>
+                  <th scope="col" rowspan="3">결 재</th>
+                  <th scope="col">기안</th>
+                  <th scope="col">결재</th>
+                  <th scope="col">승인</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <table class="tbl_row">
+            <caption>출장복명서 양식 테이블</caption>
+            <colgroup>
+              <col style="width:150px">
+              <col style="width:auto">
+            </colgroup>
+            <tbody>
+              <tr id="tr_doc_num" style="display: none;">
+                <th scope="row">
+                  <label for="doc_num" class="required">문서번호</label>
+                </th>
+                <td>
+                  <span class="file_input">
+                    <input type="text" id="doc_num" value="" disabled="">
+                  </span>
+                </td>
+              </tr><tr><th scope="row"><label for="sj" class="required">문서제목</label></th><td><input type="text" title="문서제목 입력" id="sj" value="출장신청서" disabled=""></td></tr>
+              <tr>
+                <th scope="row">
+                  <label for="prj_org1" class="required">프로젝트</label>
+                </th>
+                <td>
+                  <span class="file_input">
+                    <select id="prj_org1" onchange="setPrj0rg2()" disabled=""><option value="">사업자분류</option><option value="P1">공공기관및협회</option><option value="P2">법인및개인</option><option value="P3">웹호스팅</option><option value="P4">BOSS</option><option value="P5">사내업무</option><option value="P9">기타</option></select>
+                    <select title="기관선택" id="prj_org2" onchange="setPrj()" disabled=""><option value="">전체</option></select>
+                    <input type="text" id="prj_search" placeholder="프로젝트명을 입력하세요." list="prjList" value="2023년 지진,화산재해 대응시스템 유지보수" disabled="">
+					<datalist id="prjList"><option value="2023년 지진,화산재해 대응시스템 유지보수" data-prjct_id="P1_2023_0001"></option><option value="지역특성을 고려한 지진재해 지역위험도 평가기술" data-prjct_id="P2_2023_0001"></option></datalist>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <label for="form_businesstrip" class="required">출장구분</label>
+                </th>
+                <td>
+                  <ul class="check_group" id="C16type"><li><input type="radio" id="C16_1" name="C16type" checked="checked" value="on" disabled="">
+<label for="C16_1">국내출장</label></li><li><input type="radio" id="C16_2" name="C16type" disabled="">
+<label for="C16_2">해외출장</label></li><li><input type="radio" id="C16_3" name="C16type" disabled="">
+<label for="C16_3">파견근무</label></li><li><input type="radio" id="C16_4" name="C16type" disabled="">
+<label for="C16_4">외근</label></li></ul>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <label for="form_businesstrip_period" class="required">출장기간</label>
+                </th>
+                <td>
+				  <input type="date" id="sdt" title="출장시작" onchange="setPeriod()" value="2023-07-11" disabled=""> - 
+                  <input type="date" id="edt" title="출장종료" onchange="setPeriod()" value="2023-07-12" disabled="">
+                  <input type="text" id="period" title="총 출장기간" class="w_day alignC" value="2" disabled="">
+                  <span>일간</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <label for="empl_search" class="required">출장인원</label>
+                </th>
+                <td>
+                  <span class="file_input">
+                    <input type="text" id="empl_search" oninput="emplChange()" placeholder="출장인원을 입력하세요." list="nameList" value="" disabled="">
+                    <button type="button" class="btn_ogt">조직도</button>
+                  </span>				  
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="required">일별 업무계획</th>
+                <td>
+                  <div class="tbl_workinfo floatR">
+                    <button type="button" class="btn_form">일정추가</button>
+                  </div>
+                  <table class="tbl_default tbl_use_select tbl_hover">
+                    <caption>일별 업무계획 테이블</caption>
+                    <colgroup>
+                      <col style="width:120px;">
+                      <col style="width:150px;">
+                      <col style="width:400px;">
+                      <col style="width:150px;">
+					  <col style="width:60px;">
+                    </colgroup>
+                    <tbody id="schedule">
+                      <tr>
+                        <th scope="col">일자</th>
+                        <th scope="col">출장장소</th>
+                        <th scope="col">업무내용</th>
+                        <th scope="col">교통수단</th>
+						<th scope="col"></th>
+                      </tr>
+                      <tr>
+                        <td><input type="date" title="일자 선택" value="2023-07-11" disabled=""></td>
+                        <td><input type="text" title="출장장소 입력" value="1" disabled=""></td>
+                        <td><input type="text" title="업무내용 입력" value="2" disabled=""></td>
+                        <td><input type="text" title="교통수단 입력" value="3" disabled=""></td>
+						<td><button type="button" class="btn_form">삭제</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">출장여비</th>
+                <td>
+                  <div class="tbl_workinfo">
+                    <p class="validity">※ 총 소요예산 :
+                      <span class="t_skyblue budget" id="form_expense">0</span> 원
+                    </p>
+                  </div>
+                  <table class="tbl_default" id="trvct">
+                    <caption>출장여비 테이블</caption>
+                    <colgroup>
+                      <col style="width:150px;">
+                      <col style="width:auto;">
+                      <col style="width:200px;">
+                      <col style="width:200px;">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="col">종류</th>
+                        <th scope="col">내역</th>
+                        <th scope="col">법인 금액</th>
+                        <th scope="col">개인 금액</th>
+                      </tr>
+                      <tr>
+                        <th scope="row">주유</th>
+                        <td><input type="text" title="주유 내역 입력" id="C20_1_0" value="" disabled=""></td>
+                        <td><input type="text" title="주유 법인금액 입력" class="w_money" id="C20_1_1" value="" disabled=""></td>
+                        <td><input type="text" title="주유 개인금액 입력" class="w_money" id="C20_1_2" value="" disabled=""></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">톨비</th>
+                        <td><input type="text" title="톨비 내역 입력" id="C20_2_0" value="" disabled=""></td>
+                        <td><input type="text" title="톨비 법인금액 입력" class="w_money" id="C20_2_1" value="" disabled=""></td>
+                        <td><input type="text" title="톨비 개인금액 입력" class="w_money" id="C20_2_2" value="" disabled=""></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">철도</th>
+                        <td><input type="text" title="철도 내역 입력" id="C20_3_0" value="" disabled=""></td>
+                        <td><input type="text" title="철도 법인금액 입력" class="w_money" id="C20_3_1" value="" disabled=""></td>
+                        <td><input type="text" title="철도 개인금액 입력" class="w_money" id="C20_3_2" value="" disabled=""></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">항공</th>
+                        <td><input type="text" title="항공 내역 입력" id="C20_4_0" value="" disabled=""></td>
+                        <td><input type="text" title="항공 법인금액 입력" class="w_money" id="C20_4_1" value="" disabled=""></td>
+                        <td><input type="text" title="항공 개인금액 입력" class="w_money" id="C20_4_2" value="" disabled=""></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">택시</th>
+                        <td><input type="text" title="택시 내역 입력" id="C20_5_0" value="" disabled=""></td>
+                        <td><input type="text" title="택시 법인금액 입력" class="w_money" id="C20_5_1" value="" disabled=""></td>
+                        <td><input type="text" title="택시 개인금액 입력" class="w_money" id="C20_5_2" value="" disabled=""></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">버스</th>
+                        <td><input type="text" title="버스 내역 입력" id="C20_6_0" value="" disabled=""></td>
+                        <td><input type="text" title="버스 법인금액 입력" class="w_money" id="C20_6_1" value="" disabled=""></td>
+                        <td><input type="text" title="버스 개인금액 입력" class="w_money" id="C20_6_2" value="" disabled=""></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">숙박</th>
+                        <td><input type="text" title="숙박 내역 입력" id="C20_7_0" value="" disabled=""></td>
+                        <td><input type="text" title="숙박 법인금액 입력" class="w_money" id="C20_7_1" value="" disabled=""></td>
+                        <td><input type="text" title="숙박 개인금액 입력" class="w_money" id="C20_7_2" value="" disabled=""></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">일비/기타</th>
+                        <td><input type="text" title="일비 및 기타 내역 입력" id="C20_8_0" value="" disabled=""></td>
+                        <td><input type="text" title="일비 및 기타 법인금액 입력" class="w_money" id="C20_8_1" value="" disabled=""></td>
+                        <td><input type="text" title="일비 및 기타 개인금액 입력" class="w_money" id="C20_8_2" value="" disabled=""></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" rowspan="2">
+                  <label>기타 신청내역</label>
+                </th>
+                <td>
+                  <ul class="check_group">
+                    <li>
+                      <input type="checkbox" id="cpr_car_reqst_yn" disabled="">
+                      <label for="cpr_car_reqst_yn">법인차량(제주출장시)</label>
+                    </li>
+                    <li>
+                      <label for="form_application_period">신청기간 : </label>
+                      <input type="date" id="cpr_car_reqst_bgnde" value="" disabled=""> - 
+                      <input type="date" id="cpr_car_reqst_endde" value="" disabled="">
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul class="check_group">
+                    <li>
+                      <label for="bsrp_reqst_card_co">출장카드</label> ( <input type="number" title="요청 카드 수량" class="w_day alignC h_min" value="0" min="0" id="bsrp_reqst_card_co" disabled=""> 장)
+                    </li>
+                    <li>
+                      <label for="bsrp_highpass_co">하이패스</label> ( <input type="number" title="요청 카드 수량" class="w_day alignC h_min" value="0" min="0" id="bsrp_highpass_co" disabled=""> 장)
+                    </li>
+                    <li>
+                      <label for="bsrp_trnsport_card_co">교통카드</label> ( <input type="number" title="요청 카드 수량" class="w_day alignC h_min" value="0" min="0" id="bsrp_trnsport_card_co" disabled=""> 장)
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="sign_wrap">
+            <p>상기와 같이 출장을 신청합니다.<br>
+              <span id="req_date">2023년 7월 11일</span>
+            </p>
+            <p>신청인 : <span id="my_name_doc">김개발</span> (인)</p>
+          </div>
+           </div>
           </section>
         </section>
       </div>
@@ -1287,12 +1486,10 @@
 </article><!--// 통합알림 -->
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
-<div id="menu" class="menu" role="listbox"></div>
 <script src="../plugins/jquery.MultiFile.js"></script>
 <script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
-<script src="../js/mention.js"></script>
 <script>
   $(function () {
     function tabInit(modal){

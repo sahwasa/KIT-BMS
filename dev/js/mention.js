@@ -52,10 +52,10 @@ function getCaretCoordinates(element, position) {
 	const computed = getComputedStyle(element)
 
 	style.whiteSpace = 'pre-wrap'
-	style.wordwrap = 'break-word'
+	style.wordWrap = 'break-word'
 	style.position = 'absolute'
-	style.backgroundColor = 'red'
-	style.visibility = 'hidden'
+  style.backgroundColor = 'red'
+	// style.visibility = 'hidden'
 
 	properties.forEach(prop => {
 		style[prop] = computed[prop]
@@ -80,7 +80,9 @@ function getCaretCoordinates(element, position) {
 		// height: parseInt(computed['lineHeight'])
 		height: span.offsetHeight
 	}
-	div.remove()
+
+	// div.remove()
+
 	return coordinates
 }
 
@@ -190,6 +192,8 @@ class Mentionify {
           keyCaught = true
           break
       }
+    }else{
+      console.log('dd')
     }
     
     if (keyCaught) {
@@ -201,7 +205,8 @@ class Mentionify {
     if (this.top === undefined) {
       this.menuRef.hidden = true
       return
-    }    
+    }
+    
     this.menuRef.style.left = this.left + 'px'
     this.menuRef.style.top = this.top + 'px'
     this.menuRef.innerHTML = ''
@@ -219,16 +224,15 @@ class Mentionify {
 
 const users = [
   { username: '귀요미' },
-  { username: '멋쟁이' },
-  { username: '홍OO' },
+  { username: '김개발' },
+  { username: '김개발 연구1팀' },
 ]
 
 const resolveFn = prefix => prefix === ''
   ? users
   : users.filter(user => user.username.startsWith(prefix))
 
-// const replaceFn = (user, trigger) => `<span class="mention">${trigger}${user.username}</span>`
-const replaceFn = (user, trigger) => `${trigger}${user.username}`
+const replaceFn = (user, trigger) => `${trigger}${user.username} `
 
 const menuItemFn = (user, setItem, selected) => {
   const div = document.createElement('div')
@@ -242,11 +246,16 @@ const menuItemFn = (user, setItem, selected) => {
   div.onclick = setItem
   return div
 }
+const menu = document.createElement('div')
+menu.id = 'menu';
+menu.role = 'listbox';
+menu.classList.add('menu')
+document.body.appendChild(menu);
 
 new Mentionify(
   document.getElementById('textarea'),
   document.getElementById('menu'),
   resolveFn,
   replaceFn,
-  menuItemFn,
+  menuItemFn
 )
