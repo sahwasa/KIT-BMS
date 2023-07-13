@@ -348,13 +348,7 @@
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-
-    <!-- 멘션 못하겠어요 ㅡㅡ; 살려주세요!! -->
-    <div class="write_wrap">
-      <div id="copy-txt" class="copy-txt"></div>
-      <textarea id="textarea" data-mention="copy-txt"></textarea>
-    </div>
-    <!-- 멘션 못하겠어요 ㅡㅡ; 살려주세요!! __e -->
+    <div id="test" class="editable" contenteditable="true" data-tribute="true"></div>
     <div class="cmt_attach">
       <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
@@ -367,6 +361,22 @@
     </div>
   </div>
 </section>
+<div class="tribute-container" style="position:fixed;top:759px;left:451.328px;">
+  <ul>
+    <li data-index="0" class="highlight"><div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+    <li data-index="1"><div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+    <li data-index="2"><div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+  </ul>
+</div>
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -524,13 +534,13 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
 <script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
-<script src="../js/mention.js"></script>
 <script>
   $(function () {
     fileDropEvt();

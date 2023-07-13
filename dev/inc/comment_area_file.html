@@ -115,13 +115,7 @@
   </ul>
   <div class="cmt_write">
     @@include('../inc/module_user.html')
-
-    <!-- 멘션 못하겠어요 ㅡㅡ; 살려주세요!! -->
-    <div class="write_wrap">
-      <div id="copy-txt" class="copy-txt"></div>
-      <textarea id="textarea" data-mention="copy-txt"></textarea>
-    </div>
-    <!-- 멘션 못하겠어요 ㅡㅡ; 살려주세요!! __e -->
+    <div id="test" class="editable" contenteditable="true" data-tribute="true"></div>
     <div class="cmt_attach">
       <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
@@ -134,3 +128,10 @@
     </div>
   </div>
 </section>
+<div class="tribute-container" style="position:fixed;top:759px;left:451.328px;">
+  <ul>
+    <li data-index="0" class="highlight">@@include('../inc/module_user.html')</li>
+    <li data-index="1">@@include('../inc/module_user.html')</li>
+    <li data-index="2">@@include('../inc/module_user.html')</li>
+  </ul>
+</div>

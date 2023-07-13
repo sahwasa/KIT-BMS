@@ -364,21 +364,6 @@ $(function () {
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
-  
-  //editDIV
-  $('.editable').each(function(){
-    this.contentEditable = true;
-  });
-  $('[data-mention]').on('keyup scroll click', function(e){  
-    const html = d($(this));
-    const target = e.target;  
-    const des = target.dataset.mention;
-    $('#' + des).html(html).scrollTop(e.target.scrollTop);
-  });
-  $('#menu').on('click',function(){
-    const html = d($('[data-mention]'));
-    $('#copy-txt').html(html);    
-  })
 });
 
 
