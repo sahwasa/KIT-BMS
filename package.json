@@ -36,6 +36,7 @@
     "@fullcalendar/google-calendar": "^6.1.8",
     "@fullcalendar/interaction": "^6.1.8",
     "fullcalendar": "^6.1.8",
-    "jquery": "^3.6.4"
+    "jquery": "^3.6.4",
+    "tributejs": "^5.1.3"
   }
 }

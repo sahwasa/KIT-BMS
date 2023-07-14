@@ -348,7 +348,10 @@
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-    <div id="test" class="editable" contenteditable="true" data-tribute="true"></div>
+    <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true"></div>
+    <!-- <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true">
+      <span contenteditable="false"><a title="p1">@김개발</a></span>&nbsp; <span contenteditable="false"><a title="p2">@기획</a></span>&nbsp;
+    </div> -->
     <div class="cmt_attach">
       <label for="attachFiles" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
@@ -361,7 +364,7 @@
     </div>
   </div>
 </section>
-<div class="tribute-container" style="position:fixed;top:759px;left:451.328px;">
+<!-- <div class="tribute-container" style="position:fixed;top:759px;left:451.328px;">
   <ul>
     <li data-index="0" class="highlight"><div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
@@ -376,7 +379,7 @@
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div></li>
   </ul>
-</div>
+</div> -->
           </section>
           <article class="approval_set">
             <section class="box_default_w">
@@ -541,10 +544,25 @@
 <script src="../plugins/ckeditor/build/ckeditor.js"></script>
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
+<script src="../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
   $(function () {
     fileDropEvt();
   })
+var tribute = new Tribute({
+  trigger: "@",
+  values: [
+    { key: "1", value: "김개발" },
+    { key: "2", value: "김연구 연구기획 1팀" }
+  ],
+  selectTemplate: function(item) {
+    return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
+  },
+  menuItemTemplate: function(item) {
+    return `${item.original.value}`;
+  }
+});
+tribute.attach(document.querySelectorAll(".editable"));
 </script>
 </body>
 

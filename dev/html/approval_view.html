@@ -194,6 +194,20 @@
   $(function () {
     fileDropEvt();
   })
+var tribute = new Tribute({
+  trigger: "@",
+  values: [
+    { key: "1", value: "김개발" },
+    { key: "2", value: "김연구 연구기획 1팀" }
+  ],
+  selectTemplate: function(item) {
+    return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
+  },
+  menuItemTemplate: function(item) {
+    return `${item.original.value}`;
+  }
+});
+tribute.attach(document.querySelectorAll(".editable"));
 </script>
 </body>
 
