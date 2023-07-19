@@ -33,15 +33,16 @@
               @@include('../inc/module_user.html')
             </div>
             <div class="cmt_txt">
-              <textarea name="" id="" cols="30" rows="2" title="답글" placeholder="홍길동님에게 답글쓰기"></textarea>
+              <div class="editable" contenteditable="true"></div>
+              <em class="placehold">@홍길동님에게 답글쓰기</em>
             </div>
             <div class="cmt_attach">
-              <label for="attachFiles" class="btn_label_attach">첨부</label>
+              <label for="attachFiles1" class="btn_label_attach">첨부</label>
               <button type="button">등록</button>
               <div class="file_attach btn_attach">
-                <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+                <input id="attachFiles1" data-attach="reply" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
                 <div id="file-drop" class="drop_zone">
-                  <ul id="fileList" class="attach_list"></ul>
+                  <ul id="reply" class="attach_list"></ul>
                 </div>
               </div>
             </div>
@@ -115,26 +116,20 @@
   </ul>
   <div class="cmt_write">
     @@include('../inc/module_user.html')
-    <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true"></div>
+    <div id="test" class="editable" contenteditable="true" data-tribute="true"></div>    
+    <em class="placehold">댓글을 입력하세요.</em>
     <!-- <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true">
       <span contenteditable="false"><a title="p1">@김개발</a></span>&nbsp; <span contenteditable="false"><a title="p2">@기획</a></span>&nbsp;
     </div> -->
     <div class="cmt_attach">
-      <label for="attachFiles" class="btn_label_attach">첨부</label>
+      <label for="attachFiles2" class="btn_label_attach">첨부</label>
       <button type="button">등록</button>
       <div class="file_attach btn_attach">
-        <input id="attachFiles" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+        <input id="attachFiles2" data-attach="cmt" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
         <div id="file-drop" class="drop_zone">
-          <ul id="fileList" class="attach_list"></ul>
+          <ul id="cmt" class="attach_list"></ul>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- <div class="tribute-container" style="position:fixed;top:759px;left:451.328px;">
-  <ul>
-    <li data-index="0" class="highlight">@@include('../inc/module_user.html')</li>
-    <li data-index="1">@@include('../inc/module_user.html')</li>
-    <li data-index="2">@@include('../inc/module_user.html')</li>
-  </ul>
-</div> -->
