@@ -8,10 +8,11 @@ var fLenthList = new Array();
 var maxFileLength = 10; //첨부최대갯수
 
 function fileDropEvt(){
-  var file_drop = $('#file-drop');
-  $('#attachFiles').on('change',function(e){
+  var file_drop = $('.drop_zone');
+  $('[data-attach]').on('change',function(e){
     var files = e.target.files;
-    selectFile(e,files);
+    var thisEl = e.target.dataset.attach;
+    selectFile(e,files,thisEl);
   });
   
   file_drop.on("dragover",function drop(e){
@@ -35,14 +36,14 @@ function fileDropEvt(){
           }
         }
       }
-      selectFile(e,files);
+      selectFile(e,files,thisEl);
     }else{
         alert("ERROR");
     }
   });
 };
 
-function selectFile(event,fileObject){
+function selectFile(event,fileObject,thisEl){
   let files = null;
   const file = event.target.files[0];
 
@@ -85,7 +86,7 @@ function selectFile(event,fileObject){
         fList[fIndex] = files[i];// 파일 배열에 넣기
         fSizeList[fIndex] = fSize;// 파일 사이즈 배열에 넣기
         fLenthList.push(files[i]);
-        addFileList(fIndex, fName, fSize, fExt, fSrc, type);// 업로드 파일 목록 생성
+        addFileList(fIndex, fName, fSize, fExt, fSrc, type, thisEl);// 업로드 파일 목록 생성
         fIndex++;// 파일 번호 증가
       }      
     }    
@@ -93,8 +94,10 @@ function selectFile(event,fileObject){
     alert("ERROR");
   }
 }
-function addFileList(fIndex, fName, fSize, fExt, fSrc, type){
-  var viewList = $('#fileList');
+function addFileList(fIndex, fName, fSize, fExt, fSrc, type, thisEl){
+  var thisEl = thisEl;
+  var viewList =  $('#'+thisEl);
+  console.log(thisEl);
   var html = "";
   var fUnit = "KB";
   if(fSize > 1024){
@@ -122,7 +125,7 @@ function deleteFile(fIndex){
   infoView();
 }
 function infoView(){
-  var fileList = $('#fileList li').length;
+  var fileList = $('.attach_list li').length;
   var info = $('.drop_info');
   (fileList == 0) ? info.show() : info.hide();
 }
