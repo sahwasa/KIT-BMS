@@ -547,6 +547,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     p{position:relative;border:1px solid #ccc;border-radius:3px;padding:5px;z-index:5;background-color:rgba(255,255,255,.6);}
     .editable{cursor:text;}
     .placehold{top:6px;left:28px;color:#000;}
+    & + .cmt_attach{padding-left:22px;}
   }
   .cmt_file{position:relative;margin-top:10px;padding-left:22px;
     &>a:first-child{@include flex_between;border-radius:3px;padding:10px 20px;background-color:#e9e9e9}
@@ -595,17 +596,17 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   }
 }
 .editable{
-  span{@include badge_style;background-color:#f05050;padding:0 3px;}
+  span{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
   &:empty + .placehold{visibility:visible;}
 }
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}
-.tribute-container{position:absolute;top:0;left:0;border:1px solid #eb9292;max-height:400px;overflow:auto;border-radius:3px;z-index:999999;padding:0!important; 
+.tribute-container{position:absolute;top:0;left:0;border:1px solid #3d90ff;max-height:400px;overflow:auto;border-radius:3px;z-index:999999;padding:0!important;
   ul{background-color:#fff;}
   li{cursor:pointer;padding:5px 10px;color:#717889;font-size:13px;
       &:hover{background-color:#f5f5f5;}
       b{color:#bec7d2;}
-      &.highlight{background-color:#fee;color:#333;
-        b{color:#897171;}
+      &.highlight{background-color:#e4f1ff;color:#3d90ff;
+        b{color:#717889;}
       }
       &.no-match{cursor:default;}
     }
