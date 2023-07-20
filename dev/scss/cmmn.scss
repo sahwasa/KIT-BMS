@@ -568,8 +568,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   }
   .cmt_info{padding-left:22px;font-size:11px;color:#666;margin-top:5px;}
   textarea{padding:5px;min-height:fit-content;}
-  button:hover{text-decoration:underline;}
-  
+  button:hover{text-decoration:underline;}  
 }
 .reply_area{padding:10px 10px 10px 42px;margin-top:10px;background-color:#f5f5f5;
   li{position:relative;border-top:1px solid #ccc;padding:10px 0;
@@ -579,9 +578,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 }
 .cmt_write{position:relative;margin-top:30px;border:2px solid #ccc;padding:10px;border-radius:5px;
   .editable,
-  textarea{position:relative;min-height:none;border:none;margin-top:5px;cursor:text;z-index:10;padding:5px;
-    span{@include badge_style;background-color:#f05050;padding:0 3px;}
-  }
+  textarea{position:relative;min-height:none;border:none;margin-top:5px;cursor:text;z-index:10;padding:5px;}
 }
 .placehold{position:absolute;left:15px;top:39px;color:$gray;visibility:hidden;}
 .cmt_attach{text-align:right;margin-top:5px;
@@ -597,7 +594,10 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     &:has(.attach_list>li){border: 2px dashed #ebebeb;padding-bottom:10px;}
   }
 }
-.editable:empty + .placehold{visibility:visible;}
+.editable{
+  span{@include badge_style;background-color:#f05050;padding:0 3px;}
+  &:empty + .placehold{visibility:visible;}
+}
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}
 .tribute-container{position:absolute;top:0;left:0;border:1px solid #eb9292;max-height:400px;overflow:auto;border-radius:3px;z-index:999999;padding:0!important; 
   ul{background-color:#fff;}
