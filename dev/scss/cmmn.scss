@@ -1,30 +1,30 @@
 @import "./mixin";
 @font-face {
-  font-family: 'NanumGothic';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../font/nanum_gothic/NanumGothic-Regular.eot');
-  src: url('../font/nanum_gothic/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),
+  font-family:'NanumGothic';
+  font-style:normal;
+  font-weight:400;
+  src:url('../font/nanum_gothic/NanumGothic-Regular.eot');
+  src:url('../font/nanum_gothic/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),
        url('../font/nanum_gothic/NanumGothic-Regular.woff2') format('woff2'),
        url('../font/nanum_gothic/NanumGothic-Regular.woff') format('woff'),
        url('../font/nanum_gothic/NanumGothic-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'NanumGothic';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../font/nanum_gothic/NanumGothic-Bold.eot');
-  src: url('../font/nanum_gothic/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'),
+  font-family:'NanumGothic';
+  font-style:normal;
+  font-weight:700;
+  src:url('../font/nanum_gothic/NanumGothic-Bold.eot');
+  src:url('../font/nanum_gothic/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'),
        url('../font/nanum_gothic/NanumGothic-Bold.woff2') format('woff2'),
        url('../font/nanum_gothic/NanumGothic-Bold.woff') format('woff'),
        url('../font/nanum_gothic/NanumGothic-Bold.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'NanumGothic';
-  font-style: normal;
-  font-weight: 800;
-  src: url('../font/nanum_gothic/NanumGothic-ExtraBold.eot');
-  src: url('../font/nanum_gothic/NanumGothic-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  font-family:'NanumGothic';
+  font-style:normal;
+  font-weight:800;
+  src:url('../font/nanum_gothic/NanumGothic-ExtraBold.eot');
+  src:url('../font/nanum_gothic/NanumGothic-ExtraBold.eot?#iefix') format('embedded-opentype'),
        url('../font/nanum_gothic/NanumGothic-ExtraBold.woff2') format('woff2'),
        url('../font/nanum_gothic/NanumGothic-ExtraBold.woff') format('woff'),
        url('../font/nanum_gothic/NanumGothic-ExtraBold.ttf') format('truetype');
@@ -34,7 +34,7 @@
 *, :after, :before {box-sizing:border-box;}
 :root {-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%;cursor:default;line-height:1.5;overflow-wrap:break-word;-moz-tab-size:4;tab-size:4}
 html, body {height:100%;}
-img, picture, video, canvas, svg {display: block;max-width:100%;}
+img, picture, video, canvas, svg {display:block;max-width:100%;}
 img{display:inline-block;}
 button {background:none;border:0;cursor:pointer;vertical-align:middle;}
 a {text-decoration:none}
@@ -96,7 +96,7 @@ input[type="time"],
 input[type="email"],
 input[type="tel"]{@include ipt_common;min-height:28px;}
 input[type="radio"],
-input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance: none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
+input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
 width:13px!important;height:13px!important;border:1px solid #606060;
 overflow:hidden;
   &:checked{-webkit-appearance:none; -moz-appearance:none;-o-appearance:none;appearance:none; box-shadow:none;border:none;
@@ -106,7 +106,7 @@ input[type="radio"]{border-radius:50%;}
 input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
 input[type="radio"]:checked{background-position-y:-23px;}
 // input[type="number"]::-webkit-outer-spin-button,
-// input[type="number"]::-webkit-inner-spin-button {-webkit-appearance: none;margin:0;}
+// input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;margin:0;}
 // input[type="number"]{-moz-appearance:textfield;}
 input[type="time"],
 input[type="date"]{position:relative;}
@@ -164,7 +164,7 @@ hr,
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
   &::before{font-size:14px;}
 }
-.ready{background-color: #fca534;}// 준비
+.ready{background-color:#fca534;}// 준비
 .fin{background-color:#56b1b6;} // 결재완료
 .fin{background-color:#56b1b6;} // 결재완료
 .reject{background-color:#fc9734;} // 반려
@@ -175,7 +175,7 @@ hr,
 .cc{background-color:#9167df;} // 수신참조(참조)
 .defer{background-color:#56b683;} // 후결
 .wait{background-color:#8d95c6;} // 결재대기
-.public{background-color:#fff;border-color:#7d879f!important;color: #7d879f !important;}
+.public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
 .i_public{@extend .i_badge;@extend .public;
   &::before{@include fontello('\e823');color:#7d879f;}
@@ -210,7 +210,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
 }
-.btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color: #999;text-align:left;line-height:34px;
+.btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color:#999;text-align:left;line-height:34px;
   &[disabled]{cursor:default;}
   &::before{position:absolute;top:2px;right:16px;display:inline-block;content:"";width:11px;height:11px;background-color:#fff;border-radius:50%;transition:.1s;}
   &::after{position:relative;;top:-4px;left:0;font-size:12px;color:#fff;}
@@ -268,7 +268,7 @@ $btn_gray:#979797;
 .btn_form{@include form_btn;
   &:hover{background-color:$btn_gray;}
 }
-.myform_set{@include shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align: center;
+.myform_set{@include shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align:center;
   &::before{@include fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
   &:hover{outline:4px solid #bec7d2;background-color:transparent;}
 }
@@ -279,8 +279,8 @@ $btn_gray:#979797;
 .btn_search_square{@include btn_square('\e802');}
 .btn_more_square{@include btn_square(null);position:relative;
   &::before,
-  &::after{@include shape(12px, 2px);position:absolute;left:50%;top:50%;transform: translate(-50%,-50%); border-radius:1px;background-color:#848890;}
-  &::after{transform: rotate(90deg);left:25%;top:45%;}
+  &::after{@include shape(12px, 2px);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%); border-radius:1px;background-color:#848890;}
+  &::after{transform:rotate(90deg);left:25%;top:45%;}
 }
 .btn_tree{@include form_btn;color:#979797;border-color:#b4b4b4;background-color:#f7f7f7;cursor:pointer;font-weight:bold;
   &:hover{background-color:$btn_gray;}
@@ -385,12 +385,12 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     &.no_thead{border-top:none;}
     &.tbl_default{background-color:#ffffff;}
   }
-  &::-webkit-scrollbar{width:17px;background: transparent;}
+  &::-webkit-scrollbar{width:17px;background:transparent;}
   &::-webkit-scrollbar-thumb{background-color:#e5e6e8;border-radius:10px;background-clip:padding-box;border:5px solid transparent;}
   &::-webkit-scrollbar-track {background:#fff;}
 }
 .cmt_num{color:$red;font-weight:bold;margin-left:5px;
-  $cmtmargin : 2px;
+  $cmtmargin :2px;
   &::before{content:"[";margin-right:$cmtmargin;}
   &::after{content:"]";margin-left:$cmtmargin;}
 }
@@ -398,7 +398,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   .btn_ellipsis{@include ico_only;
     &::before{@include fontello('\f142');font-size:14px;padding:0 10px;}
   }
-  .btn_layer{position:absolute;top:100%;left:50%;transform: translateX(-50%);display:inline-flex;flex-direction:column;height:0;z-index:10;overflow:hidden;box-sizing:border-box;white-space:nowrap;
+  .btn_layer{position:absolute;top:100%;left:50%;transform:translateX(-50%);display:inline-flex;flex-direction:column;height:0;z-index:10;overflow:hidden;box-sizing:border-box;white-space:nowrap;
     button{margin:3px 0;padding:2px 10px;}
     button:hover{background-color:#e5e6e8;}
   }
@@ -592,7 +592,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   }
   .file_attach{min-height:auto;border:none;
     .attach_list{padding-bottom:0;}
-    &:has(.attach_list>li){border: 2px dashed #ebebeb;padding-bottom:10px;}
+    &:has(.attach_list>li){border:2px dashed #ebebeb;padding-bottom:10px;}
   }
 }
 .editable{
@@ -612,6 +612,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     }
   .menu-highlighted {font-weight:bold;}
 }
+.mentioned{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
 
 /* ckeditor */
 .editor_wrap{
@@ -697,3 +698,8 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 .ext_wmv {@include ico_ext(-23px, -102px);}
 .ext_wvz {@include ico_ext(-43px, -102px);}
 .ext_bzs {@include ico_ext(-63px, -102px);}
+
+
+
+
+
