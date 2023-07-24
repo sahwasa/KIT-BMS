@@ -265,6 +265,9 @@ $btn_gray:#979797;
 .btn_request{@include btn($btn_gray);color:#fff;border-color:#d83c47;background-color:$btn_red;cursor:pointer;
   &:hover{background-color:#d83c47;}
 }
+.btn_save:disabled{@include btn($btn_gray);cursor:not-allowed;
+  &:hover{background:none;color:$btn_gray;}
+}
 .btn_form{@include form_btn;
   &:hover{background-color:$btn_gray;}
 }

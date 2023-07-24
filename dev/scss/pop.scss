@@ -149,7 +149,11 @@
       .txt_date{font-size:11px;}
     }
     .rel_mem_lst{border-top:1px solid #ebebeb;margin-top:5px;padding-top:5px;
-      dl{display:flex;gap:3px;}
+      dl{display:flex;gap:3px;
+        &:not(.approval_lst){
+          dt{letter-spacing: 0.5px;}
+        }
+      }
       dt{
         &::before{content:"·";margin-right:3px;}
         &::after{content:":";margin:0 3px;}
@@ -157,7 +161,7 @@
       .approval_lst dd{
         &::after{content:"→";margin:0 3px;}
         &:last-of-type::after{display:none;}
-      }      
+      }
     }
     & > .flex_right{width:50%;border-left:1px solid #bec7d2;padding:15px 10px;min-width:500px;
       .form_wrap{padding:0;}
