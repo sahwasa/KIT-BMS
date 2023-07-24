@@ -347,7 +347,7 @@ $(function () {
   $('.snb_fold').on('click',function(e){
     var snbBtn =  e.target.dataset,
         snb = $('.snb'),
-        snbWidth = '200px',
+        snbWidth = snb[0].scrollWidth +'px',
         speed = 500;
     (snbBtn.value == 'on')?snb.animate({'width':0}, speed) : snb.animate({'width': snbWidth},speed);
   });
