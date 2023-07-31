@@ -466,12 +466,17 @@ z-index:10;
       .badge{@include badge_style(54px)}      
     }
   }  
-  .ls_stand_by{display:flex;flex-direction:column;gap:10px;
-    &>li{@include inner_box();}
+  .ls_stand_by{display:flex;flex-direction:column;gap:10px;overflow: auto;
+    &>li{@include inner_box();
+    }
     strong{margin-bottom:7px;}
     i{position:absolute;right:5px;top:5px;@include shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
   }
-  .flex_right{flex-grow:1;} 
+  .flex_right{flex-grow:1;}
+  span:has(.new_bedge){margin-left:5px;font-size:13px;color:#555;
+    &::before{content:'(미확인';}
+    &::after{content:'건)';}
+  }
 }
 
 .approval_path{display:flex;margin-top:2px;
@@ -480,7 +485,13 @@ z-index:10;
     &:first-child:before{display:none;}
   }
 }
-.carbon_copy{margin-top:45px;}
+.stand_by{
+  .ls_stand_by{height:280px;}
+}
+
+.carbon_copy{margin-top:45px;
+  .ls_stand_by{height:183px;}
+}
 .new_bedge{position:relative;top:-1px;@include badge_style(null);background-color:$red;padding:0 7px 1px;margin-left:5px;}
 
 .approval_often{
@@ -584,7 +595,9 @@ z-index:10;
 }
 .approval_view{
   .appr_path li{flex-direction:column;align-items:flex-start;
-    .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;}
+    .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;
+      &:empty{padding:0;}
+    }
     .appr_result{align-self:flex-end;
       b{@include badge_style(null);background:#ddd;padding:1px 5px 0;font-size:11px;}
       $_signType:( 'draft':$blue, 'reject':$red, 'approve':$green, 'agree':$yellow);
@@ -594,6 +607,9 @@ z-index:10;
     }
   }
   .act_lst{padding-left:3px;
+    &:empty{
+      &::before{display:block;content:'진행된 활동이 없습니다';padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:12px;color:#777;text-align:center;}
+    }
     @include tit_bullet('.date-time',3);
     li{border-left:1px solid #ccc;padding:0 0 20px 10px;
       &:last-child{padding-bottom:5px;}
@@ -601,8 +617,8 @@ z-index:10;
     .date-time{position:relative;left:-10px;top:-7px;font-size:12px;color:$gray;margin-bottom:-5px;
       &::before{left:-2px;}
     }
-  .act_name{font-weight:600;}
-  .act_type{font-weight:600;color:$red;}
+    .act_name{font-weight:600;}
+    .act_type{font-weight:600;color:$red;}
   }
 }
 .form_wrap.form_view{
@@ -659,7 +675,6 @@ z-index:10;
 .file_del{@include shape(15px,17px);flex-shrink:0;
   &::before{@include fontello('\e928');font-size:13px;color:$red;line-height:17px;} 
 }
-.stamp_blue{@include stamp($skyblue);}
 .stamp_red{@include stamp($red);}
 .file_attached{position:relative;
   .attach_list li a{display:flex;gap:7px;
@@ -702,6 +717,7 @@ z-index:10;
   .ipt_wrap{flex:1 500px;}
   .ipt_set{max-width:630px;}
   .box_compact h1{display:flex;gap:5px;}
+  .file_input:has(input[type=checkbox]){gap:10px;}
   label:has(input[type=checkbox]){display:inline-block;margin-top:2px;}
   .period_custom +.check_group{display:inline-flex;margin-left:10px;}
 }

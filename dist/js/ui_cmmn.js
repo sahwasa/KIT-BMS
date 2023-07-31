@@ -1,11 +1,18 @@
 //const { eventNames } = require("process");
 
 const handleSelect = function (item) {
-  const result = $(item).closest('.select_custom').find('.label');
-  const resultVal = item.dataset.value;
-  result.html(item.innerHTML).attr('data-value',resultVal);
-  result.parent().removeClass('active');
-  console.log(resultVal);
+  if ($(item).hasClass('optionItem')) {
+    // add disabled
+    const isDisabled = $(item).attr('aria-disabled') === 'true';
+    if (isDisabled) {
+      return;
+    }
+    const result = $(item).closest('.select_custom').find('.label');
+    const resultVal = item.dataset.value;
+    result.html(item.innerHTML).attr('data-value', resultVal);
+    result.parent().removeClass('active');
+    console.log(resultVal);
+  }
 }
 
 $(function () {

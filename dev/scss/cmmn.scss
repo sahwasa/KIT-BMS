@@ -51,7 +51,6 @@ strong{font-weight:bold;} // 웹에디터 용
   }
 }
 
-
 // color
 $white:#fff;
 $black:#363636;
@@ -61,6 +60,14 @@ $blue:#2974e4;
 $yellow:#ff9702;
 $gray:#999;
 $green:#3eb156;
+
+// scroll
+*{
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {width:8px;}
+  &::-webkit-scrollbar-thumb {background-color: #cdcdcd;}
+  &::-webkit-scrollbar-track {background-color: #f0f0f0;box-shadow: inset 0px 0px 5px white;}
+}
 
 // font
 .t{
@@ -166,7 +173,6 @@ hr,
 }
 .ready{background-color:#fca534;}// 준비
 .fin{background-color:#56b1b6;} // 결재완료
-.fin{background-color:#56b1b6;} // 결재완료
 .reject{background-color:#fc9734;} // 반려
 .request,
 .ing{background-color:#347bfc;} // 결재진행(결재요청)
@@ -202,7 +208,6 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   input{width:auto;}
   &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
 }
-
 .split_area{@include flex_between();}
 
 //btn
@@ -231,6 +236,9 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   .label{align-items:center;display:block;width:100%;height:26px;padding-left:5px;cursor:pointer;text-align:left;}
   &>ul{position:absolute;top:100%;left:-1px;width:calc(100% + 2px);max-height:0;border:1px solid #ccc;border-top-width:0;background:#fff;color:#000;list-style-type:none;overflow:hidden;
     &>li{position:relative;border-bottom:1px dashed #cccccc85;transition:.1s;line-height:26px;padding:0 10px;
+      &.disabled{background-color:#eee;cursor:not-allowed;color:#aaa;
+        &:hover{background:#eee;}
+      }
       &:hover{background:#f5f5f5;}
       &:last-child{border-bottom-width:0;}
     }
@@ -701,46 +709,3 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 .ext_wmv {@include ico_ext(-23px, -102px);}
 .ext_wvz {@include ico_ext(-43px, -102px);}
 .ext_bzs {@include ico_ext(-63px, -102px);}
-
-@page {
-  size: A4;
-  margin: 0;
-}
-
-@media print{
-  .header,
-  .nav,
-  .snb,
-  .footer,
-  .contents>*:not(.approval_view),
-  .approval_view>*:not(.my_approval),
-  .my_approval>*:not(.flex_right),
-  .flex_right>*:not(.form_wrap){display:none !important;}
-  #wrap{display:block;}
-  
-  html, body {
-    width:210mm !important;
-    height:297mm !important; /*서브픽셀 해결1 사용시*/
-    height:calc(297mm - 1px) !important; /*서브픽셀 해결2 - IE는 미지원*/
-    margin:0;
-    padding:0;
-    page-break-after: avoid;
-    page-break-before: avoid
-  }
-  .body, .form_wrap {margin-top:-1px} /*서브픽셀 해결1*/
-  .form_wrap:first-child {
-    page-break-before: auto;
-    page-break-inside: avoid
-  }
-  .form_wrap {
-    align-content: space-evenly;
-    overflow:hidden;
-    position:absolute;
-    left:0;
-    top:0;
-    width:210mm !important;
-    height:297mm !important; /*서브픽셀 해결1 사용시*/
-    height:calc(297mm - 1px) !important; /*서브픽셀 해결2 - IE는 미지원*/
-    page-break-before: always;
-  }
-}

@@ -21,16 +21,16 @@
 <!--// 바로가기 메뉴 -->
 <header class="header">
   <h1>
-    <a href="">
+    <a href="#">
       <span class="logo">KITVALLEY</span>
       업무관리시스템
     </a>
   </h1>    
   <section class="gnb">
     <ul class="gnb_lst">
-      <li><a href="" title="조직도">조직도</a></li>
-      <li><a href="" title="자리배치도">자리배치도</a></li>
-      <li><a href="" title="통합알림">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="#" title="조직도">조직도</a></li>
+      <li><a href="#" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림">통합알림</a><i class="new_bedge">8</i></li>
     </ul>
     <div class="util">
       <div class="profile">
@@ -154,7 +154,7 @@
         <h1>일정 추가</h1>
         <section class="bredcrumb">
           <ul>
-            <li><a href="">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li>일정 추가</li>
           </ul>
         </section>
@@ -186,6 +186,7 @@
                     <li class="optionItem" tabindex="0"><i class="roomB">B</i>개인</li>
                     <li class="optionItem" tabindex="0"><i class="roomC">C</i>업무</li>
                     <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의</li>
+                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>행사</li>
                   </ul>
                 </div>
               </dd>
@@ -209,7 +210,7 @@
                     <label for="period_allday"><input type="checkbox" id="period_allday">종일</label>
                   </li>
                   <li>
-                     <label for="period_repeat"><input type="checkbox" id="period_repeat" data-checkEvt="repeat">반복</label>
+                    <label for="period_repeat"><input type="checkbox" id="period_repeat" data-checkEvt="repeat">반복</label>
                   </li>
                 </ul>
               </dd>
@@ -248,9 +249,9 @@
                   <dd><p>1주 화요일 마다(2023-12-10 ~ )</p></dd>
                 </dl>
               </dd>               -->
-              <dt><label for="plan_place">장소</label></dt>
+              <dt><label for="plan_place" class="required">장소</label></dt>
               <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>
-              <dt>회의실</dt>
+              <dt class="required">회의실</dt>
               <dd>
                 <div class="file_input">
                   <div class="select_custom meeting_room">
@@ -259,7 +260,7 @@
                     </button>
                     <ul class="optionList">
                       <li class="optionItem" tabindex="0"><span class="opt_label">선택안함</span></li>
-                      <li class="optionItem" tabindex="0"><i class="roomA">A</i>회의실A</li>
+                      <li class="optionItem disabled" aria-disabled="true" tabindex="-1"><i class="roomA">A</i>회의실A</li>
                       <li class="optionItem" tabindex="0"><i class="roomB">B</i>회의실B</li>
                       <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
                     </ul>
@@ -267,15 +268,14 @@
                   <button type="button" class="btn_form">회의실 예약현황</button>
                 </div>
               </dd>
-              <dt>회의 참여방식</dt>
+              <dt class="required">회의 참여방식</dt>
               <dd>
                 <div class="file_input">
-                  <label for="type_offline"><input type="checkbox" id="type_offline">대면회의</label>
+                  <label for="type_offline"><input type="checkbox" id="type_offline" checked>대면회의</label>
                   <label for="type_online"><input type="checkbox" id="type_online">온라인</label>
                 </div>
               </dd>
-
-              <dt>공개여부</dt>
+              <dt class="required">공개여부</dt>
               <dd>
                 <div class="btn_switch">
                   <input type="radio" id="open" name="disclosure" checked>
@@ -288,9 +288,15 @@
           </fieldset>
           <fieldset class="ipt_wrap">
             <dl>
-              <dt><label for="plan_cont">내용</label></dt>
-              <dd class="flex_full"><textarea id="plan_cont"></textarea></dd>
-              <dt>파일첨부</dt>
+              <dt><label for="plan_cont" class="required">내용</label></dt>
+              <dd class="flex_full">
+                <div class="editor_wrap">
+                  <textarea name="editor" id="editor" title="에디터 영역">
+                    
+                  </textarea>
+                </div>
+              </dd>
+              <!-- <dt>파일첨부</dt>
               <dd class="flex_full"><div class="file_attach btn_attach">
   <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
   <div id="file-drop" class="drop_zone">
@@ -300,14 +306,10 @@
     <ul id="doc" class="attach_list">
     </ul>
   </div>
-</div></dd>
+</div></dd> -->
               <dt>참여자</dt>
               <dd class="flex_full">
                 <div class="file_input">
-                  <select name="" id="" title="참여자 검색옵션">
-                    <option value="">프로젝트</option>
-                    <option value="">이름</option>
-                  </select>
                   <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
                   <datalist id="nameList">
   <optgroup label="개발본부">
@@ -349,16 +351,12 @@
     </div>
   </li>
 </ul>
-                <p class="ipt_info">참여자와 일정이 공유됩니다.</p>
+                <!-- <p class="ipt_info">참여자와 일정이 공유됩니다.</p>
                 <section>
                   <header>
                     <h2>참여자일정</h2>
                   </header>
-                  <div class="tbl_top">
-
-                  </div>
-
-
+                  <div class="tbl_top"></div>
                   <div class="css-t367i5">
                     <div class="css-123spcd">
                       <div class="member_lst">
@@ -368,9 +366,7 @@
                           </div>
                           <div height="25" class="member">
                             <div class="css-xrrjrp" aria-expanded="false">
-                              <div class="css-u4lj 
-                              
-                              jo">유한아름</div>
+                              <div class="css-u4ljjo">유한아름</div>
                             </div>
                           </div>
                           <div height="25" class="member">
@@ -445,7 +441,95 @@
                       </div>
                     </div>
                   </div>
-                </section>
+                </section> -->
+              </dd>
+              <dt>참여자 일정</dt>
+              <dd class="flex_full">
+                <div class="tbl_top"></div>
+                <div class="css-t367i5">
+                  <div class="css-123spcd">
+                    <div class="member_lst">
+                      <div class="css-uy0k09">
+                        <div class="css-1d6a2ik">
+                          <div class="css-1efww0j"></div>
+                        </div>
+                        <div height="25" class="member">
+                          <div class="css-xrrjrp" aria-expanded="false">
+                            <div class="css-u4ljjo">유한아름</div>
+                          </div>
+                        </div>
+                        <div height="25" class="member">
+                          <div class="css-xrrjrp" aria-expanded="false">
+                            <div class="css-u4ljjo">임선</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="css-wed81r">
+                      <div class="css-uy0k09">
+                        <div class="timelabel">
+                          <div>8</div> <div>9</div> <div>10</div> <div>11</div> <div>12</div> <div>13</div> <div>14</div> <div>15</div> <div>16</div> <div>17</div> <div>18</div> <div>19</div> <div>20</div>
+                        </div>
+                        <div class="timeline">
+                          <div class="col_wrap">
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                            <div class="hour_wrap">
+                              <div></div>
+                            </div>
+                          </div>
+                          <div class="row_wrap">
+                            <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+                          </div>
+                          <div class="row_wrap">
+                            <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div>
+                          </div>
+                        </div>
+                        <div class="mark_wrap">
+                          <div class="marks">
+                            <div data-testid="controller-recommend" width="15.384615384615385" class="recommend">
+                            </div>
+                            <div width="15.384615384615385" class="select"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </dd>
             </dl>
           </fieldset>
@@ -470,7 +554,8 @@
 <script src="../js/book_meeting_room.js"></script>
 <script>
   $(function () {
-    fileDropEvt();
+    setEditor();// editor common
+    // fileDropEvt();
   })
 </script>
 </body>
