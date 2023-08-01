@@ -59,7 +59,22 @@ $skyblue:#05b4d9;
 $blue:#2974e4;
 $yellow:#ff9702;
 $gray:#999;
-$green:#3eb156;
+
+.draft,
+.ing{background-color:#2974e4;} // 상신 승인 진행중 수행중 진행 결재진행
+.approve,
+.fin{background-color:#56b1b6;} // 결재완료 종료
+.agree{background-color:#a75ac5;} // 합의
+.return,
+.reject{background-color:#ff7575;} // 회수 반려
+.ready,
+.wait{background-color:#fca534;} // 준비 결재대기
+.defer{background-color:#ff7300;} // 후결대기
+.done{background-color:#05b4d9;} // 전결 후결
+.cc{background-color:#7343cc;} // 참조
+.relay{background-color:#a75ac5;} // 전달
+.public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
+.private{background-color:#aab3c8;color:#fff !important;}
 
 // scroll
 *{
@@ -171,24 +186,7 @@ hr,
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
   &::before{font-size:14px;}
 }
-.ready{background-color:#fca534;}// 준비
-.fin{background-color:#56b1b6;} // 결재완료
-.reject{background-color:#fc9734;} // 반려
-.request,
-.ing{background-color:#347bfc;} // 결재진행(결재요청)
-.retrieve{background-color:#fcbc34;} // 회수
-.agree{background-color:#ff7575;} // 합의요청
-.cc{background-color:#9167df;} // 수신참조(참조)
-.defer{background-color:#56b683;} // 후결
-.wait{background-color:#8d95c6;} // 결재대기
-.public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
-.private{background-color:#aab3c8;color:#fff !important;}
-.i_public{@extend .i_badge;@extend .public;
-  &::before{@include fontello('\e823');color:#7d879f;}
-}
-.i_private{@extend .i_badge;@extend .private;
-  &::before{@include fontello('\e822');color:#fff;}
-}
+
 
 // ico_fontello
 .ico_org{vertical-align:middle;

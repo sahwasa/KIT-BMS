@@ -70,56 +70,35 @@
     <section class="snb">
   <div class="snb_container">
     <header>
-      <h2>전자결재</h2>
+      <h2>업무</h2>
     </header>
     <div class="btn_workset">
-      <a href="../html/approval_new.html" class="btn_default">신규상신</a>
-    </div>
-    <div class="data_count">
-      <ul class="list_wrap">
-        <li>요청<em>3</em></li>
-        <li>대기<em>1</em></li>
-        <li>참조<em>2</em></li>
-      </ul>
+      <a href="#" class="btn_default">내 업무 추가</a>
     </div>
     <ul class="snb_lst">
-      <li class="on"><a href="../html/approval_outIng.html">결재 상신함</a>
+      <li><a href="#">내 업무함</a>
         <ul>
-          <li class="on"><a href="../html/approval_outIng.html">결재진행</a></li>
-          <li><a href="../html/approval_outFin.html">결재완료</a></li>
-          <li><a href="../html/approval_outReject.html">반려문서</a></li>
-          <li><a href="../html/approval_outDrafts.html">임시저장</a></li>
-        </ul>        
-      </li>
-      <li><a href="../html/approval_inIng.html">결재 수신함</a>
-        <ul>
-          <li><a href="../html/approval_inIng.html">결재대기</a></li>
-          <li><a href="../html/approval_inFin.html">결재내역</a></li>
-          <li><a href="../html/approval_inCc.html">수신참조</a></li>
+          <li><a href="#">나의 할 일</a></li>
+          <li><a href="#">완료된 업무</a></li>
+          <li><a href="#">미진 업무</a></li>
         </ul>
       </li>
-      <li><a href="../html/approval_open.html">공개 문서함</a></li>
-      <!--<li><a href="#">보관함</a>
-        <button type="button" class="nav_btn_add">추가</button>
-        <ul class="sortable move_sortable hasLayer"><li><a href="#">내보관함
-          <div class="layer_tool">
-              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-              <div class="btn_layer">
-                <button type="button" data-clickevt="modify">수정</button>
-                <button type="button" data-clickevt="del">삭제</button>
-              </div>
-            </div>
-          </a></li>
-          <li><a href="#">업무보고
-            <div class="layer_tool">
-              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-              <div class="btn_layer">
-                <button type="button" data-clickevt="modify">수정</button>
-                <button type="button" data-clickevt="del">삭제</button>
-              </div>
-            </div>
-          </a></li></ul>
-      </li>-->
+      <li><a href="#">업무공유함</a>
+        <ul>
+          <li><a href="../html/work_shareRecept.html">업무 수신</a></li>
+          <li><a href="#">업무 요청</a></li>
+          <li><a href="#">참조함</a></li>
+        </ul>
+      </li>
+      <li><a href="#">실적관리</a></li>
+      <li><a href="#">업무 보고함</a>
+        <ul>
+          <li><a href="#">일일 업무일지</a></li>
+          <li><a href="#">주간업무보고(개인)</a></li>
+          <li><a href="#">주간업무보고(팀)</a></li>
+          <li><a href="#">주간업무보고(부서)</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </section>
@@ -127,13 +106,13 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>결재대기<span>전자결재</span></h1>
+        <h1>업무수신<span>업무 공유함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">전자결재</a></li>
-            <li><a href="#">결재 수신함</a></li>
-            <li>결재대기</li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">업무 공유함</a></li>
+            <li>업무수신</li>
           </ul>
         </section>
       </header>
@@ -145,33 +124,25 @@
           <section class="tbl_top_area">
             <ul class="search_list">
               <li>
-                <div class="select_custom prio">
-                  <button class="label">
-                    <span class="opt_label">중요도</span>
-                  </button>
-                  <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><i class="ico_select high_prio">high icon</i>높음</li>
-                    <li class="optionItem" tabindex="0"><i class="ico_select normal_prio">common icon</i>보통</li>
-                    <li class="optionItem" tabindex="0"><i class="ico_select low_prio">row icon</i>낮음</li>
-                  </ul>
-                </div>
+                <select name="" id="" title="부서 선택">
+                  <option disabled selected>부서 선택</option>
+                </select>
               </li>
               <li>
-                <select name="" id="" title="결재양식">
-                  <optgroup class="opt_label" label="결재양식">
-                    <option disabled selected>결재양식</option>
-                  </optgroup>
-                  <optgroup label="근태문서">
-                    <option value="">출장신청서</option>
-                    <option value="">출장복명서</option>
-                    <option value="">휴가신청서</option>
-                  </optgroup>
-                  <optgroup label="기안문서">
-                    <option value="">기안서</option>
-                    <option value="">품의서</option>
-                    <option value="">지출결의서</option>
-                  </optgroup>
+                <select name="" id="" title="팀 선택">
+                  <option disabled selected>팀 선택</option>
                 </select>
+              </li>
+              <li>
+                <div class="period_group">
+                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
+                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
+                  <input type="date" title="종료일" data-type="to" id="end-date" name="end-date" />
+                </div>
               </li>
               <li>
                 <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
@@ -205,50 +176,47 @@
             </div>
           </section>
           <section>
-            <table class="tbl_default tbl_hover tbl_approval_outbox">
+            <table class="tbl_default tbl_hover tbl_work_share hasLayer">
               <caption>결재대기 리스트</caption>
               <colgroup>
-                <col style="width:50px;">
-                <col span="2" style="width:120px;">
+                <col style="width:120px;">
                 <col style="width:auto;">
+                <col span="2" style="width:120px;">
                 <col span="3" style="width:150px;">
                 <col span="2" style="width:95px;">
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col">중요도</th>
-                  <th scope="col">문서종류</th>
-                  <th scope="col">문서번호</th>
+                  <th scope="col">구분</th>
                   <th scope="col">제목</th>
-                  <th scope="col">상신자</th>
-                  <th scope="col">상신일시</th>
-                  <th scope="col">최종결재자</th>
+                  <th scope="col">작업범주</th>
+                  <th scope="col">중요도</th>
+                  <th scope="col">요청자</th>
+                  <th scope="col">요청일자</th>
+                  <th scope="col">처리일자</th>
                   <th scope="col">상태</th>
-                  <th scope="col">공개여부</th>
+                  <th scope="col">관리</th>
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0" onclick="location.href='../html/approval_view.html'">
+                <tr tabindex="0" onclick="location.href='../html/work_view.html'">
+                  <td>개인업무</td>
+                  <td>PEWS 관련 회의 요청드립니다<a href="#" class="cmt_num">4</a></td>
+                  <td>회의</td>
                   <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
-                  <td>교통비지출서</td>
-                  <td>KIT-001-0001</td>
-                  <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서<a href="#" class="cmt_num">4</a></td>
                   <td>홍길동(개발1팀)</td>
                   <td>2023-05-01 01:30:11</td>
-                  <td>홍길동(개발1팀)</td>
+                  <td>2023-05-01 01:30:11</td>
                   <td><i class="tbl_badge defer">후결대기</i></td>
-                  <td><i class="tbl_badge public">공개</i></td>
-                </tr>
-                <tr tabindex="0">
-                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
-                  <td>교통비지출서</td>
-                  <td>KIT-001-0001</td>
-                  <td>5월 교통비지출서<a href="#" class="cmt_num">2</a></td>
-                  <td>홍길동(개발1팀)</td>
-                  <td>2023-05-01 01:30:11</td>
-                  <td>홍길동(개발1팀)</td>
-                  <td><i class="tbl_badge wait">결재대기</i></td>
-                  <td><i class="tbl_badge private">비공개</i></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수락</button>
+                        <button type="button">반려</button>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>

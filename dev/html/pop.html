@@ -18,7 +18,7 @@
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
         <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
-        <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert">통합알림</label></li> 
+        <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert" checked>통합알림</label></li> 
       </ul>
       <br>
       <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
@@ -39,6 +39,7 @@
   </main>
   @@include('../inc/footer.html')
 </div>
+@@include('../inc/pop/p_alert.html')<!--// 통합알림 -->
 @@include('../inc/pop/p_login_01.html') <!--// 아이디/비밀번호 찾기 -->
 @@include('../inc/pop/p_mngOrg.html') <!--// 경고(공통) -->
 @@include('../inc/pop/p_mngTree.html') <!--// 조직도(공통) -->
@@ -47,10 +48,11 @@
 @@include('../inc/pop/p_relDoc.html')<!--// 관련문서 설정 -->
 @@include('../inc/pop/p_planView.html')<!--// 관련문서 설정 -->
 @@include('../inc/pop/p_status_roomBook.html')<!--// 관련문서 설정 -->
-@@include('../inc/pop/p_alert.html')<!--// 통합알림 -->
 @@include('../inc/script.html')
 <script>
-  $(function () {
+$(function () {
+    $('#my_alert').addClass('on'); // 통합 알림 디자인
+
     function tabInit(modal){
       $('.' + modal).find('.tab li').removeClass('on').first().addClass('on')
       $('.tab_contents').hide();
@@ -78,6 +80,7 @@
     placeholder: 'ph'
   });
   
+
 </script>
 </body>
 

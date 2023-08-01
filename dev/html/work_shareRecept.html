@@ -3,53 +3,35 @@
   @@include('../inc/header.html')
   @@include('../inc/nav.html')
   <main id="content" class="container">
-    @@include('../inc/snb/approval.html')
+    @@include('../inc/snb/work.html')
     <section class="contents">
       @@include('../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>공개 문서함<span>전자결재</span></h1>
+        <h1>업무수신<span>업무 공유함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">전자결재</a></li>
-            <li>공개 문서함</li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">업무 공유함</a></li>
+            <li>업무수신</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
         <article class="">
           <header class="blind">
-            <h1>공유문서함 목록</h1>
+            <h1>결재대기 목록</h1>
           </header>
           <section class="tbl_top_area">
             <ul class="search_list">
               <li>
-                <div class="select_custom prio">
-                  <button class="label">
-                    <span class="opt_label">중요도</span>
-                  </button>
-                  <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><i class="ico_select high_prio">high icon</i>높음</li>
-                    <li class="optionItem" tabindex="0"><i class="ico_select normal_prio">common icon</i>보통</li>
-                    <li class="optionItem" tabindex="0"><i class="ico_select low_prio">row icon</i>낮음</li>
-                  </ul>
-                </div>
+                <select name="" id="" title="부서 선택">
+                  <option disabled selected>부서 선택</option>
+                </select>
               </li>
               <li>
-                <select name="" id="" title="결재양식">
-                  <optgroup class="opt_label" label="결재양식">
-                    <option disabled selected>결재양식</option>
-                  </optgroup>
-                  <optgroup label="근태문서">
-                    <option value="">출장신청서</option>
-                    <option value="">출장복명서</option>
-                    <option value="">휴가신청서</option>
-                  </optgroup>
-                  <optgroup label="기안문서">
-                    <option value="">기안서</option>
-                    <option value="">품의서</option>
-                    <option value="">지출결의서</option>
-                  </optgroup>
+                <select name="" id="" title="팀 선택">
+                  <option disabled selected>팀 선택</option>
                 </select>
               </li>
               <li>
@@ -77,36 +59,47 @@
             </div>
           </section>
           <section>
-            <table class="tbl_default tbl_hover tbl_approval_outbox">
+            <table class="tbl_default tbl_hover tbl_work_share hasLayer">
               <caption>결재대기 리스트</caption>
               <colgroup>
-                <col style="width:50px;">
-                <col span="2" style="width:120px;">
+                <col style="width:120px;">
                 <col style="width:auto;">
+                <col span="2" style="width:120px;">
                 <col span="3" style="width:150px;">
+                <col span="2" style="width:95px;">
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col">중요도</th>
-                  <th scope="col">문서종류</th>
-                  <th scope="col">문서번호</th>
+                  <th scope="col">구분</th>
                   <th scope="col">제목</th>
-                  <th scope="col">상신자</th>
-                  <th scope="col">상신일시</th>
-                  <th scope="col">최종결재자</th>
-                  <th scope="col">결재완료일시</th>
+                  <th scope="col">작업범주</th>
+                  <th scope="col">중요도</th>
+                  <th scope="col">요청자</th>
+                  <th scope="col">요청일자</th>
+                  <th scope="col">처리일자</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">관리</th>
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0">
+                <tr tabindex="0" onclick="location.href='../html/work_view.html'">
+                  <td>개인업무</td>
+                  <td>PEWS 관련 회의 요청드립니다<a href="#" class="cmt_num">4</a></td>
+                  <td>회의</td>
                   <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
-                  <td>교통비지출서</td>
-                  <td>KIT-001-0001</td>
-                  <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서<a href="#" class="cmt_num">4</a></td>
                   <td>홍길동(개발1팀)</td>
                   <td>2023-05-01 01:30:11</td>
-                  <td>홍길동(개발1팀)</td>
                   <td>2023-05-01 01:30:11</td>
+                  <td><i class="tbl_badge defer">후결대기</i></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수락</button>
+                        <button type="button">반려</button>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>

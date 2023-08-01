@@ -269,6 +269,7 @@ $columnGap:25px;
   li{width:60px;position:relative;}
   a{height:100%;display:flex;align-items:center;justify-content:center;@include f_blind;
     &::before{@include shape(24px,24px);background:url(../images/btn_top_svc.png) 0 0 no-repeat;}
+    &.on,
     &:hover{background-color:#efeded;
       &::before{background-image:url(../images/btn_top_svc_on.png);}
     }
@@ -460,22 +461,22 @@ z-index:10;
 }
 .my_approval{@include flex_between;align-items:stretch;
   .status{width:260px;margin-right:20px;
-    ul{display:flex;flex-direction:column;gap:10px;max-height:550px;overflow-y:auto;}
+    ul{display:flex;flex-direction:column;gap:10px;height:100%;max-height:550px;overflow-y:auto;}
     li{@include inner_box();
       strong{margin:2px 0 4px;}
       .badge{@include badge_style(54px)}      
     }
   }  
-  .ls_stand_by{display:flex;flex-direction:column;gap:10px;overflow: auto;
-    &>li{@include inner_box();
+  .ls_stand_by{display:flex;flex-direction:column;overflow: auto;
+    &>li{@include inner_box();margin:5px 10px;padding:10px 15px;
     }
     strong{margin-bottom:7px;}
     i{position:absolute;right:5px;top:5px;@include shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
   }
   .flex_right{flex-grow:1;}
   span:has(.new_bedge){margin-left:5px;font-size:13px;color:#555;
-    &::before{content:'(미확인';}
-    &::after{content:'건)';}
+    &::before{content:'미확인';}
+    &::after{content:'건';}
   }
 }
 
@@ -489,7 +490,7 @@ z-index:10;
   .ls_stand_by{height:280px;}
 }
 
-.carbon_copy{margin-top:45px;
+.carbon_copy{margin-top:30px;
   .ls_stand_by{height:183px;}
 }
 .new_bedge{position:relative;top:-1px;@include badge_style(null);background-color:$red;padding:0 7px 1px;margin-left:5px;}
@@ -594,16 +595,12 @@ z-index:10;
   }
 }
 .approval_view{
+  .appr_result{align-self:flex-end;
+    b{@include badge_style(null);padding:1px 5px 0;font-size:11px;}
+  }
   .appr_path li{flex-direction:column;align-items:flex-start;
     .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;
       &:empty{padding:0;}
-    }
-    .appr_result{align-self:flex-end;
-      b{@include badge_style(null);background:#ddd;padding:1px 5px 0;font-size:11px;}
-      $_signType:( 'draft':$blue, 'reject':$red, 'approve':$green, 'agree':$yellow);
-      @each $type, $color in $_signType{
-        .#{$type}{background-color:$color;}
-      }      
     }
   }
   .act_lst{padding-left:3px;
@@ -619,6 +616,14 @@ z-index:10;
     }
     .act_name{font-weight:600;}
     .act_type{font-weight:600;color:$red;}
+  }
+  .referrer_act{display:flex;flex-direction:column;gap:5px;
+    li{display:flex;justify-content:space-between;}
+    .appr_result{font-size:12px;}
+    $_signType:('uncheck': #b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
+    @each $type, $color in $_signType{
+      .#{$type}{background-color:$color;}
+    }
   }
 }
 .form_wrap.form_view{
@@ -935,8 +940,11 @@ $_proj_stacked:(
     #calendar{max-height:40vh;}
   }
 }
-
 .lst_room li{margin-top:15px;
   label::after{@include shape(12px, 12px);background-color:#05b4d9;margin-left:5px;vertical-align:middle;margin-top:-1px;}
+}
 
+// work
+.tbl_work_share{
+  td:nth-of-type(2){text-align: left;}
 }

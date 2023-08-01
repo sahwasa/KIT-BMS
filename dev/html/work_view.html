@@ -3,16 +3,17 @@
   @@include('../inc/header.html')
   @@include('../inc/nav.html')
   <main id="content" class="container">
-    @@include('../inc/snb/approval.html')
+    @@include('../inc/snb/work.html')
     <section class="contents">
       @@include('../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>결재대기<span>전자결재</span></h1>
+        <h1>업무수신<span>업무 공유함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">전자결재</a></li>
-            <li>결재대기</li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">업무 공유함</a></li>
+            <li>업무수신</li>
           </ul>
         </section>
       </header>
@@ -20,11 +21,8 @@
         <article class="box_compact box_tool">
           <button type="button" class="btn_default">목록</button>
           <span class="floatR">
-            <button type="button" class="btn_request">승인</button>
+            <button type="button" class="btn_request">수락</button>
             <button type="button" class="btn_request">반려</button>
-            <button type="button" class="btn_request">전결</button>
-            <button type="button" class="btn_request">후결</button>
-            <button type="button" class="btn_default" onclick="window.print()">인쇄</button>
           </span>
         </article>
         <div class="my_approval">
@@ -32,82 +30,26 @@
             <header>
               <h1>제목 텍스트</h1>
             </header>
-            <div class="form_wrap">
-              <div class="tit_form">
-                <h2>휴가신청서</h2>
-                <table class="tbl_row approval_status">
-                  <caption>결재 상황 테이블</caption>
-                  <tbody>
-                    <tr>
-                      <th scope="col" rowspan="3">결 재</th>
-                      <th scope="col"><strong>상신</strong>멋쟁이</th>
-                      <th scope="col"><strong>결재</strong>귀요미</th>
-                      <th scope="col"><strong>합의</strong>귀요미</th>
-                    </tr>
-                    <tr>
-                      <td><img src="http://placehold.it/95x41" alt="사인 임시"></td>
-                      <td><i class="stamp_red"><b>반려</b></i></td>
-                      <td><i class="stamp_red"><b>반려</b></i></td>
-                    </tr>
-                    <tr>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <table class="tbl_row">
-                <caption>출장복명서 양식 테이블</caption>
-                <colgroup>
-                  <col style="width:150px">
-                  <col style="width:auto">
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">문서번호</th>
-                    <td>KIT-출장복명서-20230100</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">휴가종류</th>
-                    <td>연차</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">휴가기간</th>
-                    <td>2023-03-02 ~ 2023-03-08 (총 5일)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">신청사유</th>
-                    <td>개인사유</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">기타</th>
-                    <td>-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="sign_wrap">
-                <p>상기와 같이 휴가를 신청합니다.<br>
-                  <span>2023년 3월 20일</span>
-                </p>
-                <p>신청인 : <span>멋쟁이</span> (인)</p>
-              </div>
-            </div>
             @@include('../inc/comment_area_file.html')
           </section>
           <article class="approval_set">
             <section class="box_default_w">
-              <h1>결재자</h1>
+              <h1>요청자</h1>
+              <ul class="referrer_act">
+                <li>
+                  @@include('../inc/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00</p>
+                </li>
+              </ul>
+              <ul class="referrer_act"></ul>
+            </section>
+            <section class="box_default_w">
+              <h1>수신자</h1>
               <ul class="appr_path">
                 <li>
                   @@include('../inc/module_user.html')
-                  <p class="review_txt">빠른 검토 부탁드려요.</p>
+                  <p class="review_txt">반려 사유는 여기에 적습니다.</p>
                   <p class="appr_result">2023-02-10 10:00 <b class="draft">상신</b></p>
-                </li>
-                <li>
-                  @@include('../inc/module_user.html')
-                  <p class="review_txt">연차가 아닌 대체휴가로 올리세요.<br />관련문서는 날자 확인해주시구요.</p>
-                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
                 </li>
                 <li>
                   @@include('../inc/module_user.html')
@@ -116,7 +58,7 @@
                 </li>
                 <li>
                   @@include('../inc/module_user.html')
-                  <p class="appr_result">2023-02-10 10:00 <b class="agree">합의</b></p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
                 </li>
               </ul>
             </section>

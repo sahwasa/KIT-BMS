@@ -185,10 +185,8 @@
   header{@include flex_between;height:40px;padding:0 15px;border-bottom:1px solid #d7d7d7;
     h1{font-size:15px;color:#404654;font-weight:bold;letter-spacing:-.7px;}
   }
-  .alert_lst{max-height:calc(100vh - 120px);overflow-y:auto;
-    li{border-top:1px solid #d7d7d7;padding:15px;
-      &:first-child{border-top:none;}
-    }
+  .alert_lst{max-height:calc(100vh - 150px);overflow-y:auto;
+    li{border:1px solid #d7d7d7;border-top:none;padding:15px;}
   }
   .alert_tit{@include flex_between;margin-bottom:20px;  
     h2{flex:1 auto;font-size:14px;font-weight:bold;letter-spacing:-.35px;
@@ -204,4 +202,16 @@
     }
     .date{color:#b6b5b5;}
   }
+  .alert_tab{
+    $border-color:#d7d7d7;
+    .tab{gap:0;justify-content:space-between;border-color:$border-color;border-bottom:none;
+      li{min-width:auto;flex:1;}
+      a{top:0;border-radius:0;border-color:$border-color;border-width:0 0 0 1px;font-size:12px;letter-spacing:-.83px;padding:8px 0 7px;color:#adadad;}
+      .on a{color:#ff6664;}
+    }
+    .tab_container{background-color:$white;
+      .tab_contents{margin-top:0;}
+    }
+  }
 }
+

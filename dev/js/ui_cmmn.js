@@ -193,7 +193,6 @@ $(function () {
   $('.tab li').first().addClass('on');
   $('.tab_container').find('.tab_contents').not(':first').hide();
   $('.tab li').on('click', function (e) {
-    console.log('dd')
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on');
     var link = $(this).find('a').attr('href');

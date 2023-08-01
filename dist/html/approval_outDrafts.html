@@ -30,7 +30,7 @@
     <ul class="gnb_lst">
       <li><a href="#" title="조직도">조직도</a></li>
       <li><a href="#" title="자리배치도">자리배치도</a></li>
-      <li><a href="#" title="통합알림">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
     </ul>
     <div class="util">
       <div class="profile">
@@ -191,18 +191,8 @@
 </datalist>
               </li>
               <li>
-                <div class="period_group">
-                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
-                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
-                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
-                </div>
-                <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start-date" name="start-date" />
-                  <input type="date" title="종료일" data-type="to" id="end-date" name="end-date" />
-                </div>
-              </li>
-              <li>
                 <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_refresh">초기화</button>
               </li>
             </ul>
             <div class="flex_right">
@@ -221,7 +211,7 @@
                 <col style="width:50px;">
                 <col span="2" style="width:120px;">
                 <col style="width:auto;">
-                <col span="2" style="width:150px;">
+                <col style="width:150px;">
                 <col style="width:100px;">
               </colgroup>
               <thead>
@@ -230,7 +220,6 @@
                   <th scope="col">문서종류</th>
                   <th scope="col">문서번호</th>
                   <th scope="col">제목</th>
-                  <th scope="col">상신일시</th>
                   <th scope="col">최종결재자</th>
                   <th scope="col">공개여부</th>
                 </tr>
@@ -241,7 +230,6 @@
                   <td>지출결의서</td>
                   <td>KIT-001-0001</td>
                   <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서<a href="#" class="cmt_num">4</a></td>
-                  <td>2023-05-01 01:30:11</td>
                   <td>홍길동(개발1팀)</td>
                   <td><i class="tbl_badge private">비공개</i></td>
                 </tr>

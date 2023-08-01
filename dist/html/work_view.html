@@ -70,56 +70,35 @@
     <section class="snb">
   <div class="snb_container">
     <header>
-      <h2>전자결재</h2>
+      <h2>업무</h2>
     </header>
     <div class="btn_workset">
-      <a href="../html/approval_new.html" class="btn_default">신규상신</a>
-    </div>
-    <div class="data_count">
-      <ul class="list_wrap">
-        <li>요청<em>3</em></li>
-        <li>대기<em>1</em></li>
-        <li>참조<em>2</em></li>
-      </ul>
+      <a href="#" class="btn_default">내 업무 추가</a>
     </div>
     <ul class="snb_lst">
-      <li class="on"><a href="../html/approval_outIng.html">결재 상신함</a>
+      <li><a href="#">내 업무함</a>
         <ul>
-          <li class="on"><a href="../html/approval_outIng.html">결재진행</a></li>
-          <li><a href="../html/approval_outFin.html">결재완료</a></li>
-          <li><a href="../html/approval_outReject.html">반려문서</a></li>
-          <li><a href="../html/approval_outDrafts.html">임시저장</a></li>
-        </ul>        
-      </li>
-      <li><a href="../html/approval_inIng.html">결재 수신함</a>
-        <ul>
-          <li><a href="../html/approval_inIng.html">결재대기</a></li>
-          <li><a href="../html/approval_inFin.html">결재내역</a></li>
-          <li><a href="../html/approval_inCc.html">수신참조</a></li>
+          <li><a href="#">나의 할 일</a></li>
+          <li><a href="#">완료된 업무</a></li>
+          <li><a href="#">미진 업무</a></li>
         </ul>
       </li>
-      <li><a href="../html/approval_open.html">공개 문서함</a></li>
-      <!--<li><a href="#">보관함</a>
-        <button type="button" class="nav_btn_add">추가</button>
-        <ul class="sortable move_sortable hasLayer"><li><a href="#">내보관함
-          <div class="layer_tool">
-              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-              <div class="btn_layer">
-                <button type="button" data-clickevt="modify">수정</button>
-                <button type="button" data-clickevt="del">삭제</button>
-              </div>
-            </div>
-          </a></li>
-          <li><a href="#">업무보고
-            <div class="layer_tool">
-              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-              <div class="btn_layer">
-                <button type="button" data-clickevt="modify">수정</button>
-                <button type="button" data-clickevt="del">삭제</button>
-              </div>
-            </div>
-          </a></li></ul>
-      </li>-->
+      <li><a href="#">업무공유함</a>
+        <ul>
+          <li><a href="../html/work_shareRecept.html">업무 수신</a></li>
+          <li><a href="#">업무 요청</a></li>
+          <li><a href="#">참조함</a></li>
+        </ul>
+      </li>
+      <li><a href="#">실적관리</a></li>
+      <li><a href="#">업무 보고함</a>
+        <ul>
+          <li><a href="#">일일 업무일지</a></li>
+          <li><a href="#">주간업무보고(개인)</a></li>
+          <li><a href="#">주간업무보고(팀)</a></li>
+          <li><a href="#">주간업무보고(부서)</a></li>
+        </ul>
+      </li>
     </ul>
   </div>
 </section>
@@ -127,12 +106,13 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>결재대기<span>전자결재</span></h1>
+        <h1>업무수신<span>업무 공유함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">전자결재</a></li>
-            <li>결재대기</li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">업무 공유함</a></li>
+            <li>업무수신</li>
           </ul>
         </section>
       </header>
@@ -140,11 +120,8 @@
         <article class="box_compact box_tool">
           <button type="button" class="btn_default">목록</button>
           <span class="floatR">
-            <button type="button" class="btn_request">승인</button>
+            <button type="button" class="btn_request">수락</button>
             <button type="button" class="btn_request">반려</button>
-            <button type="button" class="btn_request">전결</button>
-            <button type="button" class="btn_request">후결</button>
-            <button type="button" class="btn_default" onclick="window.print()">인쇄</button>
           </span>
         </article>
         <div class="my_approval">
@@ -152,67 +129,6 @@
             <header>
               <h1>제목 텍스트</h1>
             </header>
-            <div class="form_wrap">
-              <div class="tit_form">
-                <h2>휴가신청서</h2>
-                <table class="tbl_row approval_status">
-                  <caption>결재 상황 테이블</caption>
-                  <tbody>
-                    <tr>
-                      <th scope="col" rowspan="3">결 재</th>
-                      <th scope="col"><strong>상신</strong>멋쟁이</th>
-                      <th scope="col"><strong>결재</strong>귀요미</th>
-                      <th scope="col"><strong>합의</strong>귀요미</th>
-                    </tr>
-                    <tr>
-                      <td><img src="http://placehold.it/95x41" alt="사인 임시"></td>
-                      <td><i class="stamp_red"><b>반려</b></i></td>
-                      <td><i class="stamp_red"><b>반려</b></i></td>
-                    </tr>
-                    <tr>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
-                      <td>23-04-17</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <table class="tbl_row">
-                <caption>출장복명서 양식 테이블</caption>
-                <colgroup>
-                  <col style="width:150px">
-                  <col style="width:auto">
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">문서번호</th>
-                    <td>KIT-출장복명서-20230100</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">휴가종류</th>
-                    <td>연차</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">휴가기간</th>
-                    <td>2023-03-02 ~ 2023-03-08 (총 5일)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">신청사유</th>
-                    <td>개인사유</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">기타</th>
-                    <td>-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="sign_wrap">
-                <p>상기와 같이 휴가를 신청합니다.<br>
-                  <span>2023년 3월 20일</span>
-                </p>
-                <p>신청인 : <span>멋쟁이</span> (인)</p>
-              </div>
-            </div>
             <section class="cmt_area">
   <header>
     <h1>댓글</h1>
@@ -369,23 +285,28 @@
           </section>
           <article class="approval_set">
             <section class="box_default_w">
-              <h1>결재자</h1>
+              <h1>요청자</h1>
+              <ul class="referrer_act">
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="appr_result">2023-02-10 10:00</p>
+                </li>
+              </ul>
+              <ul class="referrer_act"></ul>
+            </section>
+            <section class="box_default_w">
+              <h1>수신자</h1>
               <ul class="appr_path">
                 <li>
                   <div class="user_module">
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-                  <p class="review_txt">빠른 검토 부탁드려요.</p>
+                  <p class="review_txt">반려 사유는 여기에 적습니다.</p>
                   <p class="appr_result">2023-02-10 10:00 <b class="draft">상신</b></p>
-                </li>
-                <li>
-                  <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-                  <p class="review_txt">연차가 아닌 대체휴가로 올리세요.<br />관련문서는 날자 확인해주시구요.</p>
-                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
                 </li>
                 <li>
                   <div class="user_module">
@@ -400,7 +321,7 @@
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-                  <p class="appr_result">2023-02-10 10:00 <b class="agree">합의</b></p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
                 </li>
               </ul>
             </section>
