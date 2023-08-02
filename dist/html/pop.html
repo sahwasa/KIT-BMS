@@ -1630,7 +1630,9 @@
 <script src="../js/file_upload.js"></script>
 <script src="../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
-  $(function () {
+$(function () {
+    $('#my_alert').addClass('on'); // 통합 알림 디자인
+
     function tabInit(modal){
       $('.' + modal).find('.tab li').removeClass('on').first().addClass('on')
       $('.tab_contents').hide();

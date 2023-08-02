@@ -36,7 +36,7 @@ $columnGap:25px;
   .btn_lst{display:flex;flex-direction:column;gap:13px;padding-top:45px;}
   .ipt_wrap{
     .ipt_box{position:relative;
-      input{width:100%;line-height:45px;border:none;border-bottom:1px solid #d0d0d0;font-size:16px;line-height:45px;color:#555;letter-spacing:-0.35px;margin-bottom:1px;border-radius:0;
+      input{width:100%;line-height:45px;padding-right:30px;border:none;border-bottom:1px solid #d0d0d0;font-size:16px;line-height:45px;color:#555;letter-spacing:-0.35px;margin-bottom:1px;border-radius:0;
         ::placeholder{font-size:14px;color:#9e9e9e;}
         &:focus,&:active{border-bottom:2px solid #000;outline:none;margin-bottom:0;}
       } 
@@ -121,7 +121,24 @@ $columnGap:25px;
         &:has(.btn_dplc)>.btn_clear{right:105px;}
         &:has(.btn_dplc)>input{padding-right:125px;}
         .btn_clear+.btn_dplc{position:absolute;top:calc(50% - 15px);right:10px;min-width:80px;border-radius:20px;font-size:13px;line-height:28px;}
-        label{display:block;text-align:left;margin-top:35px;font-size:14px;color:#000;font-weight:bold;}
+        label{display:block;text-align:left;margin-top:35px;font-size:14px;color:#000;font-weight:bold;
+          & + .ipt_box{
+            &>*:first-child {margin-top: 15px;}
+            $types : "text","password","email","number";
+            @each $type in $types {
+              &>input[type=#{$type}]:first-child {margin-top: 0;}
+            }
+          }
+        }
+        .btn_switch{
+          label{flex:1;margin-top:0;text-align:center;line-height:31px;}
+        }
+        select{line-height:35px;padding-left:10px;}
+        .file_input{
+          &>input{flex:.4;
+            &:last-child{flex:.6;}
+          }
+        }
       }
     }
     .profile_pic_wrap{@include flex_between;justify-content:space-evenly;align-items:flex-end;margin-bottom:30px;
@@ -162,7 +179,7 @@ $columnGap:25px;
           em{font-style:italic;}
         }
       }
-      label{display:flex;align-items:center;font-weight:bold;margin-bottom:5px;font-size:15px;
+      label{display:flex;font-weight:bold;margin-bottom:5px;font-size:15px;align-items:center;
         &>*{margin-right:5px;}
       }
     }
