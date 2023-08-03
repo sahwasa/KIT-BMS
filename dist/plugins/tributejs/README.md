@@ -471,8 +471,8 @@ This example shows the usage of Tribute for autocompletion of variables:
 var tribute = new Tribute({
   trigger: "{{",
   values: [
-    { key: "red", value: "#FF0000" },
-    { key: "green", value: "#00FF00" }
+    {% raw %}{ key: "red", value: "#FF0000" },
+    { key: "green", value: "#00FF00" }{% endraw %}
   ],
   selectTemplate: function(item) {
     return "{{" + item.original.key + "}}";
