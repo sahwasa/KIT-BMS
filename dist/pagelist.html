@@ -435,7 +435,7 @@
 	</div>
 </body>
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="plugins/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function () {
 		$("td").each(function () {
@@ -446,7 +446,7 @@
 			if ($(this).text().indexOf('.asp') > 0 || $(this).text().indexOf('.php') > 0 || $(this).text().indexOf('.jsp') > 0 || $(this).text().indexOf('.jsp') > 0 || $(this).text().indexOf('.htm') > 0) {
 				$(this).css({ 'cursor': 'pointer', 'text-decoration': 'underline' });
 				$(this).click(function () {
-					window.open('dist/html/' + $(this).text(), '', '');
+					window.open('html/' + $(this).text(), '', '');
 				});
 			}
 		});
