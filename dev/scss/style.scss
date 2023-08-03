@@ -654,13 +654,7 @@ z-index:10;
     &::after{display:none;}
     &::-webkit-calendar-picker-indicator {display:none;}
   }
-<<<<<<< HEAD
-  td{
-    &>[list]{min-width:100%;} // 인쇄 시 프로젝트명 잘림 수정
-  }
-=======
   .file_input>[list]{min-width:100%;} // 인쇄 시 프로젝트명 잘림 수정
->>>>>>> origin/main
 }
 @include desktop{
   .approval_view .my_approval,
