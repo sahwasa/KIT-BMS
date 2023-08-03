@@ -129,7 +129,7 @@ input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
 input[type="radio"]:checked{background-position-y:-23px;}
 @media print{
   input[type="radio"],
-  input[type="checkbox"]{
+  input[type="checkbox"]{position:relative;
     &:checked{background:transparent;border:1px solid $red;
       &::before{position: absolute;z-index:0;top:-2px;left:1px;content:'\eb2d';font-family:'fontello';font-size:10px;color:$red;}
     }

@@ -99,8 +99,8 @@
 				</tr><tr>
 					<td>error.html</td>
 					<td>에러 페이지</td>
-					<td>다른 에러페이지에도 응용 가능토록 작업하겠습니다</td>
-					<td>임시</td>
+					<td></td>
+					<td>완료</td>
 					<td></td>
 				</tr>
 			</tbody>
@@ -234,7 +234,7 @@
 				<tr>
 					<td>approval_outDrafts.html</td>
 					<td>전자결재 &gt; 결재상신함 &gt; 임시저장</td>
-					<td></td>
+					<td>컬럼과 검색영역 수정하였습니다</td>
 					<td>완료</td>
 					<td></td>
 				</tr>
@@ -255,7 +255,7 @@
 				<tr>
 					<td>approval_open.html</td>
 					<td>전자결재 &gt; 공개 문서함</td>
-					<td></td>
+					<td>컬럼 수정하였습니다</td>
 					<td>완료</td>
 					<td></td>
 				</tr>
@@ -435,7 +435,7 @@
 	</div>
 </body>
 
-<script src="plugins/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 	$(function () {
 		$("td").each(function () {
@@ -446,7 +446,7 @@
 			if ($(this).text().indexOf('.asp') > 0 || $(this).text().indexOf('.php') > 0 || $(this).text().indexOf('.jsp') > 0 || $(this).text().indexOf('.jsp') > 0 || $(this).text().indexOf('.htm') > 0) {
 				$(this).css({ 'cursor': 'pointer', 'text-decoration': 'underline' });
 				$(this).click(function () {
-					window.open('html/' + $(this).text(), '', '');
+					window.open('dist/html/' + $(this).text(), '', '');
 				});
 			}
 		});
