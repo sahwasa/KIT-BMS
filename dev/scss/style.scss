@@ -549,7 +549,7 @@ z-index:10;
     .approval_status{      
       strong{margin-right:5px;font-size:11px;}
       th:first-child{width:27px;}
-      td{font-size:11px;width:110px;padding:3px;}
+      td{font-size:11px;width:110px;padding:3px;border-right:1px solid #ebebeb;}
       tr:last-child td{height:25px;}
     }
     .tit_form{display:grid;grid-template-columns:1fr auto;min-height:90px;margin-bottom:15px;padding:8px;
@@ -653,6 +653,9 @@ z-index:10;
   input[type=date]{position:static;
     &::after{display:none;}
     &::-webkit-calendar-picker-indicator {display:none;}
+  }
+  td{
+    &>[list]{min-width:100%;} // 인쇄 시 프로젝트명 잘림 수정
   }
 }
 @include desktop{
