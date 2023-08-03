@@ -337,7 +337,7 @@ $btn_gray:#979797;
   }
 }
 
-.tooltip{position:absolute;top:calc(100% + 10px);left:0;background-color:$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
+.tooltip{position:absolute;top:calc(100% + 5px);right:0;background-color:$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
   *{flex-shrink:0;}
 }
 
@@ -636,7 +636,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 .editor_wrap{
   .ck-editor{
     .ck-source-editing-area,
-    .ck-editor__editable_inline {min-height:100px;height:auto;max-height:300px;}
+    .ck-editor__editable_inline {min-height:100px;height:auto;}
     .ck-source-editing-area textarea{overflow:auto;}
     .ck-content .todo-list{
       li{margin-bottom:0 !important;margin-left:25px;}
