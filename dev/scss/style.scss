@@ -576,7 +576,7 @@ z-index:10;
 .approval_view .approval_set,
 .approval_draft .approval_set{margin-top:18px;}
 
-.approval_set{width:400px;
+.approval_set{width:400px;min-width:400px;
   & > .box_default_w{margin-top:10px;
     &:last-of-type{margin-bottom:10px;}
     @include tit_bullet(h1);
