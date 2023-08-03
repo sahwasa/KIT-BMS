@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sahwasa/kit-bms.git"
+    "url": "git+https://github.com/sahwasa/KIT-BMS.git"
   },
   "author": "KITValley",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sahwasa/kit-bms/issues"
+    "url": "https://github.com/sahwasa/KIT-BMS/issues"
   },
-  "homepage": "https://github.com/sahwasa/kit-bms#readme",
+  "homepage": "https://sahwasa.github.io/KIT-BMS",
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "del": "^6.1.1",
