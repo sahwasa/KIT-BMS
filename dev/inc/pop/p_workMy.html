@@ -1,0 +1,111 @@
+<dialog class="p_workMy">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>내 업무 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>내 업무 추가 테이블</caption>
+        <colgroup>
+          <col style="width:130px">
+          <col style="width:auto">
+          <col style="width:110px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required"><label for="work_type">업무구분</label></th>
+            <td colspan="3">
+              <select name="work_type" id="work_type">
+                <option value="업무구분 선택">업무구분 선택</option>
+                <option value="프로젝트">프로젝트</option>
+                <option value="개인업무">개인업무</option>
+                <option value="부서업무">부서업무</option>
+                <option value="기타">기타</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="work_range">작업범주</label></th>
+            <td colspan="3">
+              <span class="file_input">
+                <select id="nameSelectB">
+                  <option value="작업범주를 선택하세요" disabled selected>작업범주를 선택하세요</option>
+                </select>
+              </span>
+              <ul id="tagListB"></ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">담당자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                @@include('../data_emp_name.html')
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              @@include('../module_slide_user.html')
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">업무요청자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                @@include('../data_emp_name.html')
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              @@include('../module_slide_user.html')
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">시작일자</label>
+            </th>
+            <td colspan="3"><input type="date" id="work_start"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_end">종료일자</label>
+            </th>
+            <td colspan="3"><input type="date" id="work_end"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_content">업무내용</label>
+            </th>
+            <td colspan="3"><textarea name="work_content" id="work_content"></textarea></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="work_more">참고사항</label>
+            </th>
+            <td colspan="3"><textarea name="work_more" id="work_more"></textarea></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="work_importance">중요도</label>
+            </th>
+            <td colspan="3">
+              <select name="work_importance" id="work_importance">
+                <option value="중요도 선택">중요도 선택</option>
+              </select><!-- 타 팝업과의 통일이 필요하다!! -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_request" type="button">요청</button>
+        <button class="btn_request" type="button">요청&sol;승인</button>
+        <button class="btn_cancel">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
