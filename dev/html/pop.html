@@ -7,33 +7,36 @@
       <h1>팝업 모음</h1>
     </header>
     <div class="cont_body">
-      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">로그인</h2>
+      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">로그인</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button>
       </ul>
       <br>
-      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">팝업 공통</h2>
+      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">팝업 공통</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
         <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
         <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert" checked>통합알림</label></li> 
       </ul>
       <br>
-      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">전자결재</h2>
+      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">전자결재</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_approval01">자주 쓰는 결재 설정</button></li>
         <li><button type="button" class="btn_default" data-modal="p_relDoc">관련문서</button></li>
         <li><button type="button" class="btn_default" data-modal="p_approvalOpinion">결재의견</button></li>
       </ul>
       <br>
-      <h2 style="display:inline-block;background-image: linear-gradient(90deg,red,orange,yellow,green,blue,navy,purple);
-      -webkit-background-clip:text;color:transparent;font-size:20px;font-weight:bold;">일정</h2>
+      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">일정</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회</button></li>
         <li><button type="button" class="btn_default" data-modal="p_status_roomBook">회의실 예약현황</button></li>
+      </ul>
+      <br>
+      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">프로젝트</h2>
+      <ul>
+        <li><button type="button" class="btn_default" data-modal="p_requireMan">요구사항 관리</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_workMan">업무 관리</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
       </ul>
     </div>
   </main>
@@ -46,14 +49,24 @@
 @@include('../inc/pop/p_approval_01.html') <!--// 자주 쓰는 결재 설정 -->
 @@include('../inc/pop/p_approvalOpinion.html') <!--// 결재의견 -->
 @@include('../inc/pop/p_relDoc.html')<!--// 관련문서 설정 -->
-@@include('../inc/pop/p_planView.html')<!--// 관련문서 설정 -->
-@@include('../inc/pop/p_status_roomBook.html')<!--// 관련문서 설정 -->
+@@include('../inc/pop/p_planView.html')<!--// 일정 조회 -->
+@@include('../inc/pop/p_status_roomBook.html')<!--// 회의실 예약 현황 -->
+@@include('../inc/pop/p_requireMan.html')<!--// 요구사항 관리 -->
+@@include('../inc/pop/p_workMan.html')<!--// 업무 관리 -->
+@@include('../inc/pop/p_workMy.html')<!--// 업무 관리 -->
 @@include('../inc/script.html')
-<script>
-$(function () {
-    $('#my_alert').addClass('on'); // 통합 알림 디자인
 
-    function tabInit(modal){
+<script>
+  $(function () {
+    // 업무 관리 작업범주 랜덤 색상 태그
+    const initialNames = ['개발', '제안', '기획', '하자보수', '테스트', '문서', '외주관리', '유지보수', '회의', '출장', '외근', '기타'];
+    initializeTagManager('tagList', 'nameSelect', initialNames);
+
+    const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    initializeTagManager('tagListB', 'nameSelectB', initialNamesB);
+
+
+    function tabInit(modal) {
       $('.' + modal).find('.tab li').removeClass('on').first().addClass('on')
       $('.tab_contents').hide();
       $('.' + modal).find('.tab_contents').first().show();
@@ -79,7 +92,6 @@ $(function () {
     forcePlaceholderSize: true,
     placeholder: 'ph'
   });
-  
 
 </script>
 </body>
