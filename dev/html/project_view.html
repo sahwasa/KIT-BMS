@@ -1,0 +1,76 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')
+  @@include('../inc/nav.html')
+  <main id="content" class="container">
+    @@include('../inc/snb/projectList.html')
+    <section class="contents">
+      @@include('../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>도시폭염을 고려한 폭염저감기술 최적화<span>프로젝트</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">프로젝트</a></li>
+            <li>프로젝트 상세</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <div class="box_compact box_tool">
+          <header>
+            <span>
+              <button type="button" class="btn_default">목록</button>
+            </span>
+            <span>
+              <button type="button" class="btn_add">추가</button>
+              <button type="button" class="btn_cancel">취소</button>
+              <span>&sol;</span>
+              <button type="button" class="btn_modify">수정</button>
+              <button type="button" class="btn_del">삭제</button>
+              <span>&sol;</span>
+              <button type="button" class="btn_save">저장</button>
+              <button type="button" class="btn_cancel">취소</button>
+            </span>
+          </header>
+        </div>
+        <div class="tab_wrap">
+          <ul class="tab">
+            <li class="on"><a href="#proj01">개요</a></li>
+            <li><a href="#proj02">요구사항</a></li>
+            <li><a href="#proj03">WBS(단계일정)</a></li>
+            <li><a href="#proj04">리스크관리</a></li>
+            <li><a href="#proj05">문서관리</a></li>
+            <li><a href="#proj06">프로젝트 목록</a></li>
+          </ul>
+        </div>
+        <div class="tab_container">
+          <section id="proj01" class="tab_contents">
+            1
+          </section>
+          <section id="proj02" class="tab_contents">
+            2
+          </section>
+          <section id="proj03" class="tab_contents">
+            3
+          </section>
+          <section id="proj04" class="tab_contents">
+            4
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
+<script src='../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../plugins/google-calendar/index.global.min.js'></script>
+<script src="../js/book_meeting_room.js"></script>
+<script>
+  $(function () {
+  })
+</script>
+</body>
+
+</html>

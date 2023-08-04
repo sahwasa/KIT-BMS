@@ -1,0 +1,57 @@
+@@include('../inc/top.html')
+<div id="wrap" class="wrap">
+  @@include('../inc/header.html')
+  @@include('../inc/nav.html')
+  <main id="content" class="container">
+    @@include('../inc/snb/projectList.html')
+    <section class="contents">
+      @@include('../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>프로젝트 추가<span>프로젝트</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">프로젝트</a></li>
+            <li>프로젝트 추가</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body plan_new">
+        <div class="box_compact box_tool">
+          <header>
+            <span>
+              <button type="button" class="btn_default">목록</button>
+            </span>
+            <span>
+              <button type="button" class="btn_add">추가</button>
+              <button type="button" class="btn_cancel">취소</button>
+              <span>&sol;</span>
+              <button type="button" class="btn_modify">수정</button>
+              <button type="button" class="btn_del">삭제</button>
+              <span>&sol;</span>
+              <button type="button" class="btn_save">저장</button>
+              <button type="button" class="btn_cancel">취소</button>
+            </span>
+          </header>
+        </div>
+        <section class="new_contents">
+          
+        </section>
+      </div>
+    </section>
+  </main>
+  @@include('../inc/footer.html')
+</div>
+@@include('../inc/script.html')
+<script src='../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../plugins/google-calendar/index.global.min.js'></script>
+<script src="../js/book_meeting_room.js"></script>
+<script>
+  $(function () {
+    setEditor();// editor common
+    fileDropEvt();
+  })
+</script>
+</body>
+
+</html>
