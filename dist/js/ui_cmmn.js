@@ -389,6 +389,13 @@ function setEditor() {
     fontSize: {
       options: [13, 15, 17, 19, 21],
     },
+    table: {
+      tableProperties: {
+        defaultProperties: {
+          alignment: 'left'
+        }
+      }
+    },
     htmlSupport: {
       allow: [
         {

@@ -650,6 +650,10 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     // table
     .ck-content[dir=ltr] .table th.editor_th,
     .ck-content[dir=ltr] .table td.editor_th{text-align:center;background-color:#f5f5f5;font-weight:bold;}
+    .ck-content .table{float:left;
+      table td,
+      table th {white-space:inherit;}
+    }
   }
 }
 
