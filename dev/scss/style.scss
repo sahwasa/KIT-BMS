@@ -478,7 +478,9 @@ z-index:10;
 }
 .my_approval{@include flex_between;align-items:stretch;
   .status{width:260px;margin-right:20px;
-    ul{display:flex;flex-direction:column;gap:10px;height:100%;max-height:550px;overflow-y:auto;}
+    ul{display:flex;flex-direction:column;gap:10px;height:100%;max-height:550px;overflow-y:auto;
+      &:empty::before{@include empty_box('요청 문서가 없습니다');background-color:#e3e3e3;}
+    }
     li{@include inner_box();
       strong{margin:2px 0 4px;}
       .badge{@include badge_style(54px)}      
@@ -496,7 +498,6 @@ z-index:10;
     &::after{content:'건';}
   }
 }
-
 .approval_path{display:flex;margin-top:2px;
   li{
     &:before{content:"→";margin:0 3px;;}
@@ -504,11 +505,15 @@ z-index:10;
   }
 }
 .stand_by{
-  .ls_stand_by{height:280px;}
+  .ls_stand_by{height:280px;
+    &:empty::before{@include empty_box('결재 대기 미확인 문서가 없습니다.');background-color:#e3e3e3;}
+  }
 }
 
 .carbon_copy{margin-top:30px;
-  .ls_stand_by{height:183px;}
+  .ls_stand_by{height:183px;
+    &:empty::before{@include empty_box('수신 참조 미확인 문서가 없습니다.');background-color:#e3e3e3;}
+  }
 }
 .new_bedge{position:relative;top:-1px;@include badge_style(null);background-color:$red;padding:0 7px 1px;margin-left:5px;}
 
@@ -621,9 +626,7 @@ z-index:10;
     }
   }
   .act_lst{padding-left:3px;
-    &:empty{
-      &::before{display:block;content:'진행된 활동이 없습니다';padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:12px;color:#777;text-align:center;}
-    }
+    &:empty::before{@include empty_box('진행된 활동이 없습니다');}
     @include tit_bullet('.date-time',3);
     li{border-left:1px solid #ccc;padding:0 0 20px 10px;
       &:last-child{padding-bottom:5px;}
@@ -631,10 +634,11 @@ z-index:10;
     .date-time{position:relative;left:-10px;top:-7px;font-size:12px;color:$gray;margin-bottom:-5px;
       &::before{left:-2px;}
     }
-    .act_name{font-weight:600;}
-    .act_type{font-weight:600;color:$red;}
+    .act_name,
+    .act_type{font-weight:600;}
   }
   .referrer_act{display:flex;flex-direction:column;gap:5px;
+    &:empty::before{@include empty_box('참조자 이력이 없습니다');}
     li{display:flex;justify-content:space-between;}
     .appr_result{font-size:12px;}
     $_signType:('uncheck': #b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
@@ -681,7 +685,9 @@ z-index:10;
 .file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;background-color:#fff;}
 .drop_zone,
 .attach_zone{padding:0 15px;align-self:flex-start;}
-.attach_list{padding-bottom:10px;}
+.attach_list{padding-bottom:10px;
+  &:empty::before{@include empty_box('첨부된 파일이 없습니다.');}
+}
 .attach_list li{position:relative;display:flex;gap:5px;margin-top:10px;padding:0;border-top:none;z-index:1000;text-align:left;line-height:17px;
   &::before,
   &::after{display:none;}
