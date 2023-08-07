@@ -23,12 +23,14 @@ const path = {
   html:dev + "/**/*.html",
   scss: dev + "/scss/*.scss",
   js: dev + "/js/*.js",
-  images: dev + "/**/images/*"
+  images: dev + "/**/images/*",
+  page:"index.html"
 };
 
 // js, scss concat(병합) 시 파일 이름 지정
 var mergefileName = {
     style: "merge.css",
+    index: "pagelist.html"
     //javascript: "merge.js"
 };
 
@@ -48,6 +50,14 @@ function inc(){
       prefix : '@@',
       basepath : '@file'
     }))
+    .pipe(dest(dist + '/'))
+    .pipe(bs.stream())
+  )
+}
+function incIndex(){
+  return merge(
+    src(path.page)
+    .pipe(concat(mergefileName.index))
     .pipe(dest(dist + '/'))
     .pipe(bs.stream())
   )
@@ -95,6 +105,7 @@ function setBs(){
 }
 function watchs(){  
   watch(path.html, inc);
+  watch(path.page, incIndex)
   watch(path.images, imgMin);
   watch(path.js, js);
   watch(path.scss, scss);  
@@ -118,11 +129,12 @@ function clean(cd){
 */
 
 module.exports = {
-  default:series(clean, inc, parallel(js,scss,imgMin), parallel(watchs, setBs)),
+  default:series(clean, inc, incIndex, parallel(js,scss,imgMin), parallel(watchs, setBs)),
   watch:parallel(watchs, setBs),
   build:series(clean, parallel(inc,js,scss,imgMin)),
   clean : clean,
   inc : inc,
+  incIndex : incIndex,
   js : js,
   scss : scss,
   imgMin : imgMin,
