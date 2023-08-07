@@ -481,9 +481,14 @@ z-index:10;
     ul{display:flex;flex-direction:column;gap:10px;height:100%;max-height:550px;overflow-y:auto;
       &:empty::before{@include empty_box('요청 문서가 없습니다');background-color:#e3e3e3;}
     }
-    li{@include inner_box();
+    li{@include inner_box();margin:5px 10px;
       strong{margin:2px 0 4px;}
-      .badge{@include badge_style(54px)}      
+      .badge{@include badge_style(54px)}
+      dl{
+        dt{float:left;min-width:55px;
+          &::after{content:":";margin:0 3px;}
+        }
+        }
     }
   }  
   .ls_stand_by{display:flex;flex-direction:column;overflow: auto;
