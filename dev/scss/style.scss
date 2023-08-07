@@ -620,6 +620,7 @@ z-index:10;
   .preview{flex-shrink:0;gap:0;font-size:11px;color:#999;align-items:center;margin-left:10px;line-height:1;
     &::before{@include shape(1px, 10px);background-color:#ddd;margin-right:10px;}
   }
+  .attach_list:empty::before{@include empty_box('첨부된 파일이 없습니다.');}
 }
 .approval_view{
   .appr_result{align-self:flex-end;
@@ -690,9 +691,7 @@ z-index:10;
 .file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;background-color:#fff;}
 .drop_zone,
 .attach_zone{padding:0 15px;align-self:flex-start;}
-.attach_list{padding-bottom:10px;
-  &:empty::before{@include empty_box('첨부된 파일이 없습니다.');}
-}
+.attach_list{padding-bottom:10px;}
 .attach_list li{position:relative;display:flex;gap:5px;margin-top:10px;padding:0;border-top:none;z-index:1000;text-align:left;line-height:17px;
   &::before,
   &::after{display:none;}
