@@ -34,21 +34,29 @@
             className: 'anniv'
           },
           {
+            title: '광복절',
+            start: '2023-08-15',
+            editable: false,
+            overlap: false,
+            className: 'holyday-event'
+          },
+          {
             title: 'Business Lunch',
             start: '2023-06-03T13:00:00',
             constraint: 'businessHours'
           },
           {
             title: '회의',
-            start: '2023-06-19T11:00:00',
+            start: '2023-08-11T11:00:00',
             constraint: 'availableForMeeting', // defined below
             color: '#257e4a',
             description: '1회의실'
           },
           {
-            title: '월간공정보고 검토',
-            start: '2023-06-18',
-            end: '2023-06-20'
+            title: '개인일정',
+            start: '2023-08-22',
+            end: '2023-08-25',
+            className : 'personal'
           },
           {
             title: '생일파티1',

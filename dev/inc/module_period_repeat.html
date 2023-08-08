@@ -1,0 +1,45 @@
+<dd class="divideL">
+  <ul class="check_group">
+    <li>
+      <label for="period_allday"><input type="checkbox" id="period_allday">종일</label>
+    </li>
+    <li>
+      <label for="period_repeat"><input type="checkbox" id="period_repeat" data-checkEvt="repeat">반복</label>
+    </li>
+  </ul>
+</dd>
+<dd class="opt_wrap" id="repeat">
+  <dl class="opt_lst">
+    <dt>빈도</dt>
+    <dd>
+      <div class="flex_ipt">
+        <input type="number" min="1" value="1" title="반복 주기" />
+        <select name="" id="" title="반복 단위">
+          <option value="">주</option>
+          <option value="">월</option>
+          <option value="">년</option>
+        </select>
+        마다
+      </div>
+      <ul class="check_group">
+        <li><label for="sun"><input type="checkbox" id="sun">일</label></li>
+        <li><label for="mon"><input type="checkbox" id="mon">월</label></li>
+        <li><label for="tue"><input type="checkbox" id="tue">화</label></li>
+        <li><label for="wed"><input type="checkbox" id="wed">수</label></li>
+        <li><label for="thu"><input type="checkbox" id="thu">목</label></li>
+        <li><label for="fri"><input type="checkbox" id="fri">금</label></li>
+        <li><label for="sat"><input type="checkbox" id="sat">토</label></li>
+      </ul>
+    </dd>
+    <dt>범위</dt>
+    <dd>
+      <div class="period_custom">
+        <input type="date" id="" name="start_date" title="시작일">
+        <input type="date" id="" name="end_date" title="종료일">
+      </div>
+      <label for="indefinitely"><input type="checkbox" id="indefinitely">무기한</label>
+    </dd>
+    <dt>요약</dt>
+    <dd><p>1주 화요일 마다(2023-12-10 ~ )</p></dd>
+  </dl>
+</dd>
