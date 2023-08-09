@@ -461,9 +461,21 @@ z-index:10;
   }
 }
 
-.box_compact{@include box_style(15px,10px);}
+.box_compact{@include box_style(15px,10px);
+  .btn_wrap{margin-left:auto;}
+}
 .box_default{@include box_style(20px,20px);}
 .box_default_w{@include box_style(15px,15px);background-color:#fff;border:1px solid #dddddd;}
+
+.count{display:inline-flex;font-size:13px;line-height:14px;color:#555;gap:15px;
+  border-left:1px solid #aaa;padding-left:15px;margin-left:10px;box-shadow:1px 0 1px #fff inset;font-weight:normal;
+  .uncheck em{color:$red;}
+  .receipt em{color:$blue;}
+  em{font-weight:bold;margin-left:6px;word-spacing:-.1em;
+    &::before,&::after{content:"( ";font-weight:normal;color:#555;}
+    &::after{content:" )"}    
+  }  
+}
 
 // approval
 .my_form,.box_tool{margin-bottom:15px;
@@ -477,12 +489,16 @@ z-index:10;
   }
 }
 .my_approval{@include flex_between;align-items:stretch;
-  %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:10px;padding:8px;width:calc(100% + 16px);height:100%;transform:translateX(-8px);}
+  %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:calc(100% - 39px);transform:translate(-5px,-5px);
+    &>li{
+      &:empty{background-color:rgba(0, 0, 0, .05);box-shadow:none!important;}
+    }
+  }
   .status{width:260px;margin-right:20px;
-    ul{@extend %approval_list;max-height:550px;
+    ul{@extend %approval_list;
       &:empty::before{@include empty_box('요청 문서가 없습니다');background-color:rgba(0, 0, 0, .05);}
     }
-    li{@include inner_box();
+    li{@include inner_box(8px);min-height:99px;
       strong{margin:2px 0 4px;}
       .badge{@include badge_style(54px)}
       dl{
@@ -493,17 +509,11 @@ z-index:10;
     }
   }  
   .ls_stand_by{@extend %approval_list;
-    &>li{@include inner_box();padding:10px 15px;
-      &:empty{min-height:74px;background-color:rgba(0, 0, 0, .05);box-shadow:none;}
-    }
+    &>li{@include inner_box(10px);min-height:84px;}
     strong{margin-bottom:7px;}
     i{position:absolute;right:5px;top:5px;@include shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
   }
-  .flex_right{flex-grow:1;}
-  span:has(.new_bedge){font-size:12px;color:#555;
-    border-left:1px solid #aaa;padding-left:15px;margin-left:10px;box-shadow:1px 0 1px #fff inset;font-weight:normal;
-    i{margin-left:8px;}
-  }
+  .flex_right{flex-grow:1;}  
 }
 .approval_path{display:flex;margin-top:2px;
   li{
@@ -512,18 +522,16 @@ z-index:10;
   }
 }
 .stand_by{
-  .ls_stand_by{height:280px;
+  .ls_stand_by{height:285px;
     &:empty::before{@include empty_box('결재 대기 미확인 문서가 없습니다.');background-color:#e3e3e3;}    
   }
 }
-
 .carbon_copy{margin-top:30px;
-  .ls_stand_by{height:183px;
+  .ls_stand_by{height:187px;
     &:empty::before{@include empty_box('수신 참조 미확인 문서가 없습니다.');background-color:#e3e3e3;}
   }
 }
 .new_bedge{position:relative;top:-1px;@include badge_style(null);background-color:$red;padding:0 7px 1px;margin-left:5px;}
-
 .approval_often{
   ul{flex-wrap:wrap;}
   .explanation{@include explanation;}
@@ -541,7 +549,7 @@ z-index:10;
 }
 .approval_form{min-width:900px;background-color:#fff;
   header{padding-bottom:5px;}
-  header h1{font-size:16px;font-weight:bold;}
+  header h1{font-size:16px;font-weight:bold;}  
   .form_validity{margin-bottom:10px;}
   .tbl_workinfo{@include flex_between;margin:3px 0 5px;
     .btn_wrap{margin-left:auto;}

@@ -83,11 +83,9 @@
       <div class="cont_body plan_new">
         <div class="box_compact box_tool">
           <header>
-            <h1><div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> 님의 일정입니다.</h1>
-            <span>
+            
+              <button type="button" class="btn_default">전체일정</button>
+            <span class="btn_wrap">
               <button type="button" class="btn_request">저장</button>
               <button type="button" class="btn_cancel" onclick="location.href='../html/plan.html'">취소</button>
             </span>
@@ -99,15 +97,15 @@
             <dl>
               <dt><label for="plan_tit" class="required">제목</label></dt>
               <dd>
-                <div class="select_custom meeting_room">
+                <div class="select_custom plan_tit_type">
                   <button class="label">
                     <span class="opt_label">선택</span>
                   </button>
                   <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><i class="roomB">B</i>개인</li>
-                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>업무</li>
-                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의</li>
-                    <li class="optionItem" tabindex="0"><i class="roomC">C</i>행사</li>
+                    <li class="optionItem" tabindex="0"><i class="s_personal">B</i>개인</li>
+                    <li class="optionItem" tabindex="0"><i class="s_business">C</i>업무</li>
+                    <li class="optionItem" tabindex="0"><i class="s_meeting">C</i>회의</li>
+                    <li class="optionItem" tabindex="0"><i class="s_event">C</i>행사</li>
                   </ul>
                 </div>
               </dd>
@@ -127,7 +125,7 @@
               </dd>
               <dt><label for="plan_place" class="required">장소</label></dt>
               <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>
-              <dt class="required">회의실</dt>
+              <dt>회의실</dt>
               <dd>
                 <div class="file_input">
                   <div class="select_custom meeting_room">
@@ -139,6 +137,7 @@
                       <li class="optionItem disabled" aria-disabled="true" tabindex="-1"><i class="roomA">A</i>회의실A</li>
                       <li class="optionItem" tabindex="0"><i class="roomB">B</i>회의실B</li>
                       <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
+                      <li class="optionItem" tabindex="0"><i class="roomD">D</i>회의실D</li>
                     </ul>
                   </div>
                   <button type="button" class="btn_form">회의실 예약현황</button>
