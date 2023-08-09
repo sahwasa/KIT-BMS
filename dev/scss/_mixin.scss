@@ -95,7 +95,8 @@ border:1px solid transparent;}
   &:hover{background-color:$white;box-shadow:0 0 3px rgba(0, 0, 0, .2);}
 }
 
-@mixin ico_ext($x,$y) {display:inline-block;width:17px;height:17px;background:url(../images/ico_fileExt.png) #{$x} #{$y} no-repeat;vertical-align:middle;font-size:0;overflow:hidden;text-indent:-9999px;}
+%ico_ext{display:inline-block;width:17px;height:17px;background-image:url(../images/ico_fileExt.png);background-repeat:no-repeat;vertical-align:middle;font-size:0;overflow:hidden;text-indent:-9999px;}
+@mixin ico_ext($x,$y){background-position:#{$x} #{$y};}
 
 @mixin box_style($w_pd,$h_pd){background-color:#edf0f3;padding:$h_pd $w_pd;border-radius:5px;
   header{@include flex_between;margin-bottom:if($h_pd >= 20, 15px, 12px);

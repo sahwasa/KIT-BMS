@@ -383,9 +383,9 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   &.no_thead{border-top:1px solid $th_border_color;
     thead{@include blind;}
   }
-  th,td{padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;}
-  th{border-bottom:1px solid $th_border_color;color:#111;font-weight:bold;}
-  td{border-bottom:1px solid $td_border_color;color:#333;}
+  th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;}
+  th{color:#111;font-weight:bold;}
+  td{border-color:$td_border_color;color:#333;}
 }
 .tbl_use_select td:first-child{width:60px;}
 .tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}
@@ -475,8 +475,9 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     .tui-#{$type}{_width /**/:47px;width:30px;height:30px;background-color:#fff;margin:0 1px;
       &:hover{background-color:#edf0f3;}
     }
-    .tui-ico-#{$type}{@include f-blind;}
-    .tui-ico-#{$type}::before{font-size:10px;line-height:19px;font-weight:bold;color:#000;content:$txt;}
+    .tui-ico-#{$type}{@include f-blind;
+      &::before{font-size:10px;line-height:19px;font-weight:bold;color:#000;content:$txt;}
+    }
   }
 }
 
@@ -491,9 +492,9 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   &>.sortable{width:290px;height:353px;padding:8px 0;border:1px solid #dddddd;overflow-x:hidden;overflow-y:auto;}
   .sortable{
     div:hover,
-    div.hover{background-color:#f9fafc; }
-    div:hover span,
-    div.hover span{color:$red;font-weight:bold;}
+    div.hover{background-color:#f9fafc;
+      & span{color:$red;font-weight:bold;}
+    }
   }
   ul{margin:0;}
   .tree{
@@ -509,9 +510,9 @@ td{white-space:nowrap;text-overflow:ellipsis;}
       &.parent_li>span {cursor:pointer}
     }
     li{position:relative;list-style-type:none;margin:0;position:relative;padding-left:8px;
-      &::before, &::after {content:'';position:absolute;left:8px;top:10px;right:auto;}
-      &::before{border-left:1px dotted #dddddd;height:calc(100% - 1px);top:-10px;width:1px}
-      &::after {border-top:1px dotted #dddddd;width:10px;height:20px;}
+      &::before, &::after {content:'';position:absolute;left:8px;top:10px;right:auto;border-style:dotted;border-color:#ddd;}
+      &::before{border-left-width:1px;height:calc(100% - 1px);top:-10px;width:1px}
+      &::after {border-top-width:1px;width:10px;height:20px;}
       &:last-child::before{height:20px}
       &>span{font-size:0;position:absolute;z-index:1;top:5px;left:15px;}
     }
@@ -534,8 +535,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   .close{
     &>span:first-child::before{content:'\f196';}
     &>ul{display:none;}
-  }
-  
+  }  
 }
 .tree_wrap + .btn_wrap{
   .doneAddOgt,.doneEditOgt{display:none;}
@@ -661,65 +661,65 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 }
 
 /* ico_fileName Extention */
-.ext_bmp{@include ico_ext(-3px, -2px);}
-.ext_jpg{@include ico_ext(-23px, -2px);}
-.ext_gif{@include ico_ext(-43px, -2px);}
-.ext_png{@include ico_ext(-63px, -2px);}
-.ext_tif{@include ico_ext(-83px, -2px);}
-.ext_pdf{@include ico_ext(-103px, -2px);}
-.ext_ppt{@include ico_ext(-123px, -2px);}
-.ext_ai {@include ico_ext(-143px, -2px);}
-.ext_xls{@include ico_ext(-163px, -2px);}
-.ext_psd{@include ico_ext(-183px, -2px);}
-.ext_doc{@include ico_ext(-3px, -22px);}
-.ext_hwp{@include ico_ext(-23px, -22px);}
-.ext_txt{@include ico_ext(-43px, -22px);}
-.ext_c  {@include ico_ext(-63px, -22px);}
-.ext_cpp{@include ico_ext(-83px, -22px);}
-.ext_jav{@include ico_ext(-103px, -22px);}
-.ext_htm{@include ico_ext(-123px, -22px);}
-.ext_css{@include ico_ext(-143px, -22px);}
-.ext_js {@include ico_ext(-163px, -22px);}
-.ext_log{@include ico_ext(-183px, -22px);}
-.ext_m4a{@include ico_ext(-203px, -22px);}
-.ext_swf{@include ico_ext(-223px, -22px);}
-.ext_au {@include ico_ext(-3px, -42px);}
-.ext_mid{@include ico_ext(-23px, -42px);}
-.ext_mod{@include ico_ext(-43px, -42px);}
-.ext_mp2{@include ico_ext(-63px, -42px);}
-.ext_mp3{@include ico_ext(-83px, -42px);}
-.ext_ogg{@include ico_ext(-103px, -42px);}
-.ext_ra {@include ico_ext(-123px, -42px);}
-.ext_rm {@include ico_ext(-143px, -42px);}
-.ext_snd{@include ico_ext(-163px, -42px);}
-.ext_voc{@include ico_ext(-183px, -42px);}
-.ext_wav{@include ico_ext(-203px, -42px);}
-.ext_wma{@include ico_ext(-223px, -42px);}
-.ext_avi{@include ico_ext(-3px, -62px);}
-.ext_mov{@include ico_ext(-23px, -62px);}
-.ext_mpg{@include ico_ext(-43px, -62px);}
-.ext_mv {@include ico_ext(-63px, -62px);}
-.ext_asf{@include ico_ext(-83px, -62px);}
-.ext_asx{@include ico_ext(-103px, -62px);}
-.ext_qt {@include ico_ext(-123px, -62px);}
-.ext_rv {@include ico_ext(-143px, -62px);}
-.ext_wmx{@include ico_ext(-163px, -62px);}
-.ext_mp4{@include ico_ext(-183px, -62px);}
-.ext_fla{@include ico_ext(-203px, -62px);}
-.ext_flv{@include ico_ext(-223px, -62px);}
-.ext_alz{@include ico_ext(-3px, -82px);}
-.ext_arj{@include ico_ext(-23px, -82px);}
-.ext_bzz{@include ico_ext(-43px, -82px);}
-.ext_egg{@include ico_ext(-63px, -82px);}
-.ext_gz {@include ico_ext(-83px, -82px);}
-.ext_jar{@include ico_ext(-103px, -82px);}
-.ext_rar{@include ico_ext(-123px, -82px);}
-.ext_tar{@include ico_ext(-143px, -82px);}
-.ext_tgz{@include ico_ext(-163px, -82px);}
-.ext_zip{@include ico_ext(-183px, -82px);}
-.ext_7z {@include ico_ext(-203px, -82px);}
-.ext_etc{@include ico_ext(-223px, -82px);}
-.ext_html{@include ico_ext(-3px,-102px);}
-.ext_wmv {@include ico_ext(-23px, -102px);}
-.ext_wvz {@include ico_ext(-43px, -102px);}
-.ext_bzs {@include ico_ext(-63px, -102px);}
+.ext_bmp {@extend %ico_ext;@include ico_ext(-3px, -2px);}
+.ext_jpg {@extend %ico_ext;@include ico_ext(-23px, -2px);}
+.ext_gif {@extend %ico_ext;@include ico_ext(-43px, -2px);}
+.ext_png {@extend %ico_ext;@include ico_ext(-63px, -2px);}
+.ext_tif {@extend %ico_ext;@include ico_ext(-83px, -2px);}
+.ext_pdf {@extend %ico_ext;@include ico_ext(-103px, -2px);}
+.ext_ppt {@extend %ico_ext;@include ico_ext(-123px, -2px);}
+.ext_ai  {@extend %ico_ext;@include ico_ext(-143px, -2px);}
+.ext_xls {@extend %ico_ext;@include ico_ext(-163px, -2px);}
+.ext_psd {@extend %ico_ext;@include ico_ext(-183px, -2px);}
+.ext_doc {@extend %ico_ext;@include ico_ext(-3px, -22px);}
+.ext_hwp {@extend %ico_ext;@include ico_ext(-23px, -22px);}
+.ext_txt {@extend %ico_ext;@include ico_ext(-43px, -22px);}
+.ext_c   {@extend %ico_ext;@include ico_ext(-63px, -22px);}
+.ext_cpp {@extend %ico_ext;@include ico_ext(-83px, -22px);}
+.ext_jav {@extend %ico_ext;@include ico_ext(-103px, -22px);}
+.ext_htm {@extend %ico_ext;@include ico_ext(-123px, -22px);}
+.ext_css {@extend %ico_ext;@include ico_ext(-143px, -22px);}
+.ext_js  {@extend %ico_ext;@include ico_ext(-163px, -22px);}
+.ext_log {@extend %ico_ext;@include ico_ext(-183px, -22px);}
+.ext_m4a {@extend %ico_ext;@include ico_ext(-203px, -22px);}
+.ext_swf {@extend %ico_ext;@include ico_ext(-223px, -22px);}
+.ext_au  {@extend %ico_ext;@include ico_ext(-3px, -42px);}
+.ext_mid {@extend %ico_ext;@include ico_ext(-23px, -42px);}
+.ext_mod {@extend %ico_ext;@include ico_ext(-43px, -42px);}
+.ext_mp2 {@extend %ico_ext;@include ico_ext(-63px, -42px);}
+.ext_mp3 {@extend %ico_ext;@include ico_ext(-83px, -42px);}
+.ext_ogg {@extend %ico_ext;@include ico_ext(-103px, -42px);}
+.ext_ra  {@extend %ico_ext;@include ico_ext(-123px, -42px);}
+.ext_rm  {@extend %ico_ext;@include ico_ext(-143px, -42px);}
+.ext_snd {@extend %ico_ext;@include ico_ext(-163px, -42px);}
+.ext_voc {@extend %ico_ext;@include ico_ext(-183px, -42px);}
+.ext_wav {@extend %ico_ext;@include ico_ext(-203px, -42px);}
+.ext_wma {@extend %ico_ext;@include ico_ext(-223px, -42px);}
+.ext_avi {@extend %ico_ext;@include ico_ext(-3px, -62px);}
+.ext_mov {@extend %ico_ext;@include ico_ext(-23px, -62px);}
+.ext_mpg {@extend %ico_ext;@include ico_ext(-43px, -62px);}
+.ext_mv  {@extend %ico_ext;@include ico_ext(-63px, -62px);}
+.ext_asf {@extend %ico_ext;@include ico_ext(-83px, -62px);}
+.ext_asx {@extend %ico_ext;@include ico_ext(-103px, -62px);}
+.ext_qt  {@extend %ico_ext;@include ico_ext(-123px, -62px);}
+.ext_rv  {@extend %ico_ext;@include ico_ext(-143px, -62px);}
+.ext_wmx {@extend %ico_ext;@include ico_ext(-163px, -62px);}
+.ext_mp4 {@extend %ico_ext;@include ico_ext(-183px, -62px);}
+.ext_fla {@extend %ico_ext;@include ico_ext(-203px, -62px);}
+.ext_flv {@extend %ico_ext;@include ico_ext(-223px, -62px);}
+.ext_alz {@extend %ico_ext;@include ico_ext(-3px, -82px);}
+.ext_arj {@extend %ico_ext;@include ico_ext(-23px, -82px);}
+.ext_bzz {@extend %ico_ext;@include ico_ext(-43px, -82px);}
+.ext_egg {@extend %ico_ext;@include ico_ext(-63px, -82px);}
+.ext_gz  {@extend %ico_ext;@include ico_ext(-83px, -82px);}
+.ext_jar {@extend %ico_ext;@include ico_ext(-103px, -82px);}
+.ext_rar {@extend %ico_ext;@include ico_ext(-123px, -82px);}
+.ext_tar {@extend %ico_ext;@include ico_ext(-143px, -82px);}
+.ext_tgz {@extend %ico_ext;@include ico_ext(-163px, -82px);}
+.ext_zip {@extend %ico_ext;@include ico_ext(-183px, -82px);}
+.ext_7z  {@extend %ico_ext;@include ico_ext(-203px, -82px);}
+.ext_etc {@extend %ico_ext;@include ico_ext(-223px, -82px);}
+.ext_wmv {@extend %ico_ext;@include ico_ext(-23px, -102px);}
+.ext_wvz {@extend %ico_ext;@include ico_ext(-43px, -102px);}
+.ext_bzs {@extend %ico_ext;@include ico_ext(-63px, -102px);}
+.ext_html{@extend %ico_ext;@include ico_ext(-3px,-102px);}
