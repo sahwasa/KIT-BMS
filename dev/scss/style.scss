@@ -477,30 +477,32 @@ z-index:10;
   }
 }
 .my_approval{@include flex_between;align-items:stretch;
+  %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:10px;padding:8px;width:calc(100% + 16px);height:100%;transform:translateX(-8px);}
   .status{width:260px;margin-right:20px;
-    ul{display:flex;flex-direction:column;gap:10px;height:100%;max-height:550px;overflow-y:auto;
-      &:empty::before{@include empty_box('요청 문서가 없습니다');background-color:#e3e3e3;}
+    ul{@extend %approval_list;max-height:550px;
+      &:empty::before{@include empty_box('요청 문서가 없습니다');background-color:rgba(0, 0, 0, .05);}
     }
-    li{@include inner_box();margin:5px 10px;
+    li{@include inner_box();
       strong{margin:2px 0 4px;}
       .badge{@include badge_style(54px)}
       dl{
         dt{float:left;min-width:55px;
           &::after{content:":";margin:0 3px;}
         }
-        }
+      }
     }
   }  
-  .ls_stand_by{display:flex;flex-direction:column;overflow: auto;
-    &>li{@include inner_box();margin:5px 10px;padding:10px 15px;
+  .ls_stand_by{@extend %approval_list;
+    &>li{@include inner_box();padding:10px 15px;
+      &:empty{min-height:74px;background-color:rgba(0, 0, 0, .05);box-shadow:none;}
     }
     strong{margin-bottom:7px;}
     i{position:absolute;right:5px;top:5px;@include shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
   }
   .flex_right{flex-grow:1;}
-  span:has(.new_bedge){margin-left:5px;font-size:13px;color:#555;
-    &::before{content:'미확인';}
-    &::after{content:'건';}
+  span:has(.new_bedge){font-size:12px;color:#555;
+    border-left:1px solid #aaa;padding-left:15px;margin-left:10px;box-shadow:1px 0 1px #fff inset;font-weight:normal;
+    i{margin-left:8px;}
   }
 }
 .approval_path{display:flex;margin-top:2px;
@@ -511,7 +513,7 @@ z-index:10;
 }
 .stand_by{
   .ls_stand_by{height:280px;
-    &:empty::before{@include empty_box('결재 대기 미확인 문서가 없습니다.');background-color:#e3e3e3;}
+    &:empty::before{@include empty_box('결재 대기 미확인 문서가 없습니다.');background-color:#e3e3e3;}    
   }
 }
 
