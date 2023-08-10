@@ -64,7 +64,7 @@ border:1px solid transparent;}
 @mixin ico_only{font-size:0;vertical-align:middle;}
 
 @mixin btn($color,$addTxt:false){  
-  line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;cursor:pointer;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
+  display:inline-block;line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;cursor:pointer;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
   &:hover,&:hover::before{color:#fff;background-color:$color;}
   &::before{
     @if($addTxt){
