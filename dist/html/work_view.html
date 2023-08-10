@@ -31,6 +31,7 @@
       <li><a href="#" title="조직도">조직도</a></li>
       <li><a href="#" title="자리배치도">자리배치도</a></li>
       <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="#" title="관리자시스템">관리자시스템</a></li>
     </ul>
     <div class="util">
       <div class="profile">
@@ -120,15 +121,48 @@
         <article class="box_compact box_tool">
           <button type="button" class="btn_default">목록</button>
           <span class="floatR">
-            <button type="button" class="btn_request">수락</button>
-            <button type="button" class="btn_request">반려</button>
+            <button type="button" class="btn_fin">수락</button>
+            <button type="button" class="btn_reject">반려</button>
           </span>
         </article>
         <div class="my_approval">
-          <section class="approval_form flex_right">
-            <header>
-              <h1>제목 텍스트</h1>
-            </header>
+          <section class="work_form flex_right">
+            <article class="box_default_w">
+              <header>
+                <h1>PEWS 관련 회의 요청드립니다</h1>
+              </header>
+              <dl class="set_list">
+                <dt>프로젝트</dt>
+                <dd>[기상청] 2023연 지진조기경보 서비스 체계 개선</dd>
+                <dt>작업범주</dt>
+                <dd>
+                  <ul id="tagList" class="btn_slideclose">
+                    <li>
+                      <div class="tagItem" style="background-color: rgb(227, 220, 219);">
+                        <p>회의</p><button type="button">삭제</button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="tagItem" style="background-color: rgb(229, 210, 230);">
+                        <p>하자보수</p><button type="button">삭제</button>
+                      </div>
+                    </li>
+                  </ul>
+                </dd>
+                <dt class="required">업무기간</dt>
+                <dd>2023-05-09 10:00 ~ 2023-05-09 13:00</dd>
+              </dl>
+              <div class="editor_wrap">
+                <textarea name="editor" id="editor" title="에디터 영역">
+                  <p><span style="font-size:15px;">○ 출장 목적 및 내용</span></p>
+                  <ul style="list-style-type:square;">
+                      <li>&nbsp;</li>
+                      <li>&nbsp;</li>
+                      <li>&nbsp;</li>
+                  </ul>
+                </textarea>
+              </div>
+            </article>
             <section class="cmt_area">
   <header>
     <h1>댓글</h1>
@@ -283,7 +317,7 @@
   </div>
 </section>
           </section>
-          <article class="approval_set">
+          <article class="approval_set work_set">
             <section class="box_default_w">
               <h1>요청자</h1>
               <ul class="referrer_act">
@@ -295,7 +329,6 @@
                   <p class="appr_result">2023-02-10 10:00</p>
                 </li>
               </ul>
-              <ul class="referrer_act"></ul>
             </section>
             <section class="box_default_w">
               <h1>수신자</h1>
@@ -305,22 +338,14 @@
   <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
+                  <p class="appr_result">2023-02-10 10:00 <b class="approve">수락</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
                   <p class="review_txt">반려 사유는 여기에 적습니다.</p>
-                  <p class="appr_result">2023-02-10 10:00 <b class="draft">상신</b></p>
-                </li>
-                <li>
-                  <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-                  <p class="review_txt"></p>
-                  <p class="appr_result">2023-02-10 10:00 <b class="approve">승인</b></p>
-                </li>
-                <li>
-                  <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
                   <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
                 </li>
               </ul>
@@ -371,41 +396,6 @@
     </div>
   </li>
 </ul>
-              <ul class="referrer_act"></ul>
-            </section>
-            <section class="box_default_w">
-              <h1>참조자 이력</h1>
-              <ul class="referrer_act">
-                <li>
-                  <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-                  <p class="appr_result">2023-02-10 10:00 <b class="uncheck">미확인</b></p>
-                </li>
-                <li>
-                  <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-                  <p class="appr_result">2023-02-10 10:00 <b class="check">확인</b></p>
-                </li>
-                <li>
-                  <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-                  <p class="appr_result">2023-02-10 10:00 <b class="ing">접수</b></p>
-                </li>
-                <li>
-                  <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-                  <p class="appr_result">2023-02-10 10:00 <b class="fin">완료</b></p>
-                </li>
-              </ul>
-              <ul class="referrer_act"></ul>
             </section>
             <section class="box_default_w">
               <h1>첨부파일</h1>
@@ -454,27 +444,6 @@
                 </dd>
               </dl>
             </section>
-            <section class="box_default_w">
-              <h1>활동</h1>
-              <ul class="act_lst">
-                <li>
-                  <p class="date-time">2023-02-18 12:30</p>
-                  <span class="act_name">김개발</span>님이 <span class="act_name">박연구</span>님을 참조자 <span class="act_type">추가</span>하였습니다.
-                </li>
-                <li>
-                  <p class="date-time">2023-02-15 12:30</p>
-                  <span class="act_name">박초롱초롱빛나리</span>님이 <span class="act_name">황금독수리 세상을 놀라게하다</span>님을 참조자 <span class="act_type">삭제</span>하였습니다.
-                </li>
-                <li>
-                  <p class="date-time">2023-02-10 12:30</p>
-                  <span class="act_name">박초롱초롱빛나리</span>님이 <span class="act_name">황금독수리 세상을 놀라게하다</span>님을 참조자 <span class="act_type">추가</span>하였습니다.
-                </li>
-              </ul>
-            </section>
-            <section class="box_default_w">
-              <h1>활동</h1>
-              <ul class="act_lst"></ul>
-            </section>
           </article>
         </div>
       </div>
@@ -495,6 +464,7 @@
 <script src="../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
   $(function () {
+    setEditor();// editor common
     fileDropEvt();
   })
 var tribute = new Tribute({

@@ -376,6 +376,9 @@ $(function () {
 function setEditor() {
   ClassicEditor.create(document.querySelector('#editor'), {
     licenseKey: '',
+    image: {
+      toolbar: [ 'toggleImageCaption', 'imageTextAlternative' ]
+  },
     list: {
       properties: {
         styles: true,

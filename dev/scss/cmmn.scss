@@ -60,19 +60,31 @@ $blue:#2974e4;
 $yellow:#ff9702;
 $gray:#999;
 
-.draft{background-color:#30b4e9;} // 상신 
-.ing{background-color:#2974e4;} // 승인 진행중 수행중 진행 결재진행
+$draft:#30b4e9; // 상신 
+$ing:#2974e4; // 진행중 수행중 진행 결재진행 전결
+$fin:#35b821; // 승인 결재완료 종료
+$agree:#be68e0; // 합의
+$reject:#ff7575; // 회수 반려
+$wait:#f0a44f; // 준비 결재대기
+$defer:#f58d39; // 후결대기
+$done:#55b2b7; // 후결
+$cc:#8867c9; // 참조
+$relay:#c94b9f; // 전달
+
+ // 기본 배경용
+.draft{@include badge_color($draft)} // 상신
+.ing{@include badge_color($ing)} // 진행중 수행중 진행 결재진행
 .approve,
-.fin{background-color:#56b1b6;} // 결재완료 종료
-.agree{background-color:#a75ac5;} // 합의
+.fin{@include badge_color($fin)} // 수락 승인 결재완료 종료
+.agree{@include badge_color($agree)} // 합의
 .return,
-.reject{background-color:#ff7575;} // 회수 반려
+.reject{@include badge_color($reject)} // 회수 반려
 .ready,
-.wait{background-color:#fca534;} // 준비 결재대기
-.defer{background-color:#ff7300;} // 후결대기
-.done{background-color:#05b4d9;} // 전결 후결
-.cc{background-color:#8a50f7;} // 참조
-.relay{background-color:#cc60d6;} // 전달
+.wait{@include badge_color($wait)} // 준비 결재대기
+.defer{@include badge_color($defer)} // 후결대기
+.done{@include badge_color($done)} // 전결 후결
+.cc{@include badge_color($cc)} // 참조
+.relay{@include badge_color($relay)} // 전달
 .public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
 
@@ -275,9 +287,18 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   }
 }
 
-
 $btn_red:#f05050;
 $btn_gray:#979797;
+.btn_ing{@include full_btn($ing);}
+.btn_done{@include full_btn($done);}
+.btn_fin{@include full_btn($fin);}
+.btn_return,
+.btn_reject{@include full_btn($reject);}
+.btn_defer{@include full_btn($defer);}
+.btn_relay{@include full_btn($relay);}
+.btn_agree{@include full_btn($agree);}
+.btn_cc{@include full_btn($cc);}
+.btn_print{@include full_btn($btn_gray);}
 .btn_default,
 .btn_dplc{@include btn($btn_gray);}
 .btn_save,
@@ -287,6 +308,9 @@ $btn_gray:#979797;
 .btn_modify,
 .btn_del{@include btn($btn_gray);}
 .btn_ogt{@include btn(#aaa);color:#111;background-color:#ebebeb;cursor:pointer;}
+.btn_request{@include btn($btn_gray);color:#fff;border-color:#d83c47;background-color:$btn_red;cursor:pointer;
+  &:hover{background-color:#d83c47;}
+}
 .btn_request{@include btn($btn_gray);color:#fff;border-color:#d83c47;background-color:$btn_red;cursor:pointer;
   &:hover{background-color:#d83c47;}
 }
@@ -440,7 +464,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 }
 .tbl_ico{@include shape(19px, 19px);display:inline-flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
 .ico_attach::before{@include fontello('\ec66');color:#848484;font-size:14px;}
-.tbl_badge{@include badge_style(50px);min-width:50px;font-size:11px;}
+.tbl_badge{@include badge_style(50px);min-width:50px;font-size:11px;font-weight:bold;}
 .check_group{display:inline-flex;justify-content:flex-start;
   li{margin-right:10px;}
   *{align-self:center;vertical-align:middle;}

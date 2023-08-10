@@ -291,7 +291,7 @@ $columnGap:25px;
       &::before{background-image:url(../images/btn_top_svc_on.png);}
     }
   }
-  @for $i from 1 to 4{
+  @for $i from 1 to 5{
     & li:nth-child(#{$i}) a::before{
       background-position-y:-35px * ($i - 1);
     }
@@ -500,7 +500,7 @@ z-index:10;
     }
     li{@include inner_box(8px);min-height:99px;
       strong{margin:2px 0 4px;}
-      .badge{@include badge_style(54px)}
+      .badge{@include badge_style(54px);font-weight:bold;}
       dl{
         dt{float:left;min-width:55px;
           &::after{content:":";margin:0 3px;}
@@ -631,10 +631,15 @@ z-index:10;
     &::before{@include shape(1px, 10px);background-color:#ddd;margin-right:10px;}
   }
   .attach_list:empty::before{@include empty_box('첨부된 파일이 없습니다.');}
+  $_signType:('draft': $draft,'ing': $ing,'approve': $fin,'fin': $fin,'reject': $reject,'return': $reject,'ready': $wait,'wait': $wait,'defer': $defer,'done': $done,'agree': $agree,'cc': $cc,'relay': $relay);
+  @each $type, $color in $_signType{
+    .#{$type}{border-color:$color !important;color:$color !important;background:#fff !important;}
+  }
 }
 .approval_view{
   .appr_result{align-self:flex-end;
-    b{@include badge_style(null);padding:1px 5px 0;font-size:11px;}
+    b{@include badge_style(null);padding:1px 5px 0;font-size:11px;font-weight:bold;}
+    button{line-height:21px;}
   }
   .appr_path li{flex-direction:column;align-items:flex-start;
     .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;
@@ -659,7 +664,7 @@ z-index:10;
     .appr_result{font-size:12px;}
     $_signType:('uncheck': #b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
     @each $type, $color in $_signType{
-      .#{$type}{background-color:$color;}
+      .#{$type}{border-color:$color !important;color:$color !important;}
     }
   }
 }
@@ -921,4 +926,22 @@ $_proj_stacked:(
 // work
 .tbl_work_share{
   td:nth-of-type(2){text-align: left;}
+}
+.work_form{
+  header{padding-left:10px;
+    h1{font-size:17px;font-weight:bold;}
+  }
+  .set_list{display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;margin:25px 0 20px;
+    dt{position:relative;margin-bottom:0;padding-left:15px;font-size:14px;font-weight:bold;
+      &::before{position:absolute;left:2px;}
+    }
+    .rel_doc{align-self:flex-start;line-height:28px;}
+    .rel_doc + dd{display:flex;flex-flow:column wrap;gap:5px;
+      label{white-space:nowrap;padding-left:15px;font-size:12px;color:#999;margin-left:auto;}
+    }
+    a:hover{text-decoration:underline;}
+  }
+  & + .work_set{margin-top:0;
+    &>:first-child{margin-top:0;}
+  }
 }

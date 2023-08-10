@@ -53,7 +53,7 @@
 @mixin badge_style($max_w:auto){display:inline-block;max-width:$max_w;
 color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
 border:1px solid transparent;}
-
+@mixin badge_color($color){border-color:$color !important;color:#fff !important;background:$color !important;}
 @mixin shape($w_size,$h_size){
   display:inline-block;content:"";@include f_blind;overflow:hidden;
   width:$w_size;height:$h_size;
@@ -62,7 +62,6 @@ border:1px solid transparent;}
   display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;
 }
 @mixin ico_only{font-size:0;vertical-align:middle;}
-
 @mixin btn($color,$addTxt:false){  
   line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;cursor:pointer;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
   &:hover,&:hover::before{color:#fff;background-color:$color;}
@@ -71,6 +70,10 @@ border:1px solid transparent;}
       color:$color;font-size:15px;margin-right:3px;
     }
   }
+}
+@mixin full_btn($color){  
+  line-height:26px;border:1px solid darken($color, 5%);background-color:$color;border-radius:2px;padding:0 8px;cursor:pointer;font-weight:bold;letter-spacing:-.32px;color:#fff;
+  &:hover,&:hover::before{border-color:$color;background-color:#fff;color:darken($color, 5%);}
 }
 @mixin form_btn{
   line-height:23px;border:1px solid #aaa;border-radius:2px;padding:0 7px;font-size:12px;cursor:pointer;
