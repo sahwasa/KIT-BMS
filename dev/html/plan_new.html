@@ -37,11 +37,11 @@
                   <button class="label">
                     <span class="opt_label">선택</span>
                   </button>
-                  <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><i class="s_personal">B</i>개인</li>
-                    <li class="optionItem" tabindex="0"><i class="s_business">C</i>업무</li>
-                    <li class="optionItem" tabindex="0"><i class="s_meeting">C</i>회의</li>
-                    <li class="optionItem" tabindex="0"><i class="s_event">C</i>행사</li>
+                  <ul class="optionList" onchange="console.log('ㅇㅇ')">
+                    <li class="optionItem" tabindex="0" data-value="personal"><i class="s_personal">B</i>개인</li>
+                    <li class="optionItem" tabindex="0" data-value="business"><i class="s_business">C</i>업무</li>
+                    <li class="optionItem" tabindex="0" data-value="meeting"><i class="s_meeting">C</i>회의</li>
+                    <li class="optionItem" tabindex="0" data-value="event"><i class="s_event">C</i>행사</li>
                   </ul>
                 </div>
               </dd>
@@ -50,11 +50,11 @@
               <dd>
                 <div class="period_custom">
                   <span>
-                    <input type="date" id="plan_period" name="start_date" title="시작일">
+                    <input type="date" min="0000-01-01" max="9999-12-31" id="plan_period" name="start_date" title="시작일">
                     <input type="time" name="start_time" title="시작시간">
                   </span>
                   <span>
-                    <input type="date" title="종료일" name="end_date">
+                    <input type="date" min="0000-01-01" max="9999-12-31" title="종료일" name="end_date">
                     <input type="time" title="종료시간" name="end_time">
                   </span>
                 </div>
@@ -68,12 +68,12 @@
                     <button class="label">
                       <span class="opt_label">선택</span>
                     </button>
-                    <ul class="optionList">
+                    <ul class="optionList" onchange="console.log('ㅇㅇ')">
                       <li class="optionItem" tabindex="0"><span class="opt_label">선택안함</span></li>
-                      <li class="optionItem disabled" aria-disabled="true" tabindex="-1"><i class="roomA">A</i>회의실A</li>
-                      <li class="optionItem" tabindex="0"><i class="roomB">B</i>회의실B</li>
-                      <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
-                      <li class="optionItem" tabindex="0"><i class="roomD">D</i>회의실D</li>
+                      <li class="optionItem disabled" aria-disabled="true" tabindex="-1" data-value="A"><i class="roomA">A</i>회의실A</li>
+                      <li class="optionItem" tabindex="0" data-value="B"><i class="roomB">B</i>회의실B</li>
+                      <li class="optionItem" tabindex="0" data-value="C"><i class="roomC">C</i>회의실C</li>
+                      <li class="optionItem" tabindex="0" data-value="D"><i class="roomD">D</i>회의실D</li>
                     </ul>
                   </div>
                   <button type="button" class="btn_form">회의실 예약현황</button>

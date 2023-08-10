@@ -116,8 +116,9 @@ border:1px solid transparent;}
   span{display:inline-block;line-height:16px;}
 }
 
+@mixin tit{font-size:16px;color:#000;font-weight:bold;margin-bottom:15px;}
 @mixin tit_bullet($target,$size:6){
-  #{$target}{font-size:16px;color:#000;font-weight:500;margin-bottom:15px;
+  #{$target}{@include tit;font-weight:500;
     &::before{position:relative;top:-3px;display:inline-block;@include shape(#{$size}px,#{$size}px);margin-right:7px;border-radius:50%;background-color:#c4c4c4;}
   }
   @if($size < 4){
