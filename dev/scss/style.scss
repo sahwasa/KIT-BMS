@@ -408,8 +408,9 @@ $snbWidth:250px;
       &::before{display:none;}
   }
   .plan_add{padding:$snb_item_padding;}
-  .user_module{flex-direction:column;gap:0;}
-
+  .tooltip{left:0;right:auto;
+    .user_module{flex-direction:column;gap:0;}
+  }
   .nav_btn_add{position:absolute;top:10px;right:15px;@include ico_only;
     &::before{display:flex;align-items:center;justify-content:center;width:21px;height:21px;font-size:13px;content:"╊";border:1px solid $border-color;color:#989898;border-radius:2px;}
     &:hover::before{border-color:#989898;}
@@ -489,7 +490,7 @@ z-index:10;
   }
 }
 .my_approval{@include flex_between;align-items:stretch;
-  %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:calc(100% - 39px);transform:translate(-5px,-5px);
+  %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:541px;transform:translate(-5px,-5px);
     &>li{
       &:empty{background-color:rgba(0, 0, 0, .05);box-shadow:none!important;}
     }
@@ -742,7 +743,7 @@ z-index:10;
  // tree common
 .ipt_wrap{border:none;
   dl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
-  dt{@include form_label;width:100%;margin-top:15px;}
+  dt{@include form_label;display:flex;gap:5px;width:100%;margin-top:15px; }
   dt:first-of-type{margin-top:0;}
   .flex_full{flex-grow:1;}
   //dd:first-of-type::before{display:none;}
@@ -771,7 +772,7 @@ z-index:10;
 }
 .tbl_plan_preview{display:flex;width:100%;}
 $tbl_plan_bordercolor:#e0e0e0;
-$member_width:160px;
+$member_width:100px;
 %inline_flex{display:inline-flex;width:100%;height:100%;}
 %flex100{display:flex;width:100%;height:100%;}
 %box_center{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;}
@@ -791,6 +792,8 @@ $member_width:160px;
  .daylabel,
  .timelabel{@extend %inline_flex;height:24px;border:1px solid $tbl_plan_bordercolor;border-width:1px 0;-webkit-box-pack:justify;justify-content:space-between;
   div{@extend %inline_flex;font-size:12px;line-height:22px;@extend %box_center;border-left:1px solid $tbl_plan_bordercolor;}
+  .sat{color:$blue;background-color:rgba(215, 229, 255, .3);}
+  .holyday{color:$red;background-color:rgba(255, 212, 212, 0.3);}
 }
 
 %plan_item{display:block;position:absolute;top:-1px;bottom:-1px;border:1px solid #e0e0e0;height:auto;line-height:initial;}
@@ -823,7 +826,7 @@ $_planTypes:(
   'busy':'%busy',
   'absence':'%absence'
 );
-.plan_legend{float:right;
+.plan_legend{float:right;margin-left:auto;
   ul{display:flex;gap:10px;}
   li{font-weight:normal;
     &::before{@include shape(14px,14px);margin-right:5px;vertical-align:text-bottom;}
@@ -884,10 +887,7 @@ $_planTypes:(
   .proj_box{@include proj_box(false);padding:15px 16px 12px;}  
 }
 $_proj_stacked:(
-  'chart_fin':#56b1b6,
-  'chart_delay':#ff7575,
-  'chart_todo':#ffc938,
-  'chart_termless':#a9b4be
+  'chart_fin':#56b1b6, 'chart_delay':#ff7575, 'chart_todo':#ffc938, 'chart_termless':#a9b4be
 );
 .stacked_bar{display:flex;height:12px;border-radius:3px;overflow:hidden;
   li{@include f_blind;
@@ -907,6 +907,17 @@ $_proj_stacked:(
     }
   }
 }
+.project_new{
+  .new_contents{display: flex;justify-content: space-between;gap:$columnGap;
+    .ipt_wrap{flex:1;}
+  }
+  
+}
+
+// work
+.tbl_work_share{
+  td:nth-of-type(2){text-align: left;}
+}
 
 //svc
 .cal_wrap{@include flex_between;gap:$columnGap;align-items:flex-start;flex-wrap:wrap;
@@ -921,11 +932,6 @@ $_proj_stacked:(
 }
 .lst_room li{margin-top:15px;
   label::after{@include shape(12px, 12px);background-color:#05b4d9;margin-left:5px;vertical-align:middle;margin-top:-1px;}
-}
-
-// work
-.tbl_work_share{
-  td:nth-of-type(2){text-align: left;}
 }
 .work_form{
   header{padding-left:10px;

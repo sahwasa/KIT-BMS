@@ -210,7 +210,6 @@ hr,
   &::before{font-size:14px;}
 }
 
-
 // ico_fontello
 .ico_org{vertical-align:middle;
   &::before{font-size:17px;vertical-align:middle;}
@@ -287,6 +286,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   }
 }
 
+
 $btn_red:#f05050;
 $btn_gray:#979797;
 .btn_ing{@include full_btn($ing);}
@@ -322,6 +322,10 @@ $btn_gray:#979797;
 }
 .myform_set{@include shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align:center;
   &::before{@include fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
+  &:hover{outline:4px solid #bec7d2;background-color:transparent;}
+}
+.i_refresh{@include shape(20px,20px);background-color:#e0e0e0;border-radius:5px;text-align:center;
+  &::before{@include fontello('\e8a7');font-size:14px;color:#848890;line-height:20px;}
   &:hover{outline:4px solid #bec7d2;background-color:transparent;}
 }
 .myappr_del{font-size:0;
@@ -373,6 +377,7 @@ $btn_gray:#979797;
   *{flex-shrink:0;}
 }
 
+legend{@include tit;}
 // search
 .search_box{
   $b_color:#c5c5c5;
@@ -534,9 +539,9 @@ td{white-space:nowrap;text-overflow:ellipsis;}
       &.parent_li>span {cursor:pointer}
     }
     li{position:relative;list-style-type:none;margin:0;position:relative;padding-left:8px;
-      &::before, &::after {content:'';position:absolute;left:8px;top:10px;right:auto;border-style:dotted;border-color:#ddd;}
-      &::before{border-left-width:1px;height:calc(100% - 1px);top:-10px;width:1px}
-      &::after {border-top-width:1px;width:10px;height:20px;}
+      &::before, &::after {content:'';position:absolute;left:8px;top:10px;right:auto;}
+      &::before{border-left:1px dotted #dddddd;height:calc(100% - 1px);top:-10px;width:1px}
+      &::after {border-top:1px dotted #dddddd;width:10px;height:20px;}
       &:last-child::before{height:20px}
       &>span{font-size:0;position:absolute;z-index:1;top:5px;left:15px;}
     }

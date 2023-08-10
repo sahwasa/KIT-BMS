@@ -71,6 +71,13 @@ border:1px solid transparent;}
     }
   }
 }
+@mixin cancel($w:15px,$h:18px,$color:#fff){position:relative;align-self:center;width:$w;height:$h;font-size:0;
+  &::before,&::after{position:absolute;top:0;display:inline-block;content:'';width:2px;height:$h;background-color:$color;}
+  &::before{transform:rotate(45deg);}
+  &::after{transform:rotate(135deg);}
+  &:hover::before,
+  &:hover::after{box-shadow:0 0 2px darken($color: $color, $amount:.5);}
+}
 @mixin full_btn($color){  
   line-height:26px;border:1px solid darken($color, 5%);background-color:$color;border-radius:2px;padding:0 8px;cursor:pointer;font-weight:bold;letter-spacing:-.32px;color:#fff;
   &:hover,&:hover::before{border-color:$color;background-color:#fff;color:darken($color, 5%);}
@@ -119,8 +126,9 @@ border:1px solid transparent;}
   span{display:inline-block;line-height:16px;}
 }
 
+@mixin tit{font-size:16px;color:#000;font-weight:bold;margin-bottom:15px;}
 @mixin tit_bullet($target,$size:6){
-  #{$target}{font-size:16px;color:#000;font-weight:500;margin-bottom:15px;
+  #{$target}{@include tit;font-weight:500;
     &::before{position:relative;top:-3px;display:inline-block;@include shape(#{$size}px,#{$size}px);margin-right:7px;border-radius:50%;background-color:#c4c4c4;}
   }
   @if($size < 4){
