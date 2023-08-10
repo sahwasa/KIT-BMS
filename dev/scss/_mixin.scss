@@ -72,6 +72,13 @@ border:1px solid transparent;}
     }
   }
 }
+@mixin cancel($w:15px,$h:18px,$color:#fff){position:relative;align-self:center;width:$w;height:$h;font-size:0;
+  &::before,&::after{position:absolute;top:0;display:inline-block;content:'';width:2px;height:$h;background-color:$color;}
+  &::before{transform:rotate(45deg);}
+  &::after{transform:rotate(135deg);}
+  &:hover::before,
+  &:hover::after{box-shadow:0 0 2px darken($color: $color, $amount:.5);}
+}
 @mixin form_btn{
   line-height:23px;border:1px solid #aaa;border-radius:2px;padding:0 7px;font-size:12px;cursor:pointer;
   &:hover{color:#fff;}
