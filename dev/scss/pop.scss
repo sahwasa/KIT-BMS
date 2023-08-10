@@ -6,11 +6,7 @@
   form>*{box-sizing: border-box;padding:0.5em;}
   .p_header {display:flex;padding:7px 18px 8px;background-color:#e42b29;color:#fff;font-size:16px;letter-spacing:-0.4px;
     strong {flex:1;}
-    .cancel{position:relative;align-self:center;width:15px;height:18px;font-size:0;
-      &::before,&::after{position:absolute;top:0;display:inline-block;content:'';width:2px;height:18px;background-color:#fff;}
-      &::before{transform:rotate(45deg);}
-      &::after{transform:rotate(135deg);}
-    }
+    .cancel{@include cancel();}
   }
   .p_info{padding:30px 30px 25px 55px;background-color:#fcf2f2;
     h3{position:relative;color:$red;letter-spacing:-0.33px;
@@ -186,8 +182,10 @@
   td{white-space: normal}
 }
 
+header .btnClose{@include cancel(10px,11px,#bebebe);}
 //alert
 .p_alert{position:absolute;top:59px;right:10px;width:300px; background-color:$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;
+z-index:10000;
   header{@include flex_between;height:40px;padding:0 15px;border-bottom:1px solid #d7d7d7;
     h1{font-size:15px;color:#404654;font-weight:bold;letter-spacing:-.7px;}
   }
@@ -195,8 +193,9 @@
     li{border:1px solid #d7d7d7;border-top:none;padding:15px;}
   }
   .alert_tit{@include flex_between;margin-bottom:20px;  
-    h2{flex:1 auto;font-size:14px;font-weight:bold;letter-spacing:-.35px;
-      &::before{float: left;width:34px;height:34px;border-radius:50%;background-color:#ffecec; @include fontello('\e978');font-size:14px;color:$red;text-align: center;line-height:34px;margin-right:12px;}
+    h2{flex:1 0 auto;font-size:14px;font-weight:bold;letter-spacing:-.35px;
+    text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
+      &::before{float: left;width:34px;height:34px;border-radius:50%;background-color:#ffecec;@include fontello('\e978');font-size:14px;color:$red;text-align: center;line-height:34px;margin-right:12px;}
     }
     em{display:block;color:$red;font-size:12px;letter-spacing:-.6px;}
     .alert_info{display:flex;flex-direction:column;align-items:flex-end;color:#b6b5b5;font-size:11px;letter-spacing:-.28px;}
@@ -204,16 +203,16 @@
   .alert_txt{color:#71798a;font-size:12px;line-height:17px;}
   .alert_result{margin-top:15px;background-color:#ecf0fa;border-radius:3px;padding:12px;font-size:12px;
     .result_txt{display:flex;gap:4px;font-weight:bold;color:#71798a;
-      em{color:#5d85d9;}
+      em{flex-shrink:0;color:#5d85d9;}
     }
     .date{color:#b6b5b5;}
   }
   .alert_tab{
     $border-color:#d7d7d7;
-    .tab{gap:0;justify-content:space-between;border-color:$border-color;border-bottom:none;
-      li{min-width:auto;flex:1;}
-      a{top:0;border-radius:0;border-color:$border-color;border-width:0 0 0 1px;font-size:12px;letter-spacing:-.83px;padding:8px 0 7px;color:#adadad;}
-      .on a{color:#ff6664;}
+    .tab{gap:0;justify-content:space-between;border-color:$border-color;padding-left:1px;border-bottom-width:0;
+      li{min-width:auto;flex:1;margin-left:-1px;}
+      a{top:0;height:100%;line-height:1.5;border-radius:0;border-color:$border-color;border-width:0 1px 1px;font-size:12px;letter-spacing:-.83px;color:#adadad;}
+      .on a{color:#ff6664;border-bottom-color:$white;}
     }
     .tab_container{background-color:$white;
       .tab_contents{margin-top:0;}

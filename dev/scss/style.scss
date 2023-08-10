@@ -738,7 +738,7 @@ z-index:10;
  // tree common
 .ipt_wrap{border:none;
   dl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
-  dt{@include form_label;width:100%;margin-top:15px;}
+  dt{@include form_label;display:flex;gap:5px;width:100%;margin-top:15px; }
   dt:first-of-type{margin-top:0;}
   .flex_full{flex-grow:1;}
   //dd:first-of-type::before{display:none;}
@@ -821,7 +821,7 @@ $_planTypes:(
   'busy':'%busy',
   'absence':'%absence'
 );
-.plan_legend{float:right;
+.plan_legend{float:right;margin-left:auto;
   ul{display:flex;gap:10px;}
   li{font-weight:normal;
     &::before{@include shape(14px,14px);margin-right:5px;vertical-align:text-bottom;}

@@ -297,6 +297,10 @@ $btn_gray:#979797;
   &::before{@include fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
   &:hover{outline:4px solid #bec7d2;background-color:transparent;}
 }
+.i_refresh{@include shape(20px,20px);background-color:#e0e0e0;border-radius:5px;text-align:center;
+  &::before{@include fontello('\e8a7');font-size:14px;color:#848890;line-height:20px;}
+  &:hover{outline:4px solid #bec7d2;background-color:transparent;}
+}
 .myappr_del{font-size:0;
   &::before{@include fontello('\e92a');margin-right:5px;font-size:16px;color:#b3b3b3;}
   &:hover::before{color:#353535;}

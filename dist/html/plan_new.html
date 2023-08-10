@@ -216,8 +216,7 @@
 </ul>
                 <p class="ipt_info">참여자와 일정이 공유됩니다.</p>                
               </dd>
-              <dt>
-                참여자 일정
+              <dt>참여자 일정<button type="button" class="i_refresh" title="참여자 일정 검색">새로고침</button>
                 <div class="plan_legend">
                   <ul>
                     <li class="select">선택한 시간</li>
@@ -370,6 +369,256 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<article class="p_alert" id="alert">
+  <header>
+    <h1>통합알림</h1>
+    <button class="btnClose" onclick="$('#alert').hide();">닫기</button>
+  </header>
+  <section class="alert_tab">
+    <ul class="tab tab_wrap">
+      <li class="on"><a href="#tab01">읽지 않음<i class="new_bedge">8</i></a></li>
+      <li class=""><a href="#tab02">전체</a></li>
+    </ul>
+    <section class="tab_container">
+      <article class="tab_contents" id="tab01">
+        <ul class="alert_lst">
+          <li>
+            <div class="alert_tit">
+              <h2><em>전자결재</em>휴가신청서</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>문서제목 </p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>반려</em>
+                <p>권기봉님이 반려하였습니다.</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>프로젝트</em>KIT업무관리시스템</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>KIT업무관리시스템 프로젝트에 참여되었습니다.</p>
+            </div>            
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>일정</em>OOO회의</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">글쓴이</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>23-04-02에 회의참석을 요청드려요.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>참석응답</em>
+                <p>바로가기</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>업무제목</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">글쓴이</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>@강성부 안녕하세요? 제가 멘션을 하였답니다ㅎㅎ</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>댓글쓰기</em>
+                <p>바로가기</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+        </ul>
+      </article>
+      <article class="tab_contents" id="tab02" style="display: none;">
+        <ul class="alert_lst">
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝d트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+          <li>
+            <div class="alert_tit">
+              <h2><em>업무</em>프로젝트 만들기</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
+                있습니다.</p>
+            </div>
+            <div class="alert_result">
+              <div class="result_txt">
+                <em>업무 종료</em>
+                모든 담당자가 업무를 완료함</p>
+              </div>
+              <span class="date">2023-01-01 12:30</span>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </section>
+</article>
 <script src="../plugins/jquery.min.js"></script>
 <script src="../plugins/jquery-ui.min.js"></script>
 <script src="../plugins/jquery.MultiFile.js"></script>
