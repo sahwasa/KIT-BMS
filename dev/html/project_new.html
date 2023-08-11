@@ -20,7 +20,7 @@
         <div class="box_compact box_tool">
           <header>
             <span>
-              <button type="button" class="btn_default">목록</button>
+              <a href="../html/projectList.html" class="btn_default">프로젝트 홈</a>
             </span>
             <span>
               <button type="button" class="btn_add">추가</button>
@@ -47,22 +47,9 @@
                   <option value="">기타</option>
                 </select>
               </dd>
-              <dt>참여자</dt>
-              <dd class="flex_full">
-                <div class="file_input">
-                  <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
-                  @@include('../inc/data_emp_name.html')
-                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                </div>
-                @@include('../inc/module_slide_user.html')
-                <p class="ipt_info">참여자와 일정이 공유됩니다.</p>                
-              </dd>
-              <dt><label for="" class="required">업무기간</label></dt>
-              <dd>
-                @@include('../inc/module_period.html')
-              </dd>              
-              <dt><label for="" class="required">프로젝트명</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
+              <dt><label for="" class="required">프로젝트명 &sol; 약어</label></dt>
+              <dd class="flex_full"><input type="text" id="" title="프로젝트명"></dd>
+              <dd class="divideL"><input type="text" id="" title="약어"></dd>
               <dt class="required">발주기관</dt>
               <dd class="flex_full">
                 <div class="file_input">
@@ -74,22 +61,68 @@
                   </select>
                 </div>
               </dd>
-              <dt class="required">공개여부</dt>
-              <dd>
-                <div class="btn_switch">
-                  <input type="radio" id="open" name="disclosure" checked>
-                  <label for="open">공개</label>
-                  <input type="radio" id="private" name="disclosure">
-                  <label for="private">비공개</label>
-                </div>
+              <dd class="flex_full">
+                <ul class="ipt_innerwrap">
+                  <li>
+                    <em class="required">담당자</em>
+                    <div class="file_input">
+                      <input type="text" id="" placeholder="임직원명" list="nameList">
+                      @@include('../inc/data_emp_name.html')
+                    </div>
+                  </li>
+                  <li>
+                    <em class="required">수행PM</em>
+                    <div class="file_input">
+                      <input type="text" id="" placeholder="임직원명" list="nameList">
+                      @@include('../inc/data_emp_name.html')
+                    </div>
+                  </li>
+                </ul>
+              </dd>              
+              <dd class="flex_full">
+                <ul class="ipt_innerwrap">
+                  <li>
+                    <em><label for="" class="required">업무기간</label></em>
+                    @@include('../inc/module_period.html')
+                  </li>
+                  <li>
+                    <em><label for="" class="required">사용인감</label></em>
+                    <select name="" id="" class="alignC">
+                      <option value="">○</option>
+                      <option value="">△</option>
+                      <option value="">□</option>
+                    </select>
+                  </li>
+                  <li>
+                    <em class="required">공개여부</em>
+                    <div class="btn_switch">
+                      <input type="radio" id="open" name="disclosure" checked>
+                      <label for="open">공개</label>
+                      <input type="radio" id="private" name="disclosure">
+                      <label for="private">비공개</label>
+                    </div>
+                  </li>
+                  <li>
+                    <em><label for="" class="required">상태</label></em>
+                    <select name="" id="">
+                      <option value="">준비</option>
+                      <option value="">수행중</option>
+                      <option value="">하자보수</option>
+                      <option value="">종료</option>
+                      <option value="">취소</option>
+                      <option value="">기타</option>
+                    </select>
+                  </li>
+                </ul>
               </dd>
-              <dt><label for="" class="required">사용인감</label></dt>
-              <dd>
-                <select name="" id="">
-                  <option value="">○</option>
-                  <option value="">△</option>
-                  <option value="">□</option>
-                </select>
+              <dt>참여자</dt>
+              <dd class="flex_full">
+                <div class="file_input">
+                  <input type="text" id="" placeholder="임직원명" list="nameList">
+                  @@include('../inc/data_emp_name.html')
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                </div>
+                @@include('../inc/module_slide_user.html')
               </dd>
               <dt><label for="">비고</label></dt>
               <dd class="flex_full"><input type="text" id=""></dd>
@@ -99,26 +132,41 @@
             <legend>계약정보</legend>
             <dl>
               <dt><label for="" class="required">계약기간</label></dt>
-              <dd>
-                @@include('../inc/module_period.html')
+              <dd class="flex_full">
+                    @@include('../inc/module_period.html')
               </dd>
-              <dt><label for="">컨소시엄 여부</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
-              <dt><label for="">컨소시엄 구성</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
-              <dt><label for="">지분율</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
-              <dt><label for="">사업예산(원)</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
-              <dt><label for="">계약금액(원)</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
-              <dt><label for="">외주비용(원)</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
-              <dt><label for="">수행비(원)</label></dt>
-              <dd class="flex_full"><input type="text" id=""></dd>
+              <dt><label for="">컨소시엄 총괄기관 &sol; 구성</label></dt>
+              <dd><input type="text" placeholder="컨소시엄 총괄기관" id=""></dd>
+              <dd class="flex_full divideL"><input type="text" id="" placeholder="컨소시엄 구성"></dd>
+              <dt><label for="">지분율(&percnt;)</label></dt>
+              <dd><input type="number" id="" class="alignC"></dd>
+              <dd class="flex_full">
+                <ul class="ipt_innerwrap">
+                  <li>
+                    <em><label for="">사업예산(원)</label></em>
+                    <input type="number" id="" class="alignR">
+                  </li>
+                  <li>
+                    <em><label for="">계약금액(원)</label></em>
+                    <input type="number" id="" class="alignR">
+                  </li>
+                  <li>
+                    <em><label for="">외주비용(원)</label></em>
+                    <input type="number" id="" class="alignR">
+                  </li>
+                  <li>
+                    <em><label for="">수행비(원)</label></em>
+                    <input type="number" id="" class="alignR">
+                  </li>
+                </ul>
+              </dd>
               <dt><label for="" class="required">하자보수기간</label></dt>
               <dd>
                 @@include('../inc/module_period.html')
+              </dd>
+              <dt><label for="">계약서</label></dt>
+              <dd class="flex_full">
+                @@include('../inc/module_file_attach.html')
               </dd>
               <dt><label for="">비고</label></dt>
               <dd class="flex_full"><input type="text" id=""></dd>

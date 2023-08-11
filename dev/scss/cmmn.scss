@@ -266,10 +266,6 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   .ico_select,
   i{position:relative;top:-2px;@include shape(20px, 20px);display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-right:5px;}  
   &.prio{width:90px;}
-  $prio_fontSize:20px;
-  .high_prio::before{@include fontello('\f102');color:$red;font-size:$prio_fontSize;}
-  .normal_prio::before{@include shape(14px, 7px);border:2px solid $yellow;border-width:2px 0;margin-top:1px;}
-  .low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}
   &.meeting_room{width:100px;
     i{width:15px;height:15px;top:0;}
     $_roomType:('A': #ff6347,'B':#56b1b6, 'C':#b49bdb, 'D':#9167df);
@@ -285,7 +281,10 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     }
   }
 }
-
+$prio_fontSize:20px;
+.high_prio::before{@include fontello('\f102');color:$red;font-size:$prio_fontSize;}
+.normal_prio::before{@include shape(14px, 7px);border:2px solid $yellow;border-width:2px 0;margin-top:1px;}
+.low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}
 
 $btn_red:#f05050;
 $btn_gray:#979797;

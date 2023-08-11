@@ -746,7 +746,10 @@ z-index:10;
   dt{@include form_label;display:flex;gap:5px;width:100%;margin-top:15px; }
   dt:first-of-type{margin-top:0;}
   .flex_full{flex-grow:1;}
-  //dd:first-of-type::before{display:none;}
+  dd{
+    &:first-of-type:has(.ipt_innerwrap) .ipt_innerwrap{margin:0 0 15px;}
+    &:has(.ipt_innerwrap){flex:1 0 100%;}
+  }
   .divideL{position:relative;padding-left:20px;
     li{line-height:28px;}
     &::before{position:absolute;left:0;top:0;content:"/";font-size:20px;}
@@ -757,6 +760,11 @@ z-index:10;
     dt,p{margin-top:0;line-height:28px;}
   }
   .ipt_info{@include explanation;}
+   .ipt_innerwrap{display:flex;gap:$columnGap;justify-content:space-between;flex-wrap:wrap;margin-top:15px;
+    li{flex:1 0 calc(50% - $columnGap);
+      em{@include form_label;display:flex;gap:5px;width:100%;margin-bottom:10px;}
+    }
+  }
 }
 .flex_ipt{display:flex;gap:4px;align-items:center;word-break:keep-all;
   input,select{flex:0 1 60px;}

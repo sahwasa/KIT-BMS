@@ -53,7 +53,7 @@
 @mixin badge_style($max_w:auto){display:inline-block;max-width:$max_w;
 color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
 border:1px solid transparent;}
-@mixin badge_color($color){border-color:$color !important;color:#fff !important;background:$color !important;}
+@mixin badge_color($color){border-color:$color;color:#fff;background:$color;}
 @mixin shape($w_size,$h_size){
   display:inline-block;content:"";@include f_blind;overflow:hidden;
   width:$w_size;height:$h_size;
@@ -63,7 +63,7 @@ border:1px solid transparent;}
 }
 @mixin ico_only{font-size:0;vertical-align:middle;}
 @mixin btn($color,$addTxt:false){  
-  line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;cursor:pointer;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
+  display:inline-block;line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;cursor:pointer;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
   &:hover,&:hover::before{color:#fff;background-color:$color;}
   &::before{
     @if($addTxt){
