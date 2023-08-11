@@ -1,102 +1,5 @@
-let calendar;
-var plan_data = // 일정데이터 
-        [
-          //기념일
-          {
-            title: '창립기념일',
-            start: '1998-10-10',
-            editable: false,
-            overlap: false,
-            className: 'anniv'
-          },
-          {
-            title: '일정1',
-            start: '2023-08-10',
-            editable: false,
-            className: 'businessHours'
-          },
-          {
-            title: '일정1-1',
-            start: '2023-08-10',
-            editable: false,
-            className: 'businessHours'
-          },
-          {
-            title: '일정1-2',
-            start: '2023-08-10T20:00:00',
-            editable: false,
-            className: 'businessHours'
-          },
-          {
-            title: '일정2',
-            start: '2023-08-11T20:00:00',
-            editable: false,
-            className: 'businessHours'
-          },
-          {
-            title: '일정2-1',
-            start: '2023-08-11',
-            editable: false,
-            className: 'businessHours'
-          },
-          {
-            title: '일정2-2',
-            start: '2023-08-11T20:00:00',
-            editable: false,
-            className: 'businessHours'
-          },
-          {
-            title: 'Business Lunch',
-            start: '2023-06-03T13:00:00',
-            constraint: 'businessHours'
-          },
-          {
-            title: '회의',
-            start: '2023-06-19T11:00:00',
-            constraint: 'availableForMeeting', // defined below
-            color: '#257e4a',
-            description: '1회의실'
-          },
-          {
-            title: '월간공정보고 검토',
-            start: '2023-06-18',
-            end: '2023-06-20'
-          },
-          {
-            title: '생일파티1',
-            start: '2023-06-29T20:00:00'
-          },
-          {
-            title: '생일파티2',
-            start: '2023-06-29T20:00:00'
-          },
-          {
-            title: '생일파티3',
-            start: '2023-06-29T20:00:00'
-          },
-          {
-            title: '생일파티4',
-            start: '2023-06-29T20:00:00'
-          },
-	    {
-	        "start": "2023-08-15",
-	        "end": "2023-08-16",
-	        "title": "광복절"
-	    },
-	    {
-	        "start": "2023-08-08",
-	        "end": "2023-08-09",
-	        "title": "내일"
-	    },
-          {// 그룹 아이디가 같다면 해당 영역에만 들어올 수 있음(회의가능일자가 예시인데 쓸일이 있을까...?)
-            //groupId: 'availableForMeeting',
-            //start: '2023-06-19T10:00:00',
-            //end: '2023-06-23T16:00:00',
-            //display: 'background',
-            //color: '#ff0000'
-          }];
-		  
-  document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', function () {
     var Draggable = FullCalendar.Calendar.Draggable;
     var calendarEl = document.getElementById('calendar');
     var selectedDate = null;
@@ -120,12 +23,69 @@ var plan_data = // 일정데이터
       nowTime = date.toISOString();
       setTimeout(() => getNowTime, 1000);
     })();
-    
+    var source = // 일정데이터 
+        [
+          //기념일
+          {
+            title: '창립기념일',
+            start: '1998-10-10',
+            editable: false,
+            overlap: false,
+            className: 'anniv'
+          },
+          {
+            title: '광복절',
+            start: '2023-08-15',
+            editable: false,
+            overlap: false,
+            className: 'holyday-event'
+          },
+          {
+            title: 'Business Lunch',
+            start: '2023-06-03T13:00:00',
+            constraint: 'businessHours'
+          },
+          {
+            title: '회의',
+            start: '2023-08-11T11:00:00',
+            constraint: 'availableForMeeting', // defined below
+            color: '#257e4a',
+            description: '1회의실'
+          },
+          {
+            title: '개인일정',
+            start: '2023-08-22',
+            end: '2023-08-25',
+            className : 'personal'
+          },
+          {
+            title: '생일파티1',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티2',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티3',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티4',
+            start: '2023-06-29T20:00:00'
+          },
+          {// 그룹 아이디가 같다면 해당 영역에만 들어올 수 있음(회의가능일자가 예시인데 쓸일이 있을까...?)
+            //groupId: 'availableForMeeting',
+            //start: '2023-06-19T10:00:00',
+            //end: '2023-06-23T16:00:00',
+            //display: 'background',
+            //color: '#ff0000'
+          }];
 
     // initialize the calendar
     // -----------------------------------------------------------------
 
-    calendar = new FullCalendar.Calendar(calendarEl, {
+    var calendar = new FullCalendar.Calendar(calendarEl, {
       googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c', //APIKEY 누구꺼쓰죠,,?
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
@@ -172,32 +132,15 @@ var plan_data = // 일정데이터
         }
       },
       displayEventTime: false,
-      events: function(fetchInfo, successCallback, failureCallback) {
-      				var start = fetchInfo.startStr;
-                    var end = fetchInfo.endStr;
-                    $.ajax({
-                        url: '/planner/baseData.do',
-                        method: 'POST',
-                        data: {
-                            start: start.substr(0,10),
-                            end: end.substr(0,10)
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            var events = data.map(function(item) {
-                                return {
-                                    start: item.start,
-                                    title: item.title,
-                                    className : item.classname
-                                };
-                            });
-                            successCallback(events);
-                        },
-                        error: function() {
-                            failureCallback();
-                        }
-                    });
-                },
+      eventSources:[{
+            googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+            className: 'gcal-holiday',
+            editable:false,
+            overlap: false,// 일정이 들어올 수 없음(ex.휴가 등으로 쓰이면 좋을듯)
+            display: 'background',
+            color: 'rgba(255, 0, 0, .25)'
+          },
+          source],
       dateClick: function (info) {
         selectedDate = info.date;
       },
@@ -229,9 +172,9 @@ var plan_data = // 일정데이터
       }
     });
     calendar.render();
-    
 
-    function addPlan() {
+    var addBtn = document.getElementById('addEvt');
+    addBtn.addEventListener('click', function (e) {
       var date = selectedDate;
       if (date == null) {
         var dateStr = prompt('일정을 추가할 날자를 YYYY-MM-DD 형식으로 입력해주세요.');
@@ -255,28 +198,28 @@ var plan_data = // 일정데이터
         alert('날자형식이 올바르지 않습니다.');
       }
       selectedDate = null;
-    };
+    });
 
     var evtSource = [
       {
         title: '생일파티',
-        start: '2023-08-29T20:00:00',
+        start: '2023-06-29T20:00:00',
         groupId: 'my_plan',
         description : '설명'
       },
       {
         title: '저녁약속',
-        start: '2023-08-29T20:00:00',
+        start: '2023-06-29T20:00:00',
         groupId: 'my_plan'
       },
       {
         title: '팀1',
-        start: '2023-08-30T13:00:00',
+        start: '2023-06-30T13:00:00',
         groupId: 'team_plan p1'
       },
       {
         title: '팀2',
-        start: '2023-08-30T20:00:00',
+        start: '2023-06-30T20:00:00',
         groupId: 'team_plan'
       },
       {
@@ -293,7 +236,7 @@ var plan_data = // 일정데이터
         const target = e.target;
         if (target.checked) {
           if (!addedSources.includes(target.id)) {
-            let source = plan_data.filter(function (event) {
+            let source = evtSource.filter(function (event) {
               return event.groupId.includes(target.id)
             });
             calendar.addEventSource(source);
