@@ -468,3 +468,28 @@ function initializeTagManager(ulId, selectId, initialNames) {
     select.value = ''; // 선택 초기화
   });
 }
+
+// top scroll
+const createScrollButton = () => {
+  const scrollBtn = document.createElement('button');
+  scrollBtn.innerHTML = '상단으로 이동';
+  scrollBtn.classList.add('btn_scroll');
+  document.body.appendChild(scrollBtn);
+  return scrollBtn;
+};
+const toggleScrollButton = () => {
+  const scrollBtn = document.querySelector('.btn_scroll');
+  scrollBtn.classList.toggle('show', window.scrollY > window.innerHeight);
+};
+const scrollToTop = () => {
+  if (window.scrollY > 0) {
+    window.scrollTo(0, window.scrollY - 50);
+    setTimeout(scrollToTop, 10);
+  }
+};
+const initScrollToTop = () => {
+  const scrollBtn = createScrollButton();
+  scrollBtn.addEventListener('click', scrollToTop);
+  window.addEventListener('scroll', toggleScrollButton);
+};
+initScrollToTop();
