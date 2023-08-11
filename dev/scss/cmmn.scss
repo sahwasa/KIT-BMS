@@ -284,7 +284,16 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 $prio_fontSize:20px;
 .high_prio::before{@include fontello('\f102');color:$red;font-size:$prio_fontSize;}
 .normal_prio::before{@include shape(14px, 7px);border:2px solid $yellow;border-width:2px 0;margin-top:1px;}
-.low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}
+.low_prio::before{@include fontello('\f107');color:$blue;font-size:$prio_fontSize;}.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:9%;right:2%;border-radius:50%;background-color:$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
+  &::before{@include fontello('\eb3d');font-size:17px;}
+  &:hover{background-color:darken($red, 5%);}
+}
+.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:9%;right:2%;border-radius:50%;background-color:$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
+  &::before{@include fontello('\eb3d');font-size:17px;}
+  &:hover{background-color:darken($red, 5%);}
+}
+.btn_scroll.show {transition:1s;opacity:1;}
+
 
 $btn_red:#f05050;
 $btn_gray:#979797;
