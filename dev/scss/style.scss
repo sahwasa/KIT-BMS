@@ -497,7 +497,7 @@ z-index:10;
   }
   .status{width:260px;margin-right:20px;
     ul{@extend %approval_list;
-      &:empty::before{@include empty_box('요청 문서가 없습니다');background-color:rgba(0, 0, 0, .05);}
+      &:empty::before{@include empty_box('요청 문서가 없습니다');height:541px;background-color:rgba(0, 0, 0, .05);}
     }
     li{@include inner_box(8px);min-height:99px;
       strong{margin:2px 0 4px;}
@@ -644,7 +644,7 @@ z-index:10;
   }
   .appr_path li{flex-direction:column;align-items:flex-start;
     .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;
-      &:empty{padding:0;}
+      &:empty{margin:0;padding:0;}
     }
   }
   .act_lst{padding-left:3px;
@@ -673,12 +673,13 @@ z-index:10;
   input[type=number],
   input[type=date],
   textarea,
-  select{border:none;background:#fff;color:#333;}
+  select{border:none;background:#fff;color:#333;cursor:inherit;}
   input[type=date]{position:static;
     &::after{display:none;}
-    &::-webkit-calendar-picker-indicator {display:none;}
+    &::-webkit-calendar-picker-indicator{display:none;}
   }
   .file_input>[list]{min-width:100%;} // 인쇄 시 프로젝트명 잘림 수정
+  .tbl_hover tbody tr:hover{background-color:#fff;cursor:inherit;}
 }
 @include desktop{
   .approval_view .my_approval,
