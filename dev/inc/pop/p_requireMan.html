@@ -10,25 +10,23 @@
         <colgroup>
           <col style="width:130px">
           <col style="width:auto">
-          <col style="width:110px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row">프로젝트명​</th>
-            <td colspan="3">(P200200001) 2022년 000 용역</td>
+            <td>(P200200001) 2022년 000 용역</td>
           </tr>
           <!-- <tr>
             <th scope="row">요구사항ID</th>
-            <td colspan="3">P200200001</td>
+            <td>P200200001</td>
           </tr> -->
           <tr>
             <th scope="row"><label for="require_name">요구사항명​</label></th>
-            <td colspan="3"><input type="text" id="require_name"></td>
+            <td><input type="text" id="require_name"></td>
           </tr>
           <tr>
             <th scope="row"><label for="require_step">단계​</label></th>
-            <td colspan="3">
+            <td>
               <select name="require_step" id="require_step">
                 <option value="단계 선택">단계 선택</option>
                 <option value="착수">착수</option>
@@ -44,37 +42,49 @@
           </tr>
           <tr>
             <th scope="row"><label for="toprequire_name">상위요구사항 명</label></th>
-            <td colspan="3">
+            <td>
               <select name="require_name" id="toprequire_name">
                 <option value="상위 요구사항 선택">상위 요구사항 선택</option>
               </select>
             </td>
           </tr>
           <tr>
-            <th scope="row"><label for="require_difficulty">난이도</label></th>
+            <th scope="row"><label for="difficulty_high">난이도</label></th>
             <td>
-              <select name="require_difficulty" id="require_difficulty">
-                <option value="난이도 선택">난이도 선택</option>
-              </select>
+              <div class="btn_switch">
+                <input type="radio" id="difficulty_high" name="difficulty">
+                <label for="difficulty_high" class="high_prio">높음</label>
+                <input type="radio" id="difficulty_common" name="difficulty" checked="">
+                <label for="difficulty_common" class="normal_prio">보통</label>
+                <input type="radio" id="difficulty_row" name="difficulty">
+                <label for="difficulty_row" class="low_prio">낮음</label>
+              </div>
             </td>
-            <th scope="row"><label for="require_importance">중요도</label></th>
+          </tr>
+          <tr>
+            <th scope="row"><label for="importance_high">중요도</label></th>
             <td>
-              <select name="require_importance" id="require_importance">
-                <option value="중요도 선택">중요도 선택</option>
-              </select>
+              <div class="btn_switch">
+                <input type="radio" id="importance_high" name="importance">
+                <label for="importance_high" class="high_prio">높음</label>
+                <input type="radio" id="importance_common" name="importance" checked="">
+                <label for="importance_common" class="normal_prio">보통</label>
+                <input type="radio" id="importance_row" name="importance">
+                <label for="importance_row" class="low_prio">낮음</label>
+              </div>
             </td>
           </tr>
           <tr>
             <th><label for="require_report">대외보고</label></th>
-            <td colspan="3"><label><input type="checkbox" id="require_report" checked>사용</label></td>
+            <td><label><input type="checkbox" id="require_report" checked>사용</label></td>
           </tr>
           <tr>
             <th scope="row"><label for="require_rfp">RFP ID</label></th>
-            <td colspan="3"><input type="text" id="require_rfp"></td>
+            <td><input type="text" id="require_rfp"></td>
           </tr>
           <tr>
             <th scope="row"><label for="require_order">담당자(발주기관)</label></th>
-            <td colspan="3">
+            <td>
               <span class="file_input">
                 <select name="require_order" id="require_order">
                   <option value="기관 선택">기관 선택</option>
@@ -87,7 +97,7 @@
           </tr>
           <tr>
             <th scope="row"><label for="require_pl">담당자(PL)</label></th>
-            <td colspan="3">
+            <td>
               <span class="file_input">
                 <select name="require_pl" id="require_pl">
                   <option value="부서 선택">부서 선택</option>
@@ -100,11 +110,11 @@
           </tr>
           <tr>
             <th scope="row"><label for="require_content">요구사항 내용</label></th>
-            <td colspan="3"><textarea name="require_content" id="require_content"></textarea></td>
+            <td><textarea name="require_content" id="require_content"></textarea></td>
           </tr>
           <tr>
             <th scope="row"><label for="require_plan">수행방안</label></th>
-            <td colspan="3"><textarea name="require_plan" id="require_plan"></textarea></td>
+            <td><textarea name="require_plan" id="require_plan"></textarea></td>
           </tr>
         </tbody>
       </table>
