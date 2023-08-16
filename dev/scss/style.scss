@@ -665,6 +665,7 @@ z-index:10;
     }
   }
 }
+.work_form.form_view,
 .form_wrap.form_view{
   .file_input>*{flex:0;}
   input[type=text],
@@ -678,6 +679,15 @@ z-index:10;
   }
   .file_input>[list]{min-width:100%;} // 인쇄 시 프로젝트명 잘림 수정
   .tbl_hover tbody tr:hover{background-color:#fff;cursor:inherit;}
+  .tagItem:hover{
+    button{right:-13px;}
+    p{padding-left:10px;padding-right:10px;}
+  }
+  .ck{
+    .ck-widget:hover{outline-color:transparent}
+    .ck-widget__type-around,
+    .ck-widget__selection-handle{display:none;}
+  }
 }
 @include desktop{
   .approval_view .my_approval,
@@ -919,11 +929,6 @@ $_proj_stacked:(
   
 }
 
-// work
-.tbl_work_share{
-  td:nth-of-type(2){text-align:left;}
-}
-
 //svc
 .cal_wrap{@include flex_between;gap:$columnGap;align-items:flex-start;flex-wrap:wrap;
   .remote_room{flex-shrink:0;width:90px;padding-top:55px;}
@@ -938,11 +943,17 @@ $_proj_stacked:(
 .lst_room li{margin-top:15px;
   label::after{@include shape(12px, 12px);background-color:#05b4d9;margin-left:5px;vertical-align:middle;margin-top:-1px;}
 }
+
+// work
+.tbl_work_share{
+  td:nth-of-type(2){text-align:left;}
+}
 .work_form{
   header{padding-left:10px;
     h1{font-size:18px;font-weight:bold;color:#000;}
+    &+.set_list{margin:40px 0 20px;}
   }
-  .set_list{display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;margin:40px 0 20px;
+  .set_list{display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;margin:0 0 20px;
     dt{position:relative;margin-bottom:0;padding-left:15px;font-size:14px;font-weight:bold;
       &::before{position:absolute;left:2px;}
     }
@@ -955,8 +966,22 @@ $_proj_stacked:(
   & + .work_set{margin-top:0;
     &>:first-child{margin-top:0;}
   }
-  .btn_slideclose>li>.tagItem:hover{
-    button{right:-13px;}
-    p{padding-left:10px;padding-right:10px;}
+  &.form_view{
+    .tagItem:hover{
+      button{right:-13px;}
+      p{padding-left:10px;padding-right:10px;}
+    }
   }
+}
+.tbl_handle_area{@include flex_between;margin:20px 0 10px;padding-top:10px;
+  .tbl_handle{border-radius:5px;overflow:hidden;
+    .tbl_work_prev,
+    .tbl_work_next{font-size:0;
+      &::before{display:block;@include fontello('\f105');font-size:17px;width:30px;line-height:30px;background-color:#2c3e50;color:#fff;}
+    }
+    .tbl_work_prev{
+      &::before{content:'\f104';}
+    }
+  }
+  span{font-size:20px;font-weight:bold;}
 }

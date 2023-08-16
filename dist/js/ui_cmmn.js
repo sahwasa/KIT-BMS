@@ -388,6 +388,9 @@ function commonInit(){
 function setEditor() {
   ClassicEditor.create(document.querySelector('#editor'), {
     licenseKey: '',
+    image: {
+      toolbar: [ 'toggleImageCaption', 'imageTextAlternative']
+  },
     list: {
       properties: {
         styles: true,
@@ -404,7 +407,8 @@ function setEditor() {
     table: {
       tableProperties: {
         defaultProperties: {
-          alignment: 'left'
+          alignment: 'left',
+          resizable: false
         }
       }
     },

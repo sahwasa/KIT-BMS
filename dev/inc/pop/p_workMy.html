@@ -91,12 +91,17 @@
           </tr>
           <tr>
             <th scope="row">
-              <label for="work_importance">중요도</label>
+              <label for="high">중요도</label>
             </th>
             <td colspan="3">
-              <select name="work_importance" id="work_importance">
-                <option value="중요도 선택">중요도 선택</option>
-              </select><!-- 타 팝업과의 통일이 필요하다!! -->
+              <div class="btn_switch">
+                <input type="radio" id="high" name="importance">
+                <label for="high" class="high_prio">높음</label>
+                <input type="radio" id="common" name="importance" checked="">
+                <label for="common" class="normal_prio">보통</label>
+                <input type="radio" id="row" name="importance">
+                <label for="row" class="low_prio">낮음</label>
+              </div>
             </td>
           </tr>
         </tbody>
