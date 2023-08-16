@@ -435,3 +435,74 @@ function setEditor() {
       console.error(error)
     })
 }
+
+// 태그 랜덤 색상
+const colorMap = {};
+function getRandomPastelColor() {
+  const min = 210;
+  const max = 255;
+  const getRandomValue = () => Math.floor(Math.random() * (max - min) + min);
+  return `rgb(${getRandomValue()},${getRandomValue()},${getRandomValue()})`;
+}
+function getColorForName(name) {
+  return colorMap[name] || (colorMap[name] = getRandomPastelColor());
+}
+function addTag(selectedName, ulId, selectId) {
+  if (selectedName) {
+    const ul = document.getElementById(ulId);
+    const li = document.createElement('li');
+    const div = document.createElement('div');
+    div.className = 'tagItem';
+    div.style.backgroundColor = getColorForName(selectedName);
+    const p = document.createElement('p');
+    p.appendChild(document.createTextNode(selectedName));
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = '삭제';
+    button.addEventListener('click', () => ul.removeChild(li));
+    div.appendChild(p);
+    div.appendChild(button);
+    li.appendChild(div);
+    ul.appendChild(li);
+    ul.classList.add('btn_slideclose');
+  }
+}
+function initializeTagManager(ulId, selectId, initialNames) {
+  const select = document.getElementById(selectId);
+  initialNames.forEach(name => {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  });
+  select.addEventListener('change', function () {
+    const selectedName = select.value;
+    addTag(selectedName, ulId, selectId);
+    select.value = ''; // 선택 초기화
+  });
+}
+
+// top scroll
+const createScrollButton = () => {
+  const scrollBtn = document.createElement('button');
+  scrollBtn.innerHTML = '상단으로 이동';
+  scrollBtn.classList.add('btn_scroll');
+  document.body.appendChild(scrollBtn);
+  return scrollBtn;
+};
+const toggleScrollButton = () => {
+  const scrollBtn = document.querySelector('.btn_scroll');
+  scrollBtn.classList.toggle('show', window.scrollY > window.innerHeight);
+};
+const scrollToTop = () => {
+  if (window.scrollY > 0) {
+    window.scrollTo(0, window.scrollY - 50);
+    setTimeout(scrollToTop, 10);
+  }
+};
+const initScrollToTop = () => {
+  const scrollBtn = createScrollButton();
+  scrollBtn.addEventListener('click', scrollToTop);
+  window.addEventListener('scroll', toggleScrollButton);
+};
+initScrollToTop();
