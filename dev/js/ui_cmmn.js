@@ -12,11 +12,20 @@ const handleSelect = function (item) {
     result.html(item.innerHTML).attr('data-value', resultVal);
     result.parent().removeClass('active');
     console.log(resultVal);
+    //변경시 이벤트 발생 추가
+    if (item.parentNode.onchange) {
+	  item.parentNode.onchange();
+	}
   }
 }
 
-$(function () {
-  // nav
+//$(function () {
+//  commonInit();
+//});
+
+//로딩순서 때문에 수동실행
+function commonInit(){
+	// nav
   var $deps1 = $('.nav_lst>li'),
     $deps2 = $('.sub li'),
     preLocate,
@@ -26,7 +35,7 @@ $(function () {
     indexDeps2,
     locate = window.location.href
 
-  menuInit()
+  //menuInit()
   function menuInit() {
     $deps1.each(function (index, item) {
       var getAttr = $(this).children('a').attr('href')
@@ -191,7 +200,7 @@ $(function () {
 
   //tab
   $('.tab li').first().addClass('on');
-  $('.tab_container').find('.tab_contents').not(':first').hide();
+  //$('.tab_container').find('.tab_contents').not(':first').hide();
   $('.tab li').on('click', function (e) {
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on');
@@ -361,16 +370,19 @@ $(function () {
   const select_custom = $('.select_custom');
   const label = select_custom.find('.label');
   const options = select_custom.find('.optionItem');
-  options.on('click',function(e){
-    handleSelect(e.target);
+  options.off('click').on('click',function(e){
+  	if (e.target.tagName == 'I')
+  	  handleSelect($(this).closest('.optionItem')[0]);
+  	else
+      handleSelect(e.target);
   });
-  label.on('click',function(){
+  label.off('click').on('click',function(){
     ($(this).parent().hasClass('active')) ? $(this).parent().removeClass('active') : $(this).parent().addClass('active')
   })
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
-});
+} 
 
 // editor
 function setEditor() {
