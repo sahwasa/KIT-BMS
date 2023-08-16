@@ -12,11 +12,20 @@ const handleSelect = function (item) {
     result.html(item.innerHTML).attr('data-value', resultVal);
     result.parent().removeClass('active');
     console.log(resultVal);
+    //변경시 이벤트 발생 추가
+    if (item.parentNode.onchange) {
+	  item.parentNode.onchange();
+	}
   }
 }
 
-$(function () {
-  // nav
+//$(function () {
+//  commonInit();
+//});
+
+//로딩순서 때문에 수동실행
+function commonInit(){
+	// nav
   var $deps1 = $('.nav_lst>li'),
     $deps2 = $('.sub li'),
     preLocate,
@@ -26,7 +35,7 @@ $(function () {
     indexDeps2,
     locate = window.location.href
 
-  menuInit()
+  //menuInit()
   function menuInit() {
     $deps1.each(function (index, item) {
       var getAttr = $(this).children('a').attr('href')
@@ -191,7 +200,7 @@ $(function () {
 
   //tab
   $('.tab li').first().addClass('on');
-  $('.tab_container').find('.tab_contents').not(':first').hide();
+  //$('.tab_container').find('.tab_contents').not(':first').hide();
   $('.tab li').on('click', function (e) {
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on');
@@ -361,24 +370,24 @@ $(function () {
   const select_custom = $('.select_custom');
   const label = select_custom.find('.label');
   const options = select_custom.find('.optionItem');
-  options.on('click',function(e){
-    handleSelect(e.target);
+  options.off('click').on('click',function(e){
+  	if (e.target.tagName == 'I')
+  	  handleSelect($(this).closest('.optionItem')[0]);
+  	else
+      handleSelect(e.target);
   });
-  label.on('click',function(){
+  label.off('click').on('click',function(){
     ($(this).parent().hasClass('active')) ? $(this).parent().removeClass('active') : $(this).parent().addClass('active')
   })
   $('select').on('change',function(){
     $(this).css('color','inherit');
   });
-});
+} 
 
 // editor
 function setEditor() {
   ClassicEditor.create(document.querySelector('#editor'), {
     licenseKey: '',
-    image: {
-      toolbar: [ 'toggleImageCaption', 'imageTextAlternative' ]
-  },
     list: {
       properties: {
         styles: true,
@@ -422,74 +431,3 @@ function setEditor() {
       console.error(error)
     })
 }
-
-// 태그 랜덤 색상
-const colorMap = {};
-function getRandomPastelColor() {
-  const min = 210;
-  const max = 255;
-  const getRandomValue = () => Math.floor(Math.random() * (max - min) + min);
-  return `rgb(${getRandomValue()},${getRandomValue()},${getRandomValue()})`;
-}
-function getColorForName(name) {
-  return colorMap[name] || (colorMap[name] = getRandomPastelColor());
-}
-function addTag(selectedName, ulId, selectId) {
-  if (selectedName) {
-    const ul = document.getElementById(ulId);
-    const li = document.createElement('li');
-    const div = document.createElement('div');
-    div.className = 'tagItem';
-    div.style.backgroundColor = getColorForName(selectedName);
-    const p = document.createElement('p');
-    p.appendChild(document.createTextNode(selectedName));
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.textContent = '삭제';
-    button.addEventListener('click', () => ul.removeChild(li));
-    div.appendChild(p);
-    div.appendChild(button);
-    li.appendChild(div);
-    ul.appendChild(li);
-    ul.classList.add('btn_slideclose');
-  }
-}
-function initializeTagManager(ulId, selectId, initialNames) {
-  const select = document.getElementById(selectId);
-  initialNames.forEach(name => {
-    const option = document.createElement('option');
-    option.value = name;
-    option.textContent = name;
-    select.appendChild(option);
-  });
-  select.addEventListener('change', function () {
-    const selectedName = select.value;
-    addTag(selectedName, ulId, selectId);
-    select.value = ''; // 선택 초기화
-  });
-}
-
-// top scroll
-const createScrollButton = () => {
-  const scrollBtn = document.createElement('button');
-  scrollBtn.innerHTML = '상단으로 이동';
-  scrollBtn.classList.add('btn_scroll');
-  document.body.appendChild(scrollBtn);
-  return scrollBtn;
-};
-const toggleScrollButton = () => {
-  const scrollBtn = document.querySelector('.btn_scroll');
-  scrollBtn.classList.toggle('show', window.scrollY > window.innerHeight);
-};
-const scrollToTop = () => {
-  if (window.scrollY > 0) {
-    window.scrollTo(0, window.scrollY - 50);
-    setTimeout(scrollToTop, 10);
-  }
-};
-const initScrollToTop = () => {
-  const scrollBtn = createScrollButton();
-  scrollBtn.addEventListener('click', scrollToTop);
-  window.addEventListener('scroll', toggleScrollButton);
-};
-initScrollToTop();
