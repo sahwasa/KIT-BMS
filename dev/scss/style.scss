@@ -165,9 +165,7 @@ $columnGap:25px;
       }
     }
     .join_result{display:grid;max-width:360px;grid-template-columns:max-content 30px auto;margin:60px auto 0;justify-content:center;text-align:left;line-height:20px;
-      dt{grid-column-start:1;text-align:justify;font-weight:bold;
-        &:after{display:inline-block;content:'';width:100%;}
-      }
+      dt{grid-column-start:1;text-align:justify;font-weight:bold;}
       dd{grid-column-start:3;}
     }
     .join_agree{
@@ -356,7 +354,7 @@ $snbWidth:250px;
   .snb_container{min-width:$snbWidth;}
   h2{padding:0 15px 12px;font-size:20px;font-weight:bold;letter-spacing:-.5px;border-bottom:1px solid $border-color;overflow:hidden;}
   .btn_workset{background-color:#edf0f3;border-bottom:1px solid $border-color;border-width:1px 0;padding:13px #{$columnGap - 10px};
-    button,a{display:block;width:100%;font-weight:bold;font-size:14px;letter-spacing:-.35px;border-radius:5px;line-height:32px;background-color:$white;}
+    button,a{display:block;width:100%;font-weight:bold;font-size:14px;letter-spacing:-.35px;border-radius:5px;line-height:32px;}
   }
   .data_count .list_wrap{@include flex_between;padding:16px 0;border-bottom:1px solid $border-color;
     li{flex:1;font-weight:bold;font-size:12px;color:#000;border-left:1px solid #cdcdcd;line-height:10px;text-align:center;
@@ -942,9 +940,9 @@ $_proj_stacked:(
 }
 .work_form{
   header{padding-left:10px;
-    h1{font-size:17px;font-weight:bold;}
+    h1{font-size:18px;font-weight:bold;color:#000;}
   }
-  .set_list{display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;margin:25px 0 20px;
+  .set_list{display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;margin:40px 0 20px;
     dt{position:relative;margin-bottom:0;padding-left:15px;font-size:14px;font-weight:bold;
       &::before{position:absolute;left:2px;}
     }
@@ -956,5 +954,9 @@ $_proj_stacked:(
   }
   & + .work_set{margin-top:0;
     &>:first-child{margin-top:0;}
+  }
+  .btn_slideclose>li>.tagItem:hover{
+    button{right:-13px;}
+    p{padding-left:10px;padding-right:10px;}
   }
 }
