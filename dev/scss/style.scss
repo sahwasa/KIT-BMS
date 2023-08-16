@@ -687,6 +687,8 @@ z-index:10;
     .ck-widget:hover{outline-color:transparent}
     .ck-widget__type-around,
     .ck-widget__selection-handle{display:none;}
+    .ck-table-column-resizer:hover,
+    .ck-table-column-resizer__active{background:transparent;cursor:inherit;}
   }
 }
 @include desktop{
