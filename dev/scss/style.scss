@@ -687,8 +687,7 @@ z-index:10;
     .ck-widget:hover{outline-color:transparent}
     .ck-widget__type-around,
     .ck-widget__selection-handle{display:none;}
-    .ck-table-column-resizer:hover,
-    .ck-table-column-resizer__active{background:transparent;cursor:inherit;}
+    &.ck-editor__editable .table .ck-table-column-resizer:hover{background:transparent;cursor:inherit;}
   }
 }
 @include desktop{
@@ -976,7 +975,7 @@ $_proj_stacked:(
   }
 }
 .tbl_handle_area{@include flex_between;margin:20px 0 10px;padding-top:10px;
-  .tbl_handle{border-radius:5px;overflow:hidden;
+  .tbl_handle{border-radius:0.25em;overflow:hidden;
     .tbl_work_prev,
     .tbl_work_next{font-size:0;
       &::before{display:block;@include fontello('\f105');font-size:17px;width:30px;line-height:30px;background-color:#2c3e50;color:#fff;}

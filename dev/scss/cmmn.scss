@@ -468,6 +468,11 @@ td{white-space:nowrap;text-overflow:ellipsis;}
   li{margin-right:10px;}
   *{align-self:center;vertical-align:middle;}
 }
+@for $left from 1 to 10{
+  .alignL_#{$left}{
+    tr>td:nth-child(#{$left}){text-align:left;}
+  }
+}
 // tab
 .tab{
   $border-color:#eaedf1;

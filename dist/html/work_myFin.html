@@ -107,13 +107,13 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>업무수신<span>업무 공유함</span></h1>
+        <h1>미진 업무<span>내 업무함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">업무</a></li>
-            <li><a href="#">업무 공유함</a></li>
-            <li>업무수신</li>
+            <li><a href="#">내 업무함</a></li>
+            <li>미진 업무</li>
           </ul>
         </section>
       </header>
@@ -163,47 +163,41 @@
                 <li><a href="#tab04">프로젝트</a></li>
               </ul>
             </div>
-            <table class="tbl_default tbl_hover tbl_work_share hasLayer">
+            <table class="tbl_default tbl_hover alignL_2 alignL_4">
               <caption>결재대기 리스트</caption>
               <colgroup>
                 <col style="width:120px;">
                 <col style="width:auto;">
-                <col span="2" style="width:120px;">
-                <col span="3" style="width:150px;">
+                <col style="width:120px;">
+                <col style="width:auto;">
+                <col span="2" style="width:150px;">
                 <col span="2" style="width:95px;">
+                <col style="width:120px;">
               </colgroup>
               <thead>
                 <tr>
                   <th scope="col">구분</th>
-                  <th scope="col">제목</th>
+                  <th scope="col">업무명</th>
                   <th scope="col">작업범주</th>
-                  <th scope="col">중요도</th>
+                  <th scope="col">업무내용</th>
+                  <th scope="col">시작일자</th>
+                  <th scope="col">종료일자</th>
+                  <th scope="col">담당자</th>
                   <th scope="col">요청자</th>
-                  <th scope="col">요청일자</th>
-                  <th scope="col">처리일자</th>
-                  <th scope="col">상태</th>
-                  <th scope="col">관리</th>
+                  <th scope="col">진행률</th>
                 </tr>
               </thead>
               <tbody>
                 <tr tabindex="0" onclick="location.href='../html/work_view.html'">
                   <td>개인업무</td>
-                  <td>PEWS 관련 회의 요청드립니다<a href="#" class="cmt_num">4</a></td>
+                  <td>주간업무보고 작성</td>
                   <td>회의</td>
-                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>◯ 지진/가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
                   <td>홍길동(개발1팀)</td>
-                  <td>2023-05-01 01:30:11</td>
-                  <td>2023-05-01 01:30:11</td>
-                  <td><i class="tbl_badge defer">후결대기</i></td>
-                  <td onclick="event.stopPropagation();">
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                      <div class="btn_layer">
-                        <button type="button">수락</button>
-                        <button type="button">반려</button>
-                      </div>
-                    </div>
-                  </td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>22%</td>
                 </tr>
               </tbody>
             </table>
