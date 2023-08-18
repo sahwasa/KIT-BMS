@@ -19,9 +19,9 @@ const handleSelect = function (item) {
   }
 }
 
-//$(function () {
-//  commonInit();
-//});
+$(function () {
+ commonInit();
+});
 
 //로딩순서 때문에 수동실행
 function commonInit(){

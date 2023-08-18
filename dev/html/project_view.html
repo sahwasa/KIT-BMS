@@ -20,17 +20,17 @@
         <div class="box_compact box_tool">
           <header>
             <span>
-              <button type="button" class="btn_default">목록</button>
+              <button type="button" class="btn_gray_line">목록</button>
             </span>
             <span>
-              <button type="button" class="btn_add">추가</button>
-              <button type="button" class="btn_cancel">취소</button>
+              <button type="button" class="btn_red">추가</button>
+              <button type="button" class="btn_gray_line">취소</button>
               <span>&sol;</span>
-              <button type="button" class="btn_modify">수정</button>
-              <button type="button" class="btn_del">삭제</button>
+              <button type="button" class="btn_red">수정</button>
+              <button type="button" class="btn_red_line">삭제</button>
               <span>&sol;</span>
-              <button type="button" class="btn_save">저장</button>
-              <button type="button" class="btn_cancel">취소</button>
+              <button type="button" class="btn_red">저장</button>
+              <button type="button" class="btn_gray_line">취소</button>
             </span>
           </header>
         </div>
@@ -44,9 +44,9 @@
             <li><a href="#proj06">프로젝트 목록</a></li>
           </ul>
         </div>
-        <div class="tab_container">
-          <section id="proj01" class="tab_contents">
-            1
+        <div class="tab_container proj_view">
+          <section id="proj01" class="tab_contents overview">
+            @@include('porject_view_overview.html')
           </section>
           <section id="proj02" class="tab_contents">
             2

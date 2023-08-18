@@ -464,7 +464,13 @@ z-index:10;
   .btn_wrap{margin-left:auto;}
 }
 .box_default{@include box_style(20px,20px);}
-.box_default_w{@include box_style(15px,15px);background-color:#fff;border:1px solid #dddddd;}
+.box_default_w{@include box_style(15px,15px);background-color:#fff;border:1px solid #ddd;
+  @include tit_bullet(h1);
+  h1{font-size:14px;}
+  .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;
+    dt{font-size:14px;margin-bottom:0;}
+  }
+}
 
 .count{display:inline-flex;font-size:13px;line-height:14px;color:#555;gap:15px;
   border-left:1px solid #aaa;padding-left:15px;margin-left:10px;box-shadow:1px 0 1px #fff inset;font-weight:normal;
@@ -598,8 +604,6 @@ z-index:10;
 .approval_set{width:400px;min-width:400px;
   & > .box_default_w{margin-top:10px;
     &:last-of-type{margin-bottom:10px;}
-    @include tit_bullet(h1);
-    h1{font-size:14px;}
   }
   .appr_path{counter-reset:appr_path;
     li{@include flex_between;margin-bottom:4px;padding:6px 7px 7px 25px;border:1px solid #ebebeb;border-radius:2px;counter-increment:appr_path;font-size:11px;
@@ -656,8 +660,7 @@ z-index:10;
     .act_name,
     .act_type{font-weight:600;}
   }
-  .referrer_act{display:flex;flex-direction:column;gap:5px;
-    li{display:flex;justify-content:space-between;}
+  .referrer_act{@include user_lst;
     .appr_result{font-size:12px;}
     $_signType:('uncheck':#b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
     @each $type, $color in $_signType{
@@ -694,14 +697,25 @@ z-index:10;
   .approval_view .my_approval,
   .approval_draft .my_approval{flex-flow:column wrap;
     .approval_set{order:-1;width:100%;display:grid;gap:5px;margin-top:0;
-    grid-template-areas:"path etc""path refer""path attach""act act"; 
+    grid-template-areas:"path etc""path refer""path referHistory""attach act"; 
       & > .box_default_w{margin:0;padding:15px;
         &:nth-of-type(1){grid-area:path;min-width:450px;}
         &:nth-of-type(2){grid-area:refer;}
-        &:nth-of-type(3){grid-area:attach;}
-        &:nth-of-type(4){grid-area:etc;}
-        &:nth-of-type(5){grid-area:act;}
+        &:nth-of-type(3){grid-area:referHistory;}
+        &:nth-of-type(4){grid-area:attach;}
+        &:nth-of-type(5){grid-area:etc;}
+        &:nth-of-type(6){grid-area:act;}
       }
+    }
+  }
+  .approval_draft .my_approval .approval_set{
+    grid-template-areas:"path etc""path refer""path attach""act act"; 
+    & > .box_default_w{
+      &:nth-of-type(1){grid-area:path;}
+      &:nth-of-type(2){grid-area:refer;}
+      &:nth-of-type(3){grid-area:attach;}
+      &:nth-of-type(4){grid-area:etc;}
+      &:nth-of-type(5){grid-area:act;}
     }
   }
 }
@@ -924,10 +938,22 @@ $_proj_stacked:(
   }
 }
 .project_new{
-  .new_contents{display:flex;justify-content:space-between;gap:$columnGap;
+  .new_contents{@include flex_layout;
     .ipt_wrap{flex:1;}
+  }  
+}
+.proj_view{
+  .tab_contents{@include flex_layout;
+    .left_section{flex:1;}
+    .right_section{display:flex;flex-direction:column;gap:10px;}
   }
-  
+}
+.contributor{@include user_lst;margin-top:15px;}
+.overview{
+  .left_section{display:flex;flex-direction:column;gap:25px;
+    h1{@include tit;}
+  }
+  .set_list{margin-bottom:15px;}
 }
 
 //svc
