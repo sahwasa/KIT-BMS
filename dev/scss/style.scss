@@ -405,8 +405,20 @@ $snbWidth:250px;
   }
   label input{flex-shrink:0;margin-right:5px;}
   .ipt_color{width:20px;height:25px;min-height:auto;padding:0;border:none; vertical-align:initial;}
-  .plan .snb_lst > li ul label{@extend %sublst;display:inline-flex;align-items:flex-start;padding-left:25px;max-width:#{$snbWidth  - 15};word-break:break-all;
-    &::before{display:none;}
+  .plan .snb_lst > li ul{
+    label{@extend %sublst;display:inline-flex;align-items:flex-start;padding-left:25px;max-width:#{$snbWidth  - 15};word-break:break-all;
+      &::before{display:none;}
+    }
+    &.lst_plan_proj{
+      input{appearance:auto;background:none;color:#fff;}
+      $_color_lst:#4091D0,#879977,#d85c82,#a67709, #5f9898,
+      #c41298,#3162EA,#67779b,#4f8017, #6f4084,#1335ac,#b857d8,#2a516f
+      #887cda,#747c2f,#5770c7,#556262,#108899,#333;
+      @each $color in $_color_lst{
+        $index : index($_color_lst, $color);
+        li:nth-child(#{$index}){input{accent-color:$color}}
+      }
+    }
   }
   .plan_add{padding:$snb_item_padding;}
   .tooltip{left:0;right:auto;
