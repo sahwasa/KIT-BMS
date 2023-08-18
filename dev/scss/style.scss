@@ -394,16 +394,19 @@ $snbWidth:250px;
           &:hover .layer_tool{display:block;}
         }      
       }
+      .lst_ctrl{
+        input{top:3px;}
+      }
       .hasLayer:empty{padding:0;border-top-width:0;}
       &.on > a,&:hover > a{color:$red;}
       & li.on a,& li:hover a{background-color:#fee;color:#424242;}
       & li.on a{color:$red;font-weight:bold;} // on 추가
     }
   }
-  label input{flex-shrink:0;margin-right:5px;top:0;}
+  label input{flex-shrink:0;margin-right:5px;}
   .ipt_color{width:20px;height:25px;min-height:auto;padding:0;border:none; vertical-align:initial;}
-  .plan .snb_lst > li ul label{@extend %sublst;display:inline-flex;padding-left:25px;max-width:#{$snbWidth  - 30px};
-      &::before{display:none;}
+  .plan .snb_lst > li ul label{@extend %sublst;display:inline-flex;align-items:flex-start;padding-left:25px;max-width:#{$snbWidth  - 15};word-break:break-all;
+    &::before{display:none;}
   }
   .plan_add{padding:$snb_item_padding;}
   .tooltip{left:0;right:auto;

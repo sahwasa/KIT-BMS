@@ -8,13 +8,16 @@
     </div>
 
     <ul class="snb_lst">
+      <li><a href="">브리핑보드</a></li>
       <li>
         <h3 class="all_lst_ctrl"><label for="my_cal"><input type="checkbox" id="my_cal"  checked>내 캘린더</label></h3>
         <ul class="lst_ctrl">
           <li><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label>
           </li>
           <li><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label>
-          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>근태 일정</label>
+          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>행사 일정</label>
+          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>회의 일정</label>
+          <li><label for=""><input type="checkbox" id="" checked>휴가 일정</label>
           </li>
         </ul>
       </li>
@@ -23,17 +26,15 @@
         <ul class="lst_ctrl">
           <li>
             <label for="p1"><input type="checkbox" id="p1">OOOOOOOOOOOO 유지보수</label>
-            <input type="color" class="ipt_color" id="" name="" value="#ff0000" />
           </li>
           <li>
             <label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
-            <input type="color" class="ipt_color" id="" name="" value="#00ff00" />
           </li>
         </ul>
       </li>
-      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" >전 사원 근태</label></h3></li>
+      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" data-checkevt="all_emp" checked>전 사원 근태</label></h3></li>
     </ul>
-    <section class="plan_add">
+    <section class="plan_add" id="all_emp">
       <span class="file_input">
         <input type="text" id="form_referrer" placeholder="이름, 조직명" list="nameList">
         @@include('../data_emp_name.html')
