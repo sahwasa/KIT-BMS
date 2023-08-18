@@ -77,13 +77,13 @@
         }
       }
     }
-    .tree_result{width:325px;height:345px;padding:10px 0;}
+    .tree_result{width:325px;height:calc(100% - 40px);padding:10px 0;}
   }
   // p_mngTree
   &.p_mngTree{
     .tree_wrap>.sortable,
     .tree_selected{margin-bottom:6px;}
-    .tree_selected{max-height:90px;}
+    .tree_selected{max-height:220px;}
   }
   // p_mngOrg
   .warning_wrap{float:left;margin-right:15px;
