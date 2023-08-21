@@ -263,8 +263,6 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
       &:last-child{border-bottom-width:0;}
     }
   }
-  .ico_select,
-  i{position:relative;top:-2px;@include shape(20px, 20px);display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;margin-right:5px;}  
   &.prio{width:90px;}
   &.meeting_room{width:100px;
     i{width:15px;height:15px;top:0;}

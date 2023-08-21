@@ -47,6 +47,7 @@
 }
 
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
+@mixin flex_layout{display:flex;justify-content:space-between;gap:$columnGap;}
 
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
@@ -147,3 +148,7 @@ border:1px solid transparent;}
 }
 
 @mixin empty_box($con){display:flex;justify-content:center;align-items:center;height:100%;content:$con;padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:13px;color:#777;}
+
+@mixin user_lst{display:flex;flex-direction:column;gap:5px;
+  li{display:flex;justify-content:space-between;} 
+}

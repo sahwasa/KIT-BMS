@@ -19,9 +19,6 @@ const handleSelect = function (item) {
   }
 }
 
-$(function () {
- commonInit();
-});
 
 //로딩순서 때문에 수동실행
 function commonInit(){
@@ -216,9 +213,15 @@ function commonInit(){
 
   //addOPT
   $('[data-checkEvt]').on('change',function(e){
-    const getTarget = e.target.dataset.checkevt,
-          target = $("#" + getTarget);
-    ($(this).prop('checked')) ? target.show() : target.hide();
+    const getTarget = e.target.dataset.checkevt.split("!");
+    let target;
+    if(getTarget[1]){
+      target = $("#" + getTarget[1]);
+      ($(this).prop('checked')) ? target.hide() : target.show();
+    }else{
+      target = $("#" + getTarget[0]);
+      ($(this).prop('checked')) ? target.show() : target.hide();
+    }
   })
 
   const getYear = new Date();
