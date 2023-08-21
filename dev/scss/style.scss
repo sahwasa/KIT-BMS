@@ -780,7 +780,7 @@ z-index:10;
  // tree common
 .ipt_wrap{border:none;
   dl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
-  dt{@include form_label;display:flex;gap:5px;width:100%;margin-top:15px; }
+  dt{@include form_label;display:flex;gap:5px;width:100%;margin-top:15px;}
   dt:first-of-type{margin-top:0;}
   .flex_full{flex-grow:1;}
   dd{
