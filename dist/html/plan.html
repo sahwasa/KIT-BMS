@@ -108,7 +108,7 @@
           </li>
         </ul>
       </li>
-      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" data-checkevt="all_emp" checked>전 사원 근태</label></h3></li>
+      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" data-checkevt="!all_emp">전 사원 근태</label></h3></li>
     </ul>
     <section class="plan_add" id="all_emp">
       <span class="file_input">
@@ -186,6 +186,10 @@
 <script src="../js/ui_cmmn.js"></script>
 <script src="../js/file_upload.js"></script>
 <script src="../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
 
 <!-- https://github.com/frappe/charts -->
 <script src='../plugins/fullcalendar/index.global.min.js'></script>

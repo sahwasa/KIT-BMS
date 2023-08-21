@@ -173,32 +173,32 @@
     });
     calendar.render();
 
-    var addBtn = document.getElementById('addEvt');
-    addBtn.addEventListener('click', function (e) {
-      var date = selectedDate;
-      if (date == null) {
-        var dateStr = prompt('일정을 추가할 날자를 YYYY-MM-DD 형식으로 입력해주세요.');
-        date = new Date(dateStr + 'T00:00:00'); // will be in local time
-      }
-      if (!isNaN(date.valueOf()) || !(date.end == null)) { // valid?
-        var start = date;
-        var end;
-        if(date.end){
-          start = date.start;
-          end = date.end;
-        }
-        calendar.addEvent({
-          title: '동적 일정추가',
-          start: start,
-          end: end,
-          allDay: true
-        });
-        alert('일정을 추가했습니다.');
-      } else {
-        alert('날자형식이 올바르지 않습니다.');
-      }
-      selectedDate = null;
-    });
+    // var addBtn = document.getElementById('addEvt');
+    // addBtn.addEventListener('click', function (e) {
+    //   var date = selectedDate;
+    //   if (date == null) {
+    //     var dateStr = prompt('일정을 추가할 날자를 YYYY-MM-DD 형식으로 입력해주세요.');
+    //     date = new Date(dateStr + 'T00:00:00'); // will be in local time
+    //   }
+    //   if (!isNaN(date.valueOf()) || !(date.end == null)) { // valid?
+    //     var start = date;
+    //     var end;
+    //     if(date.end){
+    //       start = date.start;
+    //       end = date.end;
+    //     }
+    //     calendar.addEvent({
+    //       title: '동적 일정추가',
+    //       start: start,
+    //       end: end,
+    //       allDay: true
+    //     });
+    //     alert('일정을 추가했습니다.');
+    //   } else {
+    //     alert('날자형식이 올바르지 않습니다.');
+    //   }
+    //   selectedDate = null;
+    // });
 
     var evtSource = [
       {
