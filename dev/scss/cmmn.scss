@@ -34,7 +34,7 @@
 *, :after, :before {box-sizing:border-box;}
 :root {-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%;cursor:default;line-height:1.5;overflow-wrap:break-word;-moz-tab-size:4;tab-size:4}
 html, body {height:100%;}
-img, picture, video, canvas, svg {display:block;max-width:100%;}
+img, picture, video, canvas{display:block;max-width:100%;}
 img{display:inline-block;}
 button {background:none;border:0;cursor:pointer;vertical-align:middle;}
 a {text-decoration:none;cursor:pointer;}
@@ -661,7 +661,7 @@ td{white-space:nowrap;text-overflow:ellipsis;}
 }
 .mentioned{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
 
-/* ckeditor */
+/* ckeditor, tui-image-editor */
 .editor_wrap{
   .ck-editor{
     .ck-source-editing-area,
@@ -685,6 +685,11 @@ td{white-space:nowrap;text-overflow:ellipsis;}
     }
   }
 }
+#image_editor_wrap{display:none;position: fixed;z-index:1000;width:auto;left: calc(50% - 400px);top: calc(50% - 400px);padding: 13px 10px;border: 1px solid #d7d7d7;background:#fff;}
+#image_editor.tui-image-editor-container{width:900px !important;height:700px !important;} /* important 사용하지 않고 적용하는 법 찾아보는중..!! */
+.btn_editor_wrap{margin-top:20px;text-align:center;}
+.tui-image-editor-header-buttons,
+.tui-image-editor-header-logo{display:none;}
 
 /* ico_fileName Extention */
 .ext_bmp {@extend %ico_ext;@include ico_ext(-3px, -2px);}
