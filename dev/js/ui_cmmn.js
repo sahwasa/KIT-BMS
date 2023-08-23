@@ -485,15 +485,6 @@ function setEditor() {
 }
 
 function setImageEditor() {
-  // Image editor
-  var imageEditor = new tui.ImageEditor('#image_editor', {
-    includeUI: {
-      //  theme: blackTheme, // or whiteTheme
-      initMenu: 'filter',
-      menuBarPosition: 'bottom',
-    },
-    usageStatistics: false,
-  })
 
   // 이미지 업로드 팝업 관련 요소 선택
   var imageEditor = null // Initialize Image Editor variable
@@ -541,7 +532,7 @@ function setImageEditor() {
                     path: event.target.result,
                     name: 'PastedImage',
                   },
-                  initMenu: 'filter',
+                  initMenu: 'draw',
                   menuBarPosition: 'bottom',
                 },
                 usageStatistics: false,
