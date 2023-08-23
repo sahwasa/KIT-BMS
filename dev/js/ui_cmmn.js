@@ -511,10 +511,10 @@ function setImageEditor() {
       })
 
       // CKEditor의 내용에 Markdown 이미지 추가
-      const editorData = editor.getData().split('\n\n')
+      const editorData = editor.getData().split('\n')
       const row_num = editor.model.document.selection.getFirstPosition().path[0]
       editorData[row_num] = editorData[row_num] + markdownImage
-      editor.setData(editorData.join('\n\n'))
+      editor.setData(editorData.join('\n'))
       // 이미지 에디터 팝업 닫기
       imageEditorWrap.style.display = 'none'
     }
