@@ -196,8 +196,8 @@ function commonInit(){
   })
 
   //tab
-  $('.tab li').first().addClass('on');
-  //$('.tab_container').find('.tab_contents').not(':first').hide();
+  $('.tab').find('li:first').addClass('on');
+  $('.tab_container').find('.tab_contents:not(:first)').hide();
   $('.tab li').on('click', function (e) {
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on');
@@ -495,7 +495,7 @@ const createScrollButton = () => {
 };
 const toggleScrollButton = () => {
   const scrollBtn = document.querySelector('.btn_scroll');
-  scrollBtn.classList.toggle('show', window.scrollY > window.innerHeight);
+  scrollBtn.classList.toggle('show', window.scrollY * 2 > window.innerHeight);
 };
 const scrollToTop = () => {
   if (window.scrollY > 0) {

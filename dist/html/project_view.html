@@ -98,7 +98,7 @@
         </div>
         <ul class="proj_lst">
           <li class="on">
-            <a href="#">
+            <a href="../html/project_view.html">
               <div class="tag_wrap">
                 <i class="type">R&amp;D</i>
                 <i class="public">공개</i>
@@ -115,7 +115,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="../html/project_view.html">
               <div class="tag_wrap">
                 <i class="type">TF</i>
                 <i class="private">비공개</i>
@@ -132,7 +132,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="../html/project_view.html">
               <div class="tag_wrap">
                 <i class="type">용역</i>
                 <i class="public">공개</i>
@@ -149,7 +149,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="../html/project_view.html">
               <div class="tag_wrap">
                 <i class="type">용역</i>
                 <i class="public">공개</i>
@@ -223,7 +223,7 @@
         <div class="tab_wrap">
           <ul class="tab">
             <li><a href="#proj01">업무</a></li>
-            <li class="on"><a href="#proj02">개요</a></li>
+            <li><a href="#proj02">개요</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
             <li><a href="#proj05">리스크관리</a></li>
@@ -231,7 +231,67 @@
           </ul>
         </div>
         <div class="tab_container proj_view">
-          <section id="proj01" class="tab_contents overview">
+          <section id="proj01" class="tab_contents task">
+            <section class="left_section">
+  <article>
+    <h1>업무</h1>
+    <select class="">
+      <option>담당</option>
+      <option>참조</option>
+      <option>등록</option>
+      <option>전체</option>
+    </select>
+    <section class="tab_container">
+      <article class="tab_contents">
+        <ul>
+          <li>
+            <input type="checkbox">
+            <div>
+              <div class="tit">
+                <em>제목</em>
+                업무상태
+              </div>
+              <div>
+              업무번호 / 담당자
+              <div>단계</div>
+              </div>
+              <div>
+                tag
+              </div>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </article>
+</section>
+<section class="right_section">
+  <ariticle class="proj_box">
+    <header>
+      <h2>프로젝트 개요</h2>
+      <ul class="chart_legend">
+        <li class="chart_fin">완료됨<span>47&percnt; (13/20)</span></li>
+        <li class="chart_delay">마감일 지남<span>2&percnt; (13/20)</span></li>
+        <li class="chart_todo">진행 중<span>6&percnt; (13/20)</span></li>
+        <li class="chart_termless">할일<span>47&percnt; (13/20)</span></li>
+      </ul>
+    </header>    
+    <ul class="stacked_bar">
+      <li class="chart_fin" style="width:40%;">완료</li>
+      <li class="chart_delay" style="width:2%;">지연</li>
+      <li class="chart_todo" style="width:6%;">진행</li>
+      <li class="chart_termless">할일</li>
+    </ul>
+  </ariticle>
+  <article>
+    번업차트
+  </article>
+  <article>
+    멤버별 업무현황
+  </article>  
+</section>
+          </section>
+          <section id="proj02" class="tab_contents overview">
             <section class="left_section">
   <article>
     <h1>프로젝트 정보</h1>
@@ -293,14 +353,17 @@
   </section>
 </section>
           </section>
-          <section id="proj02" class="tab_contents">
-            2
+          <section id="proj03" class="tab_contents rfp">
+            요구사항
           </section>
-          <section id="proj03" class="tab_contents">
-            3
+          <section id="proj04" class="tab_contents wbs">
+            wbs
           </section>
-          <section id="proj04" class="tab_contents">
-            4
+          <section id="proj05" class="tab_contents risk">
+            리스크관리
+          </section>
+          <section id="proj06" class="tab_contents doc">
+            문서관리
           </section>
         </div>
       </div>
@@ -321,13 +384,6 @@
 <script>
 //퍼블용
 commonInit();
-</script>
-<script src='../plugins/fullcalendar/index.global.min.js'></script>
-<script src='../plugins/google-calendar/index.global.min.js'></script>
-<script src="../js/book_meeting_room.js"></script>
-<script>
-  $(function () {
-  })
 </script>
 </body>
 

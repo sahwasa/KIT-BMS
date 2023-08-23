@@ -146,7 +146,6 @@ border:1px solid transparent;}
   border:2px solid $color;border-radius:50%;
   b{transform:rotate(-25deg);color:$color;font-weight:bold;letter-spacing:-.5px;font-size:15px;}
 }
-
 @mixin empty_box($con){display:flex;justify-content:center;align-items:center;height:100%;content:$con;padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:13px;color:#777;}
 
 @mixin user_lst{display:flex;flex-direction:column;gap:5px;

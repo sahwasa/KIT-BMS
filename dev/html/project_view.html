@@ -37,7 +37,7 @@
         <div class="tab_wrap">
           <ul class="tab">
             <li><a href="#proj01">업무</a></li>
-            <li class="on"><a href="#proj02">개요</a></li>
+            <li><a href="#proj02">개요</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
             <li><a href="#proj05">리스크관리</a></li>
@@ -45,17 +45,23 @@
           </ul>
         </div>
         <div class="tab_container proj_view">
-          <section id="proj01" class="tab_contents overview">
+          <section id="proj01" class="tab_contents task">
+            @@include('porject_view_task.html')
+          </section>
+          <section id="proj02" class="tab_contents overview">
             @@include('porject_view_overview.html')
           </section>
-          <section id="proj02" class="tab_contents">
-            2
+          <section id="proj03" class="tab_contents rfp">
+            요구사항
           </section>
-          <section id="proj03" class="tab_contents">
-            3
+          <section id="proj04" class="tab_contents wbs">
+            wbs
           </section>
-          <section id="proj04" class="tab_contents">
-            4
+          <section id="proj05" class="tab_contents risk">
+            리스크관리
+          </section>
+          <section id="proj06" class="tab_contents doc">
+            문서관리
           </section>
         </div>
       </div>
@@ -64,13 +70,6 @@
   @@include('../inc/footer.html')
 </div>
 @@include('../inc/script.html')
-<script src='../plugins/fullcalendar/index.global.min.js'></script>
-<script src='../plugins/google-calendar/index.global.min.js'></script>
-<script src="../js/book_meeting_room.js"></script>
-<script>
-  $(function () {
-  })
-</script>
 </body>
 
 </html>
