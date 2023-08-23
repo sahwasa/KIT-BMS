@@ -616,9 +616,9 @@ const createScrollButton = () => {
   return scrollBtn
 }
 const toggleScrollButton = () => {
-  const scrollBtn = document.querySelector('.btn_scroll');
-  scrollBtn.classList.toggle('show', window.scrollY * 2 > window.innerHeight);
-};
+  const scrollBtn = document.querySelector('.btn_scroll')
+  scrollBtn.classList.toggle('show', window.scrollY * 2 > window.innerHeight)
+}
 const scrollToTop = () => {
   if (window.scrollY > 0) {
     window.scrollTo(0, window.scrollY - 50)
