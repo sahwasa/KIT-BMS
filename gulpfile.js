@@ -35,7 +35,7 @@ var mergefileName = {
 };
 
 // browser-sync index file
-const browserSyncFileName = "/html/main.html";
+const browserSyncFileName = "/html/home/main.html";
 
 // 배포 시 삭제할 폴더
 const cleanPaths = [

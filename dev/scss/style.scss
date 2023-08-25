@@ -637,7 +637,7 @@ z-index:10;
     }
   }
   .tab_contents :not(first).appr_path{margin-top:4px;}
-  .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;
+  .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:7px;
     dt{font-size:14px;margin-bottom:0;}
     .rel_doc{align-self:flex-start;line-height:28px;}
     .rel_doc + dd{display:flex;flex-flow:column wrap;gap:5px;
@@ -656,17 +656,18 @@ z-index:10;
 }
 .approval_view{
   .appr_result{align-self:flex-end;
-    b{@include badge_style(null);padding:1px 5px 0;font-size:11px;font-weight:bold;}
+    b{@include badge_style(null);padding:1px 3px 0;font-size:11px;font-weight:bold;min-width:39px;}
     button{line-height:21px;}
   }
-  .appr_path li{flex-direction:column;align-items:flex-start;
+  .appr_path li{flex-direction:column;align-items:flex-start;border-width:1px 0 0;padding:6px 0 6px 25px;
+    &:first-child{border-top-width:0;padding-top:0;}
     .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;
       &:empty{margin:0;padding:0;}
     }
   }
   .act_lst{padding-left:3px;
     @include tit_bullet('.date-time',3);
-    li{border-left:1px solid #ccc;padding:0 0 20px 10px;
+    li{border-left:1px solid #ccc;padding:0 0 15px 10px;
       &:last-child{padding-bottom:5px;}
     }
     .date-time{position:relative;left:-10px;top:-7px;font-size:12px;color:$gray;margin-bottom:-5px;
@@ -675,8 +676,8 @@ z-index:10;
     .act_name,
     .act_type{font-weight:600;}
   }
-  .referrer_act{@include user_lst;
-    .appr_result{font-size:12px;}
+  .referrer_act{@include user_lst;margin-top:10px;padding-top:8px;border-top: 1px solid #ccc;
+    .appr_result{font-size:12px;b{margin-left:3px;}}
     $_signType:('uncheck':#b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
     @each $type, $color in $_signType{
       .#{$type}{width:43px;margin-left:3px;border-color:$color !important;color:$color !important;}
@@ -712,14 +713,13 @@ z-index:10;
   .approval_view .my_approval,
   .approval_draft .my_approval{flex-flow:column wrap;
     .approval_set{order:-1;width:100%;display:grid;gap:5px;margin-top:0;
-    grid-template-areas:"path etc""path refer""path referHistory""attach act"; 
+    grid-template-areas:"path etc""path refer""path refer""attach act"; 
       & > .box_default_w{margin:0;padding:15px;
         &:nth-of-type(1){grid-area:path;min-width:450px;}
         &:nth-of-type(2){grid-area:refer;}
-        &:nth-of-type(3){grid-area:referHistory;}
-        &:nth-of-type(4){grid-area:attach;}
-        &:nth-of-type(5){grid-area:etc;}
-        &:nth-of-type(6){grid-area:act;}
+        &:nth-of-type(3){grid-area:attach;}
+        &:nth-of-type(4){grid-area:etc;}
+        &:nth-of-type(5){grid-area:act;}
       }
     }
   }
@@ -905,18 +905,10 @@ $_planTypes:(
 %proj_txt{color:#b2bacd;font-weight:700;font-weight:700;font-size:11px;}
 .proj_name{font-weight:700;word-break:keep-all;letter-spacing:-.33px;line-height:15px;}
 .proj_desc{margin-top:10px;color:#71798a;font-size:12px;letter-spacing:-.11px}
-.past_proj{
-  .past_lst{display:flex;gap:5px;
-    li{flex:0 1 170px;@include proj_box(true);
-      i{@extend %proj_tag;@extend %type;}
-      .proj_name{color:#717889;font-size:12px;}
-    }    
-    .past{margin-top:auto;@extend %proj_txt;}
-  }
-}
-.proj_home{display:flex;flex-direction:column;gap:20px;height:calc(100% - 43px);}
-.my_proj{flex-grow:1;display:flex;flex-direction:column;}
-.my_proj_lst{flex-grow:1;
+
+.proj_home{@include flex_layout;height:calc(100% - 43px);}
+.my_task{flex-grow:1;display:flex;flex-direction:column;}
+.my_task_lst{flex-grow:1;
   ul{display:flex;gap:12px;flex-wrap:wrap;}
   li{flex:0 1 200px;@include proj_box(true);
     a{min-height:150px;}

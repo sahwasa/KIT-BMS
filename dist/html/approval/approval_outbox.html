@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a href="#" title="조직도">조직도</a></li>
+      <li><a href="#" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="#" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/home/main.html">HOME</a></li>
+    <li><a href="/html/message/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval/approval.html">전자결재</a></li>
+    <li><a href="/html/work/work.html">업무</a></li>
+    <li><a href="/html/planner/plan.html">일정</a></li>
+    <li><a href="/html/project/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp/erp.html">ERP</a></li>
+    <li><a href="/html/board/board.html">게시판</a></li>
+    <li><a href="/html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>전자결재</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="../approval/approval_new.html" class="btn_default">신규상신</a>
+    </div>
+    <div class="data_count">
+      <ul class="list_wrap">
+        <li>요청<em>3</em></li>
+        <li>대기<em>1</em></li>
+        <li>참조<em>2</em></li>
+      </ul>
+    </div>
+    <ul class="snb_lst">
+      <li class="on"><a href="../approval/approval_outIng.html">결재 상신함</a>
+        <ul>
+          <li class="on"><a href="../approval/approval_outIng.html">결재진행</a></li>
+          <li><a href="../approval/approval_outFin.html">결재완료</a></li>
+          <li><a href="../approval/approval_outReject.html">반려문서</a></li>
+          <li><a href="../approval/approval_outDrafts.html">임시저장</a></li>
+        </ul>        
+      </li>
+      <li><a href="../approval/approval_inIng.html">결재 수신함</a>
+        <ul>
+          <li><a href="../approval/approval_inIng.html">결재대기</a></li>
+          <li><a href="../approval/approval_inFin.html">결재내역</a></li>
+          <li><a href="../approval/approval_inCc.html">수신참조</a></li>
+        </ul>
+      </li>
+      <li><a href="../approval/approval_open.html">공개 문서함</a></li>
+      <!--<li><a href="#">보관함</a>
+        <button type="button" class="nav_btn_add">추가</button>
+        <ul class="sortable move_sortable hasLayer"><li><a href="#">내보관함
+          <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li>
+          <li><a href="#">업무보고
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li></ul>
+      </li>-->
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>결재진행<span>전자결재</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">전자결재</a></li>
+            <li>결재진행</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">
+          <header class="blind">
+            <h1>결재진행 목록</h1>
+          </header>
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <div class="select_custom prio">
+                  <button id="prio" class="label">
+                    <span class="opt_label">중요도</span>
+                  </button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0" data-value="1"><i class="ico_select high_prio">high icon</i>높음</li>
+                    <li class="optionItem" tabindex="0" data-value="2"><i class="ico_select normal_prio">common icon</i>보통</li>
+                    <li class="optionItem" tabindex="0" data-value="3"><i class="ico_select low_prio">row icon</i>낮음</li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <select name="" id="" title="결재양식">
+                  <optgroup class="opt_label" label="결재양식">
+                    <option disabled selected>결재양식</option>
+                  </optgroup>
+                  <optgroup label="근태문서">
+                    <option value="">출장신청서</option>
+                    <option value="">출장복명서</option>
+                    <option value="">휴가신청서</option>
+                  </optgroup>
+                  <optgroup label="기안문서">
+                    <option value="">기안서</option>
+                    <option value="">품의서</option>
+                    <option value="">지출결의서</option>
+                  </optgroup>
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+              </li>
+              <li>
+                <div class="period_group">
+                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
+                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <button type="button" class="btn_search" onclick="getVal();">검색</button>
+              </li>
+            </ul>
+            <script>
+              function getVal(){
+                var getCustomSel = document.getElementById("prio");
+                console.log(getCustomSel.dataset.value)
+              }
+            </script>
+            <div class="flex_right">
+              <select name="" id="" title="목록개수 선택">
+  <option value="15">15줄 보기</option>
+  <option value="50" selected>50줄 보기</option>
+  <option value="100">100줄 보기</option>
+  <option value="200">200줄 보기</option>
+</select>
+            </div>
+          </section>
+          <section>
+            <table class="tbl_default tbl_hover tbl_approval_outbox">
+              <caption>결재진행 리스트</caption>
+              <colgroup>
+                <col style="width:50px;">
+                <col span="2" style="width:120px;">
+                <col style="width:auto;">
+                <col span="2" style="width:150px;">
+                <col span="2" style="width:95px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">중요도</th>
+                  <th scope="col">문서종류</th>
+                  <th scope="col">문서번호</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">상신일시</th>
+                  <th scope="col">최종결재자</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">공개여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0" onclick="location.href='../approval/approval_view.html'">
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서5월 교통비지출서5월 교통비지출서<a href="#" class="cmt_num">4</a></td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td><i class="tbl_badge request">결재요청</i></td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서<a href="#" class="cmt_num">2</a></td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
+                  <td>교통비지출서</td>
+                  <td>KIT-001-0001</td>
+                  <td>5월 교통비지출서<a href="#" class="cmt_num">2</a></td>
+                  <td>2023-05-01 01:30:11</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td><i class="tbl_badge fin">결재완료</i></td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate tui-pagination" id="pagination">
+  <span class="tui-page-btn tui-is-disabled tui-first">
+    <span class="tui-ico-first">first</span>
+  </span>
+  <span class="tui-page-btn tui-is-disabled tui-prev">
+    <span class="tui-ico-prev">prev</span>
+  </span>
+  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
+  <a href="#" class="tui-page-btn tui-last-child">2</a>
+  <a href="#" class="tui-page-btn tui-next">
+    <span class="tui-ico-next">next</span>
+  </a>
+  <a href="#" class="tui-page-btn tui-last">
+    <span class="tui-ico-last">last</span>
+  </a>
+</div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+</body>
+
+</html>

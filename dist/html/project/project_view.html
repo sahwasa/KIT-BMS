@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a href="#" title="조직도">조직도</a></li>
+      <li><a href="#" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="#" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/home/main.html">HOME</a></li>
+    <li><a href="/html/message/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval/approval.html">전자결재</a></li>
+    <li><a href="/html/work/work.html">업무</a></li>
+    <li><a href="/html/planner/plan.html">일정</a></li>
+    <li><a href="/html/project/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp/erp.html">ERP</a></li>
+    <li><a href="/html/board/board.html">게시판</a></li>
+    <li><a href="/html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container proj">
+    <header>
+      <h2>프로젝트</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="../project/project/project_new.html" class="btn_default">프로젝트 추가</a>
+    </div>
+    <ul class="tab tab_wrap">
+      <li><a href="#tab01">내 프로젝트 (1)</a></li>
+      <li><a href="#tab02">전체 (12)</a></li>
+    </ul>
+    <section class="tab_container">
+      <article class="tab_contents" id="tab01">
+        <div class="filter">
+          <div class="flex_ipt">
+            <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span>
+            <button class="btn_search_square">검색</button>
+            <button class="btn_more_square">더보기</button>
+          </div>
+        </div>
+        <div class="proj_count">
+          <ul class="list_wrap">
+            <li class="ing">수행중<em>3</em></li>
+            <li class="fin">종료<em>1</em></li>
+            <li class="ready">준비<em>2</em></li>
+          </ul>
+        </div>
+        <ul class="proj_lst">
+          <li class="on">
+            <a href="../project/project_view.html">
+              <div class="tag_wrap">
+                <i class="type">R&amp;D</i>
+                <i class="public">공개</i>
+                <i class="ing">수행중</i>
+              </div>
+              <div class="proj_name">
+                <b>도시폭염을 고려한 폭염저감기술 최적화</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="../project/project_view.html">
+              <div class="tag_wrap">
+                <i class="type">TF</i>
+                <i class="private">비공개</i>
+                <i class="fin">종료</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="../project/project_view.html">
+              <div class="tag_wrap">
+                <i class="type">용역</i>
+                <i class="public">공개</i>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="../project/project_view.html">
+              <div class="tag_wrap">
+                <i class="type">용역</i>
+                <i class="public">공개</i>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="tag_wrap">
+                <i class="type">용역</i>
+                <i class="public">공개</i>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+        </ul>
+      </article>
+      <article class="tab_contents" id="tab02">
+      </article>
+    </section>   
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>도시폭염을 고려한 폭염저감기술 최적화<span>프로젝트</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">프로젝트</a></li>
+            <li>프로젝트 상세</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <div class="box_compact box_tool">
+          <header>
+            <span>
+              <button type="button" class="btn_gray_line">목록</button>
+            </span>
+            <span>
+              <button type="button" class="btn_red">추가</button>
+              <button type="button" class="btn_gray_line">취소</button>
+              <span>&sol;</span>
+              <button type="button" class="btn_red">수정</button>
+              <button type="button" class="btn_red_line">삭제</button>
+              <span>&sol;</span>
+              <button type="button" class="btn_red">저장</button>
+              <button type="button" class="btn_gray_line">취소</button>
+            </span>
+          </header>
+        </div>
+        <div class="tab_wrap">
+          <ul class="tab">
+            <li><a href="#proj01">업무</a></li>
+            <li><a href="#proj02">개요</a></li>
+            <li><a href="#proj03">요구사항</a></li>
+            <li><a href="#proj04">WBS(단계일정)</a></li>
+            <li><a href="#proj05">리스크관리</a></li>
+            <li><a href="#proj06">문서관리</a></li>
+          </ul>
+        </div>
+        <div class="tab_container proj_view">
+          <section id="proj01" class="tab_contents task">
+            <section class="left_section">
+  <article>
+    <h1>업무</h1>
+    <select class="">
+      <option>담당</option>
+      <option>참조</option>
+      <option>등록</option>
+      <option>전체</option>
+    </select>
+    <section class="tab_container">
+      <article class="tab_contents">
+        <ul>
+          <li>
+            <input type="checkbox">
+            <div>
+              <div class="tit">
+                <em>제목</em>
+                업무상태
+              </div>
+              <div>
+              업무번호 / 담당자
+              <div>단계</div>
+              </div>
+              <div>
+                tag
+              </div>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </article>
+</section>
+<section class="right_section">
+  <ariticle class="proj_box">
+    <header>
+      <h2>프로젝트 개요</h2>
+      <ul class="chart_legend">
+        <li class="chart_fin">완료됨<span>47&percnt; (13/20)</span></li>
+        <li class="chart_delay">마감일 지남<span>2&percnt; (13/20)</span></li>
+        <li class="chart_todo">진행 중<span>6&percnt; (13/20)</span></li>
+        <li class="chart_termless">할일<span>47&percnt; (13/20)</span></li>
+      </ul>
+    </header>    
+    <ul class="stacked_bar">
+      <li class="chart_fin" style="width:40%;">완료</li>
+      <li class="chart_delay" style="width:2%;">지연</li>
+      <li class="chart_todo" style="width:6%;">진행</li>
+      <li class="chart_termless">할일</li>
+    </ul>
+  </ariticle>
+  <article>
+    번업차트
+  </article>
+  <article>
+    멤버별 업무현황
+  </article>  
+</section>
+          </section>
+          <section id="proj02" class="tab_contents overview">
+            <section class="left_section">
+  <article>
+    <h1>프로젝트 정보</h1>
+  </article>
+  <article>
+    <h1>계약 정보</h1>
+  </article>
+</section>
+<section class="right_section">
+  <section class="box_default_w">
+    <dl class="set_list">
+      <dt>갱신일자</dt>
+      <dd>2023-04-05</dd>
+      <dt>생성자</dt>
+      <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+      <dt>생성일자</dt>
+      <dd>2023-01-05</dd>
+    </dl>
+    <button type="button" class="btn_red_line full">프로젝트 수정</button>
+  </section>
+  <section class="box_default_w">
+    <h1>참여자</h1>
+    <span class="file_input">
+      <input type="text" id="form_referrer" placeholder="참여자를 입력하세요." list="nameList" autocomplete="off">
+      <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+      <button type="button" class="btn_ogt btnMngTree">조직도</button>
+      <button type="button" class="btn_red_line" disabled>저장</button>
+    </span>
+    <ul class="contributor                      ">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>      
+    </ul>
+  </section>
+</section>
+          </section>
+          <section id="proj03" class="tab_contents rfp">
+            요구사항
+          </section>
+          <section id="proj04" class="tab_contents wbs">
+            wbs
+          </section>
+          <section id="proj05" class="tab_contents risk">
+            리스크관리
+          </section>
+          <section id="proj06" class="tab_contents doc">
+            문서관리
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+</body>
+
+</html>

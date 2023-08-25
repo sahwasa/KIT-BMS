@@ -1,0 +1,162 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/work.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>업무수신<span>업무 공유함</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">업무 공유함</a></li>
+            <li>업무수신</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_view">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            <button type="button" class="btn_red">수락</button>
+            <button type="button" class="btn_red_line">반려</button>
+          </span>
+        </article>
+        <div class="my_approval">
+          <section class="work_form form_view flex_right">
+            <article class="box_default_w">
+              <header>
+                <h1>PEWS 관련 회의 요청드립니다</h1>
+              </header>
+              <dl class="set_list">
+                <dt>프로젝트</dt>
+                <dd>[기상청] 2023년 지진조기경보 서비스 체계 개선</dd>
+                <dt>작업범주</dt>
+                <dd>
+                  <ul id="tagList" class="btn_slideclose">
+                    <li>
+                      <div class="tagItem" style="background-color: rgb(227, 220, 219);">
+                        <p>회의</p><button type="button">삭제</button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="tagItem" style="background-color: rgb(229, 210, 230);">
+                        <p>하자보수</p><button type="button">삭제</button>
+                      </div>
+                    </li>
+                  </ul>
+                </dd>
+                <dt class="required">업무기간</dt>
+                <dd>2023-05-09 10:00 ~ 2023-05-09 13:00</dd>
+              </dl>
+              <div class="editor_wrap">
+                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+              </div>
+            </article>
+            @@include('../../inc/module/comment_area_file.html')
+          </section>
+          <article class="approval_set work_set">
+            <section class="box_default_w">
+              <h1>요청자</h1>
+              <ul class="referrer_act">
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00</p>
+                </li>
+              </ul>
+            </section>
+            <section class="box_default_w">
+              <h1>수신자</h1>
+              <ul class="appr_path">
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00 <b class="approve">수락</b></p>
+                </li>
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="review_txt">반려 사유는 여기에 적습니다.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
+                </li>
+              </ul>
+            </section>
+            <section class="box_default_w">
+              <h1>참조자</h1>
+              <span class="file_input">
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+                @@include('../../inc/data/data_emp_name.html')
+                <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                <button type="button" class="btn_red_line">저장</button>
+                <button type="button" class="btn_red_line" disabled>저장</button>
+              </span>
+              @@include('../../inc/module/module_slide_user.html')
+            </section>
+            <section class="box_default_w">
+              <h1>첨부파일</h1>
+              @@include('../../inc/module/module_file_attached.html')
+            </section>
+            <section class="box_default_w">
+              <dl class="set_list">
+                <dt>중요도</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="high" name="importance" readonly>
+                    <label for="high" class="high_prio">높음</label>
+                    <input type="radio" id="common" name="importance" checked readonly>
+                    <label for="common" class="normal_prio">보통</label>
+                    <input type="radio" id="row" name="importance" readonly>
+                    <label for="row" class="low_prio">낮음</label>
+                  </div>
+                </dd>
+                <dt>공개여부</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="open" name="disclosure" checked>
+                    <label for="open">공개</label>
+                    <input type="radio" id="private" name="disclosure">
+                    <label for="private">비공개</label>
+                  </div>
+                </dd>
+                <dt class="rel_doc">관련문서</dt>
+                <dd>
+                  <div class="file_input">
+                    <a href="#">23-04-17 휴일근무신청서</a>
+                    <a href="#" target="_blank" class="preview">미리보기</a>
+                  </div>
+                </dd>
+              </dl>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+
+@@include('../../inc/layout/script.html')
+<script>
+  $(function () {
+    setEditor();// editor common
+    fileDropEvt();
+  })
+var tribute = new Tribute({
+  trigger: "@",
+  values: [
+    { key: "1", value: "김개발" },
+    { key: "2", value: "김연구 연구기획 1팀" }
+  ],
+  selectTemplate: function(item) {
+    return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
+  },
+  menuItemTemplate: function(item) {
+    return `${item.original.value}`;
+  }
+});
+tribute.attach(document.querySelectorAll(".editable"));
+</script>
+</body>
+
+</html>
