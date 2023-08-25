@@ -30,15 +30,15 @@
   </h1>    
   <section class="gnb">
     <ul class="gnb_lst">
-      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
-      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="조직도">조직도</a></li>
+      <li><a href="#" title="자리배치도">자리배치도</a></li>
       <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
-      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+      <li><a href="#" title="관리자시스템">관리자시스템</a></li>
     </ul>
     <div class="util">
       <div class="profile">
         <button type="button" class="account">
-          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <img src="../../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
           <b>관리자님</b>
         </button>
         <div class="my_layer">
@@ -109,20 +109,20 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>나의 할일<span>내 업무함</span></h1>
+        <h1>업무 요청<span>업무 공유함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">업무</a></li>
-            <li><a href="#">내 업무함</a></li>
-            <li>나의 할일</li>
+            <li><a href="#">업무 공유함</a></li>
+            <li>업무 요청</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
         <article class="">
           <header class="blind">
-            <h1>나의 할일 목록</h1>
+            <h1>결재대기 목록</h1>
           </header>
           <section class="tbl_top_area">
             <ul class="search_list">
@@ -137,17 +137,10 @@
                 </select>
               </li>
               <li>
-                <select name="" id="" title="연도 선택">
-                  <option value="연도 선택">연도 선택</option>
-                  <option value="2023년" selected>2023년</option>
-                  <option value="2022년">2022년</option>
-                </select>
-              </li>
-              <li>
-                <select name="" id="" title="주차 선택">
-                  <option value="주차 선택">주차 선택</option>
-                  <option value="14주 (2023-04-02~2023-04-08)​" selected>14주 (2023-04-02~2023-04-08)​</option>
-                </select>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01" max="9999-12-31">
+                </div>
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
@@ -155,11 +148,6 @@
             </ul>
           </section>
           <section>
-            <div class="tbl_handle">
-              <button class="tbl_work_prev">이전 주차 이동</button>
-              <span>2023.02.26 ~ 2023.03.04</span>
-              <button class="tbl_work_next" disabled>다음 주차 이동</button>
-            </div>
             <div class="tab_wrap">
               <ul class="tab tab_s">
                 <li class="on"><a href="#tab_con01">전체</a></li>
@@ -167,32 +155,31 @@
                 <li><a href="#tab_con03">부서업무</a></li>
                 <li><a href="#tab_con04">프로젝트</a></li>
               </ul>
-              <button type="button" class="btn_default">업무추가</button>
+              <button type="button" class="btn_default">업무요청</button>
             </div>
             <div class="tab_container">
               <section id="tab_con01" class="tab_contents my_form">
-                <table class="tbl_default tbl_hover tbl_work_share hasLayer alignL_2 alignL_4">
-                  <caption>나의 할일 리스트</caption>
+                <table class="tbl_default tbl_hover tbl_work_share hasLayer alignL_2">
+                  <caption>업무 요청 리스트</caption>
                   <colgroup>
                     <col style="width:120px;">
                     <col style="width:240px;">
-                    <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col span="2" style="width:150px;">
+                    <col span="3" style="width:120px;">
+                    <col style="width:150px;">
                     <col span="2" style="width:120px;">
                     <col style="width:95px;">
                   </colgroup>
                   <thead>
                     <tr>
                       <th scope="col">구분</th>
-                      <th scope="col">업무명</th>
+                      <th scope="col">제목</th>
                       <th scope="col">작업범주</th>
-                      <th scope="col">업무내용</th>
-                      <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
-                      <th scope="col">담당자</th>
+                      <th scope="col">중요도</th>
                       <th scope="col">요청자</th>
-                      <th scope="col">진행율</th>
+                      <th scope="col">요청일자</th>
+                      <th scope="col">수신자</th>
+                      <th scope="col">참조자</th>
+                      <th scope="col">관리</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -200,60 +187,92 @@
                       <td>개인업무</td>
                       <td>주간업무보고 작성</td>
                       <td>보고</td>
-                      <td> - 지진발생 팝업 미표출 오류 수정</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td><i class="tbl_ico low_prio" title="중요도 낮음">중요도 낮음</i></td>
+                      <td>홍길동(개발1팀)</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>홍길동(개발1팀)</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td>22%</td>
+                      <td>홍00(개발1팀) <i class="tbl_badge default">미확인</i></td>
+                      <td onclick="event.stopPropagation();">
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                          <div class="btn_layer">
+                            <button type="button">발송취소</button>
+                            <button type="button">재발송</button>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                     <tr tabindex="0">
                       <td>프로젝트</td>
                       <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                       <td>개발​</td>
-                      <td>◯ 지진/가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
                       <td>홍길동(개발1팀)</td>
+                      <td>2023-05-01 01:30:11</td>
                       <td>고길동(개발2팀)</td>
-                      <td>2%</td>
+                      <td>홍00(개발1팀) <i class="tbl_badge approve">수락</i></td>
+                      <td onclick="event.stopPropagation();">
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                          <div class="btn_layer">
+                            <button type="button">발송취소</button>
+                            <button type="button">재발송</button>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                     <tr tabindex="0">
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검</td>
                       <td><i class="tbl_badge ing">수정해야댐</i></td>
-                      <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
                       <td>홍길동(개발1팀)</td>
+                      <td>2023-05-01 01:30:11</td>
                       <td></td>
-                      <td>75%</td>
+                      <td>홍00(개발1팀) <i class="tbl_badge reject">반려</i></td>
+                      <td onclick="event.stopPropagation();">
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                          <div class="btn_layer">
+                            <button type="button">발송취소</button>
+                            <button type="button">재발송</button>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                     <tr tabindex="0">
                       <td>개인업무</td>
                       <td>000 디자인 작업</td>
                       <td>
-                        <i class="tbl_badge ing">진행</i>
+                        <i class="tbl_badge ing">수정해야댐</i>
                       </td>
-                      <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td><i class="tbl_ico high_prio" title="중요도 높음">중요도 높음</i></td>
                       <td>홍길동(개발1팀)</td>
+                      <td>2023-05-01 01:30:11</td>
                       <td></td>
-                      <td>5%</td>
+                      <td>홍00(개발1팀) <i class="tbl_badge reject">반려</i></td>
+                      <td onclick="event.stopPropagation();">
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                          <div class="btn_layer">
+                            <button type="button">발송취소</button>
+                            <button type="button">재발송</button>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </section>
               <section id="tab_con02" class="tab_contents my_form" style="display: none;">
                 <table class="tbl_default tbl_hover tbl_work_share hasLayer alignL_2 alignL_4">
-                  <caption>나의 할일 리스트</caption>
+                  <caption>업무 요청 리스트</caption>
                   <colgroup>
                     <col style="width:120px;">
                     <col style="width:240px;">
                     <col style="width:120px;">
                     <col style="width:240px;">
-                    <col span="2" style="width:150px;">
+                    <col style="width:150px;">
                     <col span="2" style="width:120px;">
                     <col style="width:95px;">
                   </colgroup>
@@ -264,7 +283,6 @@
                       <th scope="col">작업범주</th>
                       <th scope="col">업무내용</th>
                       <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
                       <th scope="col">담당자</th>
                       <th scope="col">요청자</th>
                       <th scope="col">진행율</th>
@@ -278,24 +296,23 @@
                         <i class="tbl_badge ing">진행</i>
                       </td>
                       <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
                       <td>홍길동(개발1팀)</td>
+                      <td>2023-05-01 01:30:11</td>
                       <td></td>
-                      <td>5%</td>
+                      <td>홍00(개발1팀)</td>
                     </tr>
                   </tbody>
                 </table>
               </section>
               <section id="tab_con03" class="tab_contents my_form" style="display: none;">
                 <table class="tbl_default tbl_hover tbl_work_share hasLayer alignL_2 alignL_4">
-                  <caption>나의 할일 리스트</caption>
+                  <caption>업무 요청 리스트</caption>
                   <colgroup>
                     <col style="width:120px;">
                     <col style="width:240px;">
                     <col style="width:120px;">
                     <col style="width:240px;">
-                    <col span="2" style="width:150px;">
+                    <col style="width:150px;">
                     <col span="2" style="width:120px;">
                     <col style="width:95px;">
                   </colgroup>
@@ -306,7 +323,6 @@
                       <th scope="col">작업범주</th>
                       <th scope="col">업무내용</th>
                       <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
                       <th scope="col">담당자</th>
                       <th scope="col">요청자</th>
                       <th scope="col">진행율</th>
@@ -318,24 +334,23 @@
                       <td>2023년 과제 진도점검</td>
                       <td><i class="tbl_badge ing">수정해야댐</i></td>
                       <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
                       <td>홍길동(개발1팀)</td>
+                      <td>2023-05-01 01:30:11</td>
                       <td></td>
-                      <td>75%</td>
+                      <td>홍00(개발1팀)</td>
                     </tr>
                   </tbody>
                 </table>
               </section>
               <section id="tab_con04" class="tab_contents my_form" style="display: none;">
                 <table class="tbl_default tbl_hover tbl_work_share hasLayer alignL_2 alignL_4">
-                  <caption>나의 할일 리스트</caption>
+                  <caption>업무 요청 리스트</caption>
                   <colgroup>
                     <col style="width:120px;">
                     <col style="width:240px;">
                     <col style="width:120px;">
                     <col style="width:240px;">
-                    <col span="2" style="width:150px;">
+                    <col style="width:150px;">
                     <col span="2" style="width:120px;">
                     <col style="width:95px;">
                   </colgroup>
@@ -346,7 +361,6 @@
                       <th scope="col">작업범주</th>
                       <th scope="col">업무내용</th>
                       <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
                       <th scope="col">담당자</th>
                       <th scope="col">요청자</th>
                       <th scope="col">진행율</th>
@@ -358,11 +372,10 @@
                       <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                       <td>개발​</td>
                       <td>◯ 지진/가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
                       <td>홍길동(개발1팀)</td>
+                      <td>2023-05-01 01:30:11</td>
                       <td>고길동(개발2팀)</td>
-                      <td>2%</td>
+                      <td>홍00(개발1팀)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -394,28 +407,6 @@
 //퍼블용
 commonInit();
 </script>
-<dialog id="p_org_chart" class="p_org_chart">
-  <form method="dialog">
-    <header class="p_header">
-      <strong>2023년 조직도</strong>
-      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
-    </header>
-    <div class="p_body">
-      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
-    </div>
-  </form>
-</dialog>
-<dialog id="p_seating_chart" class="p_seating_chart">
-  <form method="dialog">
-    <header class="p_header">
-      <strong>2023년 자리배치도조직도</strong>
-      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
-    </header>
-    <div class="p_body">
-      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
-    </div>
-  </form>
-</dialog>
 </body>
 
 </html>
