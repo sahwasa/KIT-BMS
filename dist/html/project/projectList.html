@@ -30,15 +30,15 @@
   </h1>    
   <section class="gnb">
     <ul class="gnb_lst">
-      <li><a href="#" title="조직도">조직도</a></li>
-      <li><a href="#" title="자리배치도">자리배치도</a></li>
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
       <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
-      <li><a href="#" title="관리자시스템">관리자시스템</a></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
     </ul>
     <div class="util">
       <div class="profile">
         <button type="button" class="account">
-          <img src="../../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
           <b>관리자님</b>
         </button>
         <div class="my_layer">
@@ -316,6 +316,28 @@
 //퍼블용
 commonInit();
 </script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
 </body>
 
 </html>
