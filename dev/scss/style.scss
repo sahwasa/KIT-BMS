@@ -680,7 +680,7 @@ z-index:10;
     .appr_result{font-size:12px;b{margin-left:3px;}}
     $_signType:('uncheck':#b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
     @each $type, $color in $_signType{
-      .#{$type}{border-color:$color !important;color:$color !important;}
+      .#{$type}{width:43px;margin-left:3px;border-color:$color !important;color:$color !important;}
     }
   }
 }
@@ -881,6 +881,7 @@ $_planTypes:(
     }
   }
 }
+#add_screen{position:fixed;top:60px;right:auto;z-index:10;width:calc(100% - 60px);height:calc(100% - 60px);background:#fff;} // 일정 페이지 전환
 
 //project
 %proj_tag{width:35px;line-height:13px;@include badge_style(35px);font-size:10px;letter-spacing:-.25px;font-weight:700;}
@@ -989,12 +990,14 @@ $_proj_stacked:(
 }
 .work_form{
   header{padding-left:10px;
-    h1{font-size:18px;font-weight:bold;color:#000;}
-    &+.set_list{margin:40px 0 20px;}
+    h1{font-size:18px;font-weight:bold;color:#000;
+      &::before{display:none;}
+    }
+    &+.set_list{margin:25px 0 20px;}
   }
   .set_list{display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;margin:0 0 20px;
     dt{position:relative;margin-bottom:0;padding-left:15px;font-size:14px;font-weight:bold;
-      &::before{position:absolute;left:2px;}
+      &::before{display:none;position:absolute;left:2px;}
     }
     .rel_doc{align-self:flex-start;line-height:28px;}
     .rel_doc + dd{display:flex;flex-flow:column wrap;gap:5px;
@@ -1012,15 +1015,17 @@ $_proj_stacked:(
     }
   }
 }
-.tbl_handle_area{@include flex_between;margin:20px 0 10px;padding-top:10px;
-  .tbl_handle{border-radius:0.25em;overflow:hidden;
+.tbl_handle{@include flex_between;gap:15px;justify-content:center;margin-bottom:-10px;padding-top:10px;
     .tbl_work_prev,
     .tbl_work_next{font-size:0;
-      &::before{display:block;@include fontello('\f105');font-size:17px;width:30px;line-height:30px;background-color:#2c3e50;color:#fff;}
+      &::before{display:block;@include fontello('\f105');font-size:15px;width:30px;line-height:30px;border:1px solid #a2a2a2;border-radius:15px;color:#000;font-weight: bold;}
+      &:disabled::before{border-color:#d2d2d2;color:#d2d2d2;}
     }
     .tbl_work_prev{
       &::before{content:'\f104';}
     }
-  }
   span{font-size:20px;font-weight:bold;}
+}
+.tab_wrap:has(button){position:relative;
+  &>button{position:absolute;top:0;right:0;}
 }
