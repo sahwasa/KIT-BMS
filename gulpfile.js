@@ -23,7 +23,7 @@ const path = {
   html:dev + "/**/*.html",
   scss: dev + "/scss/*.scss",
   js: dev + "/js/*.js",
-  images: dev + "/**/images/*",
+  images: dev + "/**/images/**/*",
   page:"index.html"
 };
 
