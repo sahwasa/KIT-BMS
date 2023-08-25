@@ -1915,15 +1915,15 @@
       <table class="tbl_default tbl_row">
         <caption>내 업무 추가 테이블</caption>
         <colgroup>
-          <col style="width:130px">
+          <col style="width:120px">
           <col style="width:auto">
-          <col style="width:110px">
+          <col style="width:120px">
           <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required"><label for="work_type">업무구분</label></th>
-            <td colspan="3">
+            <td>
               <select name="work_type" id="work_type">
                 <option value="업무구분 선택">업무구분 선택</option>
                 <option value="프로젝트">프로젝트</option>
@@ -1932,6 +1932,8 @@
                 <option value="기타">기타</option>
               </select>
             </td>
+            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <td><input type="text" id="work_name"></td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">작업범주</label></th>
@@ -1945,56 +1947,8 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="work_name">업무명</label></th>
-            <td colspan="3"><input type="text" id="work_name"></td>
-          </tr>
-          <tr>
             <th scope="row" class="required">담당자</th>
-            <td colspan="3">
-              <span class="file_input">
-                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
-                <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-                <button type="button" class="btn_default">추가</button>
-                <button type="button" class="btn_ogt">조직도</button>
-              </span>
-              <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li>
-  <li>
-    <div>
-      <p>임선</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li>
-</ul>
-            </td>
+            <td colspan="3">홍00 (SI사업본부 개발1팀)</td>
           </tr>
           <tr>
             <th scope="row">업무요청자</th>
@@ -2048,25 +2002,21 @@
             <th scope="row" class="required">
               <label for="work_start">시작일자</label>
             </th>
-            <td colspan="3"><input type="date" id="work_start"></td>
-          </tr>
-          <tr>
+            <td><input type="date" id="work_start"></td>
             <th scope="row" class="required">
               <label for="work_end">종료일자</label>
             </th>
-            <td colspan="3"><input type="date" id="work_end"></td>
+            <td><input type="date" id="work_end"></td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3"><textarea name="work_content" id="work_content"></textarea></td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <label for="work_more">참고사항</label>
-            </th>
-            <td colspan="3"><textarea name="work_more" id="work_more"></textarea></td>
+            <td colspan="3">
+              <div class="editor_wrap" id="editor_wrap">
+                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row">
@@ -2112,6 +2062,8 @@ commonInit();
 
 <script>
   $(function () {
+    setEditor();
+
     // 업무 관리 작업범주 랜덤 색상 태그
     const initialNames = ['개발', '제안', '기획', '하자보수', '테스트', '문서', '외주관리', '유지보수', '회의', '출장', '외근', '기타'];
     initializeTagManager('tagList', 'nameSelect', initialNames);

@@ -8,15 +8,15 @@
       <table class="tbl_default tbl_row">
         <caption>내 업무 추가 테이블</caption>
         <colgroup>
-          <col style="width:130px">
+          <col style="width:120px">
           <col style="width:auto">
-          <col style="width:110px">
+          <col style="width:120px">
           <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required"><label for="work_type">업무구분</label></th>
-            <td colspan="3">
+            <td>
               <select name="work_type" id="work_type">
                 <option value="업무구분 선택">업무구분 선택</option>
                 <option value="프로젝트">프로젝트</option>
@@ -25,6 +25,8 @@
                 <option value="기타">기타</option>
               </select>
             </td>
+            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <td><input type="text" id="work_name"></td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">작업범주</label></th>
@@ -38,20 +40,8 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="work_name">업무명</label></th>
-            <td colspan="3"><input type="text" id="work_name"></td>
-          </tr>
-          <tr>
             <th scope="row" class="required">담당자</th>
-            <td colspan="3">
-              <span class="file_input">
-                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
-                @@include('../data_emp_name.html')
-                <button type="button" class="btn_default">추가</button>
-                <button type="button" class="btn_ogt">조직도</button>
-              </span>
-              @@include('../module_slide_user.html')
-            </td>
+            <td colspan="3">홍00 (SI사업본부 개발1팀)</td>
           </tr>
           <tr>
             <th scope="row">업무요청자</th>
@@ -69,25 +59,21 @@
             <th scope="row" class="required">
               <label for="work_start">시작일자</label>
             </th>
-            <td colspan="3"><input type="date" id="work_start"></td>
-          </tr>
-          <tr>
+            <td><input type="date" id="work_start"></td>
             <th scope="row" class="required">
               <label for="work_end">종료일자</label>
             </th>
-            <td colspan="3"><input type="date" id="work_end"></td>
+            <td><input type="date" id="work_end"></td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3"><textarea name="work_content" id="work_content"></textarea></td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <label for="work_more">참고사항</label>
-            </th>
-            <td colspan="3"><textarea name="work_more" id="work_more"></textarea></td>
+            <td colspan="3">
+              <div class="editor_wrap" id="editor_wrap">
+                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row">

@@ -85,6 +85,7 @@ $relay:#c94b9f; // 전달
 .done{@include badge_color($done)} // 전결 후결
 .cc{@include badge_color($cc)} // 참조
 .relay{@include badge_color($relay)} // 전달
+.default{@include badge_color(#b6b6b6)}
 .public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
 
