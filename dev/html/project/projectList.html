@@ -1,0 +1,115 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/projectList.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>프로젝트</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">프로젝트</a></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body proj_home">        
+        <article class="box_default my_task">
+          <header>
+            <h1>내 프로젝트
+              <div class="count">
+                <span class="uncheck">수행중<em>1건</em></span>
+                <span class="uncheck">종료<em>1건</em></span>
+                <span class="uncheck">준비<em>1건</em></span>
+              </div>
+            </h1>
+          </header>
+          <section class="my_task_lst">
+          <ul>
+            <li>
+              <a href="../project/project_view.html">
+                <i class="ing">수행중</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>30&percnt;</em>완료<span class="check_progress">(<em>5</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="30" max="100" title="진행율">30&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fin">종료</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>100&percnt;</em>완료<span class="check_progress">(20/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="100" max="100" title="진행율">100&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="ready">준비</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>5&percnt;</em>완료<span class="check_progress">(<em>1</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="5" max="100" title="진행율">5&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="ready">준비</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>5&percnt;</em>완료<span class="check_progress">(<em>1</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="5" max="100" title="진행율">5&percnt;</progress>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="ready">준비</i>
+                <div class="proj_name">도시폭염을 고려한 폭염저감기술 최적화</div>
+                <div class="progress">
+                  <div class="flex_wrap">
+                    <em>5&percnt;</em>완료<span class="check_progress">(<em>1</em>/20)</span>
+                  </div>
+                  <label for="progress1" class="blind">진행율</label>
+                  <progress id="progress1" value="5" max="100" title="진행율">5&percnt;</progress>
+                </div>
+              </a>
+            </li>
+          </ul>
+          </section>
+          
+        </article>
+        <article class="box_default lazy_task">
+          <header>
+            <h1>지연된 업무</h1>
+          </header>
+          <section>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

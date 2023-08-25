@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a href="#" title="조직도">조직도</a></li>
+      <li><a href="#" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="#" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/home/main.html">HOME</a></li>
+    <li><a href="/html/message/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval/approval.html">전자결재</a></li>
+    <li><a href="/html/work/work.html">업무</a></li>
+    <li><a href="/html/planner/plan.html">일정</a></li>
+    <li><a href="/html/project/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp/erp.html">ERP</a></li>
+    <li><a href="/html/board/board.html">게시판</a></li>
+    <li><a href="/html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container svc">
+    <header>
+      <h2>임직원 업무</h2>
+    </header>
+    <div class="btn_workset">
+      <button type="button" class="btn_default" id="">출근</button>
+      <button type="button" class="btn_default" id="">퇴근</button>      
+    </div>
+    <ul class="snb_lst">
+      <li><a href="#">근태관리</a></li>
+      <li><a href="../html/svc_mettingRoom.html">자원</a>        
+        <ul>
+          <li><a href="../html/svc/svc_meetingRoom.html">회의실 예약</a></li>
+          <li><a href="#">장비대여</a></li>
+          <li><a href="#">도서대여</a></li>
+          <li><a href="#">사물함 신청</a></li>
+          <li><a href="#">구매신청</a></li>
+          <li><a href="#">사용이력??</a></li>
+        </ul>
+      </li>
+      <li><a href="#">경비청구</a></li>
+      <li><a href="#">증명서 발급</a></li>
+      <li><a href="#">사업자관리</a></li>
+      <li><a href="#">주소록관리</a></li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>회의실 예약<span>임직원 업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li>회의실 예약</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <section class="cal_wrap">
+          <div class="remote_room">
+            <label for="all" class="all_lst_ctrl"><input type="checkbox" id="all">전체</label>
+            <ul class="lst_room lst_ctrl">
+              <li>
+                <label for="roomA"><input type="checkbox" id="roomA">회의실A</label>
+              </li>
+              <li><label for="roomB"><input type="checkbox" id="roomB">회의실B</label>
+              <li><label for="roomC"><input type="checkbox" id="roomC">회의실C</label>
+              </li>
+            </ul>
+          </div>
+          <div id='calendar-container' class="calendar_container">
+            <div id='calendar'></div>
+          </div>
+          <article class="plan_new">
+            
+  <div class="box_compact box_tool">
+    <header>
+      <h1><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> 님의 일정입니다.</h1>
+      <span>
+        <button type="button" class="btn_request">예약</button>
+        <button type="button" class="btn_cancel">취소</button>
+      </span>
+    </header>
+  </div>
+
+  <section class="new_contents">
+    <fieldset class="ipt_wrap ipt_set">
+      <dl>
+        <dt><label for="plan_period" class="required">기간</label></dt>
+        <dd>
+          <div class="period_custom">
+            <span>
+              <input type="date" id="plan_period" name="start_date" title="시작일">
+              <input type="time" name="start_time" title="시작시간">
+            </span>
+            <span>
+              <input type="date" title="종료일" name="end_date">
+              <input type="time" title="종료시간" name="end_time">
+            </span>
+          </div>
+        </dd>
+        <dd class="divideL">
+          <ul class="check_group">
+            <li>
+              <label for="period_allday"><input type="checkbox" id="period_allday">종일</label>
+            </li>
+            <li>
+              <label for="period_repeat"><input type="checkbox" id="period_repeat" data-checkEvt="repeat">반복</label>
+            </li>
+          </ul>
+        </dd>
+        <dd class="opt_wrap" id="repeat">
+          <dl class="opt_lst">
+            <dt>빈도</dt>
+            <dd>
+              <div class="flex_ipt">
+                <input type="number" min="1" value="1" title="반복 주기" />
+                <select name="" id="" title="반복 단위">
+                  <option value="">주</option>
+                  <option value="">월</option>
+                  <option value="">년</option>
+                </select>
+                마다
+              </div>
+              <ul class="check_group">
+                <li><label for="sun"><input type="checkbox" id="sun">일</label></li>
+                <li><label for="mon"><input type="checkbox" id="mon">월</label></li>
+                <li><label for="tue"><input type="checkbox" id="tue">화</label></li>
+                <li><label for="wed"><input type="checkbox" id="wed">수</label></li>
+                <li><label for="thu"><input type="checkbox" id="thu">목</label></li>
+                <li><label for="fri"><input type="checkbox" id="fri">금</label></li>
+                <li><label for="sat"><input type="checkbox" id="sat">토</label></li>
+              </ul>
+            </dd>
+            <dt>범위</dt>
+            <dd>
+              <div class="period_custom">
+                <input type="date" id="" name="start_date" title="시작일">
+                <input type="date" id="" name="end_date" title="종료일">
+              </div>
+              <label for="indefinitely"><input type="checkbox" id="indefinitely">무기한</label>
+            </dd>
+            <dt>요약</dt>
+            <dd><p>1주 화요일 마다(2023-12-10 ~ )</p></dd>
+          </dl>
+        </dd>              
+        <dt><label for="plan_place">장소</label></dt>
+        <dd class="flex_full"><input type="text" id="plan_place" placeholder="ex. 본사, 기상청"></dd>
+        <dt>회의실</dt>
+        <dd>
+          <div class="file_input">
+            <div class="select_custom meeting_room">
+              <button class="label">
+                <span class="opt_label">선택</span>
+              </button>
+              <ul class="optionList">
+                <li class="optionItem" tabindex="0"><span class="opt_label">선택안함</span></li>
+                <li class="optionItem" tabindex="0"><i class="roomA">A</i>회의실A</li>
+                <li class="optionItem" tabindex="0"><i class="roomB">B</i>회의실B</li>
+                <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의실C</li>
+              </ul>
+            </div>
+          </div>                
+        </dd>
+        <dt>참여자</dt>
+        <dd>
+          <div class="file_input">
+            <select name="" id="" title="참여자 검색옵션">
+              <option value="">프로젝트</option>
+              <option value="">이름</option>
+              </select>
+            <input type="text" id="" placeholder="프로젝트or이름" list="nameList" autocomplete="off">
+            <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+            <button type="button" class="btn_default">추가</button>
+            <button type="button" class="btn_ogt btnMngTree">조직도</button>
+          </div>
+          <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+          <p class="ipt_info">참여자와 일정이 공유됩니다.</p>
+        </dd>
+        <dt>공개여부</dt>
+        <dd>
+          <div class="btn_switch">
+              <input type="radio" id="open" name="disclosure" checked>
+              <label for="open">공개</label>
+              <input type="radio" id="private" name="disclosure">
+              <label for="private">비공개</label>
+          </div>
+        </dd>
+      </dl>
+    </fieldset>
+    <fieldset class="ipt_wrap">
+      <dl>
+        <dt><label for="plan_tit" class="required">제목</label></dt>
+        <dd>
+          <div class="select_custom meeting_room">
+            <button class="label">
+              <span class="opt_label">선택</span>
+            </button>
+            <ul class="optionList">
+              <li class="optionItem" tabindex="0"><i class="roomB">B</i>업무</li>
+              <li class="optionItem" tabindex="0"><i class="roomC">C</i>중요</li>
+              <li class="optionItem" tabindex="0"><i class="roomC">C</i>회의</li>
+              <li class="optionItem" tabindex="0"><i class="roomC">C</i>행사</li>
+            </ul>
+          </div>
+        </dd>              
+        <dd class="flex_full divideL"><input type="text" id="plan_tit" title="제목 상세 입력 박스" required></dd>
+        <dt><label for="plan_cont">내용</label></dt>
+        <dd class="flex_full"><textarea id="plan_cont"></textarea></dd>
+        <dt>파일첨부</dt>
+        <dd class="flex_full"><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div></dd>
+      </dl>
+    </fieldset>
+  </section>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+
+<!-- https://github.com/frappe/charts -->
+<script src='../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../plugins/google-calendar/index.global.min.js'></script>
+<script src="../js/book_meeting_room.js"></script>
+
+</body>

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a href="#" title="조직도">조직도</a></li>
+      <li><a href="#" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="#" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="/html/home/main.html">HOME</a></li>
+    <li><a href="/html/message/message.html">사내쪽지</a></li>
+    <li><a href="/html/approval/approval.html">전자결재</a></li>
+    <li><a href="/html/work/work.html">업무</a></li>
+    <li><a href="/html/planner/plan.html">일정</a></li>
+    <li><a href="/html/project/projectList.html">프로젝트</a></li>
+    <li><a href="/html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="/html/erp/erp.html">ERP</a></li>
+    <li><a href="/html/board/board.html">게시판</a></li>
+    <li><a href="/html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>전자결재</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="../approval/approval_new.html" class="btn_default">신규상신</a>
+    </div>
+    <div class="data_count">
+      <ul class="list_wrap">
+        <li>요청<em>3</em></li>
+        <li>대기<em>1</em></li>
+        <li>참조<em>2</em></li>
+      </ul>
+    </div>
+    <ul class="snb_lst">
+      <li class="on"><a href="../approval/approval_outIng.html">결재 상신함</a>
+        <ul>
+          <li class="on"><a href="../approval/approval_outIng.html">결재진행</a></li>
+          <li><a href="../approval/approval_outFin.html">결재완료</a></li>
+          <li><a href="../approval/approval_outReject.html">반려문서</a></li>
+          <li><a href="../approval/approval_outDrafts.html">임시저장</a></li>
+        </ul>        
+      </li>
+      <li><a href="../approval/approval_inIng.html">결재 수신함</a>
+        <ul>
+          <li><a href="../approval/approval_inIng.html">결재대기</a></li>
+          <li><a href="../approval/approval_inFin.html">결재내역</a></li>
+          <li><a href="../approval/approval_inCc.html">수신참조</a></li>
+        </ul>
+      </li>
+      <li><a href="../approval/approval_open.html">공개 문서함</a></li>
+      <!--<li><a href="#">보관함</a>
+        <button type="button" class="nav_btn_add">추가</button>
+        <ul class="sortable move_sortable hasLayer"><li><a href="#">내보관함
+          <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li>
+          <li><a href="#">업무보고
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button" data-clickevt="modify">수정</button>
+                <button type="button" data-clickevt="del">삭제</button>
+              </div>
+            </div>
+          </a></li></ul>
+      </li>-->
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>신규상신<span>전자결재</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">전자결재</a></li>
+            <li>신규상신</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_draft">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">양식 재선택</button>
+          <span class="floatR">
+            <button type="button" class="btn_red">상신</button>
+            <button type="button" class="btn_gray">임시저장</button>
+          </span>
+        </article>
+        <div class="my_approval">
+          <section class="approval_form flex_right">
+            <p class="form_validity required validity">표시는 필수 입력 항목입니다.</p>
+            <div class="form_wrap"> <!-- form_view : 인쇄용 -->
+              <table class="tbl_row">
+                <caption>출장복명서 양식 테이블</caption>
+                <colgroup>
+                  <col style="width:150px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_num" class="required">제목</label>
+                    </th>
+                    <td>
+                      <input type="text" id="form_num" value="OOO기관 출장복명서">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="tit_form">
+                <h2>출장복명서</h2>
+                <table class="tbl_row">
+                  <caption>결재 상황 테이블</caption>
+                  <colgroup>
+                    <col style="width:30px;">
+                    <col style="width:150px;">
+                    <col style="width:150px;">
+                    <col style="width:150px;">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="col" rowspan="3">결 재</th>
+                      <th scope="col"><strong>상신</strong> 조아핑</th>
+                      <th scope="col"><strong>결재</strong> 퇴근핑</th>
+                      <th scope="col"><strong>합의</strong> 방글핑</th>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <table class="tbl_row">
+                <caption>출장복명서 양식 테이블</caption>
+                <colgroup>
+                  <col style="width:150px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <!-- <tr>
+                    <th scope="row">
+                      <label for="form_num" class="required">문서번호</label>
+                    </th>
+                    <td>
+                      <input type="text" id="form_num" value="KIT-">
+                    </td>
+                  </tr> -->
+                  <tr>
+                    <th scope="row">
+                      <label for="form_project" class="required">프로젝트</label>
+                    </th>
+                    <td>
+                      <span class="file_input">
+                        <select id="form_project" name="form_project">
+                          <option value="사업자 분류">사업자 분류</option>
+                        </select>
+                        <select title="기관선택">
+                          <option value="기관 선택">기관 선택</option>
+                        </select>
+                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList" autocomplete="off">
+                        <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_businesstrip" class="required">출장구분</label>
+                    </th>
+                    <td>
+                      <ul class="check_group">
+                        <li>
+                          <input type="radio" id="form_businesstrip" name="form_businesstrip" checked>
+                          <label for="form_businesstrip">국내출장</label>
+                        </li>
+                        <li>
+                          <input type="radio" id="overseas" name="form_businesstrip">
+                          <label for="overseas">해외출장</label>
+                        </li>
+                        <li>
+                          <input type="radio" id="dispatch" name="form_businesstrip">
+                          <label for="dispatch">파견근무</label>
+                        </li>
+                        <li>
+                          <input type="radio" id="outside" name="form_businesstrip">
+                          <label for="outside">외근</label>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_businesstrip_period" class="required">출장기간</label>
+                    </th>
+                    <td>
+                      <div class="period_custom">
+                        <input type="date" title="시작일" data-type="from" id="start_date" name="start-date"
+                          min="0000-01-01" max="9999-12-31">
+                        <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01"
+                          max="9999-12-31">
+                      </div>
+                      <input type="text" title="총 출장기간" class="w_day alignC">
+                      <span>일간</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="biz_traveler" class="required">출장인원</label>
+                    </th>
+                    <td>
+                      <span class="file_input">
+                        <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                        <button type="button" class="btn_red_line">추가</button>
+                        <button type="button" class="btn_ogt">조직도</button>
+                      </span>
+                      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="required">일별 업무계획</th>
+                    <td>
+                      <div class="tbl_workinfo">
+                        <div class="btn_wrap">
+                          <button type="button" class="btn_form">일정추가</button>
+                          <button type="button" class="btn_form">삭제</button>
+                        </div>
+                      </div>
+                      <table class="tbl_default tbl_use_select tbl_hover">
+                        <caption>일별 업무계획 테이블</caption>
+                        <colgroup>
+                          <col style="width:auto;">
+                          <col style="width:120px;">
+                          <col style="width:120px;">
+                          <col style="width:auto;">
+                          <col style="width:120px;">
+                        </colgroup>
+                        <tbody>
+                          <tr>
+                            <th scope="col">선택</th>
+                            <th scope="col">일자</th>
+                            <th scope="col">출장장소</th>
+                            <th scope="col">업무내용</th>
+                            <th scope="col">교통수단</th>
+                          </tr>
+                          <tr>
+                            <td><input type="checkbox" class="row_check" title="글선택"></td>
+                            <td><input type="date" title="일자 선택"></td>
+                            <td><input type="text" title="출장장소"></input>
+                            <td class="alignL"><input type="text" title="업무내용 입력"></input>
+                            </td>
+                            <td><input type="text" title="교통수단 입력"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="checkbox" class="row_check" title="글선택" checked></td>
+                            <td>2023-04-14</td>
+                            <td>ㅇㅇㅇ 기관</td>
+                            <td class="alignL">유지보수</td>
+                            <td>자차</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_expense" class="required">출장여비</label>
+                    </th>
+                    <td>
+                      <div class="tbl_workinfo">
+                        <p class="validity">※ 총 소요예산 :
+                          <input type="number" id="form_expense" class="alignR w_money"> 원
+                        </p>
+                      </div>
+                      <table class="tbl_default tbl_hover">
+                        <caption>출장여비 테이블</caption>
+                        <colgroup>
+                          <col style="width:150px;">
+                          <col style="width:auto;">
+                          <col span="2" style="width:200px;">
+                        </colgroup>
+                        <tbody>
+                          <tr>
+                            <th scope="col">종류</th>
+                            <th scope="col">내역</th>
+                            <th scope="col">법인 금액</th>
+                            <th scope="col">개인 금액</th>
+                          </tr>
+                          <tr>
+                            <th scope="row">주유</th>
+                            <td><input type="text" title="주유 내역 입력"></td>
+                            <td><input type="text" title="주유 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="주유 개인금액 입력" class="w_money"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">톨비</th>
+                            <td><input type="text" title="톨비 내역 입력"></td>
+                            <td><input type="text" title="톨비 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="톨비 개인금액 입력" class="w_money"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">철도</th>
+                            <td><input type="text" title="철도 내역 입력"></td>
+                            <td><input type="text" title="철도 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="철도 개인금액 입력" class="w_money"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">항공</th>
+                            <td><input type="text" title="항공 내역 입력"></td>
+                            <td><input type="text" title="항공 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="항공 개인금액 입력" class="w_money"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">택시</th>
+                            <td><input type="text" title="택시 내역 입력"></td>
+                            <td><input type="text" title="택시 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="택시 개인금액 입력" class="w_money"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">버스</th>
+                            <td><input type="text" title="버스 내역 입력"></td>
+                            <td><input type="text" title="버스 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="버스 개인금액 입력" class="w_money"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">숙박</th>
+                            <td><input type="text" title="숙박 내역 입력"></td>
+                            <td><input type="text" title="숙박 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="숙박 개인금액 입력" class="w_money"></td>
+                          </tr>
+                          <tr>
+                            <th scope="row">일비&sol;기타</th>
+                            <td><input type="text" title="일비 및 기타 내역 입력"></td>
+                            <td><input type="text" title="일비 및 기타 법인금액 입력" class="w_money"></td>
+                            <td><input type="text" title="일비 및 기타 개인금액 입력" class="w_money"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="editor_wrap" id="editor_wrap">
+                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+              </div>
+              <div class="sign_wrap">
+                <p>상기와 같이 출장 업무를 보고합니다.<br>
+                  <span>2023년 3월 20일</span>
+                </p>
+                <p>신청인 : <span>멋쟁이</span> (인)</p>
+              </div>
+            </div>
+          </section>
+          <article class="approval_set">
+            <section class="box_default_w">
+              <h1>결재자 지정</h1>
+              <div class="tab_wrap tab_s">
+                <ul class="tab">
+                  <li class="on"><a href="#tab01">조직도</a></li>
+                  <li><a href="#tab02">부서내</a></li>
+                  <li><a href="#tab03">임의지정</a></li>
+                </ul>
+              </div>
+              <div class="tab_container">
+                <section id="tab01" class="tab_contents">
+                  <ul class="appr_path">
+                    <li>
+                      <span class="user_module">
+                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                        <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                      </span>
+                      <div class="appr_btn_set">
+                        <a href="#" class="myappr_del">삭제</a>
+                        <div class="btn_switch">
+                          <input type="radio" id="appr1" name="path1" checked>
+                          <label for="appr1">결재</label>
+                          <input type="radio" id="agree1" name="path1">
+                          <label for="agree1">합의</label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="user_module">
+                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                        <em>퇴근핑 연구원</em><b>(재난예경보MA팀)</b>
+                      </span>
+                      <div class="appr_btn_set">
+                        <a href="#" class="myappr_del">삭제</a>
+                        <div class="btn_switch">
+                          <input type="radio" id="appr2" name="path2" checked>
+                          <label for="appr2">결재</label>
+                          <input type="radio" id="agree2" name="path2">
+                          <label for="agree2">합의</label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="user_module">
+                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure><em>방글핑 대표</em>
+                      </span>
+                      <div class="appr_btn_set">
+                        <a href="#" class="myappr_del">삭제</a>
+                        <div class="btn_switch">
+                          <input type="radio" id="appr3" name="path3" checked>
+                          <label for="appr3">결재</label>
+                          <input type="radio" id="agree3" name="path3">
+                          <label for="agree3">합의</label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+                <section id="tab02" class="tab_contents">
+                  <ul class="appr_path">
+                    <li>
+                      <span class="user_module">
+                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                        <em>막내핑 연구원</em><b>(재난예경보MA팀)</b>
+                      </span>
+                      <div class="appr_btn_set">
+                        <a href="#" class="myappr_del">삭제</a>
+                        <div class="btn_switch">
+                          <input type="radio" id="appr01" name="path01" checked>
+                          <label for="appr01">결재</label>
+                          <input type="radio" id="agree01" name="path01">
+                          <label for="agree01">합의</label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="user_module">
+                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                        <em>중간핑 연구원</em><b>(재난예경보MA팀)</b>
+                      </span>
+                      <div class="appr_btn_set">
+                        <a href="#" class="myappr_del">삭제</a>
+                        <div class="btn_switch">
+                          <input type="radio" id="appr02" name="path02" checked>
+                          <label for="appr02">결재</label>
+                          <input type="radio" id="agree02" name="path02">
+                          <label for="agree02">합의</label>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <span class="user_module">
+                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                        <em>대장핑 대표</em>
+                      </span>
+                      <div class="appr_btn_set">
+                        <a href="#" class="myappr_del">삭제</a>
+                        <div class="btn_switch">
+                          <input type="radio" id="appr03" name="path03" checked>
+                          <label for="appr03">결재</label>
+                          <input type="radio" id="agree03" name="path03">
+                          <label for="agree03">합의</label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+                <section id="tab03" class="tab_contents">
+                  <span class="file_input">
+                    <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
+                    <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                    <button type="button" class="btn_red_line">추가</button>
+                    <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                  </span>
+                  <ul class="appr_path">
+                    <li>
+                      <span class="user_module">
+                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                        <em>막내핑 연구원</em><b>(재난예경보MA팀)</b>
+                      </span>
+                      <div class="appr_btn_set">
+                        <a href="#" class="myappr_del">삭제</a>
+                        <div class="btn_switch">
+                          <input type="radio" id="appr" name="path" checked>
+                          <label for="appr">결재</label>
+                          <input type="radio" id="agree" name="path">
+                          <label for="agree">합의</label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </section>
+            <section class="box_default_w">
+              <h1>참조자 지정</h1>
+              <span class="file_input">
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                <button type="button" class="btn_red_line">저장</button>
+                <button type="button" class="btn_red_line" disabled>저장</button>
+              </span>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+            </section>
+            <section class="box_default_w">
+              <h1>첨부파일</h1>
+              <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div>
+            </section>
+            <section class="box_default_w">
+              <dl class="set_list">
+                <dt>중요도</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="high" name="importance">
+                    <label for="high" class="high_prio">높음</label>
+                    <input type="radio" id="common" name="importance" checked>
+                    <label for="common" class="normal_prio">보통</label>
+                    <input type="radio" id="row" name="importance">
+                    <label for="row" class="low_prio">낮음</label>
+                  </div>
+                </dd>
+                <dt>공개여부</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="open" name="disclosure">
+                    <label for="open">공개</label>
+                    <input type="radio" id="private" name="disclosure" checked>
+                    <label for="private">비공개</label>
+                  </div>
+                </dd>
+                <dt class="rel_doc">관련문서</dt>
+                <dd>
+                  <div class="file_input">
+                    <input type="text" />
+                    <button type="button" class="btn_gray_line">검색</button>
+                  </div>
+                </dd>
+              </dl>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<div class="file_upload">
+  <i class="demo-icon icon-spin4 animate-spin"></i>
+  <p>파일을 업로드 중입니다<br>잠시만 기다려주세요</p>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<script>
+  $(function () {
+    setEditor();
+    fileDropEvt();
+    $('.btn_request').on('click', function () { $('.file_upload').show(); })
+    $('.file_upload').on('click', function () { $(this).hide(); })
+  })
+</script>
+</body>
+
+</html>
