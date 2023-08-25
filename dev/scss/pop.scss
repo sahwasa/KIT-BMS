@@ -235,10 +235,10 @@ z-index:10000;
 
 .damn{
   &::before{@include shape(387px,346px);position:fixed;left:50vw;top:50vh;background-image:url(../images/aahh.gif);background-size:contain;z-index:9999px;
-  transform:translate(-50%, -50%);animation: damn 2s ease infinite;
+  transform:scale(7) translate(-50%, -50%);animation: damn 2s 3 ease both;
   }
 }
 @keyframes damn {
-  from{opacity:1;}
+  from{transform:scale(1); opacity:1;}
   to{transform:scale(7);opacity:.5;}  
 }
