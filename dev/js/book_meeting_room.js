@@ -1,4 +1,3 @@
-
   var calendar;
   document.addEventListener('DOMContentLoaded', function () {
     var Draggable = FullCalendar.Calendar.Draggable;

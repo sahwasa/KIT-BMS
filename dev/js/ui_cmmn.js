@@ -18,11 +18,6 @@ const handleSelect = function (item) {
     }
   }
 }
-
-$(function () {
-  commonInit()
-})
-
 //로딩순서 때문에 수동실행
 function commonInit() {
   // nav
@@ -186,22 +181,28 @@ function commonInit() {
   })
 
   // list all check
-  $('.all_lst_ctrl').on('click change', 'input:checkbox', function () {
-    const allCtrl = $(this).prop('checked'),
-      thisChild = $(this)
-        .closest('.all_lst_ctrl')
-        .next('.lst_ctrl')
-        .find('input:checkbox')
+  function all_check_evt(el){
+    const allCtrl = el.prop('checked'),
+          thisChild = el.closest('.all_lst_ctrl').next('.lst_ctrl') .find('input:checkbox');
     thisChild.prop('checked', allCtrl)
-  })
-  $('.lst_ctrl').on('click change', 'input', function () {
-    var thisP = $(this).parents('.lst_ctrl'),
+  }
+  function all_check(el){
+    var thisP = el.parents('.lst_ctrl'),
       checkSize = thisP.find('input:checked').length,
       allCtrl = thisP.prev('.all_lst_ctrl').find('input:checkbox')
     thisP.find('input:checkbox').length <= checkSize
       ? allCtrl.prop('checked', true)
       : allCtrl.prop('checked', false)
-  })
+  }
+  $('.all_lst_ctrl').on('click change', 'input:checkbox', function (){
+    all_check_evt($(this));
+  }); 
+  $('.lst_ctrl').on('click change', 'input', function () {
+    all_check($(this));
+  });
+  $('.lst_ctrl').find('input:checkbox').each(function (index, item) {
+    all_check($(item));
+  });  
 
   //layer_tool
   $(':has(.hasLayer)')
@@ -232,9 +233,15 @@ function commonInit() {
 
   //addOPT
   $('[data-checkEvt]').on('change', function (e) {
-    const getTarget = e.target.dataset.checkevt,
-      target = $('#' + getTarget)
-    $(this).prop('checked') ? target.show() : target.hide()
+    const getTarget = e.target.dataset.checkevt.split("!");
+    let target;
+    if(getTarget[1]){
+      target = $("#" + getTarget[1]);
+      ($(this).prop('checked')) ? target.hide() : target.show();
+    }else{
+      target = $("#" + getTarget[0]);
+      ($(this).prop('checked')) ? target.show() : target.hide();
+    }
   })
 
   const getYear = new Date()
