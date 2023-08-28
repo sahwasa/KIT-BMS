@@ -3,13 +3,13 @@ const { src, dest, lastRun, watch, series, parallel } = require("gulp"),
       gulpInc = require("gulp-file-include"),
       merge = require('merge-stream'),            // 여러 스트림 병합
       concat = require("gulp-concat"),                  // 파일 병합
+      babel = require("gulp-babel"),                    // js 컴파일
       imgmin = require("gulp-imagemin"),                // 이미지압축
       sass = require('gulp-sass')(require('sass')),     // scss 컴파일
       newer = require("gulp-newer"),                    // dist 폴더의 결과물보다 최신의 timestamp를 가진 경우만 실행
       del = require('del'),
       bs = require("browser-sync").create();            // browser-sync 호출, create 메서드로 생성을 먼저 해줘야 함(브라우저 자동 *refresh 어플리케이션)
 
-// babel = require("gulp-babel"),                    // js 컴파일
 //sourcemaps = require('gulp-sourcemaps'),          // 소스맵생성.gulp 4.0이상부턴 필요 x
 //const autoprefixer = require('gulp-autoprefixer');      // css prefix
 //const gcmq = require("gulp-group-css-media-queries");   // 중복되는 mediaquery 구문 merge
@@ -23,6 +23,7 @@ const path = {
   html:dev + "/**/*.html",
   scss: dev + "/scss/*.scss",
   js: dev + "/js/*.js",
+  esjs: dev + "/js/bundle/*.js",
   images: dev + "/**/images/**/*",
   page:"index.html"
 };
@@ -30,8 +31,8 @@ const path = {
 // js, scss concat(병합) 시 파일 이름 지정
 var mergefileName = {
     style: "merge.css",
-    index: "pagelist.html"
-    //javascript: "merge.js"
+    index: "pagelist.html",
+    javascript: "bundle.js"
 };
 
 // browser-sync index file
@@ -87,10 +88,20 @@ function scss(){
     .pipe(bs.stream())
   )
 }
+// function esjs(){
+//   return merge(
+//     src(path.esjs)
+//     .pipe(babel({
+//       presets: ['@babel/preset-env']
+//     }))
+//     .pipe(concat(mergefileName.javascript))
+//     .pipe(dest(dist + '/js'))
+//     .pipe(bs.stream())
+//   )
+// }
 function js(){
   return merge(
-    src(path.js)
-    //.pipe(babel())
+    src(path.js)    
     .pipe(dest(dist + '/js'))
     .pipe(bs.stream())
   )
