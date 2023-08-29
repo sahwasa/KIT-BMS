@@ -38,36 +38,36 @@ function showMassage_DM2(content){
     content = content.replaceAll('\\n','<br>')
     var dialogsElement = document.getElementById("dialogs");
     var htmlString = `
-                            <dialog id="p_type2">
-                            <div class="type2">
-                              ${content}
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none;">
-                              <defs>
-                                <filter id="squiggly-0">
-                                  <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
-                                  <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
-                                </filter>
-                                <filter id="squiggly-1">
-                                  <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
-                                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
-                                </filter>
-                                <filter id="squiggly-2">
-                                  <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
-                                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
-                                </filter>
-                                <filter id="squiggly-3">
-                                  <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3"/>
-                                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
-                                </filter>
-                                <filter id="squiggly-4">
-                                  <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4"/>
-                                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
-                                </filter>
-                              </defs> 
-                            </svg>                            
-                            </dialog>
-                            `;
+                      <dialog id="p_type2">
+                      <div class="type2">
+                        ${content}
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display:none;">
+                        <defs>
+                          <filter id="squiggly-0">
+                            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
+                            <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+                          </filter>
+                          <filter id="squiggly-1">
+                            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
+                            <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+                          </filter>
+                          <filter id="squiggly-2">
+                            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
+                            <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+                          </filter>
+                          <filter id="squiggly-3">
+                            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3"/>
+                            <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+                          </filter>
+                          <filter id="squiggly-4">
+                            <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4"/>
+                            <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+                          </filter>
+                        </defs> 
+                      </svg>                            
+                      </dialog>
+                      `;
     dialogsElement.innerHTML = htmlString;
     document.body.style.overflow = 'hidden';
 
@@ -166,30 +166,13 @@ function showMassage_DM4(content){
         return temp.replaceAll('<span>/</span><span>n</span>','<br>');
     });
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 function showMassage_DM5(content, type){
-  var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<div class="snow_wrap">
-                <div class="snow"></div>
-                <dialog id="p_type5">
-                  <form method="dialog">
-                    <button class="cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
-                    <p>${content}</p>      
-                  </form>
-                </dialog>
-              </div>`;
-=======
-=======
->>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
-function showMassage_DM5(content){
-  content = content.replaceAll('\\n','<br>')
   $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<dialog class="p_type5">
+  var tmpl = `<dialog class="#p_type5">
               <form method="dialog">
                 <div class="p_header">
-                  <strong>알림</strong>
+                  <strong>${type}</strong>
                   <button class="btnClose ico_org cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
                 </div>
                 <div class="p_body">
@@ -202,11 +185,11 @@ function showMassage_DM5(content){
                 </div>
               </form>
             </dialog>`;
->>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
             dialogsEl.innerHTML = tmpl;
   $('.p_type5')[0].showModal();
 }
 function showMassage_DM6(content){
+  content = content.replace(/\\n/g, "\n");
   $("#wrap").addClass("wooz").attr('send-meow', content);
 }
 
@@ -236,16 +219,10 @@ function hideMassage_DM4(content){
     $('#p_type4').remove();
 }
 function hideMassage_DM5(content){
-<<<<<<< HEAD
     $('.snow_wrap').remove();
-=======
     $("#wrap").removeClass("snow");
     $('#p_type5').remove();
 }
 function hideMassage_DM6(){
   $("#wrap").removeClass("wooz");
-<<<<<<< HEAD
->>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
-=======
->>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
 }
