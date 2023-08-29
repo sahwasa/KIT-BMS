@@ -231,4 +231,29 @@ z-index:10000;
       .tab_contents{margin-top:0;}
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+.damn{
+  &::before{@include shape(387px,346px);position:fixed;left:50vw;top:50vh;background-image:url(../images/aahh.gif);background-size:contain;z-index:9999px;
+  transform:scale(7) translate(-50%, -50%);animation: damn 2s 3 ease both;
+  }
+}
+@keyframes damn {
+  from{transform:scale(1); opacity:1;}
+  to{transform:scale(7);opacity:.5;}  
+}
+.snow{background-color:#6b92b9;background-image: url('../images/snow.png'), url('../images/snow3.png'), url('../images/snow2.png');
+ animation: snow 120s linear infinite backwards;
+}
+@-webkit-keyframes snow {
+ 0% {background-position:0 0;}
+ 50% {background-position: 7000px 7000px, 3000px 3000px, 2000px 3000px;}
+ 100% {background-position: 5000px 14000px, 2000px 6000px, 3000px 6000px;}
+}
+
+.wooz::before{position:fixed;content:'';z-index:9999;width:100%;height:100%;background:#053062c5 url(../images/_wooz.gif) no-repeat;background-size:contain;}
+.wooz::after {position:fixed;content:attr(send-meow);z-index:9999;max-width:45vw;top:7vw;left:10vh;padding:5px;box-shadow:-.6vw 0 0 0 black,.6vw 0 0 0 black,0 -.6vw 0 0 black,0 .6vw 0 0 black;background-color:#fff;font-weight:bold;font-size:2vw;text-align:center;white-space:pre-wrap;}
+>>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff

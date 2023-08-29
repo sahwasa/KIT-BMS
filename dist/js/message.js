@@ -166,6 +166,7 @@ function showMassage_DM4(content){
         return temp.replaceAll('<span>/</span><span>n</span>','<br>');
     });
 }
+<<<<<<< HEAD
 function showMassage_DM5(content, type){
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<div class="snow_wrap">
@@ -177,8 +178,33 @@ function showMassage_DM5(content, type){
                   </form>
                 </dialog>
               </div>`;
+=======
+function showMassage_DM5(content){
+  content = content.replaceAll('\\n','<br>')
+  $("#wrap").addClass("snow");
+  var dialogsEl = document.getElementById("dialogs");
+  var tmpl = `<dialog class="p_type5">
+              <form method="dialog">
+                <div class="p_header">
+                  <strong>알림</strong>
+                  <button class="btnClose ico_org cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
+                </div>
+                <div class="p_body">
+                  <div class="approval_often">
+                  </div>
+                  <p>${content}</p>      
+                  <div class="btn_wrap">
+                    <button class="btn_gray_line" onclick="hideMassage_DM5();">닫기</button>
+                  </div>
+                </div>
+              </form>
+            </dialog>`;
+>>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
             dialogsEl.innerHTML = tmpl;
-  $('#p_type5')[0].showModal();
+  $('.p_type5')[0].showModal();
+}
+function showMassage_DM6(content){
+  $("#wrap").addClass("wooz").attr('send-meow', content);
 }
 
 function hideMessage(type){
@@ -207,5 +233,13 @@ function hideMassage_DM4(content){
     $('#p_type4').remove();
 }
 function hideMassage_DM5(content){
+<<<<<<< HEAD
     $('.snow_wrap').remove();
+=======
+    $("#wrap").removeClass("snow");
+    $('#p_type5').remove();
+}
+function hideMassage_DM6(){
+  $("#wrap").removeClass("wooz");
+>>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
 }
