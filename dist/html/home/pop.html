@@ -84,6 +84,7 @@
         <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
         <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
         <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert" checked>통합알림</label></li> 
+        <li><button type="button" class="btn_default" data-modal="p_DM">DM</button></li>
       </ul>
       <br>
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">전자결재</h2>
@@ -246,6 +247,22 @@
     </section>
   </section>
 </article><!--// 통합알림 -->
+<dialog class="p_DM">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>showMassage_DM5</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="approval_often">
+      </div>
+      <p>메세지</p>      
+      <div class="btn_wrap">
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// DM -->
 <dialog class="p_loginId" tabindex="0">
   <form method="dialog">
     <div class="p_header">

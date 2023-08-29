@@ -20,66 +20,6 @@ const handleSelect = function (item) {
 }
 //로딩순서 때문에 수동실행
 function commonInit() {
-  // nav
-  var $deps1 = $('.nav_lst>li'),
-    $deps2 = $('.sub li'),
-    preLocate,
-    deps1Locate,
-    deps2Locate,
-    indexDeps1,
-    indexDeps2,
-    locate = window.location.href
-
-  //menuInit()
-  function menuInit() {
-    $deps1.each(function (index, item) {
-      var getAttr = $(this).children('a').attr('href')
-      index += 1
-      indexDeps1 = $(this)
-        .children('a')
-        .attr('href', getAttr + '?index=' + index + ',1')
-      indexDeps2 = $(this).find($deps2)
-      indexDeps2.each(function (index2, item) {
-        getAttr = $(this).children('a').attr('href')
-        index2 += 1
-        indexDeps2 = $(this)
-          .children('a')
-          .attr('href', getAttr + '?index=' + index + ',' + index2)
-      })
-    })
-  }
-
-  if (locate.indexOf('index=') > -1) {
-    preLocate = locate.split('index=')[1].split(',')
-    deps1Locate = preLocate[0] - 1
-    deps2Locate = preLocate[1] - 1
-
-    $deps1.eq(deps1Locate).addClass('on')
-    $deps1.eq(deps1Locate).find($deps2).eq(deps2Locate).addClass('on')
-  }
-
-  function menu1Open(onItem) {
-    onItem = onItem.parent('li')
-    if (!onItem.hasClass('on')) {
-      if (onItem.children('ul').length === 0) {
-        $deps1.removeClass('on')
-        onItem.addClass('on')
-      }
-    }
-  }
-  function menu2Open(onSubItem) {
-    $deps1.removeClass('on')
-    $deps2.removeClass('on')
-    onSubItem.addClass('on').parents('li').addClass('on')
-  }
-
-  $deps1.children('a').on('click', function () {
-    menu1Open($(this))
-  })
-  $deps2.on('click', function () {
-    menu2Open($(this))
-  })
-
   //gnb
   $('.profile').on({
     click: function () {
