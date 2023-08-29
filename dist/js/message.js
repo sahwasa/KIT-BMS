@@ -14,7 +14,7 @@ function showMessage(content, type) {
 function showMassage_DM1(content, type){
   $("main").addClass("damn");
   var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<dialog id="p_type1">
+  var tmpl = `<dialog id="#_type1">
               <form method="dialog">
                 <div class="p_header">
                   <strong>${type}</strong>
@@ -31,7 +31,7 @@ function showMassage_DM1(content, type){
               </form>
             </dialog>`;
             dialogsEl.innerHTML = tmpl;
-  $('#p_type1')[0].showModal();
+  $('#p_type2')[0].showModal();
 }
 let showMessageVars = {};
 function showMassage_DM2(content){
@@ -169,17 +169,24 @@ function showMassage_DM4(content){
 function showMassage_DM5(content, type){
   $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<div class="snow_wrap">
-                <div class="snow"></div>
-                <dialog id="p_type5">
-                  <form method="dialog">
-                    <button class="cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
-                    <p>${content}</p>      
-                  </form>
-                </dialog>
-              </div>`;
-  dialogsEl.innerHTML = tmpl;
-  $('#p_type5')[0].showModal();
+  var tmpl = `<dialog class="#p_type5">
+              <form method="dialog">
+                <div class="p_header">
+                  <strong>${type}</strong>
+                  <button class="btnClose ico_org cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
+                </div>
+                <div class="p_body">
+                  <div class="approval_often">
+                  </div>
+                  <p>${content}</p>      
+                  <div class="btn_wrap">
+                    <button class="btn_gray_line" onclick="hideMassage_DM5();">닫기</button>
+                  </div>
+                </div>
+              </form>
+            </dialog>`;
+            dialogsEl.innerHTML = tmpl;
+  $('.p_type5')[0].showModal();
 }
 function showMassage_DM6(content){
   content = content.replace(/\\n/g, "\n");
@@ -213,6 +220,8 @@ function hideMassage_DM4(content){
 }
 function hideMassage_DM5(content){
     $('.snow_wrap').remove();
+    $("#wrap").removeClass("snow");
+    $('#p_type5').remove();
 }
 function hideMassage_DM6(){
   $("#wrap").removeClass("wooz");
