@@ -334,6 +334,9 @@ function showMassage_DM5(content){
             dialogsEl.innerHTML = tmpl;
   $('.p_type5')[0].showModal();
 }
+function showMassage_DM6(content){
+  $("#wrap").addClass("wooz").attr('send-meow', content);
+}
 
 function hideMessage(type){
     const functionToCall = `hideMassage_${type}`;
@@ -363,4 +366,7 @@ function hideMassage_DM4(content){
 function hideMassage_DM5(content){
     $("#wrap").removeClass("snow");
     $('#p_type5').remove();
+}
+function hideMassage_DM6(){
+  $("#wrap").removeClass("wooz");
 }
