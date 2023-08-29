@@ -1,0 +1,121 @@
+// dm1
+.damn{
+  &::before{@include shape(387px,346px);position:fixed;left:50vw;top:50vh;background-image:url(../images/aahh.gif);background-size:contain;z-index:9999px;
+  transform:scale(7) translate(-50%, -50%);animation: damn 2s 3 ease both;
+  }
+}
+@keyframes damn {
+  from{transform:scale(1); opacity:1;}
+  to{transform:scale(7);opacity:.5;}  
+}
+
+//dm2
+@keyframes squiggly-anim {
+  @for $i from 0 to 4 {
+    #{($i * 25%)} {
+      filter: url('#squiggly-#{$i}');
+    }
+  }
+}
+ 
+.type2 { font-family: "NanumGothic"; font-size: 100px; line-height: 100vh; background: #111; color: white; animation: squiggly-anim 0.34s linear infinite; display: inline-block; vertical-align: middle; width: 100%; outline: none; text-align: center; line-height: 1; overflow: hidden; }
+.small { font-size: 0.5em; }
+.smaller { font-size: 0.4em; }
+p { margin: 0; }
+
+//dm3
+* *, *::before, *::after .layer>span{ animation-play-state:running !important; }
+.type3_body{ min-height:450px;width:800px;margin: 0;background: radial-gradient(circle, #0077ea, #1f4f96, #1b2949, #000);}
+
+.type3 {height:300px;width:500px;margin:auto;position:absolute; top: 0; right: 0; bottom: 0; left: 0; perspective: 9999px; transform-style: preserve-3d; }
+.layer{ width: 100%; height: 100%; position: absolute; transform-style: preserve-3d; animation: type3 5s infinite alternate ease-in-out -7.5s; animation-fill-mode: forwards; transform: rotateY(40deg) rotateX(33deg) translateZ(0);
+  &>span{font: 100px/0.65 "NanumGothic";white-space: pre; text-align: center; height: 100%; width: 100%; position: absolute; top: 50px; color: #f5f5f5; letter-spacing: -2px; text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);line-height:1;content:"??"}
+  @for $i from 1 to 20{ 
+    &:nth-child(#{$i})>span{transform:translateZ(#{(($i - 1) * -1.5px)});}    
+  }
+  &:nth-child(n+10)>span{-webkit-text-stroke: 3px rgba(0, 0, 0, 0.25); }
+  &:nth-child(n+11)>span{-webkit-text-stroke: 15px dodgerblue; text-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;}
+  &:nth-child(n+12)>span{ -webkit-text-stroke: 15px #0077ea; }
+  &:last-child>span{-webkit-text-stroke: 17px rgba(0, 0, 0, 0.1); }
+  &:first-child>span{ color: #fff; text-shadow: none; }
+}
+
+@keyframes type3 {
+  100%{transform: rotateY(-40deg) rotateX(-43deg); }
+}
+
+//dm4
+.type4_body { background-color: #1a1a1a; width: 500px; height: 500px; }
+.type4 { top: 50%; left: 50%; width: 100%; text-transform: uppercase; letter-spacing: 0.2em; font-size: 3.3em; line-height: 2; font-weight: 300; text-rendering: optimizeLegibility; text-align: center;}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+.type4{
+  @include animation(type4 50s infinite alternate forwards);
+  $animationSteps: 20;
+  $animationDuration: 50;
+  $animationElement: span;
+  $animationElementsCount: 100;
+  $delayBetweenLetters: 0.2;
+  #{$animationElement} {
+    animation-name: anim-text-flow-keys;
+    animation-duration: #{$animationDuration}s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+  }
+  @keyframes anim-text-flow-keys {
+    @for $i from 0 through $animationSteps {
+      $per:percentage($i * calc(1 / $animationSteps));
+      #{$per} {
+        color: hsla(random(365), 60%, 60%, 1);
+      }
+    }
+  }
+  $totalDelayTime: $animationElementsCount * $delayBetweenLetters;
+
+  @for $i from 1 through $animationElementsCount {
+    #{$animationElement}:nth-of-type(#{$i}) {
+      animation-delay: #{($i * $delayBetweenLetters) - $totalDelayTime}s;
+    }
+  }
+}
+
+// dm5
+$d: 70;      // density
+$w: 100vw;   // grid size
+$ww: 100;   // grid size
+$s: 3s;       // speed
+
+// Generate the snow image using radial gradients
+$grad: ();
+@for $i from 0 to $d {
+  $v: random(4) + 2;
+  $a: random(5) * .1 + .5;
+  $grad: $grad, radial-gradient(
+      $v+px $v+px at
+      (random($ww - $v * 2) + $v)+ vw
+      (random($ww - $v * 2) + $v)+ vw, 
+      rgba(255,255,255,$a) 50%,
+      rgba(0,0,0,0)
+  ) !global;
+}
+// The CSS
+.snow_wrap{position:fixed;left:0;top:0;background:linear-gradient(#112233 30%, #66667790);width:100vw;height:100vh;overflow:hidden;z-index:99999;display:flex;align-items:center;justify-content:center;}
+%insertSnow{position:absolute;top:-$w;left:0;bottom:0;right:0;background-image: $grad;background-size:$w $w;animation:snow $s linear infinite;content: "";
+}
+.snow{@extend %insertSnow;
+  & + dialog{ min-width:calc($w / 4); background-color:transparent;color:#fff;font-size:30px;margin:0 auto;
+    .cancel{@include cancel;position: absolute;right:0;top:-30px;}
+    p{padding:20px;}
+  }
+  &:after {@extend %insertSnow;margin-left:calc(-1 * $w / 2);opacity: .4;animation-duration:$s*2;animation-direction: reverse;filter:blur(3px);}
+  &:before {@extend %insertSnow;animation-duration:$s * 3;animation-direction:reverse;margin-left:calc((-1 * $w) / 2); opacity:.65;filter:blur(1.5px); }
+}
+@keyframes snow {
+  to {transform:translateY($w); }
+}
