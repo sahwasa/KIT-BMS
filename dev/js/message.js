@@ -311,13 +311,14 @@ function showMassage_DM4(content){
         return temp.replaceAll('<span>/</span><span>n</span>','<br>');
     });
 }
-function showMassage_DM5(content, type){
+function showMassage_DM5(content){
+  content = content.replaceAll('\\n','<br>')
   $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<dialog class="p_type5">
               <form method="dialog">
                 <div class="p_header">
-                  <strong>${type}</strong>
+                  <strong>알림</strong>
                   <button class="btnClose ico_org cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
                 </div>
                 <div class="p_body">
