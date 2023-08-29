@@ -167,6 +167,7 @@ function showMassage_DM4(content){
     });
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 function showMassage_DM5(content, type){
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<div class="snow_wrap">
@@ -179,6 +180,8 @@ function showMassage_DM5(content, type){
                 </dialog>
               </div>`;
 =======
+=======
+>>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
 function showMassage_DM5(content){
   content = content.replaceAll('\\n','<br>')
   $("#wrap").addClass("snow");
@@ -241,5 +244,8 @@ function hideMassage_DM5(content){
 }
 function hideMassage_DM6(){
   $("#wrap").removeClass("wooz");
+<<<<<<< HEAD
+>>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
+=======
 >>>>>>> 562a74c35796be171b763e6ad972c8b43bbc8fff
 }
