@@ -153,89 +153,84 @@
             </ul>
           </section>
           <section>
-            <div class="tbl_handle">
-              <button class="tbl_work_prev">이전 주차 이동</button>
+            <div class="handle_week">
+              <button class="handle_prev">이전 주차 이동</button>
               <span>2023.02.26 ~ 2023.03.04</span>
-              <button class="tbl_work_next" disabled>다음 주차 이동</button>
+              <button class="handle_next" disabled>다음 주차 이동</button>
             </div>
             <div class="tab_wrap">
-              <h2 style="font-size:16px;color:#000;font-weight:bold;">2023년 14주 상세보기</h2>
+              <h2>2023년 14주 상세보기</h2>
               <button type="button" class="btn_default">실적등록</button>
             </div>
             <div class="tab_container">
-              <table class="tbl_default tbl_hover tbl_work_share hasLayer alignL_2 alignL_4">
-                <caption>나의 할일 리스트</caption>
-                <colgroup>
-                  <col style="width:120px;">
-                  <col style="width:240px;">
-                  <col style="width:120px;">
-                  <col style="width:240px;">
-                  <col span="2" style="width:150px;">
-                  <col span="2" style="width:120px;">
-                  <col style="width:95px;">
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th scope="col">구분</th>
-                    <th scope="col">업무명</th>
-                    <th scope="col">작업범주</th>
-                    <th scope="col">업무내용</th>
-                    <th scope="col">시작일자</th>
-                    <th scope="col">종료일자</th>
-                    <th scope="col">담당자</th>
-                    <th scope="col">요청자</th>
-                    <th scope="col">진행율</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr tabindex="0" onclick="location.href='../work/work_view.html'">
-                    <td>개인업무</td>
-                    <td>주간업무보고 작성</td>
-                    <td>보고</td>
-                    <td> - 지진발생 팝업 미표출 오류 수정</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>홍길동(개발1팀)</td>
-                    <td>홍길동(개발1팀)</td>
-                    <td>22%</td>
-                  </tr>
-                  <tr tabindex="0">
-                    <td>프로젝트</td>
-                    <td>2023년 지진,화산재해 대응시스템 유지보수</td>
-                    <td>개발​</td>
-                    <td>◯ 지진/가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>홍길동(개발1팀)</td>
-                    <td>고길동(개발2팀)</td>
-                    <td>2%</td>
-                  </tr>
-                  <tr tabindex="0">
-                    <td>부서업무</td>
-                    <td>2023년 과제 진도점검</td>
-                    <td><i class="tbl_badge ing">수정해야댐</i></td>
-                    <td>- 회의 내용 기재</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>홍길동(개발1팀)</td>
-                    <td></td>
-                    <td>75%</td>
-                  </tr>
-                  <tr tabindex="0">
-                    <td>개인업무</td>
-                    <td>000 디자인 작업</td>
-                    <td>
-                      <i class="tbl_badge ing">진행</i>
-                    </td>
-                    <td>- 회의 내용 기재</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>2023-05-01 01:30:11</td>
-                    <td>홍길동(개발1팀)</td>
-                    <td></td>
-                    <td>5%</td>
-                  </tr>
-                </tbody>
-              </table>
+              <ul class="tbl_list">
+                <li>
+                  <h2 class="ing">2023년 OOO프로젝트</h2>
+                  <div>
+                    <h3>작업명
+                      <ul id="tagList" class="btn_slideclose btn_slideclose_s disabled">
+                        <li>
+                          <div class="tagItem" style="background-color: rgb(227, 220, 219);">
+                            <p>회의</p><button type="button">삭제</button>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="tagItem" style="background-color: rgb(229, 210, 230);">
+                            <p>하자보수</p><button type="button">삭제</button>
+                          </div>
+                        </li>
+                      </ul>
+                    </h3>
+                    <ul class="dot_list_s">
+                      <li>도시폭염 고려한 폭염저감기술 최적화 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것</li>
+                      <li>도시폭염 고려한 폭염저감기술 최적화 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것</li>
+                    </ul>
+                    <dl>
+                      <dt>업무일자</dt>
+                      <dd>2023-10-10 ~ 2023.10.20</dd>
+                      <dt>작성자</dt>
+                      <dd>홍길동<span>(재난예경보MA팀)</span></dd>
+                    </dl>
+                  </div>
+                  <div class="progress flex_wrap">
+                    <progress value="30" max="100" title="진행율"></progress>
+                    <em>30%</em>완료
+                  </div>
+                </li>
+                <li>
+                  <h2 class="done">도시폭염을 고려한 폭염저감기술 최적화</h2>
+                  <div>
+                    <h3>도시폭염을 고려한 폭염저감기술 최적화
+                      <ul id="tagList" class="btn_slideclose btn_slideclose_s disabled">
+                        <li>
+                          <div class="tagItem" style="background-color: rgb(227, 220, 219);">
+                            <p>회의</p><button type="button">삭제</button>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="tagItem" style="background-color: rgb(229, 210, 230);">
+                            <p>하자보수</p><button type="button">삭제</button>
+                          </div>
+                        </li>
+                      </ul>
+                    </h3>
+                    <ul class="dot_list_s">
+                      <li>도시폭염 고려한 폭염저감기술 최적화 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것</li>
+                      <li>도시폭염 고려한 폭염저감기술 최적화 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것</li>
+                    </ul>
+                    <dl>
+                      <dt>업무일자</dt>
+                      <dd>2023-10-10 ~ 2023.10.20</dd>
+                      <dt>작성자</dt>
+                      <dd>홍길동<span>(재난예경보MA팀)</span></dd>
+                    </dl>
+                  </div>
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>완료
+                  </div>
+                </li>
+              </ul>
             </div>
           </section>
         </article>
