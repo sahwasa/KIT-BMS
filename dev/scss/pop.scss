@@ -242,3 +242,11 @@ z-index:10000;
   from{transform:scale(1); opacity:1;}
   to{transform:scale(7);opacity:.5;}  
 }
+.snow{background-color:#6b92b9;background-image: url('../images/snow.png'), url('../images/snow3.png'), url('../images/snow2.png');
+ animation: snow 120s linear infinite backwards;
+}
+@-webkit-keyframes snow {
+ 0% {background-position:0 0;}
+ 50% {background-position: 7000px 7000px, 3000px 3000px, 2000px 3000px;}
+ 100% {background-position: 5000px 14000px, 2000px 6000px, 3000px 6000px;}
+}

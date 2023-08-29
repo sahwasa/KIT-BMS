@@ -21,6 +21,7 @@
     (function getNowTime() {
       const date = new Date()
       nowTime = date.toISOString();
+      nowYear = date.getFullYear();
       setTimeout(() => getNowTime, 1000);
     })();
     var source = // 일정데이터 
@@ -32,6 +33,13 @@
             editable: false,
             overlap: false,
             className: 'anniv'
+          },
+          {
+            title: '신정',
+            start: '2023-01-01',
+            editable: false,
+            overlap: false,
+            className: 'holyday-event'
           },
           {
             title: '광복절',
@@ -90,7 +98,7 @@
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,list'
+        right: 'multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,listYear'
       },
       buttonText: {
         today: '오늘',
@@ -168,7 +176,15 @@
         week: { // options apply to dayGridWeek and timeGridWeek views
         },
         day: { // options apply to dayGridDay and timeGridDay views
-        }
+        },
+        // list: {
+        //   type: 'listYear',
+        //   buttonText: 'List',
+        //   visibleRange: {            
+        //     start: `${nowYear}-01-01`,
+        //     end: `${nowYear}-12-31`
+        //   }
+        // }
       }
     });
     calendar.render();

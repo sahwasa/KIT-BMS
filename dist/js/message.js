@@ -247,8 +247,10 @@ function showMassage_DM3(content){
     $('#p_type3')[0].showModal();
 }
 function showMassage_DM4(content){
+    // id가 "dialogs"인 요소를 가져옵니다.
     var dialogsElement = document.getElementById("dialogs");
 
+// HTML 문자열을 생성합니다.
     var htmlString = `
                             <dialog id="p_type4">
                                 <div class="type4_body">
@@ -305,8 +307,7 @@ function showMassage_DM4(content){
     $('#p_type4')[0].showModal();
     $('#type4').html(function(i, html) {
         var chars = $.trim(html).split("");
-        var temp = '<span>' + chars.join('</span><span>') + '</span>'
-        return temp.replaceAll('<span>/</span><span>n</span>','<br>');
+        return '<span>' + chars.join('</span><span>') + '</span>';
     });
 }
 function showMassage_DM5(content, type){
