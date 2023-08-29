@@ -335,6 +335,7 @@ function showMassage_DM5(content){
   $('.p_type5')[0].showModal();
 }
 function showMassage_DM6(content){
+  content = content.replace(/\\n/g, "\n");
   $("#wrap").addClass("wooz").attr('send-meow', content);
 }
 
