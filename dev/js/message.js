@@ -247,8 +247,10 @@ function showMassage_DM3(content){
     $('#p_type3')[0].showModal();
 }
 function showMassage_DM4(content){
+    // id가 "dialogs"인 요소를 가져옵니다.
     var dialogsElement = document.getElementById("dialogs");
 
+// HTML 문자열을 생성합니다.
     var htmlString = `
                             <dialog id="p_type4">
                                 <div class="type4_body">
@@ -312,7 +314,7 @@ function showMassage_DM4(content){
 function showMassage_DM5(content, type){
   $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<dialog class="#p_type5">
+  var tmpl = `<dialog class="p_type5">
               <form method="dialog">
                 <div class="p_header">
                   <strong>${type}</strong>
@@ -329,7 +331,7 @@ function showMassage_DM5(content, type){
               </form>
             </dialog>`;
             dialogsEl.innerHTML = tmpl;
-  $('#p_type5')[0].showModal();
+  $('.p_type5')[0].showModal();
 }
 
 function hideMessage(type){
