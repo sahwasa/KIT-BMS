@@ -11,13 +11,14 @@ function showMessage(content, type) {
     }
 }
 
-function showMassage_DM1(content, type){
+function showMassage_DM1(content){
+    content=content.replaceAll('\\n','<br>')
   $("main").addClass("damn");
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<dialog id="p_type1">
               <form method="dialog">
                 <div class="p_header">
-                  <strong>${type}</strong>
+                  <strong>알림</strong>
                   <button class="btnClose ico_org cancel" aria-label="close" onclick="hideMassage_DM1();">닫기</button>
                 </div>
                 <div class="p_body">
@@ -104,8 +105,8 @@ function showMassage_DM2(content){
     rotateElement()
 }
 function showMassage_DM3(content){
+    content = content.replace(/\\n/g, "\n");
     var dialogsElement = document.getElementById("dialogs");
-    content = content.replaceAll('\\n','\\a')
 // HTML 문자열을 생성합니다.
     var htmlString = `
                       <dialog id="p_type3">
@@ -144,7 +145,6 @@ function showMassage_DM3(content){
 }
 function showMassage_DM4(content){
     var dialogsElement = document.getElementById("dialogs");
-
     var htmlString = `
                       <dialog id="p_type4">
                           <div class="type4_body">
@@ -163,7 +163,7 @@ function showMassage_DM4(content){
     $('#type4').html(function(i, html) {
         var chars = $.trim(html).split("");
         var temp = '<span>' + chars.join('</span><span>') + '</span>'
-        return temp.replaceAll('<span>/</span><span>n</span>','<br>');
+        return temp.replaceAll('<span>\\</span><span>n</span>','<br>');
     });
 }
 function showMassage_DM5(content, type){
