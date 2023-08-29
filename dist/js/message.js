@@ -307,16 +307,18 @@ function showMassage_DM4(content){
     $('#p_type4')[0].showModal();
     $('#type4').html(function(i, html) {
         var chars = $.trim(html).split("");
-        return '<span>' + chars.join('</span><span>') + '</span>';
+        var temp = '<span>' + chars.join('</span><span>') + '</span>'
+        return temp.replaceAll('<span>/</span><span>n</span>','<br>');
     });
 }
-function showMassage_DM5(content, type){
+function showMassage_DM5(content){
+  content = content.replaceAll('\\n','<br>')
   $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<dialog class="#p_type5">
+  var tmpl = `<dialog class="p_type5">
               <form method="dialog">
                 <div class="p_header">
-                  <strong>${type}</strong>
+                  <strong>알림</strong>
                   <button class="btnClose ico_org cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
                 </div>
                 <div class="p_body">
@@ -330,7 +332,7 @@ function showMassage_DM5(content, type){
               </form>
             </dialog>`;
             dialogsEl.innerHTML = tmpl;
-  $('#p_type5')[0].showModal();
+  $('.p_type5')[0].showModal();
 }
 
 function hideMessage(type){
