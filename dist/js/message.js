@@ -110,7 +110,7 @@ function showMassage_DM3(content){
     var dialogsElement = document.getElementById("dialogs");
 // HTML 문자열을 생성합니다.
     var htmlString = `
-                      <dialog id="p_type3">
+                      <dialog id="p_type3" class="p_type3">
                       <div class="type3_body">
                           <button class="cancel" onclick="hideMassage_DM3();">닫기</button>
                           <div class="type3">
@@ -148,7 +148,7 @@ function showMassage_DM3(content){
 function showMassage_DM4(content){
     var dialogsElement = document.getElementById("dialogs");
     var htmlString = `
-                      <dialog id="p_type4">
+                      <dialog id="p_type4" class="p_type4">
                           <div class="type4_body">
                             <button class="cancel" onclick="hideMassage_DM4();">닫기</button>
                             <div class="type4">
@@ -174,7 +174,7 @@ function showMassage_DM5(content, type){
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<div class="snow_wrap">
                 <div class="snow"></div>
-                <dialog id="p_type5">
+                <dialog id="p_type5" class="p_type5">
                   <form method="dialog">
                     <button class="cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
                     <p>${content}</p>      
