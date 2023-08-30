@@ -38,7 +38,8 @@ let showMessageVars = {};
 function showMassage_DM2(content){
     content = content.replaceAll('\\n','<br>')
     var dialogsElement = document.getElementById("dialogs");
-    var htmlString = `<dialog id="p_type2" class="p_type2">
+    var htmlString = `
+                      <dialog id="p_type2" class="p_type2">
                       <button class="cancel" onclick="hideMassage_DM2();">닫기</button>
                       <div class="type2">
                         ${content}
@@ -67,7 +68,8 @@ function showMassage_DM2(content){
                           </filter>
                         </defs> 
                       </svg>                            
-                      </dialog>`;
+                      </dialog>
+                      `;
     dialogsElement.innerHTML = htmlString;
     document.body.style.overflow = 'hidden';
 
@@ -107,34 +109,36 @@ function showMassage_DM3(content){
     content = content.replace(/\\n/g, "\n");
     var dialogsElement = document.getElementById("dialogs");
 // HTML 문자열을 생성합니다.
-    var htmlString = `<dialog id="p_type3">
+    var htmlString = `
+                      <dialog id="p_type3">
                       <div class="type3_body">
-                        <button class="cancel" onclick="hideMassage_DM3();">닫기</button>
-                        <div class="type3">
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                          <div class="layer"><span>${content}</span></div>
-                        </div>
+                          <button class="cancel" onclick="hideMassage_DM3();">닫기</button>
+                          <div class="type3">
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                            <div class="layer"><span>${content}</span></div>
+                          </div>
                       </div>                           
                       <script>window.setTimeout = null;</script>
-                      </dialog>`;
+                      </dialog>
+                      `;
 
     dialogsElement.innerHTML = htmlString;
 
@@ -143,15 +147,16 @@ function showMassage_DM3(content){
 }
 function showMassage_DM4(content){
     var dialogsElement = document.getElementById("dialogs");
-    var htmlString = `<dialog id="p_type4">
-
+    var htmlString = `
+                      <dialog id="p_type4">
                           <div class="type4_body">
                             <button class="cancel" onclick="hideMassage_DM4();">닫기</button>
                             <div class="type4">
                               <span id="type4">${content}</span>
                             </div>
                           </div>                               
-                      </dialog>`;
+                      </dialog>
+                      `;
 
     // HTML을 추가
     dialogsElement.innerHTML = htmlString;
@@ -165,12 +170,14 @@ function showMassage_DM4(content){
     });
 }
 function showMassage_DM5(content, type){
+    content=content.replaceAll('\\n','<br>')
+  $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<div class="snow_wrap">
                 <div class="snow"></div>
-                <dialog id="p_type5" class="p_type5">
-                  <button class="cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
+                <dialog id="p_type5">
                   <form method="dialog">
+                    <button class="cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
                     <p>${content}</p>      
                   </form>
                 </dialog>
