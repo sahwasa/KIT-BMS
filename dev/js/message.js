@@ -171,7 +171,6 @@ function showMassage_DM4(content){
 }
 function showMassage_DM5(content, type){
     content=content.replaceAll('\\n','<br>')
-  $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<div class="snow_wrap">
                 <div class="snow"></div>
