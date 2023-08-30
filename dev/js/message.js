@@ -15,7 +15,7 @@ function showMassage_DM1(content){
     content=content.replaceAll('\\n','<br>')
   $("main").addClass("damn");
   var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<dialog id="p_type1">
+  var tmpl = `<dialog id="p_type1" class="p_type1">
               <form method="dialog">
                 <div class="p_header">
                   <strong>알림</strong>
@@ -171,7 +171,6 @@ function showMassage_DM4(content){
 }
 function showMassage_DM5(content, type){
     content=content.replaceAll('\\n','<br>')
-  $("#wrap").addClass("snow");
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<div class="snow_wrap">
                 <div class="snow"></div>
