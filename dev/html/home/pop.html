@@ -9,7 +9,9 @@
     <div class="cont_body">
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">로그인</h2>
       <ul>
-        <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button>
+        <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
       </ul>
       <br>
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">팝업 공통</h2>
@@ -38,12 +40,15 @@
         <li><button type="button" class="btn_default" data-modal="p_requireMan">요구사항 관리</button></li>
         <li><button type="button" class="btn_default" data-modal="p_workMan">업무 관리</button></li>
         <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
+        <!-- <li><button type="button" class="btn_default" data-modal="p_type2">내 dm2</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_type3">내 dm3</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_type4">내 dm4</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_type5">내 dm5</button></li> -->
       </ul>
     </div>
   </main>
   @@include('../../inc/layout/footer.html')  
 </div>
-</dialog>
 @@include('../../inc/pop/p_alert.html')<!--// 통합알림 -->
 @@include('../../inc/pop/p_DM.html')<!--// DM -->
 @@include('../../inc/pop/p_login_01.html') <!--// 아이디/비밀번호 찾기 -->
@@ -58,6 +63,8 @@
 @@include('../../inc/pop/p_workMan.html')<!--// 업무 관리 -->
 @@include('../../inc/pop/p_workMy.html')<!--// 내 업무 추가 -->
 @@include('../../inc/layout/script.html')
+@@include('../../inc/pop/p_org_chart.html')
+@@include('../../inc/pop/p_seating_chart.html')
 
 <script>
   $(function () {
