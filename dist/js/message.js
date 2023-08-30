@@ -15,7 +15,7 @@ function showMassage_DM1(content){
     content=content.replaceAll('\\n','<br>')
   $("main").addClass("damn");
   var dialogsEl = document.getElementById("dialogs");
-  var tmpl = `<dialog id="p_type1" class="p_type1">
+  var tmpl = `<dialog id="p_type1" class="p_type1 dm_dialog">
               <form method="dialog">
                 <div class="p_header">
                   <strong>알림</strong>
@@ -39,7 +39,7 @@ function showMassage_DM2(content){
     content = content.replaceAll('\\n','<br>')
     var dialogsElement = document.getElementById("dialogs");
     var htmlString = `
-                      <dialog id="p_type2" class="p_type2">
+                      <dialog id="p_type2" class="p_type2 dm_dialog">
                       <button class="cancel" onclick="hideMassage_DM2();">닫기</button>
                       <div class="type2">
                         ${content}
@@ -110,7 +110,7 @@ function showMassage_DM3(content){
     var dialogsElement = document.getElementById("dialogs");
 // HTML 문자열을 생성합니다.
     var htmlString = `
-                      <dialog id="p_type3" class="p_type3">
+                      <dialog id="p_type3" class="p_type3 dm_dialog">
                       <div class="type3_body">
                           <button class="cancel" onclick="hideMassage_DM3();">닫기</button>
                           <div class="type3">
@@ -148,7 +148,7 @@ function showMassage_DM3(content){
 function showMassage_DM4(content){
     var dialogsElement = document.getElementById("dialogs");
     var htmlString = `
-                      <dialog id="p_type4" class="p_type4">
+                      <dialog id="p_type4" class="p_type4 dm_dialog">
                           <div class="type4_body">
                             <button class="cancel" onclick="hideMassage_DM4();">닫기</button>
                             <div class="type4">
@@ -174,7 +174,7 @@ function showMassage_DM5(content, type){
   var dialogsEl = document.getElementById("dialogs");
   var tmpl = `<div class="snow_wrap">
                 <div class="snow"></div>
-                <dialog id="p_type5" class="p_type5">
+                <dialog id="p_type5" class="p_type5 dm_dialog">
                   <form method="dialog">
                     <button class="cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
                     <p>${content}</p>      
