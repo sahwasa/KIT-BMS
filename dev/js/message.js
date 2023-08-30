@@ -14,7 +14,7 @@ function showMessage(content, type) {
 function showMassage_DM1(content){
     content=content.replaceAll('\\n','<br>')
   $("main").addClass("damn");
-  var dialogsEl = document.getElementById("dialogs");
+  var dialogsEl = document.getElementById("dialogs_dm");
   var tmpl = `<dialog id="p_type1" class="p_type1 dm_dialog">
               <form method="dialog">
                 <div class="p_header">
@@ -37,7 +37,7 @@ function showMassage_DM1(content){
 let showMessageVars = {};
 function showMassage_DM2(content){
     content = content.replaceAll('\\n','<br>')
-    var dialogsElement = document.getElementById("dialogs");
+    var dialogsElement = document.getElementById("dialogs_dm");
     var htmlString = `
                       <dialog id="p_type2" class="p_type2 dm_dialog">
                       <button class="cancel" onclick="hideMassage_DM2();">닫기</button>
@@ -107,7 +107,7 @@ function showMassage_DM2(content){
 }
 function showMassage_DM3(content){
     content = content.replace(/\\n/g, "\n");
-    var dialogsElement = document.getElementById("dialogs");
+    var dialogsElement = document.getElementById("dialogs_dm");
 // HTML 문자열을 생성합니다.
     var htmlString = `
                       <dialog id="p_type3" class="p_type3 dm_dialog">
@@ -146,7 +146,7 @@ function showMassage_DM3(content){
     $('#p_type3')[0].showModal();
 }
 function showMassage_DM4(content){
-    var dialogsElement = document.getElementById("dialogs");
+    var dialogsElement = document.getElementById("dialogs_dm");
     var htmlString = `
                       <dialog id="p_type4" class="p_type4 dm_dialog">
                           <div class="type4_body">
@@ -171,7 +171,7 @@ function showMassage_DM4(content){
 }
 function showMassage_DM5(content, type){
     content=content.replaceAll('\\n','<br>')
-  var dialogsEl = document.getElementById("dialogs");
+  var dialogsEl = document.getElementById("dialogs_dm");
   var tmpl = `<div class="snow_wrap">
                 <div class="snow"></div>
                 <dialog id="p_type5" class="p_type5 dm_dialog">
