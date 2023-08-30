@@ -112,7 +112,7 @@ function showMassage_DM3(content){
     var htmlString = `
                       <dialog id="p_type3">
                       <div class="type3_body">
-                          <button class="cancel" onclick="hideMassage_DM3();">닫기</button>
+                          <button class="cancel" onclick="hideMassage_DM3();" style="margin-top: 27px;">닫기</button>
                           <div class="type3">
                             <div class="layer"><span>${content}</span></div>
                             <div class="layer"><span>${content}</span></div>
