@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>업무</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="#" class="btn_default">내 업무 추가</a>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="work_myTodo.html">내 업무함</a>
+        <ul>
+          <li><a href="work_myTodo.html">나의 할 일</a></li>
+          <li><a href="work_myFin.html">완료된 업무</a></li>
+          <li><a href="work_myIng.html">미진 업무</a></li>
+        </ul>
+      </li>
+      <li><a href="work_shareRecept.html">업무 공유함</a>
+        <ul>
+          <li><a href="work_shareRecept.html">업무 수신</a></li>
+          <li><a href="work_shareRequest.html">업무 요청</a></li>
+          <li><a href="work_shareReference.html">참조함</a></li>
+        </ul>
+      </li>
+      <li><a href="work_result.html">실적관리</a></li>
+      <li><a href="#">업무 보고함</a>
+        <ul>
+          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_report.html">주간업무보고(개인)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>주간업무보고(부서별) 작성<span>업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li>주간업무보고(부서별) 작성</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_draft">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            <button type="button" class="btn_red">저장</button>
+          </span>
+        </article>
+        <section class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <p class="required">업무수행일자</p>
+            </li>
+            <li>
+              <select name="" id="" title="연도 선택">
+                <option disabled="">연도 선택</option>
+                <option selected>2023년</option>
+              </select>
+            </li>
+            <li>
+              <select name="" id="" title="주차 선택">
+                <option disabled="">주차 선택</option>
+                <option selected>14주</option>
+              </select>
+            </li>
+            <li><button type="button" class="btn_ogt">업무 불러오기</button></li>
+          </ul>
+          <div class="flex_right">
+            <span class="user_module">
+              <b>작성자 : </b>
+              <em>조아핑</em><b>(지진사업본부)</b>
+            </span>
+          </div>
+        </section>
+        <div class="my_approval">
+          <section class="approval_form flex_right">
+            <div class="form_wrap">
+              <table class="tbl_report asis_tobe alignL_4 alignL_5">
+                <caption>주간업무보고(부서별)</caption>
+                <colgroup>
+                  <col style="width:40px">
+                  <col style="width:195px">
+                  <col style="width:95px">
+                  <col style="width:330px">
+                  <col style="width:330px">
+                  <col style="width:70px">
+                  <col style="width:120px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">구분</th>
+                    <th scope="col">사업명</th>
+                    <th scope="col">업무단계</th>
+                    <th scope="col">금주 주요실적(2023-04-02 ~ 2023-04-08)</th>
+                    <th scope="col">차주 주요계획(2023-04-02 ~ 2023-04-08)</th>
+                    <th scope="col">공정율(%)</th>
+                    <th scope="col">이슈사항</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정​<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정​<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정​<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경​<br>
+                      &nbsp;&nbsp;+ 가속도 통합모니터링 데이터 미표출 오류 수정​<br>
+                      &nbsp;&nbsp;+ 지진시스템 CBS 송출반경 오류사항 원인 파악​
+                    </td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th style="display:none;">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>유지보수</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                    </td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스" value="100"></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl_bottom_area"><button type="button" class="btn_red">선택 삭제</button></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+<script>
+
+</script>
+</body>
+
+</html>

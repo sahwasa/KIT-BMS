@@ -635,6 +635,9 @@ z-index:10;
       }
       input:checked+label{background-color:#f05050;border-color:#f05050;color:#fff;font-weight:bold;}
     }
+    &>li:only-of-type{ // 요청자
+      div::before{display:none;}
+    }
   }
   .tab_contents :not(first).appr_path{margin-top:4px;}
   .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:7px;
@@ -1002,7 +1005,7 @@ $_proj_stacked:(
     &::before{display:inline-block;content:'';width:14px;height:14px;margin-left:3px;background:url(../images/ic_more.png) no-repeat;vertical-align: inherit;}
   }
   b{white-space:pre;}
-  .badge{@include badge_style(50px);min-width:42px;font-size:11px;font-weight:bold;}
+  .badge{@include badge_style(50px);height:17px;min-width:42px;font-size:11px;font-weight:bold;line-height:15px;}
   section{flex:0 1 33%;min-width:350px;
     article{margin-bottom:20px;
       &:last-child{margin-bottom:0;}
@@ -1024,7 +1027,7 @@ $_proj_stacked:(
           }
         }
         &:empty{
-          &::before{@include empty_box('업무가 없습니다.');height:100px;background-color:rgba(0, 0, 0, .05);}
+          &::before{@include empty_box('업무가 없습니다.');background-color:rgba(0, 0, 0, .05);}
         }
         &.work_todo{padding:0;
           &>li{padding:15px;}
@@ -1136,5 +1139,89 @@ $_proj_stacked:(
 .dot_list_s{margin-bottom:8px;
   li{letter-spacing:-0.65px;
     &::before{display:inline-block;content:'·';margin-right:2px;line-height:20px;}
+  }
+}
+.tab_l{border-bottom:none;
+  li{flex:1;
+    a{padding:8px;border-color:#c0c8d3;border-radius:5px;}
+    &.on{
+      a{border-color:#e42b29;}
+    }
+  }
+}
+.search_list li:has(p.required){margin-right:15px;font-weight:bold;align-self:center;}
+.tbl_report{width:100%;color:#000;overflow:hidden;
+  th,td{padding:5px 10px;border:1px solid #ddd;text-align:center;font-size:12px;word-break:keep-all;white-space:initial}
+  td:has(select),td:has(input),
+  td:has([contenteditable]){padding:5px;}
+  &.tbl_week_inner{
+    thead>tr:last-child>th:first-child{background-color:#ffe5e5;}
+    thead>tr:last-child>th:last-child{background-color:#ccdeff;}
+    tbody td:nth-child(5),
+    tbody td:nth-child(11),
+    tfoot td:nth-child(2),
+    tfoot td:nth-child(8){background-color:#f5f5f5;}
+  }
+  thead{background-color:#f5f5f5;
+    th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:#f5f5f5;}
+  }
+  $_reportType:('asis':#f1f8ff,'tobe':#fffae9,'asis_tobe':#f4fff5,'basic':#f5f5f5);
+  @each $type, $color in $_reportType{
+    &.#{$type}{
+      tbody th,tfoot{background-color:$color;font-weight:bold;}
+    }
+  }
+  input[type=number]{text-align:center;}
+  div[contenteditable]{padding:5px;border:1px solid #ddd;white-space:initial;text-align:left;}
+}
+.my_work.my_approval{
+  input[type=number]{text-align:center;}
+  &>section{flex:1;}
+  .status{width:450px;margin-right:0;margin-bottom:10px;
+    strong{margin:4px 0 6px;}
+    .form_wrap{padding:0;}
+    .progress em{color:#ff6664;font-size:12px;font-weight:bold;}
+    h1{font-size:14px;}
+    dt{display:block;color:#000;float:none;
+      &::after{display:none;}
+    }
+    dd{color:#71798a;float:none;
+      &::before{content:'-';margin:0 3px 0 5px;}
+    }
+  }
+  .tbl_row{width:100%;margin:12px 0;border:1px solid #ebebeb;border-width:0 1px;font-size:12px;
+    td{vertical-align:baseline;
+      &[contenteditable]{height:75px;}
+    }
+    .alignL{color:#6b6b6b;}
+    &+div .btn{@include btn(#aaa);padding:5px 60px;color:#111;background-color:#ebebeb;cursor:pointer;
+      &:hover{
+        &::after{color:#fff;}
+      }
+      &::after{content:'+';margin-left:5px;font-size:20px;color:#111;font-weight:bold;vertical-align:top;}
+    }
+  }
+  td:has(.progress_input){padding:5px 15px;
+    .file_input.progress_input{margin:8px 0;
+      label{font-size:12px;color:#6b6b6b;font-weight:bold;}
+    }
+  }
+  .work_info{
+    dt{
+      label.required{position:relative;
+        &::before{position:absolute;left:-10px;}
+      }
+    }
+    dd:not(:has(.file_input)){
+      &>*{display:inline-block;width:auto;vertical-align:middle;}
+    }
+  }
+}
+.tbl_week{table-layout:fixed;
+  tr{
+    *{text-align:center;}
+    th{height:20px;}
+    & th:first-child{background-color:#ffe5e5;}
+    & th:last-child{background-color:#ccdeff;}
   }
 }

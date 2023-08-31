@@ -86,7 +86,7 @@
           <li><a href="work_myIng.html">미진 업무</a></li>
         </ul>
       </li>
-      <li><a href="work_shareRecept.html">업무공유함</a>
+      <li><a href="work_shareRecept.html">업무 공유함</a>
         <ul>
           <li><a href="work_shareRecept.html">업무 수신</a></li>
           <li><a href="work_shareRequest.html">업무 요청</a></li>
@@ -96,10 +96,10 @@
       <li><a href="work_result.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
-          <li><a href="work_.html">일일 업무일지</a></li>
-          <li><a href="work_.html">주간업무보고(개인)</a></li>
-          <li><a href="work_.html">주간업무보고(팀)</a></li>
-          <li><a href="work_.html">주간업무보고(부서)</a></li>
+          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_report.html">주간업무보고(개인)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서)</a></li>
         </ul>
       </li>
     </ul>
@@ -120,7 +120,7 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body approval_view">
+      <div class="cont_body approval_draft">
         <article class="box_compact box_tool">
           <button type="button" class="btn_gray_line">목록</button>
           <span class="floatR">
@@ -128,11 +128,11 @@
             <button type="button" class="btn_red_line">반려</button>
           </span>
         </article>
-        <div class="my_approval">
+        <div class="my_approval my_work">
           <section class="work_form flex_right">
             <article class="box_default_w">
-              <dl class="set_list">
-                <dt class="required"><label for="work_type">업무구분</label></dt>
+              <dl class="set_list work_info">
+                <dt><label for="work_type" class="required">업무구분</label></dt>
                 <dd>
                   <select name="work_type" id="work_type">
                     <option value="업무구분 선택">업무구분 선택</option>
@@ -176,7 +176,7 @@
 </datalist>
                   </span>
                 </dd>
-                <dt><label for="work_range">작업범주</label></dt>
+                <dt><label for="work_range" class="required">작업범주</label></dt>
                 <dd>
                   <span class="file_input">
                     <select id="nameSelectB">
@@ -185,31 +185,41 @@
                   </span>
                   <ul id="tagListB"></ul>
                 </dd>
-                <dt class="required"><label for="work_period">업무기간</label></dt>
+                <dt>회의요청</dt>
                 <dd>
-                  <div class="period_custom">
-                    <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01" max="9999-12-31">
-                    <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01" max="9999-12-31">
-                  </div>
+                  <span class="file_input">
+                    <span class="btn_switch_single">
+                      <input type="checkbox" name="switch" id="onoff-switch1">
+                      <label for="onoff-switch1" class="btn btn_default">회의요청</label>
+                    </span>
+                    <div class="period_custom">
+                      <input type="time" name="start_time" title="시작시간">
+                      <input type="time" title="종료시간" name="end_time">
+                    </div>
+                  </span>
                 </dd>
-                <dt class="required"><label for="work_title">제목</label></dt>
-                <dd><input type="text" id="work_title" title="업무 제목 입력 박스" value="PEWS 관련 회의 요청드립니다"></dd>
+                <dt class="required"><label for="work_period" class="required">업무기간</label></dt>
+                <dd>
+                  <span class="file_input">
+                    <div class="period_custom">
+                      <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01"
+                        max="9999-12-31">
+                      <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01"
+                        max="9999-12-31">
+                    </div>
+                  </span>
+                </dd>
+                <dt><label for="work_title" class="required">제목</label></dt>
+                <dd><span class="file_input"><input type="text" id="work_title" title="업무 제목 입력 박스" value="PEWS 관련 회의 요청드립니다"></span></dd>
               </dl>
               <div class="editor_wrap">
-                <textarea name="editor" id="editor" title="에디터 영역">
-                  <p><span style="font-size:15px;">○ 출장 목적 및 내용</span></p>
-                  <ul style="list-style-type:square;">
-                      <li>&nbsp;</li>
-                      <li>&nbsp;</li>
-                      <li>&nbsp;</li>
-                  </ul>
-                </textarea>
+                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
               </div>
             </article>
           </section>
           <article class="approval_set work_set">
             <section class="box_default_w">
-              <h1>결재자 지정</h1>
+              <h1>수신자 지정</h1>
               <div class="tab_wrap tab_s">
                 <ul class="tab">
                   <li class="on"><a href="#tab01">조직도</a></li>
@@ -317,7 +327,7 @@
                 </section>
                 <section id="tab03" class="tab_contents">
                   <span class="file_input">
-                    <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
+                    <input type="text" id="form_referrer" placeholder="수신자를 입력하세요." list="nameList" autocomplete="off">
                     <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
@@ -428,22 +438,8 @@
                     <label for="row" class="low_prio">낮음</label>
                   </div>
                 </dd>
-                <dt>공개여부</dt>
-                <dd>
-                  <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure">
-                    <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure" checked>
-                    <label for="private">비공개</label>
-                  </div>
-                </dd>
-                <dt class="rel_doc">관련문서</dt>
-                <dd>
-                  <div class="file_input">
-                    <input type="text" />
-                    <button type="button" class="btn_gray_line">검색</button>
-                  </div>
-                </dd>
+                <dt class="rel_doc">코멘트</dt>
+                <dd><textarea name="" id="" title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>
@@ -468,6 +464,7 @@
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
 <script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
 //퍼블용

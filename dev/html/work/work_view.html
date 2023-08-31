@@ -61,11 +61,8 @@
           <article class="approval_set work_set">
             <section class="box_default_w">
               <h1>요청자</h1>
-              <ul class="referrer_act">
-                <li>
-                  @@include('../../inc/module/module_user.html')
-                  <p class="appr_result">2023-02-10 10:00</p>
-                </li>
+              <ul class="appr_path">
+                <li>@@include('../../inc/module/module_user.html')</li>
               </ul>
             </section>
             <section class="box_default_w">
@@ -110,22 +107,8 @@
                     <label for="row" class="low_prio">낮음</label>
                   </div>
                 </dd>
-                <dt>공개여부</dt>
-                <dd>
-                  <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure" checked>
-                    <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure">
-                    <label for="private">비공개</label>
-                  </div>
-                </dd>
-                <dt class="rel_doc">관련문서</dt>
-                <dd>
-                  <div class="file_input">
-                    <a href="#">23-04-17 휴일근무신청서</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
-                  </div>
-                </dd>
+                <dt class="rel_doc">코멘트</dt>
+                <dd><textarea name="" id="" title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>

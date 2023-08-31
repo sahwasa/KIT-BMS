@@ -86,7 +86,7 @@
           <li><a href="work_myIng.html">미진 업무</a></li>
         </ul>
       </li>
-      <li><a href="work_shareRecept.html">업무공유함</a>
+      <li><a href="work_shareRecept.html">업무 공유함</a>
         <ul>
           <li><a href="work_shareRecept.html">업무 수신</a></li>
           <li><a href="work_shareRequest.html">업무 요청</a></li>
@@ -96,10 +96,10 @@
       <li><a href="work_result.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
-          <li><a href="work_.html">일일 업무일지</a></li>
-          <li><a href="work_.html">주간업무보고(개인)</a></li>
-          <li><a href="work_.html">주간업무보고(팀)</a></li>
-          <li><a href="work_.html">주간업무보고(부서)</a></li>
+          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_report.html">주간업무보고(개인)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서)</a></li>
         </ul>
       </li>
     </ul>
@@ -315,14 +315,11 @@
           <article class="approval_set work_set">
             <section class="box_default_w">
               <h1>요청자</h1>
-              <ul class="referrer_act">
-                <li>
-                  <div class="user_module">
+              <ul class="appr_path">
+                <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-                  <p class="appr_result">2023-02-10 10:00</p>
-                </li>
+</div></li>
               </ul>
             </section>
             <section class="box_default_w">
@@ -421,22 +418,8 @@
                     <label for="row" class="low_prio">낮음</label>
                   </div>
                 </dd>
-                <dt>공개여부</dt>
-                <dd>
-                  <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure" checked>
-                    <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure">
-                    <label for="private">비공개</label>
-                  </div>
-                </dd>
-                <dt class="rel_doc">관련문서</dt>
-                <dd>
-                  <div class="file_input">
-                    <a href="#">23-04-17 휴일근무신청서</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
-                  </div>
-                </dd>
+                <dt class="rel_doc">코멘트</dt>
+                <dd><textarea name="" id="" title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>
@@ -461,6 +444,7 @@
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
 <script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
 //퍼블용

@@ -1,0 +1,303 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/work.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>주간업무보고(개인별) 작성<span>업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li>주간업무보고(개인별) 작성</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_draft">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            <button type="button" class="btn_red">저장</button>
+          </span>
+        </article>
+        <section class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <p class="required">업무수행일자</p>
+            </li>
+            <li>
+              <select name="" id="" title="연도 선택">
+                <option disabled="">연도 선택</option>
+                <option selected>2023년</option>
+              </select>
+            </li>
+            <li>
+              <select name="" id="" title="주차 선택">
+                <option disabled="">주차 선택</option>
+                <option selected>14주</option>
+              </select>
+            </li>
+            <li><button type="button" class="btn_ogt">업무 불러오기</button></li>
+          </ul>
+          <div class="flex_right">
+            <span class="user_module">
+              <b>작성자 : </b>
+              <em>조아핑</em><b>(재난예경보MA팀)</b>
+            </span>
+          </div>
+        </section>
+        <div class="my_approval">
+          <section class="approval_form flex_right">
+            <div class="form_wrap">
+              <div class="tab_wrap">
+                <ul class="tab tab_l">
+                  <li class="on"><a href="#tab_con01">실적</a></li>
+                  <li><a href="#tab_con02">계획</a></li>
+                </ul>
+              </div>
+              <div class="tab_container">
+                <section id="tab_con01" class="tab_contents">
+                  <table class="tbl_report asis tbl_week_inner alignL_3">
+                    <caption>주간업무보고(개인별)</caption>
+                    <colgroup>
+                      <col style="width:195px">
+                      <col style="width:95px">
+                      <col style="width:330px">
+                      <col style="width:60px">
+                      <col span="7" style="width:50px">
+                      <col span="2" style="width:95px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" rowspan="2">사업명</th>
+                        <th scope="col" rowspan="2">업무단계</th>
+                        <th scope="col" rowspan="2">금주실적(2023-04-02 ~ 2023-04-08)</th>
+                        <th scope="col" rowspan="2">진행률<br>(%)</th>
+                        <th scope="col" colspan="7">소요시간</th>
+                        <th scope="col" rowspan="2">협조자<br>(부서)</th>
+                        <th scope="col" rowspan="2">의견&sol;지시</th>
+                      </tr>
+                      <tr>
+                        <th scope="col">일</th>
+                        <th scope="col">월</th>
+                        <th scope="col">화</th>
+                        <th scope="col">수</th>
+                        <th scope="col">목</th>
+                        <th scope="col">금</th>
+                        <th scope="col">토</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                        <td>개발</td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                          &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                          &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                        </td>
+                        <td>100</td>
+                        <td></td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                        <td>개발</td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                          &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                          &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                        </td>
+                        <td>100</td>
+                        <td></td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th scope="row" colspan="4">근무시간</th>
+                        <td></td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
+                        <td>휴일</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>출장</td>
+                        <td>휴일</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </section>
+                <section id="tab_con02" class="tab_contents">
+                  <table class="tbl_report tobe tbl_week_inner alignL_3">
+                    <caption>주간업무보고 계획 개인</caption>
+                    <colgroup>
+                      <col style="width:195px">
+                      <col style="width:95px">
+                      <col style="width:330px">
+                      <col style="width:60px">
+                      <col span="7" style="width:50px">
+                      <col span="2" style="width:95px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" rowspan="2">사업명</th>
+                        <th scope="col" rowspan="2">업무단계</th>
+                        <th scope="col" rowspan="2">금주실적(2023-04-02 ~ 2023-04-08)</th>
+                        <th scope="col" rowspan="2">진행률<br>(%)</th>
+                        <th scope="col" colspan="7">소요시간</th>
+                        <th scope="col" rowspan="2">협조자<br>(부서)</th>
+                        <th scope="col" rowspan="2">의견&sol;지시</th>
+                      </tr>
+                      <tr>
+                        <th scope="col">일</th>
+                        <th scope="col">월</th>
+                        <th scope="col">화</th>
+                        <th scope="col">수</th>
+                        <th scope="col">목</th>
+                        <th scope="col">금</th>
+                        <th scope="col">토</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                        <td>개발</td>
+                        <td contenteditable>- 지진&sol;가속도 시스템 오류사항 소스 수정<br>&nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>&nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>&nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>&nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경</td>
+                        <td><input type="number" title="진행률 입력"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td contenteditable></td>
+                        <td contenteditable></td>
+                      </tr>
+                      <tr>
+                        <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                        <td>개발</td>
+                        <td contenteditable>- 지진&sol;가속도 시스템 오류사항 소스 수정<br>&nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br></td>
+                        <td><input type="number" title="진행률 입력"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td contenteditable></td>
+                        <td contenteditable></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th scope="row" colspan="4">근무시간</th>
+                        <td></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td><input type="number" title="시간 입력 박스"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
+                        <td>휴일</td>
+                        <td>
+                          <select name="" id="">
+                            <option value="선택">선택</option>
+                            <option value="외근">외근</option>
+                            <option value="출장">출장</option>
+                            <option value="휴가">휴가</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select name="" id="">
+                            <option value="선택">선택</option>
+                            <option value="외근">외근</option>
+                            <option value="출장">출장</option>
+                            <option value="휴가">휴가</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select name="" id="">
+                            <option value="선택">선택</option>
+                            <option value="외근">외근</option>
+                            <option value="출장">출장</option>
+                            <option value="휴가">휴가</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select name="" id="">
+                            <option value="선택">선택</option>
+                            <option value="외근">외근</option>
+                            <option value="출장">출장</option>
+                            <option value="휴가">휴가</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select name="" id="">
+                            <option value="선택">선택</option>
+                            <option value="외근">외근</option>
+                            <option value="출장" selected>출장</option>
+                            <option value="휴가">휴가</option>
+                          </select>
+                        </td>
+                        <td>휴일</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

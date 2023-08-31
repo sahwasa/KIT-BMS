@@ -1,0 +1,154 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/work.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>주간업무보고(팀별) 작성<span>업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li>주간업무보고(팀별) 작성</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_draft">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            <button type="button" class="btn_red">저장</button>
+          </span>
+        </article>
+        <section class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <p class="required">업무수행일자</p>
+            </li>
+            <li>
+              <select name="" id="" title="연도 선택">
+                <option disabled="">연도 선택</option>
+                <option selected>2023년</option>
+              </select>
+            </li>
+            <li>
+              <select name="" id="" title="주차 선택">
+                <option disabled="">주차 선택</option>
+                <option selected>14주</option>
+              </select>
+            </li>
+            <li><button type="button" class="btn_ogt">업무 불러오기</button></li>
+          </ul>
+          <div class="flex_right">
+            <span class="user_module">
+              <b>작성자 : </b>
+              <em>조아핑</em><b>(재난예경보MA팀)</b>
+            </span>
+          </div>
+        </section>
+        <div class="my_approval">
+          <section class="approval_form flex_right">
+            <div class="form_wrap">
+              <table class="tbl_report asis_tobe alignL_4 alignL_5">
+                <caption>주간업무보고(팀별)</caption>
+                <colgroup>
+                  <col style="width:40px">
+                  <col style="width:195px">
+                  <col style="width:95px">
+                  <col style="width:330px">
+                  <col style="width:330px">
+                  <col style="width:70px">
+                  <col style="width:120px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">구분</th>
+                    <th scope="col">사업명</th>
+                    <th scope="col">업무단계</th>
+                    <th scope="col">금주 주요실적(2023-04-02 ~ 2023-04-08)</th>
+                    <th scope="col">차주 주요계획(2023-04-02 ~ 2023-04-08)</th>
+                    <th scope="col">공정율(%)</th>
+                    <th scope="col">이슈사항</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정​<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정​<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정​<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경​<br>
+                      &nbsp;&nbsp;+ 가속도 통합모니터링 데이터 미표출 오류 수정​<br>
+                      &nbsp;&nbsp;+ 지진시스템 CBS 송출반경 오류사항 원인 파악​
+                    </td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th style="display:none;">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>유지보수</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                    </td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스"></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스" value="100"></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tbl_bottom_area"><button type="button" class="btn_red">선택 삭제</button></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+<script>
+
+</script>
+</body>
+
+</html>

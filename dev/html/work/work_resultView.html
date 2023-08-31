@@ -1,0 +1,524 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/work.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>업무 실적 관리<span>업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">실적관리</a></li>
+            <li>실적관리 상세</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_draft">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            <button type="button" class="btn_red">저장</button>
+          </span>
+        </article>
+        <section class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <p class="required">업무수행일자</p>
+            </li>
+            <li>
+              <select name="" id="" title="연도 선택">
+                <option disabled="">연도 선택</option>
+                <option selected>2023년</option>
+              </select>
+            </li>
+            <li>
+              <select name="" id="" title="주차 선택">
+                <option disabled="">주차 선택</option>
+                <option selected>14주</option>
+              </select>
+            </li>
+            <li><button type="button" class="btn_ogt">업무 불러오기</button></li>
+          </ul>
+          <div class="flex_right">
+            <span class="user_module">
+              <b>작성자 : </b>
+              <em>조아핑</em><b>(재난예경보MA팀)</b>
+            </span>
+          </div>
+        </section>
+        <section class="approval_form flex_right">
+          <div class="form_wrap">
+            <div class="my_approval my_work">
+              <article class="box_default status">
+                <header><h1>지난 업무 수행내역 : 2023년 13주</h1></header>
+                <ul>
+                  <li>
+                    <a href="#">
+                      <div class="progress flex_wrap">
+                        <progress value="100" max="100" title="진행율"></progress>
+                        <em>100%</em>
+                      </div>
+                      <strong>2023년 통합재난문자시스템 유지보수</strong>
+                      <dl class="approval_lst">
+                        <dt>지진&sol;가속도 시스템 오류사항 소스 수정</dt>
+                        <dd>지진발생 팝업 미표출 오류 수정</dd>
+                        <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                      </dl>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="progress flex_wrap">
+                        <progress value="30" max="100" title="진행율"></progress>
+                        <em>30%</em>
+                      </div>
+                      <strong>2023년 지진,화산재해 대응시스템 유지보수</strong>
+                      <dl class="approval_lst">
+                        <dt>지진&sol;가속도 시스템 오류사항 소스 수정</dt>
+                        <dd>지진발생 팝업 미표출 오류 수정</dd>
+                        <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                      </dl>
+                    </a>
+                  </li>
+                </ul>
+              </article>
+              <section>
+                <div class="tab_wrap">
+                  <ul class="tab tab_l">
+                    <li class="on"><a href="#tab_con01">실적</a></li>
+                    <li><a href="#tab_con02">계획</a></li>
+                  </ul>
+                </div>
+                <div class="tab_container">
+                  <section id="tab_con01" class="tab_contents">
+                    <table class="tbl_row alignL_2">
+                      <caption>등록된 실적</caption>
+                      <colgroup>
+                        <col style="width:75px">
+                        <col style="width:214px">
+                        <col style="width:335px">
+                        <col style="width:125px">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="col" colspan="2" class="alignL">2023년 통합재난문자시스템 유지보수</th>
+                          <th scope="col" class="alignL">통합지진업무 시스템 통계 화면 개선</th>
+                          <td rowspan="4">
+                            <span class="file_input progress_input">
+                              <label for="">진행률(%)</label>
+                              <input type="number" title="진행률 입력">
+                            </span>
+                            <span class="btn_switch_single">
+                              <input type="checkbox" name="switch" id="onoff-switch1">
+                              <label for="onoff-switch1" class="btn btn_default">미진행</label>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row" rowspan="2">작업 내용</th>
+                          <th scope="col" colspan="2" class="alignL">작업명 #1</th>
+                        </tr>
+                        <tr>
+                          <td colspan="2" contenteditable>- 통계 화면 시계열 자료 분석</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">소요 시간</th>
+                          <td colspan="2">
+                            <table class="tbl_row tbl_week">
+                              <caption>소요시간 입력</caption>
+                              <colgroup>
+                                <col span="7" style="width:50px">
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>일</th>
+                                  <th>월</th>
+                                  <th>화</th>
+                                  <th>수</th>
+                                  <th>목</th>
+                                  <th>금</th>
+                                  <th>토</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                </tr>
+                              </tbody>
+                              </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="tbl_row alignL_2">
+                      <caption>등록된 실적</caption>
+                      <colgroup>
+                        <col style="width:75px">
+                        <col style="width:214px">
+                        <col style="width:335px">
+                        <col style="width:125px">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="col" colspan="2" class="alignL">2023년 지진,화산재해 대응시스템 유지보수</th>
+                          <th scope="col" class="alignL">지진&sol;가속도 시스템 오류사항 소스 수정</th>
+                          <td rowspan="4">
+                            <span class="file_input progress_input">
+                              <label for="">진행률(%)</label>
+                              <input type="number" title="진행률 입력">
+                            </span>
+                            <span class="btn_switch_single">
+                              <input type="checkbox" name="switch" id="onoff-switch1">
+                              <label for="onoff-switch1" class="btn btn_default">미진행</label>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row" rowspan="2">작업 내용</th>
+                          <th scope="col" colspan="2" class="alignL">작업명 #2</th>
+                        </tr>
+                        <tr>
+                          <td colspan="2" contenteditable>- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">소요 시간</th>
+                          <td colspan="2">
+                            <table class="tbl_row tbl_week">
+                              <caption>소요시간 입력</caption>
+                              <colgroup>
+                                <col span="7" style="width:50px">
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>일</th>
+                                  <th>월</th>
+                                  <th>화</th>
+                                  <th>수</th>
+                                  <th>목</th>
+                                  <th>금</th>
+                                  <th>토</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                </tr>
+                              </tbody>
+                              </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="tbl_row alignL_2">
+                      <caption>실적 등록하기</caption>
+                      <colgroup>
+                        <col style="width:75px">
+                        <col style="width:214px">
+                        <col style="width:335px">
+                        <col style="width:125px">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="row">개인업무</th>
+                          <th scope="col" colspan="2" class="alignL">작업명 #3</th>
+                          <td rowspan="4">
+                            <span class="file_input progress_input">
+                              <label for="">진행률(%)</label>
+                              <input type="number" title="진행률 입력">
+                            </span>
+                            <span class="btn_switch_single">
+                              <input type="checkbox" name="switch" id="onoff-switch1">
+                              <label for="onoff-switch1" class="btn btn_default">미진행</label>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>작업 내용</th>
+                          <td colspan="2" contenteditable>- 통계 화면 시계열 자료 분석</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">소요 시간</th>
+                          <td colspan="2">
+                            <table class="tbl_row tbl_week">
+                              <caption>소요시간 입력</caption>
+                              <colgroup>
+                                <col span="7" style="width:50px">
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>일</th>
+                                  <th>월</th>
+                                  <th>화</th>
+                                  <th>수</th>
+                                  <th>목</th>
+                                  <th>금</th>
+                                  <th>토</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="alignC"><button type="button" class="btn btn_ogt">개인업무 등록</button></div>
+                    <table class="tbl_row alignL_2">
+                      <caption>실적 등록하기</caption>
+                      <colgroup>
+                        <col style="width:75px">
+                        <col style="width:214px">
+                        <col style="width:335px">
+                        <col style="width:125px">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="row" >
+                            <select name="" id="" style="width:auto;" disabled>
+                              <option value="개인업무(고정)" selected>개인업무(고정)</option>
+                            </select>
+                          </th>
+                          <th scope="col" colspan="2" class="alignL">
+                            <span class="file_input">
+                              <input type="text" placeholder="작업명 입력">
+                              <select name="" id="">
+                                <option value="작업범주 선택">작업범주 선택</option>
+                                <option value="개발">개발</option>
+                                <option value="장애처리">장애처리</option>
+                                <option value="디자인">디자인</option>
+                                <option value="회의">회의</option>
+                                <option value="업무지원">업무지원</option>
+                                <option value="연구활동">연구활동</option>
+                                <option value="기타">기타</option>
+                              </select>
+                            </span>
+                          </th>
+                          <td rowspan="4">
+                            <span class="file_input progress_input">
+                              <label for="">진행률(%)</label>
+                              <input type="number" title="진행률 입력">
+                            </span>
+                            <span class="btn_switch_single">
+                              <input type="checkbox" name="switch" id="onoff-switch1">
+                              <label for="onoff-switch1" class="btn btn_default">미진행</label>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>작업 내용</th>
+                          <td colspan="2" contenteditable>- 저는 개인업무 등록 버튼을 눌러서 만들어졌습니다! 초기화면에는 제가 없습니다</td>
+                        </tr>
+                        <tr>
+                          <th>작업 일자</th>
+                          <td>
+                            <div class="period_custom">
+                              <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01" max="9999-12-31">
+                              <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01" max="9999-12-31">
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">소요 시간</th>
+                          <td colspan="2">
+                            <table class="tbl_row tbl_week">
+                              <caption>소요시간 입력</caption>
+                              <colgroup>
+                                <col span="7" style="width:50px">
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>일</th>
+                                  <th>월</th>
+                                  <th>화</th>
+                                  <th>수</th>
+                                  <th>목</th>
+                                  <th>금</th>
+                                  <th>토</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                  <section id="tab_con02" class="tab_contents">
+                    <table class="tbl_row alignL_2">
+                      <caption>등록된 실적</caption>
+                      <colgroup>
+                        <col style="width:75px">
+                        <col style="width:214px">
+                        <col style="width:335px">
+                        <col style="width:125px">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="col" colspan="2" class="alignL">2023년 지진,화산재해 대응시스템 유지보수</th>
+                          <th scope="col" class="alignL">지진&sol;가속도 시스템 오류사항 소스 수정</th>
+                          <td rowspan="4">
+                            <span class="file_input progress_input">
+                              <label for="">진행률(%)</label>
+                              <input type="number" title="진행률 입력">
+                            </span>
+                            <span class="btn_switch_single">
+                              <input type="checkbox" name="switch" id="onoff-switch1">
+                              <label for="onoff-switch1" class="btn btn_default">미진행</label>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row" rowspan="2">작업 내용</th>
+                          <th scope="col" colspan="2" class="alignL">작업명 #2</th>
+                        </tr>
+                        <tr>
+                          <td colspan="2" contenteditable>- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">소요 시간</th>
+                          <td colspan="2">
+                            <table class="tbl_row tbl_week">
+                              <caption>소요시간 입력</caption>
+                              <colgroup>
+                                <col span="7" style="width:50px">
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>일</th>
+                                  <th>월</th>
+                                  <th>화</th>
+                                  <th>수</th>
+                                  <th>목</th>
+                                  <th>금</th>
+                                  <th>토</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                </tr>
+                              </tbody>
+                              </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="tbl_row alignL_2">
+                      <caption>실적 등록하기</caption>
+                      <colgroup>
+                        <col style="width:75px">
+                        <col style="width:214px">
+                        <col style="width:335px">
+                        <col style="width:125px">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="row">개인업무</th>
+                          <th scope="col" colspan="2" class="alignL">작업명 #3</th>
+                          <td rowspan="4">
+                            <span class="file_input progress_input">
+                              <label for="">진행률(%)</label>
+                              <input type="number" title="진행률 입력">
+                            </span>
+                            <span class="btn_switch_single">
+                              <input type="checkbox" name="switch" id="onoff-switch1">
+                              <label for="onoff-switch1" class="btn btn_default">미진행</label>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>작업 내용</th>
+                          <td colspan="2" contenteditable>- 통계 화면 시계열 자료 분석</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">소요 시간</th>
+                          <td colspan="2">
+                            <table class="tbl_row tbl_week">
+                              <caption>소요시간 입력</caption>
+                              <colgroup>
+                                <col span="7" style="width:50px">
+                              </colgroup>
+                              <thead>
+                                <tr>
+                                  <th>일</th>
+                                  <th>월</th>
+                                  <th>화</th>
+                                  <th>수</th>
+                                  <th>목</th>
+                                  <th>금</th>
+                                  <th>토</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                  <td><input type="number" title="시간 입력 박스"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="alignC"><button type="button" class="btn btn_ogt">개인업무 등록</button></div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>
