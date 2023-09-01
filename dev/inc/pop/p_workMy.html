@@ -25,15 +25,26 @@
                 <option value="기타">기타</option>
               </select>
             </td>
-            <th scope="row" class="required"><label for="work_name">업무명</label></th>
-            <td><input type="text" id="work_name"></td>
+            <th scope="row" class="required">
+              <label for="work_start">작업기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="work_range">작업범주</label></th>
+            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="work_range">업무범주</label></th>
             <td colspan="3">
               <span class="file_input">
                 <select id="nameSelectB">
-                  <option value="작업범주를 선택하세요" disabled selected>작업범주를 선택하세요</option>
+                  <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
                 </select>
               </span>
               <ul id="tagListB"></ul>
@@ -55,16 +66,7 @@
               @@include('../module/module_slide_user.html')
             </td>
           </tr>
-          <tr>
-            <th scope="row" class="required">
-              <label for="work_start">시작일자</label>
-            </th>
-            <td><input type="date" id="work_start"></td>
-            <th scope="row" class="required">
-              <label for="work_end">종료일자</label>
-            </th>
-            <td><input type="date" id="work_end"></td>
-          </tr>
+          
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>

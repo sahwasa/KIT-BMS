@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container plan">
+    <header>
+      <h2>일정</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="plan_new.html" class="btn_default" >일정추가</a>
+    </div>
+
+    <ul class="snb_lst">
+      <li><a href="">브리핑보드</a></li>
+      <li>
+        <h3 class="all_lst_ctrl"><label for="my_cal"><input type="checkbox" id="my_cal">내 캘린더</label></h3>
+        <ul class="lst_ctrl">
+          <li><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label>
+          </li>
+          <li><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label>
+          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>행사 일정</label>
+          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>회의 일정</label>
+          <li><label for=""><input type="checkbox" id="" checked>휴가 일정</label>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h3 class="all_lst_ctrl" ><label for="p_cal"><input type="checkbox" id="p_cal">프로젝트 캘린더</label></h3>
+        <ul class="lst_ctrl lst_plan_proj">
+          <li>
+            <label for="p1"><input type="checkbox" id="p1" checked>OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 유지보수</label>
+          </li>
+          <li>
+            <label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
+          </li>
+          <li>
+            <label for="p3"><input type="checkbox" id="p3" checked>OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 유지보수</label>
+          </li>
+          <li>
+            <label for="p4"><input type="checkbox" id="p4" checked>OOO 용역</label>
+          </li>
+        </ul>
+      </li>
+      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" data-checkevt="!all_emp">전 사원 근태</label></h3></li>
+    </ul>
+    <section class="plan_add" id="all_emp">
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="이름, 조직명" list="nameList">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+      </span>
+      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+    </section>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>브리핑 보드<span>일정</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>일정</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">
+          <header class="blind">
+            <h1>결재대기 목록</h1>
+          </header>
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <select title="연도 선택">
+                  <option disabled="">연도 선택</option>
+                  <option disabled="" selected="">2023년</option>
+                </select>
+              </li>
+              <li>
+                <select name="" id="" title="월 선택">
+                  <option disabled="" selected="">월 선택</option>
+                  <option disabled="" selected="">9월</option>
+                </select>
+              </li>
+              <li>
+                <button type="button" class="btn_refresh">초기화</button>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul class="tbl_list briefing">
+              <li>
+                <b class="briefing_date sun">
+                  <span class="num">9</span>
+                  <span class="txt">일요일</span>
+                </b>
+                <div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan undefined">
+                      <p>참석여부 미정 일정</p>
+                      <p>10:00 ~ 17:00</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택">참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정" selected>미정</option>
+                      </select>
+                      <span>참여자 10명 (<b class="t_skyblue">참석 10</b> <b class="t_red">불참 0</b> <b>미정 1</b>)
+                        <ul>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b class="briefing_date">
+                  <span class="num">4</span>
+                  <span class="txt">월요일</span>
+                </b>
+                <div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>미응답 일정</p>
+                      <p>하루종일</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택" selected>참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정">미정</option>
+                      </select>
+                      <span>참여자 10명 (<b class="t_skyblue">참석 10</b> <b class="t_red">불참 0</b> <b>미정 1</b>)
+                        <ul>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b class="briefing_date today">
+                  <span class="num">5</span>
+                  <span class="txt">화요일</span>
+                </b>
+                <div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan nonappearance">
+                      <p>불참 일정</p>
+                      <p>하루종일</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택">참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참" selected>불참</option>
+                        <option value="미정">미정</option>
+                      </select>
+                      <span>참여자 10명 (<b class="t_skyblue">참석 10</b> <b class="t_red">불참 0</b> <b>미정 1</b>)
+                        <ul>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan attend">
+                      <p>참석 응답한 일정</p>
+                      <p>하루종일</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택">참석 여부 선택</option>
+                        <option value="참석" selected>참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정">미정</option>
+                      </select>
+                      <span>참여자 10명 (<b class="t_skyblue">참석 10</b> <b class="t_red">불참 0</b> <b>미정 1</b>)
+                        <ul>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b class="briefing_date">
+                  <span class="num">6</span>
+                  <span class="txt">수요일</span>
+                </b>
+                <div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>미응답 일정</p>
+                      <p>하루종일</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택" selected>참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정">미정</option>
+                      </select>
+                      <span>참여자 10명 (<b class="t_skyblue">참석 10</b> <b class="t_red">불참 0</b> <b>미정 1</b>)
+                        <ul>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b class="briefing_date">
+                  <span class="num">7</span>
+                  <span class="txt">목요일</span>
+                </b>
+                <div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>미응답 일정</p>
+                      <p>하루종일</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택" selected>참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정">미정</option>
+                      </select>
+                      <span>참여자 10명 (<b class="t_skyblue">참석 10</b> <b class="t_red">불참 0</b> <b>미정 1</b>)
+                        <ul>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b class="briefing_date">
+                  <span class="num">8</span>
+                  <span class="txt">금요일</span>
+                </b>
+                <div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>미응답 일정</p>
+                      <p>하루종일</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택" selected>참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정">미정</option>
+                      </select>
+                      <span>참여자 10명 (<b class="t_skyblue">참석 10</b> <b class="t_red">불참 0</b> <b>미정 1</b>)
+                        <ul>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_skyblue">참석</em>
+                          </li>
+                          <li class="user_module">
+                            <span>
+                              <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                              <span>
+                                <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                              </span>
+                            </span>
+                            <em class="t_red">불참</em>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <b class="briefing_date satur">
+                  <span class="num">9</span>
+                  <span class="txt">토요일</span>
+                </b>
+                <div class="proj_color">
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap">
+                    <div class="briefing_plan">
+                      <p>프로젝트 캘린더 일정</p>
+                      <p>오른쪽은 코드 길어져서 생략</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+</body>
+
+</html>

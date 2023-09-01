@@ -176,11 +176,11 @@
 </datalist>
                   </span>
                 </dd>
-                <dt><label for="work_range" class="required">작업범주</label></dt>
+                <dt><label for="work_range" class="required">업무범주</label></dt>
                 <dd>
                   <span class="file_input">
                     <select id="nameSelectB">
-                      <option value="작업범주를 선택하세요" disabled selected>작업범주를 선택하세요</option>
+                      <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
                     </select>
                   </span>
                   <ul id="tagListB"></ul>
@@ -189,8 +189,9 @@
                 <dd>
                   <span class="file_input">
                     <span class="btn_switch_single">
-                      <input type="checkbox" name="switch" id="onoff-switch1">
-                      <label for="onoff-switch1" class="btn btn_default">회의요청</label>
+                      <label class="btn btn_default">회의요청
+                        <input type="checkbox" class="meeting_request">
+                      </label>
                     </span>
                     <div class="period_custom">
                       <input type="time" name="start_time" title="시작시간">
@@ -494,7 +495,7 @@ commonInit();
 </dialog>
 <script>
   $(function () {
-    // 업무 관리 작업범주 랜덤 색상 태그
+    // 업무 관리 업무범주 랜덤 색상 태그
     const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
     initializeTagManager('tagListB', 'nameSelectB', initialNamesB);
 
@@ -519,6 +520,15 @@ commonInit();
   });
   tribute.attach(document.querySelectorAll(".editable"));
 </script>
+<script>
+  const checkbox = document.querySelector('.meeting_request');
+  const periodCustom = document.querySelector('.period_custom');
+
+  checkbox.addEventListener('change', function() {
+    periodCustom.style.display = this.checked ? 'flex' : 'none';
+  });
+</script>
+
 </body>
 
 </html>
