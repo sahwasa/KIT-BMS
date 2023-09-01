@@ -99,16 +99,16 @@
                 <dt>중요도</dt>
                 <dd>
                   <div class="btn_switch">
-                    <input type="radio" id="high" name="importance" readonly>
+                    <input type="radio" id="high" name="importance">
                     <label for="high" class="high_prio">높음</label>
-                    <input type="radio" id="common" name="importance" checked readonly>
+                    <input type="radio" id="common" name="importance" onclick="return false;" checked>
                     <label for="common" class="normal_prio">보통</label>
-                    <input type="radio" id="row" name="importance" readonly>
+                    <input type="radio" id="row" name="importance">
                     <label for="row" class="low_prio">낮음</label>
                   </div>
                 </dd>
                 <dt class="rel_doc">코멘트</dt>
-                <dd><textarea name="" id="" title="코멘트 입력 박스"></textarea></dd>
+                <dd><textarea title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>
@@ -125,20 +125,20 @@
     setEditor();// editor common
     fileDropEvt();
   })
-var tribute = new Tribute({
-  trigger: "@",
-  values: [
-    { key: "1", value: "김개발" },
-    { key: "2", value: "김연구 연구기획 1팀" }
-  ],
-  selectTemplate: function(item) {
-    return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
-  },
-  menuItemTemplate: function(item) {
-    return `${item.original.value}`;
-  }
-});
-tribute.attach(document.querySelectorAll(".editable"));
+  var tribute = new Tribute({
+    trigger: "@",
+    values: [
+      { key: "1", value: "김개발" },
+      { key: "2", value: "김연구 연구기획 1팀" }
+    ],
+    selectTemplate: function (item) {
+      return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
+    },
+    menuItemTemplate: function (item) {
+      return `${item.original.value}`;
+    }
+  });
+  tribute.attach(document.querySelectorAll(".editable"));
 </script>
 </body>
 

@@ -97,9 +97,9 @@
       <li><a href="#">업무 보고함</a>
         <ul>
           <li><a href="work_reportDay.html">일일 업무일지</a></li>
-          <li><a href="work_report.html">주간업무보고(개인)</a></li>
-          <li><a href="work_reportTeam.html">주간업무보고(팀)</a></li>
-          <li><a href="work_reportDiv.html">주간업무보고(부서)</a></li>
+          <li><a href="work_report.html">주간업무보고(개인별)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
         </ul>
       </li>
     </ul>
@@ -132,13 +132,13 @@
               <p class="required">업무수행일자</p>
             </li>
             <li>
-              <select name="" id="" title="연도 선택">
+              <select title="연도 선택">
                 <option disabled="">연도 선택</option>
                 <option selected>2023년</option>
               </select>
             </li>
             <li>
-              <select name="" id="" title="주차 선택">
+              <select title="주차 선택">
                 <option disabled="">주차 선택</option>
                 <option selected>14주</option>
               </select>
@@ -218,6 +218,7 @@
                               <input type="checkbox" name="switch" id="onoff-switch1">
                               <label for="onoff-switch1" class="btn btn_default">미진행</label>
                             </span>
+                            <button type="button" class="btn btn_red_line">삭제</button>
                           </td>
                         </tr>
                         <tr>
@@ -283,6 +284,7 @@
                               <input type="checkbox" name="switch" id="onoff-switch1">
                               <label for="onoff-switch1" class="btn btn_default">미진행</label>
                             </span>
+                            <button type="button" class="btn btn_red_line">삭제</button>
                           </td>
                         </tr>
                         <tr>
@@ -348,6 +350,7 @@
                               <input type="checkbox" name="switch" id="onoff-switch1">
                               <label for="onoff-switch1" class="btn btn_default">미진행</label>
                             </span>
+                            <button type="button" class="btn btn_red_line">삭제</button>
                           </td>
                         </tr>
                         <tr>
@@ -425,10 +428,7 @@
                               <label for="">진행률(%)</label>
                               <input type="number" title="진행률 입력">
                             </span>
-                            <span class="btn_switch_single">
-                              <input type="checkbox" name="switch" id="onoff-switch1">
-                              <label for="onoff-switch1" class="btn btn_default">미진행</label>
-                            </span>
+                            <button type="button" class="btn btn_red_line">삭제</button> 
                           </td>
                         </tr>
                         <tr>
@@ -439,8 +439,8 @@
                           <th>작업 일자</th>
                           <td>
                             <div class="period_custom">
-                              <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01" max="9999-12-31">
-                              <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01" max="9999-12-31">
+                              <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                              <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
                             </div>
                           </td>
                         </tr>

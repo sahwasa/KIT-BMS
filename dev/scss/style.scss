@@ -1225,3 +1225,6 @@ $_proj_stacked:(
     & th:last-child{background-color:#ccdeff;}
   }
 }
+.progress_input{
+  &+button{display:block;width:100%;margin-top:5px;}
+}

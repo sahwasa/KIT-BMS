@@ -97,9 +97,9 @@
       <li><a href="#">업무 보고함</a>
         <ul>
           <li><a href="work_reportDay.html">일일 업무일지</a></li>
-          <li><a href="work_report.html">주간업무보고(개인)</a></li>
-          <li><a href="work_reportTeam.html">주간업무보고(팀)</a></li>
-          <li><a href="work_reportDiv.html">주간업무보고(부서)</a></li>
+          <li><a href="work_report.html">주간업무보고(개인별)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
         </ul>
       </li>
     </ul>
@@ -235,8 +235,8 @@
       </div>
       <div class="cmt_txt">
         <p>
-          이 댓글은 로그인한 사람이 작성한 글입니다.<br />
-          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br />
+          이 댓글은 로그인한 사람이 작성한 글입니다.<br>
+          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br>
           댓글이 없을 때는 아래와 같이 보여줍니다.
         </p>
       </div>
@@ -268,7 +268,7 @@
       <div class="cmt_file">
         <a href="../../images/sample.pdf" target="_blank">
           <span class="cmt_file_info">
-            <p>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</p>
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
             <span>4KB</span>
           </span>
         </a>
@@ -277,7 +277,7 @@
       <div class="cmt_file">
         <a href="../../images/sample.pdf" target="_blank">
           <span class="cmt_file_info">
-            <p>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</p>
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
             <span>4KB</span>
           </span>
         </a>
@@ -410,16 +410,16 @@
                 <dt>중요도</dt>
                 <dd>
                   <div class="btn_switch">
-                    <input type="radio" id="high" name="importance" readonly>
+                    <input type="radio" id="high" name="importance">
                     <label for="high" class="high_prio">높음</label>
-                    <input type="radio" id="common" name="importance" checked readonly>
+                    <input type="radio" id="common" name="importance" onclick="return false;" checked>
                     <label for="common" class="normal_prio">보통</label>
-                    <input type="radio" id="row" name="importance" readonly>
+                    <input type="radio" id="row" name="importance">
                     <label for="row" class="low_prio">낮음</label>
                   </div>
                 </dd>
                 <dt class="rel_doc">코멘트</dt>
-                <dd><textarea name="" id="" title="코멘트 입력 박스"></textarea></dd>
+                <dd><textarea title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>
@@ -477,20 +477,20 @@ commonInit();
     setEditor();// editor common
     fileDropEvt();
   })
-var tribute = new Tribute({
-  trigger: "@",
-  values: [
-    { key: "1", value: "김개발" },
-    { key: "2", value: "김연구 연구기획 1팀" }
-  ],
-  selectTemplate: function(item) {
-    return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
-  },
-  menuItemTemplate: function(item) {
-    return `${item.original.value}`;
-  }
-});
-tribute.attach(document.querySelectorAll(".editable"));
+  var tribute = new Tribute({
+    trigger: "@",
+    values: [
+      { key: "1", value: "김개발" },
+      { key: "2", value: "김연구 연구기획 1팀" }
+    ],
+    selectTemplate: function (item) {
+      return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
+    },
+    menuItemTemplate: function (item) {
+      return `${item.original.value}`;
+    }
+  });
+  tribute.attach(document.querySelectorAll(".editable"));
 </script>
 </body>
 

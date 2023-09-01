@@ -109,7 +109,7 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>주간업무보고(개인별)<span>업무 보고함</span></h1>
+        <h1>일일 업무일지<span>업무 보고함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
@@ -128,26 +128,24 @@
             <ul class="search_list">
               <li>
                 <select title="부서 선택">
-                  <option disabled selected>부서 선택</option>
+                  <option disabled="" selected="">부서 선택</option>
                 </select>
               </li>
               <li>
-                <select title="팀 선택">
-                  <option disabled selected>팀 선택</option>
+                <select name="" id="" title="작성자 선택">
+                  <option disabled="" selected="">작성자 선택</option>
                 </select>
               </li>
               <li>
-                <select title="연도 선택">
-                  <option value="연도 선택">연도 선택</option>
-                  <option value="2023년" selected>2023년</option>
-                  <option value="2022년">2022년</option>
-                </select>
-              </li>
-              <li>
-                <select title="주차 선택">
-                  <option value="주차 선택">주차 선택</option>
-                  <option value="14주 (2023-04-02~2023-04-08)​" selected>14주 (2023-04-02~2023-04-08)​</option>
-                </select>
+                <div class="period_group">
+                  <input type="radio" name="select_period" id="week"><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="month"><label for="month">1달</label>
+                  <input type="radio" name="select_period" id="year"><label for="year">1년</label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
@@ -157,52 +155,35 @@
           <section>
             <div class="handle_week">
               <button class="handle_prev">이전 주차 이동</button>
-              <span>2023.02.26 ~ 2023.03.04</span>
+              <span>2023.02.26</span>
               <button class="handle_next" disabled>다음 주차 이동</button>
             </div>
             <div class="tab_wrap">
-              <h2>2023년 14주</h2>
-              <button type="button" class="btn_default" onclick="location.href='../work/work_reportApproval.html'">주간보고
-                작성</button>
+              <h2>TODAY <span class="t_red">2023년 9월 1일</span></h2>
+              <button type="button" class="btn_default" onclick="location.href='../work/work_reportApproval.html'">일일업무 작성</button>
             </div>
-            <table class="tbl_default tbl_hover hasLayer alignL_1">
+            <table class="tbl_default tbl_hover hasLayer alignL_2">
               <caption>주간업무보고(개인별) 리스트</caption>
               <colgroup>
+                <col style="width:200px;">
                 <col style="width:auto;">
-                <col style="width:250px;">
-                <col span="2" style="width:150px;">
-                <col span="2" style="width:120px;">
-                <col style="width:95px;">
+                <col style="width:100px;">
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col">제목</th>
-                  <th scope="col">기간</th>
-                  <th scope="col">작성자</th>
-                  <th scope="col">보고일자</th>
-                  <th scope="col">상태</th>
-                  <th scope="col">공개여부</th>
+                  <th scope="col">시간</th>
+                  <th scope="col">일정</th>
                   <th scope="col">관리</th>
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0" onclick="location.href='../work/work_reportWrite.html'">
-                  <td>14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동)</td>
-                  <td>14주 (2023-05-01 ~ 2023-05-01)</td>
-                  <td>홍길동(지진사업1팀)</td>
-                  <td>2023-05-01</td>
-                  <td><i class="tbl_badge ing">결재중</i></td>
-                  <td></td>
-                  <td></td>
-                </tr>
                 <tr tabindex="0">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><i class="tbl_badge default">미제출</i><a href="#" class="cmt_num"
-                      onclick="location.href='../work/work_reportApproval.html'">결재요청</a></td>
-                  <td></td>
+                  <td>10:00 ~ 12:00</td>
+                  <td>	
+                    재택근무에 따른 일일 업무보고	<br>
+                    &nbsp;1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
+                    &nbsp;&nbsp;&nbsp;- 방역대 > 방역대분석 > 위험요소 관리 (100%)<br>
+                    &nbsp;2. 업무 인수인계</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -213,18 +194,36 @@
                     </div>
                   </td>
                 </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><i class="tbl_badge fin">완료</i> (2023. 04. 18)</td>
-                  <td></td>
+                <tr tabindex="0">
+                  <td>13:00 ~ 15:00</td>
+                  <td>	
+                    재택근무에 따른 일일 업무보고	<br>
+                    1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
+                    - 방역대 > 방역대분석 > 위험요소 관리 (70%)<br>
+                    <br>
+                    2. 업무 인수인계</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
-                        <button type="button">결재문서</button>
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr tabindex="0">
+                  <td>15:00 ~ 18:00</td>
+                  <td>	
+                    재택근무에 따른 일일 업무보고	<br>
+                    1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
+                    2. 업무 인수인계</td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
                       </div>
                     </div>
                   </td>
