@@ -177,17 +177,30 @@ function showMassage_DM5(content, type){
                 <dialog id="p_type5" class="p_type5 dm_dialog">
                   <form method="dialog">
                     <button class="cancel" aria-label="close" onclick="hideMassage_DM5();">닫기</button>
-                    <p>${content}</p>      
+                    <p>${content}</p>
                   </form>
                 </dialog>
               </div>`;
   dialogsEl.innerHTML = tmpl;
   $('#p_type5')[0].showModal();
 }
-function showMassage_DM6(content){
-  content = content.replace(/\\n/g, "\n");
-  $("#wrap").addClass("wooz").attr('send-meow', content);
+
+function showMassage_DM6(content, type){
+  content=content.replaceAll('\\n','<br>')
+var dialogsEl = document.getElementById("dialogs_dm");
+var tmpl = `<dialog id="p_type6" class="p_type2 p_type6 dm_dialog">
+                <form method="dialog">
+                  <div class="wooz">
+                    <p>${content}
+                      <button class="cancel" aria-label="close" onclick="hideMassage_DM6();">닫기</button>
+                    </p>
+                  </div>
+                </form>
+              </dialog>`;
+dialogsEl.innerHTML = tmpl;
+$('#p_type6')[0].showModal();
 }
+
 
 function hideMessage(type){
     const functionToCall = `hideMassage_${type}`;
@@ -218,5 +231,5 @@ function hideMassage_DM5(content){
     $('.snow_wrap').remove();
 }
 function hideMassage_DM6(){
-  $("#wrap").removeClass("wooz");
+  $('#p_type6').remove();
 }
