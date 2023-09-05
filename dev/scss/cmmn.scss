@@ -180,6 +180,7 @@ input, select{
   }
   &.w_auto{width:auto;}
 }
+input[type=number]{-moz-appearance:textfield;} // firefox hide arrrow
 ::-webkit-input-placeholder{color:$gray;}
 :-ms-input-placeholder{color:$gray;}
 ::placeholder,
@@ -282,6 +283,13 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     @each $type, $color in $_planType{
       .s_#{$type}{background-color:$color;}
     }
+  }
+}
+span.meeting_room{ // select없이 회의실 정보만 적어야 할 경우(브리핑 보드 상세 참고)
+  i{display:inline-block;width:15px;height:15px;top:0;font-size:0;width:15px;height:15px;vertical-align:middle;margin-right:5px;}
+  $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#b49bdb, 'D':#9167df);
+  @each $type, $color in $_roomType{
+    .room#{$type}{background-color:$color;}
   }
 }
 $prio_fontSize:20px;

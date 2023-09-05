@@ -33,6 +33,7 @@
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회</button></li>
         <li><button type="button" class="btn_default" data-modal="p_status_roomBook">회의실 예약현황</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_planBriefing">브리핑 보드 상세</button></li>
       </ul>
       <br>
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">프로젝트</h2>
@@ -58,6 +59,7 @@
 @@include('../../inc/pop/p_approvalOpinion.html') <!--// 결재의견 -->
 @@include('../../inc/pop/p_relDoc.html')<!--// 관련문서 설정 -->
 @@include('../../inc/pop/p_planView.html')<!--// 일정 조회 -->
+@@include('../../inc/pop/p_planBriefing.html') <!--// 브리핑 보드 상세 -->
 @@include('../../inc/pop/p_status_roomBook.html')<!--// 회의실 예약 현황 -->
 @@include('../../inc/pop/p_requireMan.html')<!--// 요구사항 관리 -->
 @@include('../../inc/pop/p_workMan.html')<!--// 업무 관리 -->
@@ -65,6 +67,9 @@
 @@include('../../inc/layout/script.html')
 @@include('../../inc/pop/p_org_chart.html')
 @@include('../../inc/pop/p_seating_chart.html')
+
+
+
 
 <script>
   $(function () {
