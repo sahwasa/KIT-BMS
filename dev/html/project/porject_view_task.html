@@ -1,59 +1,207 @@
-<section class="left_section">
-  <article>
-    <h1>업무</h1>
-    <select class="">
-      <option>담당</option>
-      <option>참조</option>
-      <option>등록</option>
-      <option>전체</option>
-    </select>
-    <section class="tab_container">
-      <article class="tab_contents">
-        <ul>
-          <li>
-            <input type="checkbox">
-            <div>
+
+  
+  <section>
+    <ul class="search_list">
+    <li>
+      <select class="" title="필터">
+        <option>필터</option>
+        <option>담당</option>
+        <option>참조</option>
+        <option>등록</option>
+        <option>전체</option>
+      </select>
+    </li>
+    <li>
+      <select name="" id="" title="팀 선택">
+        <option disabled="" selected="">팀 선택</option>
+      </select>
+    </li>
+    <li>
+      <select name="" id="" title="연도 선택">
+        <option value="연도 선택">연도 선택</option>
+        <option value="2023년" selected="">2023년</option>
+        <option value="2022년">2022년</option>
+      </select>
+    </li>   
+    <li>
+      <button type="button" class="btn_search">검색</button>
+    </li>
+  </ul>
+    
+  </section>
+  <div class="task_body">
+    <section class="left_section">
+      <article>
+        <h1 class="blind">업무목록</h1>
+        <section class="">
+          <div>
+            <ul class="search_list">
+              <li>
+                <input type="checkbox">
+              </li>
+              <li>
+                <select name="" id=""><option value="">편집</option></select>
+              </li>
+              <li>
+                <select name="" id=""><option value="">업데이트</option></select>
+              </li>
+            </ul>
+          </div>
+          <ul class="task_lst">
+            <li class="on">
               <div class="tit">
-                <em>제목</em>
-                업무상태
+                <input type="checkbox">
+                <p class="task_name">ktko 자료 생성 웹페이지 구현<em>1</em>
+                </p>
+                <i class="task_ing">진행</i>
               </div>
-              <div>
-              업무번호 / 담당자
-              <div>단계</div>
+              <div class="etc">
+                <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
+                </div>
+                <ul class="pic">
+                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+                </ul>
               </div>
-              <div>
-                tag
+            </li>
+            <li>
+              <div class="tit">
+                <input type="checkbox">
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현<em>1</em>
+                </p>
+                <i class="task_plan">계획</i>
               </div>
-            </div>
-          </li>
-        </ul>
+              <div class="etc">
+                <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
+                </div>
+                <ul class="pic">
+                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="tit">
+                <input type="checkbox">
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 <em>1</em>
+                </p>
+                <i class="task_done">완료</i>
+              </div>
+              <div class="etc">
+                <div class="tags"><i>개발</i></div>
+                <ul class="pic">
+                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="tit">
+                <input type="checkbox">
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 <em>1</em>
+                </p>
+                <i class="task_cancel">취소</i>
+              </div>
+              <div class="etc">
+                <div class="tags"><i>개발</i></div>
+                <ul class="pic">
+                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="tit">
+                <input type="checkbox">
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 <em>1</em>
+                </p>
+                <i class="task_hold">보류</i>
+              </div>
+              <div class="etc">
+                <div class="tags"><i>개발</i></div>
+                <ul class="pic">
+                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </section>
       </article>
     </section>
-  </article>
-</section>
-<section class="right_section">
-  <ariticle class="proj_box">
-    <header>
-      <h2>프로젝트 개요</h2>
-      <ul class="chart_legend">
-        <li class="chart_fin">완료됨<span>47&percnt; (13/20)</span></li>
-        <li class="chart_delay">마감일 지남<span>2&percnt; (13/20)</span></li>
-        <li class="chart_todo">진행 중<span>6&percnt; (13/20)</span></li>
-        <li class="chart_termless">할일<span>47&percnt; (13/20)</span></li>
-      </ul>
-    </header>    
-    <ul class="stacked_bar">
-      <li class="chart_fin" style="width:40%;">완료</li>
-      <li class="chart_delay" style="width:2%;">지연</li>
-      <li class="chart_todo" style="width:6%;">진행</li>
-      <li class="chart_termless">할일</li>
-    </ul>
-  </ariticle>
-  <article>
-    번업차트
-    <div id="chart"></div>
-  </article>
-  <article>
-    멤버별 업무현황
-  </article>  
-</section>
+    <section class="right_section">
+      <article class="proj_box">
+        <header>
+          <h1>개발일정</h1>
+          <span>2023-04-02 ~ 2023-04-08</span>      
+        </header>    
+        <ul class="stacked_bar">
+          <li class="chart_fin" style="width:40%;">완료</li>
+          <li class="chart_delay" style="width:2%;">지연</li>
+          <li class="chart_todo" style="width:6%;">진행</li>
+          <li class="chart_termless">할일</li>
+        </ul>
+        <ul class="chart_label">
+          <li class="chart_fin">완료됨<span>47&percnt; (13/20)</span></li>
+          <li class="chart_delay">마감일 지남<span>2&percnt; (13/20)</span></li>
+          <li class="chart_todo">진행 중<span>6&percnt; (13/20)</span></li>
+          <li class="chart_termless">할일<span>47&percnt; (13/20)</span></li>
+        </ul>
+      </article>
+      <article>
+        <header><h1>번업차트</h1></header>
+        <div id="chart"></div>
+      </article>
+      <article>
+        <header>
+          <h1>참여자별 업무 현황</h1>
+        </header>
+        <div class="tbl_wrap">
+          <table class="tbl_workboard">
+            <caption>참여자별 업무 현황</caption>
+            <thead>
+              <tr>
+                <th scope="col">멤버</th>
+                <th scope="col">진행률</th>
+                <th scope="col">진행</th>
+                <th scope="col">계획</th>
+                <th scope="col">완료</th>
+                <th scope="col">취소</th>
+                <th scope="col">보류</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>@@include('../../inc/module/module_user.html')</td>
+                <td><div class="progress_wrap">
+                  <progress id="" value="100" min="0" max="100"></progress><label for="">100%</label>
+                </div></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>@@include('../../inc/module/module_user.html')</td>
+                <td><div class="progress_wrap">
+                  <progress id="" value="2" min="0" max="100"></progress><label for="">2%</label>
+                </div></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>@@include('../../inc/module/module_user.html')</td>
+                <td><div class="progress_wrap">
+                  <progress id="" value="50" min="0" max="100"></progress><label for="">50%</label>
+                </div></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>  
+    </section>
+  </div>
