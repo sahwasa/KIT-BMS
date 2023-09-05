@@ -940,7 +940,7 @@ $_planTypes:(
 //project
 %proj_tag{width:35px;line-height:13px;@include badge_style(35px);font-size:10px;letter-spacing:-.25px;font-weight:700;}
 %type{background-color:#f8c9ce;color:#404654;}
-.proj_lst{max-height:calc(100vh - 238px);overflow-y:auto; text-align:left;
+.proj_lst{max-height:563px;overflow-y:auto; text-align:left;
   & > li{padding:10px calc($columnGap - 10px);border-bottom:1px solid #ebebeb;line-height:16px;
     &:hover{background-color:#f9fafc;}
     &.on{background-color:#fef4f5;}
@@ -960,47 +960,104 @@ $_planTypes:(
 .proj_name{font-weight:700;word-break:keep-all;letter-spacing:-.33px;line-height:15px;}
 .proj_desc{margin-top:10px;color:#71798a;font-size:12px;letter-spacing:-.11px}
 
-.proj_home{@include flex_layout;height:calc(100% - 43px);}
-.my_task{flex-grow:1;display:flex;flex-direction:column;}
-.my_task_lst{flex-grow:1;
-  ul{display:flex;gap:12px;flex-wrap:wrap;}
-  li{flex:0 1 200px;@include proj_box(true);
-    a{min-height:150px;}
-    i{@extend %proj_tag;font-size:12px;max-width:none;width:42px;line-height:18px;}
-    .progress{margin-top:auto;@extend %proj_txt;
-      progress{width:100%;}
-      em{color:$red;}
-      .flex_wrap{display:flex;
-        .check_progress{margin-left:auto;}
-      }
+.proj_home{height:calc(100% - 93px);
+  header{display:flex;align-items:center;gap:5px;
+    h1{@include tit;font-size:22px;}
+    .count{@include tit;gap:0;letter-spacing:-.5px;
+      em{color:#888;}
     }
   }
 }
-
+.task_lst{$fc:#404654;
+  $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$task_cancel,'hold':$task_hold);
+  display:flex;gap:12px;flex-wrap:wrap;gap:8px;color:$fc;  
+  dt{flex:1 100%;display:flex;gap:5px;align-items:center;font-size:14px;color:#000;font-weight:bold;margin-top:15px;
+    &:first-of-type{margin-top:0;}
+    i{@extend %proj_tag;font-size:12px;max-width:none;width:42px;line-height:18px;}  
+  }
+  dd{flex:1 auto;max-width:calc((100% - 24px) / 4);}
+  @include desktop{dd{max-width:calc((100% - 16px) / 3);}}
+  dd,
+  & > li{@include proj_box(true);display:flex;flex-direction:column;gap:5px;height:125px;padding:10px 15px;cursor:pointer;
+    .tags{display:flex;gap:3px;flex-wrap:wrap;
+      i{@include badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}}
+    }
+    .task_name{@include text_ellipsis(2);line-height:1.3;}    
+    em{@include badge_style(){min-width:26px;line-height:15px;text-align:center;background-color:#d3d3d3;border-radius:8px;color:$fc;padding:0 5px;};}
+  }
+  .tit{display:flex;gap:10px;
+    input,i{flex-shrink:0;}
+    %task_type{display:inline-block;width:28px;height:17px;font-size:11px;line-height:15px;text-align:center;border-radius:3px;margin-left:auto;}
+    .task_{
+      @each $type, $val in $taskColorMap{
+        &#{$type}{background-color:lighten($color: $val, $amount: 25);
+        color:darken($color: $val, $amount:15);
+        border:1px solid darken($color: $val, $amount:15);@extend %task_type;
+        @if(lightness($val) < 60){background-color:lighten($color:$val, $amount:36);}}
+      }     
+    }
+  }  
+  .etc{@include flex_between;margin-top:auto;}
+}
+.pic{display:flex;gap:2px;
+  li{width:22px;height:22px;border:1px solid #000;border-radius:50%;}
+}
+.my_task{@include flex_layout;align-items:stretch;height:100%;}
+.week_task{flex-grow:1;overflow-y:scroll;max-height:100%;}
+.lazy_task{flex:1 0 283px;
+  h1{font-size:14px;}
+  .task_lst{flex-direction:column;margin-top:8px;}
+}
 .project_new{
   .new_contents{@include flex_layout;
     .ipt_wrap{flex:1;}
   }  
 }
 .proj_view{
-  .tab_contents{@include flex_layout;
-    &>section{flex:1;}
-    // .left_section{flex:1;}
+  .tab_contents{
     .right_section{display:flex;flex-direction:column;gap:10px;}
   }
   .contributor{@include user_lst;margin-top:15px;}
-  .overview{
+  article{
+    header{display:flex;gap:10px;
+      span{font-weight:bold;color:#888;letter-spacing:-.33px;}
+    }
+    @include tit_bullet(h1){font-size:14px;color:#000;font-weight:bold;&::before{background-color:#000;top:-2px;}};
+  }
+  .overview{@include flex_layout;
     .left_section{display:flex;flex-direction:column;gap:25px;
       h1{@include tit;}
     }
     .right_section{flex:0 350px;}
-    .set_list{margin-bottom:15px;}
+    .set_list{margin-bottom:15px;}    
   }
-  .task{
-    .left_section{flex:0 350px;}
+  .task_body{@include flex_layout{margin-top:$columnGap;};
+    $taskColor:($task_ing,$task_plan,$task_done,$task_cancel,$task_hold);
+    .left_section{flex:0 0 350px;
+      .task_lst{
+        &>li{border-bottom:1px solid #ebebeb;box-shadow:none;border-radius:0;
+          &:hover{background-color:#f9fafc;}
+        }
+      }
+    }
+    .right_section{flex:1;}
+    .tbl_workboard{width:100%;
+      th,td{padding:10px;}
+      th{border-bottom:1px solid #c0c0c0;font-weight:bold;text-align:center;}
+      td{border-bottom:1px solid #ebebeb;height:45px;}
+      @each $color in $taskColor{
+        $i : index($taskColor, $color) + 2;
+        th:nth-child(#{$i}),
+        td:nth-child(#{$i}){width:8%;color:$color;font-weight:bold;text-align:center;white-space:nowrap;}
+      }      
+      .user_photo{width:24px;height:24px;}
+    }
   }
 }
-.proj_box{@include proj_box(false);padding:15px 16px 12px;}  
+.progress_wrap{display:flex;align-items:center;gap:10px;
+  progress{flex-grow:1;}
+  label{flex-shrink:0;width:50px;color:$red;font-weight:bold;font-size:11px;}
+}
 $_proj_stacked:(
   'chart_fin':#56b1b6, 'chart_delay':#ff7575, 'chart_todo':#ffc938, 'chart_termless':#a9b4be
 );
@@ -1012,7 +1069,7 @@ $_proj_stacked:(
     }
   }
 }
-.chart_legend{display:flex;gap:18px;
+.chart_label{display:flex;gap:18px;justify-content:flex-end;margin-top:14px;
   li{font-weight:bold;font-size:11px;letter-spacing:-.55px;
     span{margin-left:3px;color:#b2bacd;}
     &::before{@include shape(11px,11px);position:relative;top:2px;margin-right:3px;border-radius:2px;}
