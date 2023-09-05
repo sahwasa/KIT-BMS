@@ -14,11 +14,13 @@
         <ul class="lst_ctrl">
           <li><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label>
           </li>
-          <li><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label>
+          <!-- <li><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label> -->
           <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>행사 일정</label>
+          <!-- 개인 행사는 수정삭제 가능 -->
           <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>회의 일정</label>
-          <li><label for=""><input type="checkbox" id="" checked>휴가 일정</label>
-          </li>
+          <!-- 회의는 작성자만 수정 -->
+          <li><label for=""><input type="checkbox" id="" checked>근태 일정</label></li>
+          <!-- 근태는 수정삭제 불가 -->
         </ul>
       </li>
       <li>
