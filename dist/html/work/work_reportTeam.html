@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>업무</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="#" class="btn_default">내 업무 추가</a>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="work_myTodo.html">내 업무함</a>
+        <ul>
+          <li><a href="work_myTodo.html">나의 할 일</a></li>
+          <li><a href="work_myFin.html">완료된 업무</a></li>
+          <li><a href="work_myIng.html">미진 업무</a></li>
+        </ul>
+      </li>
+      <li><a href="work_shareRecept.html">업무 공유함</a>
+        <ul>
+          <li><a href="work_shareRecept.html">업무 수신</a></li>
+          <li><a href="work_shareRequest.html">업무 요청</a></li>
+          <li><a href="work_shareReference.html">참조함</a></li>
+        </ul>
+      </li>
+      <li><a href="work_result.html">실적관리</a></li>
+      <li><a href="#">업무 보고함</a>
+        <ul>
+          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_report.html">주간업무보고(개인별)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>주간업무보고(팀별)<span>업무 보고함</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">내 업무함</a></li>
+            <li>주간업무보고(팀별)</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">
+          <header class="blind"><h1>주간업무보고(팀별)</h1></header>
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <select title="부서 선택">
+                  <option disabled selected>부서 선택</option>
+                </select>
+              </li>
+              <li>
+                <select title="팀 선택">
+                  <option disabled selected>팀 선택</option>
+                </select>
+              </li>
+              <li>
+                <select title="연도 선택">
+                  <option value="연도 선택">연도 선택</option>
+                  <option value="2023년" selected>2023년</option>
+                  <option value="2022년">2022년</option>
+                </select>
+              </li>
+              <li>
+                <select title="주차 선택">
+                  <option value="주차 선택">주차 선택</option>
+                  <option value="14주 (2023-04-02~2023-04-08)​" selected>14주 (2023-04-02~2023-04-08)​</option>
+                </select>
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div class="handle_week">
+              <button class="handle_prev">이전 주차 이동</button>
+              <span>2023.02.26 ~ 2023.03.04</span>
+              <button class="handle_next" disabled>다음 주차 이동</button>
+            </div>
+            <div class="tab_wrap">
+              <h2>2023년 14주</h2>
+              <button type="button" class="btn_default" onclick="location.href='../work/work_reportTeamApproval.html'">주간보고 작성</button>
+            </div>
+            <table class="tbl_default tbl_hover hasLayer alignL_1">
+              <caption>주간업무보고(팀별) 리스트</caption>
+              <colgroup>
+                <col style="width:auto;">
+                <col style="width:250px;">
+                <col span="3" style="width:150px;">
+                <col style="width:120px;">
+                <col style="width:95px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">제목</th>
+                  <th scope="col">기간</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">보고일자</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">공개여부</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0" onclick="location.href='../work/work_reportTeamWrite.html'">
+                  <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                  <td>14주 (2023-05-01 ~ 2023-05-01)</td>
+                  <td>홍길동(지진사업1팀)</td>
+                  <td>2023-05-01</td>
+                  <td><i class="tbl_badge ing">결재중</i></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr tabindex="0">
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><i class="tbl_badge default">미제출</i><a href="#" class="cmt_num" onclick="location.href='../work/work_reportApproval.html'">결재요청</a></td>
+                  <td></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><i class="tbl_badge fin">완료</i> (2023. 04. 18)</td>
+                  <td></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">결재문서</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+</body>
+
+</html>

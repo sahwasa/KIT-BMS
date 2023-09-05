@@ -86,7 +86,7 @@
           <li><a href="work_myIng.html">미진 업무</a></li>
         </ul>
       </li>
-      <li><a href="work_shareRecept.html">업무공유함</a>
+      <li><a href="work_shareRecept.html">업무 공유함</a>
         <ul>
           <li><a href="work_shareRecept.html">업무 수신</a></li>
           <li><a href="work_shareRequest.html">업무 요청</a></li>
@@ -96,10 +96,10 @@
       <li><a href="work_result.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
-          <li><a href="work_.html">일일 업무일지</a></li>
-          <li><a href="work_.html">주간업무보고(개인)</a></li>
-          <li><a href="work_.html">주간업무보고(팀)</a></li>
-          <li><a href="work_.html">주간업무보고(부서)</a></li>
+          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_report.html">주간업무보고(개인별)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
         </ul>
       </li>
     </ul>
@@ -127,19 +127,19 @@
           <section class="tbl_top_area">
             <ul class="search_list">
               <li>
-                <select name="" id="" title="부서 선택">
+                <select title="부서 선택">
                   <option disabled selected>부서 선택</option>
                 </select>
               </li>
               <li>
-                <select name="" id="" title="팀 선택">
+                <select title="팀 선택">
                   <option disabled selected>팀 선택</option>
                 </select>
               </li>
               <li>
                 <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01" max="9999-12-31">
-                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01" max="9999-12-31">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
                 </div>
               </li>
               <li>
@@ -147,7 +147,7 @@
               </li>
             </ul>
             <div class="flex_right">
-              <select name="" id="" title="목록개수 선택">
+              <select title="목록개수 선택">
   <option value="15">15줄 보기</option>
   <option value="50" selected>50줄 보기</option>
   <option value="100">100줄 보기</option>
@@ -181,7 +181,7 @@
                     <tr>
                       <th scope="col">구분</th>
                       <th scope="col">업무명</th>
-                      <th scope="col">작업범주</th>
+                      <th scope="col">업무범주</th>
                       <th scope="col">업무내용</th>
                       <th scope="col">시작일자</th>
                       <th scope="col">종료일자</th>
@@ -206,7 +206,7 @@
                       <td>프로젝트</td>
                       <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                       <td>개발​</td>
-                      <td>◯ 지진/가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
+                      <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>홍길동(개발1팀)</td>
@@ -216,7 +216,7 @@
                     <tr tabindex="0">
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검</td>
-                      <td><i class="tbl_badge ing">수정해야댐</i></td>
+                      <td>회의</td>
                       <td>- 회의 내용 기재</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>2023-05-01 01:30:11</td>
@@ -227,9 +227,7 @@
                     <tr tabindex="0">
                       <td>개인업무</td>
                       <td>000 디자인 작업</td>
-                      <td>
-                        <i class="tbl_badge ing">진행</i>
-                      </td>
+                      <td>개발</td>
                       <td>- 회의 내용 기재</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>2023-05-01 01:30:11</td>
@@ -256,7 +254,7 @@
                     <tr>
                       <th scope="col">구분</th>
                       <th scope="col">업무명</th>
-                      <th scope="col">작업범주</th>
+                      <th scope="col">업무범주</th>
                       <th scope="col">업무내용</th>
                       <th scope="col">시작일자</th>
                       <th scope="col">종료일자</th>
@@ -298,7 +296,7 @@
                     <tr>
                       <th scope="col">구분</th>
                       <th scope="col">업무명</th>
-                      <th scope="col">작업범주</th>
+                      <th scope="col">업무범주</th>
                       <th scope="col">업무내용</th>
                       <th scope="col">시작일자</th>
                       <th scope="col">종료일자</th>
@@ -311,7 +309,7 @@
                     <tr tabindex="0">
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검</td>
-                      <td><i class="tbl_badge ing">수정해야댐</i></td>
+                      <td>회의</td>
                       <td>- 회의 내용 기재</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>2023-05-01 01:30:11</td>
@@ -338,7 +336,7 @@
                     <tr>
                       <th scope="col">구분</th>
                       <th scope="col">업무명</th>
-                      <th scope="col">작업범주</th>
+                      <th scope="col">업무범주</th>
                       <th scope="col">업무내용</th>
                       <th scope="col">시작일자</th>
                       <th scope="col">종료일자</th>
@@ -352,7 +350,7 @@
                       <td>프로젝트</td>
                       <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                       <td>개발​</td>
-                      <td>◯ 지진/가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
+                      <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>2023-05-01 01:30:11</td>
                       <td>홍길동(개발1팀)</td>
@@ -384,6 +382,7 @@
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
 <script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
 //퍼블용

@@ -34,7 +34,7 @@
               <dl class="set_list">
                 <dt>프로젝트</dt>
                 <dd>[기상청] 2023년 지진조기경보 서비스 체계 개선</dd>
-                <dt>작업범주</dt>
+                <dt>업무범주</dt>
                 <dd>
                   <ul id="tagList" class="btn_slideclose">
                     <li>
@@ -61,11 +61,8 @@
           <article class="approval_set work_set">
             <section class="box_default_w">
               <h1>요청자</h1>
-              <ul class="referrer_act">
-                <li>
-                  @@include('../../inc/module/module_user.html')
-                  <p class="appr_result">2023-02-10 10:00</p>
-                </li>
+              <ul class="appr_path">
+                <li>@@include('../../inc/module/module_user.html')</li>
               </ul>
             </section>
             <section class="box_default_w">
@@ -102,30 +99,16 @@
                 <dt>중요도</dt>
                 <dd>
                   <div class="btn_switch">
-                    <input type="radio" id="high" name="importance" readonly>
+                    <input type="radio" id="high" name="importance">
                     <label for="high" class="high_prio">높음</label>
-                    <input type="radio" id="common" name="importance" checked readonly>
+                    <input type="radio" id="common" name="importance" onclick="return false;" checked>
                     <label for="common" class="normal_prio">보통</label>
-                    <input type="radio" id="row" name="importance" readonly>
+                    <input type="radio" id="row" name="importance">
                     <label for="row" class="low_prio">낮음</label>
                   </div>
                 </dd>
-                <dt>공개여부</dt>
-                <dd>
-                  <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure" checked>
-                    <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure">
-                    <label for="private">비공개</label>
-                  </div>
-                </dd>
-                <dt class="rel_doc">관련문서</dt>
-                <dd>
-                  <div class="file_input">
-                    <a href="#">23-04-17 휴일근무신청서</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
-                  </div>
-                </dd>
+                <dt class="rel_doc">코멘트</dt>
+                <dd><textarea title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>
@@ -142,20 +125,20 @@
     setEditor();// editor common
     fileDropEvt();
   })
-var tribute = new Tribute({
-  trigger: "@",
-  values: [
-    { key: "1", value: "김개발" },
-    { key: "2", value: "김연구 연구기획 1팀" }
-  ],
-  selectTemplate: function(item) {
-    return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
-  },
-  menuItemTemplate: function(item) {
-    return `${item.original.value}`;
-  }
-});
-tribute.attach(document.querySelectorAll(".editable"));
+  var tribute = new Tribute({
+    trigger: "@",
+    values: [
+      { key: "1", value: "김개발" },
+      { key: "2", value: "김연구 연구기획 1팀" }
+    ],
+    selectTemplate: function (item) {
+      return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
+    },
+    menuItemTemplate: function (item) {
+      return `${item.original.value}`;
+    }
+  });
+  tribute.attach(document.querySelectorAll(".editable"));
 </script>
 </body>
 

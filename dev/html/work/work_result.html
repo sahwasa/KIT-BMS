@@ -12,8 +12,8 @@
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">업무</a></li>
-            <li><a href="#">업무 공유함</a></li>
-            <li>업무 실적 관리</li>
+            <li><a href="#">업무공유함</a></li>
+            <li>실적관리</li>
           </ul>
         </section>
       </header>
@@ -25,7 +25,7 @@
           <section class="tbl_top_area">
             <ul class="search_list">
               <li>
-                <select name="" id="" title="부서 선택">
+                <select title="부서 선택">
                   <option disabled selected>부서 선택</option>
                 </select>
               </li>
@@ -41,8 +41,8 @@
                   <input type="radio" name="select_period" id="year"><label for="year">1년</label>
                 </div>
                 <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0000-01-01" max="9999-12-31">
-                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01" max="9999-12-31">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
                 </div>
               </li>
               <li>
@@ -58,14 +58,14 @@
             </div>
             <div class="tab_wrap">
               <h2>2023년 14주 상세보기</h2>
-              <button type="button" class="btn_default">실적등록</button>
+              <button type="button" class="btn_default" onclick="location.href='work_resultView.html'">실적등록</button>
             </div>
             <div class="tab_container">
               <ul class="tbl_list">
-                <li>
+                <li onclick="location.href='../work/work_resultView.html'">
                   <h2 class="ing">2023년 OOO프로젝트</h2>
                   <div>
-                    <h3>작업명
+                    <h3>업무명
                       <ul id="tagList" class="btn_slideclose btn_slideclose_s disabled">
                         <li>
                           <div class="tagItem" style="background-color: rgb(227, 220, 219);">
