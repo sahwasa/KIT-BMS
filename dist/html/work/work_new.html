@@ -179,11 +179,11 @@
                 <dt><label for="work_range" class="required">업무범주</label></dt>
                 <dd>
                   <span class="file_input">
-                    <select id="nameSelectB">
+                    <select id="nameSelect">
                       <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
                     </select>
                   </span>
-                  <ul id="tagListB"></ul>
+                  <div id="tagsList"></div>
                 </dd>
                 <dt>회의요청</dt>
                 <dd>
@@ -498,7 +498,7 @@ commonInit();
   $(function () {
     // 업무 관리 업무범주 랜덤 색상 태그
     const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
-    initializeTagManager('tagListB', 'nameSelectB', initialNamesB);
+    initializeTagManager('tagsList', 'nameSelect', initialNamesB);
 
     setEditor();// editor common
     fileDropEvt();
