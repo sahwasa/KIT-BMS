@@ -15,27 +15,6 @@
         </colgroup>
         <tbody>
           <tr>
-            <th scope="row" class="required"><label for="work_type">업무구분</label></th>
-            <td>
-              <select name="work_type" id="work_type">
-                <option value="업무구분 선택">업무구분 선택</option>
-                <option value="프로젝트">프로젝트</option>
-                <option value="개인업무">개인업무</option>
-                <option value="부서업무">부서업무</option>
-                <option value="기타">기타</option>
-              </select>
-            </td>
-            <th scope="row" class="required">
-              <label for="work_start">작업기간</label>
-            </th>
-            <td>
-              <div class="period_custom">
-                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
-                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
-              </div>
-            </td>
-          </tr>
-          <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
             <td colspan="3"><input type="text" id="work_name"></td>
           </tr>
@@ -48,6 +27,17 @@
                 </select>
               </span>
               <ul id="tagListB"></ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">작업기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
             </td>
           </tr>
           <tr>
@@ -71,11 +61,7 @@
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3">
-              <div class="editor_wrap" id="editor_wrap">
-                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
-              </div>
-            </td>
+            <td colspan="3">에디터</td>
           </tr>
           <tr>
             <th scope="row">

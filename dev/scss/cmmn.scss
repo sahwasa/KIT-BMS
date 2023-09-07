@@ -730,10 +730,10 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .editor_wrap{
   .ck-editor{
     .ck-source-editing-area,
-    .ck-editor__editable_inline {min-height:100px;height:auto;}
+    .ck-editor__editable_inline {min-height:100px;height:auto;cursor:text;}
     .ck-source-editing-area textarea{overflow:auto;}
     .ck-content .todo-list{
-      li{margin-bottom:0 !important;margin-left:25px;}
+      li{margin-bottom:0 !important;margin-left:5px;}
       .todo-list__label>input::before{background:transparent;border-color:#606060;}
       .todo-list__label>input[checked]::before{background:transparent;border-color:transparent;}
       .todo-list__label>input[checked]::after{border-color:transparent;}
@@ -749,6 +749,12 @@ td{white-space:nowrap;text-overflow:ellipsis;
       table th {white-space:inherit;}
     }
   }
+  // &.heightFix{
+  //   .ck-editor{
+  //     .ck-source-editing-area,
+  //     .ck-editor__editable_inline {height:100px;overflow:auto;}
+  //   }
+  // }
 }
 #image_editor_wrap{display:none;position:fixed;z-index:1000;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
 #image_editor.tui-image-editor-container{width:900px !important;height:700px !important;} /* important 사용하지 않고 적용하는 법 찾아보는중..!! */

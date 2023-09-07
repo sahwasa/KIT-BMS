@@ -40,8 +40,8 @@
                     <option value="기타">기타</option>
                   </select>
                 </dd>
-                <dt><label for="work_project">프로젝트</label></dt>
-                <dd>
+                <dt class="work_type_proj"><label for="work_project">프로젝트</label></dt>
+                <dd class="work_type_proj">
                   <span class="file_input">
                     <select id="work_project" name="work_project">
                       <option value="사업자 분류">사업자 분류</option>
@@ -101,7 +101,8 @@
                   </span>
                 </dd>
                 <dt><label for="work_title" class="required">제목</label></dt>
-                <dd><span class="file_input"><input type="text" id="work_title" title="업무 제목 입력 박스" value="PEWS 관련 회의 요청드립니다"></span></dd>
+                <dd><span class="file_input"><input type="text" id="work_title" title="업무 제목 입력 박스"
+                      value="PEWS 관련 회의 요청드립니다"></span></dd>
               </dl>
               <div class="editor_wrap">
                 <textarea name="editor" id="editor" title="에디터 영역"></textarea>
@@ -290,9 +291,6 @@
     const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
     initializeTagManager('tagListB', 'nameSelectB', initialNamesB);
 
-
-
-
     setEditor();// editor common
     fileDropEvt();
   })
@@ -311,12 +309,29 @@
   });
   tribute.attach(document.querySelectorAll(".editable"));
 </script>
+
 <script>
+  // 회의 요청 버튼 토글
   const checkbox = document.querySelector('.meeting_request');
   const periodCustom = document.querySelector('.period_custom');
 
-  checkbox.addEventListener('change', function() {
+  checkbox.addEventListener('change', function () {
     periodCustom.style.display = this.checked ? 'flex' : 'none';
+  });
+</script>
+
+<script>
+  // 업무구분 > 프로젝트 선택 시 프로젝트 항목이 짜라란
+  $(document).ready(function () {
+    $('.work_type_proj').hide();
+    $('#work_type').change(function () {
+      var result = $('#work_type option:selected').val();
+      if (result == '프로젝트') {
+        $('.work_type_proj').show();
+      } else {
+        $('.work_type_proj').hide();
+      }
+    });
   });
 </script>
 
