@@ -96,7 +96,7 @@ $task_hold:#2cc78b;
 .public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
 .tags{
-  i{@include badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}margin-left:3px;}
+  i{@include badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}margin-right:3px;}
   &:is(span){display:inline-block;line-height:16px;margin-right:5px;margin-top:5px;border-radius:3px;background-color:#aab3c8;
     i{margin-left:0;
       &+button.btn_deltag{font-size:0;
