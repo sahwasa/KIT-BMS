@@ -124,26 +124,6 @@
           <header class="blind">
             <h1>나의 할일 목록</h1>
           </header>
-          <section class="tbl_top_area">
-            <ul class="search_list">
-              <li>
-                <select title="연도 선택">
-                  <option value="연도 선택">연도 선택</option>
-                  <option value="2023년" selected>2023년</option>
-                  <option value="2022년">2022년</option>
-                </select>
-              </li>
-              <li>
-                <select title="주차 선택">
-                  <option value="주차 선택">주차 선택</option>
-                  <option value="14주 (2023-04-02~2023-04-08)​" selected>14주 (2023-04-02~2023-04-08)​</option>
-                </select>
-              </li>
-              <li>
-                <button type="button" class="btn_search">검색</button>
-              </li>
-            </ul>
-          </section>
           <section>
             <div class="handle_week">
               <button class="handle_prev">이전 주차 이동</button>
@@ -165,10 +145,10 @@
                   <caption>나의 할일 리스트</caption>
                   <colgroup>
                     <col style="width:120px;">
-                    <col style="width:240px;">
+                    <col style="width:360px;">
                     <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col span="2" style="width:150px;">
+                    <col style="width:360px;">
+                    <col span="2" style="width:100px;">
                     <col span="2" style="width:120px;">
                     <col style="width:95px;">
                   </colgroup>
@@ -189,10 +169,10 @@
                     <tr tabindex="0" onclick="location.href='../work/work_view.html'">
                       <td>개인업무</td>
                       <td>주간업무보고 작성</td>
-                      <td>보고</td>
+                      <td><div class="tags"><i>보고</i></div></td>
                       <td> - 지진발생 팝업 미표출 오류 수정</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍길동(개발1팀)</td>
                       <td>홍길동(개발1팀)</td>
                       <td>22%</td>
@@ -200,10 +180,10 @@
                     <tr tabindex="0">
                       <td>프로젝트</td>
                       <td>2023년 지진,화산재해 대응시스템 유지보수</td>
-                      <td>개발​</td>
+                      <td><div class="tags"><i>개발</i></div></td>
                       <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍길동(개발1팀)</td>
                       <td>고길동(개발2팀)</td>
                       <td>2%</td>
@@ -211,10 +191,10 @@
                     <tr tabindex="0">
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검</td>
-                      <td>회의</td>
+                      <td><div class="tags"><i>회의</i></div></td>
                       <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍길동(개발1팀)</td>
                       <td></td>
                       <td>75%</td>
@@ -222,10 +202,10 @@
                     <tr tabindex="0">
                       <td>개인업무</td>
                       <td>000 디자인 작업</td>
-                      <td>개발</td>
+                      <td><div class="tags"><i>디자인</i></div></td>
                       <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍길동(개발1팀)</td>
                       <td></td>
                       <td>5%</td>
@@ -266,8 +246,8 @@
                         <i class="tbl_badge ing">진행</i>
                       </td>
                       <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍길동(개발1팀)</td>
                       <td></td>
                       <td>5%</td>
@@ -306,8 +286,8 @@
                       <td>2023년 과제 진도점검</td>
                       <td>회의</td>
                       <td>- 회의 내용 기재</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍길동(개발1팀)</td>
                       <td></td>
                       <td>75%</td>
@@ -346,8 +326,8 @@
                       <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                       <td>개발​</td>
                       <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍길동(개발1팀)</td>
                       <td>고길동(개발2팀)</td>
                       <td>2%</td>

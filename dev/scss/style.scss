@@ -1223,6 +1223,7 @@ $_proj_stacked:(
   span{font-size:20px;font-weight:bold;}
 }
 .tbl_list{border-top:2px solid #c0c0c0;
+  .tags{display:inline-block;}
   &>li{ @include flex_between;align-items:flex-start;gap:20px;padding:17px 15px;border-bottom:1px solid #ebebeb;cursor:pointer;
     &:hover{background:#f9fafc;}
     h2{$_workType:('ing':#2d66d8,'done':#f07816);

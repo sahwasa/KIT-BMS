@@ -25,21 +25,7 @@
         </article>
         <section class="tbl_top_area">
           <ul class="search_list">
-            <li>
-              <p class="required">업무수행일자</p>
-            </li>
-            <li>
-              <select title="연도 선택">
-                <option disabled="">연도 선택</option>
-                <option selected>2023년</option>
-              </select>
-            </li>
-            <li>
-              <select title="주차 선택">
-                <option disabled="">주차 선택</option>
-                <option selected>14주</option>
-              </select>
-            </li>
+            <li><p class="required">2023년 14주</p></li>
             <li><button type="button" class="btn_ogt">업무 불러오기</button></li>
           </ul>
           <div class="flex_right">
@@ -62,6 +48,7 @@
                   <col style="width:330px">
                   <col style="width:70px">
                   <col style="width:120px">
+                  <col style="width:70px">
                 </colgroup>
                 <thead>
                   <tr>
@@ -72,6 +59,7 @@
                     <th scope="col">차주 주요계획(2023-04-02 ~ 2023-04-08)</th>
                     <th scope="col">공정율(%)</th>
                     <th scope="col">이슈사항</th>
+                    <th scope="col">팀명</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -79,7 +67,7 @@
                     <td><input type="checkbox" title="구분 선택"></td>
                     <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                     <td>개발</td>
-                    <td>
+                    <td contenteditable>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정​<br>
                       &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정​<br>
                       &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정​<br>
@@ -88,7 +76,7 @@
                       &nbsp;&nbsp;+ 가속도 통합모니터링 데이터 미표출 오류 수정​<br>
                       &nbsp;&nbsp;+ 지진시스템 CBS 송출반경 오류사항 원인 파악​
                     </td>
-                    <td>
+                    <td contenteditable>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
                       &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
                       &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
@@ -97,17 +85,18 @@
                     </td>
                     <td><input type="number" title="공정율 입력 박스"></td>
                     <td contenteditable></td>
+                    <td>콘텐츠팀</td>
                   </tr>
                   <tr>
                     <td><input type="checkbox" title="구분 선택"></td>
                     <th style="display:none;">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                     <td>유지보수</td>
-                    <td>
+                    <td contenteditable>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
                       &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
                       &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
                     </td>
-                    <td>
+                    <td contenteditable>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
                       &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
                       &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
@@ -116,23 +105,79 @@
                     </td>
                     <td><input type="number" title="공정율 입력 박스"></td>
                     <td contenteditable></td>
+                    <td>개발 1팀</td>
                   </tr>
                   <tr>
                     <td><input type="checkbox" title="구분 선택"></td>
                     <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                     <td>개발</td>
-                    <td>
+                    <td contenteditable>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
                       &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
                       &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
                     </td>
-                    <td>
+                    <td contenteditable>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
                       &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
                       &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
                     </td>
                     <td><input type="number" title="공정율 입력 박스" value="100"></td>
                     <td contenteditable></td>
+                    <td>개발 2팀</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th>기타업무</th>
+                    <td>디자인</td>
+                    <td contenteditable>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td contenteditable>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스" value="100"></td>
+                    <td contenteditable></td>
+                    <td>콘텐츠팀</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th>기타업무</th>
+                    <td>개발</td>
+                    <td contenteditable>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td contenteditable>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스" value="100"></td>
+                    <td contenteditable></td>
+                    <td>개발 1팀</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" title="구분 선택"></td>
+                    <th>기타업무</th>
+                    <td>개발</td>
+                    <td contenteditable>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td contenteditable>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                    </td>
+                    <td><input type="number" title="공정율 입력 박스" value="100"></td>
+                    <td contenteditable></td>
+                    <td>개발 2팀</td>
                   </tr>
                 </tbody>
               </table>

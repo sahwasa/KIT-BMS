@@ -95,6 +95,16 @@ $task_hold:#2cc78b;
 .default{@include badge_color(#b6b6b6)}
 .public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
+.tags{
+  i{@include badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}margin-right:3px;}
+  &:is(span){display:inline-block;line-height:16px;margin-right:5px;margin-top:5px;border-radius:3px;background-color:#aab3c8;
+    i{margin-left:0;
+      &+button.btn_deltag{font-size:0;
+        &::before{@include fontello('\eb2e');margin-right:5px;font-size:10px;color:#fff;vertical-align:middle;}
+      }
+    }
+  }
+}
 
 // scroll
 *{
@@ -458,9 +468,10 @@ td{white-space:nowrap;text-overflow:ellipsis;
   &.no_thead{border-top:1px solid $th_border_color;
     thead{@include blind;}
   }
-  th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;}
+  th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
   th{color:#111;font-weight:bold;}
   td{border-color:$td_border_color;color:#333;}
+  .tags{display:inline-block;}
 }
 .tbl_use_select td:first-child{width:60px;}
 .tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}
@@ -733,10 +744,10 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .editor_wrap{
   .ck-editor{
     .ck-source-editing-area,
-    .ck-editor__editable_inline {min-height:100px;height:auto;}
+    .ck-editor__editable_inline {min-height:100px;height:auto;cursor:text;}
     .ck-source-editing-area textarea{overflow:auto;}
     .ck-content .todo-list{
-      li{margin-bottom:0 !important;margin-left:25px;}
+      li{margin-bottom:0 !important;margin-left:5px;}
       .todo-list__label>input::before{background:transparent;border-color:#606060;}
       .todo-list__label>input[checked]::before{background:transparent;border-color:transparent;}
       .todo-list__label>input[checked]::after{border-color:transparent;}
@@ -752,6 +763,12 @@ td{white-space:nowrap;text-overflow:ellipsis;
       table th {white-space:inherit;}
     }
   }
+  // &.heightFix{
+  //   .ck-editor{
+  //     .ck-source-editing-area,
+  //     .ck-editor__editable_inline {height:100px;overflow:auto;}
+  //   }
+  // }
 }
 #image_editor_wrap{display:none;position:fixed;z-index:1000;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
 #image_editor.tui-image-editor-container{width:900px !important;height:700px !important;} /* important 사용하지 않고 적용하는 법 찾아보는중..!! */
