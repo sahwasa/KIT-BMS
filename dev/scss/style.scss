@@ -708,8 +708,10 @@ z-index:10;
 @include desktop{
   .approval_view .my_approval,
   .approval_draft .my_approval{flex-flow:column wrap;
+    
     .approval_set{order:-1;width:100%;display:grid;gap:5px;margin-top:0;
     grid-template-areas:"path etc""path refer""path refer""attach act"; 
+      &:has(section:only-of-type){display:block;} // 하나뿐일 때(게시판 상세 - 첨부파일)
       & > .box_default_w{margin:0;padding:15px;
         &:nth-of-type(1){grid-area:path;min-width:450px;}
         &:nth-of-type(2){grid-area:refer;}
@@ -1205,7 +1207,9 @@ $_proj_stacked:(
 }
 .work_form{
   header{padding-left:10px;
+    &+.referrer_act{margin:-10px 10px 10px;padding:5px;padding-top:10px;}
     h1{font-size:18px;font-weight:bold;color:#000;
+      i{vertical-align:middle;}
       &::before{display:none;}
     }
     &+.set_list{margin:25px 0 20px;}

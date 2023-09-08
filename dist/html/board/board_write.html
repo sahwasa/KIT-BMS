@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>게시판</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="#" class="btn_default" onclick="location.href='board_write.html'">게시글 등록</a>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="#">공지사항</a>
+        <ul>
+          <li><a href="board_internal.html">사내공지</a></li>
+          <li><a href="#">경조사공지</a></li>
+          <li><a href="#">사진첩</a></li>
+        </ul>
+      </li>
+      <li><a href="#">부서별 게시판</a>
+        <ul>
+          <li><a href="#">SI사업본부</a></li>
+        </ul>
+      </li>
+      <li><a href="#">동호회 게시판</a>
+        <ul>
+          <li><a href="#">산악동호회</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>게시글 등록<span>게시판</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">게시판</a></li>
+            <li>게시글 등록</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_draft">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            최초 작성의 경우
+            <button type="button" class="btn_red">등록</button>
+            /
+            수정인 경우
+            <button type="button" class="btn_red">수정</button>
+            <button type="button" class="btn_gray_line">취소</button>
+          </span>
+        </article>
+        <div class="my_approval my_work">
+          <section class="work_form flex_right">
+            <article class="box_default_w">
+              <dl class="set_list work_info">
+                <dt><label for="work_type" class="required">구분</label></dt>
+                <dd>
+                  <span class="file_input">
+                    <select name="work_type" id="work_type">
+                      <option value="업무구분 선택">게시판 선택</option>
+                      <option value="사내공지" selected>사내공지</option>
+                      <option value="경조사공지">경조사공지</option>
+                      <option value="사진첩">사진첩</option>
+                    </select>
+                    <select name="work_type" id="work_type">
+                      <option value="말머리 선택">말머리 선택</option>
+                      <option value="필독" selected>필독</option>
+                      <option value="공지">공지</option>
+                    </select>
+                  </span>
+                </dd>
+                <dt><label for="work_title" class="required">제목</label></dt>
+                <dd><span class="file_input"><input type="text" id="work_title" title="업무 제목 입력 박스" value="2023년 조직개편 및 진급자 발표"></span></dd>
+              </dl>
+              <div class="editor_wrap" id="editor_wrap">
+                <textarea name="editor" id="editor" title="에디터 영역"><div class="ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline ck-blurred" lang="ko" dir="ltr" role="textbox" aria-label="편집기 편집 영역: main" contenteditable="true"><p><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">안녕하세요, 경영관리실 홍길동입니다.</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">효율적인 운영을 위한 사내 조직을 개편하여 다음과 같이 시행합니다.</span></span><br>&nbsp;</p><p><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">==== 다 음 ====</span></span><br><br><span style="background-color:#fff;color:#18b2fa"><b style="box-sizing:border-box;font-weight:bolder"><span style="-webkit-text-stroke-width:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0"><strong>[조직개편]</strong></span></b></span></p><ol><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">시 행 일 : 2023.02.01(수)</span></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">자리이동 :</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">1) BD/PM, 기후기술사업부, 연구기획본부</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">- 경영관리실 별도 전달 예정. (사무가구 등 배치 완료일 기준)</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">2) 1) 외 부서</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">- 2023.02.03(금) am11:00 ~ pm12:00 완료 조치</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">* 휴가/외근/출장 등의 사유로 이동 불가시 별도 협의</span></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">신설조직 : 기후기술사업부</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">변경조직 : 경영지원실 → 경영관리실</span></span></li></ol><p><br><span style="background-color:#fff;color:#18b2fa"><b style="box-sizing:border-box;font-weight:bolder"><span style="-webkit-text-stroke-width:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0"><strong>[진급자]</strong></span></b></span></p><ol><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">수석보 → 수석 : 홍길동</span></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">책임 → 수석보 : 뽀로로</span></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">선임 → 책임 : 신짱구, 피카츄, 꾸래핑</span></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">연구원 → 선임 : 고길동, 김둘리, 뿡뿡이, 꼬부기, 파이리</span></span><br>&nbsp;</li></ol><p><span style="color:#18b2fa"><b style="-webkit-text-stroke-width:0;background-color:#fff;box-sizing:border-box;color:#222;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:bolder;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0"><span style="box-sizing:border-box"><strong>[기타사항]</strong></span></b></span></p><ol><li><span style="background-color:#fff;color:#ff3445"><b style="box-sizing:border-box;font-weight:bolder"><span style="-webkit-text-stroke-width:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0"><strong>본 공지 내용 및 첨부파일은 사내 대외비 문서로서 대외 유출을 불허합니다.</strong></span></b></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">본부장의 판단으로 개인자리 변경 필요시 경영관리실을 통해 요청주시면,</span></span><br><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">대표이사에게 별도 보고 하겠습니다.</span></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">현자리에서 사용중인 전화는 이동시에 핸드폰으로 착신 전환을 해 주세요.</span></span></li><li><span style="background-color:#fff;color:#222"><span style="-webkit-text-stroke-width:0;display:inline!important;float:none;font-family:-apple-system,BlinkMacSystemFont,&quot;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0;text-transform:none;white-space:pre-wrap;widows:2;word-spacing:0">진급/소속 변경이 되신분들은 밴드 프로필도 함께 변경 바랍니다.</span></span></li></ol></div></textarea>
+
+              </div>
+            </article>
+          </section>
+          <article class="approval_set work_set">
+            <section class="box_default_w">
+              <h1>첨부파일</h1>
+              <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+<script>
+  $(function () {
+    setEditor();// editor common
+    fileDropEvt();
+  })
+</script>
+
+</body>
+
+</html>

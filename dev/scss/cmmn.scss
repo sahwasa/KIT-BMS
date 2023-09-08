@@ -469,7 +469,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
   .count{color:#424242;font-size:12px;margin-left:12px;}
 }
-.tbl_default{width:100%;text-align:center;border-top:2px solid $th_border_color;table-layout:fixed;
+.tbl_default{width:100%;text-align:center;border-top:2px solid $th_border_color;
   &.no_thead{border-top:1px solid $th_border_color;
     thead{@include blind;}
   }
