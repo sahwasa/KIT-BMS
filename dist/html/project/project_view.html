@@ -85,10 +85,25 @@
     <section class="tab_container">
       <article class="tab_contents" id="tab01">
         <div class="filter">
-          <div class="flex_ipt">
+          <div class="flex_ipt" id="proj_filter" data-tglwrap>
             <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span>
             <button class="btn_search_square">검색</button>
-            <button class="btn_more_square">더보기</button>
+            <button class="btn_more_square" data-toggle="proj_add">더보기</button>
+          </div>
+          <div class="proj_add" id="proj_add" data-tglwrap>
+            <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+            <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+            <div class="add_opt">
+              <label for="inc_private"><input type="checkbox" id="inc_private">비공개 포함</label>
+              <button class="btn_search_square">검색</button>
+            </div>
           </div>
         </div>
         <div class="proj_count">
@@ -122,40 +137,6 @@
                 <i class="type">TF</i>
                 <span class="i_private">비공개</span>
                 <i class="done">종료</i>
-              </div>
-              <div class="proj_name">
-                <b>KIT업무관리시스템</b>
-              </div>
-              <ul class="proj_desc">
-                <li>KITValley</li>
-                <li>2023-01-01 ~ 2023-12-31</li>
-                <li>PM:권기봉</li>
-              </ul>
-            </a>
-          </li>
-          <li>
-            <a href="project_view.html">
-              <div class="tag_wrap">
-                <i class="type">용역</i>
-                <span class="i_public">공개</span>
-                <i class="ready">준비</i>
-              </div>
-              <div class="proj_name">
-                <b>KIT업무관리시스템</b>
-              </div>
-              <ul class="proj_desc">
-                <li>KITValley</li>
-                <li>2023-01-01 ~ 2023-12-31</li>
-                <li>PM:권기봉</li>
-              </ul>
-            </a>
-          </li>
-          <li>
-            <a href="project_view.html">
-              <div class="tag_wrap">
-                <i class="type">용역</i>
-                <span class="i_public">공개</span>
-                <i class="ready">준비</i>
               </div>
               <div class="proj_name">
                 <b>KIT업무관리시스템</b>
@@ -227,136 +208,144 @@
           </ul>
         </div>
         <div class="tab_container proj_view">
-          <section id="proj01" class="tab_contents task">
-            
-  
-  <section>
-    <ul class="search_list">
+          <section id="proj01" class="tab_contents issue">
+            <section>
+  <ul class="search_list">
     <li>
-      <select class="" title="필터">
-        <option>필터</option>
-        <option>담당</option>
-        <option>참조</option>
-        <option>등록</option>
+      <select class="" title="빠른필터">
+        <option>빠른필터</option>
         <option>전체</option>
+        <option>내 담당 업무</option>
+        <option>참조된 업무</option>
+        <option>내가 등록한 업무</option>
       </select>
     </li>
     <li>
-      <select name="" id="" title="팀 선택">
-        <option disabled="" selected="">팀 선택</option>
+      <input type="text" placeholder="담당자" title="검색어">
+    </li>
+    <li>
+      <input type="text" placeholder="내용, 업무번호" title="검색어">
+    </li>
+    <li>
+      <select class="" title="상태">
+        <option>상태</option>
+        <option>진행</option>
+        <option>계획</option>
+        <option>완료</option>
+        <option>취소</option>
+        <option>보류</option>
       </select>
     </li>
     <li>
-      <select name="" id="" title="연도 선택">
-        <option value="연도 선택">연도 선택</option>
-        <option value="2023년" selected="">2023년</option>
-        <option value="2022년">2022년</option>
+      <select class="" title="태그">
+        <option>태그</option>
+        <option>개발</option>
+        <option>테스트</option>
       </select>
-    </li>   
+    </li>
     <li>
       <button type="button" class="btn_search">검색</button>
+      <button type="button" class="btn_refresh">초기화</button>
     </li>
-  </ul>
-    
-  </section>
-  <div class="task_body">
-    <section class="left_section">
-      <article>
-        <h1 class="blind">업무목록</h1>
-        <section class="">
-          <ul class="search_list">
-            <li>
-              <input type="checkbox">
-            </li>
-            <li>
-              <select name="" id=""><option value="">편집</option></select>
-            </li>
-            <li>
-              <select name="" id="" title="정렬기준">
-                <option value="">↓ 업데이트</option>
-                <option value="">↓ 등록일</option>
-                <option value="">↓ 만기일</option>
-                <option value="">↓ 상태</option>
-              </select>
-            </li>
-          </ul>
-          <ul class="task_lst">
-            <li class="on">
-              <div class="tit">
-                <input type="checkbox">
-                <em>1</em>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
-                <i class="task_ing">진행</i>
-              </div>
-              <div class="etc">
-                <div class="tags"><i>테스트</i></div>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="tit">
-                <input type="checkbox">
-                <em>1</em>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
-                <i class="task_plan">계획</i>
-              </div>
-              <div class="etc">
-                <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
-                </div>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="tit">
-                <input type="checkbox">
-                <em>1</em>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>                
-                <i class="task_done">완료</i>
-              </div>
-              <div class="etc">
-                <div class="tags"><i>개발</i></div>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="tit">
-                <input type="checkbox">
-                <em>1</em>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
-                <i class="task_cancel">취소</i>
-              </div>
-              <div class="etc">
-                <div class="tags"><i>개발</i></div>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="tit">
-                <input type="checkbox">
-                <em>1</em>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
-                <i class="task_hold">보류</i>
-              </div>
-              <div class="etc">
-                <div class="tags"><i>개발</i></div>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </section>
-      </article>
+  </ul>  
+</section>
+<div class="task_body">
+  <section class="left_section">
+    <h1 class="blind">이슈목록</h1>
+    <section class="task_lst_wrap">
+      <ul class="search_list all_lst_ctrl">
+        <li>
+          <input type="checkbox" title="전체선택">
+        </li>
+        <li>
+          <button type="button" class="btn_del">선택삭제</button>
+        </li>
+        <li>
+          <select name="" id="" title="정렬기준">
+            <option value="">↓ 업데이트</option>
+            <option value="">↓ 등록일</option>
+            <option value="">↓ 만기일</option>
+            <option value="">↓ 상태</option>
+          </select>
+        </li>
+      </ul>
+      <ul class="task_lst lst_ctrl">
+        <li class="on">
+          <div class="tit">
+            <input type="checkbox">
+            <em title="업무번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_ing">진행</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>테스트</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="업무번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_plan">계획</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
+            </div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="업무번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>                
+            <i class="task_done">완료</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="업무번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_cancel">취소</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="업무번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_hold">보류</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </section>
-    <section class="right_section">
+  </section>
+  <section class="right_section">
+    <div class="issue_default">
       <article class="proj_box">
         <header>
           <h1>개발일정</h1>
@@ -402,7 +391,7 @@
                 <td><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></td>
+</div><em class="tag_pm">PM</em></td>
                 <td><div class="progress_wrap">
                   <progress id="" value="100" min="0" max="100"></progress><label for="">100%</label>
                 </div></td>
@@ -444,8 +433,9 @@
           </table>
         </div>
       </article>  
-    </section>
-  </div>
+    </div>
+  </section>
+</div>
           </section>
           <section id="proj02" class="tab_contents overview">
             <section class="left_section">

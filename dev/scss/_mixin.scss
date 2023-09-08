@@ -51,8 +51,7 @@
 
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
-@mixin badge_style($max_w:auto){display:inline-block;max-width:$max_w;
-color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
+@mixin badge_style($max_w:null,$w:null){display:inline-block;width:$w; max-width:$max_w;color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
 border:1px solid transparent;align-self:center;@content;}
 @mixin badge_color($color){border-color:$color;color:#fff;background:$color;}
 @mixin shape($w_size,$h_size){

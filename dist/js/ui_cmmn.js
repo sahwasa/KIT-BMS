@@ -188,6 +188,14 @@ function commonInit() {
       $(this).prop('checked') ? target.show() : target.hide()
     }
   })
+  $('[data-tglwrap]').hide().first().show();
+  $('[data-toggle]').on('click', function (e) {
+    const getTarget = e.target.dataset.toggle;
+    target = $('#' + getTarget);
+    console.log(target);
+    target.show()
+    $(this).closest('[data-tglwrap]').hide();
+  });
 
   const getYear = new Date()
   $("[name='ipt_year']").val(getYear.getFullYear())

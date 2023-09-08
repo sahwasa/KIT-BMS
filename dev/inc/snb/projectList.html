@@ -13,10 +13,18 @@
     <section class="tab_container">
       <article class="tab_contents" id="tab01">
         <div class="filter">
-          <div class="flex_ipt">
+          <div class="flex_ipt" id="proj_filter" data-tglwrap>
             <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span>
             <button class="btn_search_square">검색</button>
-            <button class="btn_more_square">더보기</button>
+            <button class="btn_more_square" data-toggle="proj_add">더보기</button>
+          </div>
+          <div class="proj_add" id="proj_add" data-tglwrap>
+            <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+            @@include('../module/module_period.html')
+            <div class="add_opt">
+              <label for="inc_private"><input type="checkbox" id="inc_private">비공개 포함</label>
+              <button class="btn_search_square">검색</button>
+            </div>
           </div>
         </div>
         <div class="proj_count">
@@ -50,40 +58,6 @@
                 <i class="type">TF</i>
                 <span class="i_private">비공개</span>
                 <i class="done">종료</i>
-              </div>
-              <div class="proj_name">
-                <b>KIT업무관리시스템</b>
-              </div>
-              <ul class="proj_desc">
-                <li>KITValley</li>
-                <li>2023-01-01 ~ 2023-12-31</li>
-                <li>PM:권기봉</li>
-              </ul>
-            </a>
-          </li>
-          <li>
-            <a href="project_view.html">
-              <div class="tag_wrap">
-                <i class="type">용역</i>
-                <span class="i_public">공개</span>
-                <i class="ready">준비</i>
-              </div>
-              <div class="proj_name">
-                <b>KIT업무관리시스템</b>
-              </div>
-              <ul class="proj_desc">
-                <li>KITValley</li>
-                <li>2023-01-01 ~ 2023-12-31</li>
-                <li>PM:권기봉</li>
-              </ul>
-            </a>
-          </li>
-          <li>
-            <a href="project_view.html">
-              <div class="tag_wrap">
-                <i class="type">용역</i>
-                <span class="i_public">공개</span>
-                <i class="ready">준비</i>
               </div>
               <div class="proj_name">
                 <b>KIT업무관리시스템</b>
