@@ -157,7 +157,8 @@
             alert('구글동기화 하나요???');
           }
         }
-      },      
+      },
+      schedulerLicenseKey: '0328483609-fcs-1693988989',         
       editable: true,
       selectable: true,
       initialView: 'dayGridMonth',

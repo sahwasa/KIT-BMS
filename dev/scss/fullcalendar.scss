@@ -8,16 +8,20 @@
 .fc-header-toolbar{
   // .fc-gcalSync-button{background-color:$red;}
 }
-%customEvt{border-style:solid;border-width:0 0 0 3px;padding-left:5px;}
+@mixin customEvt($color:inherit){border-style:solid;border-width:0 0 0 3px;padding-left:5px;@content;
+  .fc-event-time,.fc-event-title{color:$color;}
+}
 /* 공휴일 */
-.holyday-event{@extend %customEvt;border-color:#E55F5F;
+.holyday-event{@include customEvt(#7b0000);border-color:#E55F5F;
   background-color: rgba(250, 204, 208, 0.3) !important;
-  .fc-event-title{color:#7b0000;}
 }
 /* 개인일정 */
-.personal{@extend %customEvt;border-color:#79B2DE;
+.personal{@include customEvt(#00477f);border-color:#79B2DE;
   background-color:rgba(64, 145, 208, 0.15) !important;
-  .fc-event-title{color:#00477f;}
 }
+
+.cal_select{@extend %select;@include customEvt(#00477f){border-width:1px;}}
+.cal_absence{@extend %absence;@include customEvt(#333){border-width:1px;}}
+.cal_busy{@extend %busy;@include customEvt(#ff0000){border-width:1px;}}
 .fc-day-sun,
 .fc-day-sat{max-width:15%;}

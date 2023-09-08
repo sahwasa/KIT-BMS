@@ -43,7 +43,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="../home/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -71,50 +71,42 @@
 </nav>
   <main id="content" class="container">
     <section class="contents">
-      <header class="cont_tit">
-        <h1>내정보<span>항목 확정 전 임시 페이지</span></h1>
+      <header class="cont_tit blind">
+        <h1>내 정보</h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <!-- <li><a href="#">내정보</a></li> -->
-            <li>내정보 <!--수정--></li>
+            <li>내 정보</li>
           </ul>
         </section>
       </header>
-      <div class="cont_body">
-        <article>
-          <header class="blind">
-            <h1>내정보</h1>
-          </header>
-          <div class="box_compact box_tool alignR">
-            <button type="button" class="btn_request">저장</button>
-            <button type="button" class="btn_default">취소</button>
+      <div class="cont_body user_info">
+        <div class="profile_wrap">
+          <div class="user_profile">
+            <div class="emp_img">
+              <input type="file" id="emp_img" accept=".gif, .jpg, .png">
+              <label for="emp_img">
+                <img src="../../images/img_pic.png" alt="임직원 증명 임시 이미지">
+              </label>
+              <span class="btn_del_photo">닫기</span>
+            </div>           
+            <p class="user_id">jjaq88777</p>
+            <p class="user_email">dandy@kitvalley.com</p>
           </div>
-          <div class="profile_wrap infolist_wrap">
+          <div class="profile_ipt">
             <dl>
-              <dt>아이디(ID)</dt>
-              <dd>dandy</dd>
-              <dt><label for="emp_pw" class="required">패스워드</label></dt>
-              <dd>
-                <input type="password" id="emp_pw" value="1234">
-                <p class="required_info">6자 이상 &sol; 영문 숫자 혼용</p>
-              </dd>
-              <dt><label for="emp_num">사번</label></dt>
+              <dt>사번</dt>
+              <dd>0088</dd>
+              <dt>비밀번호</dt>
               <dd>
                 <span class="file_input">
-                  <input type="text" id="emp_num" value="0088">
-                  <button type="button" class="btn_ogt">중복확인</button>
+                  <input type="password" id="" value="0088" readonly>
+                  <button type="button" class="btn_ogt">변경</button>
                 </span>
-                <p class="required_info t_red">중복된 사번입니다.</p>
-              </dd>
-              <dt><label for="emp_pw_check" class="required">패스워드 확인</label></dt>
-              <dd>
-                <input type="password" id="emp_pw_check" value="1234">
-                <p class="required_info t_red">비밀번호가 일치하지 않습니다.</p>
-              </dd>
+              </dd>            
               <dt><label for="emp_name_kr" class="required">한글이름</label></dt>
               <dd><input type="text" id="emp_name_kr" value="멋쟁이"></dd>
-              <dt><label for="emp_name_en">영문이름</label></dt>
+              <dt><label for="emp_name_en">영문이름</label></dt>              
               <dd><input type="text" id="emp_name_en" value="meosjaeng-e"></dd>
             </dl>
             <dl>
@@ -136,34 +128,23 @@
                 <input type="text" name="address3" title="상세주소">
               </dd>
             </dl>
-            <dl style="align-items:center;">
-              <dt><label for="emp_img">사진</label></dt>
-              <dd>
-                <div class="profile_pic_wrap">
-                  <div class="emp_img">
-                    <input type="file" id="emp_img" accept=".gif, .jpg, .png">
-                    <label for="emp_img">
-                      <img src="../../images/img_pic.png" alt="임직원 증명 임시 이미지">
-                    </label>
-                    <span class="btn_del_photo">닫기</span>
-                  </div>
+            <dl>
+              <dt><label for="">국가연구자번호</label> <a href="https://www.iris.go.kr/main.do" target="_blank" class="i_ex" title="정부 과제 참여인력은 국가연구자번호(구:과학기술인번호)가 필요. https://www.iris.go.kr/main.do 에 가입 후 실명인증을 통해 발급가능. 이 아이콘을 누르면 해당 사이트로 연결됩니다.">국가연구자번호 설명 및 발급링크 새창열림</a></dt>
+              <dd class="span3"><input type="text" id="" title="과학기술인 번호 입력"></dd>
+              <dt><label for="emp_sign">서명</label></dt>
+              <dd class="span3">
+                <div class="emp_sign">
+                  <input type="file" id="emp_sign" accept=".gif, .jpg, .png">
+                  <label for="emp_sign">
+                    <img src="../../images/img_sign.png" alt="전자결재 서명 임시 이미지">
+                  </label>
+                  <button class="btn_del_photo">삭제</button>
                 </div>
               </dd>
-              <dt><label for="emp_sign">전자결재 서명</label></dt>
-              <dd>
-                <div class="profile_pic_wrap">
-                  <div class="emp_sign">
-                    <input type="file" id="emp_sign" accept=".gif, .jpg, .png">
-                    <label for="emp_sign">
-                      <img src="../../images/img_sign.png" alt="전자결재 서명 임시 이미지">
-                    </label>
-                    <span class="btn_del_photo">닫기</span>
-                  </div>
-                </div>
-              </dd>
+              <dd class="span3"><button type="button" class="btn_red">저 장</button></dd>
             </dl>
           </div>
-        </article>
+        </div>
       </div>
     </section>
   </main>

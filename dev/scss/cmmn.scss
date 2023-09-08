@@ -406,6 +406,9 @@ $btn_red_line:#ff7575;
     }
   }
 }
+.i_public{@include ico_only('\f064');}
+.i_private{@include ico_only('\f512');&::before{font-size:14px;width:15px;text-align: center;}}
+.i_ex{@include ico_only('\e877');}
 .tagItem{font-size:12px;}
 .tooltip{position:absolute;top:calc(100% + 5px);right:0;background-color:$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
   *{flex-shrink:0;}

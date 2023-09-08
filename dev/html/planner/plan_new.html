@@ -127,8 +127,8 @@
                 </div>
               </dt>
               <dd class="flex_full">
-                @@include('../../inc/module/module_tbl_plan_time.html')                
-                @@include('../../inc/module/module_tbl_plan_day.html')                
+                <!-- @@include('../../inc/module/module_tbl_plan_day.html') -->
+                <div id='calendar-memberplan' class="cal_memberplan"></div>
               </dd>
             </dl>
           </fieldset>
@@ -139,9 +139,10 @@
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/layout/script.html')
-<script src='../../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src='../../plugins/google-calendar/index.global.min.js'></script>
 <script src="../../js/book_meeting_room.js"></script>
+<script src="../../js/memberplan.js"></script>
 <script>
   $(function () {
     setEditor();// editor common

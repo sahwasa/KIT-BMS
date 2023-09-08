@@ -43,7 +43,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="../home/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -103,7 +103,7 @@
             <a href="project_view.html">
               <div class="tag_wrap">
                 <i class="type">R&amp;D</i>
-                <i class="public">공개</i>
+                <span class="i_public">공개</span>
                 <i class="ing">수행중</i>
               </div>
               <div class="proj_name">
@@ -120,7 +120,7 @@
             <a href="project_view.html">
               <div class="tag_wrap">
                 <i class="type">TF</i>
-                <i class="private">비공개</i>
+                <span class="i_private">비공개</span>
                 <i class="done">종료</i>
               </div>
               <div class="proj_name">
@@ -137,7 +137,7 @@
             <a href="project_view.html">
               <div class="tag_wrap">
                 <i class="type">용역</i>
-                <i class="public">공개</i>
+                <span class="i_public">공개</span>
                 <i class="ready">준비</i>
               </div>
               <div class="proj_name">
@@ -154,7 +154,7 @@
             <a href="project_view.html">
               <div class="tag_wrap">
                 <i class="type">용역</i>
-                <i class="public">공개</i>
+                <span class="i_public">공개</span>
                 <i class="ready">준비</i>
               </div>
               <div class="proj_name">
@@ -171,7 +171,7 @@
             <a href="#">
               <div class="tag_wrap">
                 <i class="type">용역</i>
-                <i class="public">공개</i>
+                <span class="i_public">공개</span>
                 <i class="ready">준비</i>
               </div>
               <div class="proj_name">
@@ -195,7 +195,7 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>도시폭염을 고려한 폭염저감기술 최적화<span>프로젝트</span></h1>
+        <h1>도시폭염을 고려한 폭염저감기술 최적화 (2023 도시폭염)<span>프로젝트</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
@@ -207,24 +207,18 @@
       <div class="cont_body">
         <div class="box_compact box_tool">
           <header>
-            <span>
-              <button type="button" class="btn_gray_line">목록</button>
-            </span>
-            <span>
-              <button type="button" class="btn_red">추가</button>
-              <button type="button" class="btn_gray_line">취소</button>
-              <span>&sol;</span>
-              <button type="button" class="btn_red">수정</button>
-              <button type="button" class="btn_red_line">삭제</button>
-              <span>&sol;</span>
-              <button type="button" class="btn_red">저장</button>
-              <button type="button" class="btn_gray_line">취소</button>
-            </span>
+            <h2>프로젝트 ID : P20220000</h2>
+            <ul>
+              <li><em>업무구분</em>용역</li>
+              <li><em>발주기관</em>행정안전부</li>
+              <li><em>수행PM</em>홍OO (개발 1팀)</li>
+              <li><em>수행기간</em>2022-04-01 ~ 2023-03-31</li>
+            </ul>
           </header>
         </div>
         <div class="tab_wrap">
           <ul class="tab">
-            <li><a href="#proj01">이슈채널</a></li>
+            <li><a href="#proj01">이슈</a></li>
             <li><a href="#proj02">개요</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
@@ -270,30 +264,32 @@
       <article>
         <h1 class="blind">업무목록</h1>
         <section class="">
-          <div>
-            <ul class="search_list">
-              <li>
-                <input type="checkbox">
-              </li>
-              <li>
-                <select name="" id=""><option value="">편집</option></select>
-              </li>
-              <li>
-                <select name="" id=""><option value="">업데이트</option></select>
-              </li>
-            </ul>
-          </div>
+          <ul class="search_list">
+            <li>
+              <input type="checkbox">
+            </li>
+            <li>
+              <select name="" id=""><option value="">편집</option></select>
+            </li>
+            <li>
+              <select name="" id="" title="정렬기준">
+                <option value="">↓ 업데이트</option>
+                <option value="">↓ 등록일</option>
+                <option value="">↓ 만기일</option>
+                <option value="">↓ 상태</option>
+              </select>
+            </li>
+          </ul>
           <ul class="task_lst">
             <li class="on">
               <div class="tit">
                 <input type="checkbox">
-                <p class="task_name">ktko 자료 생성 웹페이지 구현<em>1</em>
-                </p>
+                <em>1</em>
+                <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
                 <i class="task_ing">진행</i>
               </div>
               <div class="etc">
-                <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
-                </div>
+                <div class="tags"><i>테스트</i></div>
                 <ul class="pic">
                   <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 </ul>
@@ -302,8 +298,8 @@
             <li>
               <div class="tit">
                 <input type="checkbox">
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현<em>1</em>
-                </p>
+                <em>1</em>
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
                 <i class="task_plan">계획</i>
               </div>
               <div class="etc">
@@ -317,8 +313,8 @@
             <li>
               <div class="tit">
                 <input type="checkbox">
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 <em>1</em>
-                </p>
+                <em>1</em>
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>                
                 <i class="task_done">완료</i>
               </div>
               <div class="etc">
@@ -331,8 +327,8 @@
             <li>
               <div class="tit">
                 <input type="checkbox">
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 <em>1</em>
-                </p>
+                <em>1</em>
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
                 <i class="task_cancel">취소</i>
               </div>
               <div class="etc">
@@ -345,8 +341,8 @@
             <li>
               <div class="tit">
                 <input type="checkbox">
-                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 <em>1</em>
-                </p>
+                <em>1</em>
+                <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
                 <i class="task_hold">보류</i>
               </div>
               <div class="etc">
@@ -381,7 +377,7 @@
       </article>
       <article>
         <header><h1>번업차트</h1></header>
-        <div id="chart"></div>
+        <div id="chart" class="burnup_chart" style="width:100%;height:300px;"></div>
       </article>
       <article>
         <header>
@@ -614,6 +610,7 @@
       <dt>생성일자</dt>
       <dd>2023-01-05</dd>
     </dl>
+    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
     <button type="button" class="btn_red_line full">프로젝트 수정</button>
   </section>
   <section class="box_default_w">
