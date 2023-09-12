@@ -42,7 +42,7 @@ table {border-collapse:collapse;border-spacing:0}
 caption{@include blind;}
 ul,ol,li{box-sizing:border-box;list-style:none;margin:0;}
 strong{font-weight:bold;} // 웹에디터 용
-
+[contenteditable]{cursor:text;}
 /* accessibility */
 #accessibility{position:absolute;width:100%;z-index:999;
   a{
@@ -270,10 +270,12 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     &::after{left:0;}
   }
 }
-.select_custom{position:relative;z-index:9999;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
+.select_custom{position:relative;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
   &.active{
-    &>.label{background:url(../images/btn_select.png) right 8px center no-repeat,#f8f8f8;}
-    .optionList{max-height:500px;top:calc(100% + 1px);}
+    &:focus-within{z-index:9999;
+      &>.label{background:url(../images/btn_select.png) right 8px center no-repeat,#f8f8f8;}
+      .optionList{max-height:500px;top:calc(100% + 1px);}
+    }
   }
   .label{align-items:center;display:flex;gap:8px;width:100%;height:26px;padding-left:5px;cursor:pointer;text-align:left;}
   &>ul{position:absolute;top:100%;left:-1px;width:calc(100% + 2px);max-height:0;border:1px solid #ccc;border-top-width:0;background:#fff;color:#000;list-style-type:none;overflow:hidden;
@@ -416,6 +418,9 @@ $btn_red_line:#ff7575;
     }
   }
 }
+.i_public{@include ico_only('\f064');}
+.i_private{@include ico_only('\f512');&::before{font-size:14px;width:15px;text-align: center;}}
+.i_ex{@include ico_only('\e877');}
 .tagItem{font-size:12px;}
 .tooltip{position:absolute;top:calc(100% + 5px);right:0;background-color:$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
   *{flex-shrink:0;}
@@ -438,6 +443,10 @@ legend{@include tit;}
 }
 .btn_refresh{@include btn($btn_gray,true);
   &::before{@include fontello('\e8a7');}
+}
+.btn_del{
+  &::before{@include fontello('\e839'){margin-right:3px;font-size:14px;};}
+  &:hover{color:$red;}
 }
 
 // table
@@ -550,14 +559,17 @@ td{white-space:nowrap;text-overflow:ellipsis;
 }
 .tab{
   $border-color:#eaedf1;
-  display:flex;gap:6px;border-bottom:1px solid $border-color;
-  li{min-width:110px;}
+  $border-on-color:#bec7d2;
+  display:flex;gap:6px;border-bottom:1px solid $border-on-color;
+  li{min-width:110px;
+    &:hover a{color:$red;}
+  }
   &_s{li{min-width:80px;}
     a{font-size:12px;}
   }
-  a{position:relative;top:1px;z-index:1;display:inline-block;width:100%;border:1px solid $border-color;border-radius:5px 5px 0 0;text-align:center;color:#666;padding:6px 0;letter-spacing:-.33px;background-color:#f9fafc;
+  a{position:relative;top:1px;z-index:1;display:inline-block;width:100%;border:1px solid $border-color;border-bottom-color:$border-on-color; border-radius:5px 5px 0 0;text-align:center;color:#666;padding:6px 0;letter-spacing:-.33px;background-color:#f9fafc;
   }
-  .on a{color:$red;background-color:$white;font-weight:bold;border-color:#bec7d2;border-bottom-color:transparent;}
+  .on a{color:$red;background-color:$white;font-weight:bold;border-color:$border-on-color;border-bottom-color:transparent;}
 }
 .tab_contents{margin-top:20px;}
 .tab_s .tab{gap:2px;}
@@ -646,10 +658,11 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .file_input{display:flex;gap:4px;
   &:has(.MultiFile-wrap){width:100%;}
   &>input,
-  &>select{flex:1;}
+  .full{flex:1;}
   &>[list]{min-width:50%;}
   &>*{width:auto;align-self:center;vertical-align:middle;white-space:nowrap;}
   &>.btn_slideclose{margin-top:0;}
+  &.inline{display:inline-flex;}
 }
 .MultiFile-wrap{width:100%;
   .multi{position:relative;width:72px;height:28px;float:right;overflow:visible;border-color:#aaa;
@@ -736,7 +749,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   .menu-highlighted {font-weight:bold;}
 }
 .mentioned{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
-
+.user_lst{display:flex;gap:10px;flex-wrap:wrap;}
 /* ckeditor, tui-image-editor */
 .editor_wrap{
   .ck-editor{

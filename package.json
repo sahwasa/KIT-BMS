@@ -40,6 +40,7 @@
     "@fullcalendar/interaction": "^6.1.8",
     "@toast-ui/chart": "^4.6.1",
     "fullcalendar": "^6.1.8",
+    "fullcalendar-scheduler": "^6.1.8",
     "jquery": "^3.6.4",
     "tributejs": "^5.1.3"
   }
