@@ -16,17 +16,15 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body">
-        <div class="box_compact box_tool">
-          <header>
-            <h2>프로젝트 ID : P20220000</h2>
-            <ul>
-              <li><em>업무구분</em>용역</li>
-              <li><em>발주기관</em>행정안전부</li>
-              <li><em>수행PM</em>홍OO (개발 1팀)</li>
-              <li><em>수행기간</em>2022-04-01 ~ 2023-03-31</li>
-            </ul>
-          </header>
+      <div class="cont_body proj_view">
+        <div class="box_compact">
+          <h2>프로젝트 ID : P20220000</h2>
+          <ul class="proj_summary">
+            <li><em>업무구분</em>용역</li>
+            <li><em>발주기관</em>행정안전부</li>
+            <li><em>수행PM</em>홍OO (개발 1팀)</li>
+            <li><em>수행기간</em>2022-04-01 ~ 2023-03-31</li>
+          </ul>
         </div>
         <div class="tab_wrap">
           <ul class="tab">
@@ -38,7 +36,7 @@
             <li><a href="#proj06">문서관리</a></li>
           </ul>
         </div>
-        <div class="tab_container proj_view">
+        <div class="tab_container">
           <section id="proj01" class="tab_contents issue">
             @@include('porject_view_issue.html')
           </section>
@@ -68,6 +66,60 @@
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script src="../../js/proj_chart.js"></script>
+<script>
+  $(function () {
+    setEditor();
+    fileDropEvt();
+    $('.btn_request').on('click', function () { $('.file_upload').show(); })
+    $('.file_upload').on('click', function () { $(this).hide(); })
+    const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    initializeTagManager('tagsList', 'nameSelect', initialNamesB);
+
+     // 이슈 > 업무상태
+    $('.task_status_multi').on('click','.all_label',function(){
+      $(this).parents('.task_status_multi').find('.taskstatus_layer').toggleClass('on');
+    });
+    $('html').click(function(e){
+      const target = $(e.target);
+      if(target.parents('.taskstatus_layer').length < 1 && !(target.hasClass('all_label'))){
+        $('.taskstatus_layer').removeClass('on');
+      }
+    });
+    const lst_item = $('.user_lst dd');
+    $('.taskstatus_layer .tit').on('click','.optionItem',function(e){
+      const item = $(this);
+      const target = item.closest('.task_status_multi').find('.label');
+      handleMultiSelect(item,[target])
+    })
+    lst_item.on('click','.optionItem',function(e){
+      const item = $(this);
+      const target1 = item.closest('.task_status_multi').find('.all_label');
+      const target2 = item.closest('.taskstatus_layer').find('.tit').find('.label');     
+      handleMultiSelect(item,[target1,target2])
+    })
+    const handleMultiSelect = function(item,target){
+      const itemVal = $(item).data('value');
+        console.log($(item).html())
+      target.forEach(element => {      
+        element.html($(item).html()).attr('data-value', itemVal);        
+      });
+    }   
+  })
+  var tribute = new Tribute({
+    trigger: "@",
+    values: [
+      { key: "1", value: "김개발" },
+      { key: "2", value: "김연구 연구기획 1팀" }
+    ],
+    selectTemplate: function (item) {
+      return `<span contenteditable="false"><a title="${item.original.key}">@${item.original.value}</a></span>&nbsp;`;
+    },
+    menuItemTemplate: function (item) {
+      return `${item.original.value}`;
+    }   
+  });
+  tribute.attach(document.querySelectorAll(".editable"));
+</script>
 </body>
 
 </html>

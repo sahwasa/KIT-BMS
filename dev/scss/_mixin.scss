@@ -1,45 +1,32 @@
 @import "./variables";
 
 @mixin mobile_only {
-  @media (max-width: #{$breakpoint-mobile}) {
-    @content;
-  }
+  @media (max-width: #{$breakpoint-mobile}) { @content; }
 }
 @mixin mobile_tablet {
-  @media (min-width: #{$breakpoint-mobile_tablet}) and (max-width: #{$breakpoint-tablet - 1px}) {
-    @content;
-  }
+  @media (min-width: #{$breakpoint-mobile_tablet}) and (max-width: #{$breakpoint-tablet - 1px}) { @content; }
 }
-@mixin tablet_only {
-  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
-    @content;
-  }
+@mixin tablet{
+  @media (max-width: #{$breakpoint-tablet}) { @content; }
 }
-
+@mixin tablet_only{
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) { @content; }
+}
 @mixin desktop{
-  @media (max-width: #{$breakpoint-desktop}) {
-    @content;
-  }
+  @media (max-width: #{$breakpoint-desktop}) { @content; }
 }
-
 @mixin desktop_only{
-  @media (min-width: #{$breakpoint-desktop}) {
-    @content;
-  }
+  @media (min-width: #{$breakpoint-desktop}) { @content; }
 }
-
 @mixin blind{
   font-size:0;line-height:0;position:absolute!important;left:0;top:0;text-indent:-9999px;visibility:hidden;overflow:hidden;
 }
-
 @mixin ipt_common{
   width:100%;padding:2px;border:1px solid #c5c5c5;border-radius:2px;vertical-align:middle;background:#fff;
 }
-
 @mixin f_blind{
   font-size:0!important;line-height:0;color:transparent!important;overflow:hidden;
 }
-
 @mixin alignL($numbers){
   @each $num in $numbers{
    &:nth-of-type(#{$num}){text-align:left;}
@@ -48,7 +35,7 @@
 
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
 @mixin flex_layout{display:flex;justify-content:space-between;gap:$columnGap;@content;}
-
+@mixin vh_y_scroll($h:null){height:calc(100vh - $h);min-height:$h;overflow-y:auto;@content;}
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
 @mixin badge_style($max_w:null,$w:null){display:inline-block;width:$w; max-width:$max_w;color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;

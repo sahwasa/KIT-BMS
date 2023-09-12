@@ -358,14 +358,16 @@ function commonInit() {
   const label = select_custom.find('.label')
   const options = select_custom.find('.optionItem')
   options.off('click').on('click', function (e) {
-    if (e.target.tagName == 'I') handleSelect($(this).closest('.optionItem')[0])
-    else handleSelect(e.target)
+    const eclass = Array.prototype.slice.apply(e.target.classList);
+    if (!(eclass.includes('optionItem'))) handleSelect($(this).closest('.optionItem')[0])
+    else handleSelect(e.target);
   })
-  label.off('click').on('click', function () {
+  label.off('click').on('click', function(){
+    select_custom.removeClass('active')
     $(this).parent().hasClass('active')
       ? $(this).parent().removeClass('active')
       : $(this).parent().addClass('active')
-  })
+  });  
   $('select').on('change', function () {
     $(this).css('color', 'inherit')
   })
