@@ -431,6 +431,7 @@ $snbWidth:250px;
   .layer_tool{display:none;margin-left:auto;
     .btn_ellipsis::before{height:16px;line-height:16px;font-size:11px;}
   }
+  .new_bedge{top:1px;padding:0 3px;font-size:10px;}
 }
 
 //container
@@ -1344,4 +1345,19 @@ $_proj_stacked:(
 }
 .progress_input{
   &+button{display:block;width:100%;margin-top:5px;}
+}
+
+.notice_board{display:flex;
+  &>section{flex:0 1 50%;}
+  td{
+    .new_bedge{padding:0 3px;font-size:10px;}
+  }
+}
+.vote_wrap{
+  span:has(input[type=number]){margin-bottom:5px;
+    &+div{
+      &>.file_input{margin-bottom:3px;}
+    }
+  }
+  input[type=number]{flex:0 1 60px;text-align:left;}
 }

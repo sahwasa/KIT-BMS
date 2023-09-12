@@ -645,7 +645,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
 /* multi file */
 .file_input{display:flex;gap:4px;
   &:has(.MultiFile-wrap){width:100%;}
-  &>input,
+  &>input:not([type="checkbox"]),
   &>select{flex:1;}
   &>[list]{min-width:50%;}
   &>*{width:auto;align-self:center;vertical-align:middle;white-space:nowrap;}
