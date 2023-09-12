@@ -107,7 +107,7 @@
                 </div>
               </dd>
               <dt>참여자</dt>
-              <dd class="flex_full">
+              <dd class="flex_full member_edit">
                 <div class="file_input">
                   <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
                   @@include('../../inc/data/data_emp_name.html')
@@ -126,8 +126,8 @@
                 </div>
               </dt>
               <dd class="flex_full">
-                @@include('../../inc/module/module_tbl_plan_time.html')                
-                @@include('../../inc/module/module_tbl_plan_day.html')                
+                <!-- @@include('../../inc/module/module_tbl_plan_day.html') -->
+                <div id='calendar-memberplan' class="cal_memberplan"></div>
               </dd>
             </dl>
           </fieldset>
@@ -138,9 +138,10 @@
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/layout/script.html')
-<script src='../../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src='../../plugins/google-calendar/index.global.min.js'></script>
 <script src="../../js/book_meeting_room.js"></script>
+<script src="../../js/memberplan.js"></script>
 <script>
   $(function () {
     setEditor();// editor common
