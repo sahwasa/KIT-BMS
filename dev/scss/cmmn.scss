@@ -318,7 +318,7 @@ $prio_fontSize:20px;
   &::before{@include fontello('\eb3d');font-size:17px;}
   &:hover{background-color:darken($red, 5%);}
 }
-.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:9%;right:2%;border-radius:50%;background-color:$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
+.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:1%;right:2%;border-radius:50%;background-color:$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
   &::before{@include fontello('\eb3d');font-size:17px;}
   &:hover{background-color:darken($red, 5%);}
 }
@@ -376,6 +376,9 @@ $btn_red_line:#ff7575;
     :not(&:checked)+label::before{color:$unselectedColor;border-color:$unselectedColor;}   
   }
   label::before{line-height:17px;}
+  &.btn_switch_s{
+    input+label{min-width:60px;padding:0 5px;font-size:12px;}
+  }
 }
 .btn_switch_single{text-align:center;
   &>label{position:relative;display:block;width:100%;line-height:26px;font-size:13px;
