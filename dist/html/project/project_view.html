@@ -197,8 +197,8 @@
         </div>
         <div class="tab_wrap">
           <ul class="tab">
-            <li><a href="#proj01">이슈</a></li>
-            <li><a href="#proj02">개요</a></li>
+            <li><a href="#proj01">개요</a></li>
+            <li><a href="#proj02">이슈</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
             <li><a href="#proj05">리스크관리</a></li>
@@ -206,8 +206,11 @@
           </ul>
         </div>
         <div class="tab_container">
+        <section id="proj04" class="tab_contents wbs">
+            <div id='wbs' class="cal_wbs"></div>
+          </section>
           <section id="proj01" class="tab_contents issue">
-            <section>
+            <div>
   <ul class="search_list">
     <li>
       <select class="" title="빠른필터">
@@ -219,7 +222,7 @@
       </select>
     </li>
     <li>
-      <input type="text" placeholder="담당자" title="검색어">
+      <input type="text" placeholder="담당자" title="검색어" list="nameList">     
     </li>
     <li>
       <input type="text" placeholder="내용, 이슈번호" title="검색어">
@@ -249,8 +252,8 @@
       <button type="button" class="btn_refresh">초기화</button>
     </li>
   </ul>  
-</section>
-<div class="task_body">
+</div>
+<section class="task_body">
   <section class="left_section">
     <h1 class="blind">이슈목록</h1>
     <section class="task_lst_wrap">
@@ -346,7 +349,7 @@
     </section>
   </section>
   <section class="right_section">
-    <div class="issue_default" style="display: none;">
+    <div class="issue_default">
       <article class="proj_box">
         <header>
           <h1>개발일정</h1>
@@ -451,7 +454,7 @@
             <button type="button" class="btn_red_line">취소</button>
           </div>
         </header>
-        <dl class="ipt_wrap">
+        <dl class="ipt_lst">
           <dt><label for="">업무상태</label></dt>
           <dd>
             <div class="select_custom task_status">
@@ -486,7 +489,6 @@
   </ul>
 </div>
                 </div>
-
                 <dl class="user_lst">
                   <dt><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
@@ -797,7 +799,7 @@
       </article>
     </div>
   </section>
-</div>
+</section>
 <script>
   
 </script>
@@ -807,148 +809,58 @@
   <article>
     <h1>프로젝트 정보</h1>
     <section>
-    <dl>
-      <dt>업무구분</dt>
-      <dd>용역</dd>
-      <dt>프로젝트명 &sol; 약어</dt>
-      <dd class="flex_full">도시폭염을 고려한 폭염저감기술 최적화</dd>
-      <dd class="divideL">도시폭염</dd>
-      <dt class="required">발주기관</dt>
-      <dd class="flex_full">
-        행정안전부
-      </dd>
-      <dd class="flex_full">
-        <ul class="ipt_innerwrap">
-          <li>
-            <em>담당자</em>                    
-            <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-          </li>
-          <li>
-            <em>수행PM</em>
-            <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-          </li>
-        </ul>
-      </dd>              
-      <dd class="flex_full">
-        <ul class="ipt_innerwrap">
-          <li>
-            <em>업무기간</em>
-            2023-01-05 ~ 2023-12-30
-          </li>
-          <li>
-            <em>사용인감</em> ○
-          </li>
-          <li>
-            공개여부
-            <div class="btn_switch">
-              <input type="radio" id="open" name="disclosure" checked>
-              <label for="open">공개</label>
-              <input type="radio" id="private" name="disclosure">
-              <label for="private">비공개</label>
-            </div>
-          </li>
-          <li>
-            <em>상태</em>수행중
-          </li>
-        </ul>
-      </dd>
-      <dt>참여자</dt>
-      <dd class="flex_full">
-        <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
+      <h2><i class="type">R&amp;D</i> 2023년 도시폭염 연구과제 2차(약어)</h2>
+      <dl class="ipt_lst">
+        <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
+        <dt>담당자</dt>                    
+        <dd><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li>
-  <li>
-    <div>
-      <p>임선</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
+</div></dd>
+        <dt>수행PM</dt>                    
+        <dd><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li>
-</ul>
-      </dd>
-      <dt><label for="">비고</label></dt>
-      <dd class="flex_full"><p>-</p></dd>
-    </dl>
+</div></dd>
+        <dt>수행기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+        <dt>사용인감</dt><dd>○</dd>
+        <dt><label for="">비고</label></dt>
+        <dd><p>-</p></dd>
+      </dl>
     </section>
   </article>
   <article>
     <h1>계약 정보</h1>
     <section>
-    <dl>
-      <dt>계약기간</dt>
-      <dd class="flex_full">
-        2023-01-05 ~ 2023-12-30
-      </dd>
-      <dt>컨소시엄 총괄기관 &sol; 구성</dt>
-      <dd>총괄</dd>
-      <dd class="flex_full divideL">구성</dd>
-      <dt>지분율(&percnt;)</dt>
-      <dd>30</dd>
-      <dd class="flex_full">
-        <ul class="ipt_innerwrap">
-          <li>
-            <em>사업예산(원)</em>10,000,000
-          </li>
-          <li>
-            <em>계약금액(원)</em>10,000,000
-          </li>
-          <li>
-            <em>외주비용(원)</em>10,000,000
-          </li>
-          <li>
-            <em>수행비(원)</em>10,000,000
-          </li>
-        </ul>
-      </dd>
-      <dt>하자보수기간</dt>
-      <dd>
-        2023-12-30 ~ 2024-12-30
-      </dd>
-      <dt>계약서</dt>
-      <dd class="flex_full">      
-      </dd>
-      <dt><label for="">비고</label></dt>
-      <dd class="flex_full"><p>-</p></dd>
-    </dl>
+      <dl class="ipt_lst">
+        <dt>계약기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+        <dt>컨소시엄 총괄</dt><dd>총괄</dd>
+        <dt>컨소시엄 구성</dt><dd>구성</dd>
+        <dt>지분율</dt><dd>30&percnt;</dd>
+        <dd class="full">
+          <dl class="ipt_innerlst">
+            <dt>사업예산</dt><dd>1,000,000,000(원)</dd>
+            <dt>계약금액</dt><dd>10,000,000(원)</dd>
+            <dt>외주비용</dt><dd>10,000,000(원)</dd>
+            <dt>수행비</dt><dd>10,000,000(원)</dd>
+          </dl>
+        </dd>
+        <dt>하자보수기간</dt><dd>2023-12-30 ~ 2024-12-30</dd>
+        <dt>계약서</dt>
+        <dd class="file_attached"><ul class="attach_list"></ul></dd>
+        <dt>계약서</dt>
+        <dd class="file_attached">
+          <ul class="attach_list">
+            <li>
+              <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.pptx</a>
+            </li>
+            <li>
+              <a href="#" download><i class="ext_hwp"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.hwp</a>
+            </li>
+          </ul>
+        </dd>
+        <dt>비고</dt><dd><p>-</p></dd>
+      </dl>
     </section>
   </article>
 </section>
@@ -967,6 +879,34 @@
     </dl>
     <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
     <button type="button" class="btn_red_line full">프로젝트 수정</button>
+  </section>
+  <section class="box_default_w">
+    <dl class="set_list">   
+      <dt>상태</dt>
+      <dd>
+        <div class="select_custom task_status">
+          <button class="label"><span class="opt_label">상태</span></button>
+          <ul class="optionList">
+            <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">준비</span></li>
+            <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">수행중</span></li>
+            <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">하자보수</span></li>
+            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">종료</span></li>
+            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+            <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">기타</span></li>
+          </ul>
+        </div>
+      </dd>
+      <dt>공개여부</dt>
+      <dd>
+        <div class="btn_switch">
+          <input type="radio" id="open" name="disclosure" checked>
+          <label for="open">공개</label>
+          <input type="radio" id="private" name="disclosure">
+          <label for="private">비공개</label>
+        </div>
+      </dd>
+    </dl>
+    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
   </section>
   <section class="box_default_w">
     <h1>참여자</h1>
@@ -993,7 +933,7 @@
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
+</div><em class="tag_pm">PM</em></li>
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
@@ -1385,9 +1325,7 @@
 
 </script>
           </section>
-          <section id="proj04" class="tab_contents wbs">
-            wbs
-          </section>
+          
           <section id="proj05" class="tab_contents risk">
             리스크관리
           </section>
@@ -1446,6 +1384,8 @@ commonInit();
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script src="../../js/proj_chart.js"></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/wbs.js"></script>
 <script>
   $(function () {
     setEditor();
@@ -1479,7 +1419,6 @@ commonInit();
     })
     const handleMultiSelect = function(item,target){
       const itemVal = $(item).data('value');
-        console.log($(item).html())
       target.forEach(element => {      
         element.html($(item).html()).attr('data-value', itemVal);        
       });

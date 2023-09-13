@@ -33,13 +33,13 @@
         {id:'구OO',title:'구OO'},
       ],
       events:[
-        { id: 'e1', resourceId: '김OO', title:'아무튼 바쁨', start: '2023-09-07T09:00:00', end: '2023-09-07T12:00:00', className: 'cal_busy'},
-        { id: 'e2', resourceId: '이OO', title:'출장', start: '2023-09-07T10:30:00', end: '2023-09-14T15:30:00', className: 'cal_absence'},
-        { id: 'e3', resourceId: '박OO', title:'조기경보회의', start: '2023-09-07T12:00:00', end: '2023-09-07T13:00:00', className: 'cal_busy'}
+        { id: 'e1', resourceId: '김OO', title:'아무튼 바쁨', start: '2023-09-13', end: '2023-09-13', className: 'cal_busy'},
+        { id: 'e2', resourceId: '이OO', title:'출장', start: '2023-09-13', end: '2023-09-15', className: 'cal_absence'},
+        { id: 'e3', resourceId: '박OO', title:'휴일', start: '2023-09-13T12:00:00', end: '2023-09-13T13:00:00', className: 'cal_holiday'}
       ],     
       slotMinTime:"08:00:00",
       slotMaxTime:"19:00:00",
-      hiddenDays: [0, 6],//일,토 숨김     
+      hiddenDays: [0, 6],//일,토 숨김
       views:{
         resourceTimelineDay: {
           slotDuration: '00:30',

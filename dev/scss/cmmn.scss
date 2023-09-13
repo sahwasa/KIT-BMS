@@ -229,7 +229,7 @@ hr,
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
   &::before{font-size:14px;}
 }
-
+.tag_pm{@include badge_style(null,22px){position:relative;top:2px;right:-4px;background-color:#ffc938;color:#000;line-height:14px;font-size:10px;border-radius:0;font-weight:bold;}}
 // ico_fontello
 .ico_org{vertical-align:middle;
   &::before{font-size:17px;vertical-align:middle;}
