@@ -1,4 +1,4 @@
-<section>
+<div>
   <ul class="search_list">
     <li>
       <select class="" title="빠른필터">
@@ -10,7 +10,7 @@
       </select>
     </li>
     <li>
-      <input type="text" placeholder="담당자" title="검색어">
+      <input type="text" placeholder="담당자" title="검색어" list="nameList">     
     </li>
     <li>
       <input type="text" placeholder="내용, 이슈번호" title="검색어">
@@ -40,8 +40,8 @@
       <button type="button" class="btn_refresh">초기화</button>
     </li>
   </ul>  
-</section>
-<div class="task_body">
+</div>
+<section class="task_body">
   <section class="left_section">
     <h1 class="blind">이슈목록</h1>
     <section class="task_lst_wrap">
@@ -137,7 +137,7 @@
     </section>
   </section>
   <section class="right_section">
-    <div class="issue_default" style="display: none;">
+    <div class="issue_default">
       <article class="proj_box">
         <header>
           <h1>개발일정</h1>
@@ -242,7 +242,7 @@
             <button type="button" class="btn_red_line">취소</button>
           </div>
         </header>
-        <dl class="ipt_wrap">
+        <dl class="ipt_lst">
           <dt><label for="">업무상태</label></dt>
           <dd>
             <div class="select_custom task_status">
@@ -277,7 +277,6 @@
   </ul>
 </div>
                 </div>
-
                 <dl class="user_lst">
                   <dt><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
@@ -588,7 +587,7 @@
       </article>
     </div>
   </section>
-</div>
+</section>
 <script>
   
 </script>

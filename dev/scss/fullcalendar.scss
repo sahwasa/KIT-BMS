@@ -2,12 +2,11 @@
 .gcal-holiday{border:none;background-color: rgba(250, 204, 208, 0.3) !important;
   .fc-event-title{color:#7b0000;}
 }
+.fc-day-sun,
+.fc-day-sat{max-width:15%;}
 .fc-day-sat{color:$blue;}
 .fc-day-sun{color:$red;}
 .anniv{border:none;background-color:transparent;color:#00f;}
-.fc-header-toolbar{
-  // .fc-gcalSync-button{background-color:$red;}
-}
 @mixin customEvt($color:inherit){border-style:solid;border-width:0 0 0 3px;padding-left:5px;@content;
   .fc-event-time,.fc-event-title{color:$color;}
 }
@@ -20,8 +19,11 @@
   background-color:rgba(64, 145, 208, 0.15) !important;
 }
 
-.cal_select{@extend %select;@include customEvt(#00477f){border-width:1px;}}
+.cal_busy{@extend %busy;@include customEvt(#00477f){border-width:1px;}}
 .cal_absence{@extend %absence;@include customEvt(#333){border-width:1px;}}
-.cal_busy{@extend %busy;@include customEvt(#ff0000){border-width:1px;}}
-.fc-day-sun,
-.fc-day-sat{max-width:15%;}
+.cal_holiday{@extend %holiday;@include customEvt(#ff0000){border-width:1px;}}
+
+.wbs{
+  .fc-resource-group .fc-datagrid-cell-cushion{@include text_ellipsis(3);padding-bottom:0;}
+}
+.fc-resourceTimelineYear-view .fc-timeline-slot{color:inherit;}

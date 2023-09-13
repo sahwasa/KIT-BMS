@@ -35,7 +35,7 @@
 
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
 @mixin flex_layout{display:flex;justify-content:space-between;gap:$columnGap;@content;}
-@mixin vh_y_scroll($h:null){height:calc(100vh - $h);min-height:$h;overflow-y:auto;@content;}
+@mixin vh_y_scroll($h:null){height:100%;min-height:$h;overflow-y:auto;@content;}
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
 @mixin badge_style($max_w:null,$w:null){display:inline-block;width:$w; max-width:$max_w;color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
@@ -138,7 +138,7 @@ border:1px solid transparent;align-self:center;@content;}
 @mixin empty_box($con){display:flex;justify-content:center;align-items:center;height:100%;content:$con;padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:13px;color:#777;}
 
 @mixin user_lst{display:flex;flex-direction:column;gap:5px;
-  li{display:flex;justify-content:space-between;} 
+  li{display:flex;align-items:center;} 
 }
 
 @mixin text_ellipsis($line:1){text-overflow:ellipsis;white-space:normal;overflow:hidden;display:-webkit-box;-webkit-line-clamp:$line;-webkit-box-orient:vertical;}
