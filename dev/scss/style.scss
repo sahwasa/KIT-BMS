@@ -223,7 +223,7 @@ $columnGap:25px;
 
 // user
 // info 임시
-.user_info{display: flex;align-items:center;justify-content:center;height:100%;}
+.user_info{display:flex;align-items:center;justify-content:center;height:100%;}
 .profile_wrap{display:flex;gap:8vw;padding:5vh 0;
   %emp_img{position:relative;border:1px solid #bdbdbd;display:inline-block;overflow:hidden;
     table{flex:1;}    
@@ -273,7 +273,7 @@ $columnGap:25px;
   a{height:100%;display:flex;align-items:center;justify-content:center;@include f_blind;border:5px solid #fff;border-radius:50%;
     &::before{@include shape(24px,24px);background:url(../images/btn_top_svc.png) 0 0 no-repeat;}
     &.on,
-    &:hover{background-color:#efeded;transition: background-color .2s ease-in;
+    &:hover{background-color:#efeded;transition:background-color .2s ease-in;
       &::before{background-image:url(../images/btn_top_svc_on.png);}
     }
   }
@@ -412,7 +412,7 @@ $snbWidth:250px;
       #c41298,#3162EA,#67779b,#4f8017, #6f4084,#1335ac,#b857d8,#2a516f
       #887cda,#747c2f,#5770c7,#556262,#108899,#333;
       @each $color in $_color_lst{
-        $index : index($_color_lst, $color);
+        $index :index($_color_lst, $color);
         li:nth-child(#{$index}){input{accent-color:$color}}
       }
     }
@@ -428,6 +428,7 @@ $snbWidth:250px;
   .layer_tool{display:none;margin-left:auto;
     .btn_ellipsis::before{height:16px;line-height:16px;font-size:11px;}
   }
+  .new_bedge{top:1px;padding:0 3px;font-size:10px;}
 }
 
 //container
@@ -712,7 +713,7 @@ z-index:10;
     .act_name,
     .act_type{font-weight:600;}
   }
-  .referrer_act{@include user_lst;margin-top:10px;padding-top:8px;border-top: 1px solid #ccc;
+  .referrer_act{@include user_lst;margin-top:10px;padding-top:8px;border-top:1px solid #ccc;
     .appr_result{font-size:12px;b{margin-left:3px;}}
     $_signType:('uncheck':#b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
     @each $type, $color in $_signType{
@@ -904,7 +905,7 @@ $_planTypes:(
       #c41298,#3162EA,#67779b,#4f8017, #6f4084,#1335ac,#b857d8,#2a516f
       #887cda,#747c2f,#5770c7,#556262,#108899,#333;
       @each $color in $_color_lst{
-        $index : index($_color_lst, $color);
+        $index :index($_color_lst, $color);
         &:nth-child(#{$index}){
           &>.briefing_plan::before{background:$color;border-color:$color;}
         }
@@ -988,10 +989,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 %task_type{display:inline-block;width:28px;height:17px;font-size:11px;line-height:15px;text-align:center;border-radius:3px;margin-left:auto;}
 @mixin taskColor($tagType:false){
   @each $type, $val in $taskColorMap{
-    &#{$type}{color:darken($color: $val, $amount:15);
+    &#{$type}{color:darken($color:$val, $amount:15);
       @if($tagType){@extend %task_type;
-        border:1px solid darken($color: $val, $amount:15);
-        background-color:lighten($color: $val, $amount: 25);
+        border:1px solid darken($color:$val, $amount:15);
+        background-color:lighten($color:$val, $amount:25);
         @if(lightness($val) < 60){background-color:lighten($color:$val, $amount:36);}
       }
     }
@@ -1089,12 +1090,20 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         &:first-child{text-align:left;}
       }
       @each $color in $taskColor{
-        $i : index($taskColor, $color) + 2;
+        $i :index($taskColor, $color) + 2;
         th:nth-child(#{$i}),
         td:nth-child(#{$i}){width:8%;color:$color;font-weight:bold;text-align:center;white-space:nowrap;}
       }
       .user_module{display:inline-flex;}
       .user_photo{width:24px;height:24px;}      
+    }
+    details{border-bottom:1px solid #ebebeb;
+      &>*:not(summary){padding:8px 0;}
+      summary::-webkit-details-marker,
+      summary::marker{display:none;content:'';}
+      summary::before{font-family:'fontello';content:'\f107';font-size:14px;color:$red;} // 1depth
+      &[open]>summary{min-height:43px;border-bottom:1px solid #ebebeb;}
+      &[open]>summary::before{margin:0 2px;content:'\f105';color:#000;}
     }
     @include desktop{
       td{padding:5px;}
@@ -1114,9 +1123,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     progress{flex:1 1 auto;}
     label{flex:0 0 42px;color:$red;font-weight:bold;font-size:11px;text-align:left;}
   }
-  $_proj_stacked:(
-    'chart_fin':#56b1b6, 'chart_delay':#ff7575, 'chart_todo':#ffc938, 'chart_termless':#a9b4be
-  );
+  $_proj_stacked:('chart_fin':#56b1b6, 'chart_delay':#ff7575, 'chart_todo':#ffc938, 'chart_termless':#a9b4be);
   .stacked_bar{display:flex;height:12px;border-radius:3px;overflow:hidden;
     li{@include f_blind;
       &:last-child{flex-grow:1;}
@@ -1124,7 +1131,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         &.#{$type}{background-color:$color;}
       }
     }
-  }
+  }  
   .chart_label{display:flex;gap:18px;justify-content:flex-end;margin-top:14px;
     li{font-weight:bold;font-size:11px;letter-spacing:-.55px;padding-left:14px;text-indent:-14px;
       span{margin-left:3px;color:#b2bacd;}
@@ -1170,6 +1177,117 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     .set_list + button{margin-top:15px;}   
   }  
 }
+.rfp{
+  span.score{margin-left:3px;color:#e77b79;font-size:12px;
+    b{font-weight:bold;color:#e42b29;}
+  }
+  .con_rfp_board{
+    summary{@include flex_between;min-height:42px;gap:10px;padding:0 10px;
+      i{margin-right:8px;}
+      &>div{display:inline-block;flex:1;
+        h4{display:inline-block;font-size:14px;font-weight:bold;color:#000;letter-spacing:-0.35px;}
+        span{color:#898989;letter-spacing:-1.05px;font-size:14px;}
+        & + span{float:right;color:#e77b79;font-size:12px;
+          b{font-weight:bold;color:#e42b29;}
+        }
+      }
+    }
+    &>li{
+      li:has(.pic){@include flex_between;min-height:33px;padding:0 13px 0 20px;
+        .pic{margin-bottom:0;
+          li{position:relative;border-color:#fff;
+            &:first-child{left:7px;z-index:2;}
+            &:nth-child(2){left:0;z-index:1;}
+            &:nth-child(3){left:-7px;z-index:0;overflow:hidden;
+              &:has(span) span{position:absolute;width:100%;line-height:20px;z-index:1;background:#d3d3d3;font-size:10px;text-align:center;font-weight:bold;}
+            }
+          }
+        }
+        span{letter-spacing:-0.33px;}
+        &.on{background-color:#eef6ff;}
+        i{margin-right:3px;}
+      }
+    }
+  }
+  $_projStep:('start':#c9dbf8,'analysis':#eedcff,'plan':#f8dac9,'build':#c6ebe4,'test':#d1d3fd,'edu':#daefb8,'completion':#eee1d8,'report':#f8ee95);
+  .tags{margin-right:3px;
+    i{@include badge_style();margin-right:0;padding:0 5px;font-size:11px;line-height:13px;font-weight:bold;
+      @each $type, $color in $_projStep{
+        &.#{$type}{margin-right:3px;border-color:darken($color,5);background-color:$color;color:darken($color,50);}
+      }
+    }
+  }
+  .badge{@include badge_style(null, 50px);line-height:16px;margin-right:5px;
+    @each $type, $color in $_projStep{
+      &.#{$type}{border-color:darken($color,5);background-color:$color;color:darken($color,50);font-weight:bold;}
+    }
+  }
+  .proj_legend{font-size:11px;
+    ul{@include flex_between;gap:10px;}
+  }
+  .ico_proj{
+    i:not(.badge){width:15px;height:15px;top:0;}
+    .tags{display:inline-block;margin-left:10px;
+      i{width:auto;height:auto;background-color:#ff7575;}
+    }
+    $_projSize:('ready':#f0a44f,'ing':#00b5da,'done':#19b200,'hold':#bfc8d2);
+    $_projColor:('ready':#f0a44f,'ing':#00b5da,'done':#19b200,'hold':#bfc8d2);
+    $_projType:('ready':'\ea49','ing':'\e903', 'done':'\e814', 'hold':'\ebe9');
+    @each $type, $txt in $_projType{
+      .#{$type}{background:transparent;
+        &::before{@include fontello($txt);margin-right:4px;font-size:14px;color:map-get($_projColor, $type);}
+      }
+    }
+  }
+  .task_tit{@include flex_between;height:50px;margin-top:-21px;padding-right:10px;
+    h1{font-size:16px;color:#000;font-weight:bold;}
+  }
+  .task_body{margin-top:0;gap:0;
+    header.all_lst_ctrl{@include flex_between;height:42px;padding:0 12px;border:1px solid #ebebeb;border-width:1px 0;}
+    .left_section{min-width:450px;flex:0 1 800px;border-right:1px solid #ebebeb;}
+    .right_section{min-width:350px;
+      header:has(h1){@include flex_between;align-items:start;padding-left:0;
+        h1{font-size:16px;}
+        span{color:#b5b4b4;font-size:13px;}
+      }
+      .all_lst_ctrl{justify-content:flex-end}
+      &>div{padding:15px 20px;}
+    }
+  }
+  .set_list.work_dot_wrap{margin-top:20px;grid-template:auto/120px 1fr;align-items:baseline;
+    dt{font-size:13px;font-weight:normal;color:#000;vertical-align:top;
+      &::before{top:9px;display:inline-block;content:'';width:3px;height:3px;border-radius:4px;background-color:#bec7d1;}
+    }
+    dd{color:#71798a;
+      &.ico_proj{font-size:11px;color:#000;}
+      .user_module{
+        & + .user_module{margin-top:5px;}
+      }
+    }
+  }
+  .cmt_lst{background-color:#f9f9f9;
+    li{padding:7px 15px;border-top:1px solid #ebebeb;}
+    .cmt_user{@include flex_between;align-items:start;
+      .user_module{
+        &:has(p){align-items:start;
+          em{margin-right:2px;}
+        }
+        &:not(:has(p)){
+          b{font-size:12px;color:#b5b4b4;letter-spacing:-0.6px;}
+        }
+      }
+      .user_photo{width:21px;height:21px;}
+      p{margin-top:2px;font-size:11px;color:#b5b4b4;}
+      button:hover{text-decoration:underline;}
+    }
+    .cmt_txt{padding:10px 5px 5px;color:#71798a;}
+    .cmt_write{@include flex_between;gap:5px;margin:5px 0 10px;padding:2px 5px;border:1px solid #666666;border-radius:5px;background-color:#fff;
+      input{border-color:transparent;color:#71798a;}
+      button{padding:0 5px;line-height:20px;white-space:pre;font-size:12px;}
+    }
+    .btn_wrap{font-size:12px;color:#71798a;}
+  }
+}
 
 //wbs
 .cal_wbs{height:calc(100vh - 350px);}
@@ -1196,7 +1314,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   details{
     summary::-webkit-details-marker,
     summary::marker{display:none;content:'';}
-    summary::before{font-family:'fontello';content: '\f107';font-size:14px;color:$red;} // 1depth
+    summary::before{font-family:'fontello';content:'\f107';font-size:14px;color:$red;} // 1depth
     &[open]>summary::before{margin:0 2px;content:'\f105';color:#000;}
   }
   details:has(.work_box){border-bottom:1px solid #ebebeb;
@@ -1210,7 +1328,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
   h5{display:inline-block;font-size:12px;color:#000;letter-spacing:-0.12px;}
   .work_more{font-size:0;vertical-align:middle;
-    &::before{display:inline-block;content:'';width:14px;height:14px;margin-left:3px;background:url(../images/ic_more.png) no-repeat;vertical-align: inherit;}
+    &::before{display:inline-block;content:'';width:14px;height:14px;margin-left:3px;background:url(../images/ic_more.png) no-repeat;vertical-align:inherit;}
   }
   b{white-space:pre;}
   .badge{@include badge_style(null,42px);height:17px;font-size:11px;font-weight:bold;line-height:15px;}
@@ -1310,7 +1428,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 .handle_week{@include flex_between;gap:15px;justify-content:center;margin-bottom:10px;padding-top:10px;
     .handle_prev,
     .handle_next{font-size:0;
-      &::before{display:block;@include fontello('\f105');font-size:15px;width:30px;line-height:30px;border:1px solid #a2a2a2;border-radius:15px;color:#000;font-weight: bold;}
+      &::before{display:block;@include fontello('\f105');font-size:15px;width:30px;line-height:30px;border:1px solid #a2a2a2;border-radius:15px;color:#000;font-weight:bold;}
       &:disabled{cursor:not-allowed;
         &::before{border-color:#d2d2d2;color:#d2d2d2;}
       }
@@ -1326,7 +1444,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &:hover{background:#f9fafc;}
     h2{$_workType:('ing':#2d66d8,'done':#f07816);
       @each $type, $color in $_workType{
-        &.#{$type}{display:flex;justify-content:center;align-items:center;width:180px;min-height:90px;padding:5px;border:1px solid $color;border-radius:5px;background:lighten($color, 45%);box-shadow: 0px 1px 8px 0 rgba(0, 0, 0, 0.07);font-weight:bold;color:$color;text-align:center;word-break:keep-all;}
+        &.#{$type}{display:flex;justify-content:center;align-items:center;width:180px;min-height:90px;padding:5px;border:1px solid $color;border-radius:5px;background:lighten($color, 45%);box-shadow:0px 1px 8px 0 rgba(0, 0, 0, 0.07);font-weight:bold;color:$color;text-align:center;word-break:keep-all;}
       }
     }
     &>div:first-of-type{flex:1;
@@ -1438,4 +1556,19 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 }
 .progress_input{
   &+button{display:block;width:100%;margin-top:5px;}
+}
+
+.notice_board{display:flex;
+  &>section{flex:0 1 50%;}
+  td{
+    .new_bedge{padding:0 3px;font-size:10px;}
+  }
+}
+.vote_wrap{
+  span:has(input[type=number]){margin-bottom:5px;
+    &+div{
+      &>.file_input{margin-bottom:3px;}
+    }
+  }
+  input[type=number]{flex:0 1 60px;text-align:left;}
 }
