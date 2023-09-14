@@ -119,6 +119,21 @@ function commonInit() {
       }
     },
   })
+  // tbl_list Handle checked
+  $('.tbl_list .row_check').on({
+    click: function (e) {
+      e.stopPropagation()
+    },
+    change: function () {
+      var cur = $(this).prop('checked')
+      var thisLi = $(this).closest('li')
+      if (cur) {
+        thisLi.addClass('select_li')
+      } else {
+        thisLi.removeClass('select_li')
+      }
+    },
+  })
 
   // list all check
   function all_check_evt(el) {
@@ -188,14 +203,14 @@ function commonInit() {
       $(this).prop('checked') ? target.show() : target.hide()
     }
   })
-  $('[data-tglwrap]').hide().first().show();
+  $('[data-tglwrap]').hide().first().show()
   $('[data-toggle]').on('click', function (e) {
-    const getTarget = e.target.dataset.toggle;
-    target = $('#' + getTarget);
-    console.log(target);
+    const getTarget = e.target.dataset.toggle
+    target = $('#' + getTarget)
+    console.log(target)
     target.show()
-    $(this).closest('[data-tglwrap]').hide();
-  });
+    $(this).closest('[data-tglwrap]').hide()
+  })
 
   const getYear = new Date()
   $("[name='ipt_year']").val(getYear.getFullYear())
@@ -358,16 +373,17 @@ function commonInit() {
   const label = select_custom.find('.label')
   const options = select_custom.find('.optionItem')
   options.off('click').on('click', function (e) {
-    const eclass = Array.prototype.slice.apply(e.target.classList);
-    if (!(eclass.includes('optionItem'))) handleSelect($(this).closest('.optionItem')[0])
-    else handleSelect(e.target);
+    const eclass = Array.prototype.slice.apply(e.target.classList)
+    if (!eclass.includes('optionItem'))
+      handleSelect($(this).closest('.optionItem')[0])
+    else handleSelect(e.target)
   })
-  label.off('click').on('click', function(){
+  label.off('click').on('click', function () {
     select_custom.removeClass('active')
     $(this).parent().hasClass('active')
       ? $(this).parent().removeClass('active')
       : $(this).parent().addClass('active')
-  });  
+  })
   $('select').on('change', function () {
     $(this).css('color', 'inherit')
   })
@@ -613,7 +629,7 @@ function addTag(selectedName, divId, selectId) {
       tag.appendChild(button)
       tags.appendChild(tag)
     }else{
-      alert('이미 선택된 업무범주입니다')
+      alert('이미 선택된 항목입니다')
     }
   }
 }
