@@ -37,8 +37,8 @@
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj06" class="tab_contents doc">
-            @@include('project_view_doc.html')
+        <section id="proj04" class="tab_contents wbs">
+            @@include('porject_view_wbs.html')
           </section>
           <section id="proj01" class="tab_contents issue">
             @@include('porject_view_issue.html')
@@ -49,13 +49,12 @@
           <section id="proj03" class="tab_contents rfp">
             @@include('project_view_rfp.html')
           </section>
-          <section id="proj04" class="tab_contents wbs">
-            wbs
-          </section>
           <section id="proj05" class="tab_contents risk">
             @@include('project_view_risk.html')
           </section>
-          
+          <section id="proj06" class="tab_contents doc">
+            @@include('project_view_doc.html')
+          </section>
         </div>
       </div>
     </section>
@@ -67,6 +66,8 @@
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script src="../../js/proj_chart.js"></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/wbs.js"></script>
 <script>
   $(function () {
     setEditor();
@@ -100,7 +101,6 @@
     })
     const handleMultiSelect = function(item,target){
       const itemVal = $(item).data('value');
-        console.log($(item).html())
       target.forEach(element => {      
         element.html($(item).html()).attr('data-value', itemVal);        
       });

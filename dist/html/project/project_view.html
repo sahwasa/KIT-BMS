@@ -206,95 +206,8 @@
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj06" class="tab_contents doc">
-            <section>
-  <div class="alignR">
-    <button type="button" class="btn_red">추가</button>
-    <button type="button" class="btn_red_line">수정</button>
-    <button type="button" class="btn_gray_line">삭제</button>
-  </div>
-  <section class="task_body">
-    <table class="tbl_default tbl_use_select tbl_hover hasLayer alignL_3">
-      <caption>문서관리 리스트</caption>
-      <colgroup>
-        <col style="width:60px;">
-        <col style="width:120px;">
-        <col style="width:auto;min-width:240px;">
-        <col style="width:auto;min-width:240px;">
-        <col span="4" style="width:120px;">
-        <col style="width:95px;">
-      </colgroup>
-      <thead>
-        <tr>
-          <th scope="col">선택</th>
-          <th scope="col">문서 ID</th>
-          <th scope="col">문서 제목​</th>
-          <th scope="col">첨부파일​</th>
-          <th scope="col">유형​</th>
-          <th scope="col">작성자​</th>
-          <th scope="col">승인자​</th>
-          <th scope="col">최종 갱신일자​</th>
-          <th scope="col">관리​</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr tabindex="0">
-          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
-          <td>R202200101</td>
-          <td>000 자료 분석​</td>
-          <td><a href="#" download="" onclick="event.stopPropagation();">37_주차(230910-230916)_SI사업본부.hwp</a></td>
-          <td><div class="tags"><i>업무보고</i></div>​</td>
-          <td>홍길동(개발1팀)</td>
-          <td>홍길동(개발1팀)</td>
-          <td>2023-05-01</td>
-          <td onclick="event.stopPropagation();">
-            <div class="layer_tool">
-              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-              <div class="btn_layer">
-                <button type="button">수정</button>
-                <button type="button">삭제</button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr tabindex="0">
-          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><div class="tags"><i>산출물</i></div>​</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr tabindex="0">
-          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><div class="tags"><i>감리</i></div></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr tabindex="0">
-          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><div class="tags"><i>회의록</i></div></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-</section>
-
+        <section id="proj04" class="tab_contents wbs">
+            <div id='wbs' class="cal_wbs"></div>
           </section>
           <section id="proj01" class="tab_contents issue">
             <div>
@@ -1412,13 +1325,99 @@
 
 </script>
           </section>
-          <section id="proj04" class="tab_contents wbs">
-            wbs
-          </section>
           <section id="proj05" class="tab_contents risk">
             <div id='wbs' class="cal_wbs"></div>
           </section>
-          
+          <section id="proj06" class="tab_contents doc">
+            <section>
+  <div class="alignR">
+    <button type="button" class="btn_red">추가</button>
+    <button type="button" class="btn_red_line">수정</button>
+    <button type="button" class="btn_gray_line">삭제</button>
+  </div>
+  <section class="task_body">
+    <table class="tbl_default tbl_use_select tbl_hover hasLayer alignL_3">
+      <caption>문서관리 리스트</caption>
+      <colgroup>
+        <col style="width:60px;">
+        <col style="width:120px;">
+        <col style="width:auto;min-width:240px;">
+        <col style="width:auto;min-width:240px;">
+        <col span="4" style="width:120px;">
+        <col style="width:95px;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">선택</th>
+          <th scope="col">문서 ID</th>
+          <th scope="col">문서 제목​</th>
+          <th scope="col">첨부파일​</th>
+          <th scope="col">유형​</th>
+          <th scope="col">작성자​</th>
+          <th scope="col">승인자​</th>
+          <th scope="col">최종 갱신일자​</th>
+          <th scope="col">관리​</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tabindex="0">
+          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
+          <td>R202200101</td>
+          <td>000 자료 분석​</td>
+          <td><a href="#" download="" onclick="event.stopPropagation();">37_주차(230910-230916)_SI사업본부.hwp</a></td>
+          <td><div class="tags"><i>업무보고</i></div>​</td>
+          <td>홍길동(개발1팀)</td>
+          <td>홍길동(개발1팀)</td>
+          <td>2023-05-01</td>
+          <td onclick="event.stopPropagation();">
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button">수정</button>
+                <button type="button">삭제</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr tabindex="0">
+          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><div class="tags"><i>산출물</i></div>​</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr tabindex="0">
+          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><div class="tags"><i>감리</i></div></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr tabindex="0">
+          <td><input type="checkbox" class="row_check" title="문서 선택"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><div class="tags"><i>회의록</i></div></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+
+          </section>
         </div>
       </div>
     </section>
@@ -1471,6 +1470,8 @@ commonInit();
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script src="../../js/proj_chart.js"></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/wbs.js"></script>
 <script>
   $(function () {
     setEditor();
@@ -1504,7 +1505,6 @@ commonInit();
     })
     const handleMultiSelect = function(item,target){
       const itemVal = $(item).data('value');
-        console.log($(item).html())
       target.forEach(element => {      
         element.html($(item).html()).attr('data-value', itemVal);        
       });
