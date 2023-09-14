@@ -63,8 +63,8 @@
         { id: 'b', resourceId: 'b', title:'출장', start: '2023-09-07T10:30:00', end: '2023-09-14T15:30:00', className: 'cal_absence'},
         { id: 'c', resourceId: 'c', title:'조기경보회의', start: '2023-09-07T12:00:00', end: '2023-09-07T13:00:00', className: 'cal_busy'}
       ],     
-      slotDuration: { days: 1 },
       nowIndicator: true,
+      slotDuration: { days: 1 },
       viewRender: function (info) {
         var firstDay = info.view.currentStart.getDay(); // Get the day of the week for the first day
         var isSundayStart = firstDay === 0; // Check if Sunday is the start of the week
@@ -93,7 +93,7 @@
           slotDuration: { week: 1 },
           slotLabelFormat: [
             { month: 'numeric'},
-            { week: 'narrow'},
+            { week: 'numeric'},
           ]
         }
       }
