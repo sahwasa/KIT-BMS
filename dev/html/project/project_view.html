@@ -28,8 +28,8 @@
         </div>
         <div class="tab_wrap">
           <ul class="tab">
-            <li><a href="#proj01">개요</a></li>
-            <li><a href="#proj02">이슈</a></li>
+            <li><a href="#proj01">이슈</a></li>
+            <li><a href="#proj02">개요</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
             <li><a href="#proj05">리스크관리</a></li>
@@ -37,8 +37,8 @@
           </ul>
         </div>
         <div class="tab_container">
-        <section id="proj04" class="tab_contents wbs">
-            @@include('porject_view_wbs.html')
+          <section id="proj06" class="tab_contents doc">
+            @@include('project_view_doc.html')
           </section>
           <section id="proj01" class="tab_contents issue">
             @@include('porject_view_issue.html')
@@ -47,15 +47,15 @@
             @@include('porject_view_overview.html')
           </section>
           <section id="proj03" class="tab_contents rfp">
-            @@include('porject_view_rfp.html')
+            @@include('project_view_rfp.html')
+          </section>
+          <section id="proj04" class="tab_contents wbs">
+            wbs
+          </section>
+          <section id="proj05" class="tab_contents risk">
+            @@include('project_view_risk.html')
           </section>
           
-          <section id="proj05" class="tab_contents risk">
-            리스크관리
-          </section>
-          <section id="proj06" class="tab_contents doc">
-            문서관리
-          </section>
         </div>
       </div>
     </section>
@@ -67,8 +67,6 @@
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script src="../../js/proj_chart.js"></script>
-<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
-<script src="../../js/wbs.js"></script>
 <script>
   $(function () {
     setEditor();
@@ -102,6 +100,7 @@
     })
     const handleMultiSelect = function(item,target){
       const itemVal = $(item).data('value');
+        console.log($(item).html())
       target.forEach(element => {      
         element.html($(item).html()).attr('data-value', itemVal);        
       });
