@@ -27,3 +27,16 @@
   .fc-resource-group .fc-datagrid-cell-cushion{@include text_ellipsis(3);padding-bottom:0;}
 }
 .fc-resourceTimelineYear-view .fc-timeline-slot{color:inherit;}
+#cal-roombook{
+  .fc-datagrid-cell-main{
+    display:inline-flex;align-items:center;gap:5px;
+    &::before{@include shape(14px,14px);}
+  }
+  @each $type, $col in $_roomType{
+    .room#{$type}{
+      @include customEvt($col){background-color:rgba($col,.15);border-color:$col;}
+      .fc-event-title{color:darken($color: $col, $amount:20)}
+    }
+    [data-resource-id=#{$type}] .fc-datagrid-cell-main::before{background-color:$col;}
+  }
+}

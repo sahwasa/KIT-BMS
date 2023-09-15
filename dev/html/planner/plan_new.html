@@ -137,16 +137,19 @@
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
+@@include('../../inc/pop/p_status_roomBook.html')<!--// 회의실 예약 현황 -->
+
 @@include('../../inc/layout/script.html')
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
-<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
-<!-- <script src="../../js/book_meeting_room.js"></script> -->
+<script src="../../js/book_meeting_room.js"></script>
 <script src="../../js/memberplan.js"></script>
 <script>
   $(function () {
-    setEditor();// editor common
+    setEditor();// editor common   
     // fileDropEvt();
   })
+  var myDialog = document.getElementById("myModal");
+    myDialog.showModal();
 </script>
 </body>
 

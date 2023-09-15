@@ -243,6 +243,21 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<dialog class="p_status_roomBook" id="myModal">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>회의실 예약현황</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div id='cal-roombook' class="calendar"></div>
+    </div>
+  </form>
+</dialog>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src='../../plugins/google-calendar/index.global.min.js'></script>
+<script src="../../js/book_meeting_room.js"></script><!--// 회의실 예약 현황 -->
+
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>
@@ -283,14 +298,15 @@ commonInit();
   </form>
 </dialog>
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
-<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
-<!-- <script src="../../js/book_meeting_room.js"></script> -->
+<script src="../../js/book_meeting_room.js"></script>
 <script src="../../js/memberplan.js"></script>
 <script>
   $(function () {
-    setEditor();// editor common
+    setEditor();// editor common   
     // fileDropEvt();
   })
+  var myDialog = document.getElementById("myModal");
+    myDialog.showModal();
 </script>
 </body>
 
