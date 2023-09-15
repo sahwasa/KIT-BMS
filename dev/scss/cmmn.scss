@@ -271,7 +271,8 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   }
 }
 $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f);
-$_planType:('personal':#4285f4,'business':#33B679, 'meeting':#A79B8E, 'event':#7986CB);
+$_planType:('personal':#1E7B45,'business':#1E7B45, 'meeting':#1E7B45, 'event':#4285f4, 'leave':#7249BD);
+
 .select_custom{position:relative;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
   &.active{
     &:focus-within{z-index:9999;
@@ -293,7 +294,6 @@ $_planType:('personal':#4285f4,'business':#33B679, 'meeting':#A79B8E, 'event':#7
   &.prio{width:90px;}
   &.meeting_room{width:100px;
     i{width:15px;height:15px;top:0;}
-    $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#b49bdb, 'D':#9167df);
     @each $type, $color in $_roomType{
       .room#{$type}{background-color:$color;}
     }

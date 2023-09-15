@@ -407,8 +407,13 @@ $snbWidth:250px;
     label{@extend %sublst;display:inline-flex;align-items:flex-start;padding-left:25px;max-width:#{$snbWidth  - 15};word-break:break-all;
       &::before{display:none;}
     }
+    &.lst_ctrl input{appearance:auto;background:none;color:#fff;}
+    &.lst_plan_my{
+      @each $type, $color in $_planType{
+        .p_#{$type}{input{accent-color:$color}}
+      }
+    }
     &.lst_plan_proj{
-      input{appearance:auto;background:none;color:#fff;}
       $_color_lst:#4091D0,#879977,#d85c82,#a67709, #5f9898,
       #c41298,#3162EA,#67779b,#4f8017, #6f4084,#1335ac,#b857d8,#2a516f
       #887cda,#747c2f,#5770c7,#556262,#108899,#333;
