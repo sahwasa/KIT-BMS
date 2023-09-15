@@ -224,7 +224,7 @@ $columnGap:25px;
 // user
 // info 임시
 .user_info{display:flex;align-items:center;justify-content:center;height:100%;}
-.profile_wrap{display:flex;gap:8vw;padding:5vh 0;
+.profile_wrap{display:flex;gap:5vw;padding:5vh 0;
   %emp_img{position:relative;border:1px solid #bdbdbd;display:inline-block;overflow:hidden;
     table{flex:1;}    
     input[type="file"]{position:absolute;width:0;height:0;padding:0;overflow:hidden;border:0;}
@@ -241,7 +241,7 @@ $columnGap:25px;
     .user_id{font-size:30px;font-weight:bold;margin-top:30px;}  
     .user_email{font-size:18px;margin-top:10px;}
   }
-  .profile_ipt{
+  .profile_ipt{flex:1 0 740px;
     dl{display:grid;grid-template:auto / 130px 1fr 130px 1fr;align-items:start;align-content:space-around;gap:20px;border-top:1px solid #ddd;
     padding:20px 20px 20px 0;
       &:first-of-type{border-top-width:0;padding-top:0;}
@@ -253,6 +253,7 @@ $columnGap:25px;
       &::before{left:19px;}
       &:has(.required)label{position:relative;}
     }
+    dd{min-width:200px;}
   }
   [required]::before,
   .required::before{position:absolute;left:-10px;}
@@ -327,7 +328,7 @@ background:$black;
       &::before{@include shape(26px,26px);background:url('../images/bg_nav.png') 0 0 no-repeat;position:relative;margin-bottom:3px;}
     }    
     &.on a,&:hover a{background:$red;color:$white;}
-    &:last-child{margin-top:auto;}
+    // &:last-child{margin-top:auto;}
   }
   @for $i from 1 to 11{
     & li:nth-child(#{$i}) a::before{
