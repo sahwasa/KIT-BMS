@@ -43,7 +43,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="../home/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -66,7 +66,7 @@
     <li><a href="../../html/erp/erp.html">ERP</a></li>
     <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
-    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+    <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
   </ul>
 </nav>
   <main id="content" class="container">
@@ -76,7 +76,7 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
-      <a href="#" class="btn_default">내 업무 추가</a>
+      <a href="work_new.html" class="btn_default">내 업무 추가</a>
     </div>
     <ul class="snb_lst">
       <li><a href="work_myTodo.html">내 업무함</a>
@@ -138,8 +138,10 @@
               </li>
               <li>
                 <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
-                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01"
+                    max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01"
+                    max="9999-12-31">
                 </div>
               </li>
               <li>
@@ -171,9 +173,10 @@
                   <colgroup>
                     <col style="width:50px;">
                     <col style="width:120px;">
-                    <col style="width:auto;">
+                    <col style="width:auto;min-width:240px;">
                     <col style="width:120px;">
-                    <col span="3" style="width:150px;">
+                    <col style="width:150px;">
+                    <col span="2" style="width:100px;">
                     <col span="2" style="width:95px;">
                   </colgroup>
                   <thead>
@@ -194,34 +197,26 @@
                       <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
                       <td>개인업무</td>
                       <td>PEWS 관련 회의 요청드립니다<a href="#" class="cmt_num">4</a></td>
-                      <td>개발</td>
+                      <td><div class="tags"><i>개발</i></div></td>
                       <td>홍길동(개발1팀)</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>
-                         <i class="tbl_badge reject">반려</i>
-                          <div class="layer_tool">
-                            <p>반려사유</p> 외부 일정이 있어 참여 불가
-                          </div>
-                      </td>
-                      <td onclick="event.stopPropagation();">
+                        <i class="tbl_badge reject">반려</i>
                         <div class="layer_tool">
-                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                          <div class="btn_layer">
-                            <button type="button">수락</button>
-                            <button type="button">반려</button>
-                          </div>
+                          <p>반려사유</p> 외부 일정이 있어 참여 불가
                         </div>
                       </td>
+                      <td></td>
                     </tr>
                     <tr tabindex="0">
                       <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
                       <td>프로젝트</td>
                       <td>PEWS 관련 회의 요청드립니다<a href="#" class="cmt_num">4</a></td>
-                      <td>회의</td>
+                      <td><div class="tags"><i>회의</i></div></td>
                       <td>김00(00 부서)</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td><i class="tbl_badge default">미확인</i></td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
@@ -237,20 +232,12 @@
                       <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
                       <td>부서업무</td>
                       <td>PEWS 관련 회의 요청드립니다<a href="#" class="cmt_num">4</a></td>
-                      <td>개발</td>
+                      <td><div class="tags"><i>개발</i></div></td>
                       <td>홍길동(개발1팀)</td>
-                      <td>2023-05-01 01:30:11</td>
-                      <td>2023-05-01 01:30:11</td>
+                      <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td><i class="tbl_badge fin">수락</i></td>
-                      <td onclick="event.stopPropagation();">
-                        <div class="layer_tool">
-                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                          <div class="btn_layer">
-                            <button type="button">수락</button>
-                            <button type="button">반려</button>
-                          </div>
-                        </div>
-                      </td>
+                      <td></td>
                     </tr>
                   </tbody>
                 </table>

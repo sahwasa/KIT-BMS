@@ -1,0 +1,95 @@
+<dialog class="p_planEdit">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>일정 조회 & 브리핑 보드 상세</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div>
+        <table class="tbl_default tbl_row">
+          <caption>일정 추가 테이블</caption>
+          <colgroup>
+            <col style="width:150px">
+            <col style="width:auto">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row"><label for="plan_period">기간</label></th>
+              <td><p>2023-04-14 13:00 ~ 2023-04-14 14:00</p></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_tit">제목</label></th>
+              <td><input type="text" id="plan_tit"></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_place">장소</label></th>
+              <td><input type="text" id="plan_place"></td>
+            </tr>
+            <tr>
+              <th scope="row">회의실 예약</th>
+              <td>
+                <div class="select_custom meeting_room">
+                  <button class="label" onclick="event.preventDefault()">
+                    <span class="opt_label">선택</span>
+                  </button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0"><span class="opt_label">선택안함</span></li>
+                    <li class="optionItem disabled" aria-disabled="true" tabindex="-1" data-value="A"><i
+                        class="roomA">A</i>회의실A</li>
+                    <li class="optionItem" tabindex="0" data-value="B"><i class="roomB">B</i>회의실B</li>
+                    <li class="optionItem disabled" aria-disabled="true" tabindex="0" data-value="C"><i
+                        class="roomC">C</i>회의실C</li>
+                    <li class="optionItem" tabindex="0" data-value="D"><i class="roomD">D</i>회의실D</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">회의 참여방식</th>
+              <td>
+                <div class="file_input">
+                  <label for="type_offline"><input type="checkbox" id="type_offline" checked="">대면회의</label>
+                  <label for="type_online"><input type="checkbox" id="type_online">온라인</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="plan_participants">참여자</label></th>
+              <td>
+                <span class="file_input">
+                  <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+                  <datalist id="nameList">
+                    <optgroup label="개발본부">
+                      <option value="대장발핑">개발본부</option>
+                      <option value="개발핑">개발 1팀</option>
+                      <option value="새발핑">개발 1팀</option>
+                      <option value="말발핑">개발 2팀</option>
+                      <option value="소발핑">개발 2팀</option>
+                      <option value="곰발핑">개발 2팀</option>
+                    </optgroup>
+                    <optgroup label="경영관리">
+                      <option value="경영핑">경영관리</option>
+                      <option value="관리핑">경영관리</option>
+                    </optgroup>
+                  </datalist>
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                  <button type="button" class="btn_red_line">저장이 있어야 되나?!</button>
+                </span>
+                @@include('../module/module_slide_user.html')
+                @@include('../data/data_emp_name.html')
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_cont">내용</label></th>
+              <td>에디터</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>게시판</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="#" class="btn_default" onclick="location.href='board_write.html'">게시글 등록</a>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="#">공지사항</a>
+        <ul>
+          <li><a href="board_internal.html">사내공지 <i class="new_bedge">N</i></a></li>
+          <li><a href="#">경조사공지</a></li>
+          <li><a href="#">사진첩</a></li>
+        </ul>
+      </li>
+      <li><a href="#">부서별 게시판</a>
+        <ul>
+          <li><a href="#">SI사업본부</a></li>
+        </ul>
+      </li>
+      <li><a href="#">동호회 게시판</a>
+        <ul>
+          <li><a href="#">산악동호회</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>사내공지<span>공지사항</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">게시판</a></li>
+            <li><a href="#">공지사항</a></li>
+            <li>사내공지</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">
+          <header class="blind">
+            <h1>반려문서 목록</h1>
+          </header>
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <div class="period_group">
+                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
+                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_refresh">초기화</button>
+              </li>
+            </ul>
+            <div class="flex_right">
+              <button type="button" class="btn_red" onclick="location.href='board_write.html'">게시글 작성</button>
+            </div>
+          </section>
+          <section>
+            <table class="tbl_default tbl_hover alignL_2">
+              <caption>사내공지 리스트</caption>
+              <colgroup>
+                <col style="width:95px;">
+                <col style="width:auto;">
+                <col span="2" style="width:150px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">작성일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0" onclick="location.href='../board/board_view.html'">
+                  <td><i class="tbl_badge return">필독</i></td>
+                  <td>2023년 조직개편 및 진급자 발표<a href="#" class="cmt_num">3</a></td>
+                  <td>홍길동(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td><i class="tbl_badge return">필독</i></td>
+                  <td>2023년 시무식 안내<a href="#" class="cmt_num">6</a></td>
+                  <td>홍길동(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>15</td>
+                  <td>사무 공간 이동 배치 안내</td>
+                  <td>뽀로로(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>14</td>
+                  <td>에어컨 배관 이동 설치 공사 및 세척 작업 실시</td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>13</td>
+                  <td>쾌적한 사무실 만들기에 동참 해 주세요 - 점심식사 편</td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>12</td>
+                  <td>사무가구 및 파티션 공사 일정 안내</td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>11</td>
+                  <td>명함신청 안내</td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>10</td>
+                  <td>본사 "퇴근 점검표" 작성 방법 변경 안내<a href="#" class="cmt_num">1</a></td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>9</td>
+                  <td>사내 서버실 출입 관리 안내</td>
+                  <td>김철수(전략사업팀)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>8</td>
+                  <td>서울 도넛츠에서 생일 선물 받아가세요!<a href="#" class="cmt_num">12</a></td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>7</td>
+                  <td>KITGroup 방화벽 관리 정책<a href="#" class="cmt_num">1</a></td>
+                  <td>김철수(전략사업팀)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>6</td>
+                  <td>도서 신청 및 대여 공지</td>
+                  <td>홍길동(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>5</td>
+                  <td>PC 보급 규정 개정 안내<a href="#" class="cmt_num">1</a></td>
+                  <td>홍길동(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>4</td>
+                  <td>케이아이티그룹 통합 사내 OJT 업데이트<a href="#" class="cmt_num">3</a></td>
+                  <td>뽀로로(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>3</td>
+                  <td>물품 신청 안내</td>
+                  <td>홍길동(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>2</td>
+                  <td>2023년 시무식 안내<a href="#" class="cmt_num">1</a></td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>1</td>
+                  <td>2022년 워크샵 만족도 조사 및 행사 사진 공유<a href="#" class="cmt_num">5</a></td>
+                  <td>신짱구(경영관리실)</td>
+                  <td>2023-05-01</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate tui-pagination" id="pagination">
+  <span class="tui-page-btn tui-is-disabled tui-first">
+    <span class="tui-ico-first">first</span>
+  </span>
+  <span class="tui-page-btn tui-is-disabled tui-prev">
+    <span class="tui-ico-prev">prev</span>
+  </span>
+  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
+  <a href="#" class="tui-page-btn tui-last-child">2</a>
+  <a href="#" class="tui-page-btn tui-next">
+    <span class="tui-ico-next">next</span>
+  </a>
+  <a href="#" class="tui-page-btn tui-last">
+    <span class="tui-ico-last">last</span>
+  </a>
+</div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+</body>
+
+</html>

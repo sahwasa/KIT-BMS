@@ -102,13 +102,12 @@
             <dl>
               <dt><label for="plan_cont" class="required">내용</label></dt>
               <dd class="flex_full">
-                <div class="editor_wrap">
-                  <textarea name="editor" id="editor" title="에디터 영역">
-                  </textarea>
+                <div class="editor_wrap" id="editor_wrap">
+                  <textarea name="editor" id="editor" title="에디터 영역"></textarea>
                 </div>
               </dd>
               <dt>참여자</dt>
-              <dd class="flex_full">
+              <dd class="flex_full member_edit">
                 <div class="file_input">
                   <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
                   @@include('../../inc/data/data_emp_name.html')
@@ -120,15 +119,15 @@
               <dt>참여자 일정<button type="button" class="i_refresh" title="참여자 일정 검색">새로고침</button>
                 <div class="plan_legend">
                   <ul>
-                    <li class="select">선택한 시간</li>
                     <li class="busy">일정있음</li>
+                    <li class="holiday">휴일</li>
                     <li class="absence">부재</li>
                   </ul>
                 </div>
               </dt>
               <dd class="flex_full">
-                @@include('../../inc/module/module_tbl_plan_time.html')                
-                @@include('../../inc/module/module_tbl_plan_day.html')                
+                <!-- @@include('../../inc/module/module_tbl_plan_day.html') -->
+                <div id='calendar-memberplan' class="cal_memberplan"></div>
               </dd>
             </dl>
           </fieldset>
@@ -138,15 +137,19 @@
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
+@@include('../../inc/pop/p_status_roomBook.html')<!--// 회의실 예약 현황 -->
+
 @@include('../../inc/layout/script.html')
-<script src='../../plugins/fullcalendar/index.global.min.js'></script>
-<script src='../../plugins/google-calendar/index.global.min.js'></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/book_meeting_room.js"></script>
+<script src="../../js/memberplan.js"></script>
 <script>
   $(function () {
-    setEditor();// editor common
+    setEditor();// editor common   
     // fileDropEvt();
   })
+  var myDialog = document.getElementById("myModal");
+    myDialog.showModal();
 </script>
 </body>
 

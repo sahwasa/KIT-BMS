@@ -43,7 +43,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="../home/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -66,7 +66,7 @@
     <li><a href="../../html/erp/erp.html">ERP</a></li>
     <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
-    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+    <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
   </ul>
 </nav>
   <main id="content" class="container main">
@@ -98,9 +98,9 @@
       <br>
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">일정</h2>
       <ul>
-        <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회 & 브리핑 보드 상세</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_planEdit">일정 조회 & 브리핑 보드 상세 수정</button></li>
         <li><button type="button" class="btn_default" data-modal="p_status_roomBook">회의실 예약현황</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_planBriefing">브리핑 보드 상세</button></li>
       </ul>
       <br>
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">프로젝트</h2>
@@ -1352,7 +1352,7 @@
                         <caption>출장여비 테이블</caption>
                         <colgroup>
                           <col style="width:150px;">
-                          <col style="width:auto;">
+                          <col style="width:auto;min-width:150px;">
                           <col style="width:200px;">
                           <col style="width:200px;">
                         </colgroup>
@@ -1489,7 +1489,7 @@
 <dialog class="p_planView">
   <form method="dialog">
     <header class="p_header">
-      <strong>일정 조회</strong>
+      <strong>일정 조회 & 브리핑 보드 상세</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
@@ -1503,12 +1503,7 @@
           <tbody>
             <tr>
               <th scope="row"><label for="plan_period">기간</label></th>
-              <td>
-                <span class="file_input">
-                  <p>2023-04-14 13:00 ~ 2023-04-14 14:00</p>
-                  <span>반복</span>
-                </span>
-              </td>
+              <td><p>2023-04-14 13:00 ~ 2023-04-14 14:00</p></td>
             </tr>
             <tr>
               <th scope="row"><label for="plan_tit">제목</label></th>
@@ -1516,143 +1511,6 @@
                 <span class="file_input">
                   <span>[중요]</span>
                   <p>제목 상세 입력 박스 임시 일정</p>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="plan_place">일정공유</label></th>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="plan_place">장소</label></th>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">회의실 예약</th>
-              <td>
-                <ul class="btn_slideclose">
-                  <li>
-                    <div>
-                      <p>회의실A</p><button type="button">삭제</button>
-                    </div>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <th><label for="plan_participants">참여자</label></th>
-              <td>
-                  <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-                <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li>
-  <li>
-    <div>
-      <p>임선</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li>
-</ul>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="plan_cont">내용</label></th>
-              <td>
-                <div class="plan_cot">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="form_expense">파일첨부</label></th>
-              <td>
-                <div class="approval_set">
-                  <div class="file_attached">
-  <ul class="attach_list"></ul>
-  <ul class="attach_list">
-    <li>
-      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
-      <a href="#" target="_blank" class="preview">미리보기</a>
-    </li>
-    <li>
-      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
-      <a href="#" target="_blank" class="preview">미리보기</a>
-    </li>
-  </ul>
-</div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="btn_wrap">
-        <button class="btn_red" type="button">적용</button>
-        <button class="btn_gray_line">취소</button>
-      </div>
-    </div>
-  </form>
-</dialog><!--// 일정 조회 -->
-<dialog class="p_planBriefing">
-  <form method="dialog">
-    <header class="p_header">
-      <strong>브리핑 보드 상세</strong>
-      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
-    </header>
-    <div class="p_body">
-      <div>
-        <div class="p_body_tit">
-          <h1>000 유지보수 홍길동 연구원 <em>님이 추가한 일정입니다.</em></h1>
-        </div>
-        <table class="tbl_default tbl_row">
-          <caption>브리핑 보드 상세 테이블</caption>
-          <colgroup>
-            <col style="width:150px">
-            <col style="width:auto">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th scope="row"><label for="plan_tit">제목</label></th>
-              <td>
-                <span class="file_input">
-                  <!-- <span>[중요]</span> -->
-                  <p>월간공정보고 검사</p>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="plan_period">기간</label></th>
-              <td>
-                <span class="file_input">
-                  <p>2023-04-14 13:00 ~ 2023-04-14 14:00</p>
-                  <span>반복</span>
                 </span>
               </td>
             </tr>
@@ -1670,7 +1528,12 @@
             </tr>
             <tr>
               <th scope="row">회의 참여방식</th>
-              <td>대면회의</td>
+              <td>
+                <div class="file_input">
+                  <label for="type_offline"><input type="checkbox" id="type_offline" checked="" disabled>대면회의</label>
+                  <label for="type_online"><input type="checkbox" id="type_online" disabled>온라인</label>
+                </div>
+              </td>
             </tr>
             <tr>
               <th><label for="plan_participants">참여자</label></th>
@@ -1689,7 +1552,7 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-                <ul class="btn_slideclose">
+                  <ul class="btn_slideclose">
   <li>
     <div>
       <p>유한아름</p><button type="button">삭제</button>
@@ -1727,28 +1590,155 @@
         </table>
       </div>
       <div class="btn_wrap">
-        <button class="btn_red_line" type="button">수정</button>
-        <button class="btn_gray_line" type="button">일정 삭제</button>
-        <button class="btn_gray_line" type="button">복제</button>
-        <button class="btn_gray_line" type="button">취소</button>
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 일정 조회 -->
+<dialog class="p_planEdit">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>일정 조회 & 브리핑 보드 상세</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div>
+        <table class="tbl_default tbl_row">
+          <caption>일정 추가 테이블</caption>
+          <colgroup>
+            <col style="width:150px">
+            <col style="width:auto">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row"><label for="plan_period">기간</label></th>
+              <td><p>2023-04-14 13:00 ~ 2023-04-14 14:00</p></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_tit">제목</label></th>
+              <td><input type="text" id="plan_tit"></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_place">장소</label></th>
+              <td><input type="text" id="plan_place"></td>
+            </tr>
+            <tr>
+              <th scope="row">회의실 예약</th>
+              <td>
+                <div class="select_custom meeting_room">
+                  <button class="label" onclick="event.preventDefault()">
+                    <span class="opt_label">선택</span>
+                  </button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0"><span class="opt_label">선택안함</span></li>
+                    <li class="optionItem disabled" aria-disabled="true" tabindex="-1" data-value="A"><i
+                        class="roomA">A</i>회의실A</li>
+                    <li class="optionItem" tabindex="0" data-value="B"><i class="roomB">B</i>회의실B</li>
+                    <li class="optionItem disabled" aria-disabled="true" tabindex="0" data-value="C"><i
+                        class="roomC">C</i>회의실C</li>
+                    <li class="optionItem" tabindex="0" data-value="D"><i class="roomD">D</i>회의실D</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">회의 참여방식</th>
+              <td>
+                <div class="file_input">
+                  <label for="type_offline"><input type="checkbox" id="type_offline" checked="">대면회의</label>
+                  <label for="type_online"><input type="checkbox" id="type_online">온라인</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="plan_participants">참여자</label></th>
+              <td>
+                <span class="file_input">
+                  <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+                  <datalist id="nameList">
+                    <optgroup label="개발본부">
+                      <option value="대장발핑">개발본부</option>
+                      <option value="개발핑">개발 1팀</option>
+                      <option value="새발핑">개발 1팀</option>
+                      <option value="말발핑">개발 2팀</option>
+                      <option value="소발핑">개발 2팀</option>
+                      <option value="곰발핑">개발 2팀</option>
+                    </optgroup>
+                    <optgroup label="경영관리">
+                      <option value="경영핑">경영관리</option>
+                      <option value="관리핑">경영관리</option>
+                    </optgroup>
+                  </datalist>
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                  <button type="button" class="btn_red_line">저장이 있어야 되나?!</button>
+                </span>
+                <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="plan_cont">내용</label></th>
+              <td>에디터</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line">취소</button>
       </div>
     </div>
   </form>
 </dialog> <!--// 브리핑 보드 상세 -->
-<dialog class="p_status_roomBook">
+<dialog class="p_status_roomBook" id="myModal">
   <form method="dialog">
     <header class="p_header">
       <strong>회의실 예약현황</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
-      <div id='calendar-container' class="calendar_container">
-        <div id='calendar'></div>
-      </div>
+      <div id='cal-roombook' class="calendar"></div>
     </div>
   </form>
 </dialog>
-<script src='../../plugins/fullcalendar/index.global.min.js'></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src='../../plugins/google-calendar/index.global.min.js'></script>
 <script src="../../js/book_meeting_room.js"></script><!--// 회의실 예약 현황 -->
 <dialog class="p_requireMan">
@@ -1927,7 +1917,7 @@
                   <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
                 </select>
               </span>
-              <ul id="tagList"></ul>
+              <div id="tagList"></div>
             </td>
           </tr>
           <tr>
@@ -1990,7 +1980,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required">
+            <th scope="row">
               <label for="work_start">실제 작업기간</label>
             </th>
             <td colspan="3">
@@ -2063,27 +2053,6 @@
         </colgroup>
         <tbody>
           <tr>
-            <th scope="row" class="required"><label for="work_type">업무구분</label></th>
-            <td>
-              <select name="work_type" id="work_type">
-                <option value="업무구분 선택">업무구분 선택</option>
-                <option value="프로젝트">프로젝트</option>
-                <option value="개인업무">개인업무</option>
-                <option value="부서업무">부서업무</option>
-                <option value="기타">기타</option>
-              </select>
-            </td>
-            <th scope="row" class="required">
-              <label for="work_start">작업기간</label>
-            </th>
-            <td>
-              <div class="period_custom">
-                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
-                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
-              </div>
-            </td>
-          </tr>
-          <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
             <td colspan="3"><input type="text" id="work_name"></td>
           </tr>
@@ -2095,7 +2064,18 @@
                   <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
                 </select>
               </span>
-              <ul id="tagListB"></ul>
+              <div id="tagListB"></div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">작업기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
             </td>
           </tr>
           <tr>
@@ -2155,11 +2135,7 @@
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3">
-              <div class="editor_wrap" id="editor_wrap">
-                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
-              </div>
-            </td>
+            <td colspan="3">에디터</td>
           </tr>
           <tr>
             <th scope="row">
@@ -2253,8 +2229,6 @@ commonInit();
 
 <script>
   $(function () {
-    setEditor();
-
     // 업무 관리 업무범주 랜덤 색상 태그
     const initialNames = ['개발', '제안', '기획', '하자보수', '테스트', '문서', '외주관리', '유지보수', '회의', '출장', '외근', '기타'];
     initializeTagManager('tagList', 'nameSelect', initialNames);

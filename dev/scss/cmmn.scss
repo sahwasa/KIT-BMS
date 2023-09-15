@@ -42,7 +42,7 @@ table {border-collapse:collapse;border-spacing:0}
 caption{@include blind;}
 ul,ol,li{box-sizing:border-box;list-style:none;margin:0;}
 strong{font-weight:bold;} // 웹에디터 용
-
+[contenteditable]{cursor:text;}
 /* accessibility */
 #accessibility{position:absolute;width:100%;z-index:999;
   a{
@@ -95,6 +95,16 @@ $task_hold:#2cc78b;
 .default{@include badge_color(#b6b6b6)}
 .public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
+.tags{
+  i{@include badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}margin-right:3px;}
+  &:is(span){display:inline-block;line-height:16px;margin-right:5px;margin-top:5px;border-radius:3px;background-color:#aab3c8;
+    i{margin-left:0;
+      &+button.btn_deltag{font-size:0;
+        &::before{@include fontello('\eb2e');margin-right:5px;font-size:10px;color:#fff;vertical-align:middle;}
+      }
+    }
+  }
+}
 
 // scroll
 *{
@@ -219,7 +229,7 @@ hr,
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
   &::before{font-size:14px;}
 }
-
+.tag_pm{@include badge_style(null,22px){position:relative;top:2px;right:-4px;background-color:#ffc938;color:#000;line-height:14px;font-size:10px;border-radius:0;font-weight:bold;}}
 // ico_fontello
 .ico_org{vertical-align:middle;
   &::before{font-size:17px;vertical-align:middle;}
@@ -260,10 +270,14 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     &::after{left:0;}
   }
 }
-.select_custom{position:relative;z-index:9999;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
+$_roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f);
+$_planType:('personal':#4285f4,'business':#33B679, 'meeting':#A79B8E, 'event':#7986CB);
+.select_custom{position:relative;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;
   &.active{
-    &>.label{background:url(../images/btn_select.png) right 8px center no-repeat,#f8f8f8;}
-    .optionList{max-height:500px;top:calc(100% + 1px);}
+    &:focus-within{z-index:9999;
+      &>.label{background:url(../images/btn_select.png) right 8px center no-repeat,#f8f8f8;}
+      .optionList{max-height:500px;top:calc(100% + 1px);}
+    }
   }
   .label{align-items:center;display:flex;gap:8px;width:100%;height:26px;padding-left:5px;cursor:pointer;text-align:left;}
   &>ul{position:absolute;top:100%;left:-1px;width:calc(100% + 2px);max-height:0;border:1px solid #ccc;border-top-width:0;background:#fff;color:#000;list-style-type:none;overflow:hidden;
@@ -285,8 +299,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     }
   }
   &.plan_tit_type{width:100px;
-    i{width:15px;height:15px;top:0;}
-    $_planType:('personal':#4285f4,'business':#33B679, 'meeting':#A79B8E, 'event':#7986CB);
+    i{width:15px;height:15px;top:0;}    
     @each $type, $color in $_planType{
       .s_#{$type}{background-color:$color;}
     }
@@ -294,7 +307,6 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 }
 span.meeting_room{ // select없이 회의실 정보만 적어야 할 경우(브리핑 보드 상세 참고)
   i{display:inline-block;width:15px;height:15px;top:0;font-size:0;width:15px;height:15px;vertical-align:middle;margin-right:5px;}
-  $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#b49bdb, 'D':#9167df);
   @each $type, $color in $_roomType{
     .room#{$type}{background-color:$color;}
   }
@@ -306,7 +318,7 @@ $prio_fontSize:20px;
   &::before{@include fontello('\eb3d');font-size:17px;}
   &:hover{background-color:darken($red, 5%);}
 }
-.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:9%;right:2%;border-radius:50%;background-color:$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
+.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:1%;right:2%;border-radius:50%;background-color:$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
   &::before{@include fontello('\eb3d');font-size:17px;}
   &:hover{background-color:darken($red, 5%);}
 }
@@ -364,6 +376,9 @@ $btn_red_line:#ff7575;
     :not(&:checked)+label::before{color:$unselectedColor;border-color:$unselectedColor;}   
   }
   label::before{line-height:17px;}
+  &.btn_switch_s{
+    input+label{min-width:60px;padding:0 5px;font-size:12px;}
+  }
 }
 .btn_switch_single{text-align:center;
   &>label{position:relative;display:block;width:100%;line-height:26px;font-size:13px;
@@ -406,6 +421,9 @@ $btn_red_line:#ff7575;
     }
   }
 }
+.i_public{@include ico_only('\f064');}
+.i_private{@include ico_only('\f512');&::before{font-size:14px;width:15px;text-align: center;}}
+.i_ex{@include ico_only('\e877');}
 .tagItem{font-size:12px;}
 .tooltip{position:absolute;top:calc(100% + 5px);right:0;background-color:$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
   *{flex-shrink:0;}
@@ -429,6 +447,10 @@ legend{@include tit;}
 .btn_refresh{@include btn($btn_gray,true);
   &::before{@include fontello('\e8a7');}
 }
+.btn_del{
+  &::before{@include fontello('\e839'){margin-right:3px;font-size:14px;};}
+  &:hover{color:$red;}
+}
 
 // table
 $th_border_color:#c0c0c0;
@@ -451,13 +473,14 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
   .count{color:#424242;font-size:12px;margin-left:12px;}
 }
-.tbl_default{width:100%;text-align:center;border-top:2px solid $th_border_color;table-layout:fixed;
+.tbl_default{width:100%;text-align:center;border-top:2px solid $th_border_color;
   &.no_thead{border-top:1px solid $th_border_color;
     thead{@include blind;}
   }
-  th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;}
+  th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
   th{color:#111;font-weight:bold;}
   td{border-color:$td_border_color;color:#333;}
+  .tags{display:inline-block;}
 }
 .tbl_use_select td:first-child{width:60px;}
 .tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}
@@ -539,14 +562,17 @@ td{white-space:nowrap;text-overflow:ellipsis;
 }
 .tab{
   $border-color:#eaedf1;
-  display:flex;gap:6px;border-bottom:1px solid $border-color;
-  li{min-width:110px;}
+  $border-on-color:#bec7d2;
+  display:flex;gap:6px;border-bottom:1px solid $border-on-color;
+  li{min-width:110px;
+    &:hover a{color:$red;}
+  }
   &_s{li{min-width:80px;}
     a{font-size:12px;}
   }
-  a{position:relative;top:1px;z-index:1;display:inline-block;width:100%;border:1px solid $border-color;border-radius:5px 5px 0 0;text-align:center;color:#666;padding:6px 0;letter-spacing:-.33px;background-color:#f9fafc;
+  a{position:relative;top:1px;z-index:1;display:inline-block;width:100%;border:1px solid $border-color;border-bottom-color:$border-on-color; border-radius:5px 5px 0 0;text-align:center;color:#666;padding:6px 0;letter-spacing:-.33px;background-color:#f9fafc;
   }
-  .on a{color:$red;background-color:$white;font-weight:bold;border-color:#bec7d2;border-bottom-color:transparent;}
+  .on a{color:$red;background-color:$white;font-weight:bold;border-color:$border-on-color;border-bottom-color:transparent;}
 }
 .tab_contents{margin-top:20px;}
 .tab_s .tab{gap:2px;}
@@ -634,11 +660,14 @@ td{white-space:nowrap;text-overflow:ellipsis;
 /* multi file */
 .file_input{display:flex;gap:4px;
   &:has(.MultiFile-wrap){width:100%;}
-  &>input,
+  &>input:not([type="checkbox"]),
   &>select{flex:1;}
+  &>input,
+  .full{flex:1;}
   &>[list]{min-width:50%;}
   &>*{width:auto;align-self:center;vertical-align:middle;white-space:nowrap;}
   &>.btn_slideclose{margin-top:0;}
+  &.inline{display:inline-flex;}
 }
 .MultiFile-wrap{width:100%;
   .multi{position:relative;width:72px;height:28px;float:right;overflow:visible;border-color:#aaa;
@@ -725,15 +754,15 @@ td{white-space:nowrap;text-overflow:ellipsis;
   .menu-highlighted {font-weight:bold;}
 }
 .mentioned{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
-
+.user_lst{display:flex;gap:10px;flex-wrap:wrap;}
 /* ckeditor, tui-image-editor */
 .editor_wrap{
   .ck-editor{
     .ck-source-editing-area,
-    .ck-editor__editable_inline {min-height:100px;height:auto;}
+    .ck-editor__editable_inline {min-height:100px;height:auto;cursor:text;}
     .ck-source-editing-area textarea{overflow:auto;}
     .ck-content .todo-list{
-      li{margin-bottom:0 !important;margin-left:25px;}
+      li{margin-bottom:0 !important;margin-left:5px;}
       .todo-list__label>input::before{background:transparent;border-color:#606060;}
       .todo-list__label>input[checked]::before{background:transparent;border-color:transparent;}
       .todo-list__label>input[checked]::after{border-color:transparent;}
@@ -749,6 +778,12 @@ td{white-space:nowrap;text-overflow:ellipsis;
       table th {white-space:inherit;}
     }
   }
+  // &.heightFix{
+  //   .ck-editor{
+  //     .ck-source-editing-area,
+  //     .ck-editor__editable_inline {height:100px;overflow:auto;}
+  //   }
+  // }
 }
 #image_editor_wrap{display:none;position:fixed;z-index:1000;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
 #image_editor.tui-image-editor-container{width:900px !important;height:700px !important;} /* important 사용하지 않고 적용하는 법 찾아보는중..!! */

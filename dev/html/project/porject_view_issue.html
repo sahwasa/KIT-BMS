@@ -1,0 +1,319 @@
+<div>
+  <ul class="search_list">
+    <li>
+      <select class="" title="빠른필터">
+        <option>빠른필터</option>
+        <option>전체</option>
+        <option>내 담당 업무</option>
+        <option>참조된 업무</option>
+        <option>내가 등록한 업무</option>
+      </select>
+    </li>
+    <li>
+      <input type="text" placeholder="담당자" title="검색어" list="nameList">     
+    </li>
+    <li>
+      <input type="text" placeholder="내용, 이슈번호" title="검색어">
+    </li>
+    <li>
+      <div class="select_custom task_status">
+        <button class="label" data-value="B"><span class="opt_label">상태</span></button>
+        <ul class="optionList">
+          <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
+          <li class="optionItem" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
+          <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
+          <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
+          <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+          <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <select class="" title="태그">
+        <option>태그</option>
+        <option>개발</option>
+        <option>테스트</option>
+      </select>
+    </li>
+    <li>
+      <button type="button" class="btn_search">검색</button>
+      <button type="button" class="btn_refresh">초기화</button>
+    </li>
+  </ul>  
+</div>
+<section class="task_body">
+  <section class="left_section">
+    <h1 class="blind">이슈목록</h1>
+    <section class="task_lst_wrap">
+      <ul class="search_list all_lst_ctrl">
+        <li>
+          <input type="checkbox" title="전체선택">
+        </li>
+        <li>
+          <button type="button" class="btn_del">선택삭제</button>
+        </li>
+        <li>
+          <select name="" id="" title="정렬기준">
+            <option value="">↓ 업데이트</option>
+            <option value="">↓ 등록일</option>
+            <option value="">↓ 만기일</option>
+            <option value="">↓ 상태</option>
+          </select>
+        </li>
+      </ul>
+      <ul class="task_lst lst_ctrl">
+        <li class="on">
+          <div class="tit">
+            <input type="checkbox">
+            <em title="이슈번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_ing">진행</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>테스트</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="이슈번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_plan">계획</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
+            </div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="이슈번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>                
+            <i class="task_done">완료</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="이슈번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_cancel">취소</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">
+            <input type="checkbox">
+            <em title="이슈번호">1</em>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_hold">보류</i>
+          </div>
+          <div class="etc">
+            <div class="tags"><i>개발</i></div>
+            <ul class="pic">
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </section>
+  <section class="right_section">
+    <div class="issue_default">
+      <article class="proj_box">
+        <header>
+          <h1>개발일정</h1>
+          <span>2023-04-02 ~ 2023-04-08</span>      
+        </header>    
+        <ul class="stacked_bar">
+          <li class="chart_fin" style="width:40%;">완료</li>
+          <li class="chart_delay" style="width:2%;">지연</li>
+          <li class="chart_todo" style="width:6%;">진행</li>
+          <li class="chart_termless">할일</li>
+        </ul>
+        <ul class="chart_label">
+          <li class="chart_fin">완료됨<span>47&percnt; (13/20)</span></li>
+          <li class="chart_delay">마감일 지남<span>2&percnt; (13/20)</span></li>
+          <li class="chart_todo">진행 중<span>6&percnt; (13/20)</span></li>
+          <li class="chart_termless">할일<span>47&percnt; (13/20)</span></li>
+        </ul>
+      </article>
+      <article>
+        <header><h1>번업차트</h1></header>
+        <div id="chart" class="burnup_chart" style="width:100%;height:300px;"></div>
+      </article>
+      <article>
+        <header>
+          <h1>참여자별 업무 현황</h1>
+        </header>
+        <div class="tbl_wrap">
+          <table class="tbl_workboard">
+            <caption>참여자별 업무 현황</caption>
+            <thead>
+              <tr>
+                <th scope="col">멤버</th>
+                <th scope="col">진행률</th>
+                <th scope="col">진행</th>
+                <th scope="col">계획</th>
+                <th scope="col">완료</th>
+                <th scope="col">취소</th>
+                <th scope="col">보류</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>@@include('../../inc/module/module_user.html')<em class="tag_pm">PM</em></td>
+                <td><div class="progress_wrap">
+                  <progress id="" value="100" min="0" max="100"></progress><label for="">100%</label>
+                </div></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>@@include('../../inc/module/module_user.html')</td>
+                <td><div class="progress_wrap">
+                  <progress id="" value="100" min="0" max="100"></progress><label for="">2%</label>
+                </div></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>@@include('../../inc/module/module_user.html')</td>
+                <td><div class="progress_wrap">
+                  <progress id="" value="50" min="0" max="100"></progress><label for="">50%</label>
+                </div></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>  
+    </div>
+    <div class="issue_dtl">
+      <article>
+        <header>
+          <h1>ktko 자료 생성 웹페이지 구현<em title="이슈번호" class="task_num">1</em> </h1>
+          <div class="btn_wrap">
+            <button type="button" class="btn_red_line">수정</button>
+            <button type="button" class="btn_red_line">삭제</button>
+          </div>
+        </header>
+        <header>
+          <input type="text" title="제목" placeholder="제목" value="ktko 자료 생성 웹페이지 구현">
+          <div class="btn_wrap">
+            <button type="button" class="btn_red">저장</button>
+            <button type="button" class="btn_red_line">취소</button>
+          </div>
+        </header>
+        <dl class="ipt_lst">
+          <dt><label for="">업무상태</label></dt>
+          <dd>
+            <div class="select_custom task_status">
+              <button class="label"><span class="opt_label">상태</span></button>
+              <ul class="optionList">
+                <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
+                <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
+                <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
+                <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
+                <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+                <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
+              </ul>
+            </div>
+          </dd>
+          <dt>업무상태</dt>
+          <dd>
+            <!-- 담당자 복수일때 -->
+            <div class="task_status_multi">
+              <button class="all_label label"><span class="task_ing">진행</span></button>
+              <div class="taskstatus_layer">
+                <div class="tit">
+                  <em>업무상태 편집</em>
+                  @@include('../../inc/module/module_taskstatus.html')
+                </div>
+                <dl class="user_lst">
+                  <dt>@@include('../../inc/module/module_user.html')</dt>
+                  <dd>@@include('../../inc/module/module_taskstatus.html')</dd>
+                  <dt>@@include('../../inc/module/module_user.html')</dt>
+                  <dd>@@include('../../inc/module/module_taskstatus.html')</dd>
+                  <dt>@@include('../../inc/module/module_user.html')</dt>
+                  <dd>@@include('../../inc/module/module_taskstatus.html')</dd>
+                </dl> 
+              </div>             
+            </div>
+          </dd>          
+          <dt><label for="">작성자</label></dt>
+          <dd>@@include('../../inc/module/module_user.html')</dd>          
+          <dt><label for="">담당자(읽기)</label></dt>
+          <dd>
+            <ul class="user_lst">
+              <li>@@include('../../inc/module/module_user.html')</li>
+              <li>@@include('../../inc/module/module_user.html')</li>
+              <li>@@include('../../inc/module/module_user.html')</li>
+            </ul>
+          </dd>
+          <dt><label for="">담당자(쓰기수정)</label></dt>
+          <dd class="flex_full">
+            <div class="file_input inline">
+              <input type="text" id="" placeholder="부서or이름" list="nameList">
+              @@include('../../inc/data/data_emp_name.html')
+              <button type="button" class="btn_ogt btnMngTree">조직도</button>
+            </div>
+            @@include('../../inc/module/module_slide_user.html')
+          </dd>
+          <dt><label for="">참조자</label></dt>
+          <dd>없음</dd>
+          <dt><label for="">만기일</label></dt>
+          <dd>
+            @@include('../../inc/module/module_period.html')
+          </dd>
+          <dt><label for="">업무범주</label></dt>
+          <dd>
+            <span class="file_input">
+              <select id="nameSelect">
+                <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+              </select>
+            </span>
+            <div id="tagsList"></div>
+          </dd>
+          <dt>첨부파일</dt>
+          <dd>@@include('../../inc/module/module_file_attach.html')</dd>
+        </dl>
+        <div class="editor_wrap" id="editor_wrap">
+          <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+        </div>
+        @@include('../../inc/module/comment_area_file.html')
+      </article>
+    </div>
+  </section>
+</section>
+<script>
+  
+</script>

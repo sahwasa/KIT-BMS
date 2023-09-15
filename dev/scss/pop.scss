@@ -140,12 +140,14 @@
         &:hover{background-color:#f9fafc;cursor:pointer;}
         &.on{background-color:lighten($red, 45%);}
       }
-      .infoDoc{display:flex;gap:5px;margin-bottom:5px;
+      .infoDoc{display:flex;gap:5px;margin-bottom:5px;align-items:center;
         i:last-of-type{flex-shrink:0; margin-left:auto;}
       }
       .user_module{display:inline-flex;vertical-align:middle;}
       .badge{@include badge_style(null);padding:0 5px;border:1px solid $red; vertical-align:middle;font-size:11px;color:$red;}
-      .subject{@include flex_between;}
+      .subject{@include flex_between;
+        strong{flex-grow:1;overflow:hidden;text-overflow:ellipsis;}
+      }
       .txt_date{font-size:11px;}
     }
     .rel_mem_lst{border-top:1px solid #ebebeb;margin-top:5px;padding-top:5px;
@@ -171,13 +173,13 @@
 }
 
 // planView
-.p_planBriefing,
+.p_planEdit,
 .p_planView{width:600px;
   td{white-space: normal}
   .plan_cot{height:100px;overflow-y:auto;}
 }
-.p_status_roomBook{width:600px;
-  #calendar{height:585px;}
+.p_status_roomBook{width:1000px;
+  .calendar{height:585px;}
   .fc-book-button{display:none;}
 }
 .p_requireMan,

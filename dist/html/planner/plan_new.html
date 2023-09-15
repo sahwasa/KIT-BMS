@@ -43,7 +43,7 @@
         </button>
         <div class="my_layer">
           <ul class="my_svc">
-            <li><a href="../html/home/user_info.html">내정보</a></li>
+            <li><a href="../home/user_info.html">내정보</a></li>
             <li><a href="#">웹메일</a></li>
             <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
             <li><a href="#">로그아웃</a></li>
@@ -66,7 +66,7 @@
     <li><a href="../../html/erp/erp.html">ERP</a></li>
     <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
-    <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li>
+    <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
   </ul>
 </nav>
   <main id="content" class="container">
@@ -169,13 +169,12 @@
             <dl>
               <dt><label for="plan_cont" class="required">내용</label></dt>
               <dd class="flex_full">
-                <div class="editor_wrap">
-                  <textarea name="editor" id="editor" title="에디터 영역">
-                  </textarea>
+                <div class="editor_wrap" id="editor_wrap">
+                  <textarea name="editor" id="editor" title="에디터 영역"></textarea>
                 </div>
               </dd>
               <dt>참여자</dt>
-              <dd class="flex_full">
+              <dd class="flex_full member_edit">
                 <div class="file_input">
                   <input type="text" id="" placeholder="프로젝트or이름" list="nameList">
                   <datalist id="nameList">
@@ -223,135 +222,15 @@
               <dt>참여자 일정<button type="button" class="i_refresh" title="참여자 일정 검색">새로고침</button>
                 <div class="plan_legend">
                   <ul>
-                    <li class="select">선택한 시간</li>
                     <li class="busy">일정있음</li>
+                    <li class="holiday">휴일</li>
                     <li class="absence">부재</li>
                   </ul>
                 </div>
               </dt>
               <dd class="flex_full">
-                <div class="tbl_plan_wrap">
-  <div class="tbl_plan_preview">
-    <div class="member_lst">
-      <div class="column_wrap">
-        <div class="label_row"><div class="label">시간</div></div>
-        <div class="member_row">
-          <div class="member" aria-expanded="false">
-            <div>유한아름</div>
-          </div>
-        </div>
-        <div class="member_row">
-          <div class="member" aria-expanded="false">
-            <div>임선</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="time_body">
-      <div class="column_wrap">
-        <div class="timelabel">
-          <div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div> <div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
-        </div>
-        <div class="timeline">
-          <div class="col_wrap">
-            <!-- 생성한 시간 갯수만큼 기본 생성(예제는 13개) -->
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-            <div class="hour_wrap"><div></div></div>
-          </div>
-          <div class="row_wrap">
-            <!-- 생성한 시간 갯수만큼 기본 생성(예제는 13개) -->
-            <!-- width값, left값 (100% / 시간갯수 * 0.5=30분 -->
-            <div></div><div></div><div></div><div></div><div></div>
-            <div></div><div></div><div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div class="busy" style="width:calc((100% / 13) * 1 + 1px);left:calc(100% / 13 * 1);"></div>
-            <div class="absence" style="width:calc((100% / 13) * 2 + 1px);left:calc(100% / 13 * 3);"></div>
-          </div>                                
-          <div class="row_wrap">
-            <!-- 생성한 시간 갯수만큼 기본 생성(예제는 13개) -->
-            <div></div><div></div><div></div><div></div><div></div>
-            <div></div><div></div><div></div><div></div><div></div>
-            <div></div><div></div><div></div>
-            <div class="busy" style="width:calc((100% / 13) * 1.5 + 1px);left:calc(100% / 13 * 0);"></div><div class="busy" style="width:calc((100% / 13) * 2 + 1px);left:calc(100% / 13 * 5);"></div><div class="absence" style="width:calc((100% / 13) * .5 + 1px);left:calc(100% / 13 * 10);"></div>
-          </div>                          
-        </div>
-        <div class="mark_wrap">
-          <div class="marks">
-            <div class="select" style="width:calc((100% / 13) * 1.5 + 1px);left:calc(100% / 13 * 0);"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>                
-                <div class="tbl_plan_wrap">
-  <div class="tbl_plan_preview">
-    <div class="member_lst">
-      <div class="column_wrap">
-        <div class="label_row"><div class="label">월&sol;일</div></div>
-        <div class="member_row">
-          <div class="member" aria-expanded="false">
-            <div>유한아름</div>
-          </div>
-        </div>
-        <div class="member_row">
-          <div class="member" aria-expanded="false">
-            <div>임선</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="day_body">
-      <div class="column_wrap">
-        <div class="daylabel">
-          <div>8/1</div><div>8/2</div><div>8/3</div><div>8/4</div><div class="sat">8/5</div><div class="holyday">8/6</div><div>8/7</div>
-        </div>
-        <div class="dayline">
-          <div class="col_wrap">
-            <!-- 생성한 날자 갯수만큼 기본 생성(예제는 14개) -->
-            <div class="day_wrap"></div>
-            <div class="day_wrap"></div>
-            <div class="day_wrap"></div>
-            <div class="day_wrap"></div>
-            <div class="day_wrap"></div>
-            <div class="day_wrap"></div>
-            <div class="day_wrap"></div>
-          </div>
-          <div class="row_wrap">
-            <!-- 생성한 날자 갯수만큼 기본 생성(예제는 14개) -->
-            <!-- width값, left값 (100% / 날자갯수 * 1=1일) -->
-            <div></div><div></div><div></div><div></div><div></div>
-            <div></div><div></div>
-            <div class="busy" style="width:calc((100% / 7) * 1 + 1px);left:calc(100% / 7 * 1);"></div>
-            <div class="absence" style="width:calc((100% / 7) * 1 + 1px);left:calc(100% / 7 * 2);"></div>
-          </div>                                
-          <div class="row_wrap">
-            <!-- 생성한 날자 갯수만큼 기본 생성(예제는 7개) -->
-            <div></div><div></div><div></div><div></div><div></div>
-            <div></div><div></div>
-            <div class="busy" style="width:calc((100% / 7) * 2 + 1px);left:calc(100% / 1 * 0);"></div><div class="absence" style="width:calc((100% / 7) * 1 + 1px);left:calc(100% / 7 * 5);"></div>
-          </div>                              
-        </div>
-        <div class="mark_wrap">
-          <div class="marks">
-            <div class="select" style="width:calc((100% / 7) * 1 + 1px);left:calc(100% / 7 * 3);"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>                
+                
+                <div id='calendar-memberplan' class="cal_memberplan"></div>
               </dd>
             </dl>
           </fieldset>
@@ -364,6 +243,21 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<dialog class="p_status_roomBook" id="myModal">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>회의실 예약현황</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div id='cal-roombook' class="calendar"></div>
+    </div>
+  </form>
+</dialog>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src='../../plugins/google-calendar/index.global.min.js'></script>
+<script src="../../js/book_meeting_room.js"></script><!--// 회의실 예약 현황 -->
+
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>
@@ -403,14 +297,16 @@ commonInit();
     </div>
   </form>
 </dialog>
-<script src='../../plugins/fullcalendar/index.global.min.js'></script>
-<script src='../../plugins/google-calendar/index.global.min.js'></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/book_meeting_room.js"></script>
+<script src="../../js/memberplan.js"></script>
 <script>
   $(function () {
-    setEditor();// editor common
+    setEditor();// editor common   
     // fileDropEvt();
   })
+  var myDialog = document.getElementById("myModal");
+    myDialog.showModal();
 </script>
 </body>
 
