@@ -74,8 +74,8 @@
     fileDropEvt();
     $('.btn_request').on('click', function () { $('.file_upload').show(); })
     $('.file_upload').on('click', function () { $(this).hide(); })
-    const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
-    initializeTagManager('tagsList', 'nameSelect', initialNamesB);
+    const initialNames = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    initializeTagManager('tagsList', 'nameSelect', initialNames);
 
      // 이슈 > 업무상태
     $('.task_status_multi').on('click','.all_label',function(){
@@ -120,6 +120,11 @@
     }   
   });
   tribute.attach(document.querySelectorAll(".editable"));
+
+  // 리스크 유형 선택
+  const initialNamesR = ['인력', '비용', '일정', '계약', '품질', '기타'];
+  initializeTagManager('tagListR', 'nameSelectR', initialNamesR);
+
 </script>
 </body>
 

@@ -1147,10 +1147,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     .ipt_lst{padding-left:10px;}
     .editor_wrap{margin-top:15px;}
     .task_status_multi{position:relative;
-      .all_label{width:100px;height:28px;padding-left:5px;cursor:pointer;background: url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #ccc;border-radius:2px;text-align: left;}
+      .all_label{width:100px;height:28px;padding-left:5px;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #ccc;border-radius:2px;text-align:left;}
       .taskstatus_layer{display:none;position:absolute;left:0;top:100%;width:400px;border:1px solid #000;background-color:#fff;padding:10px;z-index:10;
         .tit{@include flex_between;border-bottom:1px solid #000;padding-bottom:10px;margin-bottom:10px;
-          em{font-size: 16px;font-weight: bold;}
+          em{font-size:16px;font-weight:bold;}
         }
         .user_lst{display:grid;grid-template-columns:1fr 100px;column-gap:0;row-gap:10px;}
         &.on,
@@ -1286,6 +1286,114 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         button{padding:0 5px;line-height:20px;white-space:pre;font-size:12px;}
       }
       .btn_wrap{font-size:12px;color:#71798a;}
+    }
+  }
+  .rfp .cmt_lst,
+  .risk .cmt_lst{background-color:#f9f9f9;
+    li{padding:7px 15px;border-top:1px solid #ebebeb;}
+    .cmt_user{@include flex_between;align-items:start;
+      .user_module{
+        &:has(p){align-items:start;
+          em{margin-right:2px;}
+        }
+        &:not(:has(p)){
+          b{font-size:12px;color:#b5b4b4;letter-spacing:-0.6px;}
+        }
+      }
+      .user_photo{width:21px;height:21px;}
+      p{margin-top:2px;font-size:11px;color:#b5b4b4;}
+      button:hover{text-decoration:underline;}
+    }
+    .cmt_txt{padding:10px 5px 5px;color:#71798a;}
+    .cmt_write{@include flex_between;gap:5px;margin:5px 0 10px;padding:2px 5px;border:1px solid #666666;border-radius:5px;background-color:#fff;
+      input{border-color:transparent;color:#71798a;}
+      button{padding:0 5px;line-height:20px;white-space:pre;font-size:12px;}
+    }
+    .btn_wrap{font-size:12px;color:#71798a;}
+  }
+  // 리스크
+  .risk{
+    .tab_wrap{@include flex_between;margin-bottom:5px;gap:10px;
+      div{align-items:center;}
+    }
+    .tab_s{align-items:center;border-bottom:none;
+      li{
+        a{padding:5px 0;border-radius:5px;border-bottom-color:#eaedf1;
+          span{font-weight:bold;}
+        }
+        &.on{
+          a{border-color:$red;}
+        }
+      }
+    }
+    .task_body{display:block;
+      .t_skyblue{font-weight:bold;margin-right:5px;
+        &::before{display:inline-block;content:'[';}
+        &::after{display:inline-block;content:']';}
+      }
+      select{width:auto;}
+      .tbl_list{
+        .user_module{flex:inherit;flex-direction:column;gap:0;
+          &>*{align-self:auto;}
+          .user_photo{width:23px;height:23px;}
+        }
+        &>li{gap:40px;
+          input[type=checkbox]{align-self:center;}
+          &>div:nth-of-type(2){flex:1;}
+          h3{font-size:14px;font-weight:bold;
+            .tags{margin-left:5px;}
+          }
+          dl{display:grid;gap:0;grid-template-columns:80px 250px;
+            dt{word-spacing:21px;letter-spacing:2px;color:#333;}
+            dd{margin-right:0;color:#888;
+              a:hover{text-decoration:underline;}
+            }
+          }
+        }
+      }
+      .risk_answer_wrap{margin-top:40px;padding:20px 10px 0;border-top:1px dashed #ccc;
+        h2{margin-bottom:30px;font-size:16px;font-weight:bold;}
+      }
+    }
+    .ballon_wrap{@include flex_between;align-items:start;margin-bottom:15px;
+      .ipt_lst{gap:3px 15px;
+        .risk_id{flex:0 1 120px;}
+      }
+      &>*{align-self:auto;}
+      &>.user_module{flex:0 1 100px;flex-direction:column;gap:0;margin-top:5px;
+        .user_photo{width:30px;height:30px;}
+      }
+      .ballon_body{position:relative;flex:1;margin-left:5px;border-radius:5px;
+        &::before,
+        &::after{position:absolute;content:'';top:21px;left:0;width:0;height:0;border:9px solid transparent;border-left:0;border-right-color:#ccc;margin-top:-10px;margin-left:-8px;}
+        &::after{top:20px;margin-top:-9px;margin-left:-7px;border-right-color:#f6f8fa;}
+        .file_attach{margin-bottom:10px;}
+        header{@include flex_between;padding:7px 10px;border:1px solid #ccc;background-color:#f6f8fa;border-radius:5px 5px 0 0;
+          &>div:has(h1>input){flex:1;
+            h1,input{width:100%;}
+          }
+          h1{font-size:14px;font-weight:bold;
+            
+          }
+          &+div{padding:10px;
+            h2{margin-bottom:5px;font-weight:bold;}
+            .file_attached{padding:0 10px;background-color:#f6f8fa;}
+          }
+          &+div{border:1px solid #ccc;border-top-width:0;background-color:#fff;
+            &+ul{@include flex_between;width:100%;flex-direction:column;gap:10px;margin-top:15px;
+              li{align-self:stretch;padding:0;}
+            }
+          }
+          span{font-size:12px;color:#555;}
+        }
+        .ballon_txt{padding:10px 2px 15px;
+          &+.btn_wrap{justify-content:flex-end;margin-top:5px;}
+        }
+        &:has(.editor_wrap){
+          .btn_wrap{justify-content:flex-end;margin-top:5px;}
+        }
+        
+      }
     }
   }
   // 문서관리
@@ -1448,6 +1556,8 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   span{font-size:20px;font-weight:bold;}
 }
 .tbl_list{border-top:2px solid #c0c0c0;
+  li.select_li:hover,
+  li.select_li{background-color:lighten($red, 45%);}
   .tags{display:inline-block;}
   &>li{ @include flex_between;align-items:flex-start;gap:20px;padding:17px 15px;border-bottom:1px solid #ebebeb;cursor:pointer;
     &:hover{background:#f9fafc;}
