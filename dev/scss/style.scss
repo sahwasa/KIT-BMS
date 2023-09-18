@@ -1497,6 +1497,12 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
             .com{font-size:13px;color:#757575;}
           }
         }
+        &.tbl_photo{grid-template-columns:repeat(4, minmax(80px, auto));gap:15px;padding:25px 20px;
+          li{position:relative;
+            &:hover::after{position:absolute;top:0;left:0;display:inline-block;content:'';width:100%;height:100%;background-color:rgba(0, 0, 0, .08);}
+            img{margin-bottom:0;}
+          }
+        }
       }
     }
   }
