@@ -16,6 +16,23 @@ $columnGap:25px;
   .copy{font-size:14px;color:#818181;}
 }
 // login
+%info{margin-top:3px;color:#000;letter-spacing:-0.3px;
+  &::before{@include fontello('\eb77');margin-right:5px;font-size:13px;color:#d0d0d0;vertical-align:middle;}
+}
+.info{
+  &_import{@extend %info;font-size:14px;text-align:center;
+    &::before{content:'\eb77';}
+  }
+  &_com{@extend %info;font-weight:500;font-size:12px;text-align:left;color:$black;
+    &::before{content:'\eb77';}
+  }
+  &_ok{@extend .info_com;color:#0652de;
+    &::before{content:'\e814';font-size:15px;color:inherit;}
+  }
+  &_warn{@extend .info_com;color:$red;
+    &::before{content:'\eb77';color:inherit;}
+  }
+}
 .login_join_wrap{
   display:flex;align-items:center;flex-direction:column;position:relative;text-align:center;min-height:100vh;padding-top:50px;
   .logo{display:inline-block;width:180px;height:40px;background:url(../images/logo.svg) 0 0 no-repeat;background-size:contain;font-size:0;}
@@ -23,7 +40,7 @@ $columnGap:25px;
     h2{font-size:30px;font-weight:600;color:#000;letter-spacing:-2.25px;}
     .auth{max-width:308px;}
   }
-  p{font-size:16px;color:#000;letter-spacing:-.4px;text-align:left;word-break:keep-all;}
+  p{font-size:16px;letter-spacing:-.4px;text-align:left;word-break:keep-all;}
   .att{padding-left:13px;text-indent:-13px;margin-bottom:30px;
     &::before,em{color:$red;}
     &+p{background:#edf0f3;padding:10px;font-size:13px;border-radius:3px;
@@ -72,6 +89,7 @@ $columnGap:25px;
     .connect{display:block;letter-spacing:-.33px;color:#695858;font-size:13px;}
     .copy{font-size:11px;}
   }
+
   .login_step01{margin-top:95px;}
   .login_step02{margin-top:50px;
     .auth{
@@ -99,24 +117,7 @@ $columnGap:25px;
         &.join_step_cur{background-color:#ff6a68;}
       }
     }
-    .ipt_wrap{margin-top:50px;
-      %info{margin-top:3px;color:#000;letter-spacing:-0.3px;
-        &::before{@include fontello('\eb77');margin-right:5px;font-size:13px;color:#d0d0d0;vertical-align:middle;}
-      }
-      .info{
-        &_import{@extend %info;font-size:14px;text-align:center;
-          &::before{content:'\eb77';}
-        }
-        &_com{@extend %info;font-weight:500;font-size:12px;text-align:left;color:$black;
-          &::before{content:'\eb77';}
-        }
-        &_ok{@extend .info_com;color:#0652de;
-          &::before{content:'\e814';font-size:15px;color:inherit;}
-        }
-        &_warn{@extend .info_com;color:$red;
-          &::before{content:'\eb77';color:inherit;}
-        }
-      }
+    .ipt_wrap{margin-top:50px;      
       .ipt_box{
         &:has(.btn_dplc)>.btn_clear{right:105px;}
         &:has(.btn_dplc)>input{padding-right:125px;}
