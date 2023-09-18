@@ -48,7 +48,7 @@
      }
     }
     [data-resource-id=#{$type}]{
-      thead .fc-sticky::before,
+      &.fc-col-header-cell .fc-sticky::before,
       .fc-datagrid-cell-main::before{background-color:$col;}
     }
   }
