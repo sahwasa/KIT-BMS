@@ -32,11 +32,11 @@
         {id:'E',title:'회의실E'}
       ],
       events:[
-        { id: 'e1', resourceId: 'A', title:'조기경보회의', start: '2023-09-15', end: '2023-09-15', className:'roomA'},
-        { id: 'e2', resourceId: 'B', title:'업무관리시스템회의', start: '2023-09-15T13:00:00', end: '2023-09-15T14:30:00',className:'roomB'},
-        { id: 'e3', resourceId: 'C', title:'개발자 면접', start: '2023-09-15T09:00:00', end: '2023-09-15T16:00:00',className:'roomC'},
-        { id: 'e4', resourceId: 'D', title:'퍼블리셔 면접', start: '2023-09-15T09:00:00', end: '2023-09-15T16:00:00',className:'roomD'},
-        { id: 'e5', resourceId: 'E', title:'인사총무 면접', start: '2023-09-15T09:00:00', end: '2023-09-15T16:00:00',className:'roomE'},
+        { id: 'e1', resourceId: 'A', title:'조기경보회의', start: '2023-09-18', end: '2023-09-18', className:'roomA'},
+        { id: 'e2', resourceId: 'B', title:'업무관리시스템회의', start: '2023-09-18T13:00:00', end: '2023-09-18T14:30:00',className:'roomB'},
+        { id: 'e3', resourceId: 'C', title:'개발자 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00',className:'roomC'},
+        { id: 'e4', resourceId: 'D', title:'퍼블리셔 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00',className:'roomD'},
+        { id: 'e5', resourceId: 'E', title:'인사총무 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00',className:'roomE'},
       ],      
       businessHours: {
         dow: [1, 2, 3, 4, 5], // Monday - Friday
@@ -53,12 +53,20 @@
           slotLabelFormat: [{hour: 'numeric'}]
         },
         resourceTimeGridWeek:{
-        dayHeaderFormat:{weekday:'narrow'}
+          dayHeaderFormat:{weekday:'narrow'},
+          eventContent: function(arg) {
+            return {
+              html: `<div class="fc-event-title" title="${arg.event.title}">${arg.event.title}</div>`
+            }
+          }
         }, 
         resourceTimelineMonth:{
-          slotLabelFormat: [
-            { day: 'numeric', weekday:'narrow' }
-          ]
+          slotLabelFormat: [{ day: 'numeric', weekday:'narrow' }],
+          eventContent: function(arg) {
+            return {
+              html: `<div class="fc-event-time" title="${arg.event.title}">${arg.event.title}</div>`
+            }
+          }
         }
       }     
     });
