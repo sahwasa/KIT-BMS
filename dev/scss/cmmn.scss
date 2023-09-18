@@ -510,7 +510,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .tbl_photo{display:grid;justify-content:space-between;grid-template-columns:repeat(7, minmax(180px, auto));gap:20px;padding:20px 20px 0;
   li{cursor:pointer;
     img{display:block;width:180px;height:160px;margin-bottom:10px;object-fit:cover;}
-    b{display:inline-block;max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;color:#000;font-weight:bold;
+    b{display:inline-block;max-width:155px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;color:#000;font-weight:bold;
       &:hover{text-decoration:underline;}
     }
     span{font-size:11px;color:#717889;}
