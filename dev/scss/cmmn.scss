@@ -247,8 +247,9 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
   input{width:auto;}
   &>*:first-child{position:relative;overflow:visible;
-    &::before{content:"~";position:absolute;right:-20px;top:50%;transform:translate(-50%,-50%);}
+    &::before{content:"~";position:absolute;right:-19px;top:50%;transform:translate(-50%,-50%);}
   }
+  &>span{display:inline-flex;gap:3px;}
 }
 .split_area{@include flex_between();}
 
@@ -292,7 +293,7 @@ $_planType:('personal':#1E7B45,'business':#1E7B45, 'meeting':#1E7B45, 'event':#4
   }
   i{display:flex;align-items:center;font-size:0;}
   &.prio{width:90px;}
-  &.meeting_room{width:100px;
+  &.meeting_room{width:230px;
     i{width:15px;height:15px;top:0;}
     @each $type, $color in $_roomType{
       .room#{$type}{background-color:$color;}
