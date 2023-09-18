@@ -479,7 +479,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
   th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
   th{color:#111;font-weight:bold;}
-  td{border-color:$td_border_color;color:#333;}
+  td{border-color:$td_border_color;color:#333;
+    &.new::after{@include newmark;}
+  }
   .tags{display:inline-block;}
 }
 .tbl_use_select td:first-child{width:60px;}

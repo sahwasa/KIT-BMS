@@ -1697,3 +1697,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
   input[type=number]{flex:0 1 60px;text-align:left;}
 }
+//message
+.tbl_message{
+   td{@include alignL(4);}
+   .withdrawal{
+      ::after{@include badge_style();content:"회수";background-color:$gray;margin-left:3px;padding:0 3px;}
+   }
+}

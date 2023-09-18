@@ -28,7 +28,8 @@
 }
 .fc-resourceTimelineYear-view .fc-timeline-slot{color:inherit;}
 #cal-roombook{
-  .fc-datagrid-cell-main{
+  .fc-datagrid-cell-main,
+  thead .fc-sticky{
     display:inline-flex;align-items:center;gap:5px;
     &::before{@include shape(14px,14px);}
   }
@@ -37,6 +38,21 @@
       @include customEvt($col){background-color:rgba($col,.15);border-color:$col;}
       .fc-event-title{color:darken($color: $col, $amount:20)}
     }
-    [data-resource-id=#{$type}] .fc-datagrid-cell-main::before{background-color:$col;}
+    .fc-resourceTimeGridWeek-view{
+     .room#{$type}{
+       @include customEvt($col){background-color:$col;}
+      .fc-event-title{
+          &::before{content:"⋯";color:#fff;width:100%;display: inline-block;font-weight:bold;font-size:1.5em;text-align:center;border:1px solid transparent;border-radius:3px;}
+          &:hover::before{border-color:#fff;}
+      }
+     }
+    }
+    [data-resource-id=#{$type}]{
+      thead .fc-sticky::before,
+      .fc-datagrid-cell-main::before{background-color:$col;}
+    }
+  }
+  .fc-resourceTimeGridWeek-view{
+    .fc-event{border-left:none;padding-left:0;min-height:22px;}
   }
 }
