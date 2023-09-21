@@ -258,6 +258,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
 }
+.btn_more{@include img_btn(14px,14px,'ic_more.png');}
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color:#999;text-align:left;line-height:34px;
   &[disabled]{cursor:default;}
   &::before{position:absolute;top:2px;right:16px;display:inline-block;content:"";width:11px;height:11px;background-color:#fff;border-radius:50%;transition:.1s;}
@@ -456,7 +457,10 @@ legend{@include tit;}
 // table
 $th_border_color:#c0c0c0;
 $td_border_color:#ebebeb;
-.tbl_top_area{@include flex_between;margin-bottom:9px;}
+.tbl_top_area{@include flex_between;margin-bottom:9px;
+  .flex_right{display:flex;margin-left:auto;gap:5px;flex-shrink:0;}
+  .divide{@include divide(16px, 5px);}
+}
 .tbl_bottom_area{@include flex_between;margin-top:9px;}
 td{white-space:nowrap;text-overflow:ellipsis;
   &:has(.tbl_badge+.layer_tool){position:relative;
@@ -484,6 +488,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
     &.new::after{@include newmark;}
   }
   .tags{display:inline-block;}
+  .withdrawal{text-decoration:line-through;color:$gray;
+    &::after{@include badge_style();content:"회수";background-color:$gray;margin-left:3px;padding:0 3px;}
+   }
 }
 .tbl_use_select td:first-child{width:60px;}
 .tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}

@@ -1794,7 +1794,7 @@
     </div>
   </form>
 </dialog> <!--// 브리핑 보드 상세 -->
-<dialog class="p_status_roomBook" id="myModal">
+<dialog class="p_status_roomBook" id="p_status_roomBook">
   <form method="dialog">
     <header class="p_header">
       <strong>회의실 예약현황</strong>
@@ -2313,7 +2313,7 @@ commonInit();
       const modal = e.target.dataset.modal;
       document.querySelector('.' + modal).showModal();
       tabInit(modal);
-      if (modal == 'p_status_roomBook') calendar.updateSize();
+      if (modal == 'p_status_roomBook') cal_roombook.updateSize();
     })
 
     $('.btnClose').on('click', function () {

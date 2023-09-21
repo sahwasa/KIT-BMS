@@ -1,0 +1,43 @@
+<dialog id="p_msg_view" class="p_msg_view">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>받은 쪽지함 / 보낸 쪽지함 / 쪽지 보관함</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <dl class="ipt_lst hasLayer">
+        <dt>보낸사람</dt>
+        <dd>
+          @@include('../../inc/module/module_user.html')
+          <span class="date">2023-05-01 12:34:54</span>
+        </dd>
+        <dt><label for="">받는사람</label></dt>
+        <dd>
+          <i class="msg_tbl_tag">전체</i>
+          @@include('../../inc/module/module_user.html') 외 3명
+          <span class="date">2023-05-01 12:34:54</span>
+          @@include('../../inc/module/receiver_dtl.html')
+        </dd>
+        <dt class="blind"><label for="">내용</label></dt>
+        <dd class="full">
+          <div class="msg_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </dd>
+        <dt>첨부파일</dt>
+        <dd>@@include('../module/module_file_attached.html')</dd>
+      </dl>
+      <!-- @@include('../../inc/module/comment_area_file.html') -->
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">답장</button>
+        <button class="btn_red_line" type="button">전달</button>
+        <button class="btn_red_line" type="button">보관</button>
+        <button class="btn_red_line" type="button">삭제</button>
+        <button class="btn_gray_line">닫기</button>
+        /
+        <button class="btn_red" type="button">다시보냄</button>
+        <button class="btn_red_line" type="button">보관</button>
+        <button class="btn_red_line" type="button">삭제</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
