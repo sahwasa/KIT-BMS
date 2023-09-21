@@ -275,7 +275,7 @@ $columnGap:25px;
   a{height:100%;display:flex;align-items:center;justify-content:center;@include f_blind;border:5px solid #fff;border-radius:50%;
     &::before{@include shape(24px,24px);background:url(../images/btn_top_svc.png) 0 0 no-repeat;}
     &.on,
-    &:hover{background-color:#efeded;transition:background-color .2s ease-in;
+    &:hover{background-color:#edf0f3;transition:background-color .2s ease-in;
       &::before{background-image:url(../images/btn_top_svc_on.png);}
     }
   }
@@ -506,7 +506,7 @@ z-index:10;
 
 .ipt_wrap{
   dl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
-  dt{@include form_label;display:flex;gap:5px;width:100%;}  
+  dt{@include form_label;display:flex;gap:5px;width:100%;} 
   .flex_full{flex-grow:1;}  
   dd{
     &:first-of-type:has(.ipt_innerwrap) .ipt_innerwrap{margin:0 0 15px;}
@@ -522,11 +522,12 @@ z-index:10;
     dt,p{margin-top:0;line-height:28px;}
   }  
   .ipt_info{@include explanation;}
-   .ipt_innerwrap{display:flex;gap:$columnGap;justify-content:space-between;flex-wrap:wrap;margin-top:15px;
+  .ipt_innerwrap{display:flex;gap:$columnGap;justify-content:space-between;flex-wrap:wrap;margin-top:15px;
     li{flex:1 0 calc(50% - $columnGap);
       em{@include form_label;display:flex;gap:5px;width:100%;margin-bottom:10px;}
     }
   }
+  .dd_wrap{display:flex;align-items:start;gap:5px;}
 }
 .ipt_lst{display:grid;grid-template-columns:100px 1fr;grid-template-rows:repeat(auto-fill, minmax(28px, auto));gap:15px;
   dt{@include form_label;line-height:28px;}
@@ -807,6 +808,7 @@ z-index:10;
 .file_attached{position:relative;
   .attach_list li a{display:flex;gap:7px;
     &:hover{text-decoration:underline;}
+    &.preview{flex-shrink:0;}
   }
   i{flex-shrink:0;position:relative;top:1px;}  
 }
@@ -1013,7 +1015,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
   dd{flex:1 auto;max-width:calc((100% - 24px) / 4);}
   @include desktop{dd{max-width:calc((100% - 16px) / 3);}}
-  @include mobile_tablet{dd{max-width:calc((100% - 8px) / 2);}}
+  @include tablet{dd{max-width:calc((100% - 8px) / 2);}}
   dd,
   & > li{@include proj_box(true);display:flex;flex-direction:column;gap:5px;width:100%; height:125px;padding:10px 15px;cursor:pointer;
    .tags{display:flex;gap:3px;flex-wrap:wrap;
@@ -1451,9 +1453,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
   }
   h5{display:inline-block;font-size:12px;color:#000;letter-spacing:-0.12px;}
-  .work_more{font-size:0;vertical-align:middle;
-    &::before{display:inline-block;content:'';width:14px;height:14px;margin-left:3px;background:url(../images/ic_more.png) no-repeat;vertical-align:inherit;}
-  }
+  .work_more{@include img_btn(14px,14px,'ic_more.png');margin-left:3px;}
   b{white-space:pre;}
   .badge{@include badge_style(null,42px);height:17px;font-size:11px;font-weight:bold;line-height:15px;}
   section{flex:0 1 33%;min-width:350px;
@@ -1705,9 +1705,14 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   input[type=number]{flex:0 1 60px;text-align:left;}
 }
 //message
-.tbl_message{
-   td{@include alignL(4);}
-   .withdrawal{
-      ::after{@include badge_style();content:"회수";background-color:$gray;margin-left:3px;padding:0 3px;}
-   }
+.tbl_message{td{@include alignL(4);}}
+.tbl_archive{td{@include alignL(5);}}
+.msg{display:inline-block;max-width:32vw;text-overflow:ellipsis;white-space:nowrap;overflow: hidden;vertical-align:top;}
+.receiver_dtl{display:inline-block;}
+.receiver_wrap{display:none;position:absolute;right:0;top:calc(100% + 5px);width:250px;height:fit-content;max-height:200px;overflow-y:auto;background-color:#fff;border:1px solid $gray;padding:5px;
+  .receiver{@include user_lst;
+    .r_confirm{margin-left:auto;font-size:11px;}
+    .unread{color:$red;}
+  }
 }
+.on .receiver_wrap{display:block;}

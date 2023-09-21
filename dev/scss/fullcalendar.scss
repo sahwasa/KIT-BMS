@@ -24,6 +24,7 @@
 .cal_holiday{@extend %holiday;@include customEvt(#ff0000){border-width:1px;}}
 
 .wbs{
+  [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
   .fc-resource-group .fc-datagrid-cell-cushion{@include text_ellipsis(3);padding-bottom:0;}
 }
 .fc-resourceTimelineYear-view .fc-timeline-slot{color:inherit;}
