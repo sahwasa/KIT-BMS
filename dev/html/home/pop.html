@@ -94,7 +94,7 @@
       const modal = e.target.dataset.modal;
       document.querySelector('.' + modal).showModal();
       tabInit(modal);
-      if (modal == 'p_status_roomBook') calendar.updateSize();
+      if (modal == 'p_status_roomBook') cal_roombook.updateSize();
     })
 
     $('.btnClose').on('click', function () {

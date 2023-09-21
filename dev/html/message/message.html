@@ -12,7 +12,7 @@
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">사내쪽지</a></li>
-            <li><a href="#">받은쪽지함</a></li>
+            <li><a href="#">받은 쪽지함</a></li>
           </ul>
         </section>
       </header>
@@ -46,9 +46,12 @@
             <div class="flex_right">
               <button type="button" class="btn_red">보관함 이동</button>
               <button type="button" class="btn_red_line">삭제</button>
+              <span class="divide">
+                @@include('../../inc/module/opt_lineNum.html')
+              </span>
             </div>
           </section>
-          <section>
+          <section class="tbl_wrap">
             <table class="tbl_default tbl_hover hasLayer tbl_message">
               <caption>사내공지 리스트</caption>
               <colgroup>
@@ -61,26 +64,27 @@
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col" class="all_lst_ctrl"><input type="checkbox"></th>
-                  <th scope="col">종류</th>
+                  <th scope="col"><input type="checkbox" class="row_check all_check" title="전체선택"></th>
+                  <th scope="col">전송그룹</th>
                   <th scope="col">보낸사람</th>
-                  <th scope="col">제목</th>
+                  <th scope="col">내용</th>
                   <th scope="col">수신일시</th>
                   <th scope="col">관리</th>
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0" onclick="location.href='../board/board_view.html'">
+                <tr tabindex="0" onclick="document.getElementById('p_msg_view').showModal();">
                   <td><input type="checkbox" class="row_check" title="줄 선택"></td>
-                  <td><i class="tbl_badge return">전체</i></td>
+                  <td><i class="msg_tbl_tag">전체</i></td>
                   <td>홍길동(경영관리실)</td>
-                  <td class="new">2023년 조직개편 및 진급자 발표</td>
+                  <td class="new"><div class="msg">2023년 조직개편 및 진급자 발표가 있었습니다.2023년 조직개편 및 진급자 발표가 있었습니다.2023년 조직개편 및 진급자 발표가 있었습니다.2023년 조직개편 및 진급자 발표가 있었습니다.2023년 조직개편 및 진급자 발표가 있었습니다.2023년 조직개편 및 진급자 발표가 있었습니다.</div></td>
                   <td>2023-05-01 12:34:50</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
                         <button type="button">답장</button>
+                        <button type="button">전달</button>
                         <button type="button">보관</button>
                         <button type="button">삭제</button>
                       </div>
@@ -89,15 +93,16 @@
                 </tr>
                 <tr tabindex="0">
                   <td><input type="checkbox" class="row_check" title="줄 선택"></td>
-                  <td><i class="tbl_badge return">부서</i></td>
+                  <td><i class="msg_tbl_tag">부서</i></td>
                   <td>홍길동(경영관리실)</td>
-                  <td>2023년 시무식 안내</td>
+                  <td><div class="msg">2023년 시무식 안내</div></td>
                   <td>2023-05-01 12:34:50</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
                         <button type="button">답장</button>
+                        <button type="button">전달</button>
                         <button type="button">보관</button>
                         <button type="button">삭제</button>
                       </div>
@@ -106,15 +111,16 @@
                 </tr>                
                 <tr tabindex="0">
                   <td><input type="checkbox" class="row_check" title="줄 선택"></td>
-                  <td><i class="tbl_badge return">개인</i></td>
+                  <td><i class="msg_tbl_tag">개인</i></td>
                   <td>홍길동(경영관리실)</td>
-                  <td class="withdrawal">2023년 시무식 안내</td>
+                  <td class="withdrawal"><div class="msg">2023년 시무식 안내</div></td>
                   <td>2023-05-01 12:34:50</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
                         <button type="button">답장</button>
+                        <button type="button">전달</button>
                         <button type="button">보관</button>
                         <button type="button">삭제</button>
                       </div>

@@ -1,0 +1,59 @@
+<dialog id="p_msg_write" class="p_msg_write">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>쪽지보내기</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_info">
+      <h3>많은 사람에게 한꺼번에 전송 시 약간의 시간이 소요될 수 있습니다.</h3>
+      <p>
+        보내기 버튼을 한 번만 눌러주시고, 잠시만 기다려주세요.<br />
+        전송이 완료되면, 쪽지 수신확인이 가능합니다.
+      </p>
+    </div>
+    <div class="p_body">
+      <div class="ipt_wrap">
+        <dl>
+          <dt><label for="">받는사람</label>
+          </dt>
+          <dd class="dd_wrap">
+            <select name="" id="" data-seltab ="type_receive">
+              <option value="per" selected>개인</option>
+              <option value="par">부서</option>
+              <option value="all">전체</option>
+            </select>
+            <div class="seltab_wrap">
+              <div class="seltab_opt" id="per">
+                <div class="file_input">
+                  <input type="text" id="" placeholder="이름 or 조직명" list="nameList">
+                  @@include('../data/data_emp_name.html')
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                </div>
+                @@include('../../inc/module/module_slide_user.html')
+              </div>
+              <div class="seltab_opt" id="par">
+                <select name="" id="">
+                  <option value="">SI사업본부</option>
+                  <option value="">연구개발본부</option>
+                </select>
+              </div>
+              <div class="seltab_opt" id="all">
+                <input type="text" value="전체 임직원" disabled >
+              </div>
+            </div>
+          </dd>
+          <dt class="blind"><label for="">내용</label></dt>
+          <dd>
+            <div class="msg_txt" contenteditable>내용</div>
+          </dd>
+          <dt><label for="">첨부파일</label></dt>
+          <dd>@@include('../module/module_file_attach.html')</dd>
+        </dl>      
+      </div>      
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">보내기</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>

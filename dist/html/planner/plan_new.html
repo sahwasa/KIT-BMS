@@ -86,7 +86,6 @@
       <div class="cont_body plan_new">
         <div class="box_compact box_tool">
           <header>
-            
               <button type="button" class="btn_gray_line">전체일정</button>
             <span class="btn_wrap">
               <button type="button" class="btn_red">저장</button>
@@ -145,7 +144,7 @@
                       <li class="optionItem" tabindex="0" data-value="E"><i class="roomE">E</i>회의실E</li>
                     </ul>
                   </div>
-                  <button type="button" class="btn_form">회의실 예약현황</button>
+                  <button type="button" class="btn_form" onclick="document.getElementById('p_status_roomBook').showModal();cal_roombook.updateSize();">회의실 예약현황</button>
                 </div>
               </dd>
               <dt class="required">회의 참여방식</dt>
@@ -244,7 +243,7 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
-<dialog class="p_status_roomBook" id="myModal">
+<dialog class="p_status_roomBook" id="p_status_roomBook">
   <form method="dialog">
     <header class="p_header">
       <strong>회의실 예약현황</strong>
@@ -304,10 +303,7 @@ commonInit();
 <script>
   $(function () {
     setEditor();// editor common   
-    // fileDropEvt();
   })
-  var myDialog = document.getElementById("myModal");
-    myDialog.showModal();
 </script>
 </body>
 

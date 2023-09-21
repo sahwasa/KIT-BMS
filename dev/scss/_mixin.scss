@@ -45,12 +45,16 @@ border:1px solid transparent;align-self:center;@content;}
   display:inline-block;content:"";@include f_blind;overflow:hidden;
   width:$w_size;height:$h_size;
 }
+@mixin divide($h,$gap){
+  position:relative;display:inline-flex;align-items:center;
+  &::before{@include shape(1px,$h);background-color:$gray;margin:0 15px 0 #{15 - $gap};}
+}
 @mixin fontello($ic){
   display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;@content;
 }
 @mixin ico_only($font:none){font-size:0;vertical-align:middle;line-height:1;@content;
-  &::before{@include fontello($font);color:#848890;
-    @if($font != null){font-size:13px;}
+  @if($font != null){
+    &::before{@include fontello($font);font-size:13px;color:#848890;}
   }
 }
 @mixin btn($color,$addTxt:false){  
@@ -61,6 +65,9 @@ border:1px solid transparent;align-self:center;@content;}
       color:$color;font-size:15px;margin-right:3px;
     }
   }
+}
+@mixin img_btn($w,$h,$url){@include ico_only();@content;
+  &::before{@include shape($w,$h);background:url(../images/#{$url});vertical-align:inherit;}
 }
 @mixin cancel($w:15px,$h:18px,$color:#fff){position:relative;align-self:center;width:$w;height:$h;font-size:0;
   &::before,&::after{position:absolute;top:0;display:inline-block;content:'';width:2px;height:$h;background-color:$color;}
