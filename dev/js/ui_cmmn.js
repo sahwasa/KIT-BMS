@@ -191,10 +191,10 @@ function commonInit() {
     .off('click').on('click focusin', '.layer_tool', function (e) {
       e.stopPropagation()
       e.preventDefault()
-      $(this).addClass('on')
+      $(this).addClass('on').css('z-index','100');
     })
     .on('focusout', '.layer_tool', function () {
-      $(this).removeClass('on')
+      $(this).removeClass('on').css('z-index','0');
     });
 
   //tab
@@ -471,6 +471,7 @@ function setEditor() {
       console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
       console.error(error)
     })
+    .replace
 
   // 이미지 에디터 생성
   var imageEditorWrap = document.createElement('div')
@@ -492,6 +493,7 @@ function setEditor() {
       clearInterval(checkEditor)
     }
   }, 100)
+  
 }
 
 const locale_ko = {

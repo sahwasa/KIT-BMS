@@ -29,6 +29,7 @@
         <div class="tab_wrap">
           <ul class="tab">
             <li><a href="#proj01">이슈</a></li>
+            <li><a href="#proj01-1">이슈추가</a></li>
             <li><a href="#proj02">개요</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
@@ -37,8 +38,8 @@
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj04" class="tab_contents wbs">
-            @@include('porject_view_wbs.html')
+          <section id="proj01-1" class="tab_contents issue">
+            @@include('porject_view_issue_write.html')
           </section>
           <section id="proj01" class="tab_contents issue">
             @@include('porject_view_issue.html')
@@ -48,6 +49,9 @@
           </section>
           <section id="proj03" class="tab_contents rfp">
             @@include('project_view_rfp.html')
+          </section>
+          <section id="proj04" class="tab_contents wbs">
+            @@include('porject_view_wbs.html')
           </section>
           <section id="proj05" class="tab_contents risk">
             @@include('project_view_risk.html')
