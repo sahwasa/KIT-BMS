@@ -781,6 +781,7 @@ z-index:10;
   .user_photo{display:inline-block;width:18px;height:18px;overflow:hidden;border-radius:50%;border:1px solid #ccc;
     img{width:100%;height:auto;vertical-align:top;}
   }
+  span,
   b{font-size:11px;color:#717889;align-self:flex-end;}
 }  
 
@@ -1204,14 +1205,17 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &>li{
         li:has(.pic){@include flex_between;min-height:33px;padding:0 13px 0 20px;
           .pic{margin-bottom:0;
-            li{position:relative;border-color:#fff;
+            &>li{position:relative;border-color:#fff;
               &:first-child{left:14px;z-index:2;}
               &:nth-child(2){left:7px;z-index:1;}
               &:nth-last-child(2):first-child{left:7px}
               &:nth-last-child(1):first-child,
               &:nth-last-child(-n+2):first-child ~ li{left:0;}
-              &:nth-child(3){left:0;z-index:0;overflow:hidden;
-                &:has(span) span{position:absolute;width:100%;line-height:20px;z-index:1;background:#d3d3d3;font-size:10px;text-align:center;font-weight:bold;}
+              &:nth-child(3){left:0;z-index:3;
+                &.receiver_dtl{
+                  &>button{position:absolute;width:100%;line-height:20px;z-index:1;background:#d3d3d3;font-size:10px;text-align:center;font-weight:bold;border-radius:50%;}
+                  li{width:auto;height:auto;border:none;border-radius:0%;}
+                }
               }
             }
           }
@@ -1724,4 +1728,4 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     .unread{color:$red;}
   }
 }
-.on .receiver_wrap{display:block;}
+.on>.receiver_wrap{display:block;}

@@ -983,7 +983,61 @@
               <ul class="pic">
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                <li><span>+2</span></li>
+                <li class="layer_tool receiver_dtl">
+                  <button type="button" onclick="event.stopPropagation();" title="더보기">+2</button>
+                  <div class="receiver_wrap">
+                    <ul class="receiver">
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm unread">안읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                      <li><div class="user_module">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+                </div> <span class="r_confirm">읽음</span></li>
+                    </ul>
+                  </div>
+                </li>
               </ul>
             </li>
             <li>
@@ -991,7 +1045,6 @@
                 <i class="ready"></i>로그 이력관리 기능 구축
               </span>
               <ul class="pic">
-                <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
               </ul>
@@ -1266,7 +1319,7 @@
           </div>
           <div class="user_module">
             <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-            <b>확인</b>
+            <span class="show">확인</span>
           </div>
         </div>
         <div class="cmt_txt">
@@ -1285,11 +1338,11 @@
             </div>
           </div>
           <div class="btn_wrap">
-            작성자 : 
+            작성자 :
             <button type="button">수정</button>
             <button type="button">삭제</button>
             &sol;
-            PM,PL : 
+            PM,PL :
             <button type="button">반려</button>
             <button type="button">확인</button>
           </div>
@@ -1677,7 +1730,7 @@
           <section id="proj06" class="tab_contents doc">
             <div class="tbl_top_area">
   <div class="flex_right">
-    <button type="button" class="btn_red">추가</button>
+    <button type="button" class="btn_red" onclick="document.getElementById('p_projDoc').showModal();fileDropEvt();">추가</button>
     <button type="button" class="btn_red_line">수정</button>
     <button type="button" class="btn_gray_line">삭제</button>
     <span class="divide">
@@ -1770,6 +1823,114 @@
     </tbody>
   </table>
 </section>
+<dialog id="p_projDoc" class="p_projDoc">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>문서 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>문서 추가 테이블</caption>
+        <colgroup>
+          <col style="width:110px">
+          <col style="width:auto">
+          <col style="width:110px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required">문서 ID​</th>
+            <td>P200200001</td>
+            <th scope="row" class="required"><label for="doc_type">유형</label></th>
+            <td>
+              <select name="doc_type" id="doc_type">
+                <option value="유형 선택">유형 선택</option>
+                <option value="업무보고">업무보고</option>
+                <option value="산출물">산출물</option>
+                <option value="감리">감리</option>
+                <option value="회의록">회의록</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="doc_name">문서 제목</label></th>
+            <td colspan="3"><input type="text" id="doc_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">승인자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="doc_content">파일첨부</label>
+            </th>
+            <td colspan="3">
+              <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">등록 &sol; 수정</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
           </section>
         </div>
       </div>
@@ -1819,6 +1980,7 @@ commonInit();
     </div>
   </form>
 </dialog>
+p_projDoc.html
 <!-- tui.chart API : https://github.com/nhn/tui.chart/blob/main/docs/ko/getting-started.md -->
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
