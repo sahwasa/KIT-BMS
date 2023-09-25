@@ -575,7 +575,7 @@ z-index:10;
     strong{margin-bottom:7px;}
     i{position:absolute;right:5px;top:5px;@include shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
   }
-  .flex_right{flex-grow:1;}  
+  .flex_right{@include form_style();}  
 }
 .approval_path{display:flex;margin-top:2px;
   li{
@@ -613,7 +613,7 @@ z-index:10;
   header{padding-bottom:5px;}
   header h1{font-size:16px;font-weight:bold;}  
   .form_validity{margin-bottom:10px;}
-  .tbl_workinfo{@include flex_between;margin:3px 0 5px;
+  .tbl_workinfo{@include flex_between;margin:3px 0 5px;gap:3px;
     .btn_wrap{margin-left:auto;}
     .budget{font-size:15px;font-weight:900;}
   }
@@ -652,16 +652,17 @@ z-index:10;
       &:last-child{text-align:right;}
     }
   }
+  .etc_info{@include explanation;padding:10px;margin-bottom:15px;background-color:#f5f7f8;border-radius:3px;
+    &::before,b{font-size:15px;color:#D6293E;vertical-align:middle;}
+    p{margin-top:5px;padding-left:25px;font-size:14px;color:#737373;}
+  }
 }
 .approval_view .my_approval,
 .approval_draft .my_approval{gap:20px;}
 .approval_view .approval_set,
 .approval_draft .approval_set{margin-top:18px;}
 
-.approval_set{width:400px;min-width:400px;
-  & > .box_default_w{margin-top:10px;
-    &:last-of-type{margin-bottom:10px;}
-  }
+.approval_set{@include set_style(false);
   .appr_path{counter-reset:appr_path;
     li{@include flex_between;margin-bottom:4px;padding:6px 7px 7px 25px;border:1px solid #ebebeb;border-radius:2px;counter-increment:appr_path;font-size:11px;
       .user_module{left:-15px;font-size:13px;color:#000;font-weight:500;
@@ -682,8 +683,7 @@ z-index:10;
     }
   }
   .tab_contents :not(first).appr_path{margin-top:4px;}
-  .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:7px;
-    dt{font-size:14px;margin-bottom:0;}
+  .set_list{
     .rel_doc{align-self:flex-start;line-height:28px;}
     .rel_doc + dd{display:flex;flex-flow:column wrap;gap:5px;
       label{white-space:nowrap;padding-left:15px;font-size:12px;color:#999;margin-left:auto;}
@@ -700,7 +700,7 @@ z-index:10;
   }
 }
 .approval_view{
-  .appr_result{align-self:flex-end;
+  .appr_result{align-self:flex-end;margin-left:auto;
     b{@include badge_style(null);padding:1px 3px 0;font-size:11px;font-weight:bold;min-width:39px;}
     button{line-height:21px;}
   }
@@ -778,7 +778,7 @@ z-index:10;
   }
 }
 .user_module{display:flex;gap:5px;align-items:center;position:relative;
-  .user_photo{display:inline-block;width:18px;height:18px;overflow:hidden;border-radius:50%;border:1px solid #ccc;
+  .user_photo{display:inline-flex;align-items:center;width:18px;height:18px;overflow:hidden;border-radius:50%;border:1px solid #ccc;
     img{width:100%;height:auto;vertical-align:top;}
   }
   span,
@@ -1062,10 +1062,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     header{display:flex;gap:10px;align-items:center;margin-bottom:15px;
       span{font-weight:bold;color:#888;letter-spacing:-.33px;}
       .btn_wrap{margin-left:auto;flex-shrink:0;}
+      @include tit_bullet(h1){font-size:14px;color:#000;font-weight:bold;margin-bottom:0;
+        &::before{background-color:#000;top:-2px;}
+      };
     }
-    @include tit_bullet(h1){font-size:14px;color:#000;font-weight:bold;margin-bottom:0;
-      &::before{background-color:#000;top:-2px;}
-    };
   }
   .box_compact{margin-bottom:15px;
     .proj_summary{display:flex;margin-top:10px;gap:5%;
@@ -1167,7 +1167,13 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         &:focus-within{display:block;}
       }  
     }
-  }  
+  }
+  .issue_write{@include flex_layout();
+    .issue_cont{@include form_style();
+      .ck-content { min-height:465px; }
+    }
+    .issue_set{@include set_style();}
+  }
   // 개요
   .overview{@include flex_layout;
     .left_section{display:flex;flex-direction:column;gap:25px;flex:1;
@@ -1421,11 +1427,8 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
 }
 
-
 //wbs
-.cal_wbs{height:calc(100vh - 350px);}
-
-
+.cal_wbs{height:calc(100vh - 350px);min-height:400px;}
 
 //svc
 .cal_wrap{@include flex_between;gap:$columnGap;align-items:flex-start;flex-wrap:wrap;

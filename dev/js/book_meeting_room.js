@@ -25,18 +25,18 @@
       resourceAreaWidth:'100px',
       resourceAreaColumns: [{headerContent:'참여자'}],
       resources:[
-        {id:'A',title:'회의실A',event},
-        {id:'B',title:'회의실B'},
-        {id:'C',title:'회의실C'},
-        {id:'D',title:'회의실D'},
-        {id:'E',title:'회의실E'}
+        {id:'A',title:'회의실A',eventClassNames:'roomA'},
+        {id:'B',title:'회의실B',eventClassNames:'roomB'},
+        {id:'C',title:'회의실C',eventClassNames:'roomC'},
+        {id:'D',title:'회의실D',eventClassNames:'roomD'},
+        {id:'E',title:'회의실E',eventClassNames:'roomE'}
       ],
       events:[
-        { id: 'e1', resourceId: 'A', title:'조기경보회의', start: '2023-09-18', end: '2023-09-18', className:'roomA'},
-        { id: 'e2', resourceId: 'B', title:'업무관리시스템회의', start: '2023-09-18T13:00:00', end: '2023-09-18T14:30:00',className:'roomB'},
-        { id: 'e3', resourceId: 'C', title:'개발자 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00',className:'roomC'},
-        { id: 'e4', resourceId: 'D', title:'퍼블리셔 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00',className:'roomD'},
-        { id: 'e5', resourceId: 'E', title:'인사총무 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00',className:'roomE'},
+        { id: 'e1', resourceId: 'A', title:'조기경보회의', start: '2023-09-18', end: '2023-09-18'},
+        { id: 'e2', resourceId: 'B', title:'업무관리시스템회의', start: '2023-09-18T13:00:00', end: '2023-09-18T14:30:00'},
+        { id: 'e3', resourceId: 'C', title:'개발자 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00'},
+        { id: 'e4', resourceId: 'D', title:'퍼블리셔 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00'},
+        { id: 'e5', resourceId: 'E', title:'인사총무 면접', start: '2023-09-18T09:00:00', end: '2023-09-18T16:00:00'},
       ],      
       businessHours: {
         dow: [1, 2, 3, 4, 5], // Monday - Friday
