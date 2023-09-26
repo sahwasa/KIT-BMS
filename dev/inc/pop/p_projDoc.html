@@ -1,0 +1,63 @@
+<dialog id="p_projDoc" class="p_projDoc">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>문서 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>문서 추가 테이블</caption>
+        <colgroup>
+          <col style="width:110px">
+          <col style="width:auto">
+          <col style="width:110px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required">문서 ID​</th>
+            <td>P200200001</td>
+            <th scope="row" class="required"><label for="doc_type">유형</label></th>
+            <td>
+              <select name="doc_type" id="doc_type">
+                <option value="유형 선택">유형 선택</option>
+                <option value="업무보고">업무보고</option>
+                <option value="산출물">산출물</option>
+                <option value="감리">감리</option>
+                <option value="회의록">회의록</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="doc_name">문서 제목</label></th>
+            <td colspan="3"><input type="text" id="doc_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">승인자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                @@include('../data/data_emp_name.html')
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              @@include('../module/module_slide_user.html')
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="doc_content">파일첨부</label>
+            </th>
+            <td colspan="3">
+              @@include('../../inc/module/module_file_attach.html')
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">등록 &sol; 수정</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
