@@ -366,10 +366,7 @@ $snbWidth:250px;
     .flex_ipt input{flex-grow:1;color:inherit;margin-right:2px;}
     [name="ipt_year"]+.unit{position:absolute;left:50px;color:inherit;}
   }
-  .proj_add{display:flex;flex-direction:column;gap:3px;
-    .btn_back{@include ico_only('\e9ac');align-self:flex-end;
-      &::before{font-size:20px;}
-    }
+  .proj_add{display:flex;flex-direction:column;gap:3px;    
     .period_custom{gap:16px;
       &>*:first-child::before{right:-17px;}
     }
@@ -485,6 +482,7 @@ z-index:10;
     button{flex-shrink:0;}
   }
 }
+.box_form{display:flex;}
 .box_default{@include box_style(20px,20px);}
 .box_default_w{@include box_style(15px,15px);background-color:#fff;border:1px solid #ddd;
   @include tit_bullet(h1);
@@ -503,6 +501,7 @@ z-index:10;
     &::after{content:" )"}    
   }  
 }
+.count_tag{@include badge_style(null,30px){background-color:#EFF1F3;margin-left:10px;color:#000;};}
 
 .ipt_wrap{
   dl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
@@ -1056,7 +1055,16 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     & > section{padding-bottom:30px;}
     .right_section > div{display:flex;flex-direction:column;gap:10px;}
   }
-  .contributor{@include user_lst;margin-top:15px;}
+  .contributor{
+    h1{margin-bottom:0;}
+    .contributor_add{display:none;}
+  }
+  .ls_contributor{@include user_lst;margin-top:15px;
+    .myappr_del{display:none;}
+    li{min-height:24px;gap:5px;
+      &:hover .myappr_del{display:block;}
+    }
+  }
   article{
     header{display:flex;gap:10px;align-items:center;margin-bottom:15px;
       span{font-weight:bold;color:#888;letter-spacing:-.33px;}
@@ -1103,7 +1111,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         th:nth-child(#{$i}),
         td:nth-child(#{$i}){width:8%;color:$color;font-weight:bold;text-align:center;white-space:nowrap;}
       }
-      .user_module{display:inline-flex;}
+      .user_module{display:inline-flex;vertical-align:middle;margin-right:4px;}
       .user_photo{width:24px;height:24px;}      
     }
     details{border-bottom:1px solid #ebebeb;
@@ -1168,7 +1176,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
   }
   .issue_write{@include flex_layout();
-    .issue_cont{@include form_style();
+    .issue_cont{@include form_style();min-width:auto;
       .ck-content { min-height:465px; }
     }
     .issue_set{@include set_style();}
@@ -1178,9 +1186,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     .left_section{display:flex;flex-direction:column;gap:25px;flex:1;
       h1{@include tit;}
       h2{@include tit;font-size:14px;padding-left:13px;
-        i{@include badge_style(null,42px){margin-right:10px;};
-        &.type{@extend %type;}
-      }
+       i{@include badge_style(null,42px){margin-right:10px;};
+          &.type{@extend %type;}
+       }
       }
     }
     .ipt_lst{padding-left:13px;}
@@ -1189,7 +1197,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       li:first-child{margin-top:0;}
     }
     .right_section{flex:0 0 350px;display:flex;flex-direction:column;gap:10px;}
-    .set_list + button{margin-top:15px;}   
+    .set_list + button{margin-top:15px;}      
   }  
   // 요구사항
   .rfp{

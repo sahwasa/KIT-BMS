@@ -101,11 +101,16 @@
     </dl>
     <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
   </section>
-  <section class="box_default_w">
-    <h1>참여자</h1>
-    <span class="file_input">
-      <input type="text" id="form_referrer" placeholder="참여자를 입력하세요." list="nameList" autocomplete="off">
-      <datalist id="nameList">
+  <section class="box_default_w contributor">
+    <header>
+      <h1>참여자<i class="count_tag">3</i></h1>
+      <button class="btn_more" data-toggle="contributor_add">참여자 추가</button>
+    </header>
+    <div class="contributor_add" id="contributor_add" data-tglwrap>
+      <span class="file_input">
+        <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+        <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
+        <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -119,10 +124,11 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-      <button type="button" class="btn_ogt btnMngTree">조직도</button>
-      <button type="button" class="btn_red_line" disabled>저장</button>
-    </span>
-    <ul class="contributor">
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+    </div>
+    <ul class="ls_contributor">
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
@@ -130,11 +136,11 @@
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
+</div><button type="button" class="myappr_del">삭제</button></li>
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>      
+</div><button type="button" class="myappr_del">삭제</button></li>
     </ul>
   </section>
 </section>
