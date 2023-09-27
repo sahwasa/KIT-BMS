@@ -462,7 +462,9 @@ $th_border_color:#c0c0c0;
 $td_border_color:#ebebeb;
 .tbl_top_area{@include flex_between;margin-bottom:9px;
   .flex_right{display:flex;margin-left:auto;gap:5px;flex-shrink:0;}
-  .divide{@include divide(16px, 5px);}
+  .divide{@include divide(16px, 5px);
+    &.search_list{margin:0 auto 0 10px;}
+  }
 }
 .tbl_bottom_area{@include flex_between;margin-top:9px;}
 td{white-space:nowrap;text-overflow:ellipsis;
