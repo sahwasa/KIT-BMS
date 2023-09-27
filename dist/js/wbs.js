@@ -22,13 +22,13 @@
         fold: {
           text: '전체 접기',
           click: function(resource, cellEls, bodyTds) {
-            console.log(resource)
+            alert('어떻게 구현해야하는지 모르겠어요 ㅠ')
           }
         },
         unfold: {
           text: '전체 펼치기',
           click: function() {
-            alert('clicked the custom button!');
+            alert('어떻게 구현해야하는지 모르겠어요 ㅠ')
           }
         }
       },
@@ -94,17 +94,7 @@
             { id: 'g2', title: '통합시험', cop:'홍길동',period:'3일',poc : '20%' },
             { id: 'g3', title: '시험운영', cop:'홍길동',period:'3일',poc : '20%' }
           ]        
-        },
-        { id: 'j', title: '사용자 교육', task: '사용자 교육 교재 작성', cop:'홍길동',period:'3일',poc : '20%',
-         },
-        {id: 'j1', title: '사용자 교육', cop:'홍길동',period:'3일',poc : '20%' },
-        {id: 'j2', title: '사용자 매뉴얼 작성', cop:'홍길동',period:'3일',poc : '20%' },
-        { id: 'm', title: '운영', task: '시스템 운영', cop:'홍길동',period:'3일',poc : '20%' },
-        { id: 'n', title: '운영', task: '운영 문제점 보완', cop:'홍길동',period:'3일',poc : '20%' },
-        { id: 'o', title: '운영', task: '유지관리 지침 작성', cop:'홍길동',period:'3일',poc : '20%' },
-        { id: 'p', title: '준공', task: '준공계 제출', cop:'홍길동',period:'3일',poc : '20%' },
-        { id: 'q', title: '준공', task: '준공검사', cop:'홍길동',period:'3일',poc : '20%' },
-        { id: 'r', title: '단계별 보고', task: '월간, 중간 및 완료보고', cop:'홍길동',period:'3일',poc : '20%' }
+        }
       ],
       events:[
         { id: 'e1', resourceId: 'a', task:'아무튼 바쁨', title:'', start: '2023-09-07T09:00:00', end: '2023-09-07T12:00:00', className: 'cal_busy'},

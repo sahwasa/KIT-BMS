@@ -229,7 +229,7 @@ hr,
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
   &::before{font-size:14px;}
 }
-.tag_pm{@include badge_style(null,22px){position:relative;top:2px;right:-4px;background-color:#ffc938;color:#000;line-height:14px;font-size:10px;border-radius:0;font-weight:bold;}}
+.tag_pm{@include badge_style(null,22px){position:relative;top:2px;background-color:#ffc938;color:#000;line-height:14px;font-size:10px;border-radius:0;font-weight:bold;}}
 // ico_fontello
 .ico_org{vertical-align:middle;
   &::before{font-size:17px;vertical-align:middle;}
@@ -271,6 +271,9 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     &::before{right:16px;}
     &::after{left:0;}
   }
+}
+.btn_back{@include ico_only('\e9ac');align-self:flex-end;
+  &::before{font-size:20px;}
 }
 $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f);
 $_planType:('personal':#1E7B45,'business':#1E7B45, 'meeting':#1E7B45, 'event':#4285f4, 'leave':#7249BD);
@@ -459,7 +462,9 @@ $th_border_color:#c0c0c0;
 $td_border_color:#ebebeb;
 .tbl_top_area{@include flex_between;margin-bottom:9px;
   .flex_right{display:flex;margin-left:auto;gap:5px;flex-shrink:0;}
-  .divide{@include divide(16px, 5px);}
+  .divide{@include divide(16px, 5px);
+    &.search_list{margin:0 auto 0 10px;}
+  }
 }
 .tbl_bottom_area{@include flex_between;margin-top:9px;}
 td{white-space:nowrap;text-overflow:ellipsis;
