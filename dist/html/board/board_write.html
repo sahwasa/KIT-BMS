@@ -83,7 +83,7 @@
         <ul>
           <li><a href="board_internal.html">사내공지 <i class="new_bedge">N</i></a></li>
           <li><a href="#">경조사공지</a></li>
-          <li><a href="#">사진첩</a></li>
+          <li><a href="board_photo.html">사진첩</a></li>
         </ul>
       </li>
       <li><a href="#">부서별 게시판</a>
@@ -112,7 +112,7 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body approval_draft">
+      <div class="cont_body">
         <article class="box_compact box_tool">
           <button type="button" class="btn_gray_line">목록</button>
           <span class="floatR">
@@ -124,7 +124,7 @@
             <button type="button" class="btn_gray_line">취소</button>
           </span>
         </article>
-        <div class="my_approval my_work">
+        <div class="my_work board_new">
           <section class="work_form flex_right">
             <article class="box_default_w">
               <dl class="set_list work_info">
@@ -257,7 +257,7 @@ commonInit();
   <div id="voteScreen" style="display: none;">
     <form id="voteFormScreen">
       <p id="voteQuestion"></p>
-      <div id="voteOptionsScreen"></div>
+      <div id="voteOptionsScreen" class="vote_wrap"></div>
       <br>
       <button type="button" id="voteBack" class="btn_gray_line">재설정</button>
       <button type="button" id="voteComplete" class="btn_red">투표 완료</button>
@@ -425,116 +425,167 @@ commonInit();
     })
   }
 
-// 동적으로 옵션 필드 추가하는 함수
-function createOptionInput(container, inputsArray) {
-  const newOption = document.createElement('input');
-  newOption.type = 'text';
-  newOption.className = 'option';
-  newOption.name = 'voteOption';
-  newOption.value = '';
-  newOption.placeholder = '옵션을 입력해주세요';
+  // 동적으로 옵션 필드 추가하는 함수
+  function createOptionInput(container, inputsArray) {
+    // inputsArray 배열이 정의되지 않았다면 빈 배열로 초기화
+    if (!inputsArray) {
+      inputsArray = [];
+    }
 
-  // 주제 입력란 다음에 옵션 입력 필드를 추가
-  container.insertBefore(newOption, container.children[1]);
-  const label = document.createElement('label');
-  label.className = 'file_input';
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  label.appendChild(checkbox);
-  label.appendChild(document.createTextNode(' '));
-  label.appendChild(newOption);
-  label.appendChild(document.createTextNode(' '));
-  container.insertBefore(label, container.children[1]);
+    const newOption = document.createElement('input');
+    newOption.type = 'text';
+    newOption.className = 'option';
+    newOption.name = 'voteOption';
+    newOption.value = '';
+    newOption.placeholder = '옵션을 입력해주세요';
 
-  inputsArray.push(newOption);
-}
+    // 주제 입력란 다음에 옵션 입력 필드를 추가
+    container.insertBefore(newOption, container.children[1]);
+    const label = document.createElement('label');
+    label.className = 'file_input';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(' '));
+    label.appendChild(newOption);
+    label.appendChild(document.createTextNode(' '));
+    container.insertBefore(label, container.children[1]);
+
+    // inputsArray 배열에 새로운 옵션 입력 필드를 추가
+    inputsArray.push(newOption);
+  }
 
   // 중복 선택 옵션 입력 필드 초기화 함수
   function createOptionInputs(container, inputsArray) {
     createOptionInput(container, inputsArray);
   }
 
-// "투표 추가" 버튼에 이벤트 리스너 추가
-const btnAddVoting = document.getElementById('btnAddVoting');
-btnAddVoting.addEventListener('click', addNewVoting);
+  // 초기화 코드
+  let nextVoteId = 1; // 다음 투표의 ID를 관리하는 변수
+  const votes = []; // 투표 정보를 저장하는 배열
+  let voteCounts = 0; // 투표 결과를 저장하는 변수 (초기값을 0으로 설정)
 
+  // 기존의 addNewVoting 함수를 수정하여 createCustomVoteForm 함수를 사용
+  function addNewVoting() {
+    // 고유한 투표 ID 생성
+    const voteId = `vote_${nextVoteId}`;
+    nextVoteId++;
 
+    // 새로운 투표 폼을 createCustomVoteForm 함수를 사용하여 생성
+    const customVoteForm = createCustomVoteForm(voteId, '투표 주제를 입력해주세요'); // 투표 주제는 원하는 대로 변경 가능
 
+    // 생성된 투표 폼을 페이지에 추가
+    const voteArea = document.getElementById('voteArea');
+    const padding = document.createElement('br'); // 여백
+    voteArea.appendChild(padding);
+    voteArea.appendChild(customVoteForm);
 
+    // 생성한 투표 정보를 배열에 추가
+    votes.push(customVoteForm);
+  }
 
-// 초기화 코드
-let nextVoteId = 1; // 다음 투표의 ID를 관리하는 변수
-const votes = []; // 투표 정보를 저장하는 배열
+  // 원하는 구조의 투표 폼을 생성하는 함수
+  function createCustomVoteForm(voteId) {
+    // 새로운 투표를 위한 컨테이너 생성
+    const newVotingContainer = document.createElement('div');
+    newVotingContainer.className = 'box_compact';
+    newVotingContainer.id = voteId;
 
-// 투표 추가 함수
-function addNewVoting() {
-  // 고유한 투표 ID 생성
-  const voteId = `vote_${nextVoteId}`;
-  nextVoteId++;
+    // 투표 폼 생성
+    const newVoteForm = document.createElement('form');
+    newVoteForm.id = `voteForm_${voteId}`; // 투표 ID를 사용하여 고유한 ID를 생성
+    newVoteForm.className = 'vote_wrap';
 
-  // 새로운 투표 정보 객체 생성
-  const newVote = {
-    voteId: voteId, // 투표 ID
-    question: '', // 투표 주제
-    optionInputs: [], // 옵션 입력 필드 배열
-  };
+    const newVoteSpan = document.createElement('span');
+    newVoteSpan.className = 'file_input';
+    newVoteSpan.id = `voteForm_${voteId}`; // 투표 ID를 사용하여 고유한 ID를 생성
+    newVoteForm.appendChild(newVoteSpan);
 
-  // 새로운 투표를 위한 컨테이너 생성
-  const newVotingContainer = document.createElement('div');
-  newVotingContainer.className = 'voting-container';
-  newVotingContainer.className = 'box_compact';
-  newVotingContainer.id = voteId; // 투표 ID를 컨테이너 ID로 설정
+    // 투표 주제 입력 필드 생성
+    const questionInput = document.createElement('input');
+    questionInput.type = 'text';
+    questionInput.id = 'question';
+    questionInput.name = 'question';
+    questionInput.required = true;
+    questionInput.placeholder = '투표주제를 입력해주세요';
+    newVoteSpan.appendChild(questionInput);
 
-  // 투표 제목 입력 필드 생성
-  const questionInput = document.createElement('input');
-  questionInput.type = 'text';
-  questionInput.required = true;
-  questionInput.placeholder = '투표주제를 입력해주세요';
-  questionInput.addEventListener('input', (event) => {
-    newVote.question = event.target.value; // 투표 주제 업데이트
-  });
-  newVotingContainer.appendChild(questionInput);
+    // 중복 선택 가능 횟수 입력 필드 생성
+    const maxVoteInput = document.createElement('input');
+    maxVoteInput.type = 'number';
+    maxVoteInput.placeholder = '중복 선택 가능 횟수';
+    newVoteSpan.appendChild(maxVoteInput);
 
-  // 투표 옵션 입력 필드 배열 정의 (각 투표마다 별도의 배열을 생성)
-  const optionInputs = [];
+    // 옵션 컨테이너 생성
+    const optionsContainer = document.createElement('div');
+    optionsContainer.id = 'optionsContainer';
 
-  // 옵션 추가 버튼 생성
-  const addOptionButton = document.createElement('button');
-  addOptionButton.type = 'button';
-  addOptionButton.className = 'btn_default';
-  addOptionButton.textContent = '옵션 추가';
-  addOptionButton.addEventListener('click', () => {
-    createOptionInput(newVotingContainer, optionInputs); // 해당 투표 컨테이너에 옵션 추가
-  });
-  newVotingContainer.appendChild(addOptionButton);
+    // 기본 옵션 한 개를 추가
+    createOptionInput(optionsContainer);
+    newVoteForm.appendChild(optionsContainer);
 
-  // 투표 생성 버튼 생성
-  const createVoteButton = document.createElement('button');
-  createVoteButton.type = 'button';
-  createVoteButton.className = 'btn_red';
-  createVoteButton.textContent = '투표 생성';
-  createVoteButton.addEventListener('click', () => {
-    // 투표 생성 로직에서도 newVote를 사용할 수 있습니다.
-    // 예: newVote.question, newVote.optionInputs를 사용하여 투표 정보 처리
-  });
-  newVotingContainer.appendChild(createVoteButton);
+    // 옵션 추가 버튼 생성
+    const addOptionButton = document.createElement('button');
+    addOptionButton.type = 'button';
+    addOptionButton.id = 'addOption';
+    addOptionButton.className = 'btn_default';
+    addOptionButton.textContent = '옵션 추가';
+    addOptionButton.addEventListener('click', () => {
+      createOptionInput(optionsContainer); // 옵션 추가
+    });
+    newVoteForm.appendChild(addOptionButton);
 
-  // 새로운 투표 컨테이너를 페이지에 추가
-  const voteArea = document.getElementById('voteArea');
-  const padding = document.createElement('br'); // 여백
-  voteArea.appendChild(padding);
-  voteArea.appendChild(newVotingContainer);
+    // 투표 생성 버튼 생성
+    const createVoteButton = document.createElement('button');
+    createVoteButton.type = 'button';
+    createVoteButton.id = 'createVote';
+    createVoteButton.className = 'btn_red';
+    createVoteButton.textContent = '투표 생성';
+    createVoteButton.addEventListener('click', () => {
+      // 투표 생성 로직에서도 해당 투표에 대한 처리를 할 수 있습니다.
+    });
+    newVoteForm.appendChild(createVoteButton);
+    newVotingContainer.appendChild(newVoteForm);
 
-  // 생성한 투표 정보를 배열에 추가
-  votes.push(newVote);
-}
+    // 투표 화면 생성
+    const voteScreenHTML = `
+    <div id="voteScreen" style="display: none;">
+      <form id="voteFormScreen">
+        <p id="voteQuestion"></p>
+        <div id="voteOptionsScreen" class="vote_wrap"></div>
+        <br>
+        <button type="button" id="voteBack" class="btn_gray_line">재설정</button>
+        <button type="button" id="voteComplete" class="btn_red">투표 완료</button>
+      </form>
+    </div>
+  `;
+    const voteScreen = document.createElement('div');
+    voteScreen.innerHTML = voteScreenHTML;
+    newVotingContainer.appendChild(voteScreen);
 
+    // 투표 결과 화면 생성
+    const voteResultsHTML = `
+    <div id="voteResults" style="display: none;">
+      <div id="chart" style="display: none;"><div class="toastui-chart-wrapper"><div class="toastui-chart-tooltip-container" style="transform: translate(0px, 0px);"></div><canvas width="0" height="250" style="width: 0px; height: 250px;"></canvas></div></div>
+      <ul id="votedOptions">
+        <!-- 투표 결과는 JavaScript로 동적으로 생성됩니다. -->
+      </ul>
+    </div>
+  `;
+    const voteResults = document.createElement('div');
+    voteResults.innerHTML = voteResultsHTML;
+    newVotingContainer.appendChild(voteResults);
+    return newVotingContainer;
+  }
 
-// 페이지 초기화 함수 호출
-createVoteScreen();
-createVoteResultsScreen();
-handleOptionTypeChange();
+  // 페이지 초기화 함수 호출
+  createVoteScreen();
+  createVoteResultsScreen();
+  handleOptionTypeChange();
 
+  // "투표 추가" 버튼에 이벤트 리스너 추가
+  const btnAddVoting = document.getElementById('btnAddVoting');
+  btnAddVoting.addEventListener('click', addNewVoting);
 
   // 차트 초기화
   const Chart = toastui.Chart;
@@ -552,7 +603,7 @@ handleOptionTypeChange();
       offsetY: 0,
       formatter: function (value, ratio, category) {
         // 값이 0인 경우에는 툴팁을 표시하지 않음
-        if (voteCounts === 0) {
+        if (voteCounts === 0) { // 여기서 voteCounts를 참조하고 있음
           return '';
         }
         // 그렇지 않은 경우에는 기본 툴팁 내용 반환
@@ -576,10 +627,10 @@ handleOptionTypeChange();
         });
       }
     }
-     // 이전 차트 객체를 제거 (참조를 끊음)
+    // 이전 차트 객체를 제거 (참조를 끊음)
     chart.destroy();
-      // 새로운 차트 객체 생성
-      chart = Chart.pieChart({ el, data: chartData, options });
+    // 새로운 차트 객체 생성
+    chart = Chart.pieChart({ el, data: chartData, options });
   }
 </script>
 

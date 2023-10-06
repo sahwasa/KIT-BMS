@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>사내쪽지</h2>
+    </header>
+    <div class="btn_workset">
+      <button type="button" onclick="document.getElementById('p_msg_write').showModal();fileDropEvt();" class="btn_default">쪽지보내기</button>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="message.html">받은 쪽지함</a>
+        <ul>
+          <li><a href="#">개인 쪽지함</a></li>
+          <li><a href="#">부서 쪽지함</a></li>
+          <li><a href="#">전체 쪽지함</a></li>
+        </ul>
+      </li>
+      <li><a href="message_sendbox.html">보낸 쪽지함</a></li>
+      <li><a href="message_archive.html">쪽지 보관함</a></li>
+    </ul>
+  </div>
+</section>
+<dialog id="p_msg_write" class="p_msg_write">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>쪽지보내기</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_info">
+      <h3>많은 사람에게 한꺼번에 전송 시 약간의 시간이 소요될 수 있습니다.</h3>
+      <p>
+        보내기 버튼을 한 번만 눌러주시고, 잠시만 기다려주세요.<br />
+        전송이 완료되면, 쪽지 수신확인이 가능합니다.
+      </p>
+    </div>
+    <div class="p_body">
+      <div class="ipt_wrap">
+        <dl>
+          <dt><label for="">받는사람</label>
+          </dt>
+          <dd class="dd_wrap">
+            <select name="" id="" data-seltab ="type_receive">
+              <option value="per" selected>개인</option>
+              <option value="par">부서</option>
+              <option value="all">전체</option>
+            </select>
+            <div class="seltab_wrap">
+              <div class="seltab_opt" id="per">
+                <div class="file_input">
+                  <input type="text" id="" placeholder="이름 or 조직명" list="nameList">
+                  <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                </div>
+                <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+              </div>
+              <div class="seltab_opt" id="par">
+                <select name="" id="">
+                  <option value="">SI사업본부</option>
+                  <option value="">연구개발본부</option>
+                </select>
+              </div>
+              <div class="seltab_opt" id="all">
+                <input type="text" value="전체 임직원" disabled >
+              </div>
+            </div>
+          </dd>
+          <dt class="blind"><label for="">내용</label></dt>
+          <dd>
+            <div class="msg_txt" contenteditable>내용</div>
+          </dd>
+          <dt><label for="">첨부파일</label></dt>
+          <dd><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div></dd>
+        </dl>      
+      </div>      
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">보내기</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog id="p_msg_view" class="p_msg_view">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>받은 쪽지함 / 보낸 쪽지함 / 쪽지 보관함</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <dl class="ipt_lst hasLayer">
+        <dt>보낸사람</dt>
+        <dd>
+          <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+          <span class="date">2023-05-01 12:34:54</span>
+        </dd>
+        <dt><label for="">받는사람</label></dt>
+        <dd>
+          <i class="msg_tbl_tag">전체</i>
+          <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> 외 3명
+          <span class="date">2023-05-01 12:34:54</span>
+          <div class="layer_tool receiver_dtl">
+  <button type="button" onclick="event.stopPropagation();" class="btn_more" title="더보기">더보기</button>
+  <div class="receiver_wrap">
+    <ul class="receiver">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm unread">안읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+    </ul>
+  </div>
+</div>
+        </dd>
+        <dt class="blind"><label for="">내용</label></dt>
+        <dd class="full">
+          <div class="msg_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </dd>
+        <dt>첨부파일</dt>
+        <dd><div class="file_attached">
+  <ul class="attach_list"></ul>
+  <ul class="attach_list">
+    <li>
+      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+    <li>
+      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+  </ul>
+</div></dd>
+      </dl>
+      
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">답장</button>
+        <button class="btn_red_line" type="button">전달</button>
+        <button class="btn_red_line" type="button">보관</button>
+        <button class="btn_red_line" type="button">삭제</button>
+        <button class="btn_gray_line">닫기</button>
+        /
+        <button class="btn_red" type="button">다시보냄</button>
+        <button class="btn_red_line" type="button">보관</button>
+        <button class="btn_red_line" type="button">삭제</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>보낸 쪽지함<span>쪽지</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내쪽지</a></li>
+            <li><a href="#">보낸 쪽지함</a></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <section class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <div class="period_group">
+                <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
+                <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
+                <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
+              </div>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </li>
+            <li>
+              <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+              <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+            </li>
+            <li>
+              <button type="button" class="btn_search">검색</button>
+              <button type="button" class="btn_refresh">초기화</button>
+            </li>
+          </ul>
+          <div class="flex_right">
+            <button type="button" class="btn_red">보관함 이동</button>
+            <button type="button" class="btn_red_line">삭제</button>
+            <span class="divide">
+              <select title="목록개수 선택">
+  <option value="15">15줄 보기</option>
+  <option value="50" selected>50줄 보기</option>
+  <option value="100">100줄 보기</option>
+  <option value="200">200줄 보기</option>
+</select>
+            </span>
+          </div>
+        </section>
+        <section class="tbl_wrap">
+          <table class="tbl_default tbl_hover hasLayer tbl_message">
+            <caption>사내공지 리스트</caption>
+            <colgroup>
+              <col style="width:40px;">
+              <col style="width:60px;">
+              <col style="width:140px;">
+              <col style="width:auto;">
+              <col style="width:150px;" span=2>
+              <col style="width:30px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col"><input type="checkbox" class="row_check all_check" title="전체선택"></th>
+                <th scope="col">전송그룹</th>
+                <th scope="col">받는사람</th>
+                <th scope="col">내용</th>
+                <th scope="col">송신일시</th>
+                <th scope="col">수신확인</th>
+                <th scope="col">관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr tabindex="0" onclick="document.getElementById('p_msg_view').showModal();">
+                <td><input type="checkbox" class="row_check" title="줄 선택"></td>
+                <td><i class="msg_tbl_tag">전체</i></td>
+                <td>전체 임직원(85)</td>
+                <td class="new">2023년 조직개편 및 진급자 발표</td>
+                <td>2023-05-01 12:34:50</td>
+                <td>30명 읽음 <div class="layer_tool receiver_dtl">
+  <button type="button" onclick="event.stopPropagation();" class="btn_more" title="더보기">더보기</button>
+  <div class="receiver_wrap">
+    <ul class="receiver">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm unread">안읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+    </ul>
+  </div>
+</div></td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">삭제</button>
+                      <button type="button">전달</button>
+                      <button type="button">다시보냄</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr tabindex="0">
+                <td><input type="checkbox" class="row_check" title="줄 선택"></td>
+                <td><i class="msg_tbl_tag">부서</i></td>
+                <td>SI사업본부(10)</td>
+                <td class="withdrawal">2023년 시무식 안내</td>
+                <td>2023-05-01 12:34:50</td>
+                <td>2명 읽음 <div class="layer_tool receiver_dtl">
+  <button type="button" onclick="event.stopPropagation();" class="btn_more" title="더보기">더보기</button>
+  <div class="receiver_wrap">
+    <ul class="receiver">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm unread">안읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+    </ul>
+  </div>
+</div></td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">삭제</button>
+                      <button type="button">전달</button>
+                      <button type="button">다시보냄</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>                
+              <tr tabindex="0">
+                <td><input type="checkbox" class="row_check" title="줄 선택"></td>
+                <td><i class="msg_tbl_tag">개인</i></td>
+                <td>홍길동(경영관리실)</td>
+                <td>2023년 시무식 안내</td>
+                <td>2023-05-01 12:34:50</td>
+                <td>읽음</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">삭제</button>
+                      <button type="button">전달</button>
+                      <button type="button">다시보냄</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>                
+              <tr tabindex="0">
+                <td><input type="checkbox" class="row_check" title="줄 선택"></td>
+                <td><i class="msg_tbl_tag">개인</i></td>
+                <td>홍길동 외 3명</td>
+                <td>2023년 시무식 안내</td>
+                <td>2023-05-01 12:34:50</td>
+                <td>4명 읽음 <div class="layer_tool receiver_dtl">
+  <button type="button" onclick="event.stopPropagation();" class="btn_more" title="더보기">더보기</button>
+  <div class="receiver_wrap">
+    <ul class="receiver">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm unread">안읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+    </ul>
+  </div>
+</div></td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">삭제</button>
+                      <button type="button">전달</button>
+                      <button type="button">다시보냄</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>                
+            </tbody>
+          </table>
+          <div class="paginate tui-pagination" id="pagination">
+  <span class="tui-page-btn tui-is-disabled tui-first">
+    <span class="tui-ico-first">first</span>
+  </span>
+  <span class="tui-page-btn tui-is-disabled tui-prev">
+    <span class="tui-ico-prev">prev</span>
+  </span>
+  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
+  <a href="#" class="tui-page-btn tui-last-child">2</a>
+  <a href="#" class="tui-page-btn tui-next">
+    <span class="tui-ico-next">next</span>
+  </a>
+  <a href="#" class="tui-page-btn tui-last">
+    <span class="tui-ico-last">last</span>
+  </a>
+</div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+</body>
+
+</html>

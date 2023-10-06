@@ -198,6 +198,7 @@
         <div class="tab_wrap">
           <ul class="tab">
             <li><a href="#proj01">이슈</a></li>
+            <li><a href="#proj01-1">이슈추가</a></li>
             <li><a href="#proj02">개요</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
@@ -206,11 +207,12 @@
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj04" class="tab_contents wbs">
+        <section id="proj04" class="tab_contents wbs">
             <div id='wbs' class="cal_wbs"></div>
+<div id='wbs_productivity' class="cal_productivity"></div>
           </section>
           <section id="proj01" class="tab_contents issue">
-            <div>
+            <article class="box_compact box_form">
   <ul class="search_list">
     <li>
       <select class="" title="빠른필터">
@@ -251,8 +253,11 @@
       <button type="button" class="btn_search">검색</button>
       <button type="button" class="btn_refresh">초기화</button>
     </li>
-  </ul>  
-</div>
+  </ul>
+  <span class="btn_wrap">
+    <button type="button" class="btn_red">이슈 추가</button>
+  </span>
+</article>
 <section class="task_body">
   <section class="left_section">
     <h1 class="blind">이슈목록</h1>
@@ -804,6 +809,172 @@
   
 </script>
           </section>
+          <section id="proj01-1" class="tab_contents issue">
+            <article class="box_compact box_form">
+  <button type="button" class="btn_gray_line">목록</button>
+  <span class="btn_wrap">
+    <button type="button" class="btn_red">저장</button>
+    <button type="button" class="btn_gray_line">취소</button>
+  </span>
+</article>
+<article class="issue_dtl issue_write">
+  <section class="issue_cont">
+    <header>
+      <input type="text" title="제목" placeholder="제목">
+    </header>  
+    <div class="editor_wrap" id="editor_wrap">
+      <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+    </div>
+  </section>    
+  <section class="issue_set">
+    <section class="box_default_w">
+      <dl class="set_list">
+        <dt><label for="">업무상태</label></dt>
+        <dd>
+          <div class="select_custom task_status">
+            <button class="label"><span class="opt_label">상태</span></button>
+            <ul class="optionList">
+              <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
+              <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
+              <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
+              <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
+              <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+              <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
+            </ul>
+          </div>
+        </dd>
+        <dt><label for="">만기일</label></dt>
+        <dd>
+          <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+        </dd>
+        <dt><label for="">업무범주</label></dt>
+        <dd>
+          <span class="file_input">
+            <select id="nameSelect">
+              <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+            </select>
+          </span>
+          <div id="tagsList"></div>
+        </dd>
+      </dl>
+    </section>
+    <section class="box_default_w">
+      <h1>담당자</h1>
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line">저장</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+    </section>
+    <section class="box_default_w">
+      <h1>참조자</h1>
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line">저장</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+    </section>
+    <section class="box_default_w">
+      <h1>첨부파일</h1>
+      <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div>
+    </section>
+  </section>
+</article>
+          </section>
           <section id="proj02" class="tab_contents overview">
             <section class="left_section">
   <article>
@@ -908,11 +1079,16 @@
     </dl>
     <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
   </section>
-  <section class="box_default_w">
-    <h1>참여자</h1>
-    <span class="file_input">
-      <input type="text" id="form_referrer" placeholder="참여자를 입력하세요." list="nameList" autocomplete="off">
-      <datalist id="nameList">
+  <section class="box_default_w contributor">
+    <header>
+      <h1>참여자<i class="count_tag">3</i></h1>
+      <button class="btn_more" data-toggle="contributor_add">참여자 추가</button>
+    </header>
+    <div class="contributor_add" id="contributor_add" data-tglwrap>
+      <span class="file_input">
+        <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+        <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
+        <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -926,10 +1102,11 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-      <button type="button" class="btn_ogt btnMngTree">조직도</button>
-      <button type="button" class="btn_red_line" disabled>저장</button>
-    </span>
-    <ul class="contributor">
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+    </div>
+    <ul class="ls_contributor">
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
@@ -937,11 +1114,11 @@
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
+</div><button type="button" class="myappr_del">삭제</button></li>
       <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>      
+</div><button type="button" class="myappr_del">삭제</button></li>
     </ul>
   </section>
 </section>
@@ -983,7 +1160,29 @@
               <ul class="pic">
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                <li><span>+2</span></li>
+                <li class="layer_tool receiver_dtl">
+                  <button type="button" onclick="event.stopPropagation();" title="더보기">+2</button>
+                  <div class="receiver_wrap">
+                    <ul class="receiver">
+                      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                    </ul>
+                  </div>
+                </li>
               </ul>
             </li>
             <li>
@@ -991,7 +1190,6 @@
                 <i class="ready"></i>로그 이력관리 기능 구축
               </span>
               <ul class="pic">
-                <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
               </ul>
@@ -1266,7 +1464,7 @@
           </div>
           <div class="user_module">
             <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-            <b>확인</b>
+            <span class="show">확인</span>
           </div>
         </div>
         <div class="cmt_txt">
@@ -1285,11 +1483,11 @@
             </div>
           </div>
           <div class="btn_wrap">
-            작성자 : 
+            작성자 :
             <button type="button">수정</button>
             <button type="button">삭제</button>
             &sol;
-            PM,PL : 
+            PM,PL :
             <button type="button">반려</button>
             <button type="button">확인</button>
           </div>
@@ -1325,12 +1523,13 @@
 
 </script>
           </section>
+          
           <section id="proj05" class="tab_contents risk">
             <section class="task_body">
   <div class="tab_wrap">
     <div class="tab_wrap">
       <ul class="tab tab_s">
-        <li class="on"><a href="#tab_con01">처리중 <span>2</span>건</a></li>
+        <li class="on"><a href="#tab_con01">진행중 <span>2</span>건</a></li>
         <li><a href="#tab_con02">완료 <span>30</span>건</a></a></li>
       </ul>
       <select name="" id="" title="리스크 필터">
@@ -1366,7 +1565,7 @@
           <dd>3</dd>
         </dl>
       </li>
-      <li>
+      <li class="risk_done">
         <input type="checkbox" class="row_check">
         <div class="user_module">
           <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -1477,6 +1676,68 @@
             <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
             <div class="btn_layer">
               <button type="button">처리완료</button>
+              <button type="button">재진행</button>
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
+            </div>
+          </div>
+        </header>
+        <div>
+          <h2><span class="t_skyblue">요구사항 ID</span>요구사항명 요구사항명</h2>
+          <div class="box_default_w file_attached">
+            <ul class="attach_list">
+              <li>
+                <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
+                <a href="#" target="_blank" class="preview">미리보기</a>
+              </li>
+              <li>
+                <a href="#"><i class="ext_ppt"></i>난 차라리 꽉 눌러붙을래 날 재촉한다면 고민 하나 없이 퍼져 있는 계란 fry fry 같이 나른하게.song</a>
+                <a href="#" target="_blank" class="preview">미리보기</a>
+              </li>
+            </ul>
+          </div>
+          <p class="ballon_txt">
+            ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br>
+            ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br>
+            (´　 ＼/＿＿＿/)<br>
+            --------------------<br>
+            ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br>
+            \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br>
+            (\＿＿＿ \／ `)
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+
+
+<span>❤❤❤❤❤❤❤❤❤❤❤❤ 완료된 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
+
+
+<section class="task_body">
+  <article class="box_compact box_tool">
+    <button type="button" class="btn_gray_line">목록</button>
+  </article>
+  <ul>
+    <li class="ballon_wrap">
+      <div class="user_module">
+        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+        <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+      </div>
+      <div class="ballon_body">
+        <header>
+          <div class="btn_wrap">
+            <h1>OOO 자료분석</h1>
+            <div class="tags"><i>비용</i></div>
+            <span>2022-04-05</span>
+          </div>
+          <div class="layer_tool">
+            <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+            <div class="btn_layer">
+              <button type="button">처리완료</button>
+              <button type="button">재진행</button>
               <button type="button">수정</button>
               <button type="button">삭제</button>
             </div>
@@ -1613,10 +1874,20 @@
 </section>
           </section>
           <section id="proj06" class="tab_contents doc">
-            <div class="alignR">
-  <button type="button" class="btn_red">추가</button>
-  <button type="button" class="btn_red_line">수정</button>
-  <button type="button" class="btn_gray_line">삭제</button>
+            <div class="tbl_top_area">
+  <div class="flex_right">
+    <button type="button" class="btn_red" onclick="document.getElementById('p_projDoc').showModal();fileDropEvt();">추가</button>
+    <button type="button" class="btn_red_line">수정</button>
+    <button type="button" class="btn_gray_line">삭제</button>
+    <span class="divide">
+      <select title="목록개수 선택">
+  <option value="15">15줄 보기</option>
+  <option value="50" selected>50줄 보기</option>
+  <option value="100">100줄 보기</option>
+  <option value="200">200줄 보기</option>
+</select>
+    </span>
+  </div>
 </div>
 <section class="task_body">
   <table class="tbl_default tbl_use_select tbl_hover hasLayer alignL_3">
@@ -1698,6 +1969,114 @@
     </tbody>
   </table>
 </section>
+<dialog id="p_projDoc" class="p_projDoc">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>문서 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>문서 추가 테이블</caption>
+        <colgroup>
+          <col style="width:110px">
+          <col style="width:auto">
+          <col style="width:110px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required">문서 ID​</th>
+            <td>P200200001</td>
+            <th scope="row" class="required"><label for="doc_type">유형</label></th>
+            <td>
+              <select name="doc_type" id="doc_type">
+                <option value="유형 선택">유형 선택</option>
+                <option value="업무보고">업무보고</option>
+                <option value="산출물">산출물</option>
+                <option value="감리">감리</option>
+                <option value="회의록">회의록</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="doc_name">문서 제목</label></th>
+            <td colspan="3"><input type="text" id="doc_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">승인자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="doc_content">파일첨부</label>
+            </th>
+            <td colspan="3">
+              <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">등록 &sol; 수정</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
           </section>
         </div>
       </div>
@@ -1747,6 +2126,7 @@ commonInit();
     </div>
   </form>
 </dialog>
+p_projDoc.html
 <!-- tui.chart API : https://github.com/nhn/tui.chart/blob/main/docs/ko/getting-started.md -->
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
