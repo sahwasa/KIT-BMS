@@ -393,7 +393,7 @@ $btn_red_line:#ff7575;
   &+button{width:100%;margin-top:5px;}
   &+.period_custom{display:none;}
 }
-
+[data-selectTarget]{display:none;}
 .period_group{@include btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
 .file_input + .btn_slideclose{margin-top:5px;}
 .btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;
@@ -445,7 +445,7 @@ legend{@include tit;}
   }
   &.long{width:276px;}
 }
-.search_list{display:flex;flex-flow:row wrap;gap:5px;margin-right:10px;}
+.search_list{display:flex;flex-flow:row wrap;align-items:center;gap:5px;margin-right:10px;}
 .btn_search{@include btn($btn_red,true);
   &::before{@include fontello('\e802');}
 }

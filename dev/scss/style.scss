@@ -660,27 +660,38 @@ z-index:10;
 .approval_draft .my_approval{gap:20px;}
 .approval_view .approval_set,
 .approval_draft .approval_set{margin-top:18px;}
-
-.approval_set{@include set_style(false);
-  .appr_path{counter-reset:appr_path;
-    li{@include flex_between;margin-bottom:4px;padding:6px 7px 7px 25px;border:1px solid #ebebeb;border-radius:2px;counter-increment:appr_path;font-size:11px;
-      .user_module{left:-15px;font-size:13px;color:#000;font-weight:500;
-        &::before{content:counter(appr_path)".";display:inline-block;width:15px;}
-      }
-      .appr_btn_set{@include flex_between;
-        .myappr_del{margin-right:5px;}
-      }
+.appr_path{counter-reset:appr_path;
+  li{@include flex_between;margin-bottom:4px;padding:6px 7px 7px 25px;border:1px solid #ebebeb;border-radius:2px;counter-increment:appr_path;font-size:11px;
+    .user_module{left:-15px;font-size:13px;color:#000;font-weight:500;
+      &::before{content:counter(appr_path)".";display:inline-block;width:15px;}
     }
-    .btn_switch{gap:3px;padding:0;
-      label{min-width:40px;border-width:1px;border-radius:2px;line-height:23px;font-size:12px;padding:0;border-color:#aaa;color:inherit;font-weight:normal;
-        &:hover{font-weight:bold;}
-      }
-      input:checked+label{background-color:#f05050;border-color:#f05050;color:#fff;font-weight:bold;}
-    }
-    &>li:only-of-type{ // 요청자
-      div::before{display:none;}
+    .appr_btn_set{@include flex_between;
+      .myappr_del{margin-right:5px;}
     }
   }
+  .btn_switch{gap:3px;padding:0;
+    label{min-width:40px;border-width:1px;border-radius:2px;line-height:23px;font-size:12px;padding:0;border-color:#aaa;color:inherit;font-weight:normal;
+      &:hover{font-weight:bold;}
+    }
+    input:checked+label{background-color:#f05050;border-color:#f05050;color:#fff;font-weight:bold;}
+  }
+  &>li:only-of-type{ // 요청자
+    div::before{display:none;}
+  }
+  &.view{
+    li{flex-direction:column;align-items:flex-start;border-width:1px 0 0;padding:6px 0 6px 25px;
+      &:first-child{border-top-width:0;padding-top:0;}
+      .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;
+        &:empty{margin:0;padding:0;}
+      }
+    }
+  }
+}
+.appr_result{align-self:flex-end;margin-left:auto;
+  b{@include badge_style(null);padding:1px 3px 0;font-size:11px;font-weight:bold;min-width:39px;}
+  button{line-height:21px;}  
+}
+.approval_set{@include set_style(false);  
   .tab_contents :not(first).appr_path{margin-top:4px;}
   .set_list{
     .rel_doc{align-self:flex-start;line-height:28px;}
@@ -699,16 +710,7 @@ z-index:10;
   }
 }
 .approval_view{
-  .appr_result{align-self:flex-end;margin-left:auto;
-    b{@include badge_style(null);padding:1px 3px 0;font-size:11px;font-weight:bold;min-width:39px;}
-    button{line-height:21px;}
-  }
-  .appr_path li{flex-direction:column;align-items:flex-start;border-width:1px 0 0;padding:6px 0 6px 25px;
-    &:first-child{border-top-width:0;padding-top:0;}
-    .review_txt{width:100%;background-color:#ececec;padding:5px;border-radius:3px;margin:8px 0 3px;font-size:13px;
-      &:empty{margin:0;padding:0;}
-    }
-  }
+  .appr_path{@extend .view}
   .act_lst{padding-left:3px;
     @include tit_bullet('.date-time',3);
     li{border-left:1px solid #ccc;padding:0 0 15px 10px;
@@ -751,8 +753,7 @@ z-index:10;
 }
 @include desktop{
   .approval_view .my_approval,
-  .approval_draft .my_approval{flex-flow:column wrap;
-    
+  .approval_draft .my_approval{flex-flow:column wrap;    
     .approval_set{order:-1;width:100%;display:grid;gap:5px;margin-top:0;
     grid-template-areas:"path etc""path refer""path refer""attach act"; 
       &:has(section:only-of-type){display:block;} // 하나뿐일 때(게시판 상세 - 첨부파일)
@@ -1178,7 +1179,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
   .issue_write{@include flex_layout();
     .issue_cont{@include form_style();min-width:auto;
-      .ck-content { min-height:465px; }
+      .ck-content{min-height:465px;}
     }
     .issue_set{@include set_style();}
   }
@@ -1560,9 +1561,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &+.set_list{margin:25px 0 20px;}
   }
   .set_list{display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;margin:0 0 20px;
-    dt{position:relative;margin-bottom:0;padding-left:15px;font-size:14px;font-weight:bold;
+    dt{position:relative;margin-bottom:0;padding-left:15px;font-size:14px;font-weight:bold;line-height:28px;align-self:start;
       &::before{display:none;position:absolute;left:2px;}
     }
+    dd:has([data-selectEvt]){align-self:start;}
     .rel_doc{align-self:flex-start;line-height:28px;}
     .rel_doc + dd{display:flex;flex-flow:column wrap;gap:5px;
       label{white-space:nowrap;padding-left:15px;font-size:12px;color:#999;margin-left:auto;}
@@ -1586,6 +1588,13 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
   span{font-size:20px;font-weight:bold;}
 }
+.tbl_work_day td{@include alignL(2);}
+.tbl_todo td,
+.tbl_work_fin td,
+.tbl_work_delay td{@include alignL(2 4);}
+.tbl_work_share td,
+.tbl_work_reque td,
+.tbl_work_refer td{@include alignL(3);}
 .tbl_list{border-top:2px solid #c0c0c0;
   li.select_li:hover,
   li.select_li{background-color:lighten($red, 45%);}
@@ -1658,7 +1667,16 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   input[type=number]{text-align:center;}
   div[contenteditable]{padding:5px;border:1px solid #ddd;white-space:initial;text-align:left;}
 }
-.my_work.my_approval{
+.work_new,
+.work_view{@include flex_layout();
+  .work_form{flex:1;}
+}
+.work_new{
+  .editor_wrap .ck-content{min-height:378px;}
+  [data-selectTarget]{margin-top:10px;}
+}
+// .my_work.my_approval
+.my_work{gap:20px;
   input[type=number]{text-align:center;}
   &>section{flex:1;}
   .status{width:450px;margin-right:0;margin-bottom:10px;
@@ -1712,7 +1730,6 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 .progress_input{
   &+button{display:block;width:100%;margin-top:5px;}
 }
-
 .notice_board{display:flex;
   &>section{flex:0 1 50%;}
   td{
@@ -1740,3 +1757,4 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
 }
 .on>.receiver_wrap{display:block;}
+.board_new{@include flex_layout();}
