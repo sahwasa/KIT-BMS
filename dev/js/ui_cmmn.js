@@ -22,8 +22,6 @@ const handleSelect = function (item) {
 const handleClose = function(e, range){
   let clickTarget = e;
   let handleRange = range;
-    console.log(clickTarget)
-    console.log(handleRange)
   for (let i=0; i<=handleRange.length; i++){
     if(clickTarget.parents(handleRange[i]).length < 1){
       $(handleRange[i]).removeClass('on');
@@ -235,11 +233,19 @@ function commonInit() {
       $(this).prop('checked') ? target.show() : target.hide()
     }
   })
+  $('[data-selectEvt]').on('change', function (e) {
+    const getTarget = e.target.dataset.selectevt;
+    const result = $(this).val();
+    let target = $('#' + getTarget + result);
+    $('[data-selectTarget]').hide();
+    if(target.length){
+      target.show();
+    }
+  })
   $('[data-tglwrap]').hide().first().show()
   $('[data-toggle]').on('click', function (e) {
     const getTarget = e.target.dataset.toggle
     target = $('#' + getTarget)
-    console.log(target)
     target.show()
     $(this).closest('[data-tglwrap]').hide()
   })
