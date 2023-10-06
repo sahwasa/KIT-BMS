@@ -137,7 +137,7 @@
     // -----------------------------------------------------------------
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      // googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c', //APIKEY 누구꺼쓰죠,,?
+      //googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c', //APIKEY 누구꺼쓰죠,,?
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
@@ -184,15 +184,14 @@
         }
       },
       displayEventTime: false,
-      eventSources:[
-        // {
-        //     googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
-        //     className: 'gcal-holiday',
-        //     editable:false,
-        //     overlap: false,// 일정이 들어올 수 없음(ex.휴가 등으로 쓰이면 좋을듯)
-        //     display: 'background',
-        //     color: 'rgba(255, 0, 0, .25)'
-        //   },
+      eventSources:[{
+            googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+            className: 'gcal-holiday',
+            editable:false,
+            overlap: false,// 일정이 들어올 수 없음(ex.휴가 등으로 쓰이면 좋을듯)
+            display: 'background',
+            color: 'rgba(255, 0, 0, .25)'
+          },
           source],
       dateClick: function (info) {
         selectedDate = info.date;
