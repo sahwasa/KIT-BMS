@@ -1,0 +1,76 @@
+<article class="box_compact box_form">
+  <button type="button" class="btn_gray_line">목록</button>
+  <span class="btn_wrap">
+    <button type="button" class="btn_red">저장</button>
+    <button type="button" class="btn_gray_line">취소</button>
+  </span>
+</article>
+<article class="issue_dtl issue_write">
+  <section class="issue_cont">
+    <header>
+      <input type="text" title="제목" placeholder="제목">
+    </header>  
+    <div class="editor_wrap" id="editor_wrap">
+      <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+    </div>
+  </section>    
+  <section class="issue_set">
+    <section class="box_default_w">
+      <dl class="set_list">
+        <dt><label for="">업무상태</label></dt>
+        <dd>
+          <div class="select_custom task_status">
+            <button class="label"><span class="opt_label">상태</span></button>
+            <ul class="optionList">
+              <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
+              <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
+              <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
+              <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
+              <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+              <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
+            </ul>
+          </div>
+        </dd>
+        <dt><label for="">만기일</label></dt>
+        <dd>
+          @@include('../../inc/module/module_period.html')
+        </dd>
+        <dt><label for="">업무범주</label></dt>
+        <dd>
+          <span class="file_input">
+            <select id="nameSelect">
+              <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+            </select>
+          </span>
+          <div id="tagsList"></div>
+        </dd>
+      </dl>
+    </section>
+    <section class="box_default_w">
+      <h1>담당자</h1>
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+        @@include('../../inc/data/data_emp_name.html')
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line">저장</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+      @@include('../../inc/module/module_slide_user.html')
+    </section>
+    <section class="box_default_w">
+      <h1>참조자</h1>
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+        @@include('../../inc/data/data_emp_name.html')
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line">저장</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+      @@include('../../inc/module/module_slide_user.html')
+    </section>
+    <section class="box_default_w">
+      <h1>첨부파일</h1>
+      @@include('../../inc/module/module_file_attach.html')
+    </section>
+  </section>
+</article>

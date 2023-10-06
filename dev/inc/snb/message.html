@@ -4,18 +4,20 @@
       <h2>사내쪽지</h2>
     </header>
     <div class="btn_workset">
-      <a href="#" class="btn_default">쪽지보내기</a>
+      <button type="button" onclick="document.getElementById('p_msg_write').showModal();fileDropEvt();" class="btn_default">쪽지보내기</button>
     </div>
     <ul class="snb_lst">
-      <li><a href="#">받은 쪽지함</a>
+      <li><a href="message.html">받은 쪽지함</a>
         <ul>
-          <li><a href="#">개인쪽지함</a></li>
-          <li><a href="#">부서쪽지함</a></li>
-          <li><a href="#">전체쪽지함</a></li>
+          <li><a href="#">개인 쪽지함</a></li>
+          <li><a href="#">부서 쪽지함</a></li>
+          <li><a href="#">전체 쪽지함</a></li>
         </ul>
       </li>
-      <li><a href="#">보낸 쪽지함</a></li>
-      <li><a href="#">쪽지 보관함</a></li>
+      <li><a href="message_sendbox.html">보낸 쪽지함</a></li>
+      <li><a href="message_archive.html">쪽지 보관함</a></li>
     </ul>
   </div>
 </section>
+@@include('../pop/p_msg_write.html')
+@@include('../pop/p_msg_view.html')

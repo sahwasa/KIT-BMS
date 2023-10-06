@@ -77,6 +77,8 @@
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">로그인</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_self_certification">본인인증</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_change_pw">비밀번호변경</button></li>
         <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
         <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
       </ul>
@@ -383,6 +385,71 @@
     </div>
   </form>
 </dialog> <!--// 아이디/비밀번호 찾기 -->
+<dialog class="p_self_certification">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>본인인증</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="auth">
+        <p>내 정보를 확인하려면 비밀번호 인증이 필요합니다.</p>
+      </div>
+      <div class="ipt_box">
+        <label for="pw" class="blind">비밀번호</label>
+        <input type="password" id="pw" placeholder="비밀번호 입력" />
+        <p class="info_warn">패스워드가 일치하지 않습니다. 다시 한 번 확인해 주세요.</p>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">확인</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog> <!--// 비밀번호 변경 -->
+<dialog class="p_change_pw" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>비밀번호 변경</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_info">
+      <h3>비밀번호를 변경합니다.</h3>
+      <p>새 비밀번호는 8자 이상으로 생성해주세요. 영문(대문자, 소문자), 숫자, 특수문자 사용이 가능합니다.</p>
+    </div>
+    <div class="p_body">
+      <article class="pw_change_step01 ipt_wrap">
+        <dl>
+          <dt><label for="old_PW">기존 비밀번호</label></dt>
+          <dd>
+            <input type="password" id="old_PW" placeholder="기존 비밀번호" />
+            <p class="info_warn">기존 비밀번호가 일치하지 않습니다.</p>
+          </dd>
+          <dt><label for="old_PW">새 비밀번호</label></dt>
+          <dd>
+            <input type="password" id="old_PW" placeholder="새 비밀번호" />
+            <p class="info_warn">비밀번호 형식을 확인해주세요.</p>
+          </dd>
+          <dt><label for="old_PW">비밀번호 재확인</label></dt>
+          <dd>
+            <input type="password" id="old_PW" placeholder="비밀번호 재확인" />
+            <p class="info_ok">비밀번호 일치</p>
+          </dd>
+        </dl>
+      </article>
+      <article class="pw_change_step02">
+        <div class="auth">
+          <h2>비밀번호 변경 완료</h2>
+          <p>비밀번호 변경이 완료되었습니다.</p>
+        </div>
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog> <!--// 비밀번호 변경 -->
 <dialog class="p_mngDel">
   <form method="dialog">
     <div class="p_header">
@@ -1727,7 +1794,7 @@
     </div>
   </form>
 </dialog> <!--// 브리핑 보드 상세 -->
-<dialog class="p_status_roomBook" id="myModal">
+<dialog class="p_status_roomBook" id="p_status_roomBook">
   <form method="dialog">
     <header class="p_header">
       <strong>회의실 예약현황</strong>
@@ -2246,7 +2313,7 @@ commonInit();
       const modal = e.target.dataset.modal;
       document.querySelector('.' + modal).showModal();
       tabInit(modal);
-      if (modal == 'p_status_roomBook') calendar.updateSize();
+      if (modal == 'p_status_roomBook') cal_roombook.updateSize();
     })
 
     $('.btnClose').on('click', function () {

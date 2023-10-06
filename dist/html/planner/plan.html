@@ -83,15 +83,15 @@
       <li><a href="plan_briefingBoard.html">브리핑보드</a></li>
       <li>
         <h3 class="all_lst_ctrl"><label for="my_cal"><input type="checkbox" id="my_cal">내 캘린더</label></h3>
-        <ul class="lst_ctrl">
-          <li><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label>
+        <ul class="lst_ctrl lst_plan_my">
+          <li class="p_personal"><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label>
           </li>
-          <!-- <li><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label> -->
-          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>행사 일정</label>
+          <li class="p_business"><label for="work_plan"><input type="checkbox" id="work_plan" checked>업무 일정</label>
+          <li class="p_meeting"><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>행사 일정</label>
           <!-- 개인 행사는 수정삭제 가능 -->
-          <li><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>회의 일정</label>
+          <li class="p_event"><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>회의 일정</label>
           <!-- 회의는 작성자만 수정 -->
-          <li><label for=""><input type="checkbox" id="" checked>근태 일정</label></li>
+          <li class="p_leave"><label for=""><input type="checkbox" id="" checked>근태 일정</label></li>
           <!-- 근태는 수정삭제 불가 -->
         </ul>
       </li>

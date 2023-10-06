@@ -18,6 +18,22 @@ const handleSelect = function (item) {
     }
   }
 }
+
+const handleClose = function(e, range){
+  let clickTarget = e;
+  let handleRange = range;
+  for (let i=0; i<=handleRange.length; i++){
+    if(clickTarget.parents(handleRange[i]).length < 1){
+      $(handleRange[i]).removeClass('on');
+    }    
+  }
+}
+//focusout close
+$('html').on('click',function(e){
+  let eTarget = $(e.target);
+  let range = ['.layer_tool'];
+  handleClose(eTarget,range);
+})
 //로딩순서 때문에 수동실행
 function commonInit() {
   //gnb
@@ -93,6 +109,7 @@ function commonInit() {
     }
   })
 
+
   // table_row checked
   $('.row_check').on({
     click: function (e) {
@@ -100,23 +117,26 @@ function commonInit() {
     },
     change: function () {
       var cur = $(this).prop('checked'),
-        checkName = 'select_tr'
-      if ($(this).hasClass('all_check')) {
-        var childCheck = $(this)
-          .parents('.tbl_wrap')
-          .find('tbody')
-          .find('.row_check')
-        childCheck.each(function () {
+        checkName = 'select_tr',
+        thisP = $(this).parents('.tbl_wrap');
+        childBody = thisP.find('tbody');
+      if ($(this).hasClass('all_check')) {        
+        var childCheckIpt = childBody.find('.row_check');
+        childCheckIpt.each(function () {
           var elRow = $(this).parents('tr')
           $(this).prop('checked', cur)
           cur ? elRow.addClass(checkName) : elRow.removeClass(checkName)
         })
       } else {
-        var thisRow = $(this).parents('tr')
-        if ($(this).prop('type') == 'radio')
-          $(this).parents('table').find('tr').removeClass(checkName)
-        cur ? thisRow.addClass(checkName) : thisRow.removeClass(checkName)
-      }
+        var thisRow = $(this).parents('tr');
+        if ($(this).prop('type') == 'radio') $(this).parents('table').find('tr').removeClass(checkName);
+          cur ? thisRow.addClass(checkName) : thisRow.removeClass(checkName);
+          var checkSize = childBody.find('.row_check:checked').length,
+              allCtrl = thisP.find('.all_check');
+          childBody.find('input:checkbox').length <= checkSize
+            ? allCtrl.prop('checked', true)
+            : allCtrl.prop('checked', false)
+        }
     },
   })
   // tbl_list Handle checked
@@ -166,14 +186,14 @@ function commonInit() {
 
   //layer_tool
   $(':has(.hasLayer)')
-    .on('click focusin', '.layer_tool', function (e) {
+    .off('click').on('click focusin', '.layer_tool', function (e) {
       e.stopPropagation()
       e.preventDefault()
-      $(this).addClass('on')
+      $(this).addClass('on').css('z-index','100');
     })
     .on('focusout', '.layer_tool', function () {
-      $(this).removeClass('on')
-    })
+      $(this).removeClass('on').css('z-index','0');
+    });
 
   //tab
   $('.tab').find('li:first').addClass('on')
@@ -188,8 +208,18 @@ function commonInit() {
       .prop('selected', 'selected')
     var findTarget = $(this).parents('.tab_wrap').next('.tab_container')
     findTarget.find('.tab_contents').hide()
-    $(link).show()
+    $(link).show();
+    calendar.updateSize();
   })
+
+  //select_tab
+  $('.seltab_wrap').find('.seltab_opt:not(:first)').hide().find('.seltab_opt:first').show();
+  $('[data-seltab]').on('change',function(e){
+    e.preventDefault();
+    var link = $(this).val();
+    $(this).next('.seltab_wrap').find('.seltab_opt').hide();
+    $('#'+link).show();    
+  });
 
   //addOPT
   $('[data-checkEvt]').on('change', function (e) {
@@ -203,11 +233,19 @@ function commonInit() {
       $(this).prop('checked') ? target.show() : target.hide()
     }
   })
+  $('[data-selectEvt]').on('change', function (e) {
+    const getTarget = e.target.dataset.selectevt;
+    const result = $(this).val();
+    let target = $('#' + getTarget + result);
+    $('[data-selectTarget]').hide();
+    if(target.length){
+      target.show();
+    }
+  })
   $('[data-tglwrap]').hide().first().show()
   $('[data-toggle]').on('click', function (e) {
     const getTarget = e.target.dataset.toggle
     target = $('#' + getTarget)
-    console.log(target)
     target.show()
     $(this).closest('[data-tglwrap]').hide()
   })
@@ -439,6 +477,7 @@ function setEditor() {
       console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
       console.error(error)
     })
+    .replace
 
   // 이미지 에디터 생성
   var imageEditorWrap = document.createElement('div')
@@ -460,6 +499,7 @@ function setEditor() {
       clearInterval(checkEditor)
     }
   }, 100)
+  
 }
 
 const locale_ko = {
