@@ -110,12 +110,128 @@ function setCalendar() {
       nowTime = date.toISOString();
       setTimeout(() => getNowTime, 1000);
     })();
+<<<<<<< HEAD
+    var source = // 일정데이터 
+        [
+          //기념일
+          {
+            title: '창립기념일',
+            start: '1998-10-10',
+            editable: false,
+            overlap: false,
+            className: 'anniv'
+          },
+          {
+            title: '개천절',
+            start: '2023-10-03',
+            editable: false,
+            overlap: false,
+            className: 'holyday-event',
+            display:'background'
+          },
+          {
+            title: '광복절',
+            start: '2023-08-15',
+            editable: false,
+            overlap: false,
+            className: 'holyday-event'
+          },
+          {
+            title: 'Business Lunch',
+            start: '2023-06-03T13:00:00',
+            constraint: 'businessHours'
+          },
+          {
+            title: '회의',
+            start: '2023-10-03T11:00:00',
+            constraint: 'availableForMeeting', // defined below
+            color: '#257e4a',
+            description: '1회의실'
+          },
+          {
+            title: '개인일정',
+            start: '2023-08-22',
+            end: '2023-08-25',
+            className : 'personal'
+          },
+          {
+            title: '생일파티1',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티2',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티3',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '생일파티4',
+            start: '2023-06-29T20:00:00'
+          },
+          {
+            title: '[반차]김길동',
+            start: '2023-09-01T09:00:00',
+            end:'2023-09-01T10:00:00'
+          },
+          {
+            title: '[연차]홍길동',
+            start: '2023-09-01T20:00:00',
+            end:'2023-09-02T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {
+            title: '연차',
+            start: '2023-09-01T20:00:00'
+          },
+          {// 그룹 아이디가 같다면 해당 영역에만 들어올 수 있음(회의가능일자가 예시인데 쓸일이 있을까...?)
+            //groupId: 'availableForMeeting',
+            //start: '2023-06-19T10:00:00',
+            //end: '2023-06-23T16:00:00',
+            //display: 'background',
+            //color: '#ff0000'
+          }];
+=======
     
+>>>>>>> main
 
     // initialize the calendar
     // -----------------------------------------------------------------
 
+<<<<<<< HEAD
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      // googleCalendarApiKey : 'AIzaSyB1FBNsPJogNcSmEZLfLDi9rEALQoTLQ_c', //APIKEY 누구꺼쓰죠,,?
+=======
     calendar = new FullCalendar.Calendar(calendarEl, {
+>>>>>>> main
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
@@ -129,6 +245,18 @@ function setCalendar() {
         timeGridDay: '일간',
         list: '목록',
       },
+<<<<<<< HEAD
+      // customButtons:{
+      //   gcalSync : {
+      //     text:'구글 동기화(예정)',
+      //     click: function() {
+      //       alert('구글동기화 하나요???');
+      //     }
+      //   }
+      // },
+      schedulerLicenseKey: '0328483609-fcs-1693988989',         
+      editable: true,
+=======
       customButtons:{
         gcalSync : {
           text:'구글 동기화(예정)',
@@ -139,6 +267,7 @@ function setCalendar() {
       },
       schedulerLicenseKey: '0328483609-fcs-1693988989',
       editable: false,
+>>>>>>> main
       selectable: true,
       initialView: 'dayGridMonth',
       businessHours:  {
@@ -162,6 +291,18 @@ function setCalendar() {
         }
       },
       displayEventTime: false,
+<<<<<<< HEAD
+      eventSources:[
+        // {
+        //     googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+        //     className: 'gcal-holiday',
+        //     editable:false,
+        //     overlap: false,// 일정이 들어올 수 없음(ex.휴가 등으로 쓰이면 좋을듯)
+        //     display: 'background',
+        //     color: 'rgba(255, 0, 0, .25)'
+        //   },
+          source],
+=======
       events: function(fetchInfo, successCallback, failureCallback) {
       				var start = fetchInfo.startStr;
                     var end = fetchInfo.endStr;
@@ -282,6 +423,7 @@ function setCalendar() {
                         }
                     });
                 },
+>>>>>>> main
       dateClick: function (info) {
         selectedDate = info.date;
       },

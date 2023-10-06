@@ -11,8 +11,10 @@
   .fc-event-time,.fc-event-title{color:$color;}
 }
 /* 공휴일 */
-.holyday-event{@include customEvt(#7b0000);border-color:#E55F5F;
-  background-color: rgba(250, 204, 208, 0.3) !important;
+
+.fc-daygrid-day-frame:has(.holyday-event) .fc-daygrid-day-top{color:$red;}
+.fc .holyday-event{border-color:#E55F5F;background-color: rgba(250, 204, 208, 0.25);opacity:1;
+  .fc-event-title{color:$red;font-style:normal;}
 }
 /* 개인일정 */
 .personal{@include customEvt(#00477f);border-color:#79B2DE;
