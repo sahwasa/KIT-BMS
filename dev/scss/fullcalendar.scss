@@ -13,7 +13,7 @@
 /* 공휴일 */
 
 .fc-daygrid-day-frame:has(.holyday-event) .fc-daygrid-day-top{color:$red;}
-.fc .holyday-event{border-color:#E55F5F;background-color: rgba(250, 204, 208, 0.25);opacity:1;
+.fc .holyday-event{border-color:#E55F5F;background-color: rgba(250, 204, 208, 0.25);opacity:1;border:none;
   .fc-event-title{color:$red;font-style:normal;}
 }
 /* 개인일정 */
