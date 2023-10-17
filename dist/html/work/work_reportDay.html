@@ -76,8 +76,10 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
-      <a href="work_new.html" class="btn_default">내 업무 추가</a>
-      <a href="work_new.html" class="btn_default">업무요청</a>
+      <div class="btn_dbl_btn">
+        <a href="work_new.html" class="">업무요청</a>
+        <a href="javascript:void(0)" class="btn_sub" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+      </div>
     </div>
     <ul class="snb_lst">
       <li><a href="work_myTodo.html">내 업무함</a>
@@ -106,6 +108,132 @@
     </ul>
   </div>
 </section>
+<dialog class="p_workMy">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>내 업무 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>내 업무 추가 테이블</caption>
+        <colgroup>
+          <col style="width:120px">
+          <col style="width:auto">
+          <col style="width:120px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="work_range">업무범주</label></th>
+            <td colspan="3">
+              <span class="file_input">
+                <select id="nameSelectB">
+                  <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+                </select>
+              </span>
+              <div id="tagListB"></div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">작업기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">담당자</th>
+            <td colspan="3">홍00 (SI사업본부 개발1팀)</td>
+          </tr>
+          <tr>
+            <th scope="row">업무요청자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+            </td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_content">업무내용</label>
+            </th>
+            <td colspan="3">에디터</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="high">중요도</label>
+            </th>
+            <td colspan="3">
+              <div class="btn_switch">
+                <input type="radio" id="high" name="importance">
+                <label for="high" class="high_prio">높음</label>
+                <input type="radio" id="common" name="importance" checked="">
+                <label for="common" class="normal_prio">보통</label>
+                <input type="radio" id="row" name="importance">
+                <label for="row" class="low_prio">낮음</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">요청</button>
+        <button class="btn_red" type="button">요청&sol;승인</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 내 업무 추가 -->
     <section class="contents">
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
@@ -159,29 +287,31 @@
               <span>2023.10.01 ~ 2023.10.07</span>
               <button class="handle_next" disabled>다음 주차 이동</button>
             </div>
-            <div class="tab_wrap">
+            <div class="tbl_top_area">
               <h2>TODAY <span class="t_red">2023년 9월 1일</span></h2>
-              <button type="button" class="btn_default" onclick="location.href='../work/work_reportApproval.html'">일일업무 작성</button>
+              <div class="floatR">
+                <button type="button" class="btn_default" onclick="document.querySelector('.p_workDay').showModal();">일일업무 작성</button>
+              </div>
             </div>
             <table class="tbl_default tbl_hover hasLayer tbl_work_day">
               <caption>주간업무보고(개인별) 리스트</caption>
               <colgroup>
-                <col style="width:130px;">
+                <col style="width:160px;">
                 <col style="width:auto;min-width:240px;">
                 <col style="width:100px;">
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col">날자</th>
+                  <th scope="col">일시</th>
                   <th scope="col">내용</th>
                   <th scope="col">관리</th>
                 </tr>
               </thead>
               <tbody>
                 <tr tabindex="0">
-                  <td>10월01일(일)</td>
-                  <td>	
-                    재택근무에 따른 일일 업무보고	<br>
+                  <td>10월01일(일)<span class="time">09:30 ~ 18:30</span></td>
+                  <td>                    
+                    <em class="tit">재택근무에 따른 일일 업무보고</em>
                     &nbsp;1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
                     &nbsp;&nbsp;&nbsp;- 방역대 > 방역대분석 > 위험요소 관리 (100%)<br>
                     &nbsp;2. 업무 인수인계</td>
@@ -196,9 +326,9 @@
                   </td>
                 </tr>
                 <tr tabindex="0">
-                  <td>10월02일(월)</td>
+                  <td>10월02일(월)<span class="time">09:30 ~ 18:30</span></td>
                   <td>	
-                    재택근무에 따른 일일 업무보고	<br>
+                    <em class="tit">재택근무에 따른 일일 업무보고</em>
                     &nbsp;1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
                     &nbsp;&nbsp;&nbsp;- 방역대 > 방역대분석 > 위험요소 관리 (100%)<br>
                     &nbsp;2. 업무 인수인계</td>
@@ -213,9 +343,9 @@
                   </td>
                 </tr>
                 <tr tabindex="0">
-                  <td>10월03일(화)</td>
+                  <td>10월03일(화)<span class="time">09:30 ~ 18:30</span></td>
                   <td>	
-                    재택근무에 따른 일일 업무보고	<br>
+                    <em class="tit">재택근무에 따른 일일 업무보고</em>
                     &nbsp;1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
                     &nbsp;&nbsp;&nbsp;- 방역대 > 방역대분석 > 위험요소 관리 (100%)<br>
                     &nbsp;2. 업무 인수인계</td>
@@ -241,6 +371,58 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<dialog class="p_workDay">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>일일업무일지</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>일일업무일지 테이블</caption>
+        <colgroup>
+          <col style="width:120px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_tit">제목</label>
+            </th>
+            <td>
+              <input type="text" id="work_tit">
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">작업일시</label>
+            </th>
+            <td>              
+              <div class="period_custom">
+                <input type="datetime-local" id="stime" title="시각 선택"></input>
+                <input type="datetime-local" id="stime" title="시각 선택"></input>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_content">업무내용</label>
+            </th>
+            <td>에디터</td>
+          </tr>          
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">저장</button>
+        <button class="btn_red" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 일일업무일지 추가 -->
+
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>

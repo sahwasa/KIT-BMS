@@ -345,6 +345,12 @@ $snbWidth:250px;
   h2{padding:0 15px 12px;font-size:20px;font-weight:bold;letter-spacing:-.5px;border-bottom:1px solid $border-color;overflow:hidden;}
   .btn_workset{background-color:#edf0f3;border-bottom:1px solid $border-color;border-width:1px 0;padding:13px #{$columnGap - 10px};
     button,a{display:block;width:100%;font-weight:bold;font-size:14px;letter-spacing:-.35px;border-radius:5px;line-height:32px;}
+    .btn_dbl_btn{position:relative;@include btn($btn_red, false, false);display:flex;align-items:center;padding:0;gap:1px;
+      &::before{position:absolute;left:50%;@include shape(0, 14px);border-left:1px solid $btn_red;}
+      a{flex:1 1 auto;border-radius:0;
+        &:hover{color:#fff;background-color:$btn_red;}
+      }
+    }
   }
   .data_count .list_wrap{@include flex_between;padding:16px 0;border-bottom:1px solid $border-color;
     li{flex:1;font-weight:bold;font-size:12px;color:#000;border-left:1px solid #cdcdcd;line-height:10px;text-align:center;
@@ -550,32 +556,32 @@ z-index:10;
   }
 }
 .my_approval{@include flex_between;align-items:stretch;
-  %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:541px;transform:translate(-5px,-5px);
-    &>li{
-      &:empty{background-color:rgba(0, 0, 0, .05);box-shadow:none!important;}
-    }
+  .flex_right{@include form_style();} 
+}
+%approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:541px;transform:translate(-5px,-5px);
+  &>li{
+    &:empty{background-color:rgba(0, 0, 0, .05);box-shadow:none!important;}
   }
-  .status{width:260px;margin-right:20px;
-    ul{@extend %approval_list;
-      &:empty::before{@include empty_box('요청 문서가 없습니다');height:541px;background-color:rgba(0, 0, 0, .05);}
-    }
-    li{@include inner_box(8px);min-height:99px;
-      strong{margin:2px 0 4px;}
-      .badge{@include badge_style(null,54px);font-weight:bold;align-self:flex-start;}
-      dl{
-        dt{float:left;min-width:55px;
-          &::after{content:":";margin:0 3px;}
-        }
+}
+.status{width:260px;margin-right:20px;
+  ul{@extend %approval_list;
+    &:empty::before{@include empty_box('요청 문서가 없습니다');height:541px;background-color:rgba(0, 0, 0, .05);}
+  }
+  li{@include inner_box(8px);min-height:99px;
+    strong{margin:2px 0 4px;}
+    .badge{@include badge_style(null,54px);font-weight:bold;align-self:flex-start;}
+    dl{
+      dt{float:left;min-width:55px;
+        &::after{content:":";margin:0 3px;}
       }
     }
-  }  
-  .ls_stand_by{@extend %approval_list;
-    &>li{@include inner_box(10px);min-height:84px;}
-    strong{margin-bottom:7px;}
-    i{position:absolute;right:5px;top:5px;@include shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
   }
-  .flex_right{@include form_style();}  
-}
+}  
+.ls_stand_by{@extend %approval_list;
+  &>li{@include inner_box(10px);min-height:84px;}
+  strong{margin-bottom:7px;}
+  i{position:absolute;right:5px;top:5px;@include shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
+} 
 .approval_path{display:flex;margin-top:2px;
   li{
     &:before{content:"→";margin:0 3px;;}
@@ -1457,14 +1463,19 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 // work
 .work_board{@include flex_between;align-items:start;gap:20px;word-break:keep-all;
   details{
-    summary::-webkit-details-marker,
-    summary::marker{display:none;content:'';}
-    summary::before{font-family:'fontello';content:'\f107';font-size:14px;color:$red;} // 1depth
     &[open]>summary::before{margin:0 2px;content:'\f105';color:#000;}
+    summary{display:
+    
+     inline-block;cursor:pointer;
+      &::-webkit-details-marker,
+      &::marker{display:none;content:'';}
+      &::before{font-family:'fontello';content:'\f107';font-size:14px;color:$red;} // 1depth
+      & h4,
+      & h5{&:hover{text-decoration:underline;}}
+    }
   }
   details:has(.work_box){border-bottom:1px solid #ebebeb;
-    &[open]{border-bottom-width:0;
-    }
+    &[open]{border-bottom-width:0;}
   }
   h4{$_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
     @each $type, $color in $_titColor{
@@ -1488,6 +1499,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
           &:last-child{padding-bottom:0;border-bottom-width:0;}
         }
         .work_box{padding:10px;border:1px solid #ebebeb;border-radius:2px;
+          details{width:100%;}
           &>li{@include flex_between;align-items:start;margin-bottom:3px;}
           &:has(.work_dot_wrap){ 
             &>li{display:block;margin-bottom:10px;
@@ -1499,12 +1511,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
           &::before{@include empty_box('업무가 없습니다.');background-color:rgba(0, 0, 0, .05);}
         }
         &.work_todo{padding:0;
-          &>li{padding:15px;}
-          h3{font-size:16px;margin-bottom:15px;font-weight:bold;color:#757575;
+          & > li{padding:15px;}
+          h3{@include tit;color:#757575;
             &::before{display:inline-block;content:'';width:16px;height:16px;margin-right:5px;background:url(../images/ic_tit_work.png) no-repeat;vertical-align:text-top;}
-          }
-          &>li>ul>li{margin-bottom:15px;
-            &:last-child{margin-bottom:0;}
+            & + ul{display:flex;flex-direction:column;gap:15px;}
           }
         }
         &.work_perform{max-height:400px;
@@ -1542,7 +1552,8 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
   }
   .work_tree_wrap{
-    &>li{position:relative;padding-left:30px;line-height:19px;font-size:12px;color:#666;
+    &>li{display:flex;position:relative;padding-left:30px;line-height:19px;font-size:12px;color:#666;
+      i{margin-left:auto;}
       &:first-child::before{height:10px;top:0px;}
       &::before,
       &::after{position:absolute;top:-8px;left:15px;display:inline-block;content:'';width:8px;height:18px;border:1px dotted #ccc;border-width:0;}
@@ -1588,7 +1599,16 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
   span{font-size:20px;font-weight:bold;}
 }
-.tbl_work_day td{@include alignL(2);}
+.tbl_work_day td{@include alignL(2);
+  .tit{display:block;font-weight:bold;margin-bottom:5px;}
+  &:first-child{vertical-align:middle;background-color:#f5f5f5;font-size:16px;}
+  .time{display:block;font-size:14px;}
+}
+.tbl_work_report td{@include alignL(1);
+  .tbl_badge{display:inline-flex;align-items:center;justify-content:center;max-width:none;padding:0 5px;gap:5px;width:108px;
+    em{width:73px;color:$red;border-radius:0 3px 3px 0;background-color:#fff;padding:0 5px;margin-right:-5px;}
+  }
+}
 .tbl_todo td,
 .tbl_work_fin td,
 .tbl_work_delay td{@include alignL(2 4);}
@@ -1619,9 +1639,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       span{font-size:12px;color:#717889;}
     }
   }
-  .progress{font-size:11px;color:#b2bacd;font-weight:bold;
-    progress{margin-right:10px;vertical-align:middle;}
-    em{margin-right:3px;color:$red}
+  .progress{display:flex;align-items:center;justify-content:space-between;gap:3px;flex-shrink:0;width:170px;font-size:11px;color:#b2bacd;font-weight:bold;
+    progress{width:100px;}
+    em{color:$red;margin-left:auto;}
   }
   .risk_done,
   .risk_done:hover{background-color:#f5f5f5;color:#888;
@@ -1643,6 +1663,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
 }
 .search_list li:has(p.required){margin-right:15px;font-weight:bold;align-self:center;}
+.tbl_report_wrap{padding:15px 0;border:2px solid #c0c0c0;border-width:2px 0;}
 .tbl_report{width:100%;color:#000;overflow:hidden;
   th,td{padding:5px 10px;border:1px solid #ddd;text-align:center;font-size:12px;word-break:keep-all;white-space:initial}
   td:has(select),td:has(input),
@@ -1666,9 +1687,13 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   }
   input[type=number]{text-align:center;}
   div[contenteditable]{padding:5px;border:1px solid #ddd;white-space:initial;text-align:left;}
+  &.asis tbody td,
+  &.tobe tbody td{@include alignL(2);}
+  &.asis_tobe td{@include alignL(3 4);}
 }
 .work_new,
-.work_view{@include flex_layout();
+.work_view,
+.my_work{@include flex_layout();
   .work_form{flex:1;}
 }
 .work_new{
@@ -1676,10 +1701,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   [data-selectTarget]{margin-top:10px;}
 }
 // .my_work.my_approval
-.my_work{gap:20px;
+.my_work{
   input[type=number]{text-align:center;}
-  &>section{flex:1;}
-  .status{width:450px;margin-right:0;margin-bottom:10px;
+  .status{width:450px;
     strong{margin:4px 0 6px;}
     .form_wrap{padding:0;}
     .progress em{color:#ff6664;font-size:12px;font-weight:bold;}
@@ -1691,7 +1715,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &::before{content:'-';margin:0 3px 0 5px;}
     }
   }
-  .tbl_row{width:100%;margin:12px 0;border:1px solid #ebebeb;border-width:0 1px;font-size:12px;
+  .work_form{
+    .tab_contents{display:flex;flex-direction:column;gap:24px;}   
+  }
+  .tbl_row{width:100%;border:1px solid #ebebeb;border-width:0 1px;font-size:12px;
     td{vertical-align:baseline;
       &[contenteditable]{height:75px;}
     }

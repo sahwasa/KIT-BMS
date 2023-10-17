@@ -45,7 +45,7 @@ border:1px solid transparent;align-self:center;@content;}
   display:inline-block;content:"";@include f_blind;overflow:hidden;
   width:$w_size;height:$h_size;
 }
-@mixin divide($h,$gap){
+@mixin divide($h:10px,$gap:5px){
   position:relative;display:inline-flex;align-items:center;
   &::before{@include shape(1px,$h);background-color:$gray;margin:0 15px 0 #{15 - $gap};}
 }
@@ -57,11 +57,13 @@ border:1px solid transparent;align-self:center;@content;}
     &::before{@include fontello($font);font-size:13px;color:#848890;}
   }
 }
-@mixin btn($color,$addTxt:false){  
+@mixin btn($color,$addTxt:false,$hover:true){  
   display:inline-block;line-height:26px;border:1px solid $color;border-radius:2px;padding:0 8px;cursor:pointer;color:$color;font-weight:bold;letter-spacing:-.32px;background-color:#fff;
-  &:hover,&:hover::before{color:#fff;background-color:$color;}
-  &::before{
-    @if($addTxt){
+  @if($hover){
+    &:hover,&:hover::before{color:#fff;background-color:$color;}
+  }
+  @if($addTxt){
+    &::before{
       color:$color;font-size:15px;margin-right:3px;
     }
   }
@@ -161,4 +163,8 @@ border:1px solid transparent;align-self:center;@content;}
   .set_list{@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:7px;
     dt{font-size:14px;margin-bottom:0;}
   }  
+}
+@mixin tilde(){
+  display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
+  &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
 }

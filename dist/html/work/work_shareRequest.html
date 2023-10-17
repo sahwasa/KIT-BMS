@@ -76,8 +76,10 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
-      <a href="work_new.html" class="btn_default">내 업무 추가</a>
-      <a href="work_new.html" class="btn_default">업무요청</a>
+      <div class="btn_dbl_btn">
+        <a href="work_new.html" class="">업무요청</a>
+        <a href="javascript:void(0)" class="btn_sub" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+      </div>
     </div>
     <ul class="snb_lst">
       <li><a href="work_myTodo.html">내 업무함</a>
@@ -106,6 +108,132 @@
     </ul>
   </div>
 </section>
+<dialog class="p_workMy">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>내 업무 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>내 업무 추가 테이블</caption>
+        <colgroup>
+          <col style="width:120px">
+          <col style="width:auto">
+          <col style="width:120px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="work_range">업무범주</label></th>
+            <td colspan="3">
+              <span class="file_input">
+                <select id="nameSelectB">
+                  <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+                </select>
+              </span>
+              <div id="tagListB"></div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">작업기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">담당자</th>
+            <td colspan="3">홍00 (SI사업본부 개발1팀)</td>
+          </tr>
+          <tr>
+            <th scope="row">업무요청자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+  <li>
+    <div>
+      <p>임선</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li>
+</ul>
+            </td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_content">업무내용</label>
+            </th>
+            <td colspan="3">에디터</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="high">중요도</label>
+            </th>
+            <td colspan="3">
+              <div class="btn_switch">
+                <input type="radio" id="high" name="importance">
+                <label for="high" class="high_prio">높음</label>
+                <input type="radio" id="common" name="importance" checked="">
+                <label for="common" class="normal_prio">보통</label>
+                <input type="radio" id="row" name="importance">
+                <label for="row" class="low_prio">낮음</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">요청</button>
+        <button class="btn_red" type="button">요청&sol;승인</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 내 업무 추가 -->
     <section class="contents">
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
@@ -155,7 +283,9 @@
                 <li><a href="#tab_con02">개인업무</a></li>
                 <li><a href="#tab_con03">프로젝트</a></li>
               </ul>
-              <button type="button" class="btn_default" onclick="location.href='work_new.html'">업무요청</button>
+              <div class="right">
+                <button type="button" class="btn_default" onclick="location.href='work_new.html'">업무요청</button>
+              </div>
             </div>
             <div class="tab_container">
               <section id="tab_con01" class="tab_contents">
@@ -165,10 +295,8 @@
                     <col style="width:50px;">
                     <col style="width:120px;">
                     <col style="width:auto;min-width:240px;">
-                    <col style="width:120px;">
-                    <col style="width:120px;">
-                    <col style="width:100px;">
-                    <col style="width:150px;">
+                    <col style="width:120px;" span="2">
+                    <col style="width:200px;">
                     <col style="width:120px;">
                     <col style="width:95px;">
                   </colgroup>
@@ -178,7 +306,6 @@
                       <th scope="col">구분</th>
                       <th scope="col">제목</th>
                       <th scope="col">업무범주</th>
-                      <th scope="col">요청자</th>
                       <th scope="col">요청일자</th>
                       <th scope="col">수신자</th>
                       <th scope="col">참조자</th>
@@ -191,10 +318,9 @@
                       <td>프로젝트</td>
                       <td>2023년 지진,화산재해 대응시스템 유지보수 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
                       <td><div class="tags"><i>개발</i></div></td>
-                      <td>홍길동(개발1팀)</td>
                       <td>2023-05-01</td>
-                      <td>홍00(개발1팀) <i class="tbl_badge default">미확인</i></td>
-                      <td>고길동(개발2팀)</td>
+                      <td>홍00 외 1명 <i class="tbl_badge default">미확인</i></td>
+                      <td>고길동 외 1명</td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -209,9 +335,8 @@
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
                       <td><div class="tags"><i>회의</i></div></td>
-                      <td>홍길동(개발1팀)</td>
                       <td>2023-05-01</td>
-                      <td>홍00(개발1팀) <i class="tbl_badge reject">반려</i></td>
+                      <td>홍00 <i class="tbl_badge reject">반려</i></td>
                       <td></td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
@@ -227,9 +352,8 @@
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
                       <td><div class="tags"><i>회의</i></div></td>
-                      <td>홍길동(개발1팀)</td>
                       <td>2023-05-01</td>
-                      <td>홍00(개발1팀) <i class="tbl_badge approve">수락</i></td>
+                      <td>홍00 <i class="tbl_badge approve">수락</i></td>
                       <td></td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">

@@ -16,7 +16,7 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body approval_draft">
+      <div class="cont_body">
         <article class="box_compact box_tool">
           <button type="button" class="btn_gray_line">목록</button>
           <span class="floatR">
@@ -46,7 +46,7 @@
               </div>
               <div class="tab_container">
                 <section id="tab_con01" class="tab_contents">
-                  <table class="tbl_report asis tbl_week_inner alignL_3">
+                  <table class="tbl_report asis tbl_week_inner">
                     <caption>주간업무보고(개인별)</caption>
                     <colgroup>
                       <col style="width:195px">
@@ -149,7 +149,7 @@
                   </table>
                 </section>
                 <section id="tab_con02" class="tab_contents">
-                  <table class="tbl_report tobe tbl_week_inner alignL_3">
+                  <table class="tbl_report tobe tbl_week_inner">
                     <caption>주간업무보고 계획 개인</caption>
                     <colgroup>
                       <col style="width:195px">
@@ -227,46 +227,11 @@
                       <tr>
                         <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
                         <td>휴일</td>
-                        <td>
-                          <select name="" id="">
-                            <option value="선택">선택</option>
-                            <option value="외근">외근</option>
-                            <option value="출장">출장</option>
-                            <option value="휴가">휴가</option>
-                          </select>
-                        </td>
-                        <td>
-                          <select name="" id="">
-                            <option value="선택">선택</option>
-                            <option value="외근">외근</option>
-                            <option value="출장">출장</option>
-                            <option value="휴가">휴가</option>
-                          </select>
-                        </td>
-                        <td>
-                          <select name="" id="">
-                            <option value="선택">선택</option>
-                            <option value="외근">외근</option>
-                            <option value="출장">출장</option>
-                            <option value="휴가">휴가</option>
-                          </select>
-                        </td>
-                        <td>
-                          <select name="" id="">
-                            <option value="선택">선택</option>
-                            <option value="외근">외근</option>
-                            <option value="출장">출장</option>
-                            <option value="휴가">휴가</option>
-                          </select>
-                        </td>
-                        <td>
-                          <select name="" id="">
-                            <option value="선택">선택</option>
-                            <option value="외근">외근</option>
-                            <option value="출장" selected>출장</option>
-                            <option value="휴가">휴가</option>
-                          </select>
-                        </td>
+                        <td>@@include('../../inc/module/select_attendance.html')</td>
+                        <td>@@include('../../inc/module/select_attendance.html')</td>
+                        <td>@@include('../../inc/module/select_attendance.html')</td>
+                        <td>@@include('../../inc/module/select_attendance.html')</td>
+                        <td>@@include('../../inc/module/select_attendance.html')</td>
                         <td>휴일</td>
                         <td></td>
                         <td></td>
