@@ -56,11 +56,13 @@
               <span>2023.02.26 ~ 2023.03.04</span>
               <button class="handle_next" disabled>다음 주차 이동</button>
             </div>
-            <div class="tab_wrap">
+            <div class="tbl_top_area">
               <h2>2023년 14주</h2>
-              <button type="button" class="btn_default" onclick="location.href='../work/work_reportTeamApproval.html'">주간보고 작성</button>
+              <div class="flex_right">
+                <button type="button" class="btn_default" onclick="location.href='../work/work_reportTeamApproval.html'">주간보고 작성</button>
+              </div>
             </div>
-            <table class="tbl_default tbl_hover hasLayer alignL_1">
+            <table class="tbl_default tbl_hover hasLayer tbl_work_report">
               <caption>주간업무보고(팀별) 리스트</caption>
               <colgroup>
                 <col style="width:auto;min-width:240px;">
@@ -102,7 +104,8 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><i class="tbl_badge default">미제출</i><a href="#" class="cmt_num" onclick="location.href='../work/work_reportApproval.html'">결재요청</a></td>
+                  <td><i class="tbl_badge default">미제출 <em>결재요청</em></i>
+                  <!-- <a href="#" class="cmt_num" onclick="location.href='../work/work_reportApproval.html'">결재요청</a></td> -->
                   <td></td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
@@ -119,7 +122,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><i class="tbl_badge fin">완료</i> (2023. 04. 18)</td>
+                  <td><i class="tbl_badge fin">완 료<em>2023. 04. 18</em></i></td>
                   <td></td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">

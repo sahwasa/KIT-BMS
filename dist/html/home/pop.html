@@ -110,6 +110,7 @@
         <li><button type="button" class="btn_default" data-modal="p_requireMan">요구사항 관리</button></li>
         <li><button type="button" class="btn_default" data-modal="p_workMan">업무 관리</button></li>
         <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_workDay">일일업무일지 추가</button></li>
         <!-- <li><button type="button" class="btn_default" data-modal="p_type2">내 dm2</button></li>
         <li><button type="button" class="btn_default" data-modal="p_type3">내 dm3</button></li>
         <li><button type="button" class="btn_default" data-modal="p_type4">내 dm4</button></li>
@@ -2229,6 +2230,57 @@
     </div>
   </form>
 </dialog><!--// 내 업무 추가 -->
+<dialog class="p_workDay">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>일일업무일지</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>일일업무일지 테이블</caption>
+        <colgroup>
+          <col style="width:120px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_tit">제목</label>
+            </th>
+            <td>
+              <input type="text" id="work_tit">
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">작업일시</label>
+            </th>
+            <td>              
+              <div class="period_custom">
+                <input type="datetime-local" id="stime" title="시각 선택"></input>
+                <input type="datetime-local" id="stime" title="시각 선택"></input>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_content">업무내용</label>
+            </th>
+            <td>에디터</td>
+          </tr>          
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">저장</button>
+        <button class="btn_red" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 일일업무일지 추가 -->
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>
@@ -2290,9 +2342,6 @@ commonInit();
     </div>
   </form>
 </dialog>
-
-
-
 
 <script>
   $(function () {

@@ -189,6 +189,7 @@
 .p_workMan{width:600px;
   td{white-space: normal}
 }
+.p_workDay,
 .p_workMy{width:760px;}
 
 header .btnClose{@include cancel(10px,11px,#bebebe);}

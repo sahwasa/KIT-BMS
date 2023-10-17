@@ -16,7 +16,7 @@
         </section>
       </header>
       <div class="cont_body">
-        <div class="work_board">
+        <div class="work_board hasLayer">
           <section>
             <article>
               <div class="tit_work_board">
@@ -30,17 +30,38 @@
                       <details open>
                         <summary>
                           <h4 class="req">요청한 업무</h4>
+                          <a href="work_shareRequest.html" class="work_more">더보기</a>
                         </summary>
                         <ul class="work_box">
                           <li>
                             <div>
-                              <h5>도시폭염 화면시안 1차 피드백 회의</h5><a href="#" class="work_more">더보기</a>
-                            </div><i class="badge done">확인</i>
+                              <h5>도시폭염 화면시안 1차 피드백 회의</h5>
+                            </div>
+                            <div class="layer_tool receiver_dtl" style="z-index: 0;">
+                              <span>1/1</span>
+                              <button type="button" onclick="event.stopPropagation();" class="badge done" title="더보기">확인</button>
+                              <div class="receiver_wrap">
+                                <ul class="receiver">
+                                  <li>@@include('../../inc/module/module_user.html')<span class="r_confirm">확인</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
                           </li>
                           <li>
                             <div>
-                              <h5>업무관리시스템 화면설계회의</h5><a href="#" class="work_more">더보기</a>
-                            </div><i class="badge default">미확인</i>
+                              <h5>업무관리시스템 화면설계회의</h5>
+                            </div>
+                            <div class="layer_tool receiver_dtl" style="z-index: 0;">
+                              <span>1/2</span>
+                              <button type="button" onclick="event.stopPropagation();" class="badge default" title="더보기">미확인</button>
+                              <div class="receiver_wrap">
+                                <ul class="receiver">
+                                  <li>@@include('../../inc/module/module_user.html')<span class="r_confirm">확인</span></li>
+                                  <li>@@include('../../inc/module/module_user.html')<span class="r_confirm unread">미확인</span></li>
+                                </ul>
+                              </div>
+                            </div>
                           </li>
                         </ul>
                       </details>
@@ -49,6 +70,7 @@
                       <details open>
                         <summary>
                           <h4 class="pro">요청 받은 업무</h4>
+                          <a href="work_shareRecept.html" class="work_more">더보기</a>
                         </summary>
                         <ul class="work_box">
                           <li>
@@ -57,16 +79,15 @@
                                 <h5>지진사업본부 관측소채널관리시스템</h5>
                               </summary>
                               <ul class="work_tree_wrap">
-                                <li>디자인 요청<em>(2)</em><a href="#" class="work_more">더보기</a></li>
-                                <li>이력관리</li>
-                                <li>채널적용</li>
+                                <li>디자인 요청<em>(2)</em><i class="badge approve">수락</i></li>
+                                <li>이력관리<i class="badge default">미수락</i></li>
+                                <li>채널적용<i class="badge reject">반려</i></li>
                               </ul>
-                            </details>
-                            <i class="badge approve">수락</i>
+                            </details>                            
                           </li>
                           <li>
                             <div>
-                              <h5>명함이미지 신청</h5><a href="#" class="work_more">더보기</a>
+                              <h5>명함이미지 신청</h5>
                             </div>
                             <i class="badge default">미수락</i>
                           </li>
@@ -77,7 +98,7 @@
                       <details open>
                         <summary>
                           <h4 class="per">개인 업무</h4>
-                          <a href="#" class="work_more">더보기</a>
+                          <a href="work_myTodo.html" class="work_more">더보기</a>
                         </summary>
                         <ul class="work_box">
                           <li>

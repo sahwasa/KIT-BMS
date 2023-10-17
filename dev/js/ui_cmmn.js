@@ -209,7 +209,7 @@ function commonInit() {
     var findTarget = $(this).parents('.tab_wrap').next('.tab_container')
     findTarget.find('.tab_contents').hide()
     $(link).show();
-    calendar.updateSize();
+    if(typeof calendar !== 'undefined') calendar.updateSize();
   })
 
   //select_tab

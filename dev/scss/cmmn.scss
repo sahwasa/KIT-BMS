@@ -145,6 +145,7 @@ input[type="color"],
 input[type="number"],
 input[type="password"],
 input[type="time"],
+input[type="datetime-local"],
 input[type="email"],
 input[type="tel"]{@include ipt_common;min-height:28px;}
 input[type="radio"],
@@ -170,8 +171,10 @@ input[type="radio"]:checked{background-position-y:-23px;}
 // input[type="number"]::-webkit-outer-spin-button,
 // input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;margin:0;}
 // input[type="number"]{-moz-appearance:textfield;}
+input[type="datetime-local"],
 input[type="time"],
 input[type="date"]{position:relative;}
+input[type="datetime-local"]::-webkit-calendar-picker-indicator,
 input[type='time']::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator{position:relative;z-index:2;right:0;width:13px;height:14px;background:transparent;}
@@ -210,7 +213,7 @@ label>input[type="radio"],
 label>input[type="checkbox"]{position:relative;top:-1px;margin-right:5px;vertical-align:middle;}
 input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance:none;-webkit-appearance:none;}
 [contenteditable]{white-space:initial;text-align:left;}
-table:has([contenteditable]){table-layout:fixed;}
+// table:has([contenteditable]){table-layout:fixed;}
 // layout
 hr,
 .blind{@include blind}
@@ -238,10 +241,12 @@ hr,
   &.suspension::before{@include fontello('\eb6f');color:#ff6363;}
 }
 .tbl_wrap .ico_org{font-size:0;}
+input[type="datetime-local"],
 input[type="time"],
-input[type="date"]{
+input[type="date"]{width:auto;
   &::after{position:absolute;z-index:1;right:5px;top:50%;transform:translateY(-50%);color:$red;}
 }
+input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;}
 input[type="date"]::after{@include fontello('\f133');font-size:15px;}
 input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
@@ -251,6 +256,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   }
   &>span{display:inline-flex;gap:3px;}
 }
+.time_range{@include tilde();}
 .split_area{@include flex_between();}
 
 //btn
@@ -465,6 +471,11 @@ $td_border_color:#ebebeb;
   .divide{@include divide(16px, 5px);
     &.search_list{margin:0 auto 0 10px;}
   }
+  &:has(h2){@include flex_between;
+    h2{font-size:16px;color:#000;font-weight:bold;
+      &::before{position:relative;display:inline-block;content:'';width:4px;height:4px;border-radius:4px;background-color:#000;margin-right:8px;margin-bottom:2.5px;}
+    }
+  }
 }
 .tbl_bottom_area{@include flex_between;margin-top:9px;}
 td{white-space:nowrap;text-overflow:ellipsis;
@@ -492,10 +503,11 @@ td{white-space:nowrap;text-overflow:ellipsis;
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
   }
-  .tags{display:inline-block;}
+  .tags{display:inline-block;}  
   .withdrawal{text-decoration:line-through;color:$gray;
     &::after{@include badge_style();content:"회수";background-color:$gray;margin-left:3px;padding:0 3px;}
    }
+   .cancellation{@extend .withdrawal;&::after{content:"취소"};}
 }
 .tbl_use_select td:first-child{width:60px;}
 .tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}
@@ -509,6 +521,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   th{background-color:#f5f5f5;font-weight:600;color:#111;text-align:center;}
   td{text-align:left;color:#333;
     &:last-child{border-right-width:0;}
+    &[contenteditable]{height:auto;}
   }
   tr:first-child th,
   tr:first-child td{border-top-color:$td_border_color;}
@@ -575,15 +588,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
 }
 // tab
 .tab_wrap{
-  &:has(button){position:relative;
-    button{float:right;margin-bottom:3px;}
-    .tab+button{float:none;position:absolute;top:0;right:0;}
-  }
- &:has(h2){@include flex_between;
-  h2{font-size:16px;color:#000;font-weight:bold;
-    &::before{position:relative;display:inline-block;content:'';width:4px;height:4px;border-radius:4px;background-color:#000;margin-right:8px;margin-bottom:2.5px;}
-  }
- }
+  &:has(.right){position:relative;
+    .right{position:absolute;top:0;right:0;}
+  }  
 }
 .tab{
   $border-color:#eaedf1;
@@ -601,6 +608,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
 }
 .tab_contents{margin-top:20px;}
 .tab_s .tab{gap:2px;}
+.tab_wrap:has(.tab_s) + .tab_container .tab_contents,
 .tab_s ~ .tab_contents{margin-top:10px;}
 
 /* paginate */
