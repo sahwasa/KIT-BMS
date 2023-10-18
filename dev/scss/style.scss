@@ -930,28 +930,34 @@ $_planTypes:(
     &+div{display:flex;flex-direction:column;justify-content:center;gap:15px;}
   }  
   // 'event':개인,업무,행사, 'leave':근태, 나머지 회의);
-  @each $type, $color in $_planType{
-    .#{$type} .briefing_plan::before{border-color:$color;background-color:$color;}
-  }
+  $defalutColor:#009dee;
   .briefing_plan{flex:1;padding:3px 0 0 20px;position:relative;
     &::before{position:absolute;top:0;left:0;@include shape(8px,100%);border-radius:2px;background:#fff;border:1px solid #009dee;}
     &>p{font-size:13px;
       &:first-child{margin-bottom:3px;color:#6d6d6d;}
       &:last-child{color:#333;font-weight:bold;}
     }   
-    &.undefined::before{background:linear-gradient(-45deg, #fff 37%, #009dee 0, #009dee 48%, #fff 0, #fff 87%, #009dee 0);-webkit-background-size:10px 10px;background-size:10px 10px;} // 미정    
-    &.attend::before{background:#009dee;border-color:#009dee;}// 참석    
-    &.nonappearance{
-      &::before{background:rgb(236, 236, 236);border-color:#ebebeb;}
-      &>p{color:rgb(190, 190, 190);}
-    }// 불참
   }   
+  //.attend .briefing_plan::before{background:#009dee;border-color:#009dee;}// 참석
+  
+  //.undefined .briefing_plan::before{background:linear-gradient(-45deg, #fff 37%, $defalutColor 0, $defalutColor 48%, #fff 0, #fff 87%, $defalutColor 0);-webkit-background-size:10px 10px;background-size:10px 10px;}//미정
   .briefing_state{width:250px;text-align:right;
     select{display:block;}
     button{display: flex;gap:6px;letter-spacing:-.05em;
       &:hover{text-decoration:underline;}
     }
   }
+  @each $type, $color in $_planType{
+    .#{$type}{
+      .briefing_plan::before{border-color:$color;}
+      &.attend .briefing_plan::before{background-color:$color;}
+      &.undefined .briefing_plan::before{background:linear-gradient(-45deg, #fff 37%, $color 0, $color 48%, #fff 0, #fff 87%, $color 0);-webkit-background-size:10px 10px;background-size:10px 10px;}
+    }
+  }
+  .nonappearance{
+    .briefing_plan::before{background:rgb(236, 236, 236);border-color:#ebebeb;}
+    .briefing_plan>p{color:rgb(190, 190, 190);}
+  }// 불참
 }
 //project
 %proj_tag{width:35px;line-height:13px;@include badge_style(35px,35px);font-size:10px;letter-spacing:-.25px;font-weight:700;}
