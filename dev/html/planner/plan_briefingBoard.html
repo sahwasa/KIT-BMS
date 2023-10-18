@@ -46,12 +46,58 @@
                   <span class="txt">토요일</span>
                 </b>
                 <div>
-                  <!-- 'event':개인,업무,행사,'leave':연차 출장 등 근태, 나머지는 회의); -->
-                  <div class="briefing_plan_wrap event">                    
+                  <!-- 'event':개인,업무,행사,'leave':연차 출장 등 근태, 'meeting:'회의); -->
+                  <!-- 'attend':참석,'undefined':미정, 'nonappearance:'불참', 미응답; -->
+                  <div class="briefing_plan_wrap event attend">
                     <div class="briefing_plan">
                       <p>개인,업무,행사일정</p>
                       <p>하루종일</p>
-                    </div>                    
+                    </div> 
+                  </div>
+                  <div class="briefing_plan_wrap event undefined">
+                    <div class="briefing_plan">
+                      <p>참석여부 미정 일정</p>
+                      <p>10:00 ~ 17:00</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택">참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정" selected>미정</option>
+                      </select>
+                      @@include('../../inc/module/receiver_dtl3.html')
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap event attend">
+                    <div class="briefing_plan">
+                      <p>참석응답 일정</p>
+                      <p>10:00 ~ 17:00</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택">참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정" selected>미정</option>
+                      </select>
+                      @@include('../../inc/module/receiver_dtl3.html')
+                    </div>
+                  </div>
+                  <div class="briefing_plan_wrap event">
+                    <div class="briefing_plan">
+                      <p>미응답 일정</p>
+                      <p>10:00 ~ 17:00</p>
+                    </div>
+                    <div class="briefing_state">
+                      <select name="" id="">
+                        <option value="참석 여부 선택">참석 여부 선택</option>
+                        <option value="참석">참석</option>
+                        <option value="불참">불참</option>
+                        <option value="미정" selected>미정</option>
+                      </select>
+                      @@include('../../inc/module/receiver_dtl3.html')
+                    </div>
                   </div>
                 </div>
               </li>
@@ -61,8 +107,8 @@
                   <span class="txt">일요일</span>
                 </b>
                 <div>
-                  <div class="briefing_plan_wrap">                    
-                    <div class="briefing_plan undefined">
+                  <div class="briefing_plan_wrap meeting undefined">
+                    <div class="briefing_plan">
                       <p>참석여부 미정 일정</p>
                       <p>10:00 ~ 17:00</p>
                     </div>
@@ -84,7 +130,7 @@
                   <span class="txt">월요일</span>
                 </b>
                 <div>
-                  <div class="briefing_plan_wrap">
+                  <div class="briefing_plan_wrap meeting">
                     <div class="briefing_plan">
                       <p>미응답 일정</p>
                       <p>하루종일</p>
@@ -107,8 +153,8 @@
                   <span class="txt">화요일</span>
                 </b>
                 <div>
-                  <div class="briefing_plan_wrap">
-                    <div class="briefing_plan nonappearance">
+                  <div class="briefing_plan_wrap event nonappearance">
+                    <div class="briefing_plan">
                       <p>불참 일정</p>
                       <p>하루종일</p>
                     </div>
@@ -122,8 +168,8 @@
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
                   </div>
-                  <div class="briefing_plan_wrap">
-                    <div class="briefing_plan attend">
+                  <div class="briefing_plan_wrap meeting attend">
+                    <div class="briefing_plan">
                       <p>참석 응답한 일정</p>
                       <p>하루종일</p>
                     </div>
@@ -145,13 +191,13 @@
                   <span class="txt">수요일</span>
                 </b>
                 <div>
-                  <div class="briefing_plan_wrap leave">
+                  <div class="briefing_plan_wrap leave attend">
                     <div class="briefing_plan">
                       <p>연차, 출장 등</p>
                       <p>하루종일</p>
                     </div>                    
                   </div>
-                  <div class="briefing_plan_wrap">
+                  <div class="briefing_plan_wrap meeting">
                     <div class="briefing_plan">
                       <p>미응답 일정</p>
                       <p>하루종일</p>
