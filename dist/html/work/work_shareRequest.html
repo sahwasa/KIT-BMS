@@ -295,9 +295,9 @@
                     <col style="width:50px;">
                     <col style="width:120px;">
                     <col style="width:auto;min-width:240px;">
-                    <col style="width:120px;" span="2">
-                    <col style="width:200px;">
-                    <col style="width:120px;">
+                    <col style="width:120px;" span="6">
+                    <!-- <col style="width:200px;"> -->
+                    <!-- <col style="width:120px;"> -->
                     <col style="width:95px;">
                   </colgroup>
                   <thead>
@@ -307,20 +307,23 @@
                       <th scope="col">제목</th>
                       <th scope="col">업무범주</th>
                       <th scope="col">요청일자</th>
+                      <th scope="col">마감요청일</th>
                       <th scope="col">수신자</th>
-                      <th scope="col">수신여부</th>
+                      <th scope="col">수락여부</th>
+                      <th scope="col">진행상태</th>
                       <th scope="col">관리</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr tabindex="0" onclick="location.href='../work/work_view.html'">
+                    <!-- <tr tabindex="0" onclick="location.href='../work/work_view.html'">
                       <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
                       <td>프로젝트</td>
                       <td>2023년 지진,화산재해 대응시스템 유지보수 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
                       <td><div class="tags"><i>개발</i></div></td>
                       <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍00 외 3명</td>
-                      <td>3명 읽음 <div class="layer_tool receiver_dtl">
+                      <td><span class="t_green">1</span>/<span class="t_red">1</span>/<span>1</span> <div class="layer_tool receiver_dtl">
   <button type="button" onclick="event.stopPropagation();" class="btn_more" title="더보기">더보기</button>
   <div class="receiver_wrap">
     <ul class="receiver">
@@ -336,14 +339,10 @@
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div> <i class="tbl_badge approve">수락</i></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm unread">읽지않음</span></li>
     </ul>
   </div>
-</div>
-                      </td>
+</div></td>
+                      <td>완료</td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -352,15 +351,17 @@
                           </div>
                         </div>
                       </td>
-                    </tr>
+                    </tr> -->
                     <tr tabindex="0">
                       <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
                       <td><div class="tags"><i>회의</i></div></td>
                       <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍00</td>
                       <td><i class="tbl_badge reject">반려</i></td>
+                      <td>-</td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -376,8 +377,10 @@
                       <td>2023년 과제 진도점검 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
                       <td><div class="tags"><i>회의</i></div></td>
                       <td>2023-05-01</td>
+                      <td>2023-05-01</td>
                       <td>홍00</td>
                       <td><i class="tbl_badge approve">수락</i></td>
+                      <td>진행중or완료</td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -392,26 +395,11 @@
                       <td>부서업무</td>
                       <td>2023년 과제 진도점검 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
                       <td><div class="tags"><i>회의</i></div></td>
+                      <td>2023-05-01</td>
                       <td>2023-05-01</td>
                       <td>홍00</td>
                       <td><i class="tbl_badge default">미수락</i></td>
-                      <td onclick="event.stopPropagation();">
-                        <div class="layer_tool">
-                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                          <div class="btn_layer">
-                            <button type="button">발송취소</button>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr tabindex="0">
-                      <td><i class="tbl_ico normal_prio" title="중요도 보통">중요도 보통</i></td>
-                      <td>부서업무</td>
-                      <td>2023년 과제 진도점검 <div class="tags"><i>회의</i><i>하자보수</i></div></td>
-                      <td><div class="tags"><i>회의</i></div></td>
-                      <td>2023-05-01</td>
-                      <td>홍00</td>
-                      <td class="t_red">읽지않음</td>
+                      <td>-</td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>

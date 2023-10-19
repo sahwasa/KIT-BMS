@@ -59,6 +59,7 @@ $skyblue:#05b4d9;
 $blue:#2974e4;
 $yellow:#ff9702;
 $gray:#999;
+$green:#35b821; // 승인 결재완료 종료
 
 $draft:#30b4e9; // 상신 
 $ing:#2974e4; // 진행중 수행중 진행 결재진행 전결
@@ -118,6 +119,7 @@ $task_hold:#2cc78b;
 .t{
   &_red{color: $red !important;}
   &_gray{color: $gray !important;}
+  &_green{color: $green !important;}
   &_skyblue{color: $skyblue !important;}
 }
 $tit_spacing:.45px;
