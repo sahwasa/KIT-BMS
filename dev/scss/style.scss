@@ -937,10 +937,7 @@ $_planTypes:(
       &:first-child{margin-bottom:3px;color:#6d6d6d;}
       &:last-child{color:#333;font-weight:bold;}
     }   
-  }   
-  //.attend .briefing_plan::before{background:#009dee;border-color:#009dee;}// 참석
-  
-  //.undefined .briefing_plan::before{background:linear-gradient(-45deg, #fff 37%, $defalutColor 0, $defalutColor 48%, #fff 0, #fff 87%, $defalutColor 0);-webkit-background-size:10px 10px;background-size:10px 10px;}//미정
+  }
   .briefing_state{width:250px;text-align:right;
     select{display:block;}
     button{display: flex;gap:6px;letter-spacing:-.05em;
@@ -1398,14 +1395,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
           &>div:has(h1>input){flex:1;
             h1,input{width:100%;}
           }
-          h1{font-size:14px;font-weight:bold;
-            
-          }
-          &+div{padding:10px;
+          h1{font-size:14px;font-weight:bold;}
+          &+div{padding:10px;border:1px solid #ccc;border-top-width:0;background-color:#fff;
             h2{margin-bottom:5px;font-weight:bold;}
-            .file_attached{padding:0 10px;background-color:#f6f8fa;}
-          }
-          &+div{border:1px solid #ccc;border-top-width:0;background-color:#fff;
+            .file_attached{padding:0 10px;background-color:#f6f8fa;}         
             &+ul{@include flex_between;width:100%;flex-direction:column;gap:10px;margin-top:15px;
               li{align-self:stretch;padding:0;}
             }
@@ -1425,9 +1418,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   // 문서관리
   .doc{
     .task_body{margin-top:10px;}
-    table.tbl_hover{
-      a:hover{text-decoration:underline;}
-    }
+    table.tbl_hover a:hover{text-decoration:underline;}
   }
 }
 
@@ -1485,18 +1476,16 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
           }
           &:last-child{padding-bottom:0;border-bottom-width:0;}
         }
-        .work_box{padding:10px;border:1px solid #ebebeb;border-radius:2px;
-          details{width:100%;}
-          &>li{@include flex_between;align-items:start;margin-bottom:3px;}
+        .work_box{display:flex;flex-direction:column;gap:3px;padding:10px;border:1px solid #ebebeb;border-radius:2px;
+          details{width:100%;}          
+          &>li{@include flex_between;align-items:start;}
           &:has(.work_dot_wrap){ 
             &>li{display:block;margin-bottom:10px;
               &:last-child{margin-bottom:0;}
             }
           }
         }
-        &:empty{
-          &::before{@include empty_box('업무가 없습니다.');background-color:rgba(0, 0, 0, .05);}
-        }
+        &:empty::before{@include empty_box('업무가 없습니다.');background-color:rgba(0, 0, 0, .05);}
         &.work_todo{padding:0;
           & > li{padding:15px;}
           h3{@include tit;color:#757575;
@@ -1512,12 +1501,8 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
               &+ul{padding-left:25px;}
             }
           }
-          h2{
-            span{font-size:12px;}
-          }
-          details{
-            .com{font-size:13px;color:#757575;}
-          }
+          h2 span{font-size:12px;}
+          details .com{font-size:13px;color:#757575;}
         }
         &.tbl_photo{grid-template-columns:repeat(4, minmax(80px, auto));gap:15px;padding:25px 20px;
           li{position:relative;
@@ -1581,9 +1566,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         &::before{border-color:#d2d2d2;color:#d2d2d2;}
       }
     }
-    .handle_prev{
-      &::before{content:'\f104';}
-    }
+    .handle_prev::before{content:'\f104';}
   span{font-size:20px;font-weight:bold;}
 }
 .tbl_work_day td{@include alignL(2);
@@ -1631,10 +1614,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     progress{width:100px;}
     em{color:$red;margin-left:auto;}
   }
+  .risk_num{color:$skyblue;}
   .risk_done,
   .risk_done:hover{background-color:#f5f5f5;color:#888;
-    .t_skyblue{color:#888;}
-
+    .risk_num{color:#888;}
   }
 }
 .dot_list_s{margin-bottom:8px;
@@ -1645,9 +1628,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 .tab_l{border-bottom:none;
   li{flex:1;
     a{padding:8px;border-color:#c0c8d3;border-radius:5px;}
-    &.on{
-      a{border-color:#e42b29;}
-    }
+    &.on a{border-color:#e42b29;}
   }
 }
 .search_list li:has(p.required){margin-right:15px;font-weight:bold;align-self:center;}
@@ -1703,9 +1684,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &::before{content:'-';margin:0 3px 0 5px;}
     }
   }
-  .work_form{
-    .tab_contents{display:flex;flex-direction:column;gap:24px;}   
-  }
+  .work_form .tab_contents{display:flex;flex-direction:column;gap:24px;}   
   .tbl_row{width:100%;border:1px solid #ebebeb;border-width:0 1px;font-size:12px;
     td{vertical-align:baseline;
       &[contenteditable]{height:75px;}
@@ -1724,10 +1703,8 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
   }
   .work_info{
-    dt{
-      label.required{position:relative;
-        &::before{position:absolute;left:-10px;}
-      }
+    dt label.required{position:relative;
+      &::before{position:absolute;left:-10px;}
     }
     dd:not(:has(.file_input)){
       &>*{display:inline-block;width:auto;vertical-align:middle;}
@@ -1742,29 +1719,25 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     & th:last-child{background-color:#ccdeff;}
   }
 }
-.progress_input{
-  &+button{display:block;width:100%;margin-top:5px;}
-}
+.progress_input ~ .btn{display:block;width:100%;margin-top:5px;}
 .notice_board{display:flex;
   &>section{flex:0 1 50%;}
-  td{
-    .new_bedge{padding:0 3px;font-size:10px;}
-  }
+  .new_bedge{padding:0 3px;font-size:10px;}
 }
 .vote_wrap{
-  span:has(input[type=number]){margin-bottom:5px;
+  span:has(input[type="number"]){margin-bottom:5px;
     &+div{
       &>.file_input{margin-bottom:3px;}
     }
   }
-  input[type=number]{flex:0 1 60px;text-align:left;}
-  input[type=checkbox]{flex:inherit;}
+  input[type="number"]{flex:0 1 60px;text-align:left;}
+  input[type="checkbox"]{flex:inherit;}
 }
 //message
 .tbl_message{td{@include alignL(4);}}
 .tbl_archive{td{@include alignL(5);}}
 .msg{display:inline-block;max-width:32vw;text-overflow:ellipsis;white-space:nowrap;overflow: hidden;vertical-align:top;}
-.receiver_dtl{display:inline-block;}
+.receiver_dtl{display:inline-block;flex-shrink:0;}
 .receiver_wrap{display:none;position:absolute;right:0;top:calc(100% + 5px);width:300px;height:fit-content;max-height:200px;overflow-y:auto;background-color:#fff;border:1px solid $gray;padding:5px;
   .receiver{@include user_lst;
     .tbl_badge,
