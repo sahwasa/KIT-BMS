@@ -125,14 +125,23 @@ border:1px solid transparent;align-self:center;@content;}
 }
 @mixin newmark{@include badge_style();content:"N";background-color:$red;width:17px;font-size:10px;margin-left:3px;}
 
-@mixin tit{font-size:16px;color:#000;font-weight:bold;margin-bottom:15px;}
-@mixin tit_bullet($target,$size:6){
+@mixin tit{font-size:16px;color:#000;font-weight:bold;margin-bottom:15px;
+  @if(&:has(h1)){
+    font-weight:normal;
+    h1{margin-bottom:0;font-weight:bold;}
+  }
+}
+@mixin tit_bullet($target,$size:6,$wrap:false){
   #{$target}{@include tit;font-weight:500;
     &::before{position:relative;top:-3px;display:inline-block;@include shape(#{$size}px,#{$size}px);margin-right:7px;border-radius:50%;background-color:#c4c4c4;}
     @content;
   }
   @if($size < 4){
     #{$target}{font-size:13px;margin-bottom:0;}
+  }
+  @if($wrap){
+    @include flex_between;font-weight:normal;margin-bottom:15px;
+    h1{margin-bottom:0;font-weight:bold;}
   }
 }
 
@@ -149,7 +158,8 @@ border:1px solid transparent;align-self:center;@content;}
 @mixin empty_box($con){display:flex;justify-content:center;align-items:center;height:100%;content:$con;padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:13px;color:#777;}
 
 @mixin user_lst{display:flex;flex-direction:column;gap:5px;
-  li{display:flex;align-items:center;} 
+  li{display:flex;align-items:center;}
+  em{margin-left:auto;}
 }
 
 @mixin text_ellipsis($line:1){text-overflow:ellipsis;white-space:normal;overflow:hidden;display:-webkit-box;-webkit-line-clamp:$line;-webkit-box-orient:vertical;}
