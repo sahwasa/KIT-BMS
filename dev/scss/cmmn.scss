@@ -209,7 +209,10 @@ input[type=number]{-moz-appearance:textfield;} // firefox hide arrrow
 ::placeholder,
 .opt_label,
 select{color:$gray;}
-select option{color:#333;}
+select{
+  option,
+  &:has(option[selected]){color:#333;}
+}
 optgroup.opt_label,
 .opt_label option{display:none;}
 label>input[type="radio"],
@@ -463,6 +466,10 @@ legend{@include tit;}
 }
 .btn_del{
   &::before{@include fontello('\e839'){margin-right:3px;font-size:14px;};}
+  &:hover{color:$red;}
+}
+.btn_add{line-height:21px;
+  &::before{@include fontello('\f0fe'){position:relative;top:1px; margin-right:3px;font-size:14px;};}
   &:hover{color:$red;}
 }
 

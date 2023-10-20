@@ -57,14 +57,14 @@
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
     <li class="on"><a href="../../html/home/main.html">HOME</a></li>
-    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li class="disabled"><a href="../../html/message/message.html">사내쪽지</a></li>
     <li><a href="../../html/approval/approval.html">전자결재</a></li>
     <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/planner/plan.html">일정</a></li>
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
-    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
-    <li><a href="../../html/erp/erp.html">ERP</a></li>
-    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li class="disabled"><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li class="disabled"><a href="../../html/erp/erp.html">ERP</a></li>
+    <li class="disabled"><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
     <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
   </ul>
@@ -974,16 +974,15 @@
           <section id="proj02" class="tab_contents overview">
             <section class="left_section">
   <article>
-    <h1>프로젝트 정보</h1>
+    <header>
+      <h1>프로젝트 정보</h1>
+    </header>
     <section>
       <h2><i class="type">R&amp;D</i> 2023년 도시폭염 연구과제 2차(약어)</h2>
       <dl class="ipt_lst">
         <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
-        <dt>담당자</dt>                    
-        <dd><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></dd>
+        <dt>발주 담당자</dt>                    
+        <dd>이담당 주무관-기후재난대응과(010-1234-5678)</dd>
         <dt>수행PM</dt>                    
         <dd><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
@@ -997,7 +996,9 @@
     </section>
   </article>
   <article>
-    <h1>계약 정보</h1>
+    <header>
+      <h1>계약 정보</h1>
+    </header>
     <section>
       <dl class="ipt_lst">
         <dt>계약기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>

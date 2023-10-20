@@ -42,6 +42,7 @@
                     <li class="optionItem" tabindex="0" data-value="D"><i class="roomD">D</i>회의실D</li>
                   </ul>
                 </div>
+                <button type="button" class="i_refresh" title="새로고침">새로고침</button>
               </td>
             </tr>
             <tr>
@@ -56,27 +57,23 @@
             <tr>
               <th><label for="plan_participants">참여자</label></th>
               <td>
-                <span class="file_input">
-                  <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
-                  <datalist id="nameList">
-                    <optgroup label="개발본부">
-                      <option value="대장발핑">개발본부</option>
-                      <option value="개발핑">개발 1팀</option>
-                      <option value="새발핑">개발 1팀</option>
-                      <option value="말발핑">개발 2팀</option>
-                      <option value="소발핑">개발 2팀</option>
-                      <option value="곰발핑">개발 2팀</option>
-                    </optgroup>
-                    <optgroup label="경영관리">
-                      <option value="경영핑">경영관리</option>
-                      <option value="관리핑">경영관리</option>
-                    </optgroup>
-                  </datalist>
-                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                  <button type="button" class="btn_red_line">저장이 있어야 되나?!</button>
-                </span>
-                @@include('../module/module_slide_user.html')
-                @@include('../data/data_emp_name.html')
+                <ul class="ls_contributor">
+                  <li>@@include('../../inc/module/module_user.html') <em class="t_skyblue">참석</em></li>
+                  <li>@@include('../../inc/module/module_user.html') <em class="t_red">불참</em></li>
+                  <li>@@include('../../inc/module/module_user.html') <em class="t_gray">미응답</em></li>
+                </ul>
+                <div id="btn_addwrap" class="file_input" data-toggle="" data-tglwrap="">
+                  <button type="button" class="btn_add" data-toggle="contributor_add" title="참여자 추가">추가</button>
+                </div>
+                <div class="contributor_add" id="contributor_add" data-tglwrap="" >
+                  <span class="file_input">
+                    <button type="button" class="btn_back" title="취소" data-toggle="btn_addwrap">취소</button>
+                    <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
+                    @@include('../../inc/data/data_emp_name.html')
+                    <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                    <button type="button" class="btn_red_line" disabled>저장</button>
+                  </span>
+                </div>
               </td>
             </tr>
             <tr>
