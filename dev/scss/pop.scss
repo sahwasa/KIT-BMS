@@ -180,8 +180,8 @@
   .plan_cot{height:100px;overflow-y:auto;}
   .meeting_room{display: inline-block;margin-right:3px;}
   .contributor_add{display:none;}
-  [data-tglwrap]{height:34px;border-top:1px solid $td_border_color;margin-top:10px;padding:4px 0 0 3px;}
-  .ls_contributor{@include user_lst;}  
+  [data-tglwrap]{height:34px;border-top:1px solid $td_border_color;margin-top:5px;padding:4px 0 0 3px;}
+  .ls_contributor{@include user_lst;margin:5px 0;}  
 }
 .p_status_roomBook{width:1000px;
   .calendar{height:585px;}
