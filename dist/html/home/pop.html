@@ -1736,6 +1736,18 @@
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div> <em class="t_gray">미응답</em></li>
+                  <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <em class="t_gray">미응답</em></li>
+                  <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <em class="t_gray">미응답</em></li>
+                  <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <em class="t_gray">미응답</em></li>
                 </ul>
                 <div id="btn_addwrap" class="file_input" data-toggle="" data-tglwrap="">
                   <button type="button" class="btn_add" data-toggle="contributor_add" title="참여자 추가">추가</button>
@@ -1767,7 +1779,9 @@
             <tr>
               <th scope="row"><label for="plan_cont">내용</label></th>
               <td>
-                <div class="plan_cot" contenteditable="true">하잉ㅋ</div>
+                <div class="editor_wrap" id="editor_wrap">
+                  <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -2348,6 +2362,7 @@ commonInit();
       document.querySelector('.' + modal).showModal();
       tabInit(modal);
       if (modal == 'p_status_roomBook') cal_roombook.updateSize();
+      if (modal == 'p_planEdit') setEditor();
     })
 
     $('.btnClose').on('click', function () {
