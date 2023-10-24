@@ -243,7 +243,8 @@ function commonInit() {
     }
   })
   $('[data-tglwrap]').hide().first().show()
-  $('[data-toggle]').on('click', function (e) {
+  $('[data-toggle]').off('click').on('click', function (e){
+    e.stopPropagation();
     const getTarget = e.target.dataset.toggle
     target = $('#' + getTarget)
     target.show()
