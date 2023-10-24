@@ -175,13 +175,14 @@
 
 // planView
 .p_planEdit,
-.p_planView{width:600px;
+.p_planView{width:800px;
   td{white-space: normal}
   .plan_cot{height:100px;overflow-y:auto;}
   .meeting_room{display: inline-block;margin-right:3px;}
   .contributor_add{display:none;}
   [data-tglwrap]{height:34px;border-top:1px solid $td_border_color;margin-top:5px;padding:4px 0 0 3px;}
-  .ls_contributor{@include user_lst;margin:5px 0;}  
+  .ls_contributor{@include user_lst;margin:5px 0;max-height:120px;overflow-y:auto;padding-right:5px;}
+  .editor_wrap .ck-editor .ck-content{height:170px;}
 }
 .p_status_roomBook{width:1000px;
   .calendar{height:585px;}
