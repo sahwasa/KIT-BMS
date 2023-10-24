@@ -429,8 +429,8 @@ function commonInit() {
 }
 
 // editor
-function setEditor() {
-  ClassicEditor.create(document.querySelector('#editor'), {
+function setEditor(id = '#editor') {
+  ClassicEditor.create(document.querySelector(id), {
     licenseKey: '',
     image: {
       toolbar: ['toggleImageCaption', 'imageTextAlternative'],
@@ -480,18 +480,20 @@ function setEditor() {
     })
     .replace
 
-  // 이미지 에디터 생성
-  var imageEditorWrap = document.createElement('div')
-  imageEditorWrap.id = 'image_editor_wrap'
-  imageEditorWrap.innerHTML = `
-        <div id="image_editor"></div>
-        <div class="btn_editor_wrap">
-          <button type="button" class="btn btn_red" id="confirmButton">확인</button>
-          <button type="button" class="btn btn_gray" id="cancelButton">취소</button>
-        </div>
-    `
-  var editorWrap = document.getElementById('editor_wrap')
-  editorWrap.insertAdjacentElement('afterend', imageEditorWrap)
+  if($('#image_editor_wrap').length==0){
+    // 이미지 에디터 생성
+    var imageEditorWrap = document.createElement('div')
+    imageEditorWrap.id = 'image_editor_wrap'
+    imageEditorWrap.innerHTML = `
+          <div id="image_editor"></div>
+          <div class="btn_editor_wrap">
+            <button type="button" class="btn btn_red" id="confirmButton">확인</button>
+            <button type="button" class="btn btn_gray" id="cancelButton">취소</button>
+          </div>
+      `
+    var editorWrap = document.getElementById('editor_wrap')
+    editorWrap.insertAdjacentElement('afterend', imageEditorWrap)
+  }
 
   // 에디터를 만들어도.. 될까요?
   var checkEditor = setInterval(function () {
