@@ -1766,7 +1766,9 @@
             </tr>
             <tr>
               <th scope="row"><label for="plan_cont">내용</label></th>
-              <td>에디터</td>
+              <td>
+                <div class="plan_cot" contenteditable="true">하잉ㅋ</div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -2352,11 +2354,11 @@ commonInit();
       document.querySelector('dialog').close();
     })
 
-    $('dialog').on('keydown', function (event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-      }
-    });
+    // $('dialog').on('keydown', function (event) {
+    //   if (event.key === 'Enter') {
+    //     event.preventDefault();
+    //   }
+    // });
   })
   $(".approval_often_sort").sortable({
     forcePlaceholderSize: true,

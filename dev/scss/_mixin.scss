@@ -12,8 +12,14 @@
 @mixin tablet_only{
   @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) { @content; }
 }
-@mixin desktop{
-  @media (max-width: #{$breakpoint-desktop}) { @content; }
+@mixin desktop($disabled:false,$target:'.contents'){
+  @if($disabled){
+    #{$target}:not(:has(#{$disabled})){
+      @media (max-width: #{$breakpoint-desktop}) { @content;}
+    }
+  }@else{
+    @media (max-width: #{$breakpoint-desktop}) { @content;}
+  }
 }
 @mixin desktop_only{
   @media (min-width: #{$breakpoint-desktop}) { @content; }
@@ -126,10 +132,11 @@ border:1px solid transparent;align-self:center;@content;}
 @mixin newmark{@include badge_style();content:"N";background-color:$red;width:17px;font-size:10px;margin-left:3px;}
 
 @mixin tit{font-size:16px;color:#000;font-weight:bold;margin-bottom:15px;
-  @if(&:has(h1)){
+  &:has(h1){
     font-weight:normal;
     h1{margin-bottom:0;font-weight:bold;}
   }
+  @content;
 }
 @mixin tit_bullet($target,$size:6,$wrap:false){
   #{$target}{@include tit;font-weight:500;

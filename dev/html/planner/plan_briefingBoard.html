@@ -47,7 +47,7 @@
                 </b>
                 <div>
                   <!-- 'event':개인,업무,행사,'leave':연차 출장 등 근태, 'meeting:'회의); -->
-                  <!-- 'attend':참석,'undefined':미정, 'nonappearance:'불참', 미응답; -->
+                  <!-- 'attend':참석,'undefined':미응답, 'nonappearance:'불참', 미응답; -->
                   <div class="briefing_plan_wrap event attend">
                     <div class="briefing_plan">
                       <p>개인,업무,행사일정</p>
@@ -56,7 +56,7 @@
                   </div>
                   <div class="briefing_plan_wrap event undefined">
                     <div class="briefing_plan">
-                      <p>참석여부 미정 일정</p>
+                      <p>참석여부 미응답 일정</p>
                       <p>10:00 ~ 17:00</p>
                     </div>
                     <div class="briefing_state">
@@ -64,7 +64,7 @@
                         <option value="참석 여부 선택">참석 여부 선택</option>
                         <option value="참석">참석</option>
                         <option value="불참">불참</option>
-                        <option value="미정" selected>미정</option>
+                        <option value="미응답" selected>미응답</option>
                       </select>
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
@@ -79,7 +79,7 @@
                         <option value="참석 여부 선택">참석 여부 선택</option>
                         <option value="참석">참석</option>
                         <option value="불참">불참</option>
-                        <option value="미정" selected>미정</option>
+                        <option value="미응답" selected>미응답</option>
                       </select>
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
@@ -94,7 +94,7 @@
                         <option value="참석 여부 선택">참석 여부 선택</option>
                         <option value="참석">참석</option>
                         <option value="불참">불참</option>
-                        <option value="미정" selected>미정</option>
+                        <option value="미응답" selected>미응답</option>
                       </select>
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
@@ -109,7 +109,7 @@
                 <div>
                   <div class="briefing_plan_wrap meeting undefined">
                     <div class="briefing_plan">
-                      <p>참석여부 미정 일정</p>
+                      <p>참석여부 미응답 일정</p>
                       <p>10:00 ~ 17:00</p>
                     </div>
                     <div class="briefing_state">
@@ -117,7 +117,7 @@
                         <option value="참석 여부 선택">참석 여부 선택</option>
                         <option value="참석">참석</option>
                         <option value="불참">불참</option>
-                        <option value="미정" selected>미정</option>
+                        <option value="미응답" selected>미응답</option>
                       </select>
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
@@ -140,7 +140,7 @@
                         <option value="참석 여부 선택" selected>참석 여부 선택</option>
                         <option value="참석">참석</option>
                         <option value="불참">불참</option>
-                        <option value="미정">미정</option>
+                        <option value="미응답">미응답</option>
                       </select>
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
@@ -163,7 +163,7 @@
                         <option value="참석 여부 선택">참석 여부 선택</option>
                         <option value="참석">참석</option>
                         <option value="불참" selected>불참</option>
-                        <option value="미정">미정</option>
+                        <option value="미응답">미응답</option>
                       </select>
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
@@ -178,7 +178,7 @@
                         <option value="참석 여부 선택">참석 여부 선택</option>
                         <option value="참석" selected>참석</option>
                         <option value="불참">불참</option>
-                        <option value="미정">미정</option>
+                        <option value="미응답">미응답</option>
                       </select>
                       @@include('../../inc/module/receiver_dtl3.html')
                     </div>
@@ -196,31 +196,6 @@
                       <p>연차, 출장 등</p>
                       <p>하루종일</p>
                     </div>                    
-                  </div>
-                  <div class="briefing_plan_wrap meeting">
-                    <div class="briefing_plan">
-                      <p>미응답 일정</p>
-                      <p>하루종일</p>
-                    </div>
-                    <div class="briefing_state">
-                      <select name="" id="">
-                        <option value="참석 여부 선택" selected>참석 여부 선택</option>
-                        <option value="참석">참석</option>
-                        <option value="불참">불참</option>
-                        <option value="미정">미정</option>
-                      </select>
-                      <div class="layer_tool receiver_dtl">
-                        <button type="button" onclick="event.stopPropagation();">참여자 10명 (<b class="t_skyblue">참석 0</b> <b class="t_red">불참 0</b> <b>미정 1</b> <b class="t_gray">미응답 9</b>)</button>
-                        <div class="receiver_wrap">
-                          <ul class="receiver">
-                            <li>@@include('../../inc/module/module_user.html') <em class="r_confirm t_skyblue">참석</em></li>
-                            <li>@@include('../../inc/module/module_user.html') <em class="r_confirm t_red">불참</em></li>
-                            <li>@@include('../../inc/module/module_user.html') <em class="r_confirm">미정</em></li>
-                            <li>@@include('../../inc/module/module_user.html') <em class="r_confirm t_gray">미응답</em></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </li>
