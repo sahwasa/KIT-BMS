@@ -218,7 +218,7 @@ optgroup.opt_label,
 label>input[type="radio"],
 label>input[type="checkbox"]{position:relative;top:-1px;margin-right:5px;vertical-align:middle;}
 input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance:none;-webkit-appearance:none;}
-[contenteditable]{white-space:initial;text-align:left;}
+[contenteditable]{white-space:initial;text-align:left;word-break:break-word;}
 // table:has([contenteditable]){table-layout:fixed;}
 // layout
 hr,
@@ -445,8 +445,7 @@ $btn_red_line:#ff7575;
 .tooltip{position:absolute;top:calc(100% + 5px);right:0;background-color:$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
   *{flex-shrink:0;}
 }
-
-legend{@include tit;}
+legend{@include tit{font-weight:bold;};}
 // search
 .search_box{
   $b_color:#c5c5c5;
