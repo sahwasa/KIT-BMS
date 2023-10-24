@@ -1,6 +1,7 @@
 $columnGap:25px;
 //layout
-.wrap{display:grid;grid-template-columns:60px 1fr;grid-template-rows:60px 1fr 59px;width:100%;min-width:1200px;min-height:100vh;font-size:13px;color:$black;font-family:"NanumGothic","나눔고딕","Malgun Gothic","맑은고딕","Apple SD Gothic Neo","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;}
+#wrap{font-size:13px;color:$black;font-family:"NanumGothic","나눔고딕","Malgun Gothic","맑은고딕","Apple SD Gothic Neo","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;}
+.wrap{display:grid;grid-template-columns:60px 1fr;grid-template-rows:60px 1fr 59px;width:100%;min-width:1200px;min-height:100vh;}
 .header{grid-row:1;grid-column:1/span 2;padding:0 $columnGap; border-bottom:1px solid #989898;}
 
 //header
