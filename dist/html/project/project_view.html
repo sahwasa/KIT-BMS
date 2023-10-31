@@ -197,8 +197,7 @@
         </div>
         <div class="tab_wrap">
           <ul class="tab">
-            <li><a href="#proj01">이슈</a></li>
-            <li><a href="#proj01-1">이슈추가</a></li>
+            <li><a href="#proj01">이슈톡</a></li>
             <li><a href="#proj02">개요</a></li>
             <li><a href="#proj03">요구사항</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
@@ -207,6 +206,484 @@
           </ul>
         </div>
         <div class="tab_container">
+          <section id="proj02" class="tab_contents overview">
+            <section class="left_section">
+  <article>
+    <header>
+      <h1>프로젝트 정보</h1>
+    </header>
+    <section>
+      <h2><i class="type">R&amp;D</i> 2023년 도시폭염 연구과제 2차(약어)</h2>
+      <dl class="ipt_lst">
+        <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
+        <dt>발주 담당자</dt>                    
+        <dd>이담당 주무관-기후재난대응과(010-1234-5678)</dd>
+        <dt>수행PM</dt>                    
+        <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+        <dt>수행기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+        <dt>사용인감</dt><dd>○</dd>
+        <dt><label for="">비고</label></dt>
+        <dd><p>-</p></dd>
+      </dl>
+    </section>
+  </article>
+  <article>
+    <header>
+      <h1>계약 정보</h1>
+    </header>
+    <section>
+      <dl class="ipt_lst">
+        <dt>계약기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+        <dt>컨소시엄 총괄</dt><dd>총괄</dd>
+        <dt>컨소시엄 구성</dt><dd>구성</dd>
+        <dt>지분율</dt><dd>30&percnt;</dd>
+        <dd class="full">
+          <dl class="ipt_innerlst">
+            <dt>사업예산</dt><dd>1,000,000,000(원)</dd>
+            <dt>계약금액</dt><dd>10,000,000(원)</dd>
+            <dt>외주비용</dt><dd>10,000,000(원)</dd>
+            <dt>수행비</dt><dd>10,000,000(원)</dd>
+          </dl>
+        </dd>
+        <dt>하자보수기간</dt><dd>2023-12-30 ~ 2024-12-30</dd>
+        <dt>계약서</dt>
+        <dd class="file_attached"><ul class="attach_list"></ul></dd>
+        <dt>계약서</dt>
+        <dd class="file_attached">
+          <ul class="attach_list">
+            <li>
+              <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.pptx</a>
+            </li>
+            <li>
+              <a href="#" download><i class="ext_hwp"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.hwp</a>
+            </li>
+          </ul>
+        </dd>
+        <dt>비고</dt><dd><p>-</p></dd>
+      </dl>
+    </section>
+  </article>
+
+  <!-- 아래부터 수정 -->
+  <article>
+    <header>
+      <h1>프로젝트 정보</h1>
+    </header>
+    <section class="ipt_wrap">
+      <dl>
+        <dt><label for="" class="required">업무구분</label></dt>
+        <dd>
+          <select name="" id="">
+            <option value="">용역</option>
+            <option value="">연구과제(R&amp;D)</option>
+            <option value="">사내업무</option>
+            <option value="">기타</option>
+          </select>
+        </dd>
+        <dt><label for="" class="required">프로젝트명 &sol; 약어</label></dt>
+        <dd class="flex_full"><input type="text" id="" title="프로젝트명"></dd>
+        <dd class="flex_full divideL"><input type="text" id="" title="약어"></dd>
+        <dt class="required">발주기관</dt>
+        <dd class="flex_full">
+          <div class="file_input">
+            <select name="" id="" title="사업자분류">
+              <option value="">사업자분류</option>
+            </select>
+            <select name="" id="" title="기관선택">
+              <option value="">기관선택</option>
+            </select>
+          </div>
+        </dd>
+        <dd class="flex_full">
+          <ul class="ipt_innerwrap">
+            <li>
+              <em class="required">담당자</em>
+              <div class="file_input">
+                <input type="text" id="" placeholder="임직원명" list="nameList">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+              </div>
+            </li>
+            <li>
+              <em class="required">수행PM</em>
+              <div class="file_input">
+                <input type="text" id="" placeholder="임직원명" list="nameList">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+              </div>
+            </li>
+          </ul>
+        </dd>              
+        <dd class="flex_full">
+          <ul class="ipt_innerwrap">
+            <li>
+              <em><label for="" class="required">수행기간</label></em>
+              <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+            </li>
+            <li>
+              <em><label for="" class="required">사용인감</label></em>
+              <select name="" id="" class="alignC w_auto">
+                <option value="">○</option>
+                <option value="">△</option>
+                <option value="">□</option>
+              </select>
+            </li>            
+          </ul>
+        </dd>        
+        <dt><label for="">비고</label></dt>
+        <dd class="flex_full"><input type="text" id=""></dd>
+      </dl>
+    </section>
+  </article>
+  <article>
+    <header>
+      <h1>계약 정보</h1>
+    </header>
+    <section class="ipt_wrap">
+      <dl>
+        <dt><label for="" class="required">계약기간</label></dt>
+        <dd class="flex_full">
+              <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+        </dd>
+        <dt><label for="">컨소시엄 총괄기관 &sol; 구성</label></dt>
+        <dd><input type="text" placeholder="컨소시엄 총괄기관" id=""></dd>
+        <dd class="flex_full divideL"><input type="text" id="" placeholder="컨소시엄 구성"></dd>
+        <dt><label for="">지분율(&percnt;)</label></dt>
+        <dd><input type="number" id="" class="alignC"></dd>
+        <dd class="flex_full">
+          <ul class="ipt_innerwrap">
+            <li>
+              <em><label for="">사업예산(원)</label></em>
+              <input type="number" id="" class="alignR">
+            </li>
+            <li>
+              <em><label for="">계약금액(원)</label></em>
+              <input type="number" id="" class="alignR">
+            </li>
+            <li>
+              <em><label for="">외주비용(원)</label></em>
+              <input type="number" id="" class="alignR">
+            </li>
+            <li>
+              <em><label for="">수행비(원)</label></em>
+              <input type="number" id="" class="alignR">
+            </li>
+          </ul>
+        </dd>
+        <dt><label for="" class="required">하자보수기간</label></dt>
+        <dd>
+          <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+        </dd>
+        <dt><label for="">계약서</label></dt>
+        <dd class="flex_full">
+          <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div>
+        </dd>
+        <dt><label for="">비고</label></dt>
+        <dd class="flex_full"><input type="text" id=""></dd>
+      </dl>
+    </section>
+  </article>
+  <article>
+    <section class="cmt_area">
+  <header>
+    <h1>댓글</h1>
+  </header>
+  <ul class="cmt_lst hasLayer">
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+      </div>
+      <div class="cmt_txt">
+        <p>반려합니다.</p>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+      <div class="reply_area">
+        <ul>
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="cmt_txt">
+              <p>왜요?</p>
+            </div>
+            <div class="cmt_info">
+              <span class="date">2023-05-23 11:35</span>
+              <button type="button">답글</button>
+            </div>
+          </li>
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="cmt_txt">
+              <div class="editable" contenteditable="true"></div>
+              <em class="placehold">@홍길동님에게 답글쓰기</em>
+            </div>
+            <div class="cmt_attach">
+              <div class=" file_attach btn_attach">
+                <input id="attachFiles1" data-attach="reply" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+                <div id="file-drop" class="drop_zone">
+                  <ul id="reply" class="attach_list"></ul>
+                </div>
+              </div>
+              <label for="attachFiles1" class="btn_label_attach">첨부</label>
+              <button type="button">등록</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmt_txt">
+        <p>
+          이 댓글은 로그인한 사람이 작성한 글입니다.<br>
+          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br>
+          댓글이 없을 때는 아래와 같이 보여줍니다.
+        </p>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+    <li>
+      작성된 댓글이 없습니다.
+    </li>
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmt_txt">
+        <p>╭◜◝ ͡ ◜◝ ╮<br>( Ꮚ ´ ꒳ ` Ꮚ 저는 바로바로 파일이 첨부된 댓글입니당<br>╰◟◞ ͜ ◟◞╯<br></p>
+      </div>
+      <div class="cmt_file">
+        <a href="../../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_file">
+        <a href="../../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-06-16 15:00</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+  </ul>
+  <div class="cmt_write">
+    <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    <div id="test" class="editable ck-editor__editable" contenteditable="true" data-tribute="true"></div>
+    <em class="placehold">댓글을 입력하세요.</em>
+    <!-- <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true">
+      <span contenteditable="false"><a title="p1">@김개발</a></span>&nbsp; <span contenteditable="false"><a title="p2">@기획</a></span>&nbsp;
+    </div> -->
+    <div class="cmt_attach">
+      <div class="file_attach btn_attach">
+        <input id="attachFiles2" data-attach="cmt" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+        <div id="file-drop" class="drop_zone">
+          <ul id="cmt" class="attach_list"></ul>
+        </div>
+      </div>
+      <label for="attachFiles2" class="btn_label_attach">첨부</label>
+      <button type="button">등록</button>
+    </div>
+  </div>
+</section>
+  </article>
+</section>
+<section class="right_section">
+  <section class="box_default_w">
+    <dl class="set_list">
+      <dt>갱신일자</dt>
+      <dd>2023-04-05</dd>
+      <!-- <dt>생성자</dt>
+      <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd> -->
+      <dt>생성일자</dt>
+      <dd>2023-01-05</dd>
+    </dl>
+    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
+    <button type="button" class="btn_red_line full">프로젝트 수정</button>
+  </section>
+  <section class="box_default_w">
+    <dl class="set_list">   
+      <dt>상태</dt>
+      <dd>
+        <div class="select_custom task_status">
+          <button class="label"><span class="opt_label">상태</span></button>
+          <ul class="optionList">
+            <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">준비</span></li>
+            <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">수행중</span></li>
+            <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">하자보수</span></li>
+            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">종료</span></li>
+            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+            <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">기타</span></li>
+          </ul>
+        </div>
+      </dd>
+      <dt>공개여부</dt>
+      <dd>
+        <div class="btn_switch">
+          <input type="radio" id="open" name="disclosure" checked>
+          <label for="open">공개</label>
+          <input type="radio" id="private" name="disclosure">
+          <label for="private">비공개</label>
+        </div>
+      </dd>
+    </dl>
+    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
+  </section>
+  <section class="box_default_w contributor">
+    <header>
+      <h1>참여자<i class="count_tag">3</i></h1>
+      <button class="btn_more" data-toggle="contributor_add">참여자 추가</button>
+    </header>
+    <div class="contributor_add" id="contributor_add" data-tglwrap>
+      <span class="file_input">
+        <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+        <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+    </div>
+    <ul class="ls_contributor">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><em class="tag_pm">PM</em></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><button type="button" class="myappr_del">삭제</button></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><button type="button" class="myappr_del">삭제</button></li>
+    </ul>
+  </section>
+</section>
+          </section>
           <section id="proj01" class="tab_contents issue">
             <article class="box_compact box_form">
   <ul class="search_list">
@@ -251,7 +728,7 @@
     </li>
   </ul>
   <span class="btn_wrap">
-    <button type="button" class="btn_red">이슈 추가</button>
+    <button type="button" class="btn_red" onclick="document.querySelector('.p_issue_write').showModal();">이슈 추가</button>
   </span>
 </article>
 <section class="task_body article_body">
@@ -293,7 +770,7 @@
           <div class="tit">
             <input type="checkbox">
             <em title="이슈번호">1</em>
-            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
             <i class="task_plan">계획</i>
           </div>
           <div class="etc">
@@ -308,7 +785,7 @@
           <div class="tit">
             <input type="checkbox">
             <em title="이슈번호">1</em>
-            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>                
+            <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>                
             <i class="task_done">완료</i>
           </div>
           <div class="etc">
@@ -322,7 +799,7 @@
           <div class="tit">
             <input type="checkbox">
             <em title="이슈번호">1</em>
-            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
             <i class="task_cancel">취소</i>
           </div>
           <div class="etc">
@@ -336,7 +813,7 @@
           <div class="tit">
             <input type="checkbox">
             <em title="이슈번호">1</em>
-            <p class="task_name">ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현</p>
+            <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
             <i class="task_hold">보류</i>
           </div>
           <div class="etc">
@@ -801,44 +1278,42 @@
     </div>
   </section>
 </section>
-          </section>
-          <section id="proj01-1" class="tab_contents issue">
-            <article class="box_compact box_form">
-  <button type="button" class="btn_gray_line">목록</button>
-  <span class="btn_wrap">
-    <button type="button" class="btn_red">저장</button>
-    <button type="button" class="btn_gray_line">취소</button>
-  </span>
-</article>
-<article class="issue_dtl issue_write">
-  <section class="issue_cont">
-    <header>
-      <input type="text" title="제목" placeholder="제목">
-    </header>  
-    <div class="editor_wrap" id="editor_wrap">
-      <textarea name="editor" id="editor" title="에디터 영역"></textarea>
-    </div>
-  </section>    
-  <section class="issue_set">
-    <section class="box_default_w">
-      <dl class="set_list">
-        <dt><label for="">업무상태</label></dt>
-        <dd>
-          <div class="select_custom task_status">
-            <button class="label"><span class="opt_label">상태</span></button>
-            <ul class="optionList">
-              <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
-              <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
-              <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
-              <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
-              <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
-              <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
-            </ul>
+<dialog id="p_issue_write" class="p_issue_write">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>이슈톡 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <article class="issue_dtl issue_write">
+        <section class="issue_cont">
+          <header>
+            <input type="text" title="제목" placeholder="제목">
+          </header>  
+          <div class="editor_wrap" id="editor_wrap">
+            <textarea name="editor" id="issue_write" title="에디터 영역"></textarea>
           </div>
-        </dd>
-        <dt><label for="">만기일</label></dt>
-        <dd>
-          <div class="period_custom">
+        </section>    
+        <section class="issue_set">
+          <section class="box_default_w">
+            <dl class="set_list">
+              <dt><label for="">업무상태</label></dt>
+              <dd>
+                <div class="select_custom task_status">
+                  <button class="label"><span class="opt_label">상태</span></button>
+                  <ul class="optionList">
+                    <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
+                    <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
+                    <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
+                    <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
+                    <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+                    <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
+                  </ul>
+                </div>
+              </dd>
+              <dt><label for="">만기일</label></dt>
+              <dd>
+                <div class="period_custom">
   <span>
     <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
   </span>
@@ -846,23 +1321,23 @@
     <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
   </span>
 </div>
-        </dd>
-        <dt><label for="">업무범주</label></dt>
-        <dd>
-          <span class="file_input">
-            <select id="nameSelect">
-              <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
-            </select>
-          </span>
-          <div id="tagsList"></div>
-        </dd>
-      </dl>
-    </section>
-    <section class="box_default_w">
-      <h1>담당자</h1>
-      <span class="file_input">
-        <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
-        <datalist id="nameList">
+              </dd>
+              <dt><label for="">업무범주</label></dt>
+              <dd>
+                <span class="file_input">
+                  <select id="nameSelect">
+                    <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+                  </select>
+                </span>
+                <div id="tagsList"></div>
+              </dd>
+            </dl>
+          </section>
+          <section class="box_default_w">
+            <h1>담당자</h1>
+            <span class="file_input">
+              <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+              <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -876,11 +1351,11 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-        <button type="button" class="btn_ogt btnMngTree">조직도</button>
-        <button type="button" class="btn_red_line">저장</button>
-        <button type="button" class="btn_red_line" disabled>저장</button>
-      </span>
-      <ul class="btn_slideclose">
+              <button type="button" class="btn_ogt btnMngTree">조직도</button>
+              <button type="button" class="btn_red_line">저장</button>
+              <button type="button" class="btn_red_line" disabled>저장</button>
+            </span>
+            <ul class="btn_slideclose">
   <li>
     <div>
       <p>유한아름</p><button type="button">삭제</button>
@@ -904,12 +1379,12 @@
     </div>
   </li>
 </ul>
-    </section>
-    <section class="box_default_w">
-      <h1>참조자</h1>
-      <span class="file_input">
-        <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
-        <datalist id="nameList">
+          </section>
+          <section class="box_default_w">
+            <h1>참조자</h1>
+            <span class="file_input">
+              <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+              <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -923,11 +1398,11 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-        <button type="button" class="btn_ogt btnMngTree">조직도</button>
-        <button type="button" class="btn_red_line">저장</button>
-        <button type="button" class="btn_red_line" disabled>저장</button>
-      </span>
-      <ul class="btn_slideclose">
+              <button type="button" class="btn_ogt btnMngTree">조직도</button>
+              <button type="button" class="btn_red_line">저장</button>
+              <button type="button" class="btn_red_line" disabled>저장</button>
+            </span>
+            <ul class="btn_slideclose">
   <li>
     <div>
       <p>유한아름</p><button type="button">삭제</button>
@@ -951,10 +1426,10 @@
     </div>
   </li>
 </ul>
-    </section>
-    <section class="box_default_w">
-      <h1>첨부파일</h1>
-      <div class="file_attach btn_attach">
+          </section>
+          <section class="box_default_w">
+            <h1>첨부파일</h1>
+            <div class="file_attach btn_attach">
   <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
   <div id="file-drop" class="drop_zone">
     <div class="drop_info">
@@ -964,313 +1439,18 @@
     </ul>
   </div>
 </div>
-    </section>
-  </section>
-</article>
           </section>
-          <section id="proj02" class="tab_contents overview">
-            <section class="left_section">
-  <article>
-    <header>
-      <h1>프로젝트 정보</h1>
-    </header>
-    <section>
-      <h2><i class="type">R&amp;D</i> 2023년 도시폭염 연구과제 2차(약어)</h2>
-      <dl class="ipt_lst">
-        <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
-        <dt>발주 담당자</dt>                    
-        <dd>이담당 주무관-기후재난대응과(010-1234-5678)</dd>
-        <dt>수행PM</dt>                    
-        <dd><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></dd>
-        <dt>수행기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
-        <dt>사용인감</dt><dd>○</dd>
-        <dt><label for="">비고</label></dt>
-        <dd><p>-</p></dd>
-      </dl>
-    </section>
-  </article>
-  <article>
-    <header>
-      <h1>계약 정보</h1>
-    </header>
-    <section>
-      <dl class="ipt_lst">
-        <dt>계약기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
-        <dt>컨소시엄 총괄</dt><dd>총괄</dd>
-        <dt>컨소시엄 구성</dt><dd>구성</dd>
-        <dt>지분율</dt><dd>30&percnt;</dd>
-        <dd class="full">
-          <dl class="ipt_innerlst">
-            <dt>사업예산</dt><dd>1,000,000,000(원)</dd>
-            <dt>계약금액</dt><dd>10,000,000(원)</dd>
-            <dt>외주비용</dt><dd>10,000,000(원)</dd>
-            <dt>수행비</dt><dd>10,000,000(원)</dd>
-          </dl>
-        </dd>
-        <dt>하자보수기간</dt><dd>2023-12-30 ~ 2024-12-30</dd>
-        <dt>계약서</dt>
-        <dd class="file_attached"><ul class="attach_list"></ul></dd>
-        <dt>계약서</dt>
-        <dd class="file_attached">
-          <ul class="attach_list">
-            <li>
-              <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.pptx</a>
-            </li>
-            <li>
-              <a href="#" download><i class="ext_hwp"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.hwp</a>
-            </li>
-          </ul>
-        </dd>
-        <dt>비고</dt><dd><p>-</p></dd>
-      </dl>
-    </section>
-  </article>
-  <article>
-    <section class="cmt_area">
-  <header>
-    <h1>댓글</h1>
-  </header>
-  <ul class="cmt_lst hasLayer">
-    <li>
-      <div class="cmt_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-      </div>
-      <div class="cmt_txt">
-        <p>반려합니다.</p>
-      </div>
-      <div class="cmt_info">
-        <span class="date">2023-05-23 11:35</span>
-        <button type="button">답글</button>
-      </div>
-      <div class="reply_area">
-        <ul>
-          <li>
-            <div class="cmt_user">
-              <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-            </div>
-            <div class="cmt_txt">
-              <p>왜요?</p>
-            </div>
-            <div class="cmt_info">
-              <span class="date">2023-05-23 11:35</span>
-              <button type="button">답글</button>
-            </div>
-          </li>
-          <li>
-            <div class="cmt_user">
-              <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-            </div>
-            <div class="cmt_txt">
-              <div class="editable" contenteditable="true"></div>
-              <em class="placehold">@홍길동님에게 답글쓰기</em>
-            </div>
-            <div class="cmt_attach">
-              <div class=" file_attach btn_attach">
-                <input id="attachFiles1" data-attach="reply" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
-                <div id="file-drop" class="drop_zone">
-                  <ul id="reply" class="attach_list"></ul>
-                </div>
-              </div>
-              <label for="attachFiles1" class="btn_label_attach">첨부</label>
-              <button type="button">등록</button>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="cmt_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-        <div class="layer_tool">
-          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-          <div class="btn_layer">
-            <button type="button" data-clickevt="modify">수정</button>
-            <button type="button" data-clickevt="del">삭제</button>
-          </div>
-        </div>
-      </div>
-      <div class="cmt_txt">
-        <p>
-          이 댓글은 로그인한 사람이 작성한 글입니다.<br>
-          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br>
-          댓글이 없을 때는 아래와 같이 보여줍니다.
-        </p>
-      </div>
-      <div class="cmt_info">
-        <span class="date">2023-05-23 11:35</span>
-        <button type="button">답글</button>
-      </div>
-    </li>
-    <li>
-      작성된 댓글이 없습니다.
-    </li>
-    <li>
-      <div class="cmt_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-        <div class="layer_tool">
-          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-          <div class="btn_layer">
-            <button type="button" data-clickevt="modify">수정</button>
-            <button type="button" data-clickevt="del">삭제</button>
-          </div>
-        </div>
-      </div>
-      <div class="cmt_txt">
-        <p>╭◜◝ ͡ ◜◝ ╮<br>( Ꮚ ´ ꒳ ` Ꮚ 저는 바로바로 파일이 첨부된 댓글입니당<br>╰◟◞ ͜ ◟◞╯<br></p>
-      </div>
-      <div class="cmt_file">
-        <a href="../../images/sample.pdf" target="_blank">
-          <span class="cmt_file_info">
-            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
-            <span>4KB</span>
-          </span>
-        </a>
-        <a href="../../images/sample.pdf" download="">다운로드</a>
-      </div>
-      <div class="cmt_file">
-        <a href="../../images/sample.pdf" target="_blank">
-          <span class="cmt_file_info">
-            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
-            <span>4KB</span>
-          </span>
-        </a>
-        <a href="../../images/sample.pdf" download="">다운로드</a>
-      </div>
-      <div class="cmt_info">
-        <span class="date">2023-06-16 15:00</span>
-        <button type="button">답글</button>
-      </div>
-    </li>
-  </ul>
-  <div class="cmt_write">
-    <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    <div id="test" class="editable ck-editor__editable" contenteditable="true" data-tribute="true"></div>
-    <em class="placehold">댓글을 입력하세요.</em>
-    <!-- <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true">
-      <span contenteditable="false"><a title="p1">@김개발</a></span>&nbsp; <span contenteditable="false"><a title="p2">@기획</a></span>&nbsp;
-    </div> -->
-    <div class="cmt_attach">
-      <div class="file_attach btn_attach">
-        <input id="attachFiles2" data-attach="cmt" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
-        <div id="file-drop" class="drop_zone">
-          <ul id="cmt" class="attach_list"></ul>
-        </div>
-      </div>
-      <label for="attachFiles2" class="btn_label_attach">첨부</label>
-      <button type="button">등록</button>
+        </section>
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>  
     </div>
-  </div>
-</section>
-  </article>
-</section>
-<section class="right_section">
-  <section class="box_default_w">
-    <dl class="set_list">
-      <dt>갱신일자</dt>
-      <dd>2023-04-05</dd>
-      <!-- <dt>생성자</dt>
-      <dd><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></dd> -->
-      <dt>생성일자</dt>
-      <dd>2023-01-05</dd>
-    </dl>
-    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
-    <button type="button" class="btn_red_line full">프로젝트 수정</button>
-  </section>
-  <section class="box_default_w">
-    <dl class="set_list">   
-      <dt>상태</dt>
-      <dd>
-        <div class="select_custom task_status">
-          <button class="label"><span class="opt_label">상태</span></button>
-          <ul class="optionList">
-            <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">준비</span></li>
-            <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">수행중</span></li>
-            <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">하자보수</span></li>
-            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">종료</span></li>
-            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
-            <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">기타</span></li>
-          </ul>
-        </div>
-      </dd>
-      <dt>공개여부</dt>
-      <dd>
-        <div class="btn_switch">
-          <input type="radio" id="open" name="disclosure" checked>
-          <label for="open">공개</label>
-          <input type="radio" id="private" name="disclosure">
-          <label for="private">비공개</label>
-        </div>
-      </dd>
-    </dl>
-    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
-  </section>
-  <section class="box_default_w contributor">
-    <header>
-      <h1>참여자<i class="count_tag">3</i></h1>
-      <button class="btn_more" data-toggle="contributor_add">참여자 추가</button>
-    </header>
-    <div class="contributor_add" id="contributor_add" data-tglwrap>
-      <span class="file_input">
-        <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
-        <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
-        <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-        <button type="button" class="btn_ogt btnMngTree">조직도</button>
-        <button type="button" class="btn_red_line" disabled>저장</button>
-      </span>
-    </div>
-    <ul class="ls_contributor">
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><em class="tag_pm">PM</em></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><button type="button" class="myappr_del">삭제</button></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><button type="button" class="myappr_del">삭제</button></li>
-    </ul>
-  </section>
-</section>
+  </form>
+</dialog>
           </section>
           <section id="proj03" class="tab_contents rfp">
             <article>
@@ -1343,7 +1523,6 @@
                   <i class="ready"></i>로그 이력관리 기능 구축
                 </span>
                 <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                   <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
                 </ul>
               </li>
@@ -1491,9 +1670,7 @@
           <dt>단계</dt>
           <dd>
             <div class="tags"><i class="start">착수</i></div>
-          </dd>
-          <dt>상위요구사항 ID</dt>
-          <dd>?>?? 이게 뭐죠??</dd>
+          </dd>          
           <dt>RFP ID</dt>
           <dd>FUN01</dd>
           <dt>발주기관 담당자</dt>
@@ -2274,6 +2451,7 @@ p_projDoc.html
 <script>
   $(function () {
     setEditor();
+    setEditor('issue_write');
     fileDropEvt();
     $('.btn_request').on('click', function () { $('.file_upload').show(); })
     $('.file_upload').on('click', function () { $(this).hide(); })

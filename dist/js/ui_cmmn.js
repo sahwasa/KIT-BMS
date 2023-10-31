@@ -429,8 +429,8 @@ function commonInit() {
 }
 
 // editor
-function setEditor(id = '#editor') {
-  ClassicEditor.create(document.querySelector(id), {
+function setEditor(id = 'editor') {
+  ClassicEditor.create(document.querySelector('#'+id), {
     licenseKey: '',
     image: {
       toolbar: ['toggleImageCaption', 'imageTextAlternative'],
@@ -491,7 +491,7 @@ function setEditor(id = '#editor') {
             <button type="button" class="btn btn_gray" id="cancelButton">취소</button>
           </div>
       `
-    var editorWrap = document.getElementById('editor_wrap')
+    var editorWrap = document.getElementById(id).parentElement
     editorWrap.insertAdjacentElement('afterend', imageEditorWrap)
   }
 

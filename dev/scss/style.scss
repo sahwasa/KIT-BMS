@@ -1199,7 +1199,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       li:first-child{margin-top:0;}
     }
     .right_section{flex:0 0 350px;display:flex;flex-direction:column;gap:10px;}
-    .set_list + button{margin-top:15px;}      
+    .set_list + button{margin-top:15px;}
+    .ipt_wrap dl{gap:15px;
+      .ipt_innerwrap{margin-top:0px;gap:15px;}
+    }
   }  
   // 요구사항
   .rfp{
