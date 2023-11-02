@@ -962,7 +962,7 @@ $_planTypes:(
   }// 불참
 }
 //project
-%proj_tag{width:35px;line-height:13px;@include badge_style(35px,35px);font-size:10px;letter-spacing:-.25px;font-weight:700;}
+%proj_tag{width:35px;line-height:13px;@include badge_style(45px,45px);font-size:10px;letter-spacing:-.25px;font-weight:700;}
 %type{background-color:#f8c9ce;color:#404654;}
 .proj_lst{text-align:left;
   & > li{padding:10px calc($columnGap - 10px);border-bottom:1px solid #ebebeb;line-height:16px;
@@ -1186,7 +1186,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   .overview{@include flex_layout;
     .left_section{display:flex;flex-direction:column;gap:60px;flex:1;      
       h2{@include tit;font-size:14px;padding-left:13px;
-       i{@include badge_style(null,42px){margin-right:10px;};
+       i{@include badge_style(null,60px){margin-right:10px;};
           &.type{@extend %type;}
        }
       }

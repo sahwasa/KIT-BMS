@@ -229,13 +229,13 @@
             <button type="button" class="btn_red_line">삭제</button>
           </div>
         </header>
-        <header>
+        <!-- <header>
           <input type="text" title="제목" placeholder="제목" value="ktko 자료 생성 웹페이지 구현">
           <div class="btn_wrap">
             <button type="button" class="btn_red">저장</button>
             <button type="button" class="btn_red_line">취소</button>
           </div>
-        </header>
+        </header> -->
         <dl class="ipt_lst">
           <dt><label for="">업무상태</label></dt>
           <dd>
@@ -251,9 +251,8 @@
               </ul>
             </div>
           </dd>
-          <dt>업무상태</dt>
+          <!-- <dt>업무상태</dt>
           <dd>
-            <!-- 담당자 복수일때 -->
             <div class="task_status_multi">
               <button class="all_label label"><span class="task_ing">진행</span></button>
               <div class="taskstatus_layer">
@@ -271,18 +270,18 @@
                 </dl> 
               </div>             
             </div>
-          </dd>          
+          </dd>           -->
           <dt><label for="">작성자</label></dt>
           <dd>@@include('../../inc/module/module_user.html')</dd>          
-          <dt><label for="">담당자(읽기)</label></dt>
+          <dt><label for="">담당자</label></dt>
           <dd>
             <ul class="user_lst">
-              <li>@@include('../../inc/module/module_user.html')</li>
-              <li>@@include('../../inc/module/module_user.html')</li>
-              <li>@@include('../../inc/module/module_user.html')</li>
+              <li>@@include('../../inc/module/module_user.html')(계획)</li>
+              <li>@@include('../../inc/module/module_user.html')(계획)</li>
+              <li>@@include('../../inc/module/module_user.html')(계획)</li>
             </ul>
           </dd>
-          <dt><label for="">담당자(쓰기수정)</label></dt>
+          <!-- <dt><label for="">담당자(쓰기수정)</label></dt>
           <dd class="flex_full">
             <div class="file_input inline">
               <input type="text" id="" placeholder="부서or이름" list="nameList">
@@ -290,7 +289,7 @@
               <button type="button" class="btn_ogt btnMngTree">조직도</button>
             </div>
             @@include('../../inc/module/module_slide_user.html')
-          </dd>
+          </dd> -->
           <dt><label for="">참조자</label></dt>
           <dd>없음</dd>
           <dt><label for="">만기일</label></dt>

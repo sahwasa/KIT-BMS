@@ -57,14 +57,14 @@
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
     <li class="on"><a href="../../html/home/main.html">HOME</a></li>
-    <li class="disabled"><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
     <li><a href="../../html/approval/approval.html">전자결재</a></li>
     <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/planner/plan.html">일정</a></li>
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
-    <li class="disabled"><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
     <li class="disabled"><a href="../../html/erp/erp.html">ERP</a></li>
-    <li class="disabled"><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
     <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
   </ul>
@@ -86,7 +86,15 @@
       <article class="tab_contents" id="tab01">
         <div class="filter">
           <div class="flex_ipt" id="proj_filter" data-tglwrap>
-            <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span>
+             <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+            <!-- <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span> -->
             <button class="btn_search_square">검색</button>
             <button class="btn_more_square" data-toggle="proj_add">더보기</button>
           </div>
@@ -100,26 +108,43 @@
     <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
   </span>
 </div>
-            <div class="add_opt">
-              <label for="inc_private"><input type="checkbox" id="inc_private">비공개 포함</label>
+            <div class="add_opt">              
               <button class="btn_search_square">검색</button>
             </div>
           </div>
         </div>
         <div class="proj_count">
           <ul class="list_wrap">
+            <li class="ready">사업계획<em>2</em></li>
             <li class="ing">수행중<em>3</em></li>
-            <li class="done">종료<em>1</em></li>
-            <li class="ready">준비<em>2</em></li>
+            <li class="ready">하자보수<em>2</em></li>
+            <li class="done">사업종료<em>1</em></li>
           </ul>
         </div>
         <ul class="proj_lst">
+          <li>
+            <a href="project_view.html">
+              <div class="tag_wrap">
+                <i class="type">물품구매</i>
+                <span class="i_public">공개</span>
+                <i class="ready">제안</i>
+              </div>
+              <div class="proj_name">
+                <b>도시폭염을 고려한 폭염저감기술 최적화</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
           <li class="on">
             <a href="project_view.html">
               <div class="tag_wrap">
-                <i class="type">R&amp;D</i>
+                <i class="type">사업계획</i>
                 <span class="i_public">공개</span>
-                <i class="ing">수행중</i>
+                <i class="ready">제안</i>
               </div>
               <div class="proj_name">
                 <b>도시폭염을 고려한 폭염저감기술 최적화</b>
@@ -134,7 +159,7 @@
           <li>
             <a href="project_view.html">
               <div class="tag_wrap">
-                <i class="type">TF</i>
+                <i class="type">개발구축</i>
                 <span class="i_private">비공개</span>
                 <i class="done">종료</i>
               </div>
@@ -151,7 +176,24 @@
           <li>
             <a href="#">
               <div class="tag_wrap">
-                <i class="type">용역</i>
+                <i class="type">유지보수</i>
+                <span class="i_public">공개</span>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="tag_wrap">
+                <i class="type">사내업무</i>
                 <span class="i_public">공개</span>
                 <i class="ready">준비</i>
               </div>
@@ -187,14 +229,19 @@
       <div class="cont_body proj_home">
         <header>
           <h1>주간 업무 진행 현황</h1>
-          <div class="count">
+          <div class="handle_week">
+            <button class="handle_prev">이전 주차 이동</button>
+            <span>2023.10.01 ~ 2023.10.07</span>
+            <button class="handle_next">다음 주차 이동</button>
+          </div>
+          <!-- <div class="count">
             <select name="" id="">
               <option value="" selected>2023년 14주 (2023-04-02 ~ 2023-04-08)</option>
               <option value="">2023년 15주 (2023-04-09 ~ 2023-04-15)</option>
             </select>
-            <!-- 2023년 14주<em>2023-04-02 ~ 2023-04-08</em> -->
-            <!-- <button type="button" class="btn btn_red">관리프로젝트현황</button> -->
-          </div>
+            2023년 14주<em>2023-04-02 ~ 2023-04-08</em>
+            <button type="button" class="btn btn_red">관리프로젝트현황</button>
+          </div> -->
         </header>
         <article class="my_task">
           <section class="box_default week_task">

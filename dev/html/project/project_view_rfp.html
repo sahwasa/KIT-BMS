@@ -2,8 +2,8 @@
   <header>
     <h1 class="blind">요구사항</h1>
     <span class="btn_wrap">
-      <button type="button" class="btn_default">엑셀 일괄 업로드</button>
-      <button type="button" class="btn_default">엑셀 다운로드</button>
+      <button type="button" class="btn_default" disabled>엑셀 일괄 업로드(보류)</button>
+      <button type="button" class="btn_default" disabled>엑셀 다운로드(보류)</button>
     </span>
   </header>
   <div class="task_body article_body">
@@ -18,7 +18,7 @@
             <li><i class="hold"></i>보류</li>
           </ul>
         </div>
-        <button type="button" class="btn_red">요구사항 추가</button>
+        <button type="button" class="btn_red" onclick="document.querySelector('.p_requireMan').showModal();">요구사항 추가</button>
       </header>
       <ul class="con_rfp_board ico_proj">
         <li class="on">
@@ -180,7 +180,7 @@
       <header class="all_lst_ctrl">
         <h1 class="blind">요구사항 상세</h1>
         <div class="btn_wrap">
-          <button type="button" class="btn_red">업무 추가</button>
+          <button type="button" class="btn_red" onclick="document.querySelector('.p_workMan').showModal();">업무 추가</button>
           <button type="button" class="btn_red_line">수정</button>
           <button type="button" class="btn_red_line">삭제</button>
         </div>
@@ -206,7 +206,7 @@
           </dd>          
           <dt>RFP ID</dt>
           <dd>FUN01</dd>
-          <dt>발주기관 담당자</dt>
+          <dt>기관 담당자</dt>
           <dd>이담당주무관(지진사업팀- TEL 010-0000-0000)</dd>
           <dt>담당자(PL)</dt>
           <dd>
@@ -367,3 +367,5 @@
     </section>
   </div>
 </article>
+@@include('../../inc/pop/p_requireMan.html')<!--// 요구사항 관리 -->
+@@include('../../inc/pop/p_workMan.html')<!--// 업무 관리 -->

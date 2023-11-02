@@ -14,33 +14,51 @@
       <article class="tab_contents" id="tab01">
         <div class="filter">
           <div class="flex_ipt" id="proj_filter" data-tglwrap>
-            <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span>
+             @@include('../module/module_period.html')
+            <!-- <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span> -->
             <button class="btn_search_square">검색</button>
             <button class="btn_more_square" data-toggle="proj_add">더보기</button>
           </div>
           <div class="proj_add" id="proj_add" data-tglwrap>
             <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
             @@include('../module/module_period.html')
-            <div class="add_opt">
-              <label for="inc_private"><input type="checkbox" id="inc_private">비공개 포함</label>
+            <div class="add_opt">              
               <button class="btn_search_square">검색</button>
             </div>
           </div>
         </div>
         <div class="proj_count">
           <ul class="list_wrap">
+            <li class="ready">사업계획<em>2</em></li>
             <li class="ing">수행중<em>3</em></li>
-            <li class="done">종료<em>1</em></li>
-            <li class="ready">준비<em>2</em></li>
+            <li class="ready">하자보수<em>2</em></li>
+            <li class="done">사업종료<em>1</em></li>
           </ul>
         </div>
         <ul class="proj_lst">
+          <li>
+            <a href="project_view.html">
+              <div class="tag_wrap">
+                <i class="type">물품구매</i>
+                <span class="i_public">공개</span>
+                <i class="ready">제안</i>
+              </div>
+              <div class="proj_name">
+                <b>도시폭염을 고려한 폭염저감기술 최적화</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
           <li class="on">
             <a href="project_view.html">
               <div class="tag_wrap">
-                <i class="type">R&amp;D</i>
+                <i class="type">사업계획</i>
                 <span class="i_public">공개</span>
-                <i class="ing">수행중</i>
+                <i class="ready">제안</i>
               </div>
               <div class="proj_name">
                 <b>도시폭염을 고려한 폭염저감기술 최적화</b>
@@ -55,7 +73,7 @@
           <li>
             <a href="project_view.html">
               <div class="tag_wrap">
-                <i class="type">TF</i>
+                <i class="type">개발구축</i>
                 <span class="i_private">비공개</span>
                 <i class="done">종료</i>
               </div>
@@ -72,7 +90,24 @@
           <li>
             <a href="#">
               <div class="tag_wrap">
-                <i class="type">용역</i>
+                <i class="type">유지보수</i>
+                <span class="i_public">공개</span>
+                <i class="ready">준비</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="tag_wrap">
+                <i class="type">사내업무</i>
                 <span class="i_public">공개</span>
                 <i class="ready">준비</i>
               </div>

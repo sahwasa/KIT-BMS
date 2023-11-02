@@ -57,14 +57,14 @@
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
     <li class="on"><a href="../../html/home/main.html">HOME</a></li>
-    <li class="disabled"><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
     <li><a href="../../html/approval/approval.html">전자결재</a></li>
     <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/planner/plan.html">일정</a></li>
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
-    <li class="disabled"><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
     <li class="disabled"><a href="../../html/erp/erp.html">ERP</a></li>
-    <li class="disabled"><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
     <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
   </ul>
@@ -106,12 +106,18 @@
             <dl class="box_default_w">
               <dt><label for="" class="required">업무구분</label></dt>
               <dd>
-                <select name="" id="">
-                  <option value="">용역</option>
-                  <option value="">연구과제(R&amp;D)</option>
-                  <option value="">사내업무</option>
-                  <option value="">기타</option>
-                </select>
+                <div class="file_input">
+                  <select name="" id="">
+                    <option value="">선택</option>
+                    <option value="">사업기획</option>
+                    <option value="">사업제안</option>
+                    <option value="">개발구축</option>
+                    <option value="">연구과제</option>
+                    <option value="">유지보수</option>
+                    <option value="">물품구매</option>
+                    <option value="">사내업무</option>
+                  </select> 
+                </div>
               </dd>
               <dt><label for="" class="required">프로젝트명 &sol; 약어</label></dt>
               <dd class="flex_full"><input type="text" id="" title="프로젝트명"></dd>
@@ -130,7 +136,7 @@
               <dd class="flex_full">
                 <ul class="ipt_innerwrap">
                   <li>
-                    <em class="required">담당자</em>
+                    <em class="required">총괄책임자</em>
                     <div class="file_input">
                       <input type="text" id="" placeholder="임직원명" list="nameList">
                       <datalist id="nameList">
@@ -187,6 +193,7 @@
                   <li>
                     <em><label for="" class="required">사용인감</label></em>
                     <select name="" id="" class="alignC w_auto">
+                      <option value="">미확인</option>
                       <option value="">○</option>
                       <option value="">△</option>
                       <option value="">□</option>
@@ -214,7 +221,7 @@
                   </li>
                 </ul>
               </dd>
-              <dt>참여자</dt>
+              <dt>참여자 <i title="지원 성격의 참여자는 추가하지 않습니다.">?</i> </dt>
               <dd >
                 <div class="file_input">
                   <input type="text" id="" placeholder="임직원명" list="nameList">
@@ -259,6 +266,8 @@
   </li>
 </ul>
               </dd>
+              <dt>관련프로젝트</dt>
+              <dd><button type="button" class="btn btn_default">관련프로젝트 불러오기</button></dd>
               <dt><label for="">비고</label></dt>
               <dd class="flex_full"><input type="text" id=""></dd>
             </dl>
@@ -266,7 +275,7 @@
           <fieldset class="ipt_wrap">
             <legend>계약정보</legend>
             <dl class="box_default_w">
-              <dt><label for="" class="required">계약기간</label></dt>
+              <dt><label for="">계약기간</label></dt>
               <dd class="flex_full">
                     <div class="period_custom">
   <span>
@@ -302,7 +311,7 @@
                   </li>
                 </ul>
               </dd>
-              <dt><label for="" class="required">하자보수기간</label></dt>
+              <dt><label for="">하자보수기간</label></dt>
               <dd>
                 <div class="period_custom">
   <span>

@@ -57,14 +57,14 @@
   <h1 class="blind">메뉴</h1>
   <ul class="nav_lst">
     <li class="on"><a href="../../html/home/main.html">HOME</a></li>
-    <li class="disabled"><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
     <li><a href="../../html/approval/approval.html">전자결재</a></li>
     <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/planner/plan.html">일정</a></li>
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
-    <li class="disabled"><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
     <li class="disabled"><a href="../../html/erp/erp.html">ERP</a></li>
-    <li class="disabled"><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
     <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
   </ul>
@@ -1824,7 +1824,7 @@
         <tbody>
           <tr>
             <th scope="row" class="required">프로젝트명​</th>
-            <td>(P200200001) 2022년 000 용역</td>
+            <td  colspan="3">(P200200001) 2022년 000 용역</td>
           </tr>
           <!-- <tr>
             <th scope="row">요구사항ID</th>
@@ -1832,11 +1832,11 @@
           </tr> -->
           <tr>
             <th scope="row" class="required"><label for="require_name">요구사항명​</label></th>
-            <td><input type="text" id="require_name"></td>
+            <td colspan="3"><input type="text" id="require_name"></td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="require_step">단계​</label></th>
-            <td>
+            <td colspan="3">
               <select name="require_step" id="require_step">
                 <option value="단계 선택">단계 선택</option>
                 <option value="착수">착수</option>
@@ -1849,18 +1849,10 @@
                 <option value="보고">보고</option>
               </select>
             </td>
-          </tr>
-          <tr>
-            <th scope="row" class="required"><label for="toprequire_name">상위요구사항 명</label></th>
-            <td>
-              <select name="require_name" id="toprequire_name">
-                <option value="상위 요구사항 선택">상위 요구사항 선택</option>
-              </select>
-            </td>
-          </tr>
+          </tr>          
           <tr>
             <th scope="row" class="required"><label for="difficulty_high">난이도</label></th>
-            <td>
+            <td colspan="3">
               <div class="btn_switch">
                 <input type="radio" id="difficulty_high" name="difficulty">
                 <label for="difficulty_high" class="high_prio">높음</label>
@@ -1873,7 +1865,7 @@
           </tr>
           <tr>
             <th scope="row" class="required"><label for="importance_high">중요도</label></th>
-            <td>
+            <td colspan="3">
               <div class="btn_switch">
                 <input type="radio" id="importance_high" name="importance">
                 <label for="importance_high" class="high_prio">높음</label>
@@ -1886,45 +1878,39 @@
           </tr>
           <tr>
             <th><label for="require_report">대외보고</label></th>
-            <td><label><input type="checkbox" id="require_report" checked>사용</label></td>
+            <td><label><input type="checkbox" id="require_report" checked>사용</label>(※ 기관보고용)</td>
           </tr>
           <tr>
             <th scope="row"><label for="require_rfp">RFP ID</label></th>
             <td><input type="text" id="require_rfp"></td>
+            <th scope="row"><label for="sort_num">정렬번호</label></th>
+            <td><input type="number" id="sort_num" placeholder="미입력시 자동부여"></td>          
           </tr>
           <tr>
-            <th scope="row"><label for="require_order">담당자(발주기관)</label></th>
-            <td>
-              <span class="file_input">
-                <select name="require_order" id="require_order">
-                  <option value="기관 선택">기관 선택</option>
-                </select>
-                <select name="require_order" title="담당자 선택">
-                  <option value="담당자 선택">담당자 선택</option>
-                </select>
+            <th scope="row"><label for="require_order">기관 담당자</label></th>
+            <td colspan="3">
+              <span class="file_input">                
+                <input type="text" placeholder="기관명, 담당자, 연락처 기재">
               </span>
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="require_pl">담당자(PL)</label></th>
-            <td>
+            <th scope="row" class="required"><label for="require_pl">요구사항 담당자</label></th>
+            <td colspan="3">
               <span class="file_input">
-                <select name="require_pl" id="require_pl">
-                  <option value="부서 선택">부서 선택</option>
-                </select>
                 <select name="require_pl" title="사원 선택">
-                  <option value="사원 선택">사원 선택</option>
+                  <option value="프로젝트 참여자 선택">프로젝트 참여자 선택</option>
                 </select>
               </span>
             </td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="require_content">요구사항 내용</label></th>
-            <td><textarea name="require_content" id="require_content"></textarea></td>
+            <td colspan="3"><textarea name="require_content" id="require_content"></textarea></td>
           </tr>
           <tr>
             <th scope="row"><label for="require_plan">수행방안</label></th>
-            <td><textarea name="require_plan" id="require_plan"></textarea></td>
+            <td colspan="3"><textarea name="require_plan" id="require_plan"></textarea></td>
           </tr>
         </tbody>
       </table>
@@ -1981,7 +1967,7 @@
             <td colspan="3">
               <span class="file_input">
                 <select id="nameSelect">
-                  <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+                  <option value="업무범주를 선택하세요" selected>업무범주를 선택하세요</option>
                 </select>
               </span>
               <div id="tagList"></div>
@@ -2047,7 +2033,7 @@
             </td>
           </tr>
           <tr>
-            <th scope="row">
+            <th scope="row" class="required">
               <label for="work_start">실제 작업기간</label>
             </th>
             <td colspan="3">
@@ -2092,6 +2078,12 @@
               <label><input type="radio" name="work_takingover">업무인계</label>
               <label><input type="radio" name="work_takingover">업무인수</label>
             </td>
+          </tr>
+          <tr>
+          <th scope="row">
+              <label for="work_takingover">변경요청내역</label>
+            </th>
+            <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
           </tr>
         </tbody>
       </table>
