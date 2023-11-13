@@ -8,30 +8,29 @@
 
     calendar = new FullCalendar.Calendar(calendarEl, {     
       headerToolbar: {
-        left: 'today prev,next',
+        left: 'prev,next',
         center: 'title',
-        right: 'resourceTimelineWeek,resourceTimelineMonth,resourceTimelineYear fold,unfold'
-      },
-      buttonText: {
-        today:'현재날자',
-        resourceTimelineWeek:'주간',
-        resourceTimelineMonth:'월간',
-        resourceTimelineYear:'연간',
-      },
+        right: 'fold,unfold'
+      },     
       customButtons: {
         fold: {
-          text: '전체 접기',
+          text: '요구사항만 보기(전체 접기)',
           click: function(resource, cellEls, bodyTds) {
             alert('어떻게 구현해야하는지 모르겠어요 ㅠ')
           }
         },
         unfold: {
-          text: '전체 펼치기',
+          text: '전체 업무보기(전체 펼치기)',
           click: function() {
             alert('어떻게 구현해야하는지 모르겠어요 ㅠ')
           }
         }
       },
+      validRange: {//프로젝트 기간만 활성화, 프로젝트 기간만 보여지도록 구현하는건 힘들듯...?
+        start: '2022-10-01',
+        end: '2023-11-30',
+      },
+      fixedWeekCount: false,
       timeZone: 'local',
       editable: false,
       selectable: false,
@@ -50,7 +49,7 @@
         },
         {
           field: 'title',
-          headerContent: '요구사항'
+          headerContent: '요구사항 및 하위업무'
         },
         {
           field: 'cop',
@@ -103,18 +102,7 @@
       ],     
       nowIndicator: true,
       slotDuration: { days: 1 },      
-      views:{
-        resourceTimelineWeek:{
-          slotLabelFormat: [
-            { day: 'numeric' }
-          ]
-        },
-        resourceTimelineMonth:{
-          slotLabelFormat: [
-            { week: 'narrow'}, 
-            { day: 'numeric' }
-          ]
-        },
+      views:{        
         resourceTimelineYear:{
           slotDuration: { week: 1 },
           slotLabelFormat: [

@@ -168,7 +168,7 @@
         startTime: '08:00',
         endTime: '19:00'
       },
-      weekNumbers: true,
+      weekNumbers: false,
       locale: 'ko',
       droppable: true, // this allows things to be dropped onto the calendar
       drop: function (info) {

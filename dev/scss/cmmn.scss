@@ -86,6 +86,7 @@ $task_hold:#2cc78b;
 .fin{@include badge_color($fin)} // 수락 승인 결재완료 종료
 .agree{@include badge_color($agree)} // 합의
 .return,
+.repair,
 .reject{@include badge_color($reject)} // 회수 반려
 .ready,
 .wait{@include badge_color($wait)} // 준비 결재대기
@@ -150,7 +151,8 @@ input[type="password"],
 input[type="time"],
 input[type="datetime-local"],
 input[type="email"],
-input[type="tel"]{@include ipt_common;min-height:28px;}
+input[type="tel"],
+[contenteditable]{@include ipt_common;min-height:28px;}
 input[type="radio"],
 input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
 width:13px!important;height:13px!important;border:1px solid #606060;
@@ -710,6 +712,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
   &>*{width:auto;align-self:center;vertical-align:middle;white-space:nowrap;}
   &>.btn_slideclose{margin-top:0;}
   &.inline{display:inline-flex;}
+  a{display:flex;gap:4px;
+    &:hover em{color:$blue;text-decoration:underline;}
+  }
 }
 .MultiFile-wrap{width:100%;
   .multi{position:relative;width:72px;height:28px;float:right;overflow:visible;border-color:#aaa;
@@ -796,7 +801,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
   .menu-highlighted {font-weight:bold;}
 }
 .mentioned{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
-.user_lst{display:flex;gap:10px;flex-wrap:wrap;}
+.user_lst{display:flex;gap:10px;flex-wrap:wrap;
+  li{display:flex;align-items:center;gap:3px;}
+}
 /* ckeditor, tui-image-editor */
 .editor_wrap{
   .ck-editor{

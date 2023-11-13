@@ -185,3 +185,7 @@ border:1px solid transparent;align-self:center;@content;}
   display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
   &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
 }
+@mixin on-hover(){
+  &:hover{background-color:#f9fafc;}
+  &.on{background-color:#eef6ff;}
+}
