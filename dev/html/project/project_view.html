@@ -17,6 +17,7 @@
         </section>
       </header>
       <div class="cont_body proj_view">
+        <!-- 조회는 누구나 가능/등록,수정,삭제,다운로드는 프로젝트 참여자만 가능 -->
         <div class="box_compact">
           <h2>프로젝트 ID : P20220000</h2>
           <ul class="proj_summary">
@@ -37,11 +38,11 @@
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj02" class="tab_contents overview">
-            @@include('porject_view_overview.html')
-          </section>
           <section id="proj01" class="tab_contents issue">
             @@include('porject_view_issue.html')
+          </section>
+          <section id="proj02" class="tab_contents overview">
+            @@include('porject_view_overview.html')
           </section>
           <section id="proj03" class="tab_contents rfp">
             @@include('project_view_rfp.html')
@@ -95,12 +96,12 @@ p_projDoc.html
       const target = item.closest('.task_status_multi').find('.label');
       handleMultiSelect(item,[target])
     })
-    lst_item.on('click','.optionItem',function(e){
-      const item = $(this);
-      const target1 = item.closest('.task_status_multi').find('.all_label');
-      const target2 = item.closest('.taskstatus_layer').find('.tit').find('.label');     
-      handleMultiSelect(item,[target1,target2])
-    })
+    // lst_item.on('click','.optionItem',function(e){
+    //   const item = $(this);
+    //   const target1 = item.closest('.task_status_multi').find('.all_label');
+    //   const target2 = item.closest('.taskstatus_layer').find('.tit').find('.label');
+    //   handleMultiSelect(item,[target1,target2])
+    // })
     const handleMultiSelect = function(item,target){
       const itemVal = $(item).data('value');
       target.forEach(element => {      

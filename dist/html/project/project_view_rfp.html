@@ -8,7 +8,7 @@
   </header>
   <div class="task_body article_body">
     <section class="left_section">
-      <header class="all_lst_ctrl">
+      <header class="lst_header">
         <h1 class="blind">요구사항 및 업무 목록</h1>
         <div class="proj_legend ico_proj">
           <ul>
@@ -16,60 +16,31 @@
             <li><i class="ing"></i>수행중</li>
             <li><i class="done"></i>완료</li>
             <li><i class="hold"></i>보류</li>
+            <li>받은 승인요청:3</li>
+            <li>보낸 승인요청:3</li>
           </ul>
         </div>
         <button type="button" class="btn_red" onclick="document.querySelector('.p_requireMan').showModal();">요구사항 추가</button>
       </header>
       <ul class="con_rfp_board ico_proj">
-        <li class="on">
+        <li>
           <details open>
-            <summary>
-              <div>
+            <summary class="on">
+              <a href="#" class="requirement">
                 <i class="badge start">착수</i><span>R202200201</span>
                 <h4>사업수행계획서 및 착수계 제출</h4>
-              </div>
+              </a>
               <span class="score"><b>1</b>/2</span>
             </summary>
             <ul>
               <li class="on">
-                <span>
-                  <i class="ing"></i>회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li class="layer_tool receiver_dtl">
-                    <button type="button" onclick="event.stopPropagation();" title="더보기">+2</button>
-                    <div class="receiver_wrap">
-                      <ul class="receiver">
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+                <a href="#">
+                  <i class="ing">수행중</i>회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축
+                </a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>                 
               </li>
               <li>
-                <span>
-                  <i class="ready"></i>로그 이력관리 기능 구축
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#"><i class="ready">준비</i>로그 이력관리 기능 구축</a>
               </li>
             </ul>
           </details>
@@ -77,39 +48,26 @@
         <li>
           <details open>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge analysis">분석</i><span>R202200201</span>
                 <h4>고객정보 관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             <ul>
               <li>
-                <span>
-                  <i class="done"></i>고객 신규등록, 정보수정, 삭제 조회 관리 기능<div class="tags"><i class="request">승인요청</i></div>
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#">
+                  <i class="done">완료</i>고객 신규등록, 정보수정, 삭제 조회 관리 기능<i class="request">승인요청</i>
+                </a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
               <li>
-                <span>
-                  <i class="hold"></i>고객 정보 일괄등록 기능(관리자용)
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#"><i class="hold">보류</i>고객 정보 일괄등록 기능(관리자용)</a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
               <li>
-                <span>
-                  <i class="ready"></i>고객 분석리포트 2종 생성
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#"><i class="ready">준비</i>고객 분석리포트 2종 생성</a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
             </ul>
           </details>
@@ -117,10 +75,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge plan">설계</i><span>R202200201</span>
                 <h4>공급자 정보조회</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요오
@@ -129,10 +87,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge build">구축</i><span>R202200201</span>
                 <h4>제품정보관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -141,10 +99,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge test">시험운영</i><span>R202200201</span>
                 <h4>증빙서관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -153,10 +111,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge edu">교육</i><span>R202200201</span>
                 <h4>공급자 정보조회</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -165,10 +123,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge completion">준공</i><span>R202200201</span>
                 <h4>제품정보관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -177,10 +135,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge report">보고</i><span>R202200201</span>
                 <h4>공급자 정보조회</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -189,7 +147,7 @@
       </ul>
     </section>
     <section class="right_section">
-      <header class="all_lst_ctrl">
+      <header class="lst_header">
         <h1 class="blind">요구사항 상세</h1>
         <div class="btn_wrap">
           <button type="button" class="btn_red" onclick="document.querySelector('.p_workMan').showModal();">업무 추가</button>
@@ -200,14 +158,14 @@
       <div class="work_form">
         <header>
           <h1>로그인 및 로그이력기능</h1>
-          <span>2024-06-05</span>
+          <span class="date">작성일 : 2024-06-05</span>
         </header>
         <dl class="set_list work_dot_wrap">
           <dt>작성자</dt>
           <dd>
             <div class="user_module">
               <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-              <em>홍길동</em><b>(여기가 나을까요)</b>
+              <em>홍길동</em>
             </div>
           </dd>
           <dt>요구사항ID</dt>
@@ -263,20 +221,38 @@
             · 기록된 로그 데이터를 유형, 기간 대상자등 다양한 검색조건 추출/조회</dd>
         </dl>
       </div>
-      <!-- <div class="work_form form_view flex_right">
-      </div> -->
-      <header class="all_lst_ctrl">
+      <!-- <div class="work_form form_view flex_right"> -->
+      <header class="lst_header">
         <h1 class="blind">업무 상세</h1>
+        <div class="status">
+          <em>승인 미요청</em>
+          <!-- 승인과 변경 구분?? -->
+          <!-- PM.PL : 승인 전(승인대기중), 승인 완료 후에는 공란 -->
+          <!-- 담당자 : 승인요청 전(미승인요청),승인or변경요청 후 (승인대기중),승인 후에는 공란 -->
+        </div>
         <div class="btn_wrap">
-          <button type="button" class="btn_red_line">승인</button>
-          <button type="button" class="btn_gray_line">변경요청</button>
+          <!-- 최초등록>PMPL승인, 반려 필요?: -->
+          <button type="button" class="btn_red">승인</button>
+          <button type="button" class="btn_red_line">삭제</button>
+          /
+          <!-- 변경요청 시 PMPL 수정: -->
+          <button type="button" class="btn_red_line">수정</button>
+          <button type="button" class="btn_red_line">삭제</button>
+          /
+          <!-- 최초등록 후담당자, 승인 전 요청취소: -->
+          <button type="button" class="btn_gray_line">요청취소</button>
+          /
+          <!-- 승인 전 요청취소 상태 담당자: -->
+          <button type="button" class="btn_red">승인요청</button>
+          <button type="button" class="btn_red_line">수정</button>
+          <button type="button" class="btn_red_line">삭제</button>
         </div>
       </header>
       <div class="work_form form_view flex_right">
         <article>
           <header>
             <h1>회원가입 및 로그인 기능 구축</h1>
-            <span>2024-06-05</span>
+            <span class="date">작성일 : 2024-06-05</span>
           </header>
           <dl class="set_list work_dot_wrap">
             <dt>작업범주</dt>
@@ -314,14 +290,9 @@
         <li>
           <div class="cmt_user">
             <div class="user_module">
-              <figure class="user_photo">
-                <img src="../../images/ic_user.png" alt="" loading="lazy">
-              </figure>
-              <div>
-                <em>홍길동 연구원</em><b>(재난예경보MA팀)</b>
-                <p>2022-06-05 16:00</p>
-              </div>
-            </div>
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
             <div class="user_module">
               <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
               <span class="show">확인</span>
@@ -334,14 +305,9 @@
         <li>
           <div class="cmt_user">
             <div class="user_module">
-              <figure class="user_photo">
-                <img src="../../images/ic_user.png" alt="" loading="lazy">
-              </figure>
-              <div>
-                <em>홍길동 연구원</em><b>(재난예경보MA팀)</b>
-                <p>2022-06-05 16:00</p>
-              </div>
-            </div>
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>           
             <div class="btn_wrap">
               작성자 :
               <button type="button">수정</button>
@@ -359,13 +325,9 @@
         <li>
           <div class="cmt_user">
             <div class="user_module">
-              <figure class="user_photo">
-                <img src="../../images/ic_user.png" alt="" loading="lazy">
-              </figure>
-              <div>
-                <em>홍길동 연구원</em><b>(재난예경보MA팀)</b>
-              </div>
-            </div>
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
           </div>
           <div class="cmt_write">
             <input type="text" value="못하겠어요… 죄송합니다 ㅠㅠㅠ">
@@ -503,30 +465,23 @@
         <caption>업무 관리 테이블</caption>
         <colgroup>
           <col style="width:130px">
-          <col style="width:auto">
-          <col style="width:110px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required">프로젝트명​</th>
-            <td colspan="3">(P200200001) 2022년 000 용역</td>
+            <td>(P200200001) 2022년 000 용역</td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="require_name">요구사항명​</label></th>
-            <td colspan="3">(P200200001) 2022년 000 용역</td>
-          </tr>
-          <!-- <tr>
-            <th scope="row">작업 ID</th>
-            <td colspan="3">P200200001</td>
-          </tr> -->
+            <th scope="row" class="required">요구사항명​</th>
+            <td>로그인 및 로그이력기능</td>
+          </tr>         
           <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
-            <td colspan="3"><input type="text" id="work_name"></td>
+            <td><input type="text" id="work_name"></td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_type">유형</label></th>
-            <td colspan="3">
+            <td>
               <select name="work_type" id="work_type">
                 <option value="단계 선택">단계 선택</option>
                 <option value="내부보고용">내부보고용</option>
@@ -535,7 +490,7 @@
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
-            <td colspan="3">
+            <td>
               <span class="file_input">
                 <select id="nameSelect">
                   <option value="업무범주를 선택하세요" selected>업무범주를 선택하세요</option>
@@ -546,7 +501,7 @@
           </tr>
           <tr>
             <th scope="row" class="required">담당자(수행기관)</th>
-            <td colspan="3">
+            <td>
               <span class="file_input">
                 <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
                 <datalist id="nameList">
@@ -596,7 +551,7 @@
             <th scope="row" class="required">
               <label for="work_expected">작업 예정기간</label>
             </th>
-            <td colspan="3">
+            <td>
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                 <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
@@ -607,7 +562,7 @@
             <th scope="row" class="required">
               <label for="work_start">실제 작업기간</label>
             </th>
-            <td colspan="3">
+            <td>
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                 <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
@@ -618,19 +573,19 @@
             <th scope="row" class="required">
               <label for="work_content">작업내용</label>
             </th>
-            <td colspan="3"><textarea name="work_content" id="work_content"></textarea></td>
+            <td><div id="work_content" contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_place">수행장소</label>
             </th>
-            <td colspan="3"><input type="text" id="work_place"></td>
+            <td><input type="text" id="work_place"></td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_progress">진행상태</label>
             </th>
-            <td colspan="3">
+            <td>
               <select name="work_progress" id="work_progress">
                 <option value="진행상태 선택">진행상태 선택</option>
                 <option value="준비">준비</option>
@@ -644,17 +599,17 @@
             <th scope="row">
               <label for="work_takingover">인수인계 구분</label>
             </th>
-            <td colspan="3">
+            <td>
               <label><input type="radio" id="work_takingover" name="work_takingover">해당사항 없음</label>
               <label><input type="radio" name="work_takingover">업무인계</label>
               <label><input type="radio" name="work_takingover">업무인수</label>
             </td>
           </tr>
           <tr>
-          <th scope="row">
+            <th scope="row">
               <label for="work_takingover">변경요청내역</label>
             </th>
-            <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
+            <td><div id="work_takingover" contenteditable></div></td>
           </tr>
         </tbody>
       </table>

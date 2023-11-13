@@ -64,7 +64,7 @@ $columnGap:25px;
     }
     .set_login{display:flex;gap:20px;font-size:13px;color:#989898;margin:20px 0;      
       input{margin-right:5px;}
-    }    
+    }
   }
   .btn_login{display:block;width:100%;line-height:56px;background-color:$red;border:none;border-radius:28px;font-size:20px;color:#fff;font-weight:bold;text-align:center;
     &:hover{background-color:#cf2825;}
@@ -384,9 +384,11 @@ $snbWidth:250px;
     .add_opt{@include flex_between;}
   }
   .proj_count{padding:8px #{$columnGap - 10px};border-bottom:1px solid $snb-border-color;
-    .list_wrap{@include flex_between;gap:5px;
-      li{flex:1 0 53px;color:$white;font-weight:700;border-radius:5px;padding:2px 0;font-size:12px;letter-spacing:-.6px;
+    .list_wrap{@include flex_between;gap:5px;padding:0;
+      li{flex:1 0 53px;color:$white;font-weight:700;font-size:12px;letter-spacing:-.6px;
         em{display:block;}
+        label{display:block;min-width:auto;border-radius:5px;padding:2px 0;border:none;color:#ffffff50;opacity:.5;}
+        input:checked+label{color:#fff;opacity:1;}
       }
     }
   }
@@ -790,12 +792,13 @@ z-index:10;
   }
 }
 .user_module{display:flex;gap:5px;align-items:center;position:relative;
-  .user_photo{display:inline-flex;align-items:center;width:18px;height:18px;overflow:hidden;border-radius:50%;border:1px solid #ccc;
-    img{width:100%;height:auto;vertical-align:top;}
-  }
   span,
   b{font-size:11px;color:#717889;align-self:flex-end;}
+  em{background-color:transparent!important;}
 }  
+.user_photo{display:inline-flex;align-items:center;width:18px;height:18px;overflow:hidden;border-radius:50%;border:1px solid #ccc;flex-shrink:0;
+  img{width:100%;height:auto;vertical-align:top;}
+}
 
 .file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;background-color:#fff;}
 .drop_zone,
@@ -1009,7 +1012,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   display:flex;gap:12px;flex-wrap:wrap;gap:8px;color:$fc;  
   dt{flex:1 100%;display:flex;gap:5px;align-items:center;font-size:14px;color:#000;font-weight:bold;margin-top:15px;
     &:first-of-type{margin-top:0;}
-    i{@extend %proj_tag;font-size:12px;max-width:none;width:42px;line-height:18px;}  
+    i{@extend %proj_tag;font-size:12px;max-width:none;width:60px;line-height:18px;}  
   }
   dd{flex:1 auto;max-width:calc((100% - 24px) / 4);}
   @include desktop{dd{max-width:calc((100% - 16px) / 3);}}
@@ -1020,16 +1023,29 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       i{@include badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}}
     }
     .task_name{@include text_ellipsis(2);line-height:1.3;}    
-    em{@include badge_style(){min-width:26px;line-height:15px;text-align:center;background-color:#d3d3d3;border-radius:8px;color:$fc;padding:0 5px;align-self:flex-start;};}
+      em{@include badge_style(){min-width:26px;line-height:15px;text-align:center;background-color:#d3d3d3;border-radius:8px;color:$fc;padding:0 5px;align-self:flex-start;};}
   }
   .tit{display:flex;gap:10px;
     input,i{flex-shrink:0;}    
   }
+  .etc{@include flex_between;align-items:flex-end;margin-top:auto;}
   .task_{@include taskColor(true);}
-  .etc{@include flex_between;align-items:flex-end; margin-top:auto;}
 }
 .pic{display:flex;gap:2px;margin-bottom:-4px;
   li{width:22px;height:22px;border:1px solid #aaa;border-radius:50%;}
+}
+.pic_lst{display:flex;align-items: center;
+  & > li{position:relative;border:1px solid #fff;width:22px;height:22px;border-radius:50%;
+    @for $i from 1 to 3{
+      &:nth-child(#{$i}){
+        left:15px - ($i * 5);
+      }
+    }
+    &.receiver_dtl{
+      &>button{position:absolute;width:100%;line-height:20px;z-index:1;background:#d3d3d3;font-size:10px;text-align:center;font-weight:bold;border-radius:50%;}
+      li{width:auto;height:auto;border:none;border-radius:0%;}
+    }
+  }
 }
 .my_task{@include flex_layout;align-items:stretch;height:100%;
   & > section{/* height:calc(100vh - 267px); */overflow-y:auto;border:1px solid #edf0f3;}
@@ -1043,10 +1059,10 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   .new_contents{@include flex_layout;
     .ipt_wrap{flex:1;border:none;
       .box_default_w{height:100%;}
-      dl{gap:5px;}
+      dl{gap:5px;align-items:flex-start;}
       dd{margin-bottom:10px;}
     }
-    .ipt_innerwrap{margin-top:5px;}
+    .ipt_innerwrap{margin-top:5px;}   
   }  
 }
 .proj_view{padding-bottom:0;
@@ -1057,6 +1073,14 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   .contributor{
     h1{margin-bottom:0;}
     .contributor_add{display:none;}
+  }
+  .rel_proj{
+    h1{margin-bottom:0;}
+    .rel_item{padding-left:15px;
+      &:hover em{color:$blue;text-decoration:underline;}
+      .type{@include badge_style($w:60px);@extend %type;color:inherit;flex-shrink:0;}
+      em{display:block;margin-top:3px;}    
+    }
   }
   .ls_contributor{@include user_lst;margin-top:15px;
     .myappr_del{display:none;}
@@ -1092,8 +1116,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       .task_lst_wrap{height:100%;}
       .task_lst{gap:0;flex-direction:column;flex-wrap:nowrap;@include vh_y_scroll(411px);border-right:1px solid #ebebeb;
         &>li{height:95px;border-bottom:1px solid #ebebeb;box-shadow:none;border-radius:0;padding-left:25px;
-          &:hover{background-color:#f9fafc;}
-          &.on{background-color:#eef6ff;}
+          @include on-hover;
         }
         .tit{align-items:flex-start;
           input[type="checkbox"]{position:relative;top:2px;margin-left:-20px;}
@@ -1116,7 +1139,6 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       .user_photo{width:24px;height:24px;}      
     }
     details{border-bottom:1px solid #ebebeb;
-      &>*:not(summary){padding:8px 0;}
       summary::-webkit-details-marker,
       summary::marker{display:none;content:'';}
       summary::before{font-family:'fontello';content:'\f107';font-size:14px;color:$red;} // 1depth
@@ -1175,6 +1197,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         &:focus-within{display:block;}
       }  
     }
+    .user_lst > li{.task_{@include taskColor(true);}}
   }
   .issue_write{@include flex_layout();
     .issue_cont{@include form_style();min-width:auto;
@@ -1211,37 +1234,20 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
     .con_rfp_board{
       summary{@include flex_between;min-height:42px;gap:10px;padding:0 10px;
-        i{margin-right:8px;}
-        &>div{display:inline-block;flex:1;
-          h4{display:inline-block;font-size:14px;font-weight:bold;color:#000;letter-spacing:-0.35px;}
+        .requirement{flex:1;display:flex;gap:8px;
+          h4{font-size:14px;font-weight:bold;color:#000;letter-spacing:-0.35px;}
           span{color:#898989;letter-spacing:-1.05px;font-size:14px;}
-          & + span{float:right;color:#e77b79;font-size:12px;
-            b{font-weight:bold;color:#e42b29;}
-          }
         }
-      }
-      &>li{
-        li:has(.pic){@include flex_between;min-height:33px;padding:0 13px 0 20px;
-          .pic{margin-bottom:0;
-            &>li{position:relative;border-color:#fff;
-              &:first-child{left:14px;z-index:2;}
-              &:nth-child(2){left:7px;z-index:1;}
-              &:nth-last-child(2):first-child{left:7px}
-              &:nth-last-child(1):first-child,
-              &:nth-last-child(-n+2):first-child ~ li{left:0;}
-              &:nth-child(3){left:0;z-index:3;
-                &.receiver_dtl{
-                  &>button{position:absolute;width:100%;line-height:20px;z-index:1;background:#d3d3d3;font-size:10px;text-align:center;font-weight:bold;border-radius:50%;}
-                  li{width:auto;height:auto;border:none;border-radius:0%;}
-                }
-              }
-            }
-          }
-          span{letter-spacing:-0.33px;}
-          &.on{background-color:#eef6ff;}
-          i{margin-right:3px;}
+        .score{float:right;color:#e77b79;font-size:12px;
+          b{font-weight:bold;color:#e42b29;}
         }
+        @include on-hover;
       }
+      details li{display:flex;gap:5px;min-height:33px;padding:8px 9px 8px 20px;
+        @include on-hover;
+        i{font-size:0;}
+      }
+      .user_photo{width:22px;height:22px;margin-left:auto;}    
     }
     $_projStep:('start':#c9dbf8,'analysis':#eedcff,'plan':#f8dac9,'build':#c6ebe4,'test':#d1d3fd,'edu':#daefb8,'completion':#eee1d8,'report':#f8ee95);
     .tags{margin-right:3px;
@@ -1274,12 +1280,12 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       }
     }  
     .task_body{margin-top:0;gap:0;
-      .all_lst_ctrl{@include flex_between;height:42px;padding:0 12px;border:1px solid #ebebeb;border-width:1px 0;}
-      .left_section{min-width:450px;flex:0 1 800px;border-right:1px solid #ebebeb;}
+      .lst_header{@include flex_between;height:42px;padding:0 12px;border:1px solid #ebebeb;border-width:1px 0;}
+      .left_section{min-width:450px;flex:0 1 800px;border-right:1px solid #ebebeb;
+        header{margin-bottom:0;}
+      }
       .right_section{min-width:350px;
-        header:has(h1){padding-left:0;
-          span{color:#b5b4b4;font-size:13px;}
-        }
+        .date{color:#b5b4b4;font-size:13px;}
       }
     }
     .work_form{padding:0 12px;}
@@ -1287,10 +1293,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       @include tit_bullet('dt', 3);
       dt{font-size:13px;font-weight:normal;color:#000;}
       dd{display:flex;align-items:center;min-height:28px;color:#71798a;
-        &.ico_proj{font-size:11px;color:#000;}
-        // .user_module{
-        //   & + .user_module{margin-top:5px;}
-        // }
+        &.ico_proj{font-size:11px;color:#000;}        
       }
     }
     .cmt_lst{background-color:#f9f9f9;

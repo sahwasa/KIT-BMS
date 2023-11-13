@@ -1,22 +1,40 @@
 <section class="task_body">
-  <div class="tab_wrap">
-    <div class="tab_wrap">
-      <ul class="tab tab_s">
-        <li class="on"><a href="#tab_con01">진행중 <span>2</span>건</a></li>
-        <li><a href="#tab_con02">완료 <span>30</span>건</a></a></li>
-      </ul>
-      <select name="" id="" title="리스크 필터">
-        <option value="내가 쓴 글 보기">내가 쓴 글 보기</option>
-      </select>
-    </div>
-    <div class="btn_wrap alignR">
+  <article class="box_compact box_form">
+    <ul class="search_list">
+      <li>
+        <select class="" title="빠른필터">
+          <option value="">빠른필터</option>
+          <option value="">진행중인 글보기</option>
+          <option value="">내가 쓴 글 보기</option>
+          <option value="">내가 멘션된 글 보기</option>
+        </select>
+      </li>     
+    </ul>
+    <span class="btn_wrap">
       <button type="button" class="btn_red">추가</button>
       <button type="button" class="btn_red_line">수정</button>
       <button type="button" class="btn_gray_line">삭제</button>
-    </div>
-  </div>
-  <div class="tab_container">
-    <ul class="tbl_list">
+    </span>
+  </article> 
+  <div class="lst_wrap">
+    <ul class="search_list all_lst_ctrl">
+        <li>
+          <input type="checkbox" title="전체선택">
+        </li>
+        <li>
+          <label for="f1"><input type="radio" id="f1" name="risk_filter" checked>진행중<span>2</span>건</label>
+        <label for="f2"><input type="radio" id="f2" name="risk_filter">완료<span>30</span>건</label>
+        </li>
+        <li>
+          <select name="" id="" title="정렬기준">
+            <option value="">↓ 업데이트</option>
+            <option value="">↓ 등록일</option>
+            <option value="">↓ 만기일</option>
+            <option value="">↓ 상태</option>
+          </select>
+        </li>
+      </ul>
+    <ul class="tbl_list lst_ctrl">
       <li>
         <input type="checkbox" class="row_check">
         <div class="user_module">

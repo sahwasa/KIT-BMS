@@ -74,7 +74,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>테스트</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -89,8 +89,32 @@
           <div class="etc">
             <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
             </div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+              <li class="layer_tool receiver_dtl">
+                <button type="button" onclick="event.stopPropagation();" title="더보기">+2</button>
+                <div class="receiver_wrap">
+                  <ul class="receiver">
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                  </ul>
+                </div>
+              </li>
             </ul>
           </div>
         </li>
@@ -103,7 +127,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>개발</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -117,7 +141,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>개발</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -131,7 +155,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>개발</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -260,7 +284,7 @@
               </ul>
             </div>
           </dd>
-          <!-- <dt>업무상태</dt>
+          <dt>업무상태</dt>
           <dd>
             <div class="task_status_multi">
               <button class="all_label label"><span class="task_ing">진행</span></button>
@@ -326,9 +350,9 @@
   </ul>
 </div></dd>
                 </dl> 
-              </div>             
+              </div>
             </div>
-          </dd>           -->
+          </dd>          
           <dt><label for="">작성자</label></dt>
           <dd><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
@@ -340,15 +364,23 @@
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>(계획)</li>
+</div><i class="task_ing">진행</i></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>(계획)</li>
+</div><i class="task_plan">계획</i></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>(계획)</li>
+</div><i class="task_done">완료</i></li>
+              <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><i class="task_cancel">취소</i></li>
+              <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><i class="task_hold">보류</i></li>
             </ul>
           </dd>
           <!-- <dt><label for="">담당자(쓰기수정)</label></dt>

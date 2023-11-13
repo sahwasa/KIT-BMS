@@ -85,21 +85,13 @@
     <section class="tab_container">
       <article class="tab_contents" id="tab01">
         <div class="filter">
-          <div class="flex_ipt" id="proj_filter" data-tglwrap>
-             <div class="period_custom">
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
-  </span>
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
-  </span>
-</div>
+          <!-- <div class="flex_ipt" id="proj_filter" data-tglwrap> -->
+             
             <!-- <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span> -->
-            <button class="btn_search_square">검색</button>
-            <button class="btn_more_square" data-toggle="proj_add">더보기</button>
-          </div>
+            <!-- <button class="btn_more_square" data-toggle="proj_add">더보기</button> -->
+          <!-- </div> -->
           <div class="proj_add" id="proj_add" data-tglwrap>
-            <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+            <!-- <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button> -->
             <div class="period_custom">
   <span>
     <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
@@ -108,26 +100,35 @@
     <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
   </span>
 </div>
-            <div class="add_opt">              
+            <div class="add_opt">              \
+
               <button class="btn_search_square">검색</button>
             </div>
           </div>
         </div>
         <div class="proj_count">
-          <ul class="list_wrap">
-            <li class="ready">사업계획<em>2</em></li>
-            <li class="ing">수행중<em>3</em></li>
-            <li class="ready">하자보수<em>2</em></li>
-            <li class="done">사업종료<em>1</em></li>
+          <ul class="list_wrap btn_switch">
+            <li>
+              <input type="checkbox" name="" id="scope1" checked><label for="scope1" class="ready">사업계획<em>2</em></label>
+            </li>
+            <li>
+              <input type="checkbox" name="" id="scope2" checked><label for="scope2" class="ing">수행중<em>3</em></label>
+            </li>
+            <li>
+              <input type="checkbox" name="" id="scope3" checked><label for="scope3" class="repair">하자보수<em>2</em></label>
+            </li>
+            <li>
+              <input type="checkbox" name="" id="scope4" checked><label for="scope4" class="done">사업종료<em>1</em></label>
+            </li>
           </ul>
         </div>
         <ul class="proj_lst">
           <li>
             <a href="project_view.html">
               <div class="tag_wrap">
-                <i class="type">물품구매</i>
+                <i class="type">사업기획</i>
                 <span class="i_public">공개</span>
-                <i class="ready">제안</i>
+                <i class="ready">기획</i>
               </div>
               <div class="proj_name">
                 <b>도시폭염을 고려한 폭염저감기술 최적화</b>
@@ -142,9 +143,9 @@
           <li class="on">
             <a href="project_view.html">
               <div class="tag_wrap">
-                <i class="type">사업계획</i>
+                <i class="type">사업제안</i>
                 <span class="i_public">공개</span>
-                <i class="ready">제안</i>
+                <i class="done">수주</i>
               </div>
               <div class="proj_name">
                 <b>도시폭염을 고려한 폭염저감기술 최적화</b>
@@ -159,9 +160,43 @@
           <li>
             <a href="project_view.html">
               <div class="tag_wrap">
-                <i class="type">개발구축</i>
+                <i class="type">사업제안</i>
                 <span class="i_private">비공개</span>
-                <i class="done">종료</i>
+                <i class="ready">제안</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="project_view.html">
+              <div class="tag_wrap">
+                <i class="type">사업제안</i>
+                <span class="i_private">비공개</span>
+                <i class="done">실주</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="tag_wrap">
+                <i class="type">개발구축</i>
+                <span class="i_public">공개</span>
+                <i class="repair">하자보수</i>
               </div>
               <div class="proj_name">
                 <b>KIT업무관리시스템</b>
@@ -178,24 +213,7 @@
               <div class="tag_wrap">
                 <i class="type">유지보수</i>
                 <span class="i_public">공개</span>
-                <i class="ready">준비</i>
-              </div>
-              <div class="proj_name">
-                <b>KIT업무관리시스템</b>
-              </div>
-              <ul class="proj_desc">
-                <li>KITValley</li>
-                <li>2023-01-01 ~ 2023-12-31</li>
-                <li>PM:권기봉</li>
-              </ul>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="tag_wrap">
-                <i class="type">사내업무</i>
-                <span class="i_public">공개</span>
-                <i class="ready">준비</i>
+                <i class="ing">수행중</i>
               </div>
               <div class="proj_name">
                 <b>KIT업무관리시스템</b>
@@ -228,6 +246,7 @@
         </section>
       </header>
       <div class="cont_body proj_view">
+        <!-- 조회는 누구나 가능/등록,수정,삭제,다운로드는 프로젝트 참여자만 가능 -->
         <div class="box_compact">
           <h2>프로젝트 ID : P20220000</h2>
           <ul class="proj_summary">
@@ -248,487 +267,6 @@
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj02" class="tab_contents overview">
-            <section class="left_section">
-  <article>
-    <header>
-      <h1>프로젝트 정보</h1>
-    </header>
-    <section>
-      <h2><i class="type">연구개발</i> 2023년 도시폭염 연구과제 2차(약어)</h2>
-      <dl class="ipt_lst">
-        <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
-        <dt>총괄책임자</dt>
-        <dd><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></dd>
-        <dt>수행PM</dt>                    
-        <dd><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></dd>
-        <dt>수행기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
-        <dt>사용인감</dt><dd>○</dd>
-        <dt><label for="">비고</label></dt>
-        <dd><p>-</p></dd>
-      </dl>
-    </section>
-  </article>
-  <article>
-    <header>
-      <h1>계약 정보</h1>
-    </header>
-    <section>
-      <dl class="ipt_lst">
-        <dt>계약기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
-        <dt>컨소시엄 총괄</dt><dd>총괄</dd>
-        <dt>컨소시엄 구성</dt><dd>구성</dd>
-        <dt>지분율</dt><dd>30&percnt;</dd>
-        <dd class="full">
-          <dl class="ipt_innerlst">
-            <dt>사업예산</dt><dd>1,000,000,000(원)</dd>
-            <dt>계약금액</dt><dd>10,000,000(원)</dd>
-            <dt>외주비용</dt><dd>10,000,000(원)</dd>
-            <dt>수행비</dt><dd>10,000,000(원)</dd>
-          </dl>
-        </dd>
-        <dt>하자보수기간</dt><dd>2023-12-30 ~ 2024-12-30</dd>
-        <dt>계약서</dt>
-        <dd class="file_attached"><ul class="attach_list"></ul></dd>
-        <dt>계약서</dt>
-        <dd class="file_attached">
-          <ul class="attach_list">
-            <li>
-              <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.pptx</a>
-            </li>
-            <li>
-              <a href="#" download><i class="ext_hwp"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.hwp</a>
-            </li>
-          </ul>
-        </dd>
-        <dt>비고</dt><dd><p>-</p></dd>
-      </dl>
-    </section>
-  </article>
-
-  <!-- 아래부터 수정 -->
-  <article>
-    <header>
-      <h1>프로젝트 정보</h1>
-    </header>
-    <section class="ipt_wrap">
-      <dl>
-        <dt><label for="" class="required">업무구분</label></dt>
-        <dd>
-          <select name="" id="">
-            <option value="">용역</option>
-            <option value="">연구과제(R&amp;D)</option>
-            <option value="">사내업무</option>
-            <option value="">기타</option>
-          </select>
-        </dd>
-        <dt><label for="" class="required">프로젝트명 &sol; 약어</label></dt>
-        <dd class="flex_full"><input type="text" id="" title="프로젝트명"></dd>
-        <dd class="flex_full divideL"><input type="text" id="" title="약어"></dd>
-        <dt class="required">발주기관</dt>
-        <dd class="flex_full">
-          <div class="file_input">
-            <select name="" id="" title="사업자분류">
-              <option value="">사업자분류</option>
-            </select>
-            <select name="" id="" title="기관선택">
-              <option value="">기관선택</option>
-            </select>
-          </div>
-        </dd>
-        <dd class="flex_full">
-          <ul class="ipt_innerwrap">
-            <li>
-              <em class="required">총괄담당자</em>
-              <div class="file_input">
-                <input type="text" id="" placeholder="임직원명" list="nameList">
-                <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-              </div>
-            </li>
-            <li>
-              <em class="required">수행PM</em>
-              <div class="file_input">
-                <input type="text" id="" placeholder="임직원명" list="nameList">
-                <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-              </div>
-            </li>
-          </ul>
-        </dd>              
-        <dd class="flex_full">
-          <ul class="ipt_innerwrap">
-            <li>
-              <em><label for="" class="required">수행기간</label></em>
-              <div class="period_custom">
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
-  </span>
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
-  </span>
-</div>
-            </li>
-            <li>
-              <em><label for="" class="required">사용인감</label></em>
-              <select name="" id="" class="alignC w_auto">
-                <option value="">○</option>
-                <option value="">△</option>
-                <option value="">□</option>
-              </select>
-            </li>            
-          </ul>
-        </dd>        
-        <dt><label for="">비고</label></dt>
-        <dd class="flex_full"><input type="text" id=""></dd>
-      </dl>
-    </section>
-  </article>
-  <article>
-    <header>
-      <h1>계약 정보</h1>
-    </header>
-    <section class="ipt_wrap">
-      <dl>
-        <dt><label for="" class="required">계약기간</label></dt>
-        <dd class="flex_full">
-              <div class="period_custom">
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
-  </span>
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
-  </span>
-</div>
-        </dd>
-        <dt><label for="">컨소시엄 총괄기관 &sol; 구성</label></dt>
-        <dd><input type="text" placeholder="컨소시엄 총괄기관" id=""></dd>
-        <dd class="flex_full divideL"><input type="text" id="" placeholder="컨소시엄 구성"></dd>
-        <dt><label for="">지분율(&percnt;)</label></dt>
-        <dd><input type="number" id="" class="alignC"></dd>
-        <dd class="flex_full">
-          <ul class="ipt_innerwrap">
-            <li>
-              <em><label for="">사업예산(원)</label></em>
-              <input type="number" id="" class="alignR">
-            </li>
-            <li>
-              <em><label for="">계약금액(원)</label></em>
-              <input type="number" id="" class="alignR">
-            </li>
-            <li>
-              <em><label for="">외주비용(원)</label></em>
-              <input type="number" id="" class="alignR">
-            </li>
-            <li>
-              <em><label for="">수행비(원)</label></em>
-              <input type="number" id="" class="alignR">
-            </li>
-          </ul>
-        </dd>
-        <dt><label for="" class="required">하자보수기간</label></dt>
-        <dd>
-          <div class="period_custom">
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
-  </span>
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
-  </span>
-</div>
-        </dd>
-        <dt><label for="">계약서</label></dt>
-        <dd class="flex_full">
-          <div class="file_attach btn_attach">
-  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
-  <div id="file-drop" class="drop_zone">
-    <div class="drop_info">
-      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
-    </div>
-    <ul id="doc" class="attach_list">
-    </ul>
-  </div>
-</div>
-        </dd>
-        <dt><label for="">비고</label></dt>
-        <dd class="flex_full"><input type="text" id=""></dd>
-      </dl>
-    </section>
-  </article>
-  <article>
-    <section class="cmt_area">
-  <header>
-    <h1>댓글</h1>
-  </header>
-  <ul class="cmt_lst hasLayer">
-    <li>
-      <div class="cmt_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-      </div>
-      <div class="cmt_txt">
-        <p>반려합니다.</p>
-      </div>
-      <div class="cmt_info">
-        <span class="date">2023-05-23 11:35</span>
-        <button type="button">답글</button>
-      </div>
-      <div class="reply_area">
-        <ul>
-          <li>
-            <div class="cmt_user">
-              <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-            </div>
-            <div class="cmt_txt">
-              <p>왜요?</p>
-            </div>
-            <div class="cmt_info">
-              <span class="date">2023-05-23 11:35</span>
-              <button type="button">답글</button>
-            </div>
-          </li>
-          <li>
-            <div class="cmt_user">
-              <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-            </div>
-            <div class="cmt_txt">
-              <div class="editable" contenteditable="true"></div>
-              <em class="placehold">@홍길동님에게 답글쓰기</em>
-            </div>
-            <div class="cmt_attach">
-              <div class=" file_attach btn_attach">
-                <input id="attachFiles1" data-attach="reply" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
-                <div id="file-drop" class="drop_zone">
-                  <ul id="reply" class="attach_list"></ul>
-                </div>
-              </div>
-              <label for="attachFiles1" class="btn_label_attach">첨부</label>
-              <button type="button">등록</button>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="cmt_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-        <div class="layer_tool">
-          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-          <div class="btn_layer">
-            <button type="button" data-clickevt="modify">수정</button>
-            <button type="button" data-clickevt="del">삭제</button>
-          </div>
-        </div>
-      </div>
-      <div class="cmt_txt">
-        <p>
-          이 댓글은 로그인한 사람이 작성한 글입니다.<br>
-          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br>
-          댓글이 없을 때는 아래와 같이 보여줍니다.
-        </p>
-      </div>
-      <div class="cmt_info">
-        <span class="date">2023-05-23 11:35</span>
-        <button type="button">답글</button>
-      </div>
-    </li>
-    <li>
-      작성된 댓글이 없습니다.
-    </li>
-    <li>
-      <div class="cmt_user">
-        <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-        <div class="layer_tool">
-          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-          <div class="btn_layer">
-            <button type="button" data-clickevt="modify">수정</button>
-            <button type="button" data-clickevt="del">삭제</button>
-          </div>
-        </div>
-      </div>
-      <div class="cmt_txt">
-        <p>╭◜◝ ͡ ◜◝ ╮<br>( Ꮚ ´ ꒳ ` Ꮚ 저는 바로바로 파일이 첨부된 댓글입니당<br>╰◟◞ ͜ ◟◞╯<br></p>
-      </div>
-      <div class="cmt_file">
-        <a href="../../images/sample.pdf" target="_blank">
-          <span class="cmt_file_info">
-            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
-            <span>4KB</span>
-          </span>
-        </a>
-        <a href="../../images/sample.pdf" download="">다운로드</a>
-      </div>
-      <div class="cmt_file">
-        <a href="../../images/sample.pdf" target="_blank">
-          <span class="cmt_file_info">
-            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
-            <span>4KB</span>
-          </span>
-        </a>
-        <a href="../../images/sample.pdf" download="">다운로드</a>
-      </div>
-      <div class="cmt_info">
-        <span class="date">2023-06-16 15:00</span>
-        <button type="button">답글</button>
-      </div>
-    </li>
-  </ul>
-  <div class="cmt_write">
-    <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    <div id="test" class="editable ck-editor__editable" contenteditable="true" data-tribute="true"></div>
-    <em class="placehold">댓글을 입력하세요.</em>
-    <!-- <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true">
-      <span contenteditable="false"><a title="p1">@김개발</a></span>&nbsp; <span contenteditable="false"><a title="p2">@기획</a></span>&nbsp;
-    </div> -->
-    <div class="cmt_attach">
-      <div class="file_attach btn_attach">
-        <input id="attachFiles2" data-attach="cmt" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
-        <div id="file-drop" class="drop_zone">
-          <ul id="cmt" class="attach_list"></ul>
-        </div>
-      </div>
-      <label for="attachFiles2" class="btn_label_attach">첨부</label>
-      <button type="button">등록</button>
-    </div>
-  </div>
-</section>
-  </article>
-</section>
-<section class="right_section">
-  <section class="box_default_w">
-    <dl class="set_list">
-      <dt>갱신일자</dt>
-      <dd>2023-04-05</dd>
-      <!-- <dt>생성자</dt>
-      <dd><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></dd> -->
-      <dt>생성일자</dt>
-      <dd>2023-01-05</dd>
-    </dl>
-    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
-    <button type="button" class="btn_red_line full">프로젝트 수정</button>
-  </section>
-  <section class="box_default_w">
-    <dl class="set_list">   
-      <dt>상태</dt>
-      <dd>
-        <div class="select_custom task_status">
-          <button class="label"><span class="opt_label">상태</span></button>
-          <ul class="optionList">
-            <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">준비</span></li>
-            <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">수행중</span></li>
-            <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">하자보수</span></li>
-            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">종료</span></li>
-            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
-            <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">기타</span></li>
-          </ul>
-        </div>
-      </dd>
-      <dt>공개여부</dt>
-      <dd>
-        <div class="btn_switch">
-          <input type="radio" id="open" name="disclosure" checked>
-          <label for="open">공개</label>
-          <input type="radio" id="private" name="disclosure">
-          <label for="private">비공개</label>
-        </div>
-      </dd>
-    </dl>
-    <!-- 수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트 관리상세 페이지로 이동 -->
-  </section>
-  <section class="box_default_w contributor">
-    <header>
-      <h1>참여자<i class="count_tag">3</i></h1>
-      <button class="btn_more" data-toggle="contributor_add">참여자 추가</button>
-    </header>
-    <div class="contributor_add" id="contributor_add" data-tglwrap>
-      <span class="file_input">
-        <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
-        <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
-        <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-        <button type="button" class="btn_ogt btnMngTree">조직도</button>
-        <button type="button" class="btn_red_line" disabled>저장</button>
-      </span>
-    </div>
-    <ul class="ls_contributor">
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><em class="tag_pm">PM</em></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><button type="button" class="myappr_del">삭제</button></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><button type="button" class="myappr_del">삭제</button></li>
-    </ul>
-  </section>
-</section>
-          </section>
           <section id="proj01" class="tab_contents issue">
             <article class="box_compact box_form">
   <ul class="search_list">
@@ -806,7 +344,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>테스트</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -821,8 +359,32 @@
           <div class="etc">
             <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
             </div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+              <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
+              <li class="layer_tool receiver_dtl">
+                <button type="button" onclick="event.stopPropagation();" title="더보기">+2</button>
+                <div class="receiver_wrap">
+                  <ul class="receiver">
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                    <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></li>
+                  </ul>
+                </div>
+              </li>
             </ul>
           </div>
         </li>
@@ -835,7 +397,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>개발</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -849,7 +411,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>개발</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -863,7 +425,7 @@
           </div>
           <div class="etc">
             <div class="tags"><i>개발</i></div>
-            <ul class="pic">
+            <ul class="pic_lst">
               <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
             </ul>
           </div>
@@ -992,7 +554,7 @@
               </ul>
             </div>
           </dd>
-          <!-- <dt>업무상태</dt>
+          <dt>업무상태</dt>
           <dd>
             <div class="task_status_multi">
               <button class="all_label label"><span class="task_ing">진행</span></button>
@@ -1058,9 +620,9 @@
   </ul>
 </div></dd>
                 </dl> 
-              </div>             
+              </div>
             </div>
-          </dd>           -->
+          </dd>          
           <dt><label for="">작성자</label></dt>
           <dd><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
@@ -1072,15 +634,23 @@
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>(계획)</li>
+</div><i class="task_ing">진행</i></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>(계획)</li>
+</div><i class="task_plan">계획</i></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>(계획)</li>
+</div><i class="task_done">완료</i></li>
+              <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><i class="task_cancel">취소</i></li>
+              <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><i class="task_hold">보류</i></li>
             </ul>
           </dd>
           <!-- <dt><label for="">담당자(쓰기수정)</label></dt>
@@ -1496,6 +1066,317 @@
   </form>
 </dialog>
           </section>
+          <section id="proj02" class="tab_contents overview">
+            <section class="left_section">
+  <article>
+    <header>
+      <h1>프로젝트 정보</h1>
+    </header>
+    <section>
+      <h2><i class="type">연구개발</i> 2023년 도시폭염 연구과제 2차(약어)</h2>
+      <dl class="ipt_lst">
+        <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
+        <dt>총괄책임자</dt>
+        <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+        <dt>수행PM</dt>                    
+        <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+        <dt>수행기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+        <dt>사용인감</dt><dd>○</dd>
+        <dt><label for="">비고</label></dt>
+        <dd><p>-</p></dd>
+      </dl>
+    </section>
+  </article>
+  <article>
+    <header>
+      <h1>계약 정보</h1>
+    </header>
+    <section>
+      <dl class="ipt_lst">
+        <dt>계약기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+        <dt>컨소시엄 총괄</dt><dd>총괄</dd>
+        <dt>컨소시엄 구성</dt><dd>구성</dd>
+        <dt>지분율</dt><dd>30&percnt;</dd>
+        <dd class="full">
+          <dl class="ipt_innerlst">
+            <dt>사업예산</dt><dd>1,000,000,000(원)</dd>
+            <dt>계약금액</dt><dd>10,000,000(원)</dd>
+            <dt>외주비용</dt><dd>10,000,000(원)</dd>
+            <dt>수행비</dt><dd>10,000,000(원)</dd>
+          </dl>
+        </dd>
+        <dt>하자보수기간</dt><dd>2023-12-30 ~ 2024-12-30</dd>
+        <dt>계약서</dt>
+        <dd class="file_attached"><ul class="attach_list"></ul></dd>
+        <dt>계약서</dt>
+        <dd class="file_attached">
+          <ul class="attach_list">
+            <li>
+              <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.pptx</a>
+            </li>
+            <li>
+              <a href="#" download><i class="ext_hwp"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 계약서.hwp</a>
+            </li>
+          </ul>
+        </dd>
+        <dt>비고</dt><dd><p>-</p></dd>
+      </dl>
+    </section>
+  </article>
+  <article>
+    <section class="cmt_area">
+  <header>
+    <h1>댓글</h1>
+  </header>
+  <ul class="cmt_lst hasLayer">
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+      </div>
+      <div class="cmt_txt">
+        <p>반려합니다.</p>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+      <div class="reply_area">
+        <ul>
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="cmt_txt">
+              <p>왜요?</p>
+            </div>
+            <div class="cmt_info">
+              <span class="date">2023-05-23 11:35</span>
+              <button type="button">답글</button>
+            </div>
+          </li>
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="cmt_txt">
+              <div class="editable" contenteditable="true"></div>
+              <em class="placehold">@홍길동님에게 답글쓰기</em>
+            </div>
+            <div class="cmt_attach">
+              <div class=" file_attach btn_attach">
+                <input id="attachFiles1" data-attach="reply" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+                <div id="file-drop" class="drop_zone">
+                  <ul id="reply" class="attach_list"></ul>
+                </div>
+              </div>
+              <label for="attachFiles1" class="btn_label_attach">첨부</label>
+              <button type="button">등록</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmt_txt">
+        <p>
+          이 댓글은 로그인한 사람이 작성한 글입니다.<br>
+          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br>
+          댓글이 없을 때는 아래와 같이 보여줍니다.
+        </p>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+    <li>
+      작성된 댓글이 없습니다.
+    </li>
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmt_txt">
+        <p>╭◜◝ ͡ ◜◝ ╮<br>( Ꮚ ´ ꒳ ` Ꮚ 저는 바로바로 파일이 첨부된 댓글입니당<br>╰◟◞ ͜ ◟◞╯<br></p>
+      </div>
+      <div class="cmt_file">
+        <a href="../../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_file">
+        <a href="../../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-06-16 15:00</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+  </ul>
+  <div class="cmt_write">
+    <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    <div id="test" class="editable ck-editor__editable" contenteditable="true" data-tribute="true"></div>
+    <em class="placehold">댓글을 입력하세요.</em>
+    <!-- <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true">
+      <span contenteditable="false"><a title="p1">@김개발</a></span>&nbsp; <span contenteditable="false"><a title="p2">@기획</a></span>&nbsp;
+    </div> -->
+    <div class="cmt_attach">
+      <div class="file_attach btn_attach">
+        <input id="attachFiles2" data-attach="cmt" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+        <div id="file-drop" class="drop_zone">
+          <ul id="cmt" class="attach_list"></ul>
+        </div>
+      </div>
+      <label for="attachFiles2" class="btn_label_attach">첨부</label>
+      <button type="button">등록</button>
+    </div>
+  </div>
+</section>
+  </article>
+</section>
+<section class="right_section">
+  <section class="box_default_w">
+    <dl class="set_list">
+      <dt>갱신일자</dt>
+      <dd>2023-04-05</dd>
+      <dt>생성일자</dt>
+      <dd>2023-01-05</dd>      
+    </dl>
+    <button type="button" class="btn_red_line full" onclick="alert('수정은 관리자, 프로젝트 담당자 및 PM만 보임, 수정 시 프로젝트생성페이지와 같은 레이아웃(project_new)')">프로젝트 수정</button>
+  </section>
+  <section class="box_default_w">
+    <dl class="set_list">  
+      <dt>상태</dt>
+      <dd>
+        <div class="select_custom task_status">
+          <button class="label"><span class="opt_label">상태</span></button>
+          <ul class="optionList">
+            <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">준비</span></li>
+            <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">수행중</span></li>
+            <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">하자보수</span></li>
+            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">종료</span></li>
+            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
+            <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">기타</span></li>
+          </ul>
+        </div>
+      </dd>
+      <dt>공개여부</dt>
+      <dd>
+        <div class="btn_switch">
+          <input type="radio" id="open" name="disclosure" checked>
+          <label for="open">공개</label>
+          <input type="radio" id="private" name="disclosure">
+          <label for="private">비공개</label>
+        </div>
+      </dd>
+    </dl>
+  </section>
+  <section class="box_default_w contributor">
+    <header>
+      <h1>참여자<i class="count_tag">3</i></h1>
+      <button class="btn_more" data-toggle="contributor_add">참여자 추가</button>
+    </header>
+    <div class="contributor_add" id="contributor_add" data-tglwrap>
+      <span class="file_input">
+        <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+        <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+        <button type="button" class="btn_red_line" disabled>저장</button>
+      </span>
+    </div>
+    <ul class="ls_contributor">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><em class="tag_pm">PM</em></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><button type="button" class="myappr_del">삭제</button></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div><button type="button" class="myappr_del">삭제</button></li>
+    </ul>
+  </section>  
+  <section class="box_default_w rel_proj">
+    <header>
+      <h1>관련 프로젝트</h1>
+    </header>
+    <div class="rel_item">
+      <a id="" onclick="" title="관련프로젝트 상세보기">
+        <i class="type">사업제안</i>
+        <em>KIT 업무관리 시스feeeeeeeeeeeeeeeedfefwefwefef템 (boss2)</em>        
+      </a>      
+    </div>
+  </section>
+</section>
+          </section>
           <section id="proj03" class="tab_contents rfp">
             <article>
   <header>
@@ -1507,7 +1388,7 @@
   </header>
   <div class="task_body article_body">
     <section class="left_section">
-      <header class="all_lst_ctrl">
+      <header class="lst_header">
         <h1 class="blind">요구사항 및 업무 목록</h1>
         <div class="proj_legend ico_proj">
           <ul>
@@ -1515,60 +1396,31 @@
             <li><i class="ing"></i>수행중</li>
             <li><i class="done"></i>완료</li>
             <li><i class="hold"></i>보류</li>
+            <li>받은 승인요청:3</li>
+            <li>보낸 승인요청:3</li>
           </ul>
         </div>
         <button type="button" class="btn_red" onclick="document.querySelector('.p_requireMan').showModal();">요구사항 추가</button>
       </header>
       <ul class="con_rfp_board ico_proj">
-        <li class="on">
+        <li>
           <details open>
-            <summary>
-              <div>
+            <summary class="on">
+              <a href="#" class="requirement">
                 <i class="badge start">착수</i><span>R202200201</span>
                 <h4>사업수행계획서 및 착수계 제출</h4>
-              </div>
+              </a>
               <span class="score"><b>1</b>/2</span>
             </summary>
             <ul>
               <li class="on">
-                <span>
-                  <i class="ing"></i>회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li class="layer_tool receiver_dtl">
-                    <button type="button" onclick="event.stopPropagation();" title="더보기">+2</button>
-                    <div class="receiver_wrap">
-                      <ul class="receiver">
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                        <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+                <a href="#">
+                  <i class="ing">수행중</i>회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축
+                </a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>                 
               </li>
               <li>
-                <span>
-                  <i class="ready"></i>로그 이력관리 기능 구축
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#"><i class="ready">준비</i>로그 이력관리 기능 구축</a>
               </li>
             </ul>
           </details>
@@ -1576,39 +1428,26 @@
         <li>
           <details open>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge analysis">분석</i><span>R202200201</span>
                 <h4>고객정보 관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             <ul>
               <li>
-                <span>
-                  <i class="done"></i>고객 신규등록, 정보수정, 삭제 조회 관리 기능<div class="tags"><i class="request">승인요청</i></div>
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#">
+                  <i class="done">완료</i>고객 신규등록, 정보수정, 삭제 조회 관리 기능<i class="request">승인요청</i>
+                </a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
               <li>
-                <span>
-                  <i class="hold"></i>고객 정보 일괄등록 기능(관리자용)
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#"><i class="hold">보류</i>고객 정보 일괄등록 기능(관리자용)</a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
               <li>
-                <span>
-                  <i class="ready"></i>고객 분석리포트 2종 생성
-                </span>
-                <ul class="pic">
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                  <li><img src="../../images/ic_user.png" alt="" loading="lazy"></li>
-                </ul>
+                <a href="#"><i class="ready">준비</i>고객 분석리포트 2종 생성</a>
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
             </ul>
           </details>
@@ -1616,10 +1455,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge plan">설계</i><span>R202200201</span>
                 <h4>공급자 정보조회</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요오
@@ -1628,10 +1467,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge build">구축</i><span>R202200201</span>
                 <h4>제품정보관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -1640,10 +1479,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge test">시험운영</i><span>R202200201</span>
                 <h4>증빙서관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -1652,10 +1491,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge edu">교육</i><span>R202200201</span>
                 <h4>공급자 정보조회</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -1664,10 +1503,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge completion">준공</i><span>R202200201</span>
                 <h4>제품정보관리</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -1676,10 +1515,10 @@
         <li>
           <details>
             <summary>
-              <div>
+              <a href="#" class="requirement">
                 <i class="badge report">보고</i><span>R202200201</span>
                 <h4>공급자 정보조회</h4>
-              </div>
+              </a>
               <span class="score"><b>0</b>/3</span>
             </summary>
             코드 길어 생략합니다요
@@ -1688,7 +1527,7 @@
       </ul>
     </section>
     <section class="right_section">
-      <header class="all_lst_ctrl">
+      <header class="lst_header">
         <h1 class="blind">요구사항 상세</h1>
         <div class="btn_wrap">
           <button type="button" class="btn_red" onclick="document.querySelector('.p_workMan').showModal();">업무 추가</button>
@@ -1699,14 +1538,14 @@
       <div class="work_form">
         <header>
           <h1>로그인 및 로그이력기능</h1>
-          <span>2024-06-05</span>
+          <span class="date">작성일 : 2024-06-05</span>
         </header>
         <dl class="set_list work_dot_wrap">
           <dt>작성자</dt>
           <dd>
             <div class="user_module">
               <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-              <em>홍길동</em><b>(여기가 나을까요)</b>
+              <em>홍길동</em>
             </div>
           </dd>
           <dt>요구사항ID</dt>
@@ -1762,20 +1601,38 @@
             · 기록된 로그 데이터를 유형, 기간 대상자등 다양한 검색조건 추출/조회</dd>
         </dl>
       </div>
-      <!-- <div class="work_form form_view flex_right">
-      </div> -->
-      <header class="all_lst_ctrl">
+      <!-- <div class="work_form form_view flex_right"> -->
+      <header class="lst_header">
         <h1 class="blind">업무 상세</h1>
+        <div class="status">
+          <em>승인 미요청</em>
+          <!-- 승인과 변경 구분?? -->
+          <!-- PM.PL : 승인 전(승인대기중), 승인 완료 후에는 공란 -->
+          <!-- 담당자 : 승인요청 전(미승인요청),승인or변경요청 후 (승인대기중),승인 후에는 공란 -->
+        </div>
         <div class="btn_wrap">
-          <button type="button" class="btn_red_line">승인</button>
-          <button type="button" class="btn_gray_line">변경요청</button>
+          <!-- 최초등록>PMPL승인, 반려 필요?: -->
+          <button type="button" class="btn_red">승인</button>
+          <button type="button" class="btn_red_line">삭제</button>
+          /
+          <!-- 변경요청 시 PMPL 수정: -->
+          <button type="button" class="btn_red_line">수정</button>
+          <button type="button" class="btn_red_line">삭제</button>
+          /
+          <!-- 최초등록 후담당자, 승인 전 요청취소: -->
+          <button type="button" class="btn_gray_line">요청취소</button>
+          /
+          <!-- 승인 전 요청취소 상태 담당자: -->
+          <button type="button" class="btn_red">승인요청</button>
+          <button type="button" class="btn_red_line">수정</button>
+          <button type="button" class="btn_red_line">삭제</button>
         </div>
       </header>
       <div class="work_form form_view flex_right">
         <article>
           <header>
             <h1>회원가입 및 로그인 기능 구축</h1>
-            <span>2024-06-05</span>
+            <span class="date">작성일 : 2024-06-05</span>
           </header>
           <dl class="set_list work_dot_wrap">
             <dt>작업범주</dt>
@@ -1813,14 +1670,9 @@
         <li>
           <div class="cmt_user">
             <div class="user_module">
-              <figure class="user_photo">
-                <img src="../../images/ic_user.png" alt="" loading="lazy">
-              </figure>
-              <div>
-                <em>홍길동 연구원</em><b>(재난예경보MA팀)</b>
-                <p>2022-06-05 16:00</p>
-              </div>
-            </div>
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
             <div class="user_module">
               <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
               <span class="show">확인</span>
@@ -1833,14 +1685,9 @@
         <li>
           <div class="cmt_user">
             <div class="user_module">
-              <figure class="user_photo">
-                <img src="../../images/ic_user.png" alt="" loading="lazy">
-              </figure>
-              <div>
-                <em>홍길동 연구원</em><b>(재난예경보MA팀)</b>
-                <p>2022-06-05 16:00</p>
-              </div>
-            </div>
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>           
             <div class="btn_wrap">
               작성자 :
               <button type="button">수정</button>
@@ -1858,13 +1705,9 @@
         <li>
           <div class="cmt_user">
             <div class="user_module">
-              <figure class="user_photo">
-                <img src="../../images/ic_user.png" alt="" loading="lazy">
-              </figure>
-              <div>
-                <em>홍길동 연구원</em><b>(재난예경보MA팀)</b>
-              </div>
-            </div>
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
           </div>
           <div class="cmt_write">
             <input type="text" value="못하겠어요… 죄송합니다 ㅠㅠㅠ">
@@ -2002,30 +1845,23 @@
         <caption>업무 관리 테이블</caption>
         <colgroup>
           <col style="width:130px">
-          <col style="width:auto">
-          <col style="width:110px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required">프로젝트명​</th>
-            <td colspan="3">(P200200001) 2022년 000 용역</td>
+            <td>(P200200001) 2022년 000 용역</td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="require_name">요구사항명​</label></th>
-            <td colspan="3">(P200200001) 2022년 000 용역</td>
-          </tr>
-          <!-- <tr>
-            <th scope="row">작업 ID</th>
-            <td colspan="3">P200200001</td>
-          </tr> -->
+            <th scope="row" class="required">요구사항명​</th>
+            <td>로그인 및 로그이력기능</td>
+          </tr>         
           <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
-            <td colspan="3"><input type="text" id="work_name"></td>
+            <td><input type="text" id="work_name"></td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_type">유형</label></th>
-            <td colspan="3">
+            <td>
               <select name="work_type" id="work_type">
                 <option value="단계 선택">단계 선택</option>
                 <option value="내부보고용">내부보고용</option>
@@ -2034,7 +1870,7 @@
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
-            <td colspan="3">
+            <td>
               <span class="file_input">
                 <select id="nameSelect">
                   <option value="업무범주를 선택하세요" selected>업무범주를 선택하세요</option>
@@ -2045,7 +1881,7 @@
           </tr>
           <tr>
             <th scope="row" class="required">담당자(수행기관)</th>
-            <td colspan="3">
+            <td>
               <span class="file_input">
                 <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
                 <datalist id="nameList">
@@ -2095,7 +1931,7 @@
             <th scope="row" class="required">
               <label for="work_expected">작업 예정기간</label>
             </th>
-            <td colspan="3">
+            <td>
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                 <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
@@ -2106,7 +1942,7 @@
             <th scope="row" class="required">
               <label for="work_start">실제 작업기간</label>
             </th>
-            <td colspan="3">
+            <td>
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                 <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
@@ -2117,19 +1953,19 @@
             <th scope="row" class="required">
               <label for="work_content">작업내용</label>
             </th>
-            <td colspan="3"><textarea name="work_content" id="work_content"></textarea></td>
+            <td><div id="work_content" contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_place">수행장소</label>
             </th>
-            <td colspan="3"><input type="text" id="work_place"></td>
+            <td><input type="text" id="work_place"></td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_progress">진행상태</label>
             </th>
-            <td colspan="3">
+            <td>
               <select name="work_progress" id="work_progress">
                 <option value="진행상태 선택">진행상태 선택</option>
                 <option value="준비">준비</option>
@@ -2143,17 +1979,17 @@
             <th scope="row">
               <label for="work_takingover">인수인계 구분</label>
             </th>
-            <td colspan="3">
+            <td>
               <label><input type="radio" id="work_takingover" name="work_takingover">해당사항 없음</label>
               <label><input type="radio" name="work_takingover">업무인계</label>
               <label><input type="radio" name="work_takingover">업무인수</label>
             </td>
           </tr>
           <tr>
-          <th scope="row">
+            <th scope="row">
               <label for="work_takingover">변경요청내역</label>
             </th>
-            <td><textarea name="" id="" cols="30" rows="10"></textarea></td>
+            <td><div id="work_takingover" contenteditable></div></td>
           </tr>
         </tbody>
       </table>
@@ -2172,24 +2008,42 @@
           </section>
           <section id="proj05" class="tab_contents risk">
             <section class="task_body">
-  <div class="tab_wrap">
-    <div class="tab_wrap">
-      <ul class="tab tab_s">
-        <li class="on"><a href="#tab_con01">진행중 <span>2</span>건</a></li>
-        <li><a href="#tab_con02">완료 <span>30</span>건</a></a></li>
-      </ul>
-      <select name="" id="" title="리스크 필터">
-        <option value="내가 쓴 글 보기">내가 쓴 글 보기</option>
-      </select>
-    </div>
-    <div class="btn_wrap alignR">
+  <article class="box_compact box_form">
+    <ul class="search_list">
+      <li>
+        <select class="" title="빠른필터">
+          <option value="">빠른필터</option>
+          <option value="">진행중인 글보기</option>
+          <option value="">내가 쓴 글 보기</option>
+          <option value="">내가 멘션된 글 보기</option>
+        </select>
+      </li>     
+    </ul>
+    <span class="btn_wrap">
       <button type="button" class="btn_red">추가</button>
       <button type="button" class="btn_red_line">수정</button>
       <button type="button" class="btn_gray_line">삭제</button>
-    </div>
-  </div>
-  <div class="tab_container">
-    <ul class="tbl_list">
+    </span>
+  </article> 
+  <div class="lst_wrap">
+    <ul class="search_list all_lst_ctrl">
+        <li>
+          <input type="checkbox" title="전체선택">
+        </li>
+        <li>
+          <label for="f1"><input type="radio" id="f1" name="risk_filter" checked>진행중<span>2</span>건</label>
+        <label for="f2"><input type="radio" id="f2" name="risk_filter">완료<span>30</span>건</label>
+        </li>
+        <li>
+          <select name="" id="" title="정렬기준">
+            <option value="">↓ 업데이트</option>
+            <option value="">↓ 등록일</option>
+            <option value="">↓ 만기일</option>
+            <option value="">↓ 상태</option>
+          </select>
+        </li>
+      </ul>
+    <ul class="tbl_list lst_ctrl">
       <li>
         <input type="checkbox" class="row_check">
         <div class="user_module">
@@ -2805,12 +2659,12 @@ p_projDoc.html
       const target = item.closest('.task_status_multi').find('.label');
       handleMultiSelect(item,[target])
     })
-    lst_item.on('click','.optionItem',function(e){
-      const item = $(this);
-      const target1 = item.closest('.task_status_multi').find('.all_label');
-      const target2 = item.closest('.taskstatus_layer').find('.tit').find('.label');     
-      handleMultiSelect(item,[target1,target2])
-    })
+    // lst_item.on('click','.optionItem',function(e){
+    //   const item = $(this);
+    //   const target1 = item.closest('.task_status_multi').find('.all_label');
+    //   const target2 = item.closest('.taskstatus_layer').find('.tit').find('.label');
+    //   handleMultiSelect(item,[target1,target2])
+    // })
     const handleMultiSelect = function(item,target){
       const itemVal = $(item).data('value');
       target.forEach(element => {      

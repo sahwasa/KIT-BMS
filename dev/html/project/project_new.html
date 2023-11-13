@@ -7,7 +7,7 @@
     <section class="contents">
       <!-- @@include('../../inc/snb/snb_fold.html') -->
       <header class="cont_tit">
-        <h1>프로젝트 추가<span>프로젝트</span></h1>
+        <h1>프로젝트 추가(수정겸용)<span>프로젝트</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
@@ -34,21 +34,21 @@
           </header>
         </div>
         <section class="new_contents">
-          <fieldset class="ipt_wrap ipt_set">
+          <fieldset class="ipt_wrap">
             <legend>프로젝트 정보</legend>
             <dl class="box_default_w">
-              <dt><label for="" class="required">업무구분</label></dt>
+              <dt><label for="work_scope" class="required">업무구분</label></dt>
               <dd>
                 <div class="file_input">
-                  <select name="" id="">
+                  <select name="" id="work_scope">
                     <option value="">선택</option>
-                    <option value="">사업기획</option>
-                    <option value="">사업제안</option>
-                    <option value="">개발구축</option>
-                    <option value="">연구과제</option>
-                    <option value="">유지보수</option>
-                    <option value="">물품구매</option>
-                    <option value="">사내업무</option>
+                    <option value="scope1">사업기획</option>
+                    <option value="scope2">사업제안</option>
+                    <option value="scope3">개발구축</option>
+                    <option value="scope4">연구과제</option>
+                    <option value="scope5">유지보수</option>
+                    <option value="scope6">물품구매</option>
+                    <option value="scope7">사내업무</option>
                   </select> 
                 </div>
               </dd>
@@ -109,19 +109,14 @@
                     </div>
                   </li>
                   <li>
-                    <em><label for="" class="required">상태</label></em>
-                    <select name="" id="" class="w_auto">
-                      <option value="">준비</option>
-                      <option value="">수행중</option>
-                      <option value="">하자보수</option>
-                      <option value="">종료</option>
-                      <option value="">취소</option>
-                      <option value="">기타</option>
+                    <em><label for="work_status" class="required">상태</label></em>
+                    <select name="" id="work_status" class="w_auto">
+                      <option>업부구분을 선택하세요.</option>
                     </select>
                   </li>
                 </ul>
               </dd>
-              <dt>참여자 <i title="지원 성격의 참여자는 추가하지 않습니다.">?</i> </dt>
+              <dt><label for="">참여자</label><i title="지원 성격의 참여자는 추가하지 않습니다.">?</i> </dt>
               <dd >
                 <div class="file_input">
                   <input type="text" id="" placeholder="임직원명" list="nameList">
@@ -130,8 +125,13 @@
                 </div>
                 @@include('../../inc/module/module_slide_user.html')
               </dd>
-              <dt>관련프로젝트</dt>
-              <dd><button type="button" class="btn btn_default">관련프로젝트 불러오기</button></dd>
+              <dt><label for="rel_proj">관련프로젝트</label></dt>
+              <dd class="flex_full">
+                <div class="file_input">
+                  <input type="text" id="rel_proj" readonly>
+                  <button type="button" class="btn_default" onclick="showRelDocDialog()">검색</button>
+                </div>
+              </dd>              
               <dt><label for="">비고</label></dt>
               <dd class="flex_full"><input type="text" id=""></dd>
             </dl>
@@ -190,6 +190,29 @@
 <script>
   $(function(){
     fileDropEvt();
+    $('#work_scope').on('change',function(){
+      const scope = $(this).val();
+      let statusItem,html;
+      $('#work_status').empty();
+      switch (scope) {
+        case '':
+          statusItem = ['업부구분을 선택하세요.'];          
+          break;
+        case 'scope1':
+          statusItem = ['기획','취소'];          
+          break;
+        case 'scope2':
+          statusItem = ['제안','수주','실주','취소'];          
+          break;          
+        default:
+          statusItem = ['수행중','하자보수','종료'];          
+          break;
+      }
+      statusItem.forEach((el, idx) => {
+        html = `<option value="status${idx}">${el}</option>`;
+        $('#work_status').append(html);
+      });
+    })
   })
 </script>
 </body>
