@@ -8,15 +8,32 @@
       <table class="tbl_default tbl_row">
         <caption>문서 추가 테이블</caption>
         <colgroup>
-          <col style="width:110px">
-          <col style="width:auto">
-          <col style="width:110px">
-          <col style="width:auto">
+          <col style="width:110px" />
+          <col />
+          <col style="width:110px" />
+          <col />
         </colgroup>
         <tbody>
           <tr>
-            <th scope="row" class="required">문서 ID​</th>
+            <th scope="row">문서 ID​</th>
             <td>P200200001</td>
+            
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="doc_type">단계</label></th>
+            <td>
+              <select name="doc_type" id="doc_type">
+                <option >단계 선택</option>
+                <option value="">착수</option>
+                <option value="">분석</option>
+                <option value="">설계</option>
+                <option value="">구축</option>
+                <option value="">시험운영</option>
+                <option value="">교육</option>
+                <option value="">준공</option>
+                <option value="">보고</option>
+              </select>
+            </td>
             <th scope="row" class="required"><label for="doc_type">유형</label></th>
             <td>
               <select name="doc_type" id="doc_type">
@@ -33,16 +50,8 @@
             <td colspan="3"><input type="text" id="doc_name"></td>
           </tr>
           <tr>
-            <th scope="row" class="required">승인자</th>
-            <td colspan="3">
-              <span class="file_input">
-                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
-                @@include('../data/data_emp_name.html')
-                <button type="button" class="btn_default">추가</button>
-                <button type="button" class="btn_ogt">조직도</button>
-              </span>
-              @@include('../module/module_slide_user.html')
-            </td>
+            <th scope="row" class="required"><label for="doc_dsc">내용</label></th>
+            <td colspan="3"><div id="doc_dsc" style="--h:150px" contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row" class="required">
@@ -50,6 +59,31 @@
             </th>
             <td colspan="3">
               @@include('../../inc/module/module_file_attach.html')
+            </td>
+          </tr>          
+          <tr>
+            <th scope="row">제출여부​</th>
+            <td>
+              <div class="btn_switch">
+                <input type="radio" id="submit" name="Submission_status">
+                <label for="submit">제출</label>
+                <input type="radio" id="unsubmit" name="Submission_status" checked>
+                <label for="unsubmit">미제출</label>
+              </div>
+            </td>
+            <th scope="row"><label for="">제출일자</label></th>
+            <td><input type="date"></td>
+          </tr>
+          <tr>
+            <th scope="row">공개여부​</th>
+            <td colspan="3">
+              <div class="btn_switch">
+                <input type="radio" id="public1" name="disclosure_status" checked>
+                <label for="public1">공개</label>
+                <input type="radio" id="private1" name="disclosure_status">
+                <label for="private1">비공개</label>
+                <span class="desc">PM, PL만 선택 가능</span>
+              </div>
             </td>
           </tr>
         </tbody>
