@@ -6,7 +6,7 @@
       <button type="button" class="btn_default" disabled>엑셀 다운로드(보류)</button>
     </span>
   </header>
-  <div class="task_body article_body">
+  <div class="article_body">
     <section class="left_section">
       <header class="lst_header">
         <h1 class="blind">요구사항 및 업무 목록</h1>
@@ -33,7 +33,7 @@
               <span class="score"><b>1</b>/2</span>
             </summary>
             <ul>
-              <li class="on">
+              <li>
                 <a href="#">
                   <i class="ing">수행중</i>회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축회원가입 및 로그인 기능 구축
                 </a>
@@ -61,7 +61,7 @@
                 </a>
                 <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
-              <li>
+              <li class="on">
                 <a href="#"><i class="hold">보류</i>고객 정보 일괄등록 기능(관리자용)</a>
                 <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
               </li>
@@ -286,58 +286,75 @@
           </dl>
         </article>
       </div>
-      <ul class="cmt_lst">
-        <li>
-          <div class="cmt_user">
-            <div class="user_module">
+      <section class="change_history">
+        <header class="lst_header">
+        <h1>변경요청 내역</h1>
+        <div class="btn_wrap">          
+          <button type="button" class="btn_red" onclick="event.preventDefault();document.querySelector('.p_require_task_change').showModal();">변경요청</button>
+        </div>
+      </header>
+        <ul class="cmt_lst">
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
-            <div class="user_module">
-              <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-              <span class="show">확인</span>
+              <div class="user_module">
+                <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+                <span class="show">승인</span>
+                &sol;
+                <span class="show t_red">반려</span>
+              </div>
             </div>
-          </div>
-          <div class="cmt_txt">
-            <p>타 업무에 긴급 투입되어 해당 업무 작업 일정을 변경요청합니다.</p>
-          </div>
-        </li>
-        <li>
-          <div class="cmt_user">
-            <div class="user_module">
+            <div class="changes">
+              <dl>
+                <dt>작업기간</dt>
+                <dd>2022-04-01 ~ 2022-04-03</dd>
+                <dt>작업내용</dt>
+                <dd>
+                  <div>
+                    · 기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 구현<br/>
+                    · 기관 홈페이지와 SSO 기능구현
+                  </div>
+                </dd>
+                <dt>변경사유</dt>
+                <dd>
+                  <div>작업내용 변동으로 해당 업무 작업내용과 일정 변경요청합니다.</div>
+                </dd>
+              </dl>
+            </div>
+            <div class="cmt_reject"><p>반려시 반려사유가 들어갑니다</p></div>
+          </li>
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>           
-            <div class="btn_wrap">
-              작성자 :
-              <button type="button">수정</button>
-              <button type="button">삭제</button>
-              &sol;
-              PM,PL :
-              <button type="button">반려</button>
-              <button type="button">확인</button>
+              <div class="btn_wrap">
+                <!-- 작성자 -->
+                <button type="button">수정</button>
+                <button type="button">삭제</button>
+                &sol;
+                <!-- PM,PL 반려시 반려사유 코멘트 -->
+                <button type="button">승인</button>
+                <button type="button">반려</button>
+              </div>
             </div>
-          </div>
-          <div class="cmt_txt">
-            <p>작업이 어려워서 기간을 좀 더 주세요</p>
-          </div>
-        </li>
-        <li>
-          <div class="cmt_user">
-            <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-          </div>
-          <div class="cmt_write">
-            <input type="text" value="못하겠어요… 죄송합니다 ㅠㅠㅠ">
-            <div class="btn_wrap">
-              <button type="button" class="btn_gray_line">등록</button>
-              <button type="button" class="btn_gray_line">취소</button>
+            <div class="changes">
+              <dl>
+                <dt>작업기간</dt>
+                <dd>2022-04-01 ~ 2022-04-08</dd>                
+                <dt>변경사유</dt>
+                <dd>
+                  <div>타 업무에 긴급 투입되어 해당 업무 작업 일정을 변경요청합니다.</div>
+                </dd>
+              </dl>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>          
+        </ul>
+      </section>
     </section>
   </div>
 </article>
@@ -621,3 +638,48 @@
     </div>
   </form>
 </dialog><!--// 업무 관리 -->
+<dialog class="p_require_task_change">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>업무 변경요청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>업무 변경요청 테이블</caption>
+        <colgroup>
+          <col style="width:130px">
+        </colgroup>
+        <tbody>          
+          <tr>
+            <th scope="row">
+              <label for="work_expected">작업 예정기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="">작업내용</label>
+            </th>
+            <td><div id="" contenteditable style="--h:100px"></div></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="">변경사유</label>
+            </th>
+            <td><div id="" contenteditable style="--h:50px"></div></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="btn_wrap">
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog> <!-- 업무 변경요청 -->

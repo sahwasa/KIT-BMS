@@ -1,0 +1,45 @@
+<dialog class="p_require_task_change">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>업무 변경요청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>업무 변경요청 테이블</caption>
+        <colgroup>
+          <col style="width:130px">
+        </colgroup>
+        <tbody>          
+          <tr>
+            <th scope="row">
+              <label for="work_expected">작업 예정기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="">작업내용</label>
+            </th>
+            <td><div id="" contenteditable style="--h:100px"></div></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="">변경사유</label>
+            </th>
+            <td><div id="" contenteditable style="--h:50px"></div></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="btn_wrap">
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>

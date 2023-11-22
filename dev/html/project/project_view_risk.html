@@ -1,4 +1,4 @@
-<section class="task_body">
+<section class="risk_body">
   <article class="box_compact box_form">
     <ul class="search_list">
       <li>
@@ -18,63 +18,59 @@
   </article> 
   <div class="lst_wrap">
     <ul class="search_list all_lst_ctrl">
-        <li>
-          <input type="checkbox" title="전체선택">
-        </li>
-        <li>
-          <label for="f1"><input type="radio" id="f1" name="risk_filter" checked>진행중<span>2</span>건</label>
-        <label for="f2"><input type="radio" id="f2" name="risk_filter">완료<span>30</span>건</label>
-        </li>
-        <li>
-          <select name="" id="" title="정렬기준">
-            <option value="">↓ 업데이트</option>
-            <option value="">↓ 등록일</option>
-            <option value="">↓ 만기일</option>
-            <option value="">↓ 상태</option>
-          </select>
-        </li>
-      </ul>
+      <li>
+        <input type="checkbox" title="전체선택">
+      </li>
+      <li>
+        <div class="btn_switch border_none">
+          <input type="radio" id="opened" name="disclosure" checked>
+          <label for="opened" class="opened">진행중<em>2</em>건</label>
+          <input type="radio" id="closed" name="disclosure">
+          <label for="closed" class="closed">완료<em>30</em>건</label>
+        </div>
+      </li>
+      <li>
+        <select name="" id="" title="정렬기준">
+          <option value="">↓ 업데이트</option>
+          <option value="">↓ 등록일</option>
+          <option value="">↓ 상태</option>
+        </select>
+      </li>
+    </ul>
     <ul class="tbl_list lst_ctrl">
       <li>
         <input type="checkbox" class="row_check">
-        <div class="user_module">
-          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-          <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-        </div>
-        <div>
+        @@include('../../inc/module/module_user.html')
+        <div class="dsc">
           <h3>OOO 자료분석​<div class="tags"><i>인력</i><i>비용</i></div>
           </h3>
-          <p><span class="risk_num">R202200001</span> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
+          <p><em class="risk_num">R202200001</em> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
             분석하는데 해당 언어가 유창한 인력이 필요 예상됨​</p>
         </div>
-        <dl>
+        <dl class="txt_info">
+          <dt>번호</dt>
+          <dd>2</dd>
           <dt>작성일자</dt>
           <dd>2023-10-10</dd>
           <dt>첨부파일</dt>
           <dd><a href="#" download="">KITGROUP_자리배치도(본사)_2023년2월1일자(정정).pdf</a></dd>
-          <dt>댓 글</dt>
-          <dd>3</dd>
         </dl>
       </li>
       <li class="risk_done">
         <input type="checkbox" class="row_check">
-        <div class="user_module">
-          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-          <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-        </div>
-        <div>
-          <h3>OOO 자료분석​<div class="tags"><i>일정</i><i>계약</i></div>
-          </h3>
-          <p><span class="risk_num">R202200001</span> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
+        @@include('../../inc/module/module_user.html')
+        <div class="dsc">
+          <h3>OOO 자료분석​<div class="tags"><i>일정</i><i>계약</i></div></h3>
+          <p><em class="risk_num">R202200001</em> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
             분석하는데 해당 언어가 유창한 인력이 필요 예상됨​</p>
         </div>
-        <dl>
+        <dl class="txt_info">
+          <dt>번호</dt>
+          <dd>1</dd>
           <dt>작성일자</dt>
           <dd>2023-10-10</dd>
           <dt>첨부파일</dt>
           <dd>000.hwp</dd>
-          <dt>댓 글</dt>
-          <dd>3</dd>
         </dl>
       </li>
     </ul>
@@ -85,7 +81,7 @@
 <span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 추가하기 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
 
 
-<section class="task_body">
+<section class="risk_body">
   <ul>
     <li class="ballon_wrap">
       <div class="user_module">
@@ -98,7 +94,7 @@
         </header>
         <div>
           <dl class="ipt_lst">
-            <dt><label for="">리스크 유형</label></dt>
+            <dt><label for="" class="required">리스크 유형</label></dt>
             <dd>
               <span class="file_input">
                 <select id="nameSelectR">
@@ -107,7 +103,7 @@
               </span>
               <div id="tagListR"></div>
             </dd>
-            <dt><label for="">요구사항 정보</label></dt>
+            <dt><label for="">관련 요구사항</label></dt>
             <dd>
               <span class="file_input">
                 <input type="text" placeholder="요구사항 ID" class="risk_id">
@@ -146,7 +142,64 @@
 <span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
 
 
-<section class="task_body">
+<section class="risk_body">
+  <article class="box_compact box_tool">
+    <button type="button" class="btn_gray_line">목록</button>
+  </article>
+  <ul>
+    <li class="ballon_wrap">
+      <div class="user_module">
+        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+        <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+      </div>
+      <div class="ballon_body">
+        <header>
+          <div class="btn_wrap">
+            <h1>OOO 자료분석</h1>
+            <div class="tags"><i>비용</i></div>
+            <span>2022-04-05</span>
+          </div>
+          <div class="layer_tool">
+            <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+            <div class="btn_layer">
+              <button type="button">처리완료</button>
+              <button type="button">재진행</button>
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
+            </div>
+          </div>
+        </header>
+        <div>
+          <h2><span class="risk_num">요구사항 ID</span>요구사항명 요구사항명</h2>
+          <div class="box_default_w file_attached">
+            <ul class="attach_list">
+              <li>
+                <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
+                <a href="#" target="_blank" class="preview">미리보기</a>
+              </li>              
+            </ul>
+          </div>
+          <p class="ballon_txt">
+            ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br>
+            ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br>
+            (´　 ＼/＿＿＿/)<br>
+            --------------------<br>
+            ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br>
+            \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br>
+            (\＿＿＿ \／ `)
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+
+
+<span>❤❤❤❤❤❤❤❤❤❤❤❤ 완료된 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
+
+
+<section class="risk_body">
   <article class="box_compact box_tool">
     <button type="button" class="btn_gray_line">목록</button>
   </article>
@@ -200,166 +253,4 @@
       </div>
     </li>
   </ul>
-</section>
-
-
-
-<span>❤❤❤❤❤❤❤❤❤❤❤❤ 완료된 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
-
-
-<section class="task_body">
-  <article class="box_compact box_tool">
-    <button type="button" class="btn_gray_line">목록</button>
-  </article>
-  <ul>
-    <li class="ballon_wrap">
-      <div class="user_module">
-        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-        <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-      </div>
-      <div class="ballon_body">
-        <header>
-          <div class="btn_wrap">
-            <h1>OOO 자료분석</h1>
-            <div class="tags"><i>비용</i></div>
-            <span>2022-04-05</span>
-          </div>
-          <div class="layer_tool">
-            <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-            <div class="btn_layer">
-              <button type="button">처리완료</button>
-              <button type="button">재진행</button>
-              <button type="button">수정</button>
-              <button type="button">삭제</button>
-            </div>
-          </div>
-        </header>
-        <div>
-          <h2><span class="t_skyblue">요구사항 ID</span>요구사항명 요구사항명</h2>
-          <div class="box_default_w file_attached">
-            <ul class="attach_list">
-              <li>
-                <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
-                <a href="#" target="_blank" class="preview">미리보기</a>
-              </li>
-              <li>
-                <a href="#"><i class="ext_ppt"></i>난 차라리 꽉 눌러붙을래 날 재촉한다면 고민 하나 없이 퍼져 있는 계란 fry fry 같이 나른하게.song</a>
-                <a href="#" target="_blank" class="preview">미리보기</a>
-              </li>
-            </ul>
-          </div>
-          <p class="ballon_txt">
-            ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br>
-            ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br>
-            (´　 ＼/＿＿＿/)<br>
-            --------------------<br>
-            ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br>
-            \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br>
-            (\＿＿＿ \／ `)
-          </p>
-        </div>
-      </div>
-    </li>
-  </ul>
-
-  <div class="risk_answer_wrap">
-    <h2>댓글 <span class="t_red">2</span>건</h2>
-    <ul>
-      <li class="ballon_wrap">
-        <div class="user_module">
-          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-          <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-        </div>
-        <div class="ballon_body">
-          <header>
-            <div class="btn_wrap">
-              <span>2022-04-05</span>
-            </div>
-            <div class="layer_tool">
-              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-              <div class="btn_layer">
-                <button type="button">수정</button>
-                <button type="button">삭제</button>
-              </div>
-            </div>
-          </header>
-          <div>
-            <p class="ballon_txt">
-              ╭ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝ ͡ ◜◝╮<br>
-              .. 난 차라리 굴러갈래<br>
-              .. 끝은 안 보여 뒤에선 등 떠미는데<br>
-              ╰ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞ ͜ ◟◞╯<br>
-              O<br>
-              ° 난 내 물결을 따라<br>
-              ᕱ _ᕱ Flow flow along flow along my way ➳✩⡱<br>
-              つ⋅⌄⋅)づ⌁⌁❤⌁⌁⋆❤❤❤❤❤❤<br><br>
-              At vero eos et accusam et justo duo dolores et ea rebum.<br> Stet clita kasd gubergren, no sea
-              takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,<br> consetetur sadipscing
-              elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,<br> sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-          </div>
-        </div>
-      </li>
-      <li class="ballon_wrap">
-        <div class="user_module">
-          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-          <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-        </div>
-        <div class="ballon_body">
-          <header>
-            <div class="btn_wrap">
-              <span>2022-04-05</span>
-            </div>
-            <div class="layer_tool">
-              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-              <div class="btn_layer">
-                <button type="button">수정</button>
-                <button type="button">삭제</button>
-              </div>
-            </div>
-          </header>
-          <div>
-            <p class="ballon_txt">
-              At vero eos et accusam et justo duo dolores et ea rebum.<br> Stet clita kasd gubergren, no sea
-              takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,<br> consetetur sadipscing
-              elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,<br> sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>
-              ／/　 <br>
-              　　 /　 ★;　　　　　　　　　　　밤 중 어딘가 소녀의 기도 소리가 들려오면<br>
-              　。|　　:　　　　　　　　　　　　그건 작은 별의 잠꼬대일 거야<br>
-              　　|　　　'i,　૮₍ ⸝⸝´ ˘ `⸝⸝ ₎ა　　　밤 중 어딘가 소년의 고백소리가 들려오면 ★- - - -<br>
-              ☆　 'i　　　 ﾄ､_( ヽ∩∩ ) ___ ,　　그건 작은 별의 뒤척임일 거야<br>
-              　.　　'i　　　　￣￣￣￣　　;'　　가끔 밤하늘을 보면<br>
-              　　　　丶,　　　　　　　,／　　。ﾟ　☆　　평소에는 보이지 않던 같은 모양의 빛깔이 떠다니지 ★- - - -<br>
-              　。★　　　　' ★- - - - '´´<br>
-              At vero eos et accusam et justo duo dolores et ea rebum.Stet clita kasd gubergren, no sea<br>
-              takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,<br> consetetur sadipscing
-              elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,<br> sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            </p>
-          </div>
-        </div>
-      </li>
-      <li class="ballon_wrap">
-        <div class="user_module">
-          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-          <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-        </div>
-        <div class="ballon_body">
-          <header>
-            <div class="btn_wrap">
-              <span>새 댓글 작성하기</span>
-            </div>
-          </header>
-          <div class="editor_wrap" id="editor_wrap">
-            <textarea name="editor" id="editor" title="에디터 영역">에디터가 위에 있어서 에디터로 안보여요ㅠ</textarea>
-            <div class="btn_wrap">
-              <button type="button" class="btn_red">저장</button>
-              <button type="button" class="btn_gray_line">취소</button>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
 </section>
