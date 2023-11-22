@@ -10,7 +10,7 @@
       headerToolbar: {
         left: 'prev,next',
         center: 'title',
-        right: 'fold,unfold'
+        right: 'fold unfold'
       },     
       customButtons: {
         fold: {

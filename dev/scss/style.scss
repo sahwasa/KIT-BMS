@@ -1,7 +1,7 @@
 $columnGap:25px;
 //layout
 #wrap{font-size:13px;color:$black;font-family:"NanumGothic","나눔고딕","Malgun Gothic","맑은고딕","Apple SD Gothic Neo","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;}
-.wrap{display:grid;grid-template-columns:60px 1fr;grid-template-rows:60px 1fr 59px;width:100%;min-width:1200px;min-height:100vh;}
+.wrap{display:grid;grid-template-columns:60px 1fr;grid-template-rows:60px 1fr 29px;width:100%;min-width:1200px;min-height:100vh;}
 .header{grid-row:1;grid-column:1/span 2;padding:0 $columnGap; border-bottom:1px solid #989898;}
 
 //header
@@ -14,7 +14,7 @@ $columnGap:25px;
 //footer
 .footer{display:flex;align-items:center;justify-content:center;grid-row:3;grid-column:2;border-top:1px solid #e1e1e1;padding:0 $columnGap;
   .connect{display:none;}
-  .copy{font-size:14px;color:#818181;}
+  .copy{font-size:11px;color:#818181;}
 }
 // login
 %info{margin-top:3px;color:#000;letter-spacing:-0.3px;
@@ -449,7 +449,7 @@ $snbWidth:250px;
 }
 
 //container
-.container{grid-row:2;grid-column:2;display:flex;}
+.container{grid-row:2;grid-column:2;display:flex;height: calc(100vh - 89px);overflow-y: auto;}
 .contents{position:relative;flex-grow:1;padding:15px $columnGap 0;}
 .snb_fold{position:absolute;left:-1px;top:10px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
 border:1px solid #ebebeb;border-left-width:0;border-radius:0 3px 3px 0;font-size:0;
@@ -986,7 +986,7 @@ $_planTypes:(
 %proj_txt{color:#b2bacd;font-weight:700;font-weight:700;font-size:11px;}
 .proj_name{font-weight:700;word-break:keep-all;letter-spacing:-.33px;line-height:15px;}
 .proj_desc{margin-top:10px;color:#71798a;font-size:12px;letter-spacing:-.11px}
-.proj_home{height:calc(100% - 93px);
+.proj_home{height:calc(100% - 73px);
   header{display:flex;align-items:center;gap:5px;
     h1{@include tit;font-size:22px;}
     .count{@include tit;gap:0;letter-spacing:-.5px;
@@ -1541,16 +1541,16 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &>:first-child{margin-top:0;}
   }
 }
-.handle_week{@include flex_between;gap:15px;justify-content:center;margin-bottom:10px;padding-top:10px;
+.handle_week{@include flex_between;gap:15px;justify-content:center;margin-bottom:5px;padding-top:5px;
     .handle_prev,
     .handle_next{font-size:0;
-      &::before{display:block;@include fontello('\f105');font-size:15px;width:30px;line-height:30px;border:1px solid #a2a2a2;border-radius:15px;color:#000;font-weight:bold;}
+      &::before{display:block;@include fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:15px;color:#000;font-weight:bold;}
       &:disabled{cursor:not-allowed;
         &::before{border-color:#d2d2d2;color:#d2d2d2;}
       }
     }
     .handle_prev::before{content:'\f104';}
-  span{font-size:20px;font-weight:bold;}
+  span{font-size:14px;font-weight:bold;}
 }
 .tbl_work_day td{@include alignL(2);
   .tit{display:block;font-weight:bold;margin-bottom:5px;}
