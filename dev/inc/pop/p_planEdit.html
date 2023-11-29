@@ -19,7 +19,22 @@
             </tr>
             <tr>
               <th scope="row"><label for="plan_tit">제목</label></th>
-              <td><input type="text" id="plan_tit"></td>
+              <td>
+                <div class="file_input">
+                  <div class="select_custom plan_tit_type">
+                    <button type="button" class="label" onclick="event.stopPropagation();">
+                      <span class="opt_label">선택</span>
+                    </button>
+                    <ul class="optionList" onchange="console.log('ㅇㅇ')">
+                      <li class="optionItem" tabindex="0" data-value="personal"><i class="s_personal">B</i>개인</li>
+                      <!-- <li class="optionItem" tabindex="0" data-value="business"><i class="s_business">C</i>업무</li> -->
+                      <li class="optionItem" tabindex="0" data-value="meeting"><i class="s_meeting">C</i>회의</li>
+                      <li class="optionItem" tabindex="0" data-value="event"><i class="s_event">C</i>행사</li>
+                    </ul>
+                  </div>
+                  <input type="text" id="plan_tit">
+                </div>
+              </td>
             </tr>
             <tr>
               <th scope="row"><label for="plan_place">장소</label></th>

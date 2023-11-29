@@ -290,7 +290,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
   &::before{font-size:20px;}
 }
 $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f);
-$_planType:('personal':#1E7B45,'business':#1E7B45, 'event':#1E7B45, 'meeting':#4285f4, 'leave':#7249BD);
+$_planType:('personal':#1E7B45,'business':#1E7B45, 'event':#d85c82, 'meeting':#4285f4, 'leave':#7249BD);
 
 .select_custom{position:relative;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;vertical-align:middle;
   &.active{
@@ -424,7 +424,7 @@ $btn_red_line:#ff7575;
         &::after{@include fontello('\eb2e');font-size:12px;}
       }
       p{padding:2px 10px;color:#717889;transition:.3s;}
-      &:hover{background-color:#dbdbdb;
+      &:has(button):hover{background-color:#dbdbdb;
         button{right:0;}
         p{padding-left:5px;padding-right:15px;}
       }

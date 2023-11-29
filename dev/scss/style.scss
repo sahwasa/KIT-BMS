@@ -1,4 +1,4 @@
-$columnGap:25px;
+$columnGap:25px;$minH:540px;
 //layout
 #wrap{font-size:13px;color:$black;font-family:"NanumGothic","나눔고딕","Malgun Gothic","맑은고딕","Apple SD Gothic Neo","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;}
 .wrap{display:grid;grid-template-columns:60px 1fr;grid-template-rows:60px 1fr 29px;width:100%;min-width:1200px;min-height:100vh;}
@@ -324,8 +324,10 @@ height:0;overflow:hidden;background-color:$black;z-index:100;
 //nav
 .nav{position:relative;z-index:1;grid-row:1/span 3;grid-column:1/1;
 background:$black;
-  .nav_lst{display:flex;flex-direction:column;height:100%;}
-  li{position:relative;width:100%;height:60px;border-bottom:1px solid #575656;
+  .nav_lst{display:flex;flex-direction:column;height:100vh;min-height:$minH;overflow-y:auto;
+    &::-webkit-scrollbar{width:1px;}
+  }
+  li{flex-shrink:0;position:relative;width:100%;height:60px;border-bottom:1px solid #575656;
     a{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:$white;font-size:10px;letter-spacing:.25px;
       &::before{@include shape(26px,26px);background:url('../images/bg_nav.png') 0 0 no-repeat;position:relative;margin-bottom:3px;}
     }    
@@ -344,9 +346,9 @@ background:$black;
 }
 
 $snbWidth:250px;
-.snb{width:$snbWidth;border-right:1px solid #eee;text-align:center;padding:15px 0 0;overflow:hidden;flex-shrink:0;background-color:#f9fafc;
+.snb{width:$snbWidth;border-right:1px solid #eee;text-align:center;padding:0;overflow:hidden;flex-shrink:0;background-color:#f9fafc;
   $border-color:#bec7d2;
-  .snb_container{min-width:$snbWidth;}
+  .snb_container{min-width:$snbWidth;height:calc(100vh - 90px);min-height:$minH;overflow-y:auto;padding-top:15px;&::-webkit-scrollbar {width:0;}}
   h2{padding:0 15px 12px;font-size:20px;font-weight:bold;letter-spacing:-.5px;border-bottom:1px solid $border-color;overflow:hidden;}
   .btn_workset{background-color:#edf0f3;border-bottom:1px solid $border-color;border-width:1px 0;padding:13px #{$columnGap - 10px};
     button,a{display:block;width:100%;font-weight:bold;font-size:14px;letter-spacing:-.35px;border-radius:5px;line-height:32px;}
@@ -449,8 +451,8 @@ $snbWidth:250px;
 }
 
 //container
-.container{grid-row:2;grid-column:2;display:flex;height: calc(100vh - 89px);overflow-y: auto;}
-.contents{position:relative;flex-grow:1;padding:15px $columnGap 0;}
+.container{grid-row:2;grid-column:2;display:flex;overflow-y: auto;}
+.contents{position:relative;flex-grow:1;padding:15px $columnGap 0;height:calc(100vh - 90px);overflow-y:auto;&::-webkit-scrollbar {width:0;}}
 .snb_fold{position:absolute;left:-1px;top:10px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
 border:1px solid #ebebeb;border-left-width:0;border-radius:0 3px 3px 0;font-size:0;
 z-index:10;
@@ -473,7 +475,7 @@ z-index:10;
     &::before{position:relative;top:-1px;@include fontello('\f105');margin:0 5px;color:#888;font-weight:normal;}
   }
 }
-.cont_body{padding-bottom:30px;
+.cont_body{
   .section_tit{@include flex_between;margin-bottom:10px;
     h1{flex-grow:1;font-weight:bold;color:#363636;font-size:16px;letter-spacing:$tit_spacing;
       &::before{display:inline-block;font-family:fontello;margin-right:3px;}
@@ -563,14 +565,14 @@ z-index:10;
   }
 }
 .my_approval{@include flex_between;align-items:stretch;
-  .flex_right{@include form_style();} 
+  .flex_right{@include form_style();min-width:auto;} 
 }
 %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:541px;transform:translate(-5px,-5px);
   &>li{
     &:empty{background-color:rgba(0, 0, 0, .05);box-shadow:none!important;}
   }
 }
-.status{width:260px;margin-right:20px;
+.status{flex-shrink:0;width:260px;margin-right:20px;
   ul{@extend %approval_list;
     &:empty::before{@include empty_box('요청 문서가 없습니다');height:541px;background-color:rgba(0, 0, 0, .05);}
   }
@@ -924,50 +926,55 @@ $_planTypes:(
 }
 .add_screen,
 #add_screen{position:fixed;top:60px;right:auto;z-index:10;width:calc(100% - 60px);height:calc(100% - 60px);background:#fff;} // 일정 페이지 전환
-.tbl_list.briefing{
-  .briefing_plan_wrap{@include flex_between;}
-  & > li{padding:9px 20px;align-items:center;}
-  .briefing_date{text-align:center;align-self:flex-start;
-    &>span{
-      &:first-child{display:block;width:32px;margin-bottom:2px;font-size:21px;font-weight:bold;line-height:32px;letter-spacing:-.05em;}
-      &:last-child{font-size:11px;letter-spacing:-0.55px;}
-    }
-    &.today .num{color:#fff;background-color:#e42b29;border-radius:20px;}
-    &.sat{color:#4680f5;}
-    &.sun{color:#f50000;}
-    &+div{display:flex;flex-direction:column;justify-content:center;gap:15px;}
+
+.briefing_lst{padding-top:10px;
+ .briefing{max-height:calc(100vh - 252px);overflow-y:auto;
+    & > li{align-items:center;padding:10px;
+    &:hover{background-color:transparent;}}
   }  
-  // 'event':개인,업무,행사, 'leave':근태, 나머지 회의);
-  $defalutColor:#009dee;
-  .briefing_plan{flex:1;padding:3px 0 0 20px;position:relative;
-    &::before{position:absolute;top:0;left:0;@include shape(8px,100%);border-radius:2px;background:#fff;border:1px solid #009dee;}
-    &>p{font-size:13px;
-      &:first-child{margin-bottom:3px;color:#6d6d6d;}
-      &:last-child{color:#333;font-weight:bold;}
-    }   
-  }
-  .briefing_state{width:220px;text-align:right;
-    select{display:block;margin-bottom:2px;}
-    button{display: flex;gap:6px;letter-spacing:-.05em;
-      &:hover{text-decoration:underline;}
-    }
-  }
-  @each $type, $color in $_planType{
-    .#{$type}{
-      .briefing_plan::before{border-color:$color;}
-      &.attend .briefing_plan::before{background-color:$color;}
-      &.undefined .briefing_plan::before{background:linear-gradient(-45deg, #fff 37%, $color 0, $color 48%, #fff 0, #fff 87%, $color 0);-webkit-background-size:10px 10px;background-size:10px 10px;}
-    }
-  }
-  .nonappearance{
-    .briefing_plan::before{background:rgb(236, 236, 236);border-color:#ebebeb;}
-    .briefing_plan>p{color:rgb(190, 190, 190);}
-  }// 불참
 }
+.briefing_plan_wrap{@include flex_between;padding:10px;border-radius:5px;
+  &:hover{background-color:#f8f8f8;}
+  &.on{background-color:#fee;}
+}
+.briefing_date{flex-shrink:0;width:32px;text-align:center;align-self:flex-start;margin-left:10px;
+  .num{display:block;margin-bottom:2px;font-size:21px;font-weight:bold;line-height:32px;letter-spacing:-.05em;}
+  .txt{font-size:11px;letter-spacing:-0.55px;}
+  &.today .num{color:#fff;background-color:#e42b29;border-radius:20px;}
+  &.sat{color:#4680f5;}
+  &.sun{color:#f50000;}
+  &+div{display:flex;flex-direction:column;justify-content:center;gap:5px;}
+}
+  // 'event':개인,업무,행사, 'leave':근태, 나머지 회의);
+$defalutColor:#009dee;
+.briefing_plan{flex:1;padding:3px 0 0 20px;position:relative;
+  &::before{position:absolute;top:0;left:0;@include shape(8px,100%);border-radius:2px;background:#fff;border:1px solid #009dee;}
+  &>p{font-size:13px;
+    &:first-child{margin-bottom:3px;color:#6d6d6d;}
+    &:last-child{color:#333;font-weight:bold;}
+  }   
+}
+.briefing_state{width:220px;text-align:right;
+  select{display:block;margin-bottom:2px;}
+  button{display: flex;gap:6px;letter-spacing:-.05em;
+    &:hover{text-decoration:underline;}
+  }
+}
+@each $type, $color in $_planType{
+  .#{$type}{
+    .briefing_plan::before{border-color:$color;}
+    &.attend .briefing_plan::before{background-color:$color;}
+    &.undefined .briefing_plan::before{background:linear-gradient(-45deg, #fff 37%, $color 0, $color 48%, #fff 0, #fff 87%, $color 0);-webkit-background-size:10px 10px;background-size:10px 10px;}
+  }
+}
+.nonappearance{
+  .briefing_plan::before{background:rgb(236, 236, 236);border-color:#ebebeb;}
+  .briefing_plan>p{color:rgb(190, 190, 190);}
+}// 불참
 //project
 %proj_tag{width:35px;line-height:13px;@include badge_style(45px,45px);font-size:10px;letter-spacing:-.25px;font-weight:700;}
 %type{background-color:#f8c9ce;color:#404654;}
-.proj_lst{text-align:left;
+.proj_lst{overflow-y:auto;max-height:calc(100vh - 380px);text-align:left;
   & > li{padding:10px calc($columnGap - 10px);border-bottom:1px solid #ebebeb;line-height:16px;
     &:hover{background-color:#f9fafc;}
     &.on{background-color:#fef4f5;}
@@ -986,13 +993,14 @@ $_planTypes:(
 %proj_txt{color:#b2bacd;font-weight:700;font-weight:700;font-size:11px;}
 .proj_name{font-weight:700;word-break:keep-all;letter-spacing:-.33px;line-height:15px;}
 .proj_desc{margin-top:10px;color:#71798a;font-size:12px;letter-spacing:-.11px}
-.proj_home{height:calc(100% - 73px);
+.proj_home{
   header{display:flex;align-items:center;gap:5px;
     h1{@include tit;font-size:22px;}
     .count{@include tit;gap:0;letter-spacing:-.5px;
       em{color:#888;}
     }
   }
+  .my_task{height:calc(100vh - 220px);min-height:540px;}
 }
 $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$task_cancel,'hold':$task_hold);
 .task_num{@include badge_style(){min-width:26px;line-height:15px;text-align:center;background-color:#d3d3d3;border-radius:8px;color:#404654;padding:0 5px;align-self:flex-start;}}
@@ -1541,16 +1549,16 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &>:first-child{margin-top:0;}
   }
 }
-.handle_week{@include flex_between;gap:15px;justify-content:center;margin-bottom:5px;padding-top:5px;
+.handle_week{@include flex_between;gap:15px;justify-content:center;margin-bottom:10px;padding-top:5px;
     .handle_prev,
     .handle_next{font-size:0;
-      &::before{display:block;@include fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:15px;color:#000;font-weight:bold;}
+      &::before{display:block;@include fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:50%;color:#000;font-weight:bold;}
       &:disabled{cursor:not-allowed;
         &::before{border-color:#d2d2d2;color:#d2d2d2;}
       }
     }
     .handle_prev::before{content:'\f104';}
-  span{font-size:14px;font-weight:bold;}
+  span{font-size:18px;font-weight:bold;}
 }
 .tbl_work_day td{@include alignL(2);
   .tit{display:block;font-weight:bold;margin-bottom:5px;}
