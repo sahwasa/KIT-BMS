@@ -85,7 +85,7 @@
           <header class="blind">
             <h1>일정 목록</h1>
           </header>
-          <section class="tbl_top_area">
+          <section class="tbl_top_area box_compact">
             <a href="plan.html" class="btn_gray_line">달력보기</a>
             <ul class="search_list divide">
               <li>
@@ -102,10 +102,18 @@
               </li>
               <li>
                 <button type="button" class="btn_refresh">초기화</button>
-              </li>
+              </li>              
             </ul>
           </section>
-          <section>
+          <section class="briefing_lst">
+            <header class="lst_header">
+              <div class="btn_switch border_none">
+                <input type="radio" id="opened" name="disclosure" checked="">
+                <label for="opened" class="opened">전체</label>
+                <input type="radio" id="closed" name="disclosure">
+                <label for="closed" class="closed">미응답<em>4</em>건</label>
+              </div>
+            </header>
             <ul class="tbl_list briefing">
               <li>
                 <b class="briefing_date sat">
@@ -121,7 +129,7 @@
                       <p>하루종일</p>
                     </div> 
                   </div>
-                  <div class="briefing_plan_wrap event undefined">
+                  <div class="briefing_plan_wrap event undefined on">
                     <div class="briefing_plan">
                       <p>참석여부 미응답 일정</p>
                       <p>10:00 ~ 17:00</p>
