@@ -18,7 +18,7 @@
   .fc-event-title{color:$red;font-style:normal;}
 }
 /* 개인일정 */
-.personal{@include customEvt(#00477f);border-color:#79B2DE;
+.cal_personal{@include customEvt(#00477f);border-color:#79B2DE;
   background-color:rgba(64, 145, 208, 0.15) !important;
 }
 
