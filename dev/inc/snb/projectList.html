@@ -21,8 +21,9 @@
           <div class="proj_add" id="proj_add" data-tglwrap>
             <!-- <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button> -->
             @@include('../module/module_period.html')
-            <div class="add_opt">              \
-
+            <div class="add_opt">
+              <input type="text" id="rel_proj" placeholder="프로젝트명" title="프로젝트명 검색" list="projectList">
+              @@include('../data/data_project_name.html')
               <button class="btn_search_square">검색</button>
             </div>
           </div>

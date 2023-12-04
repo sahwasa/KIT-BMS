@@ -64,7 +64,8 @@
         </li>
       </ul>
       <ul class="task_lst lst_ctrl">
-        <li class="on">
+        <!-- <li class="on"> 선택 시 -->
+        <li>
           <div class="tit">
             <input type="checkbox">
             <em title="이슈번호">1</em>
@@ -151,6 +152,7 @@
     </section>
   </section>
   <section class="right_section">
+    <!-- 기본화면 -->
     <div class="issue_default">
       <article class="proj_box">
         <header>
@@ -195,9 +197,7 @@
             <tbody>
               <tr>
                 <td>@@include('../../inc/module/module_user.html')<em class="tag_pm">PM</em></td>
-                <td><div class="progress_wrap">
-                  <progress id="" value="100" min="0" max="100"></progress><label for="">100%</label>
-                </div></td>
+                <td><div class="progress_wrap"><progress id="" value="100" min="0" max="100"></progress>100&percnt;</div></td>
                 <td>0</td>
                 <td>0</td>
                 <td>0</td>
@@ -206,9 +206,7 @@
               </tr>
               <tr>
                 <td>@@include('../../inc/module/module_user.html')</td>
-                <td><div class="progress_wrap">
-                  <progress id="" value="100" min="0" max="100"></progress><label for="">2%</label>
-                </div></td>
+                <td><div class="progress_wrap"><progress id="" value="100" min="0" max="100"></progress>2&percnt;</div></td>
                 <td>0</td>
                 <td>0</td>
                 <td>0</td>
@@ -217,9 +215,7 @@
               </tr>
               <tr>
                 <td>@@include('../../inc/module/module_user.html')</td>
-                <td><div class="progress_wrap">
-                  <progress id="" value="50" min="0" max="100"></progress><label for="">50%</label>
-                </div></td>
+                <td><div class="progress_wrap"><progress id="" value="50" min="0" max="100"></progress>50&percnt;</div></td>
                 <td>0</td>
                 <td>0</td>
                 <td>0</td>
@@ -231,12 +227,14 @@
         </div>
       </article>  
     </div>
+
+    <!-- 뷰화면 -->
     <div class="issue_dtl">
       <article>
         <header>
           <h1>ktko 자료 생성 웹페이지 구현<em title="이슈번호" class="task_num">1</em> </h1>
           <div class="btn_wrap">
-            <button type="button" class="btn_red_line">수정</button>
+            <button type="button" class="btn_red_line" onclick="document.querySelector('.p_issue_write').showModal();">수정</button>
             <button type="button" class="btn_red_line">삭제</button>
           </div>
         </header>
@@ -248,23 +246,15 @@
           </div>
         </header> -->
         <dl class="ipt_lst">
-          <dt><label for="">업무상태</label></dt>
-          <dd>
-            <div class="select_custom task_status">
-              <button class="label"><span class="opt_label">상태</span></button>
-              <ul class="optionList">
-                <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
-                <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
-                <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
-                <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
-                <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
-                <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
-              </ul>
-            </div>
-          </dd>
           <dt>업무상태</dt>
-          <dd>
-            <div class="task_status_multi">
+          <dd>          
+            <div class="task_status">
+              <!-- 각 담당자별 자신것만 수정 가능 -->
+              <div class="taskstatus_layer">              
+                  @@include('../../inc/module/module_taskstatus.html')                
+              </div>
+            </div>
+            <!-- <div class="task_status_multi">
               <button class="all_label label"><span class="task_ing">진행</span></button>
               <div class="taskstatus_layer">
                 <div class="tit">
@@ -280,13 +270,14 @@
                   <dd>@@include('../../inc/module/module_taskstatus.html')</dd>
                 </dl> 
               </div>
-            </div>
+            </div> -->
           </dd>          
-          <dt><label for="">작성자</label></dt>
+          <dt>작성자</dt>
           <dd>@@include('../../inc/module/module_user.html')</dd>          
-          <dt><label for="">담당자</label></dt>
+          <dt>담당자</dt>
           <dd>
             <ul class="user_lst">
+              <li>@@include('../../inc/module/module_user.html')</li><!-- 상태변경안함 -->
               <li>@@include('../../inc/module/module_user.html')<i class="task_ing">진행</i></li>
               <li>@@include('../../inc/module/module_user.html')<i class="task_plan">계획</i></li>
               <li>@@include('../../inc/module/module_user.html')<i class="task_done">완료</i></li>
@@ -294,35 +285,39 @@
               <li>@@include('../../inc/module/module_user.html')<i class="task_hold">보류</i></li>
             </ul>
           </dd>
-          <!-- <dt><label for="">담당자(쓰기수정)</label></dt>
-          <dd class="flex_full">
-            <div class="file_input inline">
-              <input type="text" id="" placeholder="부서or이름" list="nameList">
-              @@include('../../inc/data/data_emp_name.html')
-              <button type="button" class="btn_ogt btnMngTree">조직도</button>
-            </div>
-            @@include('../../inc/module/module_slide_user.html')
-          </dd> -->
-          <dt><label for="">참조자</label></dt>
+          <dt>참조자</dt>
           <dd>없음</dd>
-          <dt><label for="">만기일</label></dt>
+          <dt>만기일</dt>
           <dd>
             @@include('../../inc/module/module_period.html')
           </dd>
-          <dt><label for="">업무범주</label></dt>
+          <dt>업무범주</dt>
           <dd>
-            <span class="file_input">
-              <select id="nameSelect">
-                <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
-              </select>
-            </span>
-            <div id="tagsList"></div>
+            <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
+            </div>
           </dd>
           <dt>첨부파일</dt>
-          <dd>@@include('../../inc/module/module_file_attach.html')</dd>
+          <dd>
+          <div class="file_attached">
+            <ul class="attach_list">
+              <li>
+                <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+              </li>
+              <li>
+                <a href="#" download><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+              </li>
+            </ul>
+          </div>
+          </dd>
         </dl>
-        <div class="editor_wrap" id="editor_wrap">
-          <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+        <div class="issue_txt">
+          ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br/>
+          ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br/>
+          (´　 ＼/＿＿＿/)<br/>
+          --------------------<br/>
+          ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br/>
+          \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br/>
+          (\＿＿＿ \／ `)<br/>
         </div>
         @@include('../../inc/module/comment_area_file.html')
       </article>

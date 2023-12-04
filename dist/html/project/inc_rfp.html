@@ -1,0 +1,76 @@
+<section class="rfp_dtl" style="display:none;">
+  <header class="lst_header">
+    <h1 class="blind">요구사항 상세</h1>
+    <div class="btn_wrap">
+      <button type="button" class="btn_red" onclick="document.querySelector('.p_workMan').showModal();">업무 추가</button>
+      <button type="button" class="btn_red_line">수정</button>
+      <button type="button" class="btn_red_line">삭제</button>
+    </div>
+  </header>
+  <div class="work_form">
+    <header>
+      <h1>사업수행계획서 및 착수계 제출</h1>
+      <span class="date">작성일 : 2024-06-05</span>
+    </header>
+    <dl class="set_list work_dot_wrap">
+      <dt>작성자</dt>
+      <dd>
+        <div class="user_module">
+          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+          <em>홍길동</em>
+        </div>
+      </dd>
+      <dt>요구사항ID</dt>
+      <dd>R202300001</dd>
+      <dt>단계</dt>
+      <dd>
+        <div class="tags"><i class="start">착수</i></div>
+      </dd>          
+      <dt>RFP ID</dt>
+      <dd>FUN01</dd>
+      <dt>기관 담당자</dt>
+      <dd>이담당주무관(지진사업팀- TEL 010-0000-0000)</dd>
+      <dt>담당자(PL)</dt>
+      <dd>
+        <div class="user_module">
+          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+          <em>홍길동</em><b>(재난예경보MA팀)</b>
+        </div>
+      </dd>
+      <dt>유형</dt>
+      <dd>내부보고용</dd>
+      <dt>수행기간</dt>
+      <dd>2022-04-01 ~ 2022-04-01 (하위TASK최초시작최종종료일)</dd>
+      <dt>난이도</dt>
+      <dd>
+        <div class="btn_switch btn_switch_s">
+          <input type="radio" id="high" name="difficulty">
+          <label for="high" class="high_prio">높음</label>
+          <input type="radio" id="common" name="difficulty" checked="">
+          <label for="common" class="normal_prio">보통</label>
+          <input type="radio" id="row" name="difficulty">
+          <label for="row" class="low_prio">낮음</label>
+        </div>
+      </dd>
+      <dt>중요도</dt>
+      <dd>
+        <div class="btn_switch btn_switch_s">
+          <input type="radio" id="high2" name="importance" checked="">
+          <label for="high2" class="high_prio">높음</label>
+          <input type="radio" id="common2" name="importance">
+          <label for="common2" class="normal_prio">보통</label>
+          <input type="radio" id="row2" name="importance">
+          <label for="row2" class="low_prio">낮음</label>
+        </div>
+      </dd>
+      <dt>상태</dt>
+      <dd class="ico_proj"><i class="ing"></i>수행중<span class="score"><b>1</b>/2</span></dd>
+      <dt>내용</dt>
+      <dd>시스템 권한 별 로그인 및 기록관리 기능</dd>
+      <dt>수행방안</dt>
+      <dd>· 기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 구현<br>
+        · 기관 홈페이지와 SSO 기능구현<br>
+        · 기록된 로그 데이터를 유형, 기간 대상자등 다양한 검색조건 추출/조회</dd>
+    </dl>
+  </div>
+</section>

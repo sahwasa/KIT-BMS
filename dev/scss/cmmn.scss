@@ -512,12 +512,17 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
   .count{color:#424242;font-size:12px;margin-left:12px;}
 }
+section:has(>.tbl_default){position:relative;height:calc(100vh - 222px);min-height:407px;overflow-y:auto;border-top:2px solid $th_border_color;
+  .tbl_default{border-top-width:0;
+  }
+  th::after{position:absolute;left:0;bottom:-1px;@include shape(100%,0);border-bottom:1px solid $th_border_color;z-index:1;}
+}
 .tbl_default{width:100%;text-align:center;border-top:2px solid $th_border_color;
   &.no_thead{border-top:1px solid $th_border_color;
     thead{@include blind;}
   }
   th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
-  th{color:#111;font-weight:bold;}
+  th{position:sticky;position: -webkit-sticky;top:0;background-color:#fff;color:#111;font-weight:bold;}
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
   }
@@ -572,7 +577,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   .btn_ellipsis{@include ico_only;
     &::before{@include fontello('\f142');font-size:14px;padding:0 10px;}
   }
-  .btn_layer{position:absolute;top:100%;left:50%;transform:translateX(-50%);display:inline-flex;flex-direction:column;height:0;z-index:10;overflow:hidden;box-sizing:border-box;white-space:nowrap;
+  .btn_layer{position:absolute;top:100%;right:0;display:inline-flex;flex-direction:column;height:0;z-index:10;overflow:hidden;box-sizing:border-box;white-space:nowrap;
     button{margin:3px 0;padding:2px 10px;}
     button:hover{background-color:#e5e6e8;}
     &:not(:has(button)){width:100px;padding:5px;white-space:inherit;
@@ -610,6 +615,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
     .right{position:absolute;top:0;right:0;}
   }  
 }
+.tab_lst,
 .tab{
   $border-color:#eaedf1;
   $border-on-color:#bec7d2;
@@ -716,7 +722,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   &>input,
   .full{flex:1;}
   &>[list]{min-width:50%;}
-  &>*{width:auto;align-self:center;vertical-align:middle;white-space:nowrap;}
+  &>*{flex-shrink:0;width:auto;align-self:center;vertical-align:middle;white-space:nowrap;}
   &>.btn_slideclose{margin-top:0;}
   &.inline{display:inline-flex;}
   a{display:flex;gap:4px;

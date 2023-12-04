@@ -247,25 +247,15 @@
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div>
     </div>
-  </li>
-  <li>
-    <div>
-      <p>임선</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li>
+  </li> 
 </ul>
               </dd>
               <dt><label for="rel_proj">관련프로젝트</label></dt>
               <dd class="flex_full">
                 <div class="file_input">
-                  <input type="text" id="rel_proj" readonly>
-                  <button type="button" class="btn_default" onclick="showRelDocDialog()">검색</button>
+                  <input type="text" id="rel_proj" readonly value="도시폭염을 고려한 폭염저감기술 최적화
+(2023년 도시폭염 2차)">
+                  <button type="button" class="btn_default" onclick="document.querySelector('.p_relProj').showModal();">검색</button>
                 </div>
               </dd>              
               <dt><label for="">비고</label></dt>
@@ -277,7 +267,7 @@
             <dl class="box_default_w">
               <dt><label for="">계약기간</label></dt>
               <dd class="flex_full">
-                    <div class="period_custom">
+                <div class="period_custom">
   <span>
     <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
   </span>
@@ -353,6 +343,122 @@
   <strong class="connect">관리자 연락처 02-8004-9050</strong>
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
+  <dialog class="p_relProj">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>관련 프로젝트</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div class="">
+        <div class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <select name="" id="" title="업무구분"><option value="">업무구분</option></select>
+            </li>
+            <li>
+              <input type="text" name="" id="draftsman" title="프로젝트명" placeholder="프로젝트명" list="projectList">
+              <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+            </li>
+            <li>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </li>
+            <li>
+              <label for="allProj"><input type="checkbox" id="allProj" data-checkEvt="draftsman">비공개</label>
+            </li>
+          </ul>
+          <div class="flex_right">
+            <button type="button" class="btn_search">검색</button>
+          </div>
+        </div>
+        <section class="split_area">
+          <section class="proj_wrap">
+            <ul class="proj_lst">
+              <li class="on">
+                <a>
+                  <div class="tag_wrap">
+                    <i class="type">R&amp;D</i>
+                    <span class="i_public blind">공개</span>
+                  </div>
+                  <div class="proj_name">
+                    <b>도시폭염을 고려한 폭염저감기술 최적화</b>
+                  </div>
+                  <ul class="proj_desc">
+                    <li>KITValley &sol; 권기봉</li>
+                    <li>2023-01-01 ~ 2023-12-31</li>
+                  </ul>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <div class="tag_wrap">
+                    <i class="type">용역</i>
+                    <span class="i_private">비공개</span>
+                  </div>
+                  <div class="proj_name">
+                    <b>도시폭염을 고려한 폭염저감기술 최적화</b>
+                  </div>
+                  <ul class="proj_desc">
+                    <li>KITValley &sol; 권기봉</li>
+                    <li>2023-01-01 ~ 2023-12-31</li>
+                  </ul>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <div class="tag_wrap">
+                    <i class="type">사업제안</i>
+                    <span class="i_public blind">공개</span>
+                  </div>
+                  <div class="proj_name">
+                    <b>도시폭염을 고려한 폭염저감기술 최적화</b>
+                  </div>
+                  <ul class="proj_desc">
+                    <li>KITValley &sol; 권기봉</li>
+                    <li>2023-01-01 ~ 2023-12-31</li>
+                  </ul>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section class="proj_overview">
+            <header>
+              <h1><i class="type">사업제안</i>도시폭염을 고려한 폭염저감기술 최적화<em>(2023년 도시폭염 2차)</em></h1>
+            </header>
+            <section>
+              <dl class="ipt_lst">
+                <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
+                <dt>총괄책임자</dt>
+                <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+                <dt>수행PM</dt>                    
+                <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+                <dt>수행기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+                <dt><label for="">비고</label></dt>
+                <dd><p>-</p></dd>
+              </dl>            </section>
+          </section>
+        </section>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 관련 프로젝트 설정 -->
 </div>
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
@@ -393,6 +499,34 @@ commonInit();
     </div>
   </form>
 </dialog>
+<script>
+//샘플용, 개발시 삭제
+$(function(){
+  $('.issue_dtl').hide();
+  $('.task_lst').on('click','li',function(){
+    $('.issue_default').hide();
+    $('.task_lst li').removeClass('on');
+    $(this).addClass('on');
+    $('.issue_dtl').show();
+  })
+  const rfpboard_init = () =>{
+    $('.con_rfp_board summary').removeClass('on');
+    $('.con_rfp_board details li').removeClass('on');
+  }
+  $('.con_rfp_board summary').on('click','a',function(){
+    $('.task_dtl').hide();
+    $('.rfp_dtl').show();
+    rfpboard_init();
+    $(this).parents('summary').addClass('on');
+  })
+  $('.con_rfp_board details li').on('click',function(){
+    $('.task_dtl').show();
+    $('.rfp_dtl').hide();
+    rfpboard_init();
+    $(this).addClass('on');
+  })
+})
+</script>
 <script>
   $(function(){
     fileDropEvt();
