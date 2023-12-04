@@ -128,8 +128,9 @@
               <dt><label for="rel_proj">관련프로젝트</label></dt>
               <dd class="flex_full">
                 <div class="file_input">
-                  <input type="text" id="rel_proj" readonly>
-                  <button type="button" class="btn_default" onclick="showRelDocDialog()">검색</button>
+                  <input type="text" id="rel_proj" readonly value="도시폭염을 고려한 폭염저감기술 최적화
+(2023년 도시폭염 2차)">
+                  <button type="button" class="btn_default" onclick="document.querySelector('.p_relProj').showModal();">검색</button>
                 </div>
               </dd>              
               <dt><label for="">비고</label></dt>
@@ -141,7 +142,7 @@
             <dl class="box_default_w">
               <dt><label for="">계약기간</label></dt>
               <dd class="flex_full">
-                    @@include('../../inc/module/module_period.html')
+                @@include('../../inc/module/module_period.html')
               </dd>
               <dt><label for="">컨소시엄 총괄기관 &sol; 구성</label></dt>
               <dd><input type="text" placeholder="컨소시엄 총괄기관" id=""></dd>
@@ -191,6 +192,7 @@
     </section>
   </main>
   @@include('../../inc/layout/footer.html')
+  @@include('../../inc/pop/p_relProj.html')<!--// 관련 프로젝트 설정 -->
 </div>
 @@include('../../inc/layout/script.html')
 <script>

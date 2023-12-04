@@ -1,0 +1,138 @@
+<section class="task_dtl" style="display:none;">
+  <header class="lst_header">
+    <h1 class="blind">업무 상세</h1>
+    <div class="apply_status">
+      <!-- 상태 -->
+      <em>PM.PL:승인요청,변경요청 / 담당자 : 승인반려(사유:간략히)</em>
+      <!-- 승인과 변경 구분?? -->
+      <!-- PM.PL : 승인 전(승인대기중), 승인 완료 후에는 공란 -->
+      <!-- 담당자 : 승인요청 전(미승인요청),승인or변경요청 후 (승인대기중),승인 후에는 공란 -->
+    </div>
+    <div class="btn_wrap">
+      <button type="button" class="btn_red">완료?? 검토요청??</button>
+      <button type="button" class="btn_red_line" onclick="event.preventDefault();document.querySelector('.p_require_task_change').showModal();">변경요청</button>
+      <!-- PMPL : 최초등록>승인, 반려 필요? 삭제가능?: -->
+      <!-- <button type="button" class="btn_red">승인</button>
+      <button type="button" class="btn_red_line">반려</button>
+      <button type="button" class="btn_red_line">삭제</button> -->
+      
+      <!-- PMPL : 수정, 삭제 가능?: -->
+      <!-- <button type="button" class="btn_red_line">수정</button> -->
+      <!-- <button type="button" class="btn_red_line">삭제</button> -->
+      
+      <!-- 담당자 :최초등록 후담당자, 승인 전 요청취소: -->
+      <!-- <button type="button" class="btn_gray_line">요청취소</button> -->
+      
+      <!-- 담당자 : 승인 전 요청취소 상태 or 반려상태 -->
+      <!-- <button type="button" class="btn_red_line">수정</button>
+      <button type="button" class="btn_red_line">삭제</button> -->
+    </div>
+  </header>
+  <div class="work_form form_view flex_right">
+    <article>
+      <header>
+        <h1>회원가입 및 로그인 기능 구축</h1>
+        <span class="date">작성일 : 2024-06-05</span>
+      </header>
+      <dl class="set_list work_dot_wrap">
+        <dt>작업범주</dt>
+        <dd>
+          <div class="tags">
+            <i>개발</i>
+            <i>문서</i>
+          </div>
+        </dd>
+        <dt>유형</dt>
+        <dd>내부보고용</dd>
+        <dt>작업 예정기간</dt>
+        <dd>2022-04-01 ~ 2022-04-01</dd>
+        <dt>진행상태</dt>
+        <dd class="ico_proj"><i class="ing"></i>수행중</dd>
+        <dt>담당자</dt>
+        <dd>
+          <div class="user_module">
+            <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+            <em>홍길동</em><b>(개발1팀)</b>
+          </div>
+        </dd>
+        <dt>실제 작업기간</dt>
+        <dd>2022-04-01 ~ 2022-04-01</dd>
+        <dt>수행장소</dt>
+        <dd>본사</dd>
+        <dt>인수인계</dt>
+        <dd>해당사항 없음</dd>
+        <dt>작업내용</dt>
+        <dd>· 기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 구현<br>
+          · 기관 홈페이지와 SSO 기능구현<br>
+          · 기록된 로그 데이터를 유형, 기간 대상자등 다양한 검색조건 추출/조회</dd>
+      </dl>
+    </article>
+    <section class="change_history">
+      <header class="lst_header"><h1>변경요청 내역</h1></header>
+      <!-- 최신글이 위로 오도록 정렬해주세요 -->
+      <ul class="cmt_lst">
+        <li>
+          <div class="cmt_user">
+            <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            <p class="cmt_date">23-12-15 11:10</p>
+            <div class="user_module state">
+              <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+              <span class="show">승인</span>
+              &sol;
+              <span class="show t_red">반려(23-12-16 12:55)</span>
+            </div>
+          </div>
+          <div class="changes">
+            <dl>
+              <dt>작업기간</dt>
+              <dd>2022-04-01 ~ 2022-04-03</dd>
+              <dt>작업내용</dt>
+              <dd>
+                <div>
+                  · 기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 구현<br/>
+                  · 기관 홈페이지와 SSO 기능구현
+                </div>
+              </dd>
+              <dt>변경사유</dt>
+              <dd>
+                <div>작업내용 변동으로 해당 업무 작업내용과 일정 변경요청합니다.</div>
+              </dd>
+            </dl>
+          </div>
+          <div class="cmt_reject"><p>반려시 반려사유가 들어갑니다</p></div>
+        </li>
+        <li>
+          <div class="cmt_user">
+            <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>           
+            <p class="cmt_date">23-12-15 11:10</p>
+            <div class="btn_wrap">
+              <!-- 작성자 -->
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
+              &sol;
+              <!-- PM,PL 반려시 반려사유 코멘트 -->
+              <button type="button">승인</button>
+              <button type="button">반려</button>
+            </div>
+          </div>
+          <div class="changes">
+            <dl>
+              <dt>작업기간</dt>
+              <dd>2022-04-01 ~ 2022-04-08</dd>                
+              <dt>변경사유</dt>
+              <dd>
+                <div>타 업무에 긴급 투입되어 해당 업무 작업 일정을 변경요청합니다.</div>
+              </dd>
+            </dl>
+          </div>
+        </li>          
+      </ul>
+    </section>
+  </div>
+</section>

@@ -41,7 +41,6 @@
 
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
 @mixin flex_layout{display:flex;justify-content:space-between;gap:$columnGap;@content;}
-@mixin vh_y_scroll($h:null){height:100%;min-height:$h;overflow-y:auto;@content;}
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
 @mixin badge_style($max_w:null,$w:null){display:inline-block;width:$w; max-width:$max_w;color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
@@ -188,4 +187,7 @@ border:1px solid transparent;align-self:center;@content;}
 @mixin on-hover(){
   &:hover{background-color:#f9fafc;}
   &.on{background-color:#eef6ff;}
+}
+@mixin scrollbarW($w:0){
+  &::-webkit-scrollbar{width:$w;}
 }

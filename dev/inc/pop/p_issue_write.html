@@ -20,7 +20,7 @@
               <dt><label for="">업무상태</label></dt>
               <dd>
                 <div class="select_custom task_status">
-                  <button class="label"><span class="opt_label">상태</span></button>
+                  <button class="label" type="button"><span class="opt_label">상태</span></button>
                   <ul class="optionList">
                     <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
                     <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
@@ -52,8 +52,6 @@
               <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
               @@include('../../inc/data/data_emp_name.html')
               <button type="button" class="btn_ogt btnMngTree">조직도</button>
-              <button type="button" class="btn_red_line">저장</button>
-              <button type="button" class="btn_red_line" disabled>저장</button>
             </span>
             @@include('../../inc/module/module_slide_user.html')
           </section>

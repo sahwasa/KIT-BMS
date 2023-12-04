@@ -279,3 +279,22 @@ z-index:10000;
 }
 .p_issue_write{width:1150px;}
 .p_require_task_change{width:500px;}
+.p_relProj{width:700px;
+  .split_area{background-color:#edf0f3;border:1px solid #bec7d2;align-items:stretch;
+    & > section{max-height:612px;flex-grow:1;overflow-y:auto;}
+    .proj_wrap{flex:0 0 250px;border-right:1px solid #ebebeb;}
+  }
+  .proj_lst{height:100%;
+    & > li{border-bottom: 1px solid #ebebeb;padding:10px;white-space:nowrap;background-color:#fff;
+      &:hover{background-color:#f9fafc;cursor:pointer;}
+      &.on{background-color:lighten($red, 45%);}
+    }
+    .tag_wrap{justify-content:flex-start;i{margin-right:0;}}
+    .proj_desc{margin-top:5px;}        
+  }
+  .proj_overview{padding:20px;background-color:#fff;
+    header{margin-bottom:20px;}
+    h1{display:flex;gap:5px;flex-direction:column;font-size:16px;font-weight:700;line-height:1;}
+    .type{flex-shrink:0;@include badge_style(null,50px);color:#333;background-color:#f8c9ce;font-size:12px;align-self:flex-start;line-height:16px;}
+  }
+}
