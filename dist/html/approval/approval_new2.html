@@ -729,32 +729,7 @@ commonInit();
   </form>
 </dialog>
 <script>
-//샘플용, 개발시 삭제
-$(function(){
-  $('.issue_dtl').hide();
-  $('.task_lst').on('click','li',function(){
-    $('.issue_default').hide();
-    $('.task_lst li').removeClass('on');
-    $(this).addClass('on');
-    $('.issue_dtl').show();
-  })
-  const rfpboard_init = () =>{
-    $('.con_rfp_board summary').removeClass('on');
-    $('.con_rfp_board details li').removeClass('on');
-  }
-  $('.con_rfp_board summary').on('click','a',function(){
-    $('.task_dtl').hide();
-    $('.rfp_dtl').show();
-    rfpboard_init();
-    $(this).parents('summary').addClass('on');
-  })
-  $('.con_rfp_board details li').on('click',function(){
-    $('.task_dtl').show();
-    $('.rfp_dtl').hide();
-    rfpboard_init();
-    $(this).addClass('on');
-  })
-})
+
 </script>
 <script>
   $(function () {

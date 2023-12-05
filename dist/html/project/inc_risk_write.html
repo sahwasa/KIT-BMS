@@ -1,0 +1,122 @@
+<section class="risk_body risk_write">
+  <ul>
+    <li class="ballon_wrap">
+      <div class="user_module">
+        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+        <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+      </div>
+      <div class="ballon_body">
+        <header>
+          <input type="text" placeholder="리스크 제목">
+        </header>
+        <div>
+          <dl class="ipt_lst">
+            <dt><label for="" class="required">리스크 유형</label></dt>
+            <dd>
+              <span class="file_input">
+                <select id="nameSelectR">
+                  <option value="업무범주를 선택하세요" disabled selected>리스크 유형을 선택하세요</option>
+                </select>
+              </span>
+              <div id="tagListR"></div>
+            </dd>
+            <dt><label for="rfp_step">관련 요구사항</label></dt>
+            <dd>
+              <span class="file_input">
+                <select name="require_step" class="rfp_step" id="rfp_step">
+                  <option value="단계 선택">단계 선택</option>
+                  <option value="착수">착수</option>
+                  <option value="분석">분석</option>
+                  <option value="설계">설계</option>
+                  <option value="구축">구축</option>
+                  <option value="시험,운영">시험,운영</option>
+                  <option value="교육">교육</option>
+                  <option value="준공">준공</option>
+                  <option value="보고">보고</option>
+                </select>
+                <input type="text" title="요구사항명" placeholder="요구사항명" list="rfp_name">
+                <datalist id="rfp_name">
+                  <option value="R202300001">사업수행계획서 및 착수계 제출</option>
+                  <option value="R202300002">고객정보 관리</option>
+                </datalist>
+              </span>
+            </dd>
+            <dt>첨부파일</dt>
+            <dd>
+              <div class="file_attach btn_attach">
+                <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file"
+                  multiple="">
+                <div id="file-drop" class="drop_zone">
+                  <div class="drop_info">
+                    <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+                  </div>
+                  <ul id="doc" class="attach_list">
+                  </ul>
+                </div>
+              </div>
+            </dd>
+          </dl>
+          <div class="editor_wrap" id="editor_wrap">
+            <textarea name="editor" id="risk_write" title="에디터 영역"></textarea>
+            <div class="btn_wrap">
+              <button type="button" class="btn_red">추가</button>
+              <button type="button" class="btn_gray_line">취소</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+<!-- <span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span> -->
+<!-- <section class="risk_body">
+  <article class="box_compact box_tool">
+    <button type="button" class="btn_gray_line">목록</button>
+  </article>
+  <ul>
+    <li class="ballon_wrap">
+      <div class="user_module">
+        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+        <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+      </div>
+      <div class="ballon_body">
+        <header>
+          <div class="btn_wrap">
+            <h1>OOO 자료분석</h1>
+            <div class="tags"><i>비용</i></div>
+            <span>2022-04-05</span>
+          </div>
+          <div class="layer_tool">
+            <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+            <div class="btn_layer">
+              <button type="button">처리완료</button>
+              <button type="button">재진행</button>
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
+            </div>
+          </div>
+        </header>
+        <div>
+          <h2><span class="risk_num">요구사항 ID</span>요구사항명 요구사항명</h2>
+          <div class="box_default_w file_attached">
+            <ul class="attach_list">
+              <li>
+                <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
+                <a href="#" target="_blank" class="preview">미리보기</a>
+              </li>              
+            </ul>
+          </div>
+          <p class="ballon_txt">
+            ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br>
+            ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br>
+            (´　 ＼/＿＿＿/)<br>
+            --------------------<br>
+            ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br>
+            \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br>
+            (\＿＿＿ \／ `)
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section> -->

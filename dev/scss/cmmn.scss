@@ -522,7 +522,7 @@ section:has(>.tbl_default){position:relative;height:calc(100vh - 222px);min-heig
     thead{@include blind;}
   }
   th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
-  th{position:sticky;position: -webkit-sticky;top:0;background-color:#fff;color:#111;font-weight:bold;}
+  th{position:sticky;top:0;background-color:#fff;color:#111;font-weight:bold;z-index:50;}
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
   }
@@ -742,6 +742,9 @@ section:has(>.tbl_default){position:relative;height:calc(100vh - 222px);min-heig
   }
 }
 .cmt_area{margin-top:30px;padding:20px 0;
+  header{
+    h1{font-size:16px;font-weight:bold;}
+  }
   .cmt_lst > li{border-bottom:1px solid #ccc;padding:15px 0;}
   .cmt_txt{position:relative;padding-left:22px;margin-top:10px;
     .editable,
@@ -818,27 +821,29 @@ section:has(>.tbl_default){position:relative;height:calc(100vh - 222px);min-heig
   li{display:flex;align-items:center;gap:3px;}
 }
 /* ckeditor, tui-image-editor */
-.editor_wrap{
+.editor_wrap{  
   .ck-editor{
     .ck-source-editing-area,
     .ck-editor__editable_inline {min-height:100px;height:auto;cursor:text;}
     .ck-source-editing-area textarea{overflow:auto;}
-    .ck-content .todo-list{
-      li{margin-bottom:0 !important;margin-left:5px;}
-      .todo-list__label>input::before{background:transparent;border-color:#606060;}
-      .todo-list__label>input[checked]::before{background:transparent;border-color:transparent;}
-      .todo-list__label>input[checked]::after{border-color:transparent;}
-    }
-    .ck-content ol,
-    .ck-content ul{margin-left:25px;}
-    .ck-content li{list-style:inherit;}
-    // table
-    .ck-content[dir=ltr] .table th.editor_th,
-    .ck-content[dir=ltr] .table td.editor_th{text-align:center;background-color:#f5f5f5;font-weight:bold;}
-    .ck-content .table{float:left;
-      table td,
-      table th {white-space:inherit;}
-    }
+    .ck-content{max-height:var(--h);
+      .todo-list{
+        li{margin-bottom:0 !important;margin-left:5px;}
+        .todo-list__label>input::before{background:transparent;border-color:#606060;}
+        .todo-list__label>input[checked]::before{background:transparent;border-color:transparent;}
+        .todo-list__label>input[checked]::after{border-color:transparent;}
+      }
+      ol,
+      ul{margin-left:25px;}
+      li{list-style:inherit;}
+      &[dir=ltr] .table{
+        th.editor_th,
+        td.editor_th{text-align:center;background-color:#f5f5f5;font-weight:bold;}
+      }
+      .table{float:left;
+        td,
+        th {white-space:inherit;}      }
+    }    
   }
 
 }

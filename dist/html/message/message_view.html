@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li class="disabled"><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>사내쪽지</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="message_write.html" class="btn_default">쪽지보내기</a>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="message.html">받은 쪽지함</a>
+        <ul>
+          <li><a href="#">개인 쪽지함</a></li>
+          <li><a href="#">부서 쪽지함</a></li>
+          <li><a href="#">전체 쪽지함<em>3</em></a></li>
+        </ul>
+      </li>
+      <li><a href="message_sendbox.html">보낸 쪽지함</a></li>
+      <li><a href="message_archive.html">쪽지 보관함</a></li>
+    </ul>
+  </div>
+</section>
+
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>받은 쪽지함<span>쪽지</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내쪽지</a></li>
+            <li><a href="#">받은 쪽지함</a></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body message_view">
+        <div class="box_compact box_tool">
+          <header>
+            <a href="message.html" class="btn_gray_line">목록</a>
+            <span class="btn_wrap">
+              <!-- 받은쪽지함 -->
+              <button class="btn_red" type="button">답장</button>
+              <button class="btn_red_line" type="button">전달</button>
+              <button class="btn_red_line" type="button">보관</button>
+              <button class="btn_red_line" type="button">삭제</button>
+              <button class="btn_gray_line">닫기</button>
+              /
+              <!-- 보낸쪽지함 -->
+              <button class="btn_red" type="button">다시보냄</button>
+              <button class="btn_red_line" type="button">보관</button>
+              <button class="btn_red_line" type="button">삭제</button>
+            </span>
+          </header>
+        </div>
+        <article>
+          <div class="box_default_w work_form">
+            <dl class="set_list hasLayer">
+              <dt>보낸사람</dt>
+              <dd>
+                <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                <span class="date">2023-05-01 12:34:54</span>
+              </dd>
+              <dt><label for="">받는사람</label></dt>
+              <dd>
+                <div class="flex_wrap">
+                  <i class="msg_tbl_tag">전체</i>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> 외 3명
+                  <span class="date">2023-05-01 12:34:54</span>
+                  <div class="layer_tool receiver_dtl">
+  <button type="button" onclick="event.stopPropagation();" class="btn_more" title="더보기">더보기</button>
+  <div class="receiver_wrap">
+    <ul class="receiver">
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm unread">읽지않음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+      <li><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div> <span class="r_confirm">읽음</span></li>
+    </ul>
+  </div>
+</div>
+                </div>
+              </dd>
+              <dt class="blind"><label for="">내용</label></dt>
+              <dd class="full">
+                <div class="msg_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+              </dd>
+              <dt>첨부파일</dt>
+              <dd class="empty_box"><div class="file_attached">
+  <ul class="attach_list"></ul>
+  <ul class="attach_list">
+    <li>
+      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+    <li>
+      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+  </ul>
+</div></dd>
+            </dl>      
+          </div>
+          <section class="cmt_area">
+  <header>
+    <h1>댓글</h1>
+  </header>
+  <ul class="cmt_lst hasLayer">
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+      </div>
+      <div class="cmt_txt">
+        <p>반려합니다.</p>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+      <div class="reply_area">
+        <ul>
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="cmt_txt">
+              <p>왜요?</p>
+            </div>
+            <div class="cmt_info">
+              <span class="date">2023-05-23 11:35</span>
+              <button type="button">답글</button>
+            </div>
+          </li>
+          <li>
+            <div class="cmt_user">
+              <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+            </div>
+            <div class="cmt_txt">
+              <div class="editable" contenteditable="true"></div>
+              <em class="placehold">@홍길동님에게 답글쓰기</em>
+            </div>
+            <div class="cmt_attach">
+              <div class=" file_attach btn_attach">
+                <input id="attachFiles1" data-attach="reply" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+                <div id="file-drop" class="drop_zone">
+                  <ul id="reply" class="attach_list"></ul>
+                </div>
+              </div>
+              <label for="attachFiles1" class="btn_label_attach">첨부</label>
+              <button type="button">등록</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmt_txt">
+        <p>
+          이 댓글은 로그인한 사람이 작성한 글입니다.<br>
+          따라서 우측 상단에 수정과 삭제 버튼을 추가했습니다.<br>
+          댓글이 없을 때는 아래와 같이 보여줍니다.
+        </p>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-05-23 11:35</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+    <li>
+      작성된 댓글이 없습니다.
+    </li>
+    <li>
+      <div class="cmt_user">
+        <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+        <div class="layer_tool">
+          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+          <div class="btn_layer">
+            <button type="button" data-clickevt="modify">수정</button>
+            <button type="button" data-clickevt="del">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmt_txt">
+        <p>╭◜◝ ͡ ◜◝ ╮<br>( Ꮚ ´ ꒳ ` Ꮚ 저는 바로바로 파일이 첨부된 댓글입니당<br>╰◟◞ ͜ ◟◞╯<br></p>
+      </div>
+      <div class="cmt_file">
+        <a href="../../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_file">
+        <a href="../../images/sample.pdf" target="_blank">
+          <span class="cmt_file_info">
+            <b>별첨_그냥_누르면_보기_버튼_누르면_다운로드.pdf</b>
+            <span>4KB</span>
+          </span>
+        </a>
+        <a href="../../images/sample.pdf" download="">다운로드</a>
+      </div>
+      <div class="cmt_info">
+        <span class="date">2023-06-16 15:00</span>
+        <button type="button">답글</button>
+      </div>
+    </li>
+  </ul>
+  <div class="cmt_write">
+    <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    <div id="test" class="editable ck-editor__editable" contenteditable="true" data-tribute="true"></div>
+    <em class="placehold">댓글을 입력하세요.</em>
+    <!-- <div id="test" class="editable" placeholder="댓글을 입력하세요" contenteditable="true" data-tribute="true">
+      <span contenteditable="false"><a title="p1">@김개발</a></span>&nbsp; <span contenteditable="false"><a title="p2">@기획</a></span>&nbsp;
+    </div> -->
+    <div class="cmt_attach">
+      <div class="file_attach btn_attach">
+        <input id="attachFiles2" data-attach="cmt" type="file" name="file" title="파일첨부하기" class="btn_file" multiple>
+        <div id="file-drop" class="drop_zone">
+          <ul id="cmt" class="attach_list"></ul>
+        </div>
+      </div>
+      <label for="attachFiles2" class="btn_label_attach">첨부</label>
+      <button type="button">등록</button>
+    </div>
+  </div>
+</section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+<script>
+
+</script>
+</body>
+</html>

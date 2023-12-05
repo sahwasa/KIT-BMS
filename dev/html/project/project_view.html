@@ -71,44 +71,60 @@
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/wbs.js"></script>
 <script>
-  $(function () {
-    setEditor();
-    setEditor('issue_write');
+  
+  $(function (){
     fileDropEvt();
-    $('.btn_request').on('click', function () { $('.file_upload').show(); })
-    $('.file_upload').on('click', function () { $(this).hide(); })
-    const initialNames = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
-    initializeTagManager('tagsList', 'nameSelect', initialNames);
-
-     // 이슈 > 업무상태
-    $('.task_status_multi').on('click','.all_label',function(){
-      $(this).parents('.task_status_multi').find('.taskstatus_layer').toggleClass('on');
-    });
-    $('html').click(function(e){
-      const target = $(e.target);
-      if(target.parents('.taskstatus_layer').length < 1 && !(target.hasClass('all_label'))){
-        $('.taskstatus_layer').removeClass('on');
-      }
-    });
-    const lst_item = $('.user_lst dd');
-    $('.taskstatus_layer .tit').on('click','.optionItem',function(e){
-      const item = $(this);
-      const target = item.closest('.task_status_multi').find('.label');
-      handleMultiSelect(item,[target])
-    })
-    // lst_item.on('click','.optionItem',function(e){
-    //   const item = $(this);
-    //   const target1 = item.closest('.task_status_multi').find('.all_label');
-    //   const target2 = item.closest('.taskstatus_layer').find('.tit').find('.label');
-    //   handleMultiSelect(item,[target1,target2])
-    // })
-    const handleMultiSelect = function(item,target){
-      const itemVal = $(item).data('value');
-      target.forEach(element => {      
-        element.html($(item).html()).attr('data-value', itemVal);        
-      });
-    }   
+    issueWrite();
+    riskWrite();
+   // $('.btn_request').on('click', function () { $('.file_upload').show(); })
+   // $('.file_upload').on('click', function () { $(this).hide(); })
+      
+  // 작동 샘플용, 개발시 삭제
+  $('.right_section .issue_dtl').hide();
+  $('.task_lst').on('click','li',function(){
+    $('.issue_default').hide();
+    $('.task_lst li').removeClass('on');
+    $(this).addClass('on');
+    $('.right_section .issue_dtl').show();
   })
+  const rfpboard_init = () =>{
+    $('.con_rfp_board summary').removeClass('on');
+    $('.con_rfp_board details li').removeClass('on');
+  }
+  $('.con_rfp_board summary').on('click','a',function(){
+    $('.task_dtl').hide();
+    $('.rfp_dtl').show();
+    rfpboard_init();
+    $(this).parents('summary').addClass('on');
+  })
+  $('.con_rfp_board details li').on('click',function(){
+    $('.task_dtl').show();
+    $('.rfp_dtl').hide();
+    rfpboard_init();
+    $(this).addClass('on');
+  })  
+  $('.risk_write').hide();
+  $('.risk_view').hide();
+  $('.risk_lst .box_form .btn_red').on('click',function(){
+    $('.risk_write').show();
+    $('.risk_lst').hide();
+  })
+  $('.risk_write .btn_red').on('click',function(){
+    $('.risk_write').hide();
+    $('.risk_lst').show();
+  })
+  $('.risk_lst .tbl_list li').on('click',function(){
+    $('.risk_lst').hide();
+    $('.risk_view').show();
+  })
+  $('.risk_view .box_compact .btn_gray_line').on('click',function(){
+    $('.risk_lst').show();
+    $('.risk_view').hide();
+  })
+  
+  //
+  
+})
   var tribute = new Tribute({
     trigger: "@",
     values: [
@@ -124,9 +140,18 @@
   });
   tribute.attach(document.querySelectorAll(".editable"));
 
-  // 리스크 유형 선택
-  const initialNamesR = ['인력', '비용', '일정', '계약', '품질', '기타'];
-  initializeTagManager('tagListR', 'nameSelectR', initialNamesR);
+  function issueWrite(){
+    // 이슈추가 태그 선택, 에디터
+    setEditor('issue_write');
+    const initialNames = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    initializeTagManager('tagsList', 'nameSelect', initialNames);
+  }
+  function riskWrite(){    
+    // 리스크 유형 선택
+    setEditor('risk_write');
+    const initialNamesR = ['인력', '비용', '일정', '계약', '품질', '기타'];
+    initializeTagManager('tagListR', 'nameSelectR', initialNamesR);
+  }
 
 </script>
 </body>

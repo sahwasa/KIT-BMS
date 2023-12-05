@@ -71,52 +71,72 @@
 </nav>
   <main id="content" class="container">
     <section class="snb">
-  <div class="snb_container plan">
+  <div class="snb_container">
     <header>
-      <h2>일정</h2>
+      <h2>사내쪽지</h2>
     </header>
     <div class="btn_workset">
-      <a href="plan_new.html" class="btn_default" >일정추가</a>
+      <a href="message_write.html" class="btn_default">쪽지보내기</a>
     </div>
-
     <ul class="snb_lst">
-      <li><a href="plan_briefingBoard.html">브리핑보드</a></li>
-      <li>
-        <h3 class="all_lst_ctrl"><label for="my_cal"><input type="checkbox" id="my_cal">내 캘린더</label></h3>
-        <ul class="lst_ctrl lst_plan_my">
-          <li class="p_personal"><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label></li>
-          <!-- <li class="p_business"><label for="work_plan"><input type="checkbox" id="work_plan" checked>할일 일정</label> -->
-          <li class="p_event"><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>행사 일정</label>
-          <!-- 개인 행사는 수정삭제 가능 -->
-          <li class="p_meeting"><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>회의 일정</label>
-          <!-- 회의는 작성자만 수정 -->
-          <li class="p_leave"><label for=""><input type="checkbox" id="" checked>근태 일정</label></li>
-          <!-- 근태는 수정삭제 불가 -->
+      <li><a href="message.html">받은 쪽지함</a>
+        <ul>
+          <li><a href="#">개인 쪽지함</a></li>
+          <li><a href="#">부서 쪽지함</a></li>
+          <li><a href="#">전체 쪽지함<em>3</em></a></li>
         </ul>
       </li>
-      <li>
-        <h3 class="all_lst_ctrl" ><label for="p_cal"><input type="checkbox" id="p_cal">프로젝트 캘린더</label></h3>
-        <ul class="lst_ctrl lst_plan_proj">
-          <li>
-            <label for="p1"><input type="checkbox" id="p1" checked>OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 유지보수</label>
-          </li>
-          <li>
-            <label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
-          </li>
-          <li>
-            <label for="p3"><input type="checkbox" id="p3" checked>OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 유지보수</label>
-          </li>
-          <li>
-            <label for="p4"><input type="checkbox" id="p4" checked>OOO 용역</label>
-          </li>
-        </ul>
-      </li>
-      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" data-checkevt="!all_emp">전 사원 근태</label></h3></li>
+      <li><a href="message_sendbox.html">보낸 쪽지함</a></li>
+      <li><a href="message_archive.html">쪽지 보관함</a></li>
     </ul>
-    <section class="plan_add" id="all_emp">
-      <span class="file_input">
-        <input type="text" id="form_referrer" placeholder="이름, 조직명" list="nameList">
-        <datalist id="nameList">
+  </div>
+</section>
+
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>쪽지보내기<span>쪽지</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내쪽지</a></li>
+            <li><a href="#">쪽지보내기</a></li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body message_write">
+        <div class="box_compact box_tool">
+          <header>
+            <span class="btn_wrap">
+              <button type="button" class="btn_red">보내기</button>
+              <button type="button" class="btn_red_line" onclick="location.href='../plan/plan.html'">취소</button>
+            </span>
+          </header>
+        </div>
+        <article>
+          <div class="info_box">
+            <h3>많은 사람에게 한꺼번에 전송 시 약간의 시간이 소요될 수 있습니다.</h3>
+            <p>
+              보내기 버튼을 한 번만 눌러주시고, 잠시만 기다려주세요.<br />
+              전송이 완료되면, 쪽지 수신확인이 가능합니다.
+            </p>
+          </div>
+          <div class="box_default_w work_form">
+            <dl class="set_list">
+              <dt><label for="">받는사람</label></dt>
+              <dd>
+                <div class="flex_wrap">
+                  <select name="" id="" data-seltab ="type_receive">
+                    <option value="opt_per" selected>개인</option>
+                    <option value="opt_par">부서</option>
+                    <option value="opt_all">전체</option>
+                  </select>
+                  <div class="seltab_wrap">
+                    <div class="seltab_opt" id="opt_per">
+                      <div class="file_input">
+                        <input type="text" id="" placeholder="이름 or 조직명" list="nameList">
+                        <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -130,8 +150,9 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-      </span>
-      <ul class="btn_slideclose">
+                        <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                      </div>
+                      <ul class="btn_slideclose">
   <li>
     <div>
       <p>유한아름</p><button type="button">삭제</button>
@@ -144,27 +165,39 @@
     </div>
   </li> 
 </ul>
-    </section>
+                    </div>
+                    <div class="seltab_opt" id="opt_par">
+                      <select name="" id="">
+                        <option value="">SI사업본부</option>
+                        <option value="">연구개발본부</option>
+                      </select>
+                    </div>
+                    <div class="seltab_opt" id="opt_all">
+                      <input type="text" value="전체 임직원" readonly >
+                    </div>
+                  </div>
+                </div>
+              </dd>
+              <dt class="blind"><label for="editor">내용</label></dt>
+              <dd>
+                <div class="editor_wrap">
+                  <textarea name="editor" id="msg_editor" title="에디터 영역"></textarea>
+                </div>
+              </dd>
+              <dt><label for="">첨부파일</label></dt>
+              <dd><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
   </div>
-</section>
-    <section class="contents">
-      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
-"닫기" title="닫기">닫기</a>
-      <header class="cont_tit">
-        <h1>일정</h1>
-        <section class="bredcrumb">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li>일정</li>
-          </ul>
-        </section>
-      </header>
-      <div class="cont_body">
-        <div id='calendar-container'>
-          <div id='calendar'></div>
-          <!-- 일정상세보기 -->
-          <!-- 연차:상세팝업X / 출장 및 외근 : 출장,외근 신청서 전자결재 연동 / 회의 : 기본 팝업 -->
-        </div>
+</div></dd>
+            </dl>      
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -215,10 +248,11 @@ commonInit();
 <script>
 
 </script>
-
-<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
-<script src='../../plugins/google-calendar/index.global.min.js'></script>
-<script src="../../js/plan_fullcalendar.js"></script>
+<script>
+  $(function () {
+    setEditor('msg_editor');
+    fileDropEvt();
+  })
+</script>
 </body>
-
 </html>

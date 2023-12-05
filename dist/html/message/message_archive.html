@@ -76,14 +76,14 @@
       <h2>사내쪽지</h2>
     </header>
     <div class="btn_workset">
-      <button type="button" onclick="document.getElementById('p_msg_write').showModal();fileDropEvt();" class="btn_default">쪽지보내기</button>
+      <a href="message_write.html" class="btn_default">쪽지보내기</a>
     </div>
     <ul class="snb_lst">
       <li><a href="message.html">받은 쪽지함</a>
         <ul>
           <li><a href="#">개인 쪽지함</a></li>
           <li><a href="#">부서 쪽지함</a></li>
-          <li><a href="#">전체 쪽지함</a></li>
+          <li><a href="#">전체 쪽지함<em>3</em></a></li>
         </ul>
       </li>
       <li><a href="message_sendbox.html">보낸 쪽지함</a></li>
@@ -91,214 +91,7 @@
     </ul>
   </div>
 </section>
-<dialog id="p_msg_write" class="p_msg_write">
-  <form method="dialog">
-    <header class="p_header">
-      <strong>쪽지보내기</strong>
-      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
-    </header>
-    <div class="p_info">
-      <h3>많은 사람에게 한꺼번에 전송 시 약간의 시간이 소요될 수 있습니다.</h3>
-      <p>
-        보내기 버튼을 한 번만 눌러주시고, 잠시만 기다려주세요.<br />
-        전송이 완료되면, 쪽지 수신확인이 가능합니다.
-      </p>
-    </div>
-    <div class="p_body">
-      <div class="ipt_wrap">
-        <dl>
-          <dt><label for="">받는사람</label>
-          </dt>
-          <dd class="dd_wrap">
-            <select name="" id="" data-seltab ="type_receive">
-              <option value="per" selected>개인</option>
-              <option value="par">부서</option>
-              <option value="all">전체</option>
-            </select>
-            <div class="seltab_wrap">
-              <div class="seltab_opt" id="per">
-                <div class="file_input">
-                  <input type="text" id="" placeholder="이름 or 조직명" list="nameList">
-                  <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-                  <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                </div>
-                <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li> 
-</ul>
-              </div>
-              <div class="seltab_opt" id="par">
-                <select name="" id="">
-                  <option value="">SI사업본부</option>
-                  <option value="">연구개발본부</option>
-                </select>
-              </div>
-              <div class="seltab_opt" id="all">
-                <input type="text" value="전체 임직원" disabled >
-              </div>
-            </div>
-          </dd>
-          <dt class="blind"><label for="">내용</label></dt>
-          <dd>
-            <div class="msg_txt" contenteditable>내용</div>
-          </dd>
-          <dt><label for="">첨부파일</label></dt>
-          <dd><div class="file_attach btn_attach">
-  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
-  <div id="file-drop" class="drop_zone">
-    <div class="drop_info">
-      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
-    </div>
-    <ul id="doc" class="attach_list">
-    </ul>
-  </div>
-</div></dd>
-        </dl>      
-      </div>      
-      <div class="btn_wrap">
-        <button class="btn_red" type="button">보내기</button>
-        <button class="btn_gray_line">취소</button>
-      </div>
-    </div>
-  </form>
-</dialog>
-<dialog id="p_msg_view" class="p_msg_view">
-  <form method="dialog">
-    <header class="p_header">
-      <strong>받은 쪽지함 / 보낸 쪽지함 / 쪽지 보관함</strong>
-      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
-    </header>
-    <div class="p_body">
-      <dl class="ipt_lst hasLayer">
-        <dt>보낸사람</dt>
-        <dd>
-          <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-          <span class="date">2023-05-01 12:34:54</span>
-        </dd>
-        <dt><label for="">받는사람</label></dt>
-        <dd>
-          <i class="msg_tbl_tag">전체</i>
-          <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> 외 3명
-          <span class="date">2023-05-01 12:34:54</span>
-          <div class="layer_tool receiver_dtl">
-  <button type="button" onclick="event.stopPropagation();" class="btn_more" title="더보기">더보기</button>
-  <div class="receiver_wrap">
-    <ul class="receiver">
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm unread">읽지않음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-      <li><div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div> <span class="r_confirm">읽음</span></li>
-    </ul>
-  </div>
-</div>
-        </dd>
-        <dt class="blind"><label for="">내용</label></dt>
-        <dd class="full">
-          <div class="msg_txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        </dd>
-        <dt>첨부파일</dt>
-        <dd><div class="file_attached">
-  <ul class="attach_list"></ul>
-  <ul class="attach_list">
-    <li>
-      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
-      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
-    </li>
-    <li>
-      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
-      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
-    </li>
-  </ul>
-</div></dd>
-      </dl>
-      
-      <div class="btn_wrap">
-        <button class="btn_red" type="button">답장</button>
-        <button class="btn_red_line" type="button">전달</button>
-        <button class="btn_red_line" type="button">보관</button>
-        <button class="btn_red_line" type="button">삭제</button>
-        <button class="btn_gray_line">닫기</button>
-        /
-        <button class="btn_red" type="button">다시보냄</button>
-        <button class="btn_red_line" type="button">보관</button>
-        <button class="btn_red_line" type="button">삭제</button>
-        <button class="btn_gray_line">닫기</button>
-      </div>
-    </div>
-  </form>
-</dialog>
+
     <section class="contents">
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
@@ -525,32 +318,7 @@ commonInit();
   </form>
 </dialog>
 <script>
-//샘플용, 개발시 삭제
-$(function(){
-  $('.issue_dtl').hide();
-  $('.task_lst').on('click','li',function(){
-    $('.issue_default').hide();
-    $('.task_lst li').removeClass('on');
-    $(this).addClass('on');
-    $('.issue_dtl').show();
-  })
-  const rfpboard_init = () =>{
-    $('.con_rfp_board summary').removeClass('on');
-    $('.con_rfp_board details li').removeClass('on');
-  }
-  $('.con_rfp_board summary').on('click','a',function(){
-    $('.task_dtl').hide();
-    $('.rfp_dtl').show();
-    rfpboard_init();
-    $(this).parents('summary').addClass('on');
-  })
-  $('.con_rfp_board details li').on('click',function(){
-    $('.task_dtl').show();
-    $('.rfp_dtl').hide();
-    rfpboard_init();
-    $(this).addClass('on');
-  })
-})
+
 </script>
 </body>
 
