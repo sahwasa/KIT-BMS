@@ -1,5 +1,5 @@
-<section class="risk_body">
-  정규직 외에는 탭 숨기기
+<!-- 정규직 외에는 탭 숨기기 -->
+<section class="risk_body risk_lst">
   <article class="box_compact box_form">
     <ul class="search_list">
       <li>
@@ -83,12 +83,7 @@
     </ul>
   </div>
 </section>
-
-
-<span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 추가하기 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
-
-
-<section class="risk_body">
+<section class="risk_body risk_write">
   <ul>
     <li class="ballon_wrap">
       <div class="user_module">
@@ -110,11 +105,25 @@
               </span>
               <div id="tagListR"></div>
             </dd>
-            <dt><label for="">관련 요구사항</label></dt>
+            <dt><label for="rfp_step">관련 요구사항</label></dt>
             <dd>
               <span class="file_input">
-                <input type="text" placeholder="요구사항 ID" class="risk_id">
-                <input type="text" placeholder="요구사항명">
+                <select name="require_step" class="rfp_step" id="rfp_step">
+                  <option value="단계 선택">단계 선택</option>
+                  <option value="착수">착수</option>
+                  <option value="분석">분석</option>
+                  <option value="설계">설계</option>
+                  <option value="구축">구축</option>
+                  <option value="시험,운영">시험,운영</option>
+                  <option value="교육">교육</option>
+                  <option value="준공">준공</option>
+                  <option value="보고">보고</option>
+                </select>
+                <input type="text" title="요구사항명" placeholder="요구사항명" list="rfp_name">
+                <datalist id="rfp_name">
+                  <option value="R202300001">사업수행계획서 및 착수계 제출</option>
+                  <option value="R202300002">고객정보 관리</option>
+                </datalist>
               </span>
             </dd>
             <dt>첨부파일</dt>
@@ -133,7 +142,7 @@
             </dd>
           </dl>
           <div class="editor_wrap" id="editor_wrap">
-            <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+            <textarea name="editor" id="risk_write" title="에디터 영역"></textarea>
             <div class="btn_wrap">
               <button type="button" class="btn_red">추가</button>
               <button type="button" class="btn_gray_line">취소</button>
@@ -144,12 +153,8 @@
     </li>
   </ul>
 </section>
-
-
-<span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
-
-
-<section class="risk_body">
+<!-- <span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span> -->
+<!-- <section class="risk_body">
   <article class="box_compact box_tool">
     <button type="button" class="btn_gray_line">목록</button>
   </article>
@@ -199,14 +204,8 @@
       </div>
     </li>
   </ul>
-</section>
-
-
-
-<span>❤❤❤❤❤❤❤❤❤❤❤❤ 완료된 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
-
-
-<section class="risk_body">
+</section> -->
+<section class="risk_body risk_view">
   <article class="box_compact box_tool">
     <button type="button" class="btn_gray_line">목록</button>
   </article>
@@ -240,11 +239,7 @@
               <li>
                 <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
                 <a href="#" target="_blank" class="preview">미리보기</a>
-              </li>
-              <li>
-                <a href="#"><i class="ext_ppt"></i>난 차라리 꽉 눌러붙을래 날 재촉한다면 고민 하나 없이 퍼져 있는 계란 fry fry 같이 나른하게.song</a>
-                <a href="#" target="_blank" class="preview">미리보기</a>
-              </li>
+              </li>              
             </ul>
           </div>
           <p class="ballon_txt">

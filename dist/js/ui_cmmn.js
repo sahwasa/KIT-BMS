@@ -208,6 +208,7 @@ function commonInit() {
       .prop('selected', 'selected')
     var findTarget = $(this).parents('.tab_wrap').next('.tab_container')
     findTarget.find('.tab_contents').hide()
+    console.log($(link))
     $(link).show();
     if(typeof calendar !== 'undefined') calendar.updateSize();
   })

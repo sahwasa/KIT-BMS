@@ -563,7 +563,7 @@
           <dt>업무상태</dt>
           <dd>          
             <div class="task_status">
-              <!-- 각 담당자별 자신것만 수정 가능 -->
+              <!-- 각 담당자, 작성자별 자신것만 수정 가능, 왼쪽 리스트 표출은 작성자가 설정한 상태 -->
               <div class="taskstatus_layer">              
                   <div class="select_custom task_status">
   <button class="label"><span class="opt_label">상태</span></button>
@@ -698,17 +698,20 @@
             </div>
           </dd>
           <dt>첨부파일</dt>
-          <dd>
-          <div class="file_attached">
-            <ul class="attach_list">
-              <li>
-                <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
-              </li>
-              <li>
-                <a href="#" download><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
-              </li>
-            </ul>
-          </div>
+          <dd class="empty_box">
+            <div class="file_attached">
+  <ul class="attach_list"></ul>
+  <ul class="attach_list">
+    <li>
+      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+    <li>
+      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+  </ul>
+</div>
           </dd>
         </dl>
         <div class="issue_txt">
@@ -1860,8 +1863,8 @@
 <div id='wbs_productivity' class="cal_productivity"></div>
           </section>
           <section id="proj05" class="tab_contents risk">
-            <section class="risk_body">
-  정규직 외에는 탭 숨기기
+            <!-- 정규직 외에는 탭 숨기기 -->
+<section class="risk_body risk_lst">
   <article class="box_compact box_form">
     <ul class="search_list">
       <li>
@@ -1945,12 +1948,7 @@
     </ul>
   </div>
 </section>
-
-
-<span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 추가하기 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
-
-
-<section class="risk_body">
+<section class="risk_body risk_write">
   <ul>
     <li class="ballon_wrap">
       <div class="user_module">
@@ -1972,11 +1970,25 @@
               </span>
               <div id="tagListR"></div>
             </dd>
-            <dt><label for="">관련 요구사항</label></dt>
+            <dt><label for="rfp_step">관련 요구사항</label></dt>
             <dd>
               <span class="file_input">
-                <input type="text" placeholder="요구사항 ID" class="risk_id">
-                <input type="text" placeholder="요구사항명">
+                <select name="require_step" class="rfp_step" id="rfp_step">
+                  <option value="단계 선택">단계 선택</option>
+                  <option value="착수">착수</option>
+                  <option value="분석">분석</option>
+                  <option value="설계">설계</option>
+                  <option value="구축">구축</option>
+                  <option value="시험,운영">시험,운영</option>
+                  <option value="교육">교육</option>
+                  <option value="준공">준공</option>
+                  <option value="보고">보고</option>
+                </select>
+                <input type="text" title="요구사항명" placeholder="요구사항명" list="rfp_name">
+                <datalist id="rfp_name">
+                  <option value="R202300001">사업수행계획서 및 착수계 제출</option>
+                  <option value="R202300002">고객정보 관리</option>
+                </datalist>
               </span>
             </dd>
             <dt>첨부파일</dt>
@@ -1995,7 +2007,7 @@
             </dd>
           </dl>
           <div class="editor_wrap" id="editor_wrap">
-            <textarea name="editor" id="editor" title="에디터 영역"></textarea>
+            <textarea name="editor" id="risk_write" title="에디터 영역"></textarea>
             <div class="btn_wrap">
               <button type="button" class="btn_red">추가</button>
               <button type="button" class="btn_gray_line">취소</button>
@@ -2006,12 +2018,59 @@
     </li>
   </ul>
 </section>
-
-
-<span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
-
-
-<section class="risk_body">
+<!-- <span>❤❤❤❤❤❤❤❤❤❤❤❤ 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span> -->
+<!-- <section class="risk_body">
+  <article class="box_compact box_tool">
+    <button type="button" class="btn_gray_line">목록</button>
+  </article>
+  <ul>
+    <li class="ballon_wrap">
+      <div class="user_module">
+        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+        <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+      </div>
+      <div class="ballon_body">
+        <header>
+          <div class="btn_wrap">
+            <h1>OOO 자료분석</h1>
+            <div class="tags"><i>비용</i></div>
+            <span>2022-04-05</span>
+          </div>
+          <div class="layer_tool">
+            <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+            <div class="btn_layer">
+              <button type="button">처리완료</button>
+              <button type="button">재진행</button>
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
+            </div>
+          </div>
+        </header>
+        <div>
+          <h2><span class="risk_num">요구사항 ID</span>요구사항명 요구사항명</h2>
+          <div class="box_default_w file_attached">
+            <ul class="attach_list">
+              <li>
+                <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
+                <a href="#" target="_blank" class="preview">미리보기</a>
+              </li>              
+            </ul>
+          </div>
+          <p class="ballon_txt">
+            ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br>
+            ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br>
+            (´　 ＼/＿＿＿/)<br>
+            --------------------<br>
+            ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br>
+            \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br>
+            (\＿＿＿ \／ `)
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section> -->
+<section class="risk_body risk_view">
   <article class="box_compact box_tool">
     <button type="button" class="btn_gray_line">목록</button>
   </article>
@@ -2062,67 +2121,6 @@
     </li>
   </ul>
 </section>
-
-
-
-<span>❤❤❤❤❤❤❤❤❤❤❤❤ 완료된 리스크 상세 ❤❤❤❤❤❤❤❤❤❤❤❤</span>
-
-
-<section class="risk_body">
-  <article class="box_compact box_tool">
-    <button type="button" class="btn_gray_line">목록</button>
-  </article>
-  <ul>
-    <li class="ballon_wrap">
-      <div class="user_module">
-        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-        <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-      </div>
-      <div class="ballon_body">
-        <header>
-          <div class="btn_wrap">
-            <h1>OOO 자료분석</h1>
-            <div class="tags"><i>비용</i></div>
-            <span>2022-04-05</span>
-          </div>
-          <div class="layer_tool">
-            <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-            <div class="btn_layer">
-              <button type="button">처리완료</button>
-              <button type="button">재진행</button>
-              <button type="button">수정</button>
-              <button type="button">삭제</button>
-            </div>
-          </div>
-        </header>
-        <div>
-          <h2><span class="risk_num">요구사항 ID</span>요구사항명 요구사항명</h2>
-          <div class="box_default_w file_attached">
-            <ul class="attach_list">
-              <li>
-                <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
-                <a href="#" target="_blank" class="preview">미리보기</a>
-              </li>
-              <li>
-                <a href="#"><i class="ext_ppt"></i>난 차라리 꽉 눌러붙을래 날 재촉한다면 고민 하나 없이 퍼져 있는 계란 fry fry 같이 나른하게.song</a>
-                <a href="#" target="_blank" class="preview">미리보기</a>
-              </li>
-            </ul>
-          </div>
-          <p class="ballon_txt">
-            ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br>
-            ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br>
-            (´　 ＼/＿＿＿/)<br>
-            --------------------<br>
-            ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br>
-            \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br>
-            (\＿＿＿ \／ `)
-          </p>
-        </div>
-      </div>
-    </li>
-  </ul>
-</section>
           </section>
           <section id="proj06" class="tab_contents doc">
             <div class="tbl_top_area">
@@ -2140,7 +2138,7 @@
     </span>
   </div>
 </div>
-<section class="">
+<section class="tbl_wrap">
   <table class="tbl_default tbl_use_select tbl_hover hasLayer">
     <caption>문서관리 리스트</caption>
     <colgroup>
@@ -2350,14 +2348,30 @@ commonInit();
   </form>
 </dialog>
 <script>
-//샘플용, 개발시 삭제
-$(function(){
-  $('.issue_dtl').hide();
+
+</script>
+<!-- tui.chart API : https://github.com/nhn/tui.chart/blob/main/docs/ko/getting-started.md -->
+<link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
+<script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
+<script src="../../js/proj_chart.js"></script>
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/wbs.js"></script>
+<script>
+  
+  $(function (){
+    fileDropEvt();
+    issueWrite();
+    riskWrite();
+   // $('.btn_request').on('click', function () { $('.file_upload').show(); })
+   // $('.file_upload').on('click', function () { $(this).hide(); })
+      
+  // 작동 샘플용, 개발시 삭제
+  $('.right_section .issue_dtl').hide();
   $('.task_lst').on('click','li',function(){
     $('.issue_default').hide();
     $('.task_lst li').removeClass('on');
     $(this).addClass('on');
-    $('.issue_dtl').show();
+    $('.right_section .issue_dtl').show();
   })
   const rfpboard_init = () =>{
     $('.con_rfp_board summary').removeClass('on');
@@ -2374,54 +2388,29 @@ $(function(){
     $('.rfp_dtl').hide();
     rfpboard_init();
     $(this).addClass('on');
+  })  
+  $('.risk_write').hide();
+  $('.risk_view').hide();
+  $('.risk_lst .box_form .btn_red').on('click',function(){
+    $('.risk_write').show();
+    $('.risk_lst').hide();
   })
+  $('.risk_write .btn_red').on('click',function(){
+    $('.risk_write').hide();
+    $('.risk_lst').show();
+  })
+  $('.risk_lst .tbl_list li').on('click',function(){
+    $('.risk_lst').hide();
+    $('.risk_view').show();
+  })
+  $('.risk_view .box_compact .btn_gray_line').on('click',function(){
+    $('.risk_lst').show();
+    $('.risk_view').hide();
+  })
+  
+  //
+  
 })
-</script>
-<!-- tui.chart API : https://github.com/nhn/tui.chart/blob/main/docs/ko/getting-started.md -->
-<link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css" >
-<script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
-<script src="../../js/proj_chart.js"></script>
-<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
-<script src="../../js/wbs.js"></script>
-<script>
-  $(function () {
-    setEditor();
-    setEditor('issue_write');
-    fileDropEvt();
-    $('.btn_request').on('click', function () { $('.file_upload').show(); })
-    $('.file_upload').on('click', function () { $(this).hide(); })
-    const initialNames = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
-    initializeTagManager('tagsList', 'nameSelect', initialNames);
-
-     // 이슈 > 업무상태
-    $('.task_status_multi').on('click','.all_label',function(){
-      $(this).parents('.task_status_multi').find('.taskstatus_layer').toggleClass('on');
-    });
-    $('html').click(function(e){
-      const target = $(e.target);
-      if(target.parents('.taskstatus_layer').length < 1 && !(target.hasClass('all_label'))){
-        $('.taskstatus_layer').removeClass('on');
-      }
-    });
-    const lst_item = $('.user_lst dd');
-    $('.taskstatus_layer .tit').on('click','.optionItem',function(e){
-      const item = $(this);
-      const target = item.closest('.task_status_multi').find('.label');
-      handleMultiSelect(item,[target])
-    })
-    // lst_item.on('click','.optionItem',function(e){
-    //   const item = $(this);
-    //   const target1 = item.closest('.task_status_multi').find('.all_label');
-    //   const target2 = item.closest('.taskstatus_layer').find('.tit').find('.label');
-    //   handleMultiSelect(item,[target1,target2])
-    // })
-    const handleMultiSelect = function(item,target){
-      const itemVal = $(item).data('value');
-      target.forEach(element => {      
-        element.html($(item).html()).attr('data-value', itemVal);        
-      });
-    }   
-  })
   var tribute = new Tribute({
     trigger: "@",
     values: [
@@ -2437,9 +2426,18 @@ $(function(){
   });
   tribute.attach(document.querySelectorAll(".editable"));
 
-  // 리스크 유형 선택
-  const initialNamesR = ['인력', '비용', '일정', '계약', '품질', '기타'];
-  initializeTagManager('tagListR', 'nameSelectR', initialNamesR);
+  function issueWrite(){
+    // 이슈추가 태그 선택, 에디터
+    setEditor('issue_write');
+    const initialNames = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    initializeTagManager('tagsList', 'nameSelect', initialNames);
+  }
+  function riskWrite(){    
+    // 리스크 유형 선택
+    setEditor('risk_write');
+    const initialNamesR = ['인력', '비용', '일정', '계약', '품질', '기타'];
+    initializeTagManager('tagListR', 'nameSelectR', initialNamesR);
+  }
 
 </script>
 </body>

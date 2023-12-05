@@ -135,10 +135,35 @@
       <li class=""><a href="#tab02">최근 2주</a></li>
     </ul>
     <section class="tab_container">
-      <article class="tab_contents" id="tab01">
+      <article class="tab_contents" id="tab01">       
+       <!-- $_nav_lst:'home','message','approval','work','planner','project','svc','erp''board','set'; -->
         <ul class="alert_lst">
-          <li>            
-            <div class="alert_tit">
+          <li>
+            <div class="alert_tit message">
+              <h2><em>쪽지</em>수신알림</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>Lorem ipsum dolor sit amet, consectetur adi...</p>
+            </div>            
+          </li>
+          <li>
+            <div class="alert_tit board">
+              <h2><em>게시판</em>2023년 조직개편 및 진급자 발표</h2>
+              <div class="alert_info">
+                <span class="date">23-02-10 12:30</span>
+                <span class="writer">권기봉</span>
+              </div>
+            </div>
+            <div class="alert_txt">
+              <p>사내공지 게시판에 새 글이 등록되었습니다.</p>
+            </div>            
+          </li>
+          <li>
+            <div class="alert_tit approval">
               <h2><em>전자결재</em>휴가신청서</h2>
               <div class="alert_info">
                 <span class="date">23-02-10 12:30</span>
@@ -150,7 +175,7 @@
             </div>            
           </li>
           <li>            
-            <div class="alert_tit">
+            <div class="alert_tit approval">
               <h2><em>전자결재</em>휴가신청서</h2>
               <div class="alert_info">
                 <span class="date">23-02-10 12:30</span>
@@ -168,7 +193,7 @@
             </div>
           </li>
           <li>
-            <div class="alert_tit">
+            <div class="alert_tit project">
               <h2><em>프로젝트</em>KIT업무관리시스템</h2>
               <div class="alert_info">
                 <span class="date">23-02-10 12:30</span>
@@ -180,7 +205,7 @@
             </div>            
           </li>
           <li>
-            <div class="alert_tit">
+            <div class="alert_tit planner">
               <h2><em>일정</em>OOO회의</h2>
               <div class="alert_info">
                 <span class="date">23-02-10 12:30</span>
@@ -198,7 +223,7 @@
             </div>
           </li>
           <li>
-            <div class="alert_tit">
+            <div class="alert_tit work">
               <h2><em>업무</em>댓글알림</h2>
               <div class="alert_info">
                 <span class="date">23-02-10 12:30</span>
@@ -209,26 +234,6 @@
               <p><em>업무제목</em>글에 댓글이 달렸습니다.</p>
               <p>@강성부 안녕하세요? 제가 멘션을 하였답니다ㅎㅎ</p>
             </div>            
-          </li>
-          <li>
-            <div class="alert_tit">
-              <h2><em>업무</em>프로젝트 만들기</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">권기봉</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
-                있습니다.</p>
-            </div>
-            <div class="alert_result">
-              <div class="result_txt">
-                <em>업무 종료</em>
-                모든 담당자가 업무를 완료함</p>
-              </div>
-              <span class="date">2023-01-01 12:30</span>
-            </div>
           </li>
           <li>
             <div class="alert_tit">
@@ -2397,32 +2402,7 @@ commonInit();
   </form>
 </dialog>
 <script>
-//샘플용, 개발시 삭제
-$(function(){
-  $('.issue_dtl').hide();
-  $('.task_lst').on('click','li',function(){
-    $('.issue_default').hide();
-    $('.task_lst li').removeClass('on');
-    $(this).addClass('on');
-    $('.issue_dtl').show();
-  })
-  const rfpboard_init = () =>{
-    $('.con_rfp_board summary').removeClass('on');
-    $('.con_rfp_board details li').removeClass('on');
-  }
-  $('.con_rfp_board summary').on('click','a',function(){
-    $('.task_dtl').hide();
-    $('.rfp_dtl').show();
-    rfpboard_init();
-    $(this).parents('summary').addClass('on');
-  })
-  $('.con_rfp_board details li').on('click',function(){
-    $('.task_dtl').show();
-    $('.rfp_dtl').hide();
-    rfpboard_init();
-    $(this).addClass('on');
-  })
-})
+
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">

@@ -270,7 +270,7 @@
           <dt>업무상태</dt>
           <dd>          
             <div class="task_status">
-              <!-- 각 담당자별 자신것만 수정 가능 -->
+              <!-- 각 담당자, 작성자별 자신것만 수정 가능, 왼쪽 리스트 표출은 작성자가 설정한 상태 -->
               <div class="taskstatus_layer">              
                   <div class="select_custom task_status">
   <button class="label"><span class="opt_label">상태</span></button>
@@ -405,17 +405,20 @@
             </div>
           </dd>
           <dt>첨부파일</dt>
-          <dd>
-          <div class="file_attached">
-            <ul class="attach_list">
-              <li>
-                <a href="#" download><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
-              </li>
-              <li>
-                <a href="#" download><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
-              </li>
-            </ul>
-          </div>
+          <dd class="empty_box">
+            <div class="file_attached">
+  <ul class="attach_list"></ul>
+  <ul class="attach_list">
+    <li>
+      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+    <li>
+      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+  </ul>
+</div>
           </dd>
         </dl>
         <div class="issue_txt">
