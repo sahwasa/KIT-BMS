@@ -537,7 +537,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
   }
-  .tags{display:inline-block;}  
+  .tags{display:inline-flex;gap:3px;}  
   .withdrawal{text-decoration:line-through;color:$gray;
     &::after{@include badge_style();content:"회수";background-color:$gray;margin-left:3px;padding:0 3px;}
    }
