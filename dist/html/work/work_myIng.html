@@ -76,11 +76,14 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
+      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+    </div>
+    <!-- <div class="btn_workset">
       <div class="btn_dbl_btn">
         <a href="work_new.html" class="">업무요청</a>
         <a href="javascript:void(0)" class="btn_sub" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
       </div>
-    </div>
+    </div> -->
     <ul class="snb_lst">
       <li><a href="work_myTodo.html">내 업무함</a>
         <ul>
@@ -239,11 +242,11 @@
         </section>
       </header>
       <div class="cont_body">
-        <article class="">
+        <article class="work">          
           <header class="blind">
-            <h1>결재대기 목록</h1>
+            <h1>미진 업무 목록</h1>
           </header>
-          <section class="tbl_top_area">
+          <section class="box_compact">
             <ul class="search_list">
               <li>
                 <select title="부서 선택">
@@ -266,220 +269,97 @@
               </li>
             </ul>
           </section>
-          <section>
-            <div class="tab_wrap">
-              <ul class="tab tab_s">
-                <li class="on"><a href="#tab_con01">전체</a></li>
-                <li><a href="#tab_con02">개인업무</a></li>
-                <li><a href="#tab_con03">프로젝트</a></li>
-              </ul>
-              <div class="right">
-                <select title="목록개수 선택">
+          <div class="tbl_top_area">
+            <div class="btn_switch border_none">
+              <input type="radio" id="rfp_all" name="rfp_apply" checked="">
+              <label for="rfp_all" class="opened">전체</label>
+              <input type="radio" id="rfp_approve" name="rfp_apply">
+              <label for="rfp_approve" class="opened">개인업무<em>2</em>건</label>
+              <input type="radio" id="rfp_change" name="rfp_apply">
+              <label for="rfp_change" class="closed">프로젝트<em>1</em>건</label>
+            </div>
+            <div>
+              <select title="목록개수 선택">
   <option value="15">15줄 보기</option>
   <option value="50" selected>50줄 보기</option>
   <option value="100">100줄 보기</option>
   <option value="200">200줄 보기</option>
 </select>
-              </div>
             </div>
-            <div class="tab_container">
-              <section id="tab_con01" class="tab_contents">
-                <table class="tbl_default tbl_hover hasLayer tbl_work_delay">
-                  <caption>미진 업무 리스트</caption>
-                  <colgroup>
-                    <col style="width:120px;">
-                    <col style="width:auto;min-width:240px;">
-                    <col style="width:120px;">
-                    <col style="width:auto;min-width:240px;">
-                    <col span="2" style="width:100px;">
-                    <col span="2" style="width:120px;">
-                    <col style="width:95px;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th scope="col">구분</th>
-                      <th scope="col">업무명</th>
-                      <th scope="col">업무범주</th>
-                      <th scope="col">업무내용</th>
-                      <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
-                      <th scope="col">담당자</th>
-                      <th scope="col">요청자</th>
-                      <th scope="col">진행율</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr tabindex="0" onclick="location.href='../work/work_view.html'">
-                      <td>개인업무</td>
-                      <td>주간업무보고 작성</td>
-                      <td><div class="tags"><i>보고</i></div></td>
-                      <td> - 지진발생 팝업 미표출 오류 수정</td>
-                      <td>2023-05-01</td>
-                      <td>2023-05-01</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td>22%</td>
-                    </tr>
-                    <tr tabindex="0">
-                      <td>프로젝트</td>
-                      <td>2023년 지진,화산재해 대응시스템 유지보수</td>
-                      <td><div class="tags"><i>개발</i></div></td>
-                      <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                      <td>2023-05-01</td>
-                      <td>2023-05-01</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td>고길동(개발2팀)</td>
-                      <td>2%</td>
-                    </tr>
-                    <tr tabindex="0">
-                      <td>부서업무</td>
-                      <td>2023년 과제 진도점검</td>
-                      <td><div class="tags"><i>회의</i></div></td>
-                      <td>- 회의 내용 기재</td>
-                      <td>2023-05-01</td>
-                      <td>2023-05-01</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td></td>
-                      <td>75%</td>
-                    </tr>
-                    <tr tabindex="0">
-                      <td>개인업무</td>
-                      <td>000 디자인 작업</td>
-                      <td><div class="tags"><i>디자인</i></div></td>
-                      <td>- 회의 내용 기재</td>
-                      <td>2023-05-01</td>
-                      <td>2023-05-01</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td></td>
-                      <td>5%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-              <section id="tab_con02" class="tab_contents" style="display: none;">
-                <table class="tbl_default tbl_hover hasLayer alignL_2 alignL_4">
-                  <caption>미진 업무 리스트</caption>
-                  <colgroup>
-                    <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col span="2" style="width:150px;">
-                    <col span="2" style="width:120px;">
-                    <col style="width:95px;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th scope="col">구분</th>
-                      <th scope="col">업무명</th>
-                      <th scope="col">업무범주</th>
-                      <th scope="col">업무내용</th>
-                      <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
-                      <th scope="col">담당자</th>
-                      <th scope="col">요청자</th>
-                      <th scope="col">진행율</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr tabindex="0">
-                      <td>개인업무</td>
-                      <td>000 디자인 작업</td>
-                      <td>
-                        <i class="tbl_badge ing">진행</i>
-                      </td>
-                      <td>- 회의 내용 기재</td>
-                      <td>2023-05-01</td>
-                      <td>2023-05-01</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td></td>
-                      <td>5%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-              <section id="tab_con03" class="tab_contents" style="display: none;">
-                <table class="tbl_default tbl_hover hasLayer alignL_2 alignL_4">
-                  <caption>미진 업무 리스트</caption>
-                  <colgroup>
-                    <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col span="2" style="width:150px;">
-                    <col span="2" style="width:120px;">
-                    <col style="width:95px;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th scope="col">구분</th>
-                      <th scope="col">업무명</th>
-                      <th scope="col">업무범주</th>
-                      <th scope="col">업무내용</th>
-                      <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
-                      <th scope="col">담당자</th>
-                      <th scope="col">요청자</th>
-                      <th scope="col">진행율</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr tabindex="0">
-                      <td>부서업무</td>
-                      <td>2023년 과제 진도점검</td>
-                      <td>회의</td>
-                      <td>- 회의 내용 기재</td>
-                      <td>2023-05-01</td>
-                      <td>2023-05-01</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td></td>
-                      <td>75%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-              <section id="tab_con04" class="tab_contents" style="display: none;">
-                <table class="tbl_default tbl_hover hasLayer alignL_2 alignL_4">
-                  <caption>미진 업무 리스트</caption>
-                  <colgroup>
-                    <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col style="width:120px;">
-                    <col style="width:240px;">
-                    <col span="2" style="width:150px;">
-                    <col span="2" style="width:120px;">
-                    <col style="width:95px;">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th scope="col">구분</th>
-                      <th scope="col">업무명</th>
-                      <th scope="col">업무범주</th>
-                      <th scope="col">업무내용</th>
-                      <th scope="col">시작일자</th>
-                      <th scope="col">종료일자</th>
-                      <th scope="col">담당자</th>
-                      <th scope="col">요청자</th>
-                      <th scope="col">진행율</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr tabindex="0">
-                      <td>프로젝트</td>
-                      <td>2023년 지진,화산재해 대응시스템 유지보수</td>
-                      <td>개발​</td>
-                      <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                      <td>2023-05-01</td>
-                      <td>2023-05-01</td>
-                      <td>홍길동(개발1팀)</td>
-                      <td>고길동(개발2팀)</td>
-                      <td>2%</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </section>
-            </div>
-          </section>
+          </div>
+          <section class="tbl_wrap">
+            <table class="tbl_default tbl_hover hasLayer tbl_work_delay">
+              <caption>미진 업무 리스트</caption>
+              <colgroup>
+                <col style="width:120px;">
+                <col style="width:auto;min-width:240px;">
+                <col style="width:120px;">
+                <col style="width:auto;min-width:240px;">
+                <col span="2" style="width:100px;">
+                <col span="2" style="width:120px;">
+                <col style="width:95px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">구분</th>
+                  <th scope="col">업무명</th>
+                  <th scope="col">업무범주</th>
+                  <th scope="col">업무내용</th>
+                  <th scope="col">시작일자</th>
+                  <th scope="col">종료일자</th>
+                  <th scope="col">담당자</th>
+                  <th scope="col">요청자</th>
+                  <th scope="col">진행율</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0" onclick="location.href='../work/work_view.html'">
+                  <td>개인업무</td>
+                  <td>주간업무보고 작성</td>
+                  <td><div class="tags"><i>보고</i></div></td>
+                  <td> - 지진발생 팝업 미표출 오류 수정</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>22%</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>프로젝트</td>
+                  <td>2023년 지진,화산재해 대응시스템 유지보수</td>
+                  <td><div class="tags"><i>개발</i></div></td>
+                  <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>고길동(개발2팀)</td>
+                  <td>2%</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>부서업무</td>
+                  <td>2023년 과제 진도점검</td>
+                  <td><div class="tags"><i>회의</i></div></td>
+                  <td>- 회의 내용 기재</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td></td>
+                  <td>75%</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>개인업무</td>
+                  <td>000 디자인 작업</td>
+                  <td><div class="tags"><i>디자인</i></div></td>
+                  <td>- 회의 내용 기재</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td></td>
+                  <td>5%</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>          
         </article>
       </div>
     </section>

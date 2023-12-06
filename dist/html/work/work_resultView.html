@@ -76,11 +76,14 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
+      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+    </div>
+    <!-- <div class="btn_workset">
       <div class="btn_dbl_btn">
         <a href="work_new.html" class="">업무요청</a>
         <a href="javascript:void(0)" class="btn_sub" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
       </div>
-    </div>
+    </div> -->
     <ul class="snb_lst">
       <li><a href="work_myTodo.html">내 업무함</a>
         <ul>
@@ -328,7 +331,7 @@
                       <td rowspan="4">
                         <span class="file_input progress_input">
                           <label for="">진행률(%)</label>
-                          <input type="number" title="진행률 입력">
+                          <input type="number" min="0" max="100" value="0" title="진행률 입력">
                         </span>
                         <span class="btn_switch_single">
                           <label class="btn btn_default">미진행
@@ -395,7 +398,7 @@
                       <td rowspan="4">
                         <span class="file_input progress_input">
                           <label for="">진행률(%)</label>
-                          <input type="number" title="진행률 입력">
+                          <input type="number" min="0" max="100" value="0" title="진행률 입력">
                         </span>
                         <span class="btn_switch_single">
                           <label class="btn btn_default">미진행
@@ -462,7 +465,7 @@
                       <td rowspan="4">
                         <span class="file_input progress_input">
                           <label for="">진행률(%)</label>
-                          <input type="number" title="진행률 입력">
+                          <input type="number" min="0" max="100" value="0" title="진행률 입력">
                         </span>
                         <span class="btn_switch_single">
                           <label class="btn btn_default">미진행
@@ -541,7 +544,7 @@
                       <td rowspan="4">
                         <span class="file_input progress_input">
                           <label for="">진행률(%)</label>
-                          <input type="number" title="진행률 입력">
+                          <input type="number" min="0" max="100" value="0" title="진행률 입력">
                         </span>
                         <button type="button" class="btn btn_red">추가</button> 
                         <button type="button" class="btn btn_gray_line">취소</button> 
@@ -612,7 +615,7 @@
                       <td rowspan="4">
                         <span class="file_input progress_input">
                           <label for="">진행률(%)</label>
-                          <input type="number" title="진행률 입력">
+                          <input type="number" min="0" max="100" value="0" title="진행률 입력">
                         </span>
                         <span class="btn_switch_single">
                           <label class="btn btn_default">미진행
@@ -678,7 +681,7 @@
                       <td rowspan="4">
                         <span class="file_input progress_input">
                           <label for="">진행률(%)</label>
-                          <input type="number" title="진행률 입력">
+                          <input type="number" min="0" max="100" value="0" title="진행률 입력">
                         </span>
                         <span class="btn_switch_single">
                           <label class="btn btn_default">미진행

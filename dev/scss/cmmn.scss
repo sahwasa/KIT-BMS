@@ -268,9 +268,11 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .split_area{@include flex_between();}
 
 //btn
+.tool_wrap,
 .btn_wrap{display:flex;gap:4px;
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
+  select{width:auto;}
 }
 .btn_more{@include img_btn(14px,14px,'ic_more.png');}
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color:#999;text-align:left;line-height:34px;
@@ -512,17 +514,26 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
   .count{color:#424242;font-size:12px;margin-left:12px;}
 }
-section:has(>.tbl_default){position:relative;height:calc(100vh - 222px);min-height:407px;overflow-y:auto;border-top:2px solid $th_border_color;
-  .tbl_default{border-top-width:0;
+@mixin tbl_defaultH($gap:0px,$max:false){
+  $tbl_H:calc(100vh - 222px);
+  $tbl_MinH:407px;
+  height:calc($tbl_H - $gap);min-height:calc($tbl_MinH - $gap);
+  @if($max){
+    height:auto;max-height:calc($proj_viewH - $gap);
   }
-  th::after{position:absolute;left:0;bottom:-1px;@include shape(100%,0);border-bottom:1px solid $th_border_color;z-index:1;}
+}
+.tbl_wrap{position:relative;@include tbl_defaultH();overflow-y:auto;border-top:2px solid $th_border_color;
+  .tbl_default{border-top-width:0;}
+  th{position:sticky;top:0;
+    &::after{position:absolute;left:0;bottom:-1px;@include shape(100%,0);border-bottom:1px solid $th_border_color;z-index:1;}
+  }
 }
 .tbl_default{width:100%;text-align:center;border-top:2px solid $th_border_color;
   &.no_thead{border-top:1px solid $th_border_color;
     thead{@include blind;}
   }
   th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
-  th{position:sticky;top:0;background-color:#fff;color:#111;font-weight:bold;z-index:50;}
+  th{;background-color:#fff;color:#111;font-weight:bold;z-index:50;}
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
   }
