@@ -25,7 +25,7 @@ const handleClose = function(e, range){
   for (let i=0; i<=handleRange.length; i++){
     if(clickTarget.parents(handleRange[i]).length < 1){
       $(handleRange[i]).removeClass('on');
-    }    
+    }
   }
 }
 //focusout close
@@ -57,7 +57,7 @@ function commonInit() {
     let html = editedIpt
     html += '<div class="layer_tool">'
     html +=
-      '<button type="button" class="btn_ellipsis" title="더보기">더보기</button>'
+        '<button type="button" class="btn_ellipsis" title="더보기">더보기</button>'
     html += '<div class="btn_layer">'
     html += '<button type="button" data-clickevt="modify">수정</button>'
     html += '<button type="button" data-clickevt="del">삭제</button>'
@@ -89,19 +89,19 @@ function commonInit() {
     let btnType = e.target.dataset.clickevt
     if (btnType == 'del') {
       !confirm(
-        '선택한 보관함을 정말 삭제하시겠습니까?\n해당 보관함의 문서는 내 보관함으로 이동합니다.'
+          '선택한 보관함을 정말 삭제하시겠습니까?\n해당 보관함의 문서는 내 보관함으로 이동합니다.'
       )
-        ? alert('취소 되었습니다.')
-        : $(this).parentsUntil('.hasLayer').remove()
+          ? alert('취소 되었습니다.')
+          : $(this).parentsUntil('.hasLayer').remove()
     } else if (btnType == 'modify') {
       const target = $(this).parents('a')
       const getTxt = target
-        .contents()
-        .filter(function () {
-          return this.nodeType === 3 // Select only text nodes
-        })
-        .text()
-        .trim()
+          .contents()
+          .filter(function () {
+            return this.nodeType === 3 // Select only text nodes
+          })
+          .text()
+          .trim()
       let editNewIpt = "<input type='text' value='" + getTxt + "' >"
       target.html(editNewIpt)
       const editIpt = target.find('input')
@@ -117,10 +117,10 @@ function commonInit() {
     },
     change: function () {
       var cur = $(this).prop('checked'),
-        checkName = 'select_tr',
-        thisP = $(this).parents('.tbl_wrap');
-        childBody = thisP.find('tbody');
-      if ($(this).hasClass('all_check')) {        
+          checkName = 'select_tr',
+          thisP = $(this).parents('.tbl_wrap');
+      childBody = thisP.find('tbody');
+      if ($(this).hasClass('all_check')) {
         var childCheckIpt = childBody.find('.row_check');
         childCheckIpt.each(function () {
           var elRow = $(this).parents('tr')
@@ -130,13 +130,13 @@ function commonInit() {
       } else {
         var thisRow = $(this).parents('tr');
         if ($(this).prop('type') == 'radio') $(this).parents('table').find('tr').removeClass(checkName);
-          cur ? thisRow.addClass(checkName) : thisRow.removeClass(checkName);
-          var checkSize = childBody.find('.row_check:checked').length,
-              allCtrl = thisP.find('.all_check');
-          childBody.find('input:checkbox').length <= checkSize
+        cur ? thisRow.addClass(checkName) : thisRow.removeClass(checkName);
+        var checkSize = childBody.find('.row_check:checked').length,
+            allCtrl = thisP.find('.all_check');
+        childBody.find('input:checkbox').length <= checkSize
             ? allCtrl.prop('checked', true)
             : allCtrl.prop('checked', false)
-        }
+      }
     },
   })
   // tbl_list Handle checked
@@ -158,19 +158,19 @@ function commonInit() {
   // list all check
   function all_check_evt(el) {
     const allCtrl = el.prop('checked'),
-      thisChild = el
-        .closest('.all_lst_ctrl')
-        .next('.lst_ctrl')
-        .find('input:checkbox')
+        thisChild = el
+            .closest('.all_lst_ctrl')
+            .next('.lst_ctrl')
+            .find('input:checkbox')
     thisChild.prop('checked', allCtrl)
   }
   function all_check(el) {
     var thisP = el.parents('.lst_ctrl'),
-      checkSize = thisP.find('input:checked').length,
-      allCtrl = thisP.prev('.all_lst_ctrl').find('input:checkbox')
+        checkSize = thisP.find('input:checked').length,
+        allCtrl = thisP.prev('.all_lst_ctrl').find('input:checkbox')
     thisP.find('input:checkbox').length <= checkSize
-      ? allCtrl.prop('checked', true)
-      : allCtrl.prop('checked', false)
+        ? allCtrl.prop('checked', true)
+        : allCtrl.prop('checked', false)
   }
   $('.all_lst_ctrl').on('click change', 'input:checkbox', function () {
     all_check_evt($(this))
@@ -179,21 +179,21 @@ function commonInit() {
     all_check($(this))
   })
   $('.lst_ctrl')
-    .find('input:checkbox')
-    .each(function (index, item) {
-      all_check($(item))
-    })
+      .find('input:checkbox')
+      .each(function (index, item) {
+        all_check($(item))
+      })
 
   //layer_tool
   $(':has(.hasLayer)')
-    .off('click').on('click focusin', '.layer_tool', function (e) {
-      e.stopPropagation()
-      e.preventDefault()
-      $(this).addClass('on').css('z-index','100');
-    })
-    .on('focusout', '.layer_tool', function () {
-      $(this).removeClass('on').css('z-index','0');
-    });
+      .off('click').on('click focusin', '.layer_tool', function (e) {
+    e.stopPropagation()
+    e.preventDefault()
+    $(this).addClass('on').css('z-index','100');
+  })
+      .on('focusout', '.layer_tool', function () {
+        $(this).removeClass('on').css('z-index','0');
+      });
 
   //tab
   $('.tab').find('li:first').addClass('on')
@@ -204,8 +204,8 @@ function commonInit() {
     var link = $(this).find('a').attr('href')
     var link_num = link.substr(link.length - 1)
     $('.m_tab option')
-      .eq(link_num - 1)
-      .prop('selected', 'selected')
+        .eq(link_num - 1)
+        .prop('selected', 'selected')
     var findTarget = $(this).parents('.tab_wrap').next('.tab_container')
     findTarget.find('.tab_contents').hide()
     console.log($(link))
@@ -219,7 +219,7 @@ function commonInit() {
     e.preventDefault();
     var link = $(this).val();
     $(this).next('.seltab_wrap').find('.seltab_opt').hide();
-    $('#'+link).show();    
+    $('#'+link).show();
   });
 
   //addOPT
@@ -329,12 +329,12 @@ function commonInit() {
     $(addLi).find('input').focus()
     $(addLi).find('input').focusout($.editOgtName)
     $(addLi)
-      .find('input')
-      .keydown(function (key) {
-        if (key.keyCode == 13) {
-          $(addLi).find('input').focusout()
-        }
-      })
+        .find('input')
+        .keydown(function (key) {
+          if (key.keyCode == 13) {
+            $(addLi).find('input').focusout()
+          }
+        })
   })
   // edit item
   $('.tree').on('click', 'div', function () {
@@ -348,7 +348,7 @@ function commonInit() {
       var editDiv = $('.hover')
       var editSpan = editDiv.children('span:first-child')
       var editInput = $(
-        `<input type="text" placeholder="조직명을 입력하세요" value="${editSpan.text()}">`
+          `<input type="text" placeholder="조직명을 입력하세요" value="${editSpan.text()}">`
       )
       editSpan.remove()
       editDiv.prepend(editInput)
@@ -369,44 +369,44 @@ function commonInit() {
   // add file
   $('.upFile').on('change', function () {
     $(this)
-      .prev()
-      .val(this.value.replace(/c:\\fakepath\\/i, ''))
+        .prev()
+        .val(this.value.replace(/c:\\fakepath\\/i, ''))
     console.log($(this))
   })
 
   // toggle button
   $('.evt_tgl')
-    .off('click')
-    .on('click', function (e) {
-      // 기존에 등록된 이벤트 리스너 제거
-      e.preventDefault()
-      var cur = e.target.dataset
-      if ($(this).attr('disabled') == 'disabled') return false
-      if (cur.value == 'on') {
-        $(this)
-          .attr({
-            'data-value': 'off',
-            title: cur.off,
-          })
-          .html(cur.off)
-      } else {
-        $(this)
-          .attr({
-            'data-value': 'on',
-            title: cur.on,
-          })
-          .html(cur.off)
-      }
-    })
+      .off('click')
+      .on('click', function (e) {
+        // 기존에 등록된 이벤트 리스너 제거
+        e.preventDefault()
+        var cur = e.target.dataset
+        if ($(this).attr('disabled') == 'disabled') return false
+        if (cur.value == 'on') {
+          $(this)
+              .attr({
+                'data-value': 'off',
+                title: cur.off,
+              })
+              .html(cur.off)
+        } else {
+          $(this)
+              .attr({
+                'data-value': 'on',
+                title: cur.on,
+              })
+              .html(cur.off)
+        }
+      })
 
   $('.snb_fold').on('click', function (e) {
     var snbBtn = e.target.dataset,
-      snb = $('.snb'),
-      snbWidth = snb[0].scrollWidth + 'px',
-      speed = 500
+        snb = $('.snb'),
+        snbWidth = snb[0].scrollWidth + 'px',
+        speed = 500
     snbBtn.value == 'on'
-      ? snb.animate({ width: 0 }, speed)
-      : snb.animate({ width: snbWidth }, speed)
+        ? snb.animate({ width: 0 }, speed)
+        : snb.animate({ width: snbWidth }, speed)
   })
 
   const select_custom = $('.select_custom')
@@ -421,12 +421,15 @@ function commonInit() {
   label.off('click').on('click', function () {
     select_custom.removeClass('active')
     $(this).parent().hasClass('active')
-      ? $(this).parent().removeClass('active')
-      : $(this).parent().addClass('active')
+        ? $(this).parent().removeClass('active')
+        : $(this).parent().addClass('active')
   })
   $('select').on('change', function () {
     $(this).css('color', 'inherit')
   })
+
+  contents = document.querySelector('.contents');
+  initScrollToTop();
 }
 
 // editor
@@ -471,15 +474,15 @@ function setEditor(id = 'editor') {
       ],
     },
   })
-    .then(editor => {
-      window.editor = editor
-    })
-    .catch(error => {
-      console.error('Oops, something went wrong!')
-      console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
-      console.error(error)
-    })
-    .replace
+      .then(editor => {
+        window.editor = editor
+      })
+      .catch(error => {
+        console.error('Oops, something went wrong!')
+        console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
+        console.error(error)
+      })
+      .replace
 
   if($('#image_editor_wrap').length==0){
     // 이미지 에디터 생성
@@ -503,7 +506,7 @@ function setEditor(id = 'editor') {
       clearInterval(checkEditor)
     }
   }, 100)
-  
+
 }
 
 const locale_ko = {
@@ -701,7 +704,7 @@ const createScrollButton = () => {
   document.body.appendChild(scrollBtn)
   return scrollBtn
 }
-const contents = document.querySelector('.contents');
+var contents = document.querySelector('.contents');
 const toggleScrollButton = () => {
   const scrollBtn = document.querySelector('.btn_scroll')
   scrollBtn.classList.toggle('show', contents.scrollTop > window.innerHeight / 2)
@@ -717,4 +720,3 @@ const initScrollToTop = () => {
   scrollBtn.addEventListener('click', scrollToTop)
   contents.addEventListener('scroll', toggleScrollButton)
 }
-initScrollToTop();

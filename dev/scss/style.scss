@@ -948,7 +948,7 @@ $_planTypes:(
 #add_screen{position:fixed;top:60px;right:auto;z-index:10;width:calc(100% - 60px);height:calc(100% - 60px);background:#fff;} // 일정 페이지 전환
 
 .briefing_lst{padding-top:10px;
- .briefing{max-height:calc(100vh - 258px);min-height:365px;overflow-y:auto;padding-top:20px;
+ .briefing{height:calc(100vh - 264px);min-height:365px;overflow-y:auto;padding-top:20px;
     & > li{position:relative;align-items:center;padding:10px;
       &:hover{background-color:transparent;}
       &[data-month]::before{position:absolute;top:-11px;left:50%;content:attr(data-month);font-size:15px;background-color:#edf0f3;padding:3px 50px 4px;border-radius:10px;line-height:1;transform: translateX(-50%);z-index:10;}
