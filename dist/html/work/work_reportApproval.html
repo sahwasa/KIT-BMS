@@ -76,11 +76,14 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
+      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+    </div>
+    <!-- <div class="btn_workset">
       <div class="btn_dbl_btn">
         <a href="work_new.html" class="">업무요청</a>
         <a href="javascript:void(0)" class="btn_sub" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
       </div>
-    </div>
+    </div> -->
     <ul class="snb_lst">
       <li><a href="work_myTodo.html">내 업무함</a>
         <ul>
@@ -237,7 +240,7 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body approval_draft">
+      <div class="cont_body approval_draft work">
         <article class="box_compact box_tool">
           <button type="button" class="btn_gray_line">목록</button>
           <span class="floatR">
@@ -314,16 +317,15 @@
                   </tr>
                 </tbody>
               </table>
-              <br>
               <table class="tbl_report asis tbl_week_inner alignL_3">
                 <caption>주간업무보고(개인별) 실적</caption>
                 <colgroup>
-                  <col style="width:195px">
-                  <col style="width:95px">
-                  <col style="width:330px">
-                  <col style="width:60px">
-                  <col span="7" style="width:50px">
-                  <col span="2" style="width:95px">
+                  <col style="width:10%">
+                  <col style="width:5%">
+                  <col>
+                  <col style="width:5%">
+                  <col span="7" style="width:4%">
+                  <col span="2" style="width:5%">
                 </colgroup>
                 <thead>
                   <tr>
@@ -416,16 +418,15 @@
                   </tr>
                 </tfoot>
               </table>
-              <br>
               <table class="tbl_report tobe tbl_week_inner alignL_3">
                 <caption>주간업무보고(개인별) 계획</caption>
                 <colgroup>
-                  <col style="width:195px">
-                  <col style="width:95px">
-                  <col style="width:330px">
-                  <col style="width:60px">
-                  <col span="7" style="width:50px">
-                  <col span="2" style="width:95px">
+                  <col style="width:10%">
+                  <col style="width:5%">
+                  <col>
+                  <col style="width:5%">
+                  <col span="7" style="width:4%">
+                  <col span="2" style="width:5%">
                 </colgroup>
                 <thead>
                   <tr>

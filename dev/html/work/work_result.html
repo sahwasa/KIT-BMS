@@ -22,34 +22,6 @@
           <header class="blind">
             <h1>결재대기 목록</h1>
           </header>
-          <section class="tbl_top_area">
-            <ul class="search_list">
-              <li>
-                <select title="부서 선택">
-                  <option disabled selected>부서 선택</option>
-                </select>
-              </li>
-              <li>
-                <select name="" id="" title="작성자 선택">
-                  <option disabled selected>작성자 선택</option>
-                </select>
-              </li>
-              <li>
-                <div class="period_group">
-                  <input type="radio" name="select_period" id="week"><label for="week">1주</label>
-                  <input type="radio" name="select_period" id="month"><label for="month">1달</label>
-                  <input type="radio" name="select_period" id="year"><label for="year">1년</label>
-                </div>
-                <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
-                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
-                </div>
-              </li>
-              <li>
-                <button type="button" class="btn_search">검색</button>
-              </li>
-            </ul>
-          </section>
           <section>
             <div class="handle_week">
               <button class="handle_prev">이전 주차 이동</button>
@@ -57,7 +29,7 @@
               <button class="handle_next" disabled>다음 주차 이동</button>
             </div>
             <div class="tbl_top_area">
-              <h2>2023년 14주 상세보기</h2>
+              <h2>2023년 14주</h2>
               <div class="floatR">
                 <button type="button" class="btn_default" onclick="location.href='work_resultView.html'">실적등록</button>
               </div>

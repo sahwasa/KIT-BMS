@@ -701,19 +701,20 @@ const createScrollButton = () => {
   document.body.appendChild(scrollBtn)
   return scrollBtn
 }
+const contents = document.querySelector('.contents');
 const toggleScrollButton = () => {
   const scrollBtn = document.querySelector('.btn_scroll')
-  scrollBtn.classList.toggle('show', window.scrollY * 2 > window.innerHeight)
+  scrollBtn.classList.toggle('show', contents.scrollTop > window.innerHeight / 2)
 }
 const scrollToTop = () => {
-  if (window.scrollY > 0) {
-    window.scrollTo(0, window.scrollY - 50)
+  if (contents.scrollTop > 0) {
+    contents.scrollTo(0, contents.scrollTop - 50)
     setTimeout(scrollToTop, 10)
   }
 }
 const initScrollToTop = () => {
   const scrollBtn = createScrollButton()
   scrollBtn.addEventListener('click', scrollToTop)
-  window.addEventListener('scroll', toggleScrollButton)
+  contents.addEventListener('scroll', toggleScrollButton)
 }
-initScrollToTop()
+initScrollToTop();
