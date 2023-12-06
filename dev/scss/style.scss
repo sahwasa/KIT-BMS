@@ -582,7 +582,7 @@ z-index:10;
     &:hover{border-color:#e42b29;background-color:#fff5f5;color:#e42b29;font-weight:bold;}
   }
 }
-.my_approval{@include flex_between;align-items:stretch;padding-bottom:$columnGap;
+.my_approval{@include flex_between;align-items:stretch;gap:$columnGap;padding-bottom:$columnGap;
   .flex_right{@include form_style();min-width:auto;} 
 }
 %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:541px;transform:translate(-5px,-5px);
@@ -948,7 +948,7 @@ $_planTypes:(
 #add_screen{position:fixed;top:60px;right:auto;z-index:10;width:calc(100% - 60px);height:calc(100% - 60px);background:#fff;} // 일정 페이지 전환
 
 .briefing_lst{padding-top:10px;
- .briefing{max-height:calc(100vh - 258px);overflow-y:auto;padding-top:20px;
+ .briefing{max-height:calc(100vh - 258px);min-height:365px;overflow-y:auto;padding-top:20px;
     & > li{position:relative;align-items:center;padding:10px;
       &:hover{background-color:transparent;}
       &[data-month]::before{position:absolute;top:-11px;left:50%;content:attr(data-month);font-size:15px;background-color:#edf0f3;padding:3px 50px 4px;border-radius:10px;line-height:1;transform: translateX(-50%);z-index:10;}
@@ -1492,7 +1492,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &:last-child{margin-bottom:0;}
   }
   .tit_work_board{@include flex_between;height:40px;padding:5px 10px 5px 15px;border:1px solid #ddd;border-bottom-width:0;border-radius:5px 5px 0 0;background-color:#edf0f3;font-size:13px;font-weight:bold;}
-  .con_work_board{padding:15px;border:1px solid #ddd;border-radius:0 0 5px 5px;overflow-y:auto;height:calc(100vh - 266px);
+  .con_work_board{padding:15px;border:1px solid #ddd;border-radius:0 0 5px 5px;overflow-y:auto;height:calc(100vh - 266px);min-height:363px;
     &>li{
       &:has(h3){padding:20px 15px;border:1px solid #ddd;border-width:0 0 1px;}
       &:has(details){

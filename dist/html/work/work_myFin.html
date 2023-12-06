@@ -247,22 +247,25 @@
             <h1>완료된 업무 목록</h1>
           </header>
           <section class="box_compact">
-            <ul class="search_list">
-              <li>
-                <select title="부서 선택">
-                  <option disabled selected>부서 선택</option>
-                </select>
-              </li>
-              <li>
-                <select title="팀 선택">
-                  <option disabled selected>팀 선택</option>
-                </select>
-              </li>
+            <ul class="search_list">              
               <li>
                 <div class="period_custom">
                   <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                   <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
                 </div>
+              </li>
+              <li>
+                <input type="text" title="업무범주" placeholder="업무범주" list="work_tag">
+                <datalist id="work_tag">
+  <option value="개발">개발</option>
+  <option value="보고">보고</option>
+  <option value="장애처리">장애처리</option>
+  <option value="디자인">디자인</option>
+  <option value="회의">회의</option>
+  <option value="업무지원">업무지원</option>
+  <option value="연구활동">연구활동</option>
+  <option value="기타">기타</option>
+</datalist>
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
@@ -296,7 +299,7 @@
                 <col style="width:auto;min-width:240px;">
                 <col style="width:120px;">
                 <col style="width:auto;min-width:240px;">
-                <col span="2" style="width:100px;">
+                <col style="width:200px;">
                 <col span="2" style="width:120px;">
               </colgroup>
               <thead>
@@ -305,8 +308,7 @@
                   <th scope="col">업무명</th>
                   <th scope="col">업무범주</th>
                   <th scope="col">업무내용</th>
-                  <th scope="col">시작일자</th>
-                  <th scope="col">종료일자</th>
+                  <th scope="col">기간</th>
                   <th scope="col">담당자</th>
                   <th scope="col">요청자</th>
                 </tr>
@@ -315,10 +317,9 @@
                 <tr tabindex="0" onclick="location.href='../work/work_view.html'">
                   <td>개인업무</td>
                   <td>주간업무보고 작성</td>
-                  <td><div class="tags"><i>보고</i></div></td>
+                  <td><div class="tags"><i>보고</i><i>개발</i></div></td>
                   <td> - 지진발생 팝업 미표출 오류 수정</td>
-                  <td>2023-05-01</td>
-                  <td>2023-05-01</td>
+                  <td>2023-05-01 ~ 2023-05-05</td>
                   <td>홍길동(개발1팀)</td>
                   <td>홍길동(개발1팀)</td>
                 </tr>
@@ -327,8 +328,7 @@
                   <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                   <td><div class="tags"><i>개발​</i></div></td>
                   <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
-                  <td>2023-05-01</td>
-                  <td>2023-05-01</td>
+                  <td>2023-05-01 ~ 2023-05-05</td>
                   <td>홍길동(개발1팀)</td>
                   <td>고길동(개발2팀)</td>
                 </tr>
@@ -387,5 +387,4 @@ commonInit();
 
 </script>
 </body>
-
 </html>
