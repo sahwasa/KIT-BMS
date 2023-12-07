@@ -533,7 +533,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
     thead{@include blind;}
   }
   th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
-  th{;background-color:#fff;color:#111;font-weight:bold;z-index:50;}
+  th{background-color:#fff;color:#111;font-weight:bold;z-index:50;}
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
   }
