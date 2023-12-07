@@ -85,13 +85,31 @@
     <section class="tab_container">
       <article class="tab_contents" id="tab01">
         <div class="filter">
-          <!-- <div class="flex_ipt" id="proj_filter" data-tglwrap> -->
-             
-            <!-- <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span> -->
-            <!-- <button class="btn_more_square" data-toggle="proj_add">더보기</button> -->
-          <!-- </div> -->
+          <!-- <div class="flex_ipt" id="proj_filter" data-tglwrap>
+            <input type="number" name="ipt_year" id="" min="1900" max="2099" step="1" title="연도"><span class="unit">년</span>
+            <button class="btn_search_square">검색</button>
+            <button class="btn_more_square" data-toggle="proj_add" title="상세검색">상세검색</button>
+          </div>
           <div class="proj_add" id="proj_add" data-tglwrap>
-            <!-- <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button> -->
+            <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
+            <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+            <div class="add_opt">
+              <input type="text" id="rel_proj" placeholder="프로젝트명" title="프로젝트명 검색" list="projectList">
+              <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+              <button class="btn_search_square">검색</button>
+            </div> -->
+          <div class="proj_add" id="proj_add">
             <div class="period_custom">
   <span>
     <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
@@ -132,7 +150,6 @@
             <a href="project_view.html">
               <div class="tag_wrap">
                 <i class="type">사업기획</i>
-                <!-- <span class="i_public">공개</span> -->
                 <i class="repair">하자보수</i>
               </div>
               <div class="proj_name">
@@ -149,7 +166,6 @@
             <a href="project_view.html">
               <div class="tag_wrap">
                 <i class="type">사업기획</i>
-                <!-- <span class="i_public">공개</span> -->
                 <i class="ready">기획</i>
               </div>
               <div class="proj_name">
@@ -166,7 +182,6 @@
             <a href="project_view.html">
               <div class="tag_wrap">
                 <i class="type">사업제안</i>
-                <!-- <span class="i_public">공개</span> -->
                 <i class="done">수주</i>
               </div>
               <div class="proj_name">
@@ -217,7 +232,6 @@
             <a href="#">
               <div class="tag_wrap">
                 <i class="type">개발구축</i>
-                <span class="i_public">공개</span>
                 <i class="repair">하자보수</i>
               </div>
               <div class="proj_name">
@@ -234,7 +248,6 @@
             <a href="#">
               <div class="tag_wrap">
                 <i class="type">유지보수</i>
-                <span class="i_public">공개</span>
                 <i class="ing">수행중</i>
               </div>
               <div class="proj_name">
@@ -250,6 +263,95 @@
         </ul>
       </article>
       <article class="tab_contents" id="tab02">
+        <div class="filter">
+          <div class="proj_add" id="proj_add">
+            <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+            <div class="add_opt">
+              <input type="text" id="rel_proj" placeholder="프로젝트명" title="프로젝트명 검색" list="projectList">
+              <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+              <button class="btn_search_square">검색</button>
+            </div>
+          </div>
+        </div>
+        <ul class="proj_lst all_proj">
+          <li>
+            <a href="project_view.html">
+              <div class="tag_wrap">
+                <i class="type">사업제안</i>
+                <span class="i_private">비공개</span>
+                <i class="ready">제안</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="project_view.html">
+              <div class="tag_wrap">
+                <i class="type">사업제안</i>
+                <span class="i_private">비공개</span>
+                <i class="done">실주</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="tag_wrap">
+                <i class="type">개발구축</i>
+                <i class="repair">하자보수</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="tag_wrap">
+                <i class="type">유지보수</i>
+                <i class="ing">수행중</i>
+              </div>
+              <div class="proj_name">
+                <b>KIT업무관리시스템</b>
+              </div>
+              <ul class="proj_desc">
+                <li>KITValley</li>
+                <li>2023-01-01 ~ 2023-12-31</li>
+                <li>PM:권기봉</li>
+              </ul>
+            </a>
+          </li>
+        </ul>
       </article>
     </section>   
   </div>

@@ -811,7 +811,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
 }
 .editable{
-  span{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
+  span{@include badge_style;width:auto;min-height:auto;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
   &:empty + .placehold{visibility:visible;}
 }
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}

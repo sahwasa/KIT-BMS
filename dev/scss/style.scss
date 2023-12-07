@@ -375,7 +375,7 @@ $snbWidth:250px;
   $snb-border-color:#ebebeb;
   .filter{position:relative;padding:7px #{$columnGap - 10px};color:#989898;border-bottom:1px solid $snb-border-color;
     .flex_ipt input{flex-grow:1;color:inherit;margin-right:2px;}
-    [name="ipt_year"]+.unit{position:absolute;left:50px;color:inherit;}
+    [name="ipt_year"]+.unit{color:inherit;margin-right:15px;}
   }
   .proj_add{display:flex;flex-direction:column;gap:3px;    
     .period_custom{gap:16px;
@@ -997,6 +997,7 @@ $defalutColor:#009dee;
 %proj_tag{width:35px;line-height:13px;@include badge_style(45px,45px);font-size:10px;letter-spacing:-.25px;font-weight:700;}
 %type{background-color:#f8c9ce;color:#404654;}
 .proj_lst{overflow-y:auto;max-height:calc(100vh - 380px);min-height:247px;text-align:left;
+  &.all_proj{max-height:calc(100vh - 323px);min-height:307px;}
   & > li{padding:10px calc($columnGap - 10px);border-bottom:1px solid #ebebeb;line-height:16px;
     &:hover{background-color:#f9fafc;}
     &.on{background-color:#fef4f5;}
@@ -1615,23 +1616,23 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   li.select_li:hover,
   li.select_li{background-color:lighten($red, 45%);}
   .tags{display:inline-flex;align-items:center;gap:3px;}
-  &>li{@include flex_between;align-items:flex-start;gap:20px;padding:17px 15px;border-bottom:1px solid #ebebeb;cursor:pointer;
+  &>li{@include flex_between;align-items:flex-start;gap:20px;padding:10px;border-bottom:1px solid #ebebeb;cursor:pointer;align-items:stretch;
     &:hover{background:#f9fafc;}
-    h2{$_workType:('ing':#2d66d8,'done':#f07816);
+    h2{$_workType:('ing':#2d66d8,'my_work':#f07816);
       @each $type, $color in $_workType{
-        &.#{$type}{display:flex;justify-content:center;align-items:center;width:180px;min-height:90px;padding:5px;border:1px solid $color;border-radius:5px;background:lighten($color, 45%);box-shadow:0px 1px 8px 0 rgba(0, 0, 0, 0.07);font-weight:bold;color:$color;text-align:center;word-break:keep-all;}
+        &.#{$type}{display:flex;justify-content:center;align-items:center;width:180px;padding:5px;border:1px solid $color;border-radius:5px;background:lighten($color, 45%);box-shadow:0px 1px 8px 0 rgba(0, 0, 0, 0.07);font-weight:700;color:$color;text-align:center;word-break:keep-all;}
       }
     }
-    &>div:first-of-type{flex:1;
-      h3{margin-bottom:2px;font-size:13px;color:#333;font-weight:bold;
-        .btn_slideclose_s{display:inline-block;margin-left:5px;vertical-align:text-top;}
-      }
+    &>div:first-of-type{flex:1;display:flex;flex-direction:column;gap:5px;
+      h3{font-size:13px;color:#333;font-weight:700;}
     }
   }
-
-  .progress{display:flex;align-items:center;justify-content:space-between;gap:3px;flex-shrink:0;width:170px;font-size:11px;color:#b2bacd;font-weight:bold;
-    progress{width:100px;}
-    em{color:$red;margin-left:auto;}
+  .dsc{flex-shrink:0;font-size:11px;color:#b2bacd;font-weight:700;
+    .date{color:#888;font-size:11px;margin-bottom:5px;}
+  }
+  .progress{text-align:right;
+    progress{display:block;width:140px;}
+    em{color:$red;width:40px;}
   }
   
 }
@@ -1655,10 +1656,11 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   &.tbl_week_inner{
     thead>tr:last-child>th:first-child{background-color:#ffe5e5;}
     thead>tr:last-child>th:last-child{background-color:#ccdeff;}
-    tbody td:nth-child(5),
-    tbody td:nth-child(11),
+    tbody td:empty,
     tfoot td:nth-child(2),
     tfoot td:nth-child(8){background-color:#f5f5f5;}
+    tbody td:last-child,
+    tbody td:nth-last-child(2){background-color:#fff;}
   }
   thead{background-color:#f5f5f5;
     th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:#f5f5f5;}
