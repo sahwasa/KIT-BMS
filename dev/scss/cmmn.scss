@@ -152,7 +152,7 @@ input[type="time"],
 input[type="datetime-local"],
 input[type="email"],
 input[type="tel"],
-[contenteditable]{@include ipt_common;min-height:28px;}
+div[contenteditable],p[contenteditable],td[contenteditable]{@include ipt_common;min-height:28px;}
 input[type="radio"],
 input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
 width:13px!important;height:13px!important;border:1px solid #606060;
@@ -811,7 +811,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
 }
 .editable{
-  span{@include badge_style;width:auto;min-height:auto;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
+  span{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
   &:empty + .placehold{visibility:visible;}
 }
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}
