@@ -196,8 +196,8 @@ function commonInit() {
       });
 
   //tab
-  $('.tab').find('li:first').addClass('on')
-  $('.tab_container').find('.tab_contents:not(:first)').hide()
+  // $('.tab').find('li:first').addClass('on')
+  // $('.tab_container').find('.tab_contents:not(:first)').hide()
   $('.tab li').on('click', function (e) {
     e.preventDefault()
     $(this).addClass('on').siblings().removeClass('on')
@@ -208,7 +208,7 @@ function commonInit() {
         .prop('selected', 'selected')
     var findTarget = $(this).parents('.tab_wrap').next('.tab_container')
     findTarget.find('.tab_contents').hide()
-    console.log($(link))
+    // console.log($(link))
     $(link).show();
     if(typeof calendar !== 'undefined') calendar.updateSize();
   })
