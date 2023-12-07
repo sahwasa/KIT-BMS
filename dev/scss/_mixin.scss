@@ -165,7 +165,7 @@ border:1px solid transparent;align-self:center;@content;}
 
 @mixin user_lst{display:flex;flex-direction:column;gap:5px;
   li{display:flex;align-items:center;}
-  em{margin-left:auto;}
+  em:not(.tag_pm){margin-left:auto;}  
 }
 
 @mixin text_ellipsis($line:1){text-overflow:ellipsis;white-space:normal;overflow:hidden;display:-webkit-box;-webkit-line-clamp:$line;-webkit-box-orient:vertical;}

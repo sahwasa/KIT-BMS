@@ -258,7 +258,7 @@ input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;}
 input[type="date"]::after{@include fontello('\f133');font-size:15px;}
 input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
-  input{width:auto;}
+  input{width:auto;padding-right:4px;}
   &>*:first-child{position:relative;overflow:visible;
     &::before{content:"~";position:absolute;right:-19px;top:50%;transform:translate(-50%,-50%);}
   }
@@ -832,7 +832,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   li{display:flex;align-items:center;gap:3px;}
 }
 /* ckeditor, tui-image-editor */
-.editor_wrap{  
+.editor_wrap{ 
   .ck-editor{
     .ck-source-editing-area,
     .ck-editor__editable_inline {min-height:100px;height:auto;cursor:text;}
