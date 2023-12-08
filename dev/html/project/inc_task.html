@@ -2,14 +2,10 @@
   <header class="lst_header">
     <h1 class="blind">업무 상세</h1>
     <div class="apply_status">
-      <!-- 상태 -->
-      <em>PM.PL:승인요청,변경요청 / 담당자 : 승인반려(사유:간략히)</em>
-      <!-- 승인과 변경 구분?? -->
-      <!-- PM.PL : 승인 전(승인대기중), 승인 완료 후에는 공란 -->
-      <!-- 담당자 : 승인요청 전(미승인요청),승인or변경요청 후 (승인대기중),승인 후에는 공란 -->
+      <em>승인요청,변경요청/반려:사유</em>
     </div>
     <div class="btn_wrap">
-      <button type="button" class="btn_red">완료?? 검토요청??</button>
+      <button type="button" class="btn_red">완료요청</button>
       <button type="button" class="btn_red_line" onclick="event.preventDefault();document.querySelector('.p_require_task_change').showModal();">변경요청</button>
       <!-- PMPL : 최초등록>승인, 반려 필요? 삭제가능?: -->
       <!-- <button type="button" class="btn_red">승인</button>
@@ -32,7 +28,11 @@
     <article>
       <header>
         <h1>회원가입 및 로그인 기능 구축</h1>
-        <span class="date">작성일 : 2024-06-05</span>
+        <!-- 작성자,작성일 -->
+        <div class="user_module">
+          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+          <em>홍길동</em><span class="date">24-06-05</span>
+        </div>
       </header>
       <dl class="set_list work_dot_wrap">
         <dt>업무범주</dt>
@@ -47,6 +47,7 @@
         <dt>작업 예정기간</dt>
         <dd>2022-04-01 ~ 2022-04-01</dd>
         <dt>진행상태</dt>
+        <!-- 준비,수행중,보류만 들어갑니다. 변경요청,완료요청 등의 요청은 표기 X -->
         <dd class="ico_proj"><i class="ing"></i>수행중</dd>
         <dt>담당자</dt>
         <dd>
@@ -73,28 +74,28 @@
       <ul class="cmt_lst">
         <li>
           <div class="cmt_user">
-            @@include('../../inc/module/module_user.html')
+            <div class="user_module">
+            <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure><em>홍길동</em>
+          </div>
             <p class="cmt_date">23-12-15 11:10</p>
             <div class="user_module state">
               <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-              <span class="show">승인</span>
-              &sol;
-              <span class="show t_red">반려(23-12-16 12:55)</span>
+              <span class="show">승인(23-12-16 12:55)</span>
             </div>
           </div>
           <div class="changes">
-            <p class="t_red">완료요청</p>
+            <!-- 업무상태 완료요청 -->
+            <em class="ico_proj"><i class="done">완료</i>완료요청</em>
           </div>
-          <div class="cmt_reject"><p>반려시 반려사유가 들어갑니다</p></div>
-        </li>
+        </li>        
         <li>
           <div class="cmt_user">
-            @@include('../../inc/module/module_user.html')
+            <div class="user_module">
+              <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure><em>홍길동</em>
+            </div>
             <p class="cmt_date">23-12-15 11:10</p>
             <div class="user_module state">
               <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-              <span class="show">승인</span>
-              &sol;
               <span class="show t_red">반려(23-12-16 12:55)</span>
             </div>
           </div>
@@ -119,16 +120,18 @@
         </li>
         <li>
           <div class="cmt_user">
-            @@include('../../inc/module/module_user.html')           
+            <div class="user_module">
+            <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure><em>홍길동</em>
+          </div>           
             <p class="cmt_date">23-12-15 11:10</p>
             <div class="btn_wrap">
               <!-- 작성자 -->
-              <button type="button">수정</button>
-              <button type="button">삭제</button>
+              <button type="button" class="btn_gray_line">수정</button>
+              <button type="button" class="btn_gray_line">삭제</button>
               &sol;
               <!-- PM,PL 반려시 반려사유 코멘트 -->
-              <button type="button">승인</button>
-              <button type="button">반려</button>
+              <button type="button" class="btn_red_line">승인</button>
+              <button type="button" class="btn_gray_line">반려</button>
             </div>
           </div>
           <div class="changes">

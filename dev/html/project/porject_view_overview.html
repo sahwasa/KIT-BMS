@@ -69,26 +69,14 @@
   <section class="box_default_w">
     <dl class="set_list">  
       <dt>상태</dt>
-      <dd>
-        <div class="select_custom task_status">
-          <button class="label"><span class="opt_label">상태</span></button>
-          <ul class="optionList">
-            <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">준비</span></li>
-            <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">수행중</span></li>
-            <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">하자보수</span></li>
-            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">종료</span></li>
-            <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
-            <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">기타</span></li>
-          </ul>
-        </div>
-      </dd>
+      <dd><span class="task_ing">준비</span></dd>
       <dt>공개여부</dt>
       <dd>
         <div class="btn_switch">
-          <input type="radio" id="open" name="disclosure" checked>
-          <label for="open">공개</label>
-          <input type="radio" id="private" name="disclosure">
-          <label for="private">비공개</label>
+          <input type="radio" id="proj_open" name="proj_closure" checked readonly>
+          <label for="proj_open">공개</label>
+          <input type="radio" id="proj_private" name="proj_closure" readonly>
+          <label for="proj_private">비공개</label>
         </div>
       </dd>
     </dl>
@@ -96,9 +84,9 @@
   <section class="box_default_w contributor">
     <header>
       <h1>참여자<i class="count_tag">3</i></h1>
-      <button class="btn_more" data-toggle="contributor_add">참여자 추가</button>
+      <!-- <button class="btn_more" data-toggle="contributor_add">참여자 추가</button> -->
     </header>
-    <div class="contributor_add" id="contributor_add" data-tglwrap>
+    <!-- <div class="contributor_add" id="contributor_add" data-tglwrap>
       <span class="file_input">
         <button class="btn_back" title="뒤로" data-toggle="proj_filter">뒤로가기</button>
         <input type="text" id="form_referrer" placeholder="추가할 참여자 입력" list="nameList" autocomplete="off">
@@ -106,11 +94,11 @@
         <button type="button" class="btn_ogt btnMngTree">조직도</button>
         <button type="button" class="btn_red_line" disabled>저장</button>
       </span>
-    </div>
+    </div> -->
     <ul class="ls_contributor">
       <li>@@include('../../inc/module/module_user.html')<em class="tag_pm">PM</em></li>
-      <li>@@include('../../inc/module/module_user.html')<button type="button" class="myappr_del">삭제</button></li>
-      <li>@@include('../../inc/module/module_user.html')<button type="button" class="myappr_del">삭제</button></li>
+      <li>@@include('../../inc/module/module_user.html')</li>
+      <li>@@include('../../inc/module/module_user.html')</li>
     </ul>
   </section>  
   <section class="box_default_w rel_proj">

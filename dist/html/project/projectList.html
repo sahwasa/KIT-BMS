@@ -369,80 +369,104 @@
         </section>
       </header>
       <div class="cont_body proj_home">
-        <div class="handle_week">
-          <button class="handle_prev">이전 주차 이동</button>
-          <span>2023.10.01 ~ 2023.10.07</span>
-          <button class="handle_next">다음 주차 이동</button>
-        </div>          
         <article class="my_task">
-          <section class="box_default week_task">
-            <dl class="task_lst">
-              <dt>
-                <i class="repair">하자보수</i>
-                KIT 업무관리 시스템
-              </dt>
-              <dd>
-                <div class="tags"><i>개발</i><i>테스트</i></div>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-                <div class="etc">
-                  <em>1</em>                  
-                </div>
-              </dd>
-              <dd>
-                <div class="tags"><i>개발</i><i>테스트</i></div>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-                <div class="etc">
-                  <em>45</em>
-                </div>
-              </dd>
-              <dd>
-                <div class="tags"><i>개발</i><i>테스트</i></div>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-                <div class="etc">
-                  <em>1245</em>
-                </div>
-              </dd>
-              <dd>
-                <div class="tags"><i>개발</i><i>테스트</i></div>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-                <div class="etc">
-                  <em>1245</em>
-                </div>
-              </dd>              
-              <dt>
-                <i class="done">종료</i>도시폭염을 고려한 폭염저감기술 최적화
-              </dt>
-              <dd>
-                <div class="tags"><i>개발</i><i>테스트</i></div>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-                <div class="etc">
-                  <em>1245</em>
-                </div>
-              </dd>     
-              <dt>
-                <i class="ing">수행중</i>지진재해 지역위험도 평가시스템
-              </dt>
-              <dd>
-                <div class="tags"><i>개발</i><i>테스트</i></div>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-                <div class="etc">
-                  <em>1245</em>
-                </div>
-              </dd>     
-            </dl>
+          <section class="week_task">
+            <div class="handle_week">
+              <button class="handle_prev">이전 주차 이동</button>
+              <span>2023.10.01 ~ 2023.10.07</span>
+              <button class="handle_next">다음 주차 이동</button>
+            </div>          
+            <div class="box_default">
+              <div class="proj_legend ico_proj">
+                <!-- 진행상태 (준비,수행중,완료,보류)
+                최초 등록 후 승인전 : 준비
+                최초 등록 후 승인 : 수행중
+                최초 등록 후 : 반려는 없고 보류 혹은 수정삭제
+                완료 요청 : 완료 요청
+                완료요청 승인 : 완료
+                완료요청 반려 : 수행중
+                변경 요청 : 변경 요청
+                변경요청 승인 또는 반려 : 수행중
+                보류 : 보류
+                -->
+                <ul>        
+                  <li><i class="ready"></i>준비</li> 
+                  <li><i class="ing"></i>수행중</li>
+                  <li><i class="done"></i>완료</li>
+                  <li><i class="hold"></i>보류</li>
+                </ul>
+                <ul>
+                  <li><i class="check"></i>완료요청</li>        
+                  <li><i class="apply"></i>변경요청</li>        
+                </ul>
+              </div>
+              <!-- 클릭 시 해당 프로젝트 > 요구사항 > 업무 선택된 상태로 이동 -->
+              <dl class="task_lst">
+                <dt>
+                  <i class="repair">하자보수</i>
+                  KIT 업무관리 시스템
+                </dt>
+                <dd>
+                  <div class="tags"><i>개발</i><i>테스트</i></div>
+                  <strong class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</strong>                  
+                  <div class="etc"><i class="ready">준비</i>2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                </dd>
+                <dd>
+                  <div class="tags"><i>개발</i><i>테스트</i></div>
+                  <strong class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</strong>
+                  <div class="etc"><i class="done">완료</i>2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                </dd>
+                <dd>
+                  <div class="tags"><i>개발</i><i>테스트</i></div>
+                  <strong class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</strong>
+                  <div class="etc"><i class="ing">수행중</i>2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                </dd>
+                <dd>
+                  <div class="tags"><i>개발</i><i>테스트</i></div>
+                  <strong class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</strong>
+                  <div class="etc"><i class="hold">보류</i>2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                </dd>
+                <dt>
+                  <i class="done">종료</i>도시폭염을 고려한 폭염저감기술 최적화
+                </dt>
+                <dd>
+                  <div class="tags"><i>개발</i><i>테스트</i></div>
+                  <strong class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</strong>
+                  <div class="etc"><i class="check">완료요청</i>2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                </dd>
+                <dt>
+                  <i class="ing">수행중</i>지진재해 지역위험도 평가시스템
+                </dt>
+                <dd>
+                  <div class="tags"><i>개발</i><i>테스트</i></div>
+                  <strong class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</strong>                  
+                  <div class="etc"><i class="apply">변경요청</i>2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                </dd>
+              </dl>
+            </div>
           </section>
-          <section class="box_default lazy_task">
+          <section class="lazy_task">
             <h1>지연된 업무</h1>
-            <ul class="task_lst">
-              <li>
-                <strong class="proj_name">KIT 업무관리시스템</strong>
-                <div class="tags"><i>개발</i><i>테스트</i></div>
-                <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-                <div class="etc">
-                  <em>1</em>
-                </div>
-              </li>
-            </ul>
+            <div class="box_default">
+              <ul class="task_lst">
+                <li>
+                  <strong class="proj_name">KIT 업무관리시스템</strong>
+                  <ul class="task_desc">
+                    <li><div class="tags"><i>개발</i><i>테스트</i></div></li>
+                    <li>ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</li>
+                    <li>2023-01-01 ~ 2023-12-31<em class="t_red">(D+1)</em></li>
+                  </ul>                  
+                </li>
+                <li>
+                  <strong class="proj_name">KIT 업무관리시스템</strong>
+                  <ul class="task_desc">
+                    <li><div class="tags"><i>개발</i><i>테스트</i></div></li>
+                    <li>ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</li>
+                    <li>2023-01-01 ~ 2023-12-31<em class="t_red">(D+1)</em></li>
+                  </ul>                  
+                </li>
+              </ul>
+            </div>
           </section>
         </article>
       </div>
@@ -469,6 +493,8 @@
 <script>
 //퍼블용
 commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">

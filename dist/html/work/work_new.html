@@ -447,6 +447,8 @@
 <script>
 //퍼블용
 commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">

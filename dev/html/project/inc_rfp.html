@@ -10,16 +10,13 @@
   <div class="work_form">
     <header>
       <h1>사업수행계획서 및 착수계 제출</h1>
-      <span class="date">작성일 : 2024-06-05</span>
+      <!-- 작성자,작성일 -->
+      <div class="user_module">
+        <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+        <em>홍길동</em><span class="date">24-06-05</span>
+      </div>
     </header>
     <dl class="set_list work_dot_wrap">
-      <dt>작성자</dt>
-      <dd>
-        <div class="user_module">
-          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
-          <em>홍길동</em>
-        </div>
-      </dd>
       <dt>요구사항ID</dt>
       <dd>R202300001</dd>
       <dt>단계</dt>
@@ -64,7 +61,8 @@
         </div>
       </dd>
       <dt>상태</dt>
-      <dd class="ico_proj"><i class="ing"></i>수행중<span class="score"><b>1</b>/2</span></dd>
+      <!-- 완료/전체만 표기 -->
+      <dd><span class="score"><b>1</b>/2</span></dd>
       <dt>내용</dt>
       <dd>시스템 권한 별 로그인 및 기록관리 기능</dd>
       <dt>수행방안</dt>

@@ -14,6 +14,8 @@
 <script>
 //퍼블용
 commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
 </script>
 @@include('../pop/p_org_chart.html')
 @@include('../pop/p_seating_chart.html')

@@ -2,18 +2,26 @@
   <header>
     <h1 class="blind">요구사항</h1>
     <div class="proj_legend ico_proj">
-      <ul>
-        <!-- 최초등록 후 승인전 -->
+      <!-- 진행상태 (준비,수행중,완료,보류)
+      최초 등록 후 승인전 : 준비
+      최초 등록 후 승인 : 수행중
+      최초 등록 후 : 반려는 없고 보류 혹은 수정삭제
+      완료 요청 : 완료 요청
+      완료요청 승인 : 완료
+      완료요청 반려 : 수행중
+      변경 요청 : 변경 요청
+      변경요청 승인 또는 반려 : 수행중
+      보류 : 보류
+       -->
+      <ul>        
         <li><i class="ready"></i>준비</li> 
-        <!-- 최초등록 후 승인 후 -->
         <li><i class="ing"></i>수행중</li>
         <li><i class="done"></i>완료</li>
         <li><i class="hold"></i>보류</li>
       </ul>
-      <ul>        
-        <li><i class="apply"></i>완료요청</li>        
+      <ul>
+        <li><i class="check"></i>완료요청</li>        
         <li><i class="apply"></i>변경요청</li>        
-        <!-- <li><i class="reject"></i>반려</li>         -->
       </ul>
     </div>
     <span class="btn_wrap">
@@ -33,7 +41,7 @@
           <input type="radio" id="rfp_change" name="rfp_apply">
           <label for="rfp_change" class="closed">변경요청<em>1</em>건</label>
           <input type="radio" id="rfp_done" name="rfp_apply">
-          <label for="rfp_done" class="closed">완료요청??<em>1</em>건</label>
+          <label for="rfp_done" class="closed">완료요청<em>1</em>건</label>
         </div>
         <button type="button" class="btn_red" onclick="document.querySelector('.p_requireMan').showModal();">요구사항 추가</button>
       </header>

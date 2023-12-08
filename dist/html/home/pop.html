@@ -2163,18 +2163,8 @@
             <td><input type="text" id="work_place"></td>
           </tr>
           <tr>
-            <th scope="row" class="required">
-              <label for="work_progress">진행상태</label>
-            </th>
-            <td>
-              <select name="work_progress" id="work_progress">
-                <option value="진행상태 선택">진행상태 선택</option>
-                <option value="준비">준비</option>
-                <option value="수행중">수행중</option>
-                <option value="완료">완료</option>
-                <option value="보류">보류</option>
-              </select>
-            </td>
+            <th scope="row">진행상태</th>
+            <td><label for="work_hold"><input type="checkbox" id="work_hold">보류</label></td>            
           </tr>
           <tr>
             <th scope="row">
@@ -2189,9 +2179,12 @@
         </tbody>
       </table>
       <div class="btn_wrap">
-        <button class="btn_red" type="button">요청</button>
-        <button class="btn_red" type="button">요청&sol;승인</button>
-        <button class="btn_gray_line">닫기</button>
+        <!-- 최초작성자 -->
+        <button class="btn_red" type="button">승인요청</button>
+        <button class="btn_red_line">삭제</button> /
+        <!-- PMPL 수정할 때 -->
+        <button class="btn_red" type="button">저장</button>
+        <button class="btn_red_line">삭제</button>
       </div>
     </div>
   </form>
@@ -2380,6 +2373,8 @@
 <script>
 //퍼블용
 commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">
