@@ -68,9 +68,25 @@
       </dl>
     </article>
     <section class="change_history">
-      <header class="lst_header"><h1>변경요청 내역</h1></header>
+      <header class="lst_header"><h1>요청 내역</h1></header>
       <!-- 최신글이 위로 오도록 정렬해주세요 -->
       <ul class="cmt_lst">
+        <li>
+          <div class="cmt_user">
+            @@include('../../inc/module/module_user.html')
+            <p class="cmt_date">23-12-15 11:10</p>
+            <div class="user_module state">
+              <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+              <span class="show">승인</span>
+              &sol;
+              <span class="show t_red">반려(23-12-16 12:55)</span>
+            </div>
+          </div>
+          <div class="changes">
+            <p class="t_red">완료요청</p>
+          </div>
+          <div class="cmt_reject"><p>반려시 반려사유가 들어갑니다</p></div>
+        </li>
         <li>
           <div class="cmt_user">
             @@include('../../inc/module/module_user.html')
