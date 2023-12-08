@@ -1182,7 +1182,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         }
       }
     }
-    .right_section{flex:1;@include proj_view_defaultH(74px);@include scrollbarW();padding-bottom:$columnGap;}    
+    .right_section{flex:1;@include proj_view_defaultH(74px);@include scrollbarW();padding-bottom:$columnGap; 
+      .tbl_wrap{height:auto;min-height:auto;}
+    }    
     .tbl_workboard{width:100%;text-align:center;
       th,td{padding:10px;}
       th{border-bottom:1px solid #c0c0c0;font-weight:bold;;}
@@ -1478,14 +1480,15 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &::-webkit-details-marker,
       &::marker{display:none;content:'';}
       &::before{font-family:'fontello';content:'\f107';font-size:14px;color:$red;} // 1depth
-      & h4,
+      & h2,
       & h5{&:hover{text-decoration:underline;}}
     }
   }
   details:has(.work_box){border-bottom:1px solid #ebebeb;
     &[open]{border-bottom-width:0;}
   }
-  h4{$_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
+  h2{$_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
+  // com:요청받은 업무,req:요정한업무,pro:프로젝트,per:개인업무
     @each $type, $color in $_titColor{
       &.#{$type}{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bold;color:$color;}
     }
@@ -1508,60 +1511,15 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &:last-child{padding-bottom:0;border-bottom-width:0;}
     }
   }
-  .work_box{display:flex;flex-direction:column;gap:3px;padding:10px;border:1px solid #ebebeb;border-radius:2px;
-    details{width:100%;}          
-    &>li{@include flex_between;align-items:start;}
-    &:has(.work_dot_wrap){ 
-      &>li{display:block;margin-bottom:10px;
-        &:last-child{margin-bottom:0;}
-      }
-    }
-  }
+  .work_box{@extend .dot_list_s;display:flex;flex-direction:column;gap:3px;padding:10px;border:1px solid #ebebeb;border-radius:2px;}
   &:empty::before{@include empty_box('업무가 없습니다.');background-color:rgba(0, 0, 0, .05);}
-  &.work_todo{padding:0;
-    & > li{padding:15px;}
-    h3{@include tit;color:#757575;
-      &::before{display:inline-block;content:'';width:16px;height:16px;margin-right:5px;background:url(../images/ic_tit_work.png) no-repeat;vertical-align:text-top;}
-      & + ul{display:flex;flex-direction:column;gap:15px;}
-    }
-  }
-  &.work_perform{max-height:400px;
-    .work_box{
-      h4{display:block;margin-bottom:5px;}
-      &>li{margin-bottom:15px;}
-      h5{padding-left:10px;
-        &+ul{padding-left:25px;}
-      }
-    }
-    h2 span{font-size:12px;}
-    details .com{font-size:13px;color:#757575;}
-  }
+ 
   &.tbl_photo{grid-template-columns:repeat(4, minmax(80px, auto));gap:15px;padding:25px 20px;
     li{position:relative;
       &:hover::after{position:absolute;top:0;left:0;display:inline-block;content:'';width:100%;height:100%;background-color:rgba(0, 0, 0, .08);}
       img{margin-bottom:0;}
     }
-  }
-  .work_dot_wrap{padding-left:19px;
-    &>li{position:relative;margin-bottom:15px;line-height:19px;font-size:12px;color:#878c95;
-      span{@include flex_between;align-items:start;} 
-      &::before{position:absolute;left:-10px;top:7px;display:inline-block;content:'';width:4px;height:4px;border-radius:4px;background-color:#878c95;}
-      &:last-child{margin-bottom:0;}
-    }
-    .progress{@include flex_between;gap:15px;padding:5px 0 0;font-size:11px;color:#b2bacd;font-weight:bold;
-      progress{flex:1;}
-    }
-  }
-  .work_tree_wrap{
-    &>li{display:flex;position:relative;padding-left:30px;line-height:19px;font-size:12px;color:#666;
-      i{margin-left:auto;}
-      &:first-child::before{height:10px;top:0px;}
-      &::before,
-      &::after{position:absolute;top:-8px;left:15px;display:inline-block;content:'';width:8px;height:18px;border:1px dotted #ccc;border-width:0;}
-      &::before{border-left-width:1px;}
-      &::after{border-bottom-width:1px;}
-    }
-  }
+  } 
 }
 .work_form{
   header{padding-left:10px;
@@ -1644,7 +1602,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 }
 .dot_list_s{margin-bottom:8px;
   li{letter-spacing:-0.65px;
-    &::before{display:inline-block;content:'·';margin-right:2px;line-height:20px;}
+    &::before{display:inline-block;content:'·';margin-right:3px;line-height:20px;}
   }
 }
 .tab_l{border-bottom:none;
