@@ -102,7 +102,7 @@
       <li><a href="work_result.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
-          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_reportDay.html">일일 업무보고</a></li>
           <li><a href="work_report.html">주간업무보고(개인별)</a></li>
           <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
           <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
@@ -124,13 +124,26 @@
         <colgroup>
           <col style="width:120px">
           <col style="width:auto">
-          <col style="width:120px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
             <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="work_proj">프로젝트</label></th>
+            <td colspan="3">
+              <div class="file_input">
+                <select name="" id=""><option value="">사업자분류</option></select>
+                <select name="" id=""><option value="">기관선택</option></select>
+                <input type="text" id="work_proj" list="projectList">
+                <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
@@ -200,7 +213,7 @@
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3">에디터</td>
+            <td colspan="3"><div contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row">
@@ -220,8 +233,7 @@
         </tbody>
       </table>
       <div class="btn_wrap">
-        <button class="btn_red" type="button">요청</button>
-        <button class="btn_red" type="button">요청&sol;승인</button>
+        <button class="btn_red" type="button">저장</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -276,23 +288,24 @@
               </li>
             </ul>
           </section>
-          <div>
-            <div class="handle_week">
-              <button class="handle_prev">이전 주차 이동</button>
-              <span>2023.02.26 ~ 2023.03.04</span>
-              <button class="handle_next" disabled>다음 주차 이동</button>
+          <div class="handle_week">
+            <button class="handle_prev">이전 주차 이동</button>
+            <span>2023.02.26 ~ 2023.03.04</span>
+            <button class="handle_next" disabled>다음 주차 이동</button>
+          </div>
+          <div class="tbl_top_area">
+            <h2>2023년 14주</h2>
+            <div class="flex_right">
+              <button type="button" class="btn_default" onclick="location.href='../work/work_reportWrite.html'">주간보고 작성</button>
             </div>
-            <div class="tbl_top_area">
-              <h2>2023년 14주</h2>
-              <div class="flex_right">
-                <button type="button" class="btn_default" onclick="location.href='../work/work_reportTeamApproval.html'">주간보고 작성</button>
-              </div>
-            </div>
-            <table class="tbl_default tbl_hover hasLayer tbl_work_report">
+          </div>
+          <!-- 기본값 소속 팀 전부 -->
+          <div class="tbl_wrap tbl_work_report">
+            <table class="tbl_default tbl_hover hasLayer">
               <caption>주간업무보고(개인별) 리스트</caption>
               <colgroup>
                 <col style="width:auto;min-width:240px;">
-                <col style="width:250px;">
+                <col style="width:100px;">
                 <col span="3" style="width:150px;">
                 <col style="width:120px;">
                 <col style="width:95px;">
@@ -309,10 +322,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0" onclick="location.href='../work/work_reportWrite.html'">
+                <tr>
+                  <td colspan="7">작성된 주간업무보고서가 없습니다.</td>
+                </tr>
+                <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
                   <td>14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동)</td>
-                  <td>14주 (2023-05-01 ~ 2023-05-01)</td>
-                  <td>홍길동(지진사업1팀)</td>
+                  <td>14주</td>
+                  <td>포차코(지진사업1팀)</td>
                   <td>2023-05-01</td>
                   <td><i class="tbl_badge ing">결재중</i></td>
                   <td><i class="tbl_badge public">공개</i></td>
@@ -320,15 +336,15 @@
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
-                        <button type="button">회수</button>
+                        <button type="button">상세보기</button><!-- 본인것만 전자결제로 넘어감 -->
                       </div>
                     </div>
                   </td>
                 </tr>
                 <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
                   <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
-                  <td>14주 (2023-05-01 ~ 2023-05-01)</td>
-                  <td>홍길동(지진사업1팀)</td>
+                  <td>14주</td>
+                  <td>쿠로미(지진사업1팀)</td>
                   <td>2023-05-01</td>
                   <td><i class="tbl_badge default">미제출</i></td>
                   <td><i class="tbl_badge private">비공개</i></td>
@@ -336,25 +352,25 @@
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
-                        <button type="button">결재요청</button>
+                        <button type="button">상세보기</button><!-- 본인것만 전자결제로 넘어감 -->
                         <button type="button">수정</button>
                         <button type="button">삭제</button>
                       </div>
                     </div>
                   </td>
                 </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                <tr tabindex="0">
+                  <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                  <td>14주</td>
+                  <td>폼폼푸린(지진사업1팀)</td>
+                  <td>2023-05-01</td>
                   <td><i class="tbl_badge fin">완료 <em>2023. 04. 18</em></i></td>
-                  <td></td>
+                  <td><i class="tbl_badge public">공개</i></td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
-                        <button type="button">결재문서</button>
+                        <button type="button">상세보기</button><!-- 결재라인 or 공개일경우 전자결제로 넘어감 -->
                       </div>
                     </div>
                   </td>

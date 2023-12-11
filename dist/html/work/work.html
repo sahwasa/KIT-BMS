@@ -102,7 +102,7 @@
       <li><a href="work_result.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
-          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_reportDay.html">일일 업무보고</a></li>
           <li><a href="work_report.html">주간업무보고(개인별)</a></li>
           <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
           <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
@@ -124,13 +124,26 @@
         <colgroup>
           <col style="width:120px">
           <col style="width:auto">
-          <col style="width:120px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
             <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="work_proj">프로젝트</label></th>
+            <td colspan="3">
+              <div class="file_input">
+                <select name="" id=""><option value="">사업자분류</option></select>
+                <select name="" id=""><option value="">기관선택</option></select>
+                <input type="text" id="work_proj" list="projectList">
+                <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
@@ -200,7 +213,7 @@
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3">에디터</td>
+            <td colspan="3"><div contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row">
@@ -220,8 +233,7 @@
         </tbody>
       </table>
       <div class="btn_wrap">
-        <button class="btn_red" type="button">요청</button>
-        <button class="btn_red" type="button">요청&sol;승인</button>
+        <button class="btn_red" type="button">저장</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -253,8 +265,15 @@
                       <h2 class="per">개인업무</h2>
                     </summary>
                     <ul class="work_box dot_list_s">
-                      <li>사내 워크숍 지원</li>
-                      <li>업무명 (TASK)</li>                      
+                      <li>사내 워크숍 지원
+                      <div class="etc">2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                      </li>
+                      <li><em>(프로젝트 약어,없으면 생략가능)</em>업무명_TASK
+                      <div class="etc">2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                      </li>                      
+                      <li>업무명 TASK
+                      <div class="etc">2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                      </li>                      
                     </ul>
                   </details>
                 </li>              
@@ -264,7 +283,9 @@
                       <h2 class="pro">도시폭염 2차</h2>
                     </summary>
                     <ul class="work_box">                    
-                      <li>제안서작업</li>
+                      <li>제안서작업
+                      <div class="etc">2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                      </li>
                     </ul>
                   </details>
                 </li>
@@ -273,6 +294,11 @@
                     <summary>
                       <h2 class="pro">프로젝트명 약어</h2>
                     </summary>
+                    <ul class="work_box">                    
+                      <li>제안서작업
+                      <div class="etc">2023-01-01 ~ 2023-12-31<em class="t_red">(D-10)</em></div>
+                      </li>
+                    </ul>
                   </details>
                 </li>
               </ul>
@@ -291,29 +317,8 @@
                       <h2 class="pro">업무관리시스템</h2>
                     </summary>
                     <ul class="work_box">
-                      <li>
-                        <h5>퍼블리싱</h5>
-                        <ul class="work_dot_wrap">
-                          <li>
-                            <span>공통영역<i class="badge fin">완료</i></span>
-                            <div class="progress">
-                              <progress value="100" max="100" title="진행율"></progress>
-                              <em>100% 완료</em>
-                            </div>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h5>퍼블리싱</h5>
-                        <ul class="work_dot_wrap">
-                          <li>
-                            <span>공통영역<i class="badge fin">완료</i></span>
-                            <div class="progress">
-                              <progress value="100" max="100" title="진행율"></progress>
-                              <em>100% 완료</em>
-                            </div>
-                          </li>
-                        </ul>
+                      <li>업무명TASK
+                      <div class="etc">2023-01-01 ~ 2023-12-31<em class="t_red">(D+1)</em></div>
                       </li>
                     </ul>
                   </details>
@@ -321,55 +326,122 @@
               </ul>
             </article>
           </section>
-          <section>
-            <article class="past_task">
-              <header class="tit_work_board">
-                <h2>지난 업무 수행내역</h2>
-                <div class="tool_wrap">
-                  <select title="연도 선택">
-                    <option value="2023년​" selected>2023년​</option>
-                  </select>
-                  <select title="주차 선택">
-                    <option value="14주​" selected="">14주​</option>
-                  </select>
-                </div>
-              </header>
-              <ul class="con_work_board">
-                <li>
-                  <details open>
-                    <summary>
-                      <h2 class="pro">도시폭염을 고려한 폭염저감기술 최적화</h2>
-                    </summary>
-                    <ul class="work_box">
-                      <li>
-                        <h5>퍼블리싱</h5>
-                        <div class="progress">
-                          <progress value="100" max="100" title="진행율"></progress>
-                          <em>100% 완료</em>
-                        </div>
-                        <ul class="work_dot_wrap">
-                          <li>
-                            <span>공통영역<i class="badge fin">완료</i></span>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h5>퍼블리싱</h5>
-                        <ul class="work_dot_wrap">
-                          <li>
-                            <span>공통영역<i class="badge fin">완료</i></span>
-                            <div class="progress">
-                              <progress value="100" max="100" title="진행율"></progress>
-                              <em>100% 완료</em>
-                            </div>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-              </ul>
-            </article>
+          <section class="box_default status">
+            <header><h1>지난 업무 수행내역 : 2023년 13주</h1></header>
+            <ul>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>
+                  </div>
+                  <strong>2023년 통합재난문자시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>
+                  </div>
+                  <strong>2023년 통합재난문자시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>
+                  </div>
+                  <strong>2023년 통합재난문자시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>
+                  </div>
+                  <strong>2023년 통합재난문자시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>
+                  </div>
+                  <strong>2023년 통합재난문자시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>
+                  </div>
+                  <strong>2023년 통합재난문자시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="100" max="100" title="진행율"></progress>
+                    <em>100%</em>
+                  </div>
+                  <strong>2023년 통합재난문자시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="progress flex_wrap">
+                    <progress value="30" max="100" title="진행율"></progress>
+                    <em>30%</em>
+                  </div>
+                  <strong>2023년 지진,화산재해 대응시스템 유지보수</strong>
+                  <dl class="approval_lst">
+                    <dt>지진/가속도 시스템 오류사항 소스 수정</dt>
+                    <dd>지진발생 팝업 미표출 오류 수정</dd>
+                    <dd>지진발생보고서(MMS) 글자 깨짐 오류 수정</dd>
+                  </dl>
+                </a>
+              </li>
+            </ul>
           </section>
         </div>
       </div>

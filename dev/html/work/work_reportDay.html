@@ -7,7 +7,7 @@
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>일일 업무일지<span>업무 보고함</span></h1>
+        <h1>일일 업무보고<span>업무 보고함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
@@ -30,13 +30,18 @@
                 </select>
               </li>
               <li>
+                <select title="팀 선택">
+                  <option disabled="" selected="">팀 선택</option>
+                </select>
+              </li>
+              <li>
                 <select name="" id="" title="작성자 선택">
                   <option disabled="" selected="">작성자 선택</option>
                 </select>
               </li>
               <li>
                 <div class="period_group">
-                  <input type="radio" name="select_period" id="week"><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="week" checked><label for="week">1주</label>
                   <input type="radio" name="select_period" id="month"><label for="month">1달</label>
                   <input type="radio" name="select_period" id="year"><label for="year">1년</label>
                 </div>
@@ -50,40 +55,48 @@
               </li>
             </ul>
           </section>
-          <div>
-            <div class="handle_week">
-              <button class="handle_prev">이전 주차 이동</button>
-              <span>2023.10.01 ~ 2023.10.07</span>
-              <button class="handle_next" disabled>다음 주차 이동</button>
+          <!-- 1주 Default -->
+          <div class="tbl_top_area">
+            <div class="btn_switch border_none">
+              <input type="radio" id="my_day" name="report_day" checked>
+              <label for="my_day" class="opened">내가 작성한 일지</label>
+              <input type="radio" id="all_day" name="report_day">
+              <label for="all_day" class="opened">전체</label>
+            </div>         
+            <div class="tool_wrap">
+              <button type="button" class="btn_default" onclick="document.querySelector('.p_workDay').showModal();">업무일지 작성</button>
             </div>
-            <div class="tbl_top_area">
-              <h2>TODAY <span class="t_red">2023년 9월 1일</span></h2>
-              <div class="floatR">
-                <button type="button" class="btn_default" onclick="document.querySelector('.p_workDay').showModal();">일일 업무일지 작성</button>
-              </div>
-            </div>
-            <table class="tbl_default tbl_hover hasLayer tbl_work_day">
-              <caption>주간업무보고(개인별) 리스트</caption>
+          </div>
+          <div class="tbl_wrap tbl_work_day">
+            <table class="tbl_default hasLayer">
+              <caption>업무일지 리스트</caption>
               <colgroup>
                 <col style="width:160px;">
                 <col style="width:auto;min-width:240px;">
+                <col style="width:100px;">
                 <col style="width:100px;">
               </colgroup>
               <thead>
                 <tr>
                   <th scope="col">일시</th>
                   <th scope="col">내용</th>
+                  <th scope="col">작성자</th>
                   <th scope="col">관리</th>
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td colspan="4">작성된 업무일지가 없습니다.</td>
+                </tr>
                 <tr tabindex="0">
-                  <td>10월01일(일)<span class="time">09:30 ~ 18:30</span></td>
+                  <th scope="row">10월01일(일)<span class="time">09:30 ~ 18:30</span></th>
                   <td>                    
                     <em class="tit">재택근무에 따른 일일 업무보고</em>
                     &nbsp;1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
                     &nbsp;&nbsp;&nbsp;- 방역대 > 방역대분석 > 위험요소 관리 (100%)<br>
-                    &nbsp;2. 업무 인수인계</td>
+                    &nbsp;2. 업무 인수인계
+                  </td>
+                  <td>홍길동(개발1팀)</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -95,12 +108,14 @@
                   </td>
                 </tr>
                 <tr tabindex="0">
-                  <td>10월02일(월)<span class="time">09:30 ~ 18:30</span></td>
+                  <th scope="row">10월02일(월)<span class="time">09:30 ~ 18:30</span></th>
                   <td>	
                     <em class="tit">재택근무에 따른 일일 업무보고</em>
                     &nbsp;1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
                     &nbsp;&nbsp;&nbsp;- 방역대 > 방역대분석 > 위험요소 관리 (100%)<br>
-                    &nbsp;2. 업무 인수인계</td>
+                    &nbsp;2. 업무 인수인계
+                  </td>
+                  <td>홍길동(개발1팀)</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -112,12 +127,14 @@
                   </td>
                 </tr>
                 <tr tabindex="0">
-                  <td>10월03일(화)<span class="time">09:30 ~ 18:30</span></td>
+                  <th scope="row">10월03일(화)<span class="time">09:30 ~ 18:30</span></th>
                   <td>	
                     <em class="tit">재택근무에 따른 일일 업무보고</em>
                     &nbsp;1. (ETRI 연구과제) GIS기반 구제역확산차단 소프트웨어<br>
                     &nbsp;&nbsp;&nbsp;- 방역대 > 방역대분석 > 위험요소 관리 (100%)<br>
-                    &nbsp;2. 업무 인수인계</td>
+                    &nbsp;2. 업무 인수인계
+                  </td>
+                  <td>홍길동(개발1팀)</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>

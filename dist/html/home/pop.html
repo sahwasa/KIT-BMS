@@ -108,6 +108,7 @@
       <h2 style="display:inline-block;font-size:20px;font-weight:bold;">프로젝트</h2>
       <ul>
         <li><button type="button" class="btn_default" data-modal="p_relProj">관련 프로젝트</button></li>
+        <li><button type="button" class="btn_default" data-modal="p_relProj_dtl">관련 프로젝트 상세</button></li>
         <li><button type="button" class="btn_default" data-modal="p_requireMan">요구사항 관리</button></li>
         <li><button type="button" class="btn_default" data-modal="p_workMan">업무 관리</button></li>
         <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
@@ -2047,6 +2048,41 @@
     </div>
   </form>
 </dialog><!--// 관련 프로젝트 설정 -->
+<dialog class="p_relProj_dtl">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>관련 프로젝트 상세보기</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <section class="proj_overview">
+        <header>
+          <h1><i class="type">사업제안</i>도시폭염을 고려한 폭염저감기술 최적화<em>(2023년 도시폭염 2차)</em></h1>
+        </header>
+        <section>
+          <dl class="ipt_lst">
+            <dt>발주기관</dt><dd>행정안전부(재난안전연구원)</dd>
+            <dt>총괄책임자</dt>
+            <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+            <dt>수행PM</dt>                    
+            <dd><div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div></dd>
+            <dt>수행기간</dt><dd>2023-01-05 ~ 2023-12-30</dd>
+            <dt><label for="">비고</label></dt>
+            <dd><p>-</p></dd>
+          </dl>            </section>
+      </section>
+      <div class="btn_wrap">
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 관련 프로젝트 상세 -->
 <dialog class="p_workMan">
   <form method="dialog">
     <header class="p_header">
@@ -2201,13 +2237,26 @@
         <colgroup>
           <col style="width:120px">
           <col style="width:auto">
-          <col style="width:120px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
             <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="work_proj">프로젝트</label></th>
+            <td colspan="3">
+              <div class="file_input">
+                <select name="" id=""><option value="">사업자분류</option></select>
+                <select name="" id=""><option value="">기관선택</option></select>
+                <input type="text" id="work_proj" list="projectList">
+                <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
@@ -2277,7 +2326,7 @@
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3">에디터</td>
+            <td colspan="3"><div contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row">
@@ -2297,8 +2346,7 @@
         </tbody>
       </table>
       <div class="btn_wrap">
-        <button class="btn_red" type="button">요청</button>
-        <button class="btn_red" type="button">요청&sol;승인</button>
+        <button class="btn_red" type="button">저장</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>

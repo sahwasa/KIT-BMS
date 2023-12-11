@@ -1393,7 +1393,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       .user_module{flex:inherit;flex-direction:column;align-items:center;gap:0;
         .user_photo{width:23px;height:23px;}
       }
-      &>li{gap:40px;
+      &>li{gap:40px;@include on-hover();
         input[type=checkbox]{align-self:center;}
         .dsc{flex:1;}
         h3{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:bold;
@@ -1405,7 +1405,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
             a:hover{text-decoration:underline;color:$blue;}
           }
         }
-      }
+      }     
       .risk_done,
       .risk_done:hover{background-color:#f5f5f5;color:#888;
         h3::before,
@@ -1559,12 +1559,20 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 .work_todo .tbl_wrap{@include tbl_defaultH(19px);}
 .work .form_wrap{row-gap:10px;}
 .work .tbl_wrap{@include tbl_defaultH(41px);}
-.tbl_work_day td{@include alignL(2);
+.tbl_work_day{@include tbl_defaultH(66px);
+  tbody{
+    th{vertical-align:middle;background-color:#f5f5f5;font-size:16px;}
+    td{@include alignL(1);
+      &[colspan]{text-align:center;}
+    }
+  }
   .tit{display:block;font-weight:bold;margin-bottom:5px;}
-  &:first-child{vertical-align:middle;background-color:#f5f5f5;font-size:16px;}
   .time{display:block;font-size:14px;}
 }
-.tbl_work_report td{@include alignL(1);
+.tbl_work_report{@include tbl_defaultH(105px);
+  td{@include alignL(1);
+    &[colspan]{text-align:center;cursor:default;}
+  }
   .tbl_badge{display:inline-flex;justify-content:center;gap:5px;max-width:none;padding:0 5px;
     em{padding:0 3px;background-color:#fff;border-radius:0 3px 3px 0;color:$black;letter-spacing:-.05em;margin-right:-5px;}
   }
@@ -1580,8 +1588,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   li.select_li:hover,
   li.select_li{background-color:lighten($red, 45%);}
   .tags{display:inline-flex;align-items:center;gap:3px;}
-  &>li{@include flex_between;align-items:flex-start;gap:20px;padding:10px;border-bottom:1px solid #ebebeb;cursor:pointer;align-items:stretch;
-    &:hover{background:#f9fafc;}
+  &>li{@include flex_between;align-items:flex-start;gap:20px;padding:10px;border-bottom:1px solid #ebebeb;align-items:stretch;
     h2{$_workType:('ing':#2d66d8,'my_work':#f07816);
       @each $type, $color in $_workType{
         &.#{$type}{display:flex;justify-content:center;align-items:center;width:180px;padding:5px;border:1px solid $color;border-radius:5px;background:lighten($color, 45%);box-shadow:0px 1px 8px 0 rgba(0, 0, 0, 0.07);font-weight:700;color:$color;text-align:center;word-break:keep-all;}
@@ -1652,9 +1659,19 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   [data-selectTarget]{margin-top:10px;}
 }
 // .my_work.my_approval
+@mixin my_work_defaultH($gap:0px,$max:false){
+  $my_workH:calc(100vh - 317px);
+  $my_workMinH:312px;
+  height:calc($my_workH - $gap);min-height:calc($my_workMinH - $gap);overflow-y:auto;
+  @if($max){
+    height:auto;max-height:calc($my_workH - $gap);;
+  }
+}
 .my_work{
   input[type=number]{text-align:center;}
   .status{width:350px;
+    ul{@include my_work_defaultH(18px,true);}
+    li{flex-shrink:0;}
     strong{margin:4px 0 6px;}
     .form_wrap{padding:0;}
     .progress em{color:#ff6664;font-size:12px;font-weight:bold;}
@@ -1666,7 +1683,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &::before{content:'-';margin:0 3px 0 5px;}
     }
   }
-  .work_form .tab_contents{display:flex;flex-direction:column;gap:24px;}   
+  .work_form .tab_contents{display:flex;flex-direction:column;gap:24px;@include my_work_defaultH();padding-bottom:$columnGap;}
   .tbl_row{width:100%;border:1px solid #ebebeb;border-width:0 1px;font-size:12px;
     td{vertical-align:baseline;
       &[contenteditable]{height:75px;}

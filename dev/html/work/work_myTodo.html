@@ -35,13 +35,10 @@
               <label for="rfp_approve" class="opened">개인업무<em>2</em>건</label>
               <input type="radio" id="rfp_change" name="rfp_apply">
               <label for="rfp_change" class="closed">프로젝트<em>1</em>건</label>
-            </div>
-            <div>
-              <button type="button" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</button>
-            </div>
+            </div>            
           </div>
           <section class="tbl_wrap">
-            <table class="tbl_default tbl_hover tbl_todo hasLayer">
+            <table class="tbl_default tbl_todo hasLayer">
               <caption>나의 할일 리스트</caption>
               <colgroup>
                 <col style="width:120px;">
@@ -66,7 +63,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0" onclick="location.href='../work/work_view.html'">
+                <tr>
                   <td>개인업무</td>
                   <td>주간업무보고 작성</td>
                   <td><div class="tags"><i>보고</i></div></td>
@@ -77,7 +74,7 @@
                   <td>홍길동(개발1팀)</td>
                   <td>22%</td>
                 </tr>
-                <tr tabindex="0">
+                <tr>
                   <td>프로젝트</td>
                   <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                   <td><div class="tags"><i>개발</i></div></td>
@@ -88,7 +85,7 @@
                   <td>고길동(개발2팀)</td>
                   <td>2%</td>
                 </tr>
-                <tr tabindex="0">
+                <tr>
                   <td>개인업무</td>
                   <td>000 디자인 작업</td>
                   <td><div class="tags"><i>디자인</i></div></td>

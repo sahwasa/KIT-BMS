@@ -10,13 +10,22 @@
         <colgroup>
           <col style="width:120px">
           <col style="width:auto">
-          <col style="width:120px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
             <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="work_proj">프로젝트</label></th>
+            <td colspan="3">
+              <div class="file_input">
+                <select name="" id=""><option value="">사업자분류</option></select>
+                <select name="" id=""><option value="">기관선택</option></select>
+                <input type="text" id="work_proj" list="projectList">
+                @@include('../data/data_project_name.html')
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
@@ -61,7 +70,7 @@
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3">에디터</td>
+            <td colspan="3"><div contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row">
@@ -81,8 +90,7 @@
         </tbody>
       </table>
       <div class="btn_wrap">
-        <button class="btn_red" type="button">요청</button>
-        <button class="btn_red" type="button">요청&sol;승인</button>
+        <button class="btn_red" type="button">저장</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>

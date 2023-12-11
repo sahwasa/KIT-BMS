@@ -1,15 +1,15 @@
 var fIndex = 0;
 var totalfSize = 0;
-var fList = new Array();
-var fSizeList = new Array();
+var fList = [];
+var fSizeList = [];
 var uploadSize = 10 * 1024 * 1024; //MB
 var maxUploadSize = 200 * 1024 * 1024; //MB
-var fLenthList = new Array();
 var maxFileLength = 10; //첨부최대갯수
+var lastElementId = null; //마지막 접근 파일 업로드 요소 id
 
 function fileDropEvt(){
   var file_drop = $('.drop_zone');
-  $('[data-attach]').on('change',function(e){
+  $('[data-attach]').off('change').on('change',function(e){
     var files = e.target.files;
     var thisEl = e.target.dataset.attach;
     selectFile(e,files,thisEl);
@@ -41,13 +41,27 @@ function fileDropEvt(){
         alert("ERROR");
     }
   });
-};
+}
 
+//파일목록 초기화
+function resetSelectFile(){
+  fList = []
+  fIndex = 0;
+  $(".attach_list:not(.file_attached .attach_list)").html(''); //file_attached 아래에 있는 경우는 이미 등록된 파일이어서 제외
+}
 function selectFile(event,fileObject,thisEl){
   let files = null;
   const file = event.target.files[0];
+  console.log(thisEl)
 
-  if (document.querySelector('.cmt_area') !== null) { // 파일첨부개수 지정
+  //다른 파일 업로드창 접근시 파일목록 초기화
+  if(lastElementId !== thisEl){
+    resetSelectFile()
+    lastElementId = thisEl
+  }
+
+  // 파일첨부개수 지정
+  if(thisEl.includes('cmt')||thisEl.includes('reply')){
     maxFileLength = 3
     console.log('댓글창이 있군요!')
   }
@@ -60,7 +74,7 @@ function selectFile(event,fileObject,thisEl){
     if(files.length > maxFileLength){ // =제거
       alert("파일첨부갯수 초과1");
       return
-    }    
+    }
     for(var i = 0; i < files.length; i++){
       var fName = files[i].name; //파일명
       var fNameArr = fName.split("\."); //경로
@@ -78,18 +92,17 @@ function selectFile(event,fileObject,thisEl){
         // 파일 사이즈 체크
         alert("용량 초과\n업로드 가능 용량 : " + uploadSize + " KB");
         break;
-      }else if(fLenthList.length >= maxFileLength){
+      }else if(fList.length >= maxFileLength){
         alert("파일첨부갯수 초과");
         break;
       }else{       
         totalfSize += fSize;// 전체 파일 사이즈
         fList[fIndex] = files[i];// 파일 배열에 넣기
         fSizeList[fIndex] = fSize;// 파일 사이즈 배열에 넣기
-        fLenthList.push(files[i]);
         addFileList(fIndex, fName, fSize, fExt, fSrc, type, thisEl);// 업로드 파일 목록 생성
         fIndex++;// 파일 번호 증가
-      }      
-    }    
+      }
+    }
   }else{
     alert("ERROR");
   }
@@ -97,7 +110,6 @@ function selectFile(event,fileObject,thisEl){
 function addFileList(fIndex, fName, fSize, fExt, fSrc, type, thisEl){
   var thisEl = thisEl;
   var viewList =  $('#'+thisEl);
-  console.log(thisEl);
   var html = "";
   var fUnit = "KB";
   if(fSize > 1024){
@@ -120,7 +132,6 @@ function deleteFile(fIndex){
   totalfSize -= fSizeList[fIndex];// 전체 파일 사이즈 수정
   delete fList[fIndex];// 파일 배열에서 삭제
   delete fSizeList[fIndex];// 파일 사이즈 배열 삭제
-  fLenthList.splice(fIndex,1);
   $("#fItem_" + fIndex).remove();// 업로드 파일 테이블 목록에서 삭제
   infoView();
 }

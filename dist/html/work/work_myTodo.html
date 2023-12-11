@@ -102,7 +102,7 @@
       <li><a href="work_result.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
-          <li><a href="work_reportDay.html">일일 업무일지</a></li>
+          <li><a href="work_reportDay.html">일일 업무보고</a></li>
           <li><a href="work_report.html">주간업무보고(개인별)</a></li>
           <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
           <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
@@ -124,13 +124,26 @@
         <colgroup>
           <col style="width:120px">
           <col style="width:auto">
-          <col style="width:120px">
-          <col style="width:auto">
         </colgroup>
         <tbody>
           <tr>
             <th scope="row" class="required"><label for="work_name">업무명</label></th>
             <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="work_proj">프로젝트</label></th>
+            <td colspan="3">
+              <div class="file_input">
+                <select name="" id=""><option value="">사업자분류</option></select>
+                <select name="" id=""><option value="">기관선택</option></select>
+                <input type="text" id="work_proj" list="projectList">
+                <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+              </div>
+            </td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
@@ -200,7 +213,7 @@
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
             </th>
-            <td colspan="3">에디터</td>
+            <td colspan="3"><div contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row">
@@ -220,8 +233,7 @@
         </tbody>
       </table>
       <div class="btn_wrap">
-        <button class="btn_red" type="button">요청</button>
-        <button class="btn_red" type="button">요청&sol;승인</button>
+        <button class="btn_red" type="button">저장</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -259,13 +271,10 @@
               <label for="rfp_approve" class="opened">개인업무<em>2</em>건</label>
               <input type="radio" id="rfp_change" name="rfp_apply">
               <label for="rfp_change" class="closed">프로젝트<em>1</em>건</label>
-            </div>
-            <div>
-              <button type="button" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</button>
-            </div>
+            </div>            
           </div>
           <section class="tbl_wrap">
-            <table class="tbl_default tbl_hover tbl_todo hasLayer">
+            <table class="tbl_default tbl_todo hasLayer">
               <caption>나의 할일 리스트</caption>
               <colgroup>
                 <col style="width:120px;">
@@ -290,7 +299,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0" onclick="location.href='../work/work_view.html'">
+                <tr>
                   <td>개인업무</td>
                   <td>주간업무보고 작성</td>
                   <td><div class="tags"><i>보고</i></div></td>
@@ -301,7 +310,7 @@
                   <td>홍길동(개발1팀)</td>
                   <td>22%</td>
                 </tr>
-                <tr tabindex="0">
+                <tr>
                   <td>프로젝트</td>
                   <td>2023년 지진,화산재해 대응시스템 유지보수</td>
                   <td><div class="tags"><i>개발</i></div></td>
@@ -312,7 +321,7 @@
                   <td>고길동(개발2팀)</td>
                   <td>2%</td>
                 </tr>
-                <tr tabindex="0">
+                <tr>
                   <td>개인업무</td>
                   <td>000 디자인 작업</td>
                   <td><div class="tags"><i>디자인</i></div></td>

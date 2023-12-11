@@ -185,7 +185,7 @@ border:1px solid transparent;align-self:center;@content;}
   &::before{content:"~";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
 }
 @mixin on-hover(){
-  &:hover{background-color:#f9fafc;}
+  &:hover{background-color:#f9fafc;cursor:pointer;}
   &.on{background-color:#eef6ff;}
 }
 @mixin scrollbarW($w:0){

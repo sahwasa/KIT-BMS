@@ -45,23 +45,23 @@
               </li>
             </ul>
           </section>
-          <div>
-            <div class="handle_week">
-              <button class="handle_prev">이전 주차 이동</button>
-              <span>2023.02.26 ~ 2023.03.04</span>
-              <button class="handle_next" disabled>다음 주차 이동</button>
+          <div class="handle_week">
+            <button class="handle_prev">이전 주차 이동</button>
+            <span>2023.02.26 ~ 2023.03.04</span>
+            <button class="handle_next" disabled>다음 주차 이동</button>
+          </div>
+          <div class="tbl_top_area">
+            <h2>2023년 14주</h2>
+            <div class="flex_right">
+              <button type="button" class="btn_default" onclick="location.href='../work/work_reportDivWrite.html'">주간보고 작성</button>
             </div>
-            <div class="tbl_top_area">
-              <h2>2023년 14주</h2>
-              <div class="flex_right">
-                <button type="button" class="btn_default" onclick="location.href='../work/work_reportTeamApproval.html'">주간보고 작성</button>
-              </div>
-            </div>
-            <table class="tbl_default tbl_hover hasLayer tbl_work_report">
+          </div>
+          <div class="tbl_wrap tbl_work_report">
+            <table class="tbl_default tbl_hover hasLayer">
               <caption>주간업무보고(부서별) 리스트</caption>
               <colgroup>
                 <col style="width:auto;min-width:240px;">
-                <col style="width:250px;">
+                <col style="width:100px;">
                 <col span="3" style="width:150px;">
                 <col style="width:120px;">
                 <col style="width:95px;">
@@ -78,10 +78,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr tabindex="0" onclick="location.href='../work/work_reportDivWrite.html'">
-                  <td>14주차 주간업무보고서(지진사업본부)</td>
-                  <td>14주 (2023-05-01 ~ 2023-05-01)</td>
-                  <td>홍길동(지진사업1팀)</td>
+                <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
+                  <td>14주차 주간업무보고서(SI사업본부 개발 1팀)</td>
+                  <td>14주</td>
+                  <td>홍길동(개발1팀)</td>
                   <td>2023-05-01</td>
                   <td><i class="tbl_badge ing">결재중</i></td>
                   <td></td>
@@ -89,14 +89,14 @@
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
-                        <button type="button">회수</button>
+                        <button type="button">상세보기</button>
                       </div>
                     </div>
                   </td>
                 </tr>
                 <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
                   <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
-                  <td>14주 (2023-05-01 ~ 2023-05-01)</td>
+                  <td>14주</td>
                   <td>홍길동(지진사업1팀)</td>
                   <td>2023-05-01</td>
                   <td><i class="tbl_badge default">미제출</i></td>
@@ -123,7 +123,7 @@
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
-                        <button type="button">결재문서</button>
+                        <button type="button">상세보기</button>
                       </div>
                     </div>
                   </td>

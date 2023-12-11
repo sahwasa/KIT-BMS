@@ -193,7 +193,7 @@
 .p_workMy{width:760px;}
 
 header .btnClose{@include cancel(10px,11px,#bebebe);}
-.tbl_default [contenteditable]{height:var(--h);max-height:150px;overflow-y:auto;}
+.tbl_default [contenteditable]{height:var(--h);max-height:450px;overflow-y:auto;}
 
 //alert
 .p_alert{position:absolute;top:59px;right:10px;width:300px; background-color:$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;z-index:10000;
@@ -278,6 +278,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 }
 .p_issue_write{width:1150px;}
 .p_require_task_change{width:500px;}
+.p_relProj_dtl,
 .p_relProj{width:700px;
   .split_area{background-color:#edf0f3;border:1px solid #bec7d2;align-items:stretch;
     & > section{max-height:612px;flex-grow:1;overflow-y:auto;}
@@ -295,5 +296,10 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
     header{margin-bottom:20px;}
     h1{display:flex;gap:5px;flex-direction:column;font-size:16px;font-weight:700;line-height:1;}
     .type{flex-shrink:0;@include badge_style(null,50px);color:#333;background-color:#f8c9ce;font-size:12px;align-self:flex-start;line-height:16px;}
+  }
+}
+.p_relProj_dtl{width:500px;
+  .proj_overview{padding:0;
+    header{border-bottom:1px solid #bec7d2;padding-bottom:15px;}
   }
 }
