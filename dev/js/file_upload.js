@@ -4,7 +4,6 @@ var fList = [];
 var fSizeList = [];
 var uploadSize = 10 * 1024 * 1024; //MB
 var maxUploadSize = 200 * 1024 * 1024; //MB
-var fLenthList = []; //구분할 필요가??
 var maxFileLength = 10; //첨부최대갯수
 var lastElementId = null; //마지막 접근 파일 업로드 요소 id
 
@@ -100,7 +99,6 @@ function selectFile(event,fileObject,thisEl){
         totalfSize += fSize;// 전체 파일 사이즈
         fList[fIndex] = files[i];// 파일 배열에 넣기
         fSizeList[fIndex] = fSize;// 파일 사이즈 배열에 넣기
-        fLenthList.push(files[i]);
         addFileList(fIndex, fName, fSize, fExt, fSrc, type, thisEl);// 업로드 파일 목록 생성
         fIndex++;// 파일 번호 증가
       }
@@ -134,7 +132,6 @@ function deleteFile(fIndex){
   totalfSize -= fSizeList[fIndex];// 전체 파일 사이즈 수정
   delete fList[fIndex];// 파일 배열에서 삭제
   delete fSizeList[fIndex];// 파일 사이즈 배열 삭제
-  //fLenthList.splice(fIndex,1);
   $("#fItem_" + fIndex).remove();// 업로드 파일 테이블 목록에서 삭제
   infoView();
 }
