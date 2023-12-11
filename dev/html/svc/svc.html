@@ -19,12 +19,20 @@
       자율출근 월 1회 변경<br>
       30분 단위로 변경하자는 의견이 나옴 ( 회장님 승인 필요 _ 관리가 힘들다는 의견 ) <br>
       자율출근을 지정 및 변경하는 곳 필요 <br>
+        <div id='calendar-container'>
+          <div id='calendar'></div>
+          <!-- 일정상세보기 -->
+          <!-- 연차:상세팝업X / 출장 및 외근 : 출장,외근 신청서 전자결재 연동 / 회의 : 기본 팝업 -->
+        </div>
       </div>
     </section>
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/layout/script.html')
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
+<script src="../../js/attendance_fullcalendar.js"></script>
 </body>
 
 </html>

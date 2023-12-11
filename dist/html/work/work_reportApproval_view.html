@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li class="disabled"><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container">
+    <header>
+      <h2>업무</h2>
+    </header>
+    <div class="btn_workset">
+      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+    </div>
+    <!-- <div class="btn_workset">
+      <div class="btn_dbl_btn">
+        <a href="work_new.html" class="">업무요청</a>
+        <a href="javascript:void(0)" class="btn_sub" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+      </div>
+    </div> -->
+    <ul class="snb_lst">
+      <li><a href="work_myTodo.html">내 업무함</a>
+        <ul>
+          <li><a href="work_myTodo.html">나의 할 일</a></li>
+          <li><a href="work_myFin.html">완료된 업무</a></li>
+          <li><a href="work_myIng.html">미진 업무</a></li>
+        </ul>
+      </li>
+      <li class="blind"><a href="work_shareRecept.html">업무 공유함</a>
+        <ul>
+          <li><a href="work_shareRecept.html">업무 수신</a></li>
+          <li><a href="work_shareRequest.html">업무 요청</a></li>
+          <li><a href="work_shareReference.html">참조함</a></li>
+        </ul>
+      </li>
+      <li><a href="work_result.html">실적관리</a></li>
+      <li><a href="#">업무 보고함</a>
+        <ul>
+          <li><a href="work_reportDay.html">일일 업무보고</a></li>
+          <li><a href="work_report.html">주간업무보고(개인별)</a></li>
+          <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
+        </ul>
+      </li>
+      <li><a href="work_result.html">회의록관리 (보류)</a></li>
+    </ul>
+  </div>
+</section>
+<dialog class="p_workMy">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>내 업무 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>내 업무 추가 테이블</caption>
+        <colgroup>
+          <col style="width:120px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <td colspan="3"><input type="text" id="work_name"></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="work_proj">프로젝트</label></th>
+            <td colspan="3">
+              <div class="file_input">
+                <select name="" id=""><option value="">사업자분류</option></select>
+                <select name="" id=""><option value="">기관선택</option></select>
+                <input type="text" id="work_proj" list="projectList">
+                <datalist id="projectList">
+  <option value="조기경보">기상청</option>
+  <option value="기상긴급">행안부 연구과제</option>
+  <option value="KIT업무관리">사내업무</option>
+</datalist>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="work_range">업무범주</label></th>
+            <td colspan="3">
+              <span class="file_input">
+                <select id="nameSelectB">
+                  <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+                </select>
+              </span>
+              <div id="tagListB"></div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_start">작업기간</label>
+            </th>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">담당자</th>
+            <td colspan="3">홍00 (SI사업본부 개발1팀)</td>
+          </tr>
+          <tr>
+            <th scope="row">업무요청자</th>
+            <td colspan="3">
+              <span class="file_input">
+                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_default">추가</button>
+                <button type="button" class="btn_ogt">조직도</button>
+              </span>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li> 
+</ul>
+            </td>
+          </tr>
+          
+          <tr>
+            <th scope="row" class="required">
+              <label for="work_content">업무내용</label>
+            </th>
+            <td colspan="3"><div contenteditable></div></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="high">중요도</label>
+            </th>
+            <td colspan="3">
+              <div class="btn_switch">
+                <input type="radio" id="high" name="importance">
+                <label for="high" class="high_prio">높음</label>
+                <input type="radio" id="common" name="importance" checked="">
+                <label for="common" class="normal_prio">보통</label>
+                <input type="radio" id="row" name="importance">
+                <label for="row" class="low_prio">낮음</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">저장</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog><!--// 내 업무 추가 -->
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>주간업무보고(개인별) 결재 요청<span>업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li>주간업무보고(개인별) 작성하기</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body approval_view work">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>         
+        </article>
+        <div class="my_approval">
+          <section class="approval_form flex_right">
+            <p class="form_validity required validity">표시는 필수 입력 항목입니다.</p>
+            <div class="form_wrap"> <!-- form_view : 인쇄용 -->
+              <table class="tbl_row">
+                <caption>결재양식 제목 테이블</caption>
+                <colgroup>
+                  <col style="width:150px">
+                  <col style="width:auto">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <label for="form_num" class="required">제목</label>
+                    </th>
+                    <td>
+                      <input type="text" id="form_num" value="14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동)">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="tit_form">
+                <h2>14주차 주간업무보고서<br>(지진사업본부 지진사업1팀_홍길동)​</h2>
+                <table class="tbl_row">
+                  <caption>결재 상황 테이블</caption>
+                  <colgroup>
+                    <col style="width:25px;">
+                    <col style="width:150px;">
+                    <col style="width:150px;">
+                    <col style="width:150px;">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="col" rowspan="3">결 재</th>
+                      <th scope="col"><strong>상신</strong> 조아핑</th>
+                      <th scope="col"><strong>결재</strong> 퇴근핑</th>
+                      <th scope="col"><strong>합의</strong> 방글핑</th>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <table class="tbl_row">
+                <caption>업무보고 정보</caption>
+                <colgroup>
+                  <col span="8" style="width:100px">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">소속</th>
+                    <td class="alignC">SI사업본부 SI사업1팀</td>
+                    <th scope="row">직위(직책)</th>
+                    <td class="alignC">수석</td>
+                    <th scope="row">성명</th>
+                    <td class="alignC">홍길동</td>
+                    <th scope="row">업무보고일자</th>
+                    <td class="alignC">2023년 4월 7일</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="tbl_report asis tbl_week_inner alignL_3">
+                <caption>주간업무보고(개인별) 실적</caption>
+                <colgroup>
+                  <col style="width:10%">
+                  <col style="width:5%">
+                  <col>
+                  <col style="width:5%">
+                  <col span="7" style="width:4%">
+                  <col span="2" style="width:5%">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col" rowspan="2">사업명</th>
+                    <th scope="col" rowspan="2">업무범주</th>
+                    <th scope="col" rowspan="2">금주실적(2023-04-02 ~ 2023-04-08)</th>
+                    <th scope="col" rowspan="2">진행률<br>(%)</th>
+                    <th scope="col" colspan="7">소요시간</th>
+                    <th scope="col" rowspan="2">협조자<br>(부서)</th>
+                    <th scope="col" rowspan="2">의견&sol;지시</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">일</th>
+                    <th scope="col">월</th>
+                    <th scope="col">화</th>
+                    <th scope="col">수</th>
+                    <th scope="col">목</th>
+                    <th scope="col">금</th>
+                    <th scope="col">토</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td>100</td>
+                    <td></td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td>100</td>
+                    <td></td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="4">근무시간</th>
+                    <td></td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
+                    <td>휴일</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>출장</td>
+                    <td>휴일</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+              <table class="tbl_report tobe tbl_week_inner alignL_3">
+                <caption>주간업무보고(개인별) 계획</caption>
+                <colgroup>
+                  <col style="width:10%">
+                  <col style="width:5%">
+                  <col>
+                  <col style="width:5%">
+                  <col span="7" style="width:4%">
+                  <col span="2" style="width:5%">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col" rowspan="2">사업명</th>
+                    <th scope="col" rowspan="2">업무범주</th>
+                    <th scope="col" rowspan="2">차주계획(2023-04-02 ~ 2023-04-08)</th>
+                    <th scope="col" rowspan="2">진행률<br>(%)</th>
+                    <th scope="col" colspan="7">소요시간</th>
+                    <th scope="col" rowspan="2">협조자<br>(부서)</th>
+                    <th scope="col" rowspan="2">의견&sol;지시</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">일</th>
+                    <th scope="col">월</th>
+                    <th scope="col">화</th>
+                    <th scope="col">수</th>
+                    <th scope="col">목</th>
+                    <th scope="col">금</th>
+                    <th scope="col">토</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td>100</td>
+                    <td></td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                    <td>개발</td>
+                    <td>
+                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                    </td>
+                    <td>100</td>
+                    <td></td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="4">근무시간</th>
+                    <td></td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
+                    <td>휴일</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>출장</td>
+                    <td>휴일</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+              <div class="sign_wrap">
+                <p>상기와 같이 주간업무 보고서를 제출합니다.<br>
+                  <span>2023년 3월 20일</span>
+                </p>
+                <p>신청인 : <span>홍길동</span> (인)</p>
+              </div>
+            </div>
+          </section>
+          <article class="approval_set">
+            <section class="box_default_w">
+              <h1>결재자</h1>
+              <ul class="appr_path">
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="review_txt">빠른 검토 부탁드려요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="draft">상신</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="review_txt">연차가 아닌 대체휴가로 올리세요.<br />관련문서는 날자 확인해주시구요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="review_txt"></p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="approve">승인</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                </li>
+              </ul>
+            </section>
+            <section class="box_default_w">
+              <h1>참조자</h1>
+              <span class="file_input">
+                <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                <button type="button" class="btn_red_line">저장</button>
+                <button type="button" class="btn_red_line" disabled>저장</button>
+              </span>
+              <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li> 
+</ul>
+              <ul class="referrer_act">
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="appr_result">2023-02-10 10:00 <b class="uncheck">미확인</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="appr_result">2023-02-10 10:00 <b class="check">확인</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="appr_result">2023-02-10 10:00 <b class="ing">접수</b></p>
+                </li>
+                <li>
+                  <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+                  <p class="appr_result">2023-02-10 10:00 <b class="fin">완료</b></p>
+                </li>
+              </ul>
+            </section>           
+            <section class="box_default_w">
+              <h1>첨부파일</h1>
+              <div class="file_attached">
+  <ul class="attach_list"></ul>
+  <ul class="attach_list">
+    <li>
+      <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+    <li>
+      <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+      <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+    </li>
+  </ul>
+</div>
+            </section>
+            <section class="box_default_w">
+              <dl class="set_list">
+                <dt>중요도</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="high" name="importance" readonly>
+                    <label for="high" class="high_prio">높음</label>
+                    <input type="radio" id="common" name="importance" checked readonly>
+                    <label for="common" class="normal_prio">보통</label>
+                    <input type="radio" id="row" name="importance" readonly>
+                    <label for="row" class="low_prio">낮음</label>
+                  </div>
+                </dd>
+                <dt>공개여부</dt>
+                <dd>
+                  <div class="btn_switch">
+                    <input type="radio" id="open" name="disclosure" checked>
+                    <label for="open">공개</label>
+                    <input type="radio" id="private" name="disclosure">
+                    <label for="private">비공개</label>
+                  </div>
+                </dd>
+                <dt class="rel_doc">관련문서</dt>
+                <dd>
+                  <div class="file_input">
+                    <a href="#">23-04-17 휴일근무신청서</a>
+                    <a href="#" target="_blank" class="preview">미리보기</a>
+                  </div>
+                </dd>
+              </dl>
+            </section>
+            <section class="box_default_w">
+              <h1>활동</h1>
+              <ul class="act_lst">
+                <li>
+                  <p class="date-time">2023-02-18 12:30</p>
+                  <span class="act_name">김개발</span>님이 <span class="act_name">박연구</span>님을 참조자 <span class="t_red act_type">추가</span>하였습니다.
+                </li>
+                <li>
+                  <p class="date-time">2023-02-15 12:30</p>
+                  <span class="act_name">박초롱초롱빛나리</span>님이 <span class="act_name">황금독수리 세상을 놀라게하다</span>님을 참조자 <span class="t_skyblue act_type">삭제</span>하였습니다.
+                </li>
+                <li>
+                  <p class="date-time">2023-02-10 12:30</p>
+                  <span class="act_name">박초롱초롱빛나리</span>님이 <span class="act_name">황금독수리 세상을 놀라게하다</span>님을 참조자 <span class="t_skyblue act_type">추가</span>하였습니다.
+                </li>
+              </ul>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+<script>
+
+</script>
+</body>
+
+</html>

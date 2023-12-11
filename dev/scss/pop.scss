@@ -193,7 +193,7 @@
 .p_workMy{width:760px;}
 
 header .btnClose{@include cancel(10px,11px,#bebebe);}
-.tbl_default [contenteditable]{height:var(--h);max-height:450px;overflow-y:auto;}
+.tbl_default > td[contenteditable]{height:var(--h);max-height:450px;overflow-y:auto;}
 
 //alert
 .p_alert{position:absolute;top:59px;right:10px;width:300px; background-color:$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;z-index:10000;
