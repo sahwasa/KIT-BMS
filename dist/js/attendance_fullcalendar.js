@@ -26,23 +26,23 @@
     })();
     var source = // 일정데이터 
         [
-          {
-            title: '출근',
+          {//출근
+            title: '10:00',
             start: '2023-12-04T10:00:00',            
             className: 'arrived'
           },
-          {
-            title: '퇴근',
+          {//퇴근
+            title: '19:30',
             start: '2023-12-04T19:00:00',            
             className: 'leaved'
           },
-          {
-            title: '출근',
+          {//지각
+            title: '10:10',
             start: '2023-12-05T10:00:00',            
-            className: 'arrived'
+            className: 'late'
           },
-          {
-            title: '퇴근',
+          {//퇴근
+            title: '19:10',
             start: '2023-12-05T19:00:00',            
             className: 'leaved'
           },

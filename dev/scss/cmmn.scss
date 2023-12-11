@@ -416,6 +416,11 @@ $btn_red_line:#ff7575;
   &+button{width:100%;margin-top:5px;}
   &+.period_custom{display:none;}
 }
+.pin{
+  label{font-size:0;line-height:1.2;}
+  label::before{@include fontello('\e93f');font-size:16px;}
+  :checked+label::before{@include fontello('\e940');}
+}
 [data-selectTarget]{display:none;}
 .period_group{@include btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
 .file_input + .btn_slideclose{margin-top:5px;}
