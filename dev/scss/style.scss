@@ -970,7 +970,6 @@ $_planTypes:(
   &.sun{color:#f50000;}
   &+div{display:flex;flex-direction:column;justify-content:center;gap:5px;}
 }
-  // 'event':개인,업무,행사, 'leave':근태, 나머지 회의);
 $defalutColor:#009dee;
 .briefing_plan{flex:1;padding:3px 0 0 20px;position:relative;
   &::before{position:absolute;top:0;left:0;@include shape(8px,100%);border-radius:2px;background:#fff;border:1px solid #009dee;}

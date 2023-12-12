@@ -33,98 +33,68 @@
             editable: false,
             overlap: false,
             className: 'anniv'
-          },
-          {
-            title: '개천절',
-            start: '2023-10-03',
-            editable: false,
-            overlap: false,
-            className: 'holyday-event',
-            display:'background'
-          },
+          },         
           {
             title: '광복절',
-            start: '2023-08-15',
+            start: '2023-12-07',
             editable: false,
             overlap: false,
             className: 'holyday-event'
           },
           {
-            title: 'Business Lunch',
-            start: '2023-06-03T13:00:00',
-            constraint: 'businessHours'
+            title: '관리자 추가 일정',
+            start: '2023-12-06',
+            className: 'cal_admin'
           },
           {
             title: '회의',
-            start: '2023-10-03T11:00:00',
-            constraint: 'availableForMeeting', // defined below
-            color: '#257e4a',
-            description: '1회의실'
+            start: '2023-12-04',
+            // constraint: 'availableForMeeting', // defined below
+            className: 'cal_meeting'
           },
           {
             title: '개인일정',
-            start: '2023-08-22',
-            end: '2023-08-25',
-            className : 'personal'
+            start: '2023-12-22',
+            end: '2023-12-25',
+            className : 'cal_personal'
           },
           {
-            title: '생일파티1',
-            start: '2023-06-29T20:00:00'
+            title: '행사',
+            start: '2023-12-18',
+            className : 'cal_event'
           },
           {
-            title: '생일파티2',
-            start: '2023-06-29T20:00:00'
+            title: '휴가 또는 출장',
+            start: '2023-12-18',
+            className : 'cal_attendance'
           },
           {
-            title: '생일파티3',
-            start: '2023-06-29T20:00:00'
+            title: '관리자 추가 일정',
+            start: '2023-12-06T10:00:00',
+            className: 'cal_admin'
           },
           {
-            title: '생일파티4',
-            start: '2023-06-29T20:00:00'
+            title: '회의',
+            start: '2023-12-04T10:00:00',
+            // constraint: 'availableForMeeting', // defined below
+            className: 'cal_meeting'
           },
           {
-            title: '[반차]김길동',
-            start: '2023-09-01T09:00:00',
-            end:'2023-09-01T10:00:00'
+            title: '개인일정',
+            start: '2023-12-22T10:00:00',
+            className : 'cal_personal'
           },
           {
-            title: '[연차]홍길동',
-            start: '2023-09-01T20:00:00',
-            end:'2023-09-02T20:00:00'
+            title: '행사',
+            start: '2023-12-18T10:00:00',
+            className : 'cal_event'
           },
           {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
+            title: '휴가 또는 출장',
+            start: '2023-12-18T10:00:00',
+            className : 'cal_attendance'
           },
-          {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
-          },
-          {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
-          },
-          {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
-          },
-          {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
-          },
-          {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
-          },
-          {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
-          },
-          {
-            title: '연차',
-            start: '2023-09-01T20:00:00'
-          },
+        
           {// 그룹 아이디가 같다면 해당 영역에만 들어올 수 있음(회의가능일자가 예시인데 쓸일이 있을까...?)
             //groupId: 'availableForMeeting',
             //start: '2023-06-19T10:00:00',

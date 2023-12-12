@@ -18,23 +18,13 @@
   .fc-event-title{color:$red;font-style:normal;}
 }
 /* 달력 일정 */
-.cal_personal{@include customEvt(#a91b1b);border-color:#eb4444;
-  background-color:#eb444425 !important;
-}// 사용자설정 공휴일
-.cal_per{@include customEvt(#0a5027);border-color:#1e7b45;
-  background-color:#1e7b4525!important;
-}// 개인일정
-.cal_meet{@include customEvt(#00477f);border-color:#4285f4;
-  background-color:#4285f425!important;
-}// 회의일정
-.cal_evt{@include customEvt(#b33e61);border-color:#d85c82;
-  background-color:#d85c8225 !important;
-}// 행사일정
-.cal_attendance{@include customEvt(#533191);border-color:#7249bd;
-  background-color:#7249bd25 !important;
-}// 근태일정
-
-
+@each $cal_type, $color in $_planType{  
+  .cal_#{$cal_type}{
+    @include customEvt(darken($color: $color, $amount: 15));border-color:$color;background-color:rgba($color, .20);
+    .fc-daygrid-event-dot{border-color:$color}
+  }
+}
+// 참석자 일정
 .cal_busy{@extend %busy;@include customEvt(#00477f){border-width:1px;}}
 .cal_absence{@extend %absence;@include customEvt(#333){border-width:1px;}}
 .cal_holiday{@extend %holiday;@include customEvt(#ff0000){border-width:1px;}}
