@@ -76,7 +76,7 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
-      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal(),workMy_write();">내 업무 추가</a>
     </div>
     <!-- <div class="btn_workset">
       <div class="btn_dbl_btn">
@@ -89,7 +89,7 @@
         <ul>
           <li><a href="work_myTodo.html">나의 할 일</a></li>
           <li><a href="work_myFin.html">완료된 업무</a></li>
-          <li><a href="work_myIng.html">미진 업무</a></li>
+          <li><a href="work_myDelay.html">미진 업무</a></li>
         </ul>
       </li>
       <li class="blind"><a href="work_shareRecept.html">업무 공유함</a>
@@ -99,7 +99,7 @@
           <li><a href="work_shareReference.html">참조함</a></li>
         </ul>
       </li>
-      <li><a href="work_result.html">실적관리</a></li>
+      <li><a href="work_performance.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
           <li><a href="work_reportDay.html">일일 업무보고</a></li>
@@ -108,7 +108,7 @@
           <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
         </ul>
       </li>
-      <li><a href="work_result.html">회의록관리 (보류)</a></li>
+      <li><a href="">회의록관리 (보류)</a></li>
     </ul>
   </div>
 </section>
@@ -149,11 +149,11 @@
             <th scope="row" class="required"><label for="work_range">업무범주</label></th>
             <td colspan="3">
               <span class="file_input">
-                <select id="nameSelectB">
-                  <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
-                </select>
-              </span>
-              <div id="tagListB"></div>
+  <select id="nameSelect">
+    <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+  </select>
+</span>
+<div id="tagsList"></div>
             </td>
           </tr>
           <tr>
@@ -239,111 +239,146 @@
     </div>
   </form>
 </dialog><!--// 내 업무 추가 -->
+<script>
+  function workMy_write(){
+    // 이슈추가 태그 선택, 에디터
+    const initialNames = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    initializeTagManager('tagsList', 'nameSelect', initialNames);
+  }  
+</script>
     <section class="contents">
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>업무 실적 관리</h1>
+        <h1>미진 업무<span>내 업무함</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">업무</a></li>
-            <li><a href="#">업무공유함</a></li>
-            <li>실적관리</li>
+            <li><a href="#">내 업무함</a></li>
+            <li>미진 업무</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
-        <article class="">
+        <article class="work">          
           <header class="blind">
-            <h1>결재대기 목록</h1>
+            <h1>미진 업무 목록</h1>
           </header>
-          <section>
-            <div class="handle_week">
-              <button class="handle_prev">이전 주차 이동</button>
-              <span>2023.02.26 ~ 2023.03.04</span>
-              <button class="handle_next" disabled>다음 주차 이동</button>
-            </div>
-            <div class="tbl_top_area">
-              <h2>2023년 14주</h2>
-              <div class="floatR">
-                <button type="button" class="btn_default" onclick="location.href='work_resultView.html'">실적등록</button>
-              </div>
-            </div>
-            <div class="tbl_area">
-              <ul class="tbl_list"></ul>
-              <ul class="tbl_list">
-                <li>
-                  <h2 class="ing">2023년 OOO프로젝트</h2>
-                  <div>
-                    <div class="tags"><i>개발</i><i>테스트</i></div>
-                    <h3>업무명(프로젝트 요구사항 > TASK)</h3>
-                    <ul class="dot_list_s">
-                      <li>작업 세부내용</li>
-                    </ul>            
-                  </div>
-                  <div class="dsc">
-                    <div class="date">2023-11-10 ~ 2023-10-20</div>
-                    <div class="progress">
-                      <progress value="30" max="100" title="진행율"></progress><em>30%</em>
-                    </div>
-                    <!-- 작업기간 -->
-                  </div>
-                </li>
-                <li>
-                  <h2 class="ing">2023년 OOO프로젝트</h2>
-                  <div>
-                    <div class="tags"><i>문서</i><i>보고</i></div>
-                    <h3>업무명(TASK)</h3>
-                    <ul class="dot_list_s">
-                      <li>작업 세부내용</li>
-                    </ul>            
-                  </div>
-                  <div class="dsc">
-                    <div class="date">2023-11-10 ~ 2023-10-20</div>
-                    <div class="progress">
-                      <progress value="80" max="100" title="진행율"></progress><em>80%</em>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <h2 class="my_work">개인업무</h2>
-                  <div>
-                    <div class="tags"><i>회의</i><i>하자보수</i></div>
-                    <h3><em>(프로젝트명이 있을경우 표출, 없으면 공란)</em>업무명</h3>
-                    <ul class="dot_list_s">
-                      <li>기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 개선</li>
-                      <li>기관 홈페이지와 SSO 기능구현</li>
-                      <li>기록된 로그 데이터를 유형, 기간 대상자 등 다양한 검색조건 추출 / 조회</li>
-                    </ul>                  
-                  </div>
-                  <div class="dsc">
-                    <div class="date">2023-11-10 ~ 2023-10-20</div>
-                    <div class="progress">
-                      <progress value="100" max="100" title="진행율"></progress><em>100%</em>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <h2 class="my_work">개인업무</h2>
-                  <div>
-                    <div class="tags"><i>디자인</i></div>
-                    <h3>사내 워크숍 지원</h3>
-                    <ul class="dot_list_s">
-                      <li>명찰제작</li>
-                      <li>워크숍 행사 배너 디자인</li>
-                    </ul>                  
-                  </div>
-                  <div class="dsc">
-                    <div class="date">2023-11-10 ~ 2023-10-20</div>
-                    <div class="progress">
-                      <progress value="100" max="100" title="진행율"></progress><em>100%</em>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+          <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select title="부서 선택">
+                  <option disabled selected>부서 선택</option>
+                </select>
+              </li>
+              <li>
+                <select title="팀 선택">
+                  <option disabled selected>팀 선택</option>
+                </select>
+              </li>
+              <li>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>
           </section>
+          <div class="tbl_top_area">
+            <div class="btn_switch border_none">
+              <input type="radio" id="rfp_all" name="rfp_apply" checked="">
+              <label for="rfp_all" class="opened">전체</label>
+              <input type="radio" id="rfp_approve" name="rfp_apply">
+              <label for="rfp_approve" class="opened">개인업무<em>2</em>건</label>
+              <input type="radio" id="rfp_change" name="rfp_apply">
+              <label for="rfp_change" class="closed">프로젝트<em>1</em>건</label>
+            </div>
+            <div>
+              <select title="목록개수 선택">
+  <option value="15">15줄 보기</option>
+  <option value="50" selected>50줄 보기</option>
+  <option value="100">100줄 보기</option>
+  <option value="200">200줄 보기</option>
+</select>
+            </div>
+          </div>
+          <section class="tbl_wrap">
+            <table class="tbl_default hasLayer tbl_work_delay">
+              <caption>미진 업무 리스트</caption>
+              <colgroup>
+                <col style="width:120px;">
+                <col style="width:auto;min-width:240px;">
+                <col style="width:120px;">
+                <col style="width:auto;min-width:240px;">
+                <col span="2" style="width:100px;">
+                <col span="2" style="width:120px;">
+                <col style="width:95px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">구분</th>
+                  <th scope="col">업무명</th>
+                  <th scope="col">업무범주</th>
+                  <th scope="col">업무내용</th>
+                  <th scope="col">시작일자</th>
+                  <th scope="col">종료일자</th>
+                  <th scope="col">담당자</th>
+                  <th scope="col">요청자</th>
+                  <th scope="col">진행율</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>개인업무</td>
+                  <td>주간업무보고 작성</td>
+                  <td><div class="tags"><i>보고</i></div></td>
+                  <td> - 지진발생 팝업 미표출 오류 수정</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>22%</td>
+                </tr>
+                <tr>
+                  <td>프로젝트</td>
+                  <td>2023년 지진,화산재해 대응시스템 유지보수</td>
+                  <td><div class="tags"><i>개발</i></div></td>
+                  <td>◯ 지진&sol;가속도 시스템 오류사항 소스 수정​<br>- 지진발생 팝업 미표출 오류 수정​<br>- 지진발생보고서(MMS) 글자 깨짐 오류 수정</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td>고길동(개발2팀)</td>
+                  <td>2%</td>
+                </tr>
+                <tr>
+                  <td>부서업무</td>
+                  <td>2023년 과제 진도점검</td>
+                  <td><div class="tags"><i>회의</i></div></td>
+                  <td>- 회의 내용 기재</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td></td>
+                  <td>75%</td>
+                </tr>
+                <tr>
+                  <td>개인업무</td>
+                  <td>000 디자인 작업</td>
+                  <td><div class="tags"><i>디자인</i></div></td>
+                  <td>- 회의 내용 기재</td>
+                  <td>2023-05-01</td>
+                  <td>2023-05-01</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td></td>
+                  <td>5%</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>          
         </article>
       </div>
     </section>

@@ -28,13 +28,13 @@
             <button type="button" class="btn_gray_line">취소</button>
           </span>
         </article>
-        <div class="my_work board_new">
-          <section class="work_form flex_right">
+        <div class="post_wrap">
+          <section class="post">
             <article class="box_default_w">
-              <dl class="set_list work_info">
+              <dl class="set_list">
                 <dt><label for="work_type" class="required">구분</label></dt>
                 <dd>
-                  <span class="file_input">
+                  <span class="flex_wrap">
                     <select name="work_type" id="work_type">
                       <option value="업무구분 선택">게시판 선택</option>
                       <option value="사내공지" selected>사내공지</option>
@@ -57,7 +57,7 @@
               </div>
             </article>
           </section>
-          <article class="approval_set work_set">
+          <article class="post_etc">
             <section class="box_default_w">
               <h1>첨부파일</h1>
               @@include('../../inc/module/module_file_attach.html')

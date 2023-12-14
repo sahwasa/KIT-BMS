@@ -4,7 +4,7 @@
       <h2>업무</h2>
     </header>
     <div class="btn_workset">
-      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal();">내 업무 추가</a>
+      <a href="javascript:void(0)" class="btn_default" onclick="document.querySelector('.p_workMy').showModal(),workMy_write();">내 업무 추가</a>
     </div>
     <!-- <div class="btn_workset">
       <div class="btn_dbl_btn">
@@ -17,7 +17,7 @@
         <ul>
           <li><a href="work_myTodo.html">나의 할 일</a></li>
           <li><a href="work_myFin.html">완료된 업무</a></li>
-          <li><a href="work_myIng.html">미진 업무</a></li>
+          <li><a href="work_myDelay.html">미진 업무</a></li>
         </ul>
       </li>
       <li class="blind"><a href="work_shareRecept.html">업무 공유함</a>
@@ -27,7 +27,7 @@
           <li><a href="work_shareReference.html">참조함</a></li>
         </ul>
       </li>
-      <li><a href="work_result.html">실적관리</a></li>
+      <li><a href="work_performance.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
           <li><a href="work_reportDay.html">일일 업무보고</a></li>
@@ -36,8 +36,15 @@
           <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
         </ul>
       </li>
-      <li><a href="work_result.html">회의록관리 (보류)</a></li>
+      <li><a href="">회의록관리 (보류)</a></li>
     </ul>
   </div>
 </section>
 @@include('../../inc/pop/p_workMy.html')<!--// 내 업무 추가 -->
+<script>
+  function workMy_write(){
+    // 이슈추가 태그 선택, 에디터
+    const initialNames = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    initializeTagManager('tagsList', 'nameSelect', initialNames);
+  }  
+</script>

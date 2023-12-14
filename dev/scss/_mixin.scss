@@ -102,12 +102,10 @@ border:1px solid transparent;align-self:center;@content;}
     &:checked+label{color:$white;background-color:$hover;transition:0.5s;}
   }
 }
-
 @mixin btn_square($font){@include shape(28px,28px);background-color:#eaedf1;border-radius:2px;text-align:center;border:1px solid #c5c5c5;cursor:pointer;
   &::before{@include fontello($font);font-size:13px;color:#848890;line-height:24px;}
   &:hover{background-color:$white;box-shadow:0 0 3px rgba(0, 0, 0, .2);}
 }
-
 %ico_ext{display:inline-block;width:17px;height:17px;background-image:url(../images/ico_fileExt.png);background-repeat:no-repeat;vertical-align:middle;font-size:0;overflow:hidden;text-indent:-9999px;}
 @mixin ico_ext($x,$y){background-position:#{$x} #{$y};@extend %ico_ext;}
 
@@ -150,26 +148,30 @@ border:1px solid transparent;align-self:center;@content;}
     h1{margin-bottom:0;font-weight:bold;}
   }
 }
-
 @mixin explanation{display:block;margin-top:5px;font-size:12px;font-weight:normal;
   @content;
   b{font-weight:bold;}
   &::before{@include fontello('\e877');margin:0 5px;color:#848890;font-size:14px;vertical-align:middle;}
 }
-
 @mixin stamp($color){display:inline-flex;justify-content: center;align-items: center;width:40px;height:40px;
   border:2px solid $color;border-radius:50%;
   b{transform:rotate(-25deg);color:$color;font-weight:bold;letter-spacing:-.5px;font-size:15px;}
 }
 @mixin empty_box($con){display:flex;justify-content:center;align-items:center;height:100%;content:$con;padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:13px;color:#777;}
-
+@mixin empty_txt($con,$box:false,$box_h:0){
+  &[data-empty]{background-color:#f5f7f9;text-align:center;@content;
+    &::after{position:relative;display:inline-block;align-self:center;content:$con;font-size:13px;color:#757575;margin-top:40px;background:url(../images/ico_nocontent.png) 0 0 no-repeat;padding-left:27px;line-height:18px;}    
+    @if($box){position:relative;background-color:transparent;
+      &::before{position:absolute;left:0;top:10px;@include shape(100%,$box_h);border:1px solid #ddd;background-color:#f5f7f9;border-radius:5px;}
+      &::after{margin-top: calc($box_h / 2);}
+    }
+  }
+}
 @mixin user_lst{display:flex;flex-direction:column;gap:5px;
   li{display:flex;align-items:center;}
   em:not(.tag_pm){margin-left:auto;}  
 }
-
 @mixin text_ellipsis($line:1){text-overflow:ellipsis;white-space:normal;overflow:hidden;display:-webkit-box;-webkit-line-clamp:$line;-webkit-box-orient:vertical;}
-
 @mixin form_style(){flex-grow:1;min-width:900px;}
 @mixin set_style($type:true){width:400px;min-width:400px;@content;
   & > .box_default_w{margin-top:10px;
@@ -190,4 +192,20 @@ border:1px solid transparent;align-self:center;@content;}
 }
 @mixin scrollbarW($w:0){
   &::-webkit-scrollbar{width:$w;}
+}
+@mixin dot_list($size:4px){
+  &::before{@include shape($size,$size);border-radius:50%;margin-right:6px;vertical-align:middle;}
+}
+@mixin set_list($type1:0){@include tit_bullet(dt);display:grid;grid-template:auto / 100px 1fr;align-items:center;row-gap:10px;
+  dt{font-size:14px;margin-bottom:0;align-self:flex-start;line-height:28px;}
+  .flex_wrap{display:flex;gap:5px;align-items:flex-start;
+    select{flex:0 0 auto;width:auto;}
+  }
+  @if($type1 == 1){
+    dt{position:relative;padding-left:15px;font-weight:bold;
+      &::before{display:none;position:absolute;left:2px;}
+      &.blind + dd{grid-column: 2/3;}
+    }
+    dd:has([data-selectEvt]){align-self:start;}
+  }
 }

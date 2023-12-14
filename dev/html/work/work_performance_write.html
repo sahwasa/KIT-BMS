@@ -1,0 +1,455 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/work.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>업무 실적 관리<span>업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">실적관리</a></li>
+            <li>실적 등록</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="box_compact">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            <ul class="search_list">
+              <li><label for="" class="required">업무수행일자</label></li>
+              <li>
+                <select id="" title="연도 선택">
+                  <option disabled="">연도 선택</option>
+                  <option selected>2023년</option>
+                </select>
+              </li>
+              <li>
+                <select title="주차 선택">
+                  <option disabled="">주차 선택</option>
+                  <option selected>14주</option>
+                </select>
+              </li>
+              <li>
+                <button type="button" class="btn_ogt">업무 불러오기</button>
+              </li>
+              <li class="divide">
+                <button type="button" class="btn_red">저장</button>
+              </li>
+            </ul>
+          </span>
+        </article>
+        <div class="my_work">
+          <article class="box_default status">
+            <header><h1>지난주 업무 수행내역 : 2023년 13주</h1></header>
+            <!-- <ul data-empty="지난 업무 수행내역이 없습니다."> 데이터없을 시 -->
+            <ul>
+              <li class="pro">
+                <div class="tit">
+                  <strong>2023년 통합레이더정보 플랫폼 유지관리 용역사업</strong>
+                  <div class="dsc">
+                    <div class="date">2023-11-10 ~ 2023-10-20</div>
+                    <div class="progress">
+                      <progress value="30" max="100" title="진행율"></progress><em>30%</em>
+                    </div>
+                  </div>                 
+                </div>
+                <p class="task">2023년 통합레이더정보 플랫폼 유지관리 용역사업 완료보고회(완료예정,12/15)</p>
+                <div class="task_dtl">
+                  - 메인, 백업 해양기상 무선팩스 방송 프로그램 정상 작동 확인<br/>
+                  - 메인, 백업 전문 수신 프로그램 정상 작동 확인<br/>
+                  - FTP 서비스 정상 작동 확인<br/>
+                  - 팩스방송 전문 수신 여부 확인<br/>
+                  - 방송시간별 방송 상태 확인 및 조치<br/>
+                  - 메인, 백업 서버 시간 동기화 확인
+                </div>
+              </li>
+              <li class="pro">
+                <div class="tit">
+                  <strong>프로젝트명</strong>
+                  <div class="dsc">
+                    <div class="date">2023-11-10 ~ 2023-10-20</div>
+                    <div class="progress">
+                      <progress value="30" max="100" title="진행율"></progress><em>30%</em>
+                    </div>
+                  </div>                 
+                </div>
+                <p class="task">업무명</p>
+                <div class="task_dtl">
+                  - 업무상세
+                </div>
+              </li>
+              <li class="per">
+                <div class="tit">
+                  <strong>개인업무</strong>
+                  <div class="dsc">
+                    <div class="date">2023-11-10 ~ 2023-10-20</div>
+                    <div class="progress">
+                      <progress value="30" max="100" title="진행율"></progress><em>30%</em>
+                    </div>
+                  </div>                 
+                </div>
+                <p class="task">(프로젝트 약어, 없으면 생략)업무명</p>
+                <div class="task_dtl">
+                  - 업무상세
+                </div>
+              </li>
+              <li class="per">
+                <div class="tit">
+                  <strong>개인업무</strong>
+                  <div class="dsc">
+                    <div class="date">2023-11-10 ~ 2023-10-20</div>
+                    <div class="progress">
+                      <progress value="30" max="100" title="진행율"></progress><em>30%</em>
+                    </div>
+                  </div>                 
+                </div>
+                <p class="task">(프로젝트 약어, 없으면 생략)업무명</p>
+                <div class="task_dtl">
+                  - 업무상세
+                </div>
+              </li>
+            </ul>
+          </article>
+          <article class="performance_write">
+            <div class="tab_wrap">
+              <ul class="tab tab_l">
+                <li><a href="#tab_con01">실적</a></li>
+                <li><a href="#tab_con02">계획</a></li>
+              </ul>
+            </div>
+            <div class="tab_container">
+              <section id="tab_con01" class="tab_contents">
+                <table class="tbl_row tbl_performance">
+                  <caption>등록된 실적</caption>                 
+                  <thead>
+                    <tr>
+                      <th scope="row" rowspan="2">프로젝트</th>
+                      <th scope="col">프로젝트명</th>
+                      <td colspan="2">
+                        <ul class="tool_lst">
+                          <li>
+                            <span class="btn_toggle_single">
+                              <input type="checkbox" id="progress1" checked><label for="progress1" data-label="진행여부">진행여부</label>                      
+                            </span>
+                          </li>                          
+                          <li>
+                            <button type="button" class="btn btn_red_line">삭제</button>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                      <th scope="col" colspan="3">요구사항</th>                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2">작업 내용</th>
+                      <th scope="col">업무명(TASK)</th>
+                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" contenteditable>- 작업 상세내역</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">소요 시간</th>
+                      <td colspan="3">
+                        <table class="tbl_week">
+                          <caption>소요시간 입력</caption>                         
+                          <thead>
+                            <tr>
+                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                            </tr>
+                          </tbody>
+                          </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>                
+                <table class="tbl_row tbl_performance">
+                  <caption>등록된 실적</caption>                 
+                  <thead>
+                    <tr>
+                      <th scope="row" rowspan="2">프로젝트</th>
+                      <th scope="col">2023년 지진,화산재해 대응시스템 유지보수</th>
+                      <td colspan="2">
+                        <ul class="tool_lst">
+                          <li>
+                            <span class="btn_toggle_single">
+                              <input type="checkbox" id="progress2" checked><label for="progress2" data-label="진행여부">진행여부</label>                      
+                            </span>
+                          </li>                          
+                          <li>
+                            <button type="button" class="btn btn_red_line">삭제</button>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                      <th scope="col" colspan="3">요구사항</th>                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2">작업 내용</th>
+                      <th scope="col">업무명(TASK)</th>
+                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" contenteditable>- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">소요 시간</th>
+                      <td colspan="3">
+                        <table class="tbl_week">
+                          <caption>소요시간 입력</caption>                         
+                          <thead>
+                            <tr>
+                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                            </tr>
+                          </tbody>
+                          </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="tbl_row tbl_performance">
+                  <caption>등록된 실적</caption>
+                  <thead>
+                    <tr>
+                      <th scope="row">개인업무</th>
+                      <th scope="col">(프로젝트명, 생략가능)</th>
+                      <td colspan="2">
+                        <ul class="tool_lst">
+                          <li>
+                            <span class="btn_toggle_single">
+                              <input type="checkbox" id="progress3" checked><label for="progress3" data-label="진행여부">진행여부</label>
+                            </span>
+                          </li>
+                          <li>
+                            <button type="button" class="btn btn_red_line">삭제</button>
+                          </li>
+                        </ul>
+                      </td>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2">작업 내용</th>
+                      <th scope="col">업무명(TASK)</th>
+                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3"><div contenteditable style="--h:75px;">- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">소요 시간</th>
+                      <td colspan="3">
+                        <table class="tbl_week">
+                          <caption>소요시간 입력</caption>
+                          <thead>
+                            <tr>
+                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                            </tr>
+                          </tbody>
+                          </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="alignC"><button type="button" class="btn btn_ogt">개인업무 등록</button></div>
+                <table class="tbl_row tbl_performance">
+                  <caption>등록된 실적</caption>
+                  <thead>
+                    <tr>
+                      <th scope="row">개인업무</th>
+                      <th scope="col">
+                        <div class="file_input">
+                          <select name="" id="" title="사업자분류"><option value="">사업자분류</option></select>
+                          <select name="" id="" title="기관선택"><option value="">기관선택</option></select>
+                          <input type="text" id="work_proj" title="프로젝트명" list="projectList">
+                          @@include('../../inc/data/data_project_name.html')
+                        </div></th>
+                      <td colspan="2">
+                        <ul class="tool_lst">
+                          <li>
+                            <span class="btn_toggle_single">
+                              <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부">진행여부</label>
+                            </span>
+                          </li>
+                          <li>
+                            <button type="button" class="btn btn_red_line">삭제</button>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2" class="required">작업 내용</th>
+                      <th scope="col"><input type="text" title="업무명" placeholder="업무명 입력" required></th>
+                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" contenteditable>- 저는 개인업무 등록 버튼을 눌러서 만들어졌습니다! 초기 화면에는 제가 없습니다</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><label for="" class="required">업무범주</label></th>
+                      <td colspan="3">
+                        <span class="file_input">
+                          <select id="per_nameSelect">
+                            <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+                          </select>
+                        </span>
+                        <div id="per_tagsList"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="required">작업일자</th>
+                      <td colspan="3">
+                        @@include('../../inc/module/module_period.html')
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">소요 시간</th>
+                      <td colspan="3">
+                        <table class="tbl_week">
+                          <caption>소요시간 입력</caption>
+                          <thead>
+                            <tr>
+                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>                
+              </section>
+              <section id="tab_con02" class="tab_contents">
+                <table class="tbl_row tbl_performance">
+                  <caption>등록된 실적</caption>                 
+                  <thead>
+                    <tr>
+                      <th scope="row" rowspan="2">프로젝트</th>
+                      <th scope="col">프로젝트명</th>
+                      <td colspan="2">
+                        <ul class="tool_lst">
+                          <li>
+                            <span class="btn_toggle_single">
+                              <input type="checkbox" id="progress1" checked><label for="progress1" data-label="진행여부">진행여부</label>                      
+                            </span>
+                          </li>                          
+                          <li>
+                            <button type="button" class="btn btn_red_line">삭제</button>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                      <th scope="col" colspan="3">요구사항</th>                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" rowspan="2">작업 내용</th>
+                      <th scope="col">업무명(TASK)</th>
+                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" contenteditable>- 작업 상세내역</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">소요 시간</th>
+                      <td colspan="3">
+                        <table class="tbl_week">
+                          <caption>소요시간 입력</caption>                         
+                          <thead>
+                            <tr>
+                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                              <td><input type="number" value="0" title="소요시간"></td>
+                            </tr>
+                          </tbody>
+                          </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+<script>
+  const work_tag = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+  initializeTagManager('per_tagsList', 'per_nameSelect', work_tag);
+</script>
+</body>
+
+</html>

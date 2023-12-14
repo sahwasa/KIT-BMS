@@ -189,7 +189,7 @@ function commonInit() {
       .off('click').on('click focusin', '.layer_tool', function (e) {
     e.stopPropagation()
     e.preventDefault()
-    $(this).addClass('on').css('z-index','100');
+    $(this).addClass('on').css('z-index','1050');
   })
       .on('focusout', '.layer_tool', function () {
         $(this).removeClass('on').css('z-index','0');
