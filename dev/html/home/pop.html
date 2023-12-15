@@ -2,55 +2,74 @@
 <div id="wrap" class="wrap">
   @@include('../../inc/layout/header.html')
   @@include('../../inc/layout/nav.html')
-  <main id="content" class="container main">
-    <header>
-      <h1>팝업 모음</h1>
-    </header>
-    <div class="cont_body">
-      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">로그인</h2>
-      <ul>
-        <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_self_certification">본인인증</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_change_pw">비밀번호변경</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
-      </ul>
-      <br>
-      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">팝업 공통</h2>
-      <ul>
-        <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
-        <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert" checked>통합알림</label></li> 
-        <li><button type="button" class="btn_default" data-modal="p_DM">DM</button></li>
-      </ul>
-      <br>
-      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">전자결재</h2>
-      <ul>
-        <li><button type="button" class="btn_default" data-modal="p_approval01">자주 쓰는 결재 설정</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_relDoc">관련문서</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_approvalOpinion">결재의견</button></li>
-      </ul>
-      <br>
-      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">일정</h2>
-      <ul>
-        <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회 & 브리핑 보드 상세</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_planEdit">일정 조회 & 브리핑 보드 상세 수정</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_status_roomBook">회의실 예약현황</button></li>
-      </ul>
-      <br>
-      <h2 style="display:inline-block;font-size:20px;font-weight:bold;">프로젝트</h2>
-      <ul>
-        <li><button type="button" class="btn_default" data-modal="p_relProj">관련 프로젝트</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_relProj_dtl">관련 프로젝트 상세</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_requireMan">요구사항 관리</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_workMan">업무 관리</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_workDay">일일업무일지 추가</button></li>
-        <!-- <li><button type="button" class="btn_default" data-modal="p_type2">내 dm2</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_type3">내 dm3</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_type4">내 dm4</button></li>
-        <li><button type="button" class="btn_default" data-modal="p_type5">내 dm5</button></li> -->
-      </ul>
+  <main id="content" class="container">
+    <div class="contents">
+      <header class="cont_tit">
+        <h1>팝업 모음</h1>
+      </header>
+      <div class="box_default_w">
+        <h1 class="tit">로그인</h1>
+        <ul class="search_list">
+          <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_self_certification">본인인증</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_change_pw">비밀번호변경</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
+        </ul>
+      </div>
+      <div class="box_default_w">
+        <h1>팝업 공통</h1>
+        <ul class="search_list">
+          <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
+          <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert" checked>통합알림</label></li>
+          <li><button type="button" class="btn_default" data-modal="p_DM">DM</button></li>
+          <!-- <li><button type="button" class="btn_default" data-modal="p_type2">내 dm2</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_type3">내 dm3</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_type4">내 dm4</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_type5">내 dm5</button></li> -->
+        </ul>
+      </div>
+      <div class="box_default_w">
+        <h1>전자결재</h1>
+        <ul class="search_list">
+          <li><button type="button" class="btn_default" data-modal="p_approval01">자주 쓰는 결재 설정</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_relDoc">관련문서</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_approvalOpinion">결재의견</button></li>
+        </ul>
+      </div>
+      <div class="box_default_w">
+        <h1>일정</h1>
+        <ul class="search_list">
+          <li><button type="button" class="btn_default" data-modal="p_planView">일정 조회 & 브리핑 보드 상세</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_planEdit">일정 조회 & 브리핑 보드 상세 수정</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_status_roomBook">회의실 예약현황</button></li>
+        </ul>
+      </div>
+      <div class="box_default_w">
+        <h1>업무</h1>
+        <ul class="search_list">
+          <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_workDay">일일업무일지 추가</button></li>
+        </ul>
+      </div>
+      <div class="box_default_w">
+        <h1>프로젝트</h1>
+        <ul class="search_list">
+          <li><button type="button" class="btn_default" data-modal="p_relProj">관련 프로젝트</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_relProj_dtl">관련 프로젝트 상세</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_requireMan">요구사항 관리</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_taskMan">업무 관리</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_workDay">일일업무일지 추가</button></li>
+        </ul>
+      </div>
+      <div class="box_default_w">
+        <h1>임직원 업무</h1>
+        <ul class="search_list">
+          <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
+        </ul>
+      </div>
     </div>
   </main>
   @@include('../../inc/layout/footer.html')  
@@ -71,12 +90,13 @@
 @@include('../../inc/pop/p_requireMan.html')<!--// 요구사항 관리 -->
 @@include('../../inc/pop/p_relProj.html')<!--// 관련 프로젝트 설정 -->
 @@include('../../inc/pop/p_relProj_dtl.html')<!--// 관련 프로젝트 상세 -->
-@@include('../../inc/pop/p_workMan.html')<!--// 업무 관리 -->
+@@include('../../inc/pop/p_taskMan.html')<!--// 업무 관리 -->
 @@include('../../inc/pop/p_workMy.html')<!--// 내 업무 추가 -->
 @@include('../../inc/pop/p_workDay.html')<!--// 일일업무일지 추가 -->
 @@include('../../inc/layout/script.html')
 @@include('../../inc/pop/p_org_chart.html')
 @@include('../../inc/pop/p_seating_chart.html')
+@@include('../../inc/pop/p_addBusiness.html')
 
 <script>
   $(function () {
@@ -84,8 +104,8 @@
     const initialNames = ['개발', '제안', '기획', '하자보수', '테스트', '문서', '외주관리', '유지보수', '회의', '출장', '외근', '기타'];
     initializeTagManager('tagList', 'nameSelect', initialNames);
 
-    const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
-    initializeTagManager('tagListB', 'nameSelectB', initialNamesB);
+    // const initialNamesB = ['개발', '장애처리', '디자인', '회의', '업무지원', '연구활동', '기타'];
+    // initializeTagManager('tagListB', 'nameSelectB', initialNamesB);
 
 
     function tabInit(modal) {

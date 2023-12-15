@@ -1204,9 +1204,9 @@
       <dt>공개여부</dt>
       <dd>
         <div class="btn_switch">
-          <input type="radio" id="proj_open" name="proj_closure" checked readonly>
+          <input type="radio" id="proj_open" name="proj_closure" checked disabled>
           <label for="proj_open">공개</label>
-          <input type="radio" id="proj_private" name="proj_closure" readonly>
+          <input type="radio" id="proj_private" name="proj_closure" disabled>
           <label for="proj_private">비공개</label>
         </div>
       </dd>
@@ -1307,9 +1307,8 @@
   <header>
     <h1 class="blind">요구사항</h1>
     <div class="proj_legend ico_proj">
-      <!-- 진행상태 (준비,수행중,완료,보류)
-      최초 등록 후 승인전 : 준비
-      최초 등록 후 승인 : 수행중
+      <!-- 진행상태 (수행중,완료,보류)
+      최초 등록 : 수행중
       최초 등록 후 : 반려는 없고 보류 혹은 수정삭제
       완료 요청 : 완료 요청
       완료요청 승인 : 완료
@@ -1319,7 +1318,7 @@
       보류 : 보류
        -->
       <ul>        
-        <li><i class="ready"></i>준비</li> 
+        <!-- <li><i class="ready"></i>준비</li>  -->
         <li><i class="ing"></i>수행중</li>
         <li><i class="done"></i>완료</li>
         <li><i class="hold"></i>보류</li>
@@ -1341,8 +1340,6 @@
         <div class="btn_switch border_none">
           <input type="radio" id="rfp_all" name="rfp_apply" checked>
           <label for="rfp_all" class="opened">전체</label>
-          <input type="radio" id="rfp_approve" name="rfp_apply">
-          <label for="rfp_approve" class="opened">승인요청<em>2</em>건</label>
           <input type="radio" id="rfp_change" name="rfp_apply">
           <label for="rfp_change" class="closed">변경요청<em>1</em>건</label>
           <input type="radio" id="rfp_done" name="rfp_apply">
@@ -1371,7 +1368,7 @@
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>                 
       </li>
       <li>
-        <a href="#"><i class="ready">준비</i><em>로그 이력관리 기능 구축</em></a>
+        <a href="#"><i class="ing">수행중</i><em>로그 이력관리 기능 구축</em></a>
       </li>
     </ul>
   </details>
@@ -1398,7 +1395,7 @@
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
       </li>
       <li>
-        <a href="#"><i class="ready">준비</i><em>고객 분석리포트 2종 생성</em></a>
+        <a href="#"><i class="ing">수행중</i><em>고객 분석리포트 2종 생성</em></a>
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
       </li>
     </ul>
@@ -1463,7 +1460,7 @@
   <header class="lst_header">
     <h1 class="blind">요구사항 상세</h1>
     <div class="btn_wrap">
-      <button type="button" class="btn_red" onclick="document.querySelector('.p_workMan').showModal();">업무 추가</button>
+      <button type="button" class="btn_red" onclick="document.querySelector('.p_taskMan').showModal();">업무 추가</button>
       <button type="button" class="btn_red_line">수정</button>
       <button type="button" class="btn_red_line">삭제</button>
     </div>
@@ -1800,7 +1797,7 @@
     </div>
   </form>
 </dialog><!--// 요구사항 관리 -->
-<dialog class="p_workMan">
+<dialog class="p_taskMan">
   <form method="dialog">
     <header class="p_header">
       <strong>업무 관리(업무 추가 및 수정)</strong>
@@ -1931,11 +1928,7 @@
           </tr>
         </tbody>
       </table>
-      <div class="btn_wrap">
-        <!-- 최초작성자 -->
-        <button class="btn_red" type="button">승인요청</button>
-        <button class="btn_red_line">삭제</button> /
-        <!-- PMPL 수정할 때 -->
+      <div class="btn_wrap">        
         <button class="btn_red" type="button">저장</button>
         <button class="btn_red_line">삭제</button>
       </div>

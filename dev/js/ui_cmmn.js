@@ -680,7 +680,6 @@ function addTag(selectedName, divId, selectId) {
     }
   }
 }
-
 function initializeTagManager(divId, selectId, initialNames) {
   const select = document.getElementById(selectId)
   initialNames.forEach(name => {

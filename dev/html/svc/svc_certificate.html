@@ -1,0 +1,104 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>증명서 발급<span>임직원 업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li>증명서 발급</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">          
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="분류">
+                  <option value="">분류</option>
+                  <option value="G">공공기관 및 협회</option>
+                  <option value="C">법인 및 개인</option>
+                  <option value="H">웹호스팅</option>
+                  <option value="B">BOSS</option>
+                  <option value="K">사내업무</option>
+                  <option value="E">기타</option>
+              </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+                @@include('../../inc/data/data_emp_name.html')
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_refresh">초기화</button>
+              </li>
+            </ul>
+            <div class="fleㅂx_right">
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">추가</button>
+              <button type="button" class="btn_red_line" onclick="">삭제</button>
+              <span class="divide">
+                @@include('../../inc/module/opt_lineNum.html')
+              </span>
+            </div>
+          </section>
+          <section class="tbl_wrap tbl_business">
+            <table class="tbl_default tbl_hover row_check">
+              <caption>사업자 리스트</caption>
+              <colgroup>
+                
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check"></th>
+                  <th scope="col">분류</th>
+                  <th scope="col">요청일시</th>
+                  <th scope="col">사업자명</th>
+                  <th scope="col">연락처</th>
+                  <th scope="col">수령방법</th>
+                  <th scope="col">처리여부</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
+                  <td>재직증명서</td>
+                  <td>요청일시</td>
+                  <td>(사)한국재해정보협회</td>
+                  <td>02-890-3620</td>
+                  <td>발행</td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                  <td>발행</td>
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
+                  <td>급여명세서</td>
+                  <td>요청일시</td>
+                  <td>(사)한국재해정보협회</td>
+                  <td>02-890-3620</td>
+                  <td>발행</td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                  <td>발행</td>
+                </tr>
+              </tbody>
+            </table>
+            @@include('../../inc/module/paginate.html')
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_addBusiness.html')
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

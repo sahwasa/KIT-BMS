@@ -45,6 +45,7 @@
     .btn_tree{display:block;margin-bottom:4px;}
   }
 }
+.p_info{@extend .info_box;}
   // tree common
 .tree_wrap{
   &>.sortable{min-width:290px;width:100%;height:250px;}
@@ -186,7 +187,7 @@
 .p_projDoc,
 .p_requireMan,
 .p_workMy,
-.p_workMan{width:600px;
+.p_taskkMan{width:600px;
   td{white-space: normal}
 }
 .p_workDay,
@@ -303,4 +304,9 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .proj_overview{padding:0;
     header{border-bottom:1px solid #bec7d2;padding-bottom:15px;}
   }
+}
+.p_add_business{width:800px;
+  .more_info{margin-top:30px;}
+  .addr{display: flex;flex-direction: column;gap:4px;}
+  textarea{min-height:auto;}
 }

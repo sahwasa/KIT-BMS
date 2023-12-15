@@ -273,7 +273,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .btn_wrap{display:flex;gap:4px;
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
-  select{width:auto;}
+  select,input{width:auto;}
 }
 .btn_more{@include img_btn(14px,14px,'ic_more.png');}
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color:#999;text-align:left;line-height:34px;
@@ -396,7 +396,8 @@ $btn_red_line:#ff7575;
     &::before{line-height:17px;}
   }
   input{position:absolute;opacity:0;width:0;height:0;
-    :not(&:disabled):hover+label{border-color:$hoverColor;color:$hoverColor;cursor:pointer;}
+    :not(&:disabled),
+    :not(&:read-only){&:hover+label{border-color:$hoverColor;color:$hoverColor;cursor:pointer;}}
     :not(&:checked)+label::before{color:$unselectedColor;border-color:$unselectedColor;}   
     &[type="radio"]:checked,
     &[type="checkbox"]:checked{

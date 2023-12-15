@@ -2,9 +2,8 @@
   <header>
     <h1 class="blind">요구사항</h1>
     <div class="proj_legend ico_proj">
-      <!-- 진행상태 (준비,수행중,완료,보류)
-      최초 등록 후 승인전 : 준비
-      최초 등록 후 승인 : 수행중
+      <!-- 진행상태 (수행중,완료,보류)
+      최초 등록 : 수행중
       최초 등록 후 : 반려는 없고 보류 혹은 수정삭제
       완료 요청 : 완료 요청
       완료요청 승인 : 완료
@@ -14,7 +13,7 @@
       보류 : 보류
        -->
       <ul>        
-        <li><i class="ready"></i>준비</li> 
+        <!-- <li><i class="ready"></i>준비</li>  -->
         <li><i class="ing"></i>수행중</li>
         <li><i class="done"></i>완료</li>
         <li><i class="hold"></i>보류</li>
@@ -36,8 +35,6 @@
         <div class="btn_switch border_none">
           <input type="radio" id="rfp_all" name="rfp_apply" checked>
           <label for="rfp_all" class="opened">전체</label>
-          <input type="radio" id="rfp_approve" name="rfp_apply">
-          <label for="rfp_approve" class="opened">승인요청<em>2</em>건</label>
           <input type="radio" id="rfp_change" name="rfp_apply">
           <label for="rfp_change" class="closed">변경요청<em>1</em>건</label>
           <input type="radio" id="rfp_done" name="rfp_apply">
@@ -56,5 +53,5 @@
   </div>
 </article>
 @@include('../../inc/pop/p_requireMan.html')<!--// 요구사항 관리 -->
-@@include('../../inc/pop/p_workMan.html')<!--// 업무 관리 -->
+@@include('../../inc/pop/p_taskMan.html')<!--// 업무 관리 -->
 @@include('../../inc/pop/p_require_task_change.html') <!-- 업무 변경요청 -->
