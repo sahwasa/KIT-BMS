@@ -1015,11 +1015,11 @@ $defalutColor:#009dee;
   $_projColor:('ready':#f0a44f,'ing':#00b5da,'done':#19b200,'hold':#bfc8d2,'check':$red,'apply':$red);
   $_projType:('ready':'\eb74','ing':'\e903', 'done':'\eb6c', 'hold':'\ebe9', 'check':'\eb6c', 'apply':'\e877');
   @each $type, $txt in $_projType{
-    .#{$type}{background:transparent;font-size:11px;vertical-align:middle;
-      &::before{@include fontello($txt);color:map-get($_projColor, $type);}
-    }
+    .#{$type}::before{@include fontello($txt);color:map-get($_projColor, $type);}
   }
-  i::before{margin-right:4px;font-size:12px;margin-top:-3px;vertical-align:middle;}
+  i{background:transparent;font-size:11px;vertical-align:middle;
+    &::before{margin-right:4px;font-size:12px;margin-top:-3px;vertical-align:middle;}
+  }
   .apply::before{font-size:14px;}
 }
 .proj_legend{display:flex;gap:10px;font-size:11px;align-self:flex-end;
@@ -1091,6 +1091,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     input,i{flex-shrink:0;}    
   }
   .etc{@extend .ico_proj;margin-top:auto;line-height:1;font-size:12px;
+    i{font-size:0;}
     i::before{margin-top:0;}
   }
   .task_{@include taskColor(true);}
