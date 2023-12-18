@@ -5,6 +5,11 @@
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
+      <div class="tbl_top_area">
+        <span class="btn_toggle_single tool_wrap">
+          <input type="checkbox" id="holding"><label for="holding" data-label="진행 보류" >보류 여부</label>                      
+        </span>
+      </div>
       <table class="tbl_default tbl_row">
         <caption>업무 관리 테이블</caption>
         <colgroup>
@@ -87,19 +92,17 @@
               <label for="work_place">수행장소</label>
             </th>
             <td><input type="text" id="work_place"></td>
-          </tr>
-          <tr>
-            <th scope="row">진행상태</th>
-            <td><label for="work_hold"><input type="checkbox" id="work_hold">보류</label></td>            
-          </tr>
+          </tr>         
           <tr>
             <th scope="row">
-              <label for="work_takingover">인수인계 구분</label>
+              <label for="task_handover">인수인계 구분</label>
             </th>
             <td>
-              <label><input type="radio" id="work_takingover" name="work_takingover">해당사항 없음</label>
-              <label><input type="radio" name="work_takingover">업무인계</label>
-              <label><input type="radio" name="work_takingover">업무인수</label>
+              <div class="btn_switch">
+                <input type="radio" id="handover_na" name="task_handover" checked><label for="handover_na">해당없음</label>
+                <input type="radio" name="task_handover" id="handover"><label for="handover">업무인계</label>
+                <input type="radio" name="task_handover" id="assume"><label for="assume">업무인수</label>
+              </div>
             </td>
           </tr>
         </tbody>

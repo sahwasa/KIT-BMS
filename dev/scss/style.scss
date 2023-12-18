@@ -1013,17 +1013,19 @@ $defalutColor:#009dee;
 %type{background-color:#f8c9ce;color:#404654;}
 .ico_proj{ 
   $_projColor:('ready':#f0a44f,'ing':#00b5da,'done':#19b200,'hold':#bfc8d2,'check':$red,'apply':$red);
-  $_projType:('ready':'\eb74','ing':'\e903', 'done':'\eb6c', 'hold':'\ebe9', 'check':'\eb6c', 'apply':'\eb34');
+  $_projType:('ready':'\eb74','ing':'\e903', 'done':'\eb6c', 'hold':'\ebe9', 'check':'\eb6c', 'apply':'\e877');
   @each $type, $txt in $_projType{
-    .#{$type}{background:transparent;font-size:0;vertical-align:middle;
-      &::before{@include fontello($txt);margin-right:4px;color:map-get($_projColor, $type);font-size:12px;margin-top:-3px;}
+    .#{$type}{background:transparent;font-size:11px;vertical-align:middle;
+      &::before{@include fontello($txt);color:map-get($_projColor, $type);}
     }
   }
-  .apply::before,
-  .reject::before{font-size:13px;}
+  i::before{margin-right:4px;font-size:12px;margin-top:-3px;vertical-align:middle;}
+  .apply::before{font-size:14px;}
 }
 .proj_legend{display:flex;gap:10px;font-size:11px;align-self:flex-end;
-  ul{@include flex_between;gap:10px;line-height:1;}     
+  ul{@include flex_between;gap:10px;line-height:1;}
+  i{color:#000;}
+  .divide{@include divide();&::before{margin-left:5px;}}
 }
 .proj_lst{overflow-y:auto;max-height:calc(100vh - 380px);min-height:247px;text-align:left;
   &.all_proj{max-height:calc(100vh - 323px);min-height:307px;}
@@ -1326,7 +1328,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         position:relative;top:-2px;@include shape(5px,5px);background-color:$red;border-radius:50%;margin-left:5px;}}
         ul{border-bottom:1px solid #ebebeb;}
         li{display:flex;gap:20px;min-height:33px;padding:8px 9px 8px 20px;@include on-hover;
-          i{margin-top:3px;}
+          i{margin-top:3px;font-size:0;}
         }
       }
       .user_photo{width:22px;height:22px;margin-left:auto;}
@@ -1350,6 +1352,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       .right_section{flex:1;min-width:400px;
         .rfp_dtl,.task_dtl{background-color:#fff;}
         .date{color:#b5b4b4;font-size:13px;}
+        .apply_status{@extend .ico_proj;
+          i::before{margin-top:-1px;}
+        }
       }
     }
     header{padding-left:10px;
@@ -1397,7 +1402,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       .changes{margin-top:10px;border-left:3px solid #aab3c8;padding:0 8px;line-height:1.5;
         dl{display:grid;grid-template-columns:70px 1fr;row-gap:5px;}
         dt{font-weight:700;}
-        .ico_proj i::before{line-height:15px;margin-top:0;}     
+        .ico_proj i{font-size:0;
+          &::before{line-height:15px;margin-top:0;}     
+        }
       }
       .cmt_reject{background-color:#ebebeb;border-radius:3px;margin-top:5px;padding:5px 12px;}
     }

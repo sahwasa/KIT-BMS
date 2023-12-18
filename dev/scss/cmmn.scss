@@ -429,7 +429,7 @@ $btn_red_line:#ff7575;
   &:checked+label::before{@include fontello('\e940');}
   label:hover::before{text-shadow:0 0 3px red;}
 }
-.btn_toggle_single{display:flex;flex-shrink:0;justify-content:center;
+.btn_toggle_single{display:inline-flex;flex-shrink:0;justify-content:center;
   $unselectedColor:#999;$hoverColor:#868686;$selectColor:$tomato;
   input{position:absolute;opacity:0;width:0;height:0;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
     &+label{position:relative;left:-1px;width:31px;height:17px;cursor:pointer;z-index:100;background-color:$unselectedColor;border-radius:28px;word-break:keep-all;white-space:nowrap;

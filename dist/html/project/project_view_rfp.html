@@ -13,14 +13,12 @@
       보류 : 보류
        -->
       <ul>        
-        <!-- <li><i class="ready"></i>준비</li>  -->
-        <li><i class="ing"></i>수행중</li>
-        <li><i class="done"></i>완료</li>
-        <li><i class="hold"></i>보류</li>
-      </ul>
-      <ul>
-        <li><i class="check"></i>완료요청</li>        
-        <li><i class="apply"></i>변경요청</li>        
+        <!-- <li><i class="ready">준비</i></li>  -->
+        <li><i class="ing">수행중</i></li>
+        <li><i class="done">완료</i></li>
+        <li><i class="hold">보류</i></li>
+        <li class="divide"><i class="check">완료요청</i></li>        
+        <li><i class="apply">변경요청</i></li>        
       </ul>
     </div>
     <span class="btn_wrap">
@@ -35,6 +33,8 @@
         <div class="btn_switch border_none">
           <input type="radio" id="rfp_all" name="rfp_apply" checked>
           <label for="rfp_all" class="opened">전체</label>
+          <input type="radio" id="rfp_myTask" name="rfp_apply">
+          <label for="rfp_myTask" class="closed">내 업무<em>30</em>건</label>
           <input type="radio" id="rfp_change" name="rfp_apply">
           <label for="rfp_change" class="closed">변경요청<em>1</em>건</label>
           <input type="radio" id="rfp_done" name="rfp_apply">
@@ -229,7 +229,8 @@
   <header class="lst_header">
     <h1 class="blind">업무 상세</h1>
     <div class="apply_status">
-      <em>승인요청,변경요청/반려:사유</em>
+      <i class="apply">변경요청 승인 대기중</i>
+      <!-- <i class="check">완료요청 승인 대기중</i> -->
     </div>
     <div class="btn_wrap">
       <button type="button" class="btn_red">완료요청</button>
@@ -499,6 +500,11 @@
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
+      <div class="tbl_top_area">
+        <span class="btn_toggle_single tool_wrap">
+          <input type="checkbox" id="holding"><label for="holding" data-label="진행 보류" >보류 여부</label>                      
+        </span>
+      </div>
       <table class="tbl_default tbl_row">
         <caption>업무 관리 테이블</caption>
         <colgroup>
@@ -606,19 +612,17 @@
               <label for="work_place">수행장소</label>
             </th>
             <td><input type="text" id="work_place"></td>
-          </tr>
-          <tr>
-            <th scope="row">진행상태</th>
-            <td><label for="work_hold"><input type="checkbox" id="work_hold">보류</label></td>            
-          </tr>
+          </tr>         
           <tr>
             <th scope="row">
-              <label for="work_takingover">인수인계 구분</label>
+              <label for="task_handover">인수인계 구분</label>
             </th>
             <td>
-              <label><input type="radio" id="work_takingover" name="work_takingover">해당사항 없음</label>
-              <label><input type="radio" name="work_takingover">업무인계</label>
-              <label><input type="radio" name="work_takingover">업무인수</label>
+              <div class="btn_switch">
+                <input type="radio" id="handover_na" name="task_handover" checked><label for="handover_na">해당없음</label>
+                <input type="radio" name="task_handover" id="handover"><label for="handover">업무인계</label>
+                <input type="radio" name="task_handover" id="assume"><label for="assume">업무인수</label>
+              </div>
             </td>
           </tr>
         </tbody>
