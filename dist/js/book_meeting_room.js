@@ -8,14 +8,12 @@
 
     cal_roombook = new FullCalendar.Calendar(cal_roombookEl, {     
       headerToolbar: {
-        left: 'prev,next',
+        left:'prev,next',
         center: 'title',
-        right: 'resourceTimelineDay,resourceTimeGridWeek,resourceTimelineMonth'
+        right: 'today'
       },
       buttonText: {
-        resourceTimelineDay:'일간',
-        resourceTimeGridWeek:'주간',
-        resourceTimelineMonth:'월간'
+        today:'오늘'
       },
       editable: false,
       selectable: false,

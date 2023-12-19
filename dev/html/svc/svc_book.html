@@ -1,0 +1,156 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>도서<span>자원</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li><a href="#">자원</a></li>
+            <li>도서</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <div class="info_box">
+          <h3>대여안내</h3>
+          <ul>
+            <li>대여방법 : 해당 페이지에서 도서 검색 후 관리 ＞ 대여신청</li>
+            <li>대여기간 : 대여일로부터 1개월 (반납 후 대기자 없을 시 연장 가능)</li>
+            <li>도서반납 : 안내데스크에 반납</li>
+          </ul>
+          <p>문의처 : 안내데스크</p>
+        </div>
+        <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="분야">
+                  <option>분야</option>
+                  <option value="000">총류</option>
+                  <option value="100">철학</option>
+                  <option value="200">종교</option>
+                  <option value="300">사회과학</option>
+                  <option value="400">자연과학</option>
+                  <option value="500">기술과학</option>
+                  <option value="600">예술</option>
+                  <option value="700">언어</option>
+                  <option value="800">문학</option>
+                  <option value="900">역사</option>
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="도서명, 저자, 출판사">                
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_refresh">초기화</button>
+              </li>
+            </ul>
+            <div class="flex_right">
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_pr_book').showModal();">신규도서 구매신청</button>
+              <span class="divide">
+                <select title="목록개수 선택">
+                  <option value="15">15줄 보기</option>
+                  <option value="50" selected="">50줄 보기</option>
+                  <option value="100">100줄 보기</option>
+                  <option value="200">200줄 보기</option>
+                </select>
+              </span>
+            </div>
+          </section>
+        <div class="tbl_wrap">
+          <table class="tbl_default hasLayer">
+            <thead>
+              <tr>
+                <th scope="col">번호</th>
+                <th scope="col">분류기호</th>
+                <th scope="col">분야</th>
+                <th scope="col">도서명</th>
+                <th scope="col">저자</th>
+                <th scope="col">출판사</th>
+                <th scope="col">상태(반납예정일)</th>
+                <th scope="col">관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>005.138윤68ㅎ</td>
+                <td>총류</td>
+                <td>혼자 공부하는 자바스크립트</td>
+                <td>윤인성</td>
+                <td>한빛미디어</td>
+                <td>대여중(23-12-31)</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">대여기간 연장</button>
+                      <button type="button">대여이력</button>
+                      <button type="button">상세보기</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>005.138윤68ㅎ</td>
+                <td>총류</td>
+                <td>혼자 공부하는 자바스크립트</td>
+                <td>윤인성</td>
+                <td>한빛미디어</td>
+                <td>대여중(23-12-31)</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">대여신청 대기</button>
+                      <button type="button">대여이력</button>
+                      <button type="button">상세보기</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <tbody>
+              <tr>
+                <td>2</td>
+                <td>005.138윤68ㅎ</td>
+                <td>총류</td>
+                <td>혼자 공부하는 자바스크립트</td>
+                <td>윤인성</td>
+                <td>한빛미디어</td>
+                <td>대여가능</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">대여신청</button>
+                      <button type="button">대여이력</button>
+                      <button type="button">상세보기</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          @@include('../../inc/module/paginate.html')
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_pr_book.html')
+@@include('../../inc/layout/script.html')
+
+<!-- https://github.com/frappe/charts -->
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/book_meeting_room.js"></script>
+
+</body>

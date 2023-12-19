@@ -588,7 +588,9 @@ z-index:10;
 .my_form{position:static;}
 .my_form,.box_tool{margin-bottom:15px;
   .btn_wrap{align-self:flex-start;}
-  ul{display:flex;gap:4px;}
+  ul{display:flex;gap:4px;
+    &:empty::before{@include empty_box('등록한 양식없음');height:28px;background-color:rgba(0, 0, 0, .05);}
+  }
   li{background-color:$white;border:1px solid #aaa;border-radius:3px;
     a{display:block;line-height:28px;padding:0 8px;
       &::before{@include fontello('\f0f6');font-size:14px;color:#ff6664;margin-right:4px;}
@@ -1495,19 +1497,11 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
 }
 
 //svc
-.cal_wrap{@include flex_between;gap:$columnGap;align-items:flex-start;flex-wrap:wrap;
-  .remote_room{flex-shrink:0;width:90px;padding-top:55px;}
-  .calendar_container{flex:1 0 762px;}
-  .plan_new{flex:1 0 480px;display:none;}
+.cal_wrap{display:flex;flex-direction:column;gap:$columnGap;height:calc(100vh - 184px);min-height:445px;
+  #cal-roombook{height:var(--h);}
+  .tbl_wrap{flex:1;position:relative;height:100vh ;}
 }
-.add_plan_new{
-  @include desktop{
-    #calendar{max-height:40vh;}
-  }
-}
-.lst_room li{margin-top:15px;
-  label::after{@include shape(12px, 12px);background-color:#05b4d9;margin-left:5px;vertical-align:middle;margin-top:-1px;}
-}
+
 
 // work
 .dsc{display:inline-flex;flex-direction:column;flex-shrink:0;font-size:11px;color:#b2bacd;font-weight:700;

@@ -252,11 +252,11 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .ipt_box{height:60px;margin-top:25px;}  
 }
 .p_change_pw{width:400px;
-  .ipt_wrap{
-    dd:first-of-type{border-bottom:1px dashed $gray;padding-bottom:15px;}
-    dd{flex:1;}
-  }
+  .ipt_wrap dd{flex:1;}
   h2{margin:30px 0;}
+  .pw_change_step01{
+    dd:first-of-type{border-bottom:1px dashed $gray;padding-bottom:15px;}
+  }
 }
 %msg_txt{@include ipt_common;overflow-y:auto;cursor:text;}
 .msg_tbl_tag{@extend .tbl_badge;background-color:#ff7575;}
@@ -310,3 +310,4 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .addr{display: flex;flex-direction: column;gap:4px;}
   textarea{min-height:auto;}
 }
+.p_pr_book{@extend .p_change_pw;}

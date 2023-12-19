@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container svc">
+    <header>
+      <h2><a href="svc.html">임직원 업무</a></h2>
+    </header>
+    <div class="btn_workset">
+      <div class="btn_dbl_btn">
+        <a href="" class="">출근</a>
+        <a href="" >퇴근</a>
+      </div>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="svc_attendance.html">근태관리</a></li>
+      <li><a href="svc_meetingRoom.html">자원</a>        
+        <ul>
+          <li><a href="svc_meetingRoom.html">회의실</a></li>
+          <li><a href="svc_equip.html">장비 및 소프트웨어?</a></li>
+          <li><a href="svc_book.html">도서</a></li>
+          <li><a href="svc_locker.html">사물함</a></li>
+          <li><a href="svc_supplies.html">물품신청</a></li>
+          <li><a href="svc_supplies.html">방화벽 허용신청??</a></li>
+          <li><a href="svc_app_history.html">신청이력 및 현황</a></li>
+        </ul>
+      </li>
+      <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li>
+      <li><a href="svc_certificate.html">증명서 발급</a></li>
+      <li><a href="svc_business.html">사업자관리</a></li>
+      <li><a href="svc_addr.html">주소록관리</a></li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>사물함<span>자원</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li><a href="#">자원</a></li>
+            <li>사물함</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <div class="info_box">
+          <h3>사물함 이용안내</h3>
+          <dl>
+            <dt>이용 신청 방법</dt>
+            <dd>사용할 사물함 번호 선택 후 관리 ＞ 대여신청(1인 1개 신청 가능) 및 사물함 비밀번호 설정</dd>
+            <dd>사물함에 사용자명 부착일 : 신청일 기준 다음날 (평일)</dd>
+            <dd>사물함 신청은 선착순입니다.</dd>
+            <dd>옷걸이는 사물함당 1개씩 지급됩니다.</dd>
+            <dt>해지 신청 방법</dt>
+            <dd>사물함 번호 선택 후 관리 ＞ 해지신청</dd>
+            <dd>사물함 비밀번호 해제 후 사물함에 부착된 이름표 제거</dd>
+            <dt>사물함 비밀번호 설정방법</dt>
+            <dd>초기 비밀번호 : 0000</dd>
+            <dd>설정방법 : *+4자리+#</dd>
+            <dd>해제방법 : #+4자리+*</dd>
+            <dd>자동모드 변경 : 문을 연 다음 # 세 번 누르고 1을 누른 다음 설정한 4자리 입력 후 문 닫기</dd>
+            <dd>수동모드 변경 : 문을 연 다음 # 세 번 누르고 2를 누른 후 문 닫기</dd>
+          </dl>
+          <p></p>
+        </div>
+        <section class="tbl_top_area">
+          <div class="btn_switch border_none">
+            <input type="radio" id="rfp_all" name="rfp_apply" checked="">
+            <label for="rfp_all" class="opened">전체</label>
+            <input type="radio" id="rfp_approve" name="rfp_apply">
+            <label for="rfp_approve" class="opened">신청가능</label>
+          </div>
+        </section>
+        <div class="tbl_wrap">
+          <table class="tbl_default hasLayer">
+            <thead>
+              <tr>
+                <th scope="col">등록번호</th>
+                <th scope="col">사용자</th>
+                <th scope="col">신청일자</th>
+                <th scope="col">상태</th>
+                <th scope="col">관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A14</td>
+                <td>반미선(컨텐츠팀)</td>
+                <td>23-01-31</td>
+                <td>사용중</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">사용신청</button>
+                      <button type="button">사용해지</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>A10</td>
+                <td>반미선(컨텐츠팀)</td>
+                <td>23-01-31</td>
+                <td>처리중</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">사용신청</button>
+                      <button type="button">사용해지</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>A10</td>
+                <td>반미선(컨텐츠팀)</td>
+                <td>23-01-31</td>
+                <td>신청가능</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">사용신청</button>
+                      <button type="button">사용해지</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+<script>
+
+</script>
+
+<!-- https://github.com/frappe/charts -->
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/book_meeting_room.js"></script>
+
+</body>

@@ -1,0 +1,117 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>내방객 사전등록<span>임직원 업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li>내방객 사전등록</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">          
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어">                
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+              <li>(최근 30일만?)</li>
+            </ul>
+            <div class="flex_right">
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">추가</button>
+              <button type="button" class="btn_red_line" onclick="">삭제</button>
+              <span class="divide">
+                @@include('../../inc/module/opt_lineNum.html')
+              </span>
+            </div>
+          </section>
+          <section class="tbl_wrap">
+            <table class="tbl_default tbl_hover row_check hasLayer">
+              <caption>사업자 리스트</caption>
+              <colgroup>
+                
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check"></th>
+                  <th scope="col">내방객</th>
+                  <th scope="col">방문일시</th>
+                  <th scope="col">목적</th>
+                  <th scope="col">안내장소</th>
+                  <th scope="col">차량번호</th>
+                  <th scope="col">신청일</th>
+                  <th scope="col">신청자</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>주식회사 갑을 김병정 대표</td>
+                  <td>2023-05-06 14:00</td>
+                  <td>신규 과제 추진 회의</td>
+                  <td>회의실 A</td>
+                  <td>825가 8282</td>
+                  <td>2023-05-07</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>세종대학교 김갑 교수</td>
+                  <td>2023-05-06 14:00</td>
+                  <td>신규 과제 추진 회의</td>
+                  <td>회의실 A</td>
+                  <td>-</td>
+                  <td>2023-05-07</td>
+                  <td>홍길동(개발1팀)</td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            @@include('../../inc/module/paginate.html')
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_addBusiness.html')
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

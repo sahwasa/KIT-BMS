@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <b>관리자님</b>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container svc">
+    <header>
+      <h2><a href="svc.html">임직원 업무</a></h2>
+    </header>
+    <div class="btn_workset">
+      <div class="btn_dbl_btn">
+        <a href="" class="">출근</a>
+        <a href="" >퇴근</a>
+      </div>
+    </div>
+    <ul class="snb_lst">
+      <li><a href="svc_attendance.html">근태관리</a></li>
+      <li><a href="svc_meetingRoom.html">자원</a>        
+        <ul>
+          <li><a href="svc_meetingRoom.html">회의실</a></li>
+          <li><a href="svc_equip.html">장비 및 소프트웨어?</a></li>
+          <li><a href="svc_book.html">도서</a></li>
+          <li><a href="svc_locker.html">사물함</a></li>
+          <li><a href="svc_supplies.html">물품신청</a></li>
+          <li><a href="svc_supplies.html">방화벽 허용신청??</a></li>
+          <li><a href="svc_app_history.html">신청이력 및 현황</a></li>
+        </ul>
+      </li>
+      <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li>
+      <li><a href="svc_certificate.html">증명서 발급</a></li>
+      <li><a href="svc_business.html">사업자관리</a></li>
+      <li><a href="svc_addr.html">주소록관리</a></li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>도서<span>자원</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li><a href="#">자원</a></li>
+            <li>도서</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <div class="info_box">
+          <h3>대여안내</h3>
+          <ul>
+            <li>대여방법 : 해당 페이지에서 도서 검색 후 관리 ＞ 대여신청</li>
+            <li>대여기간 : 대여일로부터 1개월 (반납 후 대기자 없을 시 연장 가능)</li>
+            <li>도서반납 : 안내데스크에 반납</li>
+          </ul>
+          <p>문의처 : 안내데스크</p>
+        </div>
+        <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="분야">
+                  <option>분야</option>
+                  <option value="000">총류</option>
+                  <option value="100">철학</option>
+                  <option value="200">종교</option>
+                  <option value="300">사회과학</option>
+                  <option value="400">자연과학</option>
+                  <option value="500">기술과학</option>
+                  <option value="600">예술</option>
+                  <option value="700">언어</option>
+                  <option value="800">문학</option>
+                  <option value="900">역사</option>
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="도서명, 저자, 출판사">                
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_refresh">초기화</button>
+              </li>
+            </ul>
+            <div class="flex_right">
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_pr_book').showModal();">신규도서 구매신청</button>
+              <span class="divide">
+                <select title="목록개수 선택">
+                  <option value="15">15줄 보기</option>
+                  <option value="50" selected="">50줄 보기</option>
+                  <option value="100">100줄 보기</option>
+                  <option value="200">200줄 보기</option>
+                </select>
+              </span>
+            </div>
+          </section>
+        <div class="tbl_wrap">
+          <table class="tbl_default hasLayer">
+            <thead>
+              <tr>
+                <th scope="col">번호</th>
+                <th scope="col">분류기호</th>
+                <th scope="col">분야</th>
+                <th scope="col">도서명</th>
+                <th scope="col">저자</th>
+                <th scope="col">출판사</th>
+                <th scope="col">상태(반납예정일)</th>
+                <th scope="col">관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>005.138윤68ㅎ</td>
+                <td>총류</td>
+                <td>혼자 공부하는 자바스크립트</td>
+                <td>윤인성</td>
+                <td>한빛미디어</td>
+                <td>대여중(23-12-31)</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">대여기간 연장</button>
+                      <button type="button">대여이력</button>
+                      <button type="button">상세보기</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>005.138윤68ㅎ</td>
+                <td>총류</td>
+                <td>혼자 공부하는 자바스크립트</td>
+                <td>윤인성</td>
+                <td>한빛미디어</td>
+                <td>대여중(23-12-31)</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">대여신청 대기</button>
+                      <button type="button">대여이력</button>
+                      <button type="button">상세보기</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <tbody>
+              <tr>
+                <td>2</td>
+                <td>005.138윤68ㅎ</td>
+                <td>총류</td>
+                <td>혼자 공부하는 자바스크립트</td>
+                <td>윤인성</td>
+                <td>한빛미디어</td>
+                <td>대여가능</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">대여신청</button>
+                      <button type="button">대여이력</button>
+                      <button type="button">상세보기</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="paginate tui-pagination" id="pagination">
+  <span class="tui-page-btn tui-is-disabled tui-first">
+    <span class="tui-ico-first">first</span>
+  </span>
+  <span class="tui-page-btn tui-is-disabled tui-prev">
+    <span class="tui-ico-prev">prev</span>
+  </span>
+  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
+  <a href="#" class="tui-page-btn tui-last-child">2</a>
+  <a href="#" class="tui-page-btn tui-next">
+    <span class="tui-ico-next">next</span>
+  </a>
+  <a href="#" class="tui-page-btn tui-last">
+    <span class="tui-ico-last">last</span>
+  </a>
+</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<dialog class="p_pr_book" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>신규도서 구매신청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_info">
+      <h3>신청안내</h3>
+      <ul>
+        <li>구매한 도서는 회사 소유로 귀속됩니다.</li>
+        <li>기존 도서목록을 확인하시어 중복 신청되지 않도록 유의하시기 바랍니다.</li>
+        <li>외국, 정기간행물, 유아동, 코믹스, 장르(라이트노벨, 로맨스, 판타지,무협 등) 도서는 신청이 불가합니다.</li>
+        <li>신청 도서는 격주 월요일마다 일괄 취합하여 서점에 주문합니다.</li>
+      </ul>
+    </div>
+    <div class="p_body">
+      <article class="ipt_wrap">
+        <dl>
+          <dt><label for="">도서명</label></dt>
+          <dd>
+            <input type="text" id="" placeholder="서적명" />
+          </dd>
+          <dt><label for="">저자</label></dt>
+          <dd>
+            <input type="text" id="" placeholder="저자" />
+          </dd>
+          <dt><label for="">출판사</label></dt>
+          <dd>
+            <input type="text" id="" placeholder="출판사" />
+          </dd>
+        </dl>
+      </article>
+      <article>
+        <div class="auth">
+          <h2>구매신청 완료</h2>
+          <p>구매신청이 완료되었습니다.</p>
+        </div>
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>2023년 자리배치도조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+    </div>
+  </form>
+</dialog>
+<script>
+
+</script>
+
+<!-- https://github.com/frappe/charts -->
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/book_meeting_room.js"></script>
+
+</body>

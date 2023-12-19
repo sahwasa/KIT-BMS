@@ -1,0 +1,120 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>사물함<span>자원</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li><a href="#">자원</a></li>
+            <li>사물함</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <div class="info_box">
+          <h3>사물함 이용안내</h3>
+          <dl>
+            <dt>이용 신청 방법</dt>
+            <dd>사용할 사물함 번호 선택 후 관리 ＞ 대여신청(1인 1개 신청 가능) 및 사물함 비밀번호 설정</dd>
+            <dd>사물함에 사용자명 부착일 : 신청일 기준 다음날 (평일)</dd>
+            <dd>사물함 신청은 선착순입니다.</dd>
+            <dd>옷걸이는 사물함당 1개씩 지급됩니다.</dd>
+            <dt>해지 신청 방법</dt>
+            <dd>사물함 번호 선택 후 관리 ＞ 해지신청</dd>
+            <dd>사물함 비밀번호 해제 후 사물함에 부착된 이름표 제거</dd>
+            <dt>사물함 비밀번호 설정방법</dt>
+            <dd>초기 비밀번호 : 0000</dd>
+            <dd>설정방법 : *+4자리+#</dd>
+            <dd>해제방법 : #+4자리+*</dd>
+            <dd>자동모드 변경 : 문을 연 다음 # 세 번 누르고 1을 누른 다음 설정한 4자리 입력 후 문 닫기</dd>
+            <dd>수동모드 변경 : 문을 연 다음 # 세 번 누르고 2를 누른 후 문 닫기</dd>
+          </dl>
+          <p></p>
+        </div>
+        <section class="tbl_top_area">
+          <div class="btn_switch border_none">
+            <input type="radio" id="rfp_all" name="rfp_apply" checked="">
+            <label for="rfp_all" class="opened">전체</label>
+            <input type="radio" id="rfp_approve" name="rfp_apply">
+            <label for="rfp_approve" class="opened">신청가능</label>
+          </div>
+        </section>
+        <div class="tbl_wrap">
+          <table class="tbl_default hasLayer">
+            <thead>
+              <tr>
+                <th scope="col">등록번호</th>
+                <th scope="col">사용자</th>
+                <th scope="col">신청일자</th>
+                <th scope="col">상태</th>
+                <th scope="col">관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A14</td>
+                <td>반미선(컨텐츠팀)</td>
+                <td>23-01-31</td>
+                <td>사용중</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">사용신청</button>
+                      <button type="button">사용해지</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>A10</td>
+                <td>반미선(컨텐츠팀)</td>
+                <td>23-01-31</td>
+                <td>처리중</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">사용신청</button>
+                      <button type="button">사용해지</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>A10</td>
+                <td>반미선(컨텐츠팀)</td>
+                <td>23-01-31</td>
+                <td>신청가능</td>
+                <td onclick="event.stopPropagation();">
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button">사용신청</button>
+                      <button type="button">사용해지</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+
+<!-- https://github.com/frappe/charts -->
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/book_meeting_room.js"></script>
+
+</body>

@@ -1,0 +1,125 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>신청이력 및 현황<span>임직원 업무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">임직원 업무</a></li>
+            <li>신청이력 및 현황</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">          
+          <section class="tbl_top_area">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="분류">
+                  <option value="">분류</option>
+                  <option value="">장비</option>
+                  <option value="">도서</option>
+                  <option value="">사물함</option>
+              </select>
+              </li>
+              <li>
+                <select name="" id="" title="상태">
+                  <option value="">대여중</option>
+                  <option value="">반납완료</option>
+                  <option value="">반납처리중</option>
+                  <option value="">구매신청</option>
+              </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="">
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_refresh">초기화</button>
+              </li>
+            </ul>
+            <div class="flex_right">
+              <button type="button" class="btn_red_line" onclick="">구매신청 취소</button>
+              <span class="divide">
+                @@include('../../inc/module/opt_lineNum.html')
+              </span>
+            </div>
+          </section>
+          <section class="tbl_wrap">
+            <table class="tbl_default tbl_hover row_check">
+              <caption>사업자 리스트</caption>
+              <colgroup>
+                
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check"></th>
+                  <th scope="col">분류</th>
+                  <th scope="col">상세</th>
+                  <th scope="col">신청일</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>도서</td>
+                  <td>혼자 공부하는 자바스크립트</td>
+                  <td>2023-05-07</td>
+                  <td>구매신청</td>
+                  <td>-</td>                  
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>도서</td>
+                  <td>혼자 공부하는 자바스크립트</td>
+                  <td>2023-05-07</td>
+                  <td>반납완료</td>
+                  <td>-</td>                  
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>도서</td>
+                  <td>혼자 공부하는 자바스크립트</td>
+                  <td>2023-05-06</td>
+                  <td>대여중</td>
+                  <td>-</td>                  
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>장비</td>
+                  <td>노트북</td>
+                  <td>2023-05-06</td>
+                  <td>처리중</td>
+                  <td>-</td>
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>사물함</td>
+                  <td>A10</td>
+                  <td>2023-05-06</td>
+                  <td>대여중</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            @@include('../../inc/module/paginate.html')
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_addBusiness.html')
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

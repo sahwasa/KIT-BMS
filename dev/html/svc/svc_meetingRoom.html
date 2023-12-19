@@ -7,32 +7,82 @@
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>회의실 예약<span>임직원 업무</span></h1>
+        <h1>회의실<span>자원</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">임직원 업무</a></li>
-            <li>회의실 예약</li>
+            <li><a href="#">자원</a></li>
+            <li>회의실</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
-        <section class="cal_wrap">
-          <div class="remote_room">
-            <label for="all" class="all_lst_ctrl"><input type="checkbox" id="all">전체</label>
-            <ul class="lst_room lst_ctrl">
-              <li>
-                <label for="roomA"><input type="checkbox" id="roomA">회의실A</label>
-              </li>
-              <li><label for="roomB"><input type="checkbox" id="roomB">회의실B</label>
-              <li><label for="roomC"><input type="checkbox" id="roomC">회의실C</label>
-              </li>
-            </ul>
+        <article class="cal_wrap" style="--h:290px">
+          <div id="cal-roombook"></div>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <thead>
+                <tr>
+                  <th scope="col">자원명</th>
+                  <th scope="col">수용인원</th>
+                  <th scope="col">디스플레이</th>
+                  <th scope="col">화이트보드</th>
+                  <th scope="col">또</th>
+                  <th scope="col">뭐가있지</th>
+                  <th scope="col">위치</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>회의실 A</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>회의실 B</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>회의실 C</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>회의실 D</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>회의실 E</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div id='calendar-container' class="calendar_container">
-            <div id='cal-roombook'></div>
-          </div>
-        </section>
+        </article>
       </div>
     </section>
   </main>
