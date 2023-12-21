@@ -3,22 +3,23 @@
   @@include('../../inc/layout/header.html')
   @@include('../../inc/layout/nav.html')
   <main id="content" class="container">
-    @@include('../../inc/snb/svc.html')
+    @@include('../../inc/snb/erp.html')
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>내방객 사전등록<span>임직원 업무</span></h1>
+        <h1>내방객관리<span>총무</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">임직원 업무</a></li>
-            <li>내방객 사전등록</li>
+            <li><a href="#">ERP</a></li>
+            <li><a href="#">총무</a></li>
+            <li>내방객관리</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
-        <article class="">          
-          <section class="tbl_top_area">
+        <article class="">
+          <section class="box_compact">
             <ul class="search_list">
               <li>
                 <div class="period_custom">
@@ -32,16 +33,17 @@
               <li>
                 <button type="button" class="btn_search">검색</button>
               </li>
-              <li>(최근 30일만?)</li>
             </ul>
-            <div class="flex_right">
+            <div class="btn_wrap">
               <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">추가</button>
               <button type="button" class="btn_red_line" onclick="">삭제</button>
-              <span class="divide">
-                @@include('../../inc/module/opt_lineNum.html')
-              </span>
             </div>
           </section>
+          <div class="handle_week">
+            <button class="handle_prev">이전 주차 이동</button>
+            <span>2023.10.01 ~ 2023.10.07</span>
+            <button class="handle_next">다음 주차 이동</button>
+          </div>
           <section class="tbl_wrap">
             <table class="tbl_default tbl_hover row_check hasLayer">
               <caption>사업자 리스트</caption>
@@ -56,7 +58,8 @@
                   <th scope="col">목적</th>
                   <th scope="col">안내장소</th>
                   <th scope="col">차량번호</th>
-                  <th scope="col">신청일</th>
+                  <th scope="col">방문처리</th>
+                  <th scope="col">신청자</th>
                   <th scope="col">관리</th>
                 </tr>
               </thead>
@@ -68,7 +71,11 @@
                   <td>신규 과제 추진 회의</td>
                   <td>회의실 A</td>
                   <td>825가 8282</td>
-                  <td>2023-05-07</td>
+                  <td>
+                    <span class="btn_toggle_single">
+                      <input type="checkbox" id="visiting1"><label for="visiting1">방문여부</label>                      
+                    </span></td>
+                  <td>홍길동(개발1팀)</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -86,7 +93,11 @@
                   <td>신규 과제 추진 회의</td>
                   <td>회의실 A</td>
                   <td>-</td>
-                  <td>2023-05-07</td>
+                  <td>
+                    <span class="btn_toggle_single">
+                      <input type="checkbox" id="visiting2"><label for="visiting2">방문여부</label>                      
+                    </span></td>
+                  <td>홍길동(개발1팀)</td>
                   <td onclick="event.stopPropagation();">
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -99,7 +110,6 @@
                 </tr>
               </tbody>
             </table>
-            @@include('../../inc/module/paginate.html')
           </section>
         </article>
       </div>

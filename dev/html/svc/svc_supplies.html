@@ -44,49 +44,56 @@
         <section class="tbl_top_area">
           <div class="btn_switch border_none">
             <input type="radio" id="rfp_all" name="rfp_apply" checked="">
-            <label for="rfp_all" class="opened">전체</label>
+            <label for="rfp_all" class="opened">신청내역</label>
             <input type="radio" id="rfp_approve" name="rfp_apply">
-            <label for="rfp_approve" class="opened">신청가능</label>
+            <label for="rfp_approve" class="opened">처리완료</label>
+          </div>
+          <div class="flex_right">
+            <button></button>
           </div>
         </section>
         <div class="tbl_wrap">
           <table class="tbl_default hasLayer">
             <thead>
               <tr>
-                <th scope="col">품목</th>
-                <th scope="col">신청자</th>
-                <th scope="col">신청일자</th>
+                <th scope="col">번호</th>
+                <th scope="col">상품코드</th>
+                <th scope="col">상품명</th>
+                <th scope="col">수량</th>
+                <th scope="col">신청일시</th>
                 <th scope="col">상태</th>
                 <th scope="col">관리</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>A14</td>
-                <td>반미선(컨텐츠팀)</td>
-                <td>23-01-31</td>
+                <td>1</td>
+                <td>1207870</td>
+                <td>코시/USB 허브 UH1226</td>
+                <td>1</td>
+                <td>23-01-31 08:05</td>
                 <td>처리중</td>
                 <td onclick="event.stopPropagation();">
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button">사용신청</button>
-                      <button type="button">사용해지</button>
+                      <button type="button">신청취소</button>
                     </div>
                   </div>
                 </td>
               </tr>
               <tr>
-                <td>A10</td>
-                <td>반미선(컨텐츠팀)</td>
-                <td>23-01-31</td>
+                <td>2</td>
+                <td>1207870</td>
+                <td>코시/USB 허브 UH1226</td>
+                <td>1</td>
+                <td>23-01-31 08:07</td>
                 <td>처리중</td>
                 <td onclick="event.stopPropagation();">
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button">사용신청</button>
-                      <button type="button">사용해지</button>
+                      <button type="button">신청취소</button>
                     </div>
                   </div>
                 </td>

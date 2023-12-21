@@ -71,33 +71,29 @@
 </nav>
   <main id="content" class="container">
     <section class="snb">
-  <div class="snb_container svc">
+  <div class="snb_container">
     <header>
-      <h2><a href="svc.html">임직원 업무</a></h2>
-    </header>
-    <div class="btn_workset">
-      <div class="btn_dbl_btn">
-        <a href="" class="">출근</a>
-        <a href="" >퇴근</a>
-      </div>
-    </div>
+      <h2><a href="erp.html">ERP</a></h2>
+    </header>    
     <ul class="snb_lst">
-      <li><a href="svc_attendance.html">근태관리</a></li>
-      <li><a href="svc_meetingRoom.html">자원</a>        
+      <li><a href="#">총무</a>
         <ul>
-          <li><a href="svc_meetingRoom.html">회의실</a></li>
-          <li><a href="svc_equip.html">장비 및 소프트웨어?</a></li>
-          <li><a href="svc_book.html">도서대여 및 구매신청</a></li>
-          <li><a href="svc_locker.html">사물함대여</a></li>
-          <li><a href="svc_supplies.html">물품신청</a></li>
-          <li><a href="svc_supplies.html">방화벽 허용신청??</a></li>
-          <li><a href="svc_app_history.html">신청이력 및 현황</a></li>
+          <li><a href="">자원관리(회의실,장비,도서)</a></li>
+          <li><a href="#">행사</a></li>
+          <li><a href="erp_visitor.html">내방객관리</a></li>
+          <li><a href="#">구매관리(장비,도서,물품)</a></li>
         </ul>
       </li>
-      <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li>
-      <li><a href="svc_certificate.html">증명서 발급</a></li>
-      <li><a href="svc_business.html">사업자관리</a></li>
-      <li><a href="svc_addr.html">주소록관리</a></li>
+      <li><a href="#">인사</a>
+        <ul>
+          <li><a href="#">사원관리</a></li>
+          <li><a href="#">근태관리</a></li>
+          <li><a href="#">제증명관리</a></li>
+          <li><a href="#">모집 및 고용</a></li>
+          <li><a href="#">교육 및 개발</a></li>
+        </ul>
+      </li>
+      <li><a href="#">재무회계?</a></li>
     </ul>
   </div>
 </section>
@@ -105,129 +101,109 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>증명서 발급<span>임직원 업무</span></h1>
+        <h1>내방객관리<span>총무</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">임직원 업무</a></li>
-            <li>증명서 발급</li>
+            <li><a href="#">ERP</a></li>
+            <li><a href="#">총무</a></li>
+            <li>내방객관리</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
-        <article class="">          
-          <section class="tbl_top_area">
+        <article class="">
+          <section class="box_compact">
             <ul class="search_list">
               <li>
-                <select name="" id="" title="분류">
-                  <option value="">재직증명서-국문</option>
-                  <option value="">재직증명서-영문</option>
-                  <option value="">경력증명서</option>
-                  <option value="">퇴직증명서</option>
-                </select>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
-                <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어">                
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
-                <button type="button" class="btn_refresh">초기화</button>
               </li>
             </ul>
-            <div class="flex_right">
-              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">증명서 발급신청</button>
-              <button type="button" class="btn_red_line" onclick="">취소</button>
-              <span class="divide">
-                <select title="목록개수 선택">
-  <option value="15">15줄 보기</option>
-  <option value="50" selected>50줄 보기</option>
-  <option value="100">100줄 보기</option>
-  <option value="200">200줄 보기</option>
-</select>
-              </span>
+            <div class="btn_wrap">
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">추가</button>
+              <button type="button" class="btn_red_line" onclick="">삭제</button>
             </div>
           </section>
+          <div class="handle_week">
+            <button class="handle_prev">이전 주차 이동</button>
+            <span>2023.10.01 ~ 2023.10.07</span>
+            <button class="handle_next">다음 주차 이동</button>
+          </div>
           <section class="tbl_wrap">
-            <table class="tbl_default tbl_hover row_check">
-              <caption>증명서 발급이력</caption>
+            <table class="tbl_default tbl_hover row_check hasLayer">
+              <caption>사업자 리스트</caption>
               <colgroup>
                 
               </colgroup>
               <thead>
                 <tr>
                   <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check"></th>
-                  <th scope="col">분류</th>
-                  <th scope="col">요청일시</th>
-                  <th scope="col">제출처</th>
-                  <th scope="col">발급용도</th>
-                  <th scope="col">사유</th>
-                  <th scope="col">수령방법</th>
-                  <th scope="col">처리여부</th>
+                  <th scope="col">내방객</th>
+                  <th scope="col">방문일시</th>
+                  <th scope="col">목적</th>
+                  <th scope="col">안내장소</th>
+                  <th scope="col">차량번호</th>
+                  <th scope="col">방문처리</th>
+                  <th scope="col">신청자</th>
+                  <th scope="col">관리</th>
                 </tr>
               </thead>
               <tbody>
                 <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
-                  <td>재직증명서-국문</td>
-                  <td>2023-05-06 12:00</td>
-                  <td>보건복지부</td>
-                  <td>공공기관 제출용</td>
-                  <td>자녀 어린이집 입학서류</td>
-                  <td>온라인</td>
-                  <td>처리완료</td>
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>주식회사 갑을 김병정 대표</td>
+                  <td>2023-05-06 14:00</td>
+                  <td>신규 과제 추진 회의</td>
+                  <td>회의실 A</td>
+                  <td>825가 8282</td>
+                  <td>
+                    <span class="btn_toggle_single">
+                      <input type="checkbox" id="visiting1"><label for="visiting1">방문여부</label>                      
+                    </span></td>
+                  <td>홍길동(개발1팀)</td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
                 <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
-                  <td>퇴직증명서</td>
-                  <td>2023-05-06 12:00</td>
-                  <td>금융기관 제출용</td>
-                  <td>(사)한국재해정보협회</td>
-                  <td>02-890-3620</td>
-                  <td>오프라인</td>
-                  <td>처리중</td>
-                </tr>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
-                  <td>경력증명서</td>
-                  <td>2023-05-06 12:00</td>
-                  <td>기타</td>
-                  <td>(사)한국재해정보협회</td>
-                  <td>02-890-3620</td>
-                  <td>오프라인</td>
-                  <td>처리중</td>
+                  <td><input type="checkbox" name="" id="" class="row_check"></td>
+                  <td>세종대학교 김갑 교수</td>
+                  <td>2023-05-06 14:00</td>
+                  <td>신규 과제 추진 회의</td>
+                  <td>회의실 A</td>
+                  <td>-</td>
+                  <td>
+                    <span class="btn_toggle_single">
+                      <input type="checkbox" id="visiting2"><label for="visiting2">방문여부</label>                      
+                    </span></td>
+                  <td>홍길동(개발1팀)</td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
-            <div class="paginate tui-pagination" id="pagination">
-  <span class="tui-page-btn tui-is-disabled tui-first">
-    <span class="tui-ico-first">first</span>
-  </span>
-  <span class="tui-page-btn tui-is-disabled tui-prev">
-    <span class="tui-ico-prev">prev</span>
-  </span>
-  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
-  <a href="#" class="tui-page-btn tui-last-child">2</a>
-  <a href="#" class="tui-page-btn tui-next">
-    <span class="tui-ico-next">next</span>
-  </a>
-  <a href="#" class="tui-page-btn tui-last">
-    <span class="tui-ico-last">last</span>
-  </a>
-</div>
           </section>
         </article>
       </div>

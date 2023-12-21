@@ -18,16 +18,8 @@
       </header>
       <div class="cont_body">
         <article class="">          
-          <section class="tbl_top_area">
+          <section class="box_compact">
             <ul class="search_list">
-              <li>
-                <select name="" id="" title="분류">
-                  <option value="">분류</option>
-                  <option value="">장비</option>
-                  <option value="">도서</option>
-                  <option value="">사물함</option>
-              </select>
-              </li>
               <li>
                 <select name="" id="" title="상태">
                   <option value="">대여중</option>
@@ -44,13 +36,22 @@
                 <button type="button" class="btn_refresh">초기화</button>
               </li>
             </ul>
-            <div class="flex_right">
-              <button type="button" class="btn_red_line" onclick="">구매신청 취소</button>
-              <span class="divide">
-                @@include('../../inc/module/opt_lineNum.html')
-              </span>
-            </div>
           </section>
+          <div class="tbl_top_area">
+            <div class="btn_switch border_none">
+              <input type="radio" id="all" name="category" checked>
+              <label for="all" class="opened">전체</label>
+              <input type="radio" id="equip" name="category">
+              <label for="equip" class="opened">장비 및 소프트웨어</label>
+              <input type="radio" id="books" name="category">
+              <label for="books" class="opened">도서</label>
+              <input type="radio" id="locker" name="category">
+              <label for="locker" class="opened">사물함</label>
+            </div>         
+            <div class="flex_right">
+              @@include('../../inc/module/opt_lineNum.html')
+            </div>
+          </div>
           <section class="tbl_wrap">
             <table class="tbl_default tbl_hover row_check">
               <caption>사업자 리스트</caption>

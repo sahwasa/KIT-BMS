@@ -429,7 +429,7 @@ $btn_red_line:#ff7575;
   &:checked+label::before{@include fontello('\e940');}
   label:hover::before{text-shadow:0 0 3px red;}
 }
-.btn_toggle_single{display:inline-flex;flex-shrink:0;justify-content:center;
+.btn_toggle_single{display:inline-flex;flex-shrink:0;justify-content:center;vertical-align:middle;
   $unselectedColor:#999;$hoverColor:#868686;$selectColor:$tomato;
   input{position:absolute;opacity:0;width:0;height:0;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
     &+label{position:relative;left:-1px;width:31px;height:17px;cursor:pointer;z-index:100;background-color:$unselectedColor;border-radius:28px;word-break:keep-all;white-space:nowrap;
@@ -617,14 +617,14 @@ td{white-space:nowrap;text-overflow:ellipsis;
     &.tbl_default{background-color:#ffffff;}
   }
 }
-.tbl_photo{display:grid;justify-content:space-between;grid-template-columns:repeat(auto-fill, minmax(180px, auto));gap:10px;
+.tbl_photo{display:grid;justify-content:space-between;grid-template-columns:repeat(auto-fill, minmax(160px, auto));grid-template-rows:repeat(auto-fill, minmax(160px, auto));column-gap:10px;row-gap:10px;
   li{cursor:pointer;
-    img{display:block;width:100%;height:180px;object-fit:cover;}
-    b{display:inline-block;max-width:155px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;color:#000;font-weight:bold;
+    img{display:block;width:100%;height:160px;object-fit:cover;}
+    em{display:flex;margin-top:3px;}
+    b{max-width:155px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;color:#000;font-weight:bold;
       &:hover{text-decoration:underline;}
     }
-    span{font-size:11px;color:#717889;}
-    a{vertical-align:top;}
+    .date{font-size:11px;color:#717889;}
   }
 }
 .cmt_num{color:$red;font-weight:bold;margin-left:5px;

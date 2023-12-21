@@ -115,26 +115,25 @@
         </section>
       </header>
       <div class="cont_body">
-        <article class="">
-          <header class="blind">
-            <h1>사진첩 게시글 목록</h1>
-          </header>
-          <section class="tbl_top_area">
-            <ul class="search_list">
-              <li>
-                <div class="period_group">
-                  <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
-                  <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
-                  <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
-                </div>
-                <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
-                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
-                </div>
-              </li>
-              <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
-                <datalist id="nameList">
+        <header class="blind">
+          <h1>사진첩 게시글 목록</h1>
+        </header>
+        <section class="tbl_top_area">
+          <ul class="search_list">
+            <li>
+              <div class="period_group">
+                <input type="radio" name="select_period" id="week" /><label for="week">1주</label>
+                <input type="radio" name="select_period" id="month" /><label for="month">1달</label>
+                <input type="radio" name="select_period" id="year" /><label for="year">1년</label>
+              </div>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </li>
+            <li>
+              <input type="text" name="" id="" title="검색어" placeholder="검색어" list="nameList" autocomplete="off">
+              <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
     <option value="개발핑">개발 1팀</option>
@@ -148,125 +147,150 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-              </li>
-              <li>
-                <button type="button" class="btn_search">검색</button>
-                <button type="button" class="btn_refresh">초기화</button>
-              </li>
-            </ul>
-            <div class="flex_right">
-              <button type="button" class="btn_red" onclick="location.href='board_write.html'">게시글 작성</button>
-            </div>
-          </section>
-          <section>
-            <table class="tbl_default tbl_hover alignL_2">
-              <caption>사내공지 리스트</caption>
-              <colgroup>
-                <col style="width:95px;">
-                <col style="width:auto;">
-                <col span="2" style="width:150px;">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col">번호</th>
-                  <th scope="col">제목</th>
-                  <th scope="col">작성자</th>
-                  <th scope="col">작성일</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tabindex="0" onclick="location.href='../board/board_view.html'">
-                  <td><i class="tbl_badge return">필독</i></td>
-                  <td>2022년 케이아이티그룹 워크샵 - 1일차(공연)<a href="#" class="cmt_num">3</a></td>
-                  <td>홍길동(경영관리실)</td>
-                  <td>2023-05-01</td>
-                </tr>
-                <tr tabindex="0">
-                  <td><i class="tbl_badge return">필독</i></td>
-                  <td>2022년 케이아이티그룹 워크샵 - 2일차<a href="#" class="cmt_num">6</a></td>
-                  <td>홍길동(경영관리실)</td>
-                  <td>2023-05-01</td>
-                </tr>
-                <tr tabindex="0">
-                  <td><i class="tbl_badge return">필독</i></td>
-                  <td>2022년 케이아이티그룹 워크샵 - 1일차<a href="#" class="cmt_num">6</a></td>
-                  <td>홍길동(경영관리실)</td>
-                  <td>2023-05-01</td>
-                </tr>
-              </tbody>
-            </table>
+            </li>
+            <li>
+              <button type="button" class="btn_search">검색</button>
+              <button type="button" class="btn_refresh">초기화</button>
+            </li>
+          </ul>
+          <div class="flex_right">
+            <button type="button" class="btn_red" onclick="location.href='board_write.html'">게시글 작성</button>
+          </div>
+        </section>
+        <section class="tbl_wrap_photo">
+          <table class="tbl_default tbl_hover">
+            <caption>사내공지 리스트</caption>
+            <colgroup>
+              <col style="width:95px;">
+              <col style="width:auto;">
+              <col span="2" style="width:150px;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">번호</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성자</th>
+                <th scope="col">작성일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr tabindex="0" onclick="location.href='../board/board_view.html'">
+                <td><i class="tbl_badge return">필독</i></td>
+                <td>2022년 케이아이티그룹 워크샵 - 1일차(공연)<a href="#" class="cmt_num">3</a></td>
+                <td>홍길동(경영관리실)</td>
+                <td>2023-05-01</td>
+              </tr>
+              <tr tabindex="0">
+                <td><i class="tbl_badge return">필독</i></td>
+                <td>2022년 케이아이티그룹 워크샵 - 2일차<a href="#" class="cmt_num">6</a></td>
+                <td>홍길동(경영관리실)</td>
+                <td>2023-05-01</td>
+              </tr>
+              <tr tabindex="0">
+                <td><i class="tbl_badge return">필독</i></td>
+                <td>2022년 케이아이티그룹 워크샵 - 1일차<a href="#" class="cmt_num">6</a></td>
+                <td>홍길동(경영관리실)</td>
+                <td>2023-05-01</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="tbl_wrap">
             <ul class="tbl_photo">
               <li>
                 <img src="https://picsum.photos/200/300?random=1">
-                <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=2">
-                <b>제목입니다</b><a href="#" class="cmt_num">5</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=3">
-                <b>제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=4">
-                <b>제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=5">
-                <b>제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=6">
-                <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=7">
-                <b>제목입니다</b><a href="#" class="cmt_num">5</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=8">
-                <b>제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=9">
-                <b>제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=10">
-                <b>제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=11">
-                <b>제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
               <li>
                 <img src="https://picsum.photos/200/300?random=12">
-                <b>제목입니다</b><a href="#" class="cmt_num">3</a>
+                <em>
+                  <b>제목입니다 제목입니다 제목입니다 제목입니다</b><a href="#" class="cmt_num">3</a>
+                </em>
                 <p>홍길동(경영관리실)</p>
-                <span>2023.09.15</span>
+                <p class="date">2023.09.15</p>
               </li>
             </ul>
             <div class="paginate tui-pagination" id="pagination">
@@ -285,8 +309,8 @@
     <span class="tui-ico-last">last</span>
   </a>
 </div>
-          </section>
-        </article>
+          </div>
+        </section>
       </div>
     </section>
   </main>
