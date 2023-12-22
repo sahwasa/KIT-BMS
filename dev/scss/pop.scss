@@ -311,3 +311,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   textarea{min-height:auto;}
 }
 .p_pr_book{@extend .p_change_pw;width:600px;}
+
+.vote_wrap{display:flex;flex-direction:column;gap:5px;margin-top:5px;
+  li{display:flex;gap:5px;align-items:center;}
+}

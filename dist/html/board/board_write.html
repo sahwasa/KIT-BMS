@@ -170,7 +170,7 @@
             </section>
             <section class="box_default_w">
               <h1>투표</h1>
-              <div id="voteArea">
+              <!-- <div id="voteArea">
                 <div class="box_compact" id="vote_0">
                   <form id="voteForm" class="vote_wrap">
                     <span class="file_input">
@@ -182,7 +182,7 @@
                     <button type="button" id="createVote" class="btn_red">투표 생성</button>
                   </form>
                 </div>
-              </div>
+              </div> -->
               <div class="alignC" style="margin-top:10px;">
                 <button type="button" id="btnAddVoting" class="btn_red">투표 추가</button>
               </div>
@@ -197,6 +197,29 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<dialog id="voteArea" class="p_change_pw" tabindex="0">
+  <div id="vote_0">
+    <form id="voteForm" method="dialog">
+      <div class="p_header">
+        <strong>투표 생성</strong>
+        <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+      </div>
+      <div class="p_body">
+        <article class="pw_change_step01 ipt_wrap">
+          <span class="file_input"><label for="question" class="blind">투표내용</label>
+            <input type="text" id="question" name="question" required placeholder="투표주제를 입력해주세요"
+                        value="산리오에서 제일가는 귀염둥이 캐릭터는?">
+          </span>
+          <ul id="optionsContainer" class="vote_wrap"></ul>
+        </article>
+        <div class="btn_wrap">
+          <button type="button" id="addOption" class="btn_default">옵션 추가</button>
+          <button type="button" id="createVote" class="btn_red">투표 생성</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</dialog>
 
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
@@ -246,27 +269,30 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script>
   $(function () {
-    setEditor();// editor common
+    setEditor();
     fileDropEvt();
   })
+  document.querySelector('#voteArea').showModal();
 </script>
 
 <script>
+  var editableDiv = document.querySelector('.ck-editor__editable');
+  // const editorData = window.editor.getData().split('\n')
+  console.log(window.editor)
   // 기존 투표 완료 버튼 요소 가져오기
   const existingVoteCompleteButton = document.getElementById('voteComplete');
-
   // 투표 화면 HTML을 생성하는 함수
   function createVoteScreen() {
     const voteScreenHTML = `
-  <div id="voteScreen" style="display: none;">
-    <form id="voteFormScreen">
-      <p id="voteQuestion"></p>
-      <div id="voteOptionsScreen" class="vote_wrap"></div>
-      <br>
-      <button type="button" id="voteBack" class="btn_gray_line">재설정</button>
-      <button type="button" id="voteComplete" class="btn_red">투표 완료</button>
-    </form>
-  </div>
+      <div id="voteScreen" style="display: none;">
+        <form id="voteFormScreen">
+          <p id="voteQuestion"></p>
+          <div id="voteOptionsScreen" class="vote_wrap"></div>
+          <br>
+          <button type="button" id="voteBack" class="btn_gray_line">재설정</button>
+          <button type="button" id="voteComplete" class="btn_red">투표 완료</button>
+        </form>
+      </div>
 `;
     const voteScreen = document.createElement('div');
     voteScreen.innerHTML = voteScreenHTML;
@@ -445,8 +471,8 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 
     // 주제 입력란 다음에 옵션 입력 필드를 추가
     container.insertBefore(newOption, container.children[1]);
-    const label = document.createElement('label');
-    label.className = 'file_input';
+    const label = document.createElement('li');
+    // label.className = 'file_input';
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     label.appendChild(checkbox);

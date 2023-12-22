@@ -912,7 +912,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
 
 }
-#image_editor_wrap{display:none;position:fixed;z-index:1000;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
+#image_editor_wrap{display:none;position:fixed;z-index:1100;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
 #image_editor.tui-image-editor-container{width:900px !important;height:700px !important;} /* important 사용하지 않고 적용하는 법 찾아보는중..!! */
 .btn_editor_wrap{margin-top:20px;text-align:center;}
 .tui-image-editor-header-buttons,

@@ -474,40 +474,52 @@ function setEditor(id = 'editor') {
       ],
     },
   })
-      .then(editor => {
-        window.editor = editor
-      })
-      .catch(error => {
-        console.error('Oops, something went wrong!')
-        console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
-        console.error(error)
-      })
-      .replace
-
-  if($('#image_editor_wrap').length==0){
-    // 이미지 에디터 생성
-    var imageEditorWrap = document.createElement('div')
-    imageEditorWrap.id = 'image_editor_wrap'
-    imageEditorWrap.innerHTML = `
-          <div id="image_editor"></div>
-          <div class="btn_editor_wrap">
-            <button type="button" class="btn btn_red" id="confirmButton">확인</button>
-            <button type="button" class="btn btn_gray" id="cancelButton">취소</button>
-          </div>
-      `
-    var editorWrap = document.getElementById(id).parentElement
-    editorWrap.insertAdjacentElement('afterend', imageEditorWrap)
-  }
-
-  // 에디터를 만들어도.. 될까요?
-  var checkEditor = setInterval(function () {
-    if (setEditor !== null) {
-      setImageEditor()
-      clearInterval(checkEditor)
+  .then(editor => {
+    window.editor = editor;
+    const toolbarContainer =editor.ui.view.toolbar.element.getElementsByClassName('ck-toolbar__items')[0];
+    // Create your custom button
+    const customButton = document.createElement('button');
+    customButton.type = 'button';
+    customButton.textContent = '투표하기';
+    customButton.classList.add('vote','ck','ck-button');
+    customButton.addEventListener('click', () => {
+      // Add your custom button functionality here
+      alert('Custom button clicked!');
+      addNewVoting();
+    });
+    // Append the custom button to the toolbar
+    toolbarContainer.appendChild(customButton);
+  })
+  .catch(error => {
+    console.error('Oops, something went wrong!')
+    console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
+    console.error(error)
+  })
+  .replace
+    if($('#image_editor_wrap').length==0){
+      // 이미지 에디터 생성
+      var imageEditorWrap = document.createElement('div')
+      imageEditorWrap.id = 'image_editor_wrap'
+      imageEditorWrap.innerHTML = `
+            <div id="image_editor"></div>
+            <div class="btn_editor_wrap">
+              <button type="button" class="btn btn_red" id="confirmButton">확인</button>
+              <button type="button" class="btn btn_gray" id="cancelButton">취소</button>
+            </div>
+        `
+      var editorWrap = document.getElementById(id).parentElement
+      editorWrap.insertAdjacentElement('afterend', imageEditorWrap)
     }
-  }, 100)
 
+    // 에디터를 만들어도.. 될까요?
+    var checkEditor = setInterval(function () {
+      if (setEditor !== null) {
+        setImageEditor()
+        clearInterval(checkEditor)
+      }
+    }, 100)
 }
+
 
 const locale_ko = {
   Crop: '자르기',
