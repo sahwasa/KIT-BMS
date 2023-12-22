@@ -1,5 +1,4 @@
 //const { eventNames } = require("process");
-
 const handleSelect = function (item) {
   if ($(item).hasClass('optionItem')) {
     // add disabled
@@ -431,6 +430,7 @@ function commonInit() {
   contents = document.querySelector('.contents');
   initScrollToTop();
 }
+
 
 // editor
 function setEditor(id = 'editor') {

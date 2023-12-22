@@ -203,16 +203,17 @@ $columnGap:25px;$minH:540px;
   }
 }
 // error
-.error_wrap{display:flex;height:100vh;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:50px;
+.error_wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:50px;
   *{font-family:'Malgun Gothic';}
   .m_con{display:none;}
   .error{
-    span{font-size:38px;font-weight:bold;color:#4b5468;letter-spacing:-4.13px;}
+    span{font-size:30px;font-weight:bold;color:#4b5468;letter-spacing:-4.13px;}
     b{color:#f25560;}
-    p{margin-top:10px;font-size:22px;color:#484848;letter-spacing:-2px;}
+    p{margin-top:10px;font-size:20px;color:#484848;letter-spacing:-2px;}
   }
-  .btn_back{display:block;width:295px;border:1px solid #4b5468;border-radius:33px;font-size:20px;font-weight:500;color:#4b5468;line-height:60px;text-align:center;transition:.5s;
+  .btn_back{display:block;width:295px;border:1px solid #4b5468;border-radius:33px;font-size:20px;font-weight:500;color:#4b5468;line-height:60px;text-align:center;transition:.5s;align-self:center;
     &:hover{background-color:#4b5468;color:#fff;}
+    &::before{margin-right:5px;}
   }
 }
 @include mobile_only{ 
@@ -1102,17 +1103,19 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   li{width:22px;height:22px;border:1px solid #aaa;border-radius:50%;}
 }
 .pic_lst{display:flex;align-items: center;
-  & > li{position:relative;border:1px solid #fff;width:22px;height:22px;border-radius:50%;
+  & > li{position:relative;border:1px solid #fff;width:22px;height:22px;border-radius:50%;overflow:hidden;background:url(../images/ic_user.png) 0 0/contain no-repeat;
     @for $i from 1 to 3{
       &:nth-child(#{$i}){
         left:15px - ($i * 5);
       }
     }
+    &:only-of-type{left:0;}
     &.receiver_dtl{
       &>button{position:absolute;width:100%;line-height:20px;z-index:1;background:#d3d3d3;font-size:10px;text-align:center;font-weight:bold;border-radius:50%;}
       li{width:auto;height:auto;border:none;border-radius:0%;}
     }
   }
+  img{object-fit:cover;min-height:100%;}
 }
 .my_task{@include flex_layout;align-items:stretch;height:100%;
   .box_default{height:calc(100vh - 227px);min-height:402px;overflow-y:auto;}
@@ -1131,8 +1134,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       dl{gap:5px;align-items:flex-start;}
       dd{margin-bottom:5px;}
     }
-    .ipt_innerwrap{margin-top:5px;}   
-  }  
+    .ipt_innerwrap{margin-top:5px;}
+  }
+  .tooltip{left:0;right:auto;}
 }
 @mixin proj_view_defaultH($gap:0px,$max:false){
   $proj_viewH:calc(100vh - 214px);
