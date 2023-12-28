@@ -1340,7 +1340,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       }
       .user_photo{width:22px;height:22px;margin-left:auto;}
     }
-    $_projStep:('start':#c9dbf8,'analysis':#eedcff,'plan':#f8dac9,'build':#c6ebe4,'test':#d1d3fd,'edu':#daefb8,'completion':#eee1d8,'report':#f8ee95);
+    $_projStep:('proposal':#c3f0d3,'start':#c9dbf8,'analysis':#eedcff,'plan':#f8dac9,'build':#c6ebe4,'test':#d1d3fd,'edu':#daefb8,'completion':#eee1d8,'report':#f8ee95);
     .tags{margin-right:3px;
       i{@include badge_style();margin-right:0;padding:0 5px;font-size:11px;line-height:13px;font-weight:bold;
         @each $type, $color in $_projStep{
@@ -1366,7 +1366,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
     header{padding-left:10px;
       &+.referrer_act{margin:-10px 10px 10px;padding:5px;padding-top:10px;}
-      h1{font-size:18px;font-weight:bold;color:#000;
+      h1{
         i{vertical-align:middle;}
         &::before{display:none;}
       }
