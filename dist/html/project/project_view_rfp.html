@@ -2,27 +2,27 @@
   <header>
     <h1 class="blind">요구사항</h1>
     <div class="proj_legend ico_proj">
-      <!-- 진행상태 (수행중,완료,보류)
+      <!-- 진행상태 (수행중,완료,미정)
       최초 등록 : 수행중
-      최초 등록 후 : 반려는 없고 보류 혹은 수정삭제
+      최초 등록 후 : 반려는 없고 미정 혹은 수정삭제
       완료 요청 : 완료 요청
       완료요청 승인 : 완료
       완료요청 반려 : 수행중
       변경 요청 : 변경 요청
       변경요청 승인 또는 반려 : 수행중
-      보류 : 보류
+      미정 : 미정
        -->
       <ul>        
         <!-- <li><i class="ready">준비</i></li>  -->
         <li><i class="ing">수행중</i></li>
         <li><i class="done">완료</i></li>
-        <li><i class="hold">보류</i></li>
+        <li><i class="hold">미정</i></li>
         <li class="divide"><i class="check">완료요청</i></li>        
         <li><i class="apply">변경요청</i></li>        
       </ul>
     </div>
     <span class="btn_wrap">
-      <button type="button" class="btn_default" disabled>엑셀 일괄 업로드(보류)</button>
+      <button type="button" class="btn_default" disabled>엑셀 일괄 업로드(미정)</button>
       <button type="button" class="btn_default" disabled>엑셀 다운로드(보류)</button>
     </span>
   </header>
@@ -111,7 +111,7 @@
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
       </li>
       <li>
-        <a href="#"><i class="hold">보류</i><em>고객 정보 일괄등록 기능(관리자용)</em></a>
+        <a href="#"><i class="hold">미정</i><em>고객 정보 일괄등록 기능(관리자용)</em></a>
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
       </li>
       <li>
@@ -187,7 +187,7 @@
   </header>
   <div class="work_form">
     <header>
-      <h1>사업수행계획서 및 착수계 제출</h1>
+      <h1>[요구사항]사업수행계획서 및 착수계 제출</h1>
       <!-- 작성자,작성일 -->
       <div class="user_module">
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -195,8 +195,6 @@
       </div>
     </header>
     <dl class="set_list work_dot_wrap">
-      <dt>요구사항ID</dt>
-      <dd>R202300001</dd>
       <dt>단계</dt>
       <dd>
         <div class="tags"><i class="start">착수</i></div>
@@ -258,6 +256,7 @@
       <!-- <i class="check">완료요청 승인 대기중</i> -->
     </div>
     <div class="btn_wrap">
+      <button type="button" class="btn_red">수정</button>
       <button type="button" class="btn_red">완료요청</button>
       <button type="button" class="btn_red_line" onclick="event.preventDefault();document.querySelector('.p_require_task_change').showModal();">변경요청</button>
       <!-- PMPL : 최초등록>승인, 반려 필요? 삭제가능?: -->
@@ -280,7 +279,7 @@
   <div class="work_form form_view flex_right">
     <article>
       <header>
-        <h1>회원가입 및 로그인 기능 구축</h1>
+        <h1><span>작업</span>회원가입 및 로그인 기능 구축</h1>
         <!-- 작성자,작성일 -->
         <div class="user_module">
           <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -288,7 +287,7 @@
         </div>
       </header>
       <dl class="set_list work_dot_wrap">
-        <dt>업무범주</dt>
+        <dt>작업범주</dt>
         <dd>
           <div class="tags">
             <i>개발</i>
@@ -521,15 +520,10 @@
 <dialog class="p_taskMan">
   <form method="dialog">
     <header class="p_header">
-      <strong>업무 관리(업무 추가 및 수정)</strong>
+      <strong>작업 관리(작업 추가 및 수정)</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
-      <div class="tbl_top_area">
-        <span class="btn_toggle_single tool_wrap">
-          <input type="checkbox" id="holding"><label for="holding" data-label="진행 보류" >보류 여부</label>                      
-        </span>
-      </div>
       <table class="tbl_default tbl_row">
         <caption>업무 관리 테이블</caption>
         <colgroup>
@@ -558,11 +552,11 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="work_range">업무범주</label></th>
+            <th scope="row" class="required"><label for="work_range">작업범주</label></th>
             <td>
               <span class="file_input">
                 <select id="nameSelect">
-                  <option value="업무범주를 선택하세요" selected>업무범주를 선택하세요</option>
+                  <option value="작업범주를 선택하세요" selected>작업범주를 선택하세요</option>
                 </select>
               </span>
               <div id="tagList"></div>

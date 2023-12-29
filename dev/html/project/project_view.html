@@ -30,22 +30,22 @@
         <div class="tab_wrap">
           <!-- ui_cmmn.js 탭기능을 안쓰시려면 .tab > .tab_lst, 하단 .tab_container를 .tab_lst_container로 변경해주세요 -->
           <ul class="tab">
-            <li><a href="#proj01">이슈톡</a></li>
+            <li><a href="#proj01">작업관리</a></li>
             <li><a href="#proj02">개요</a></li>
-            <li><a href="#proj03">요구사항</a></li>
+            <li><a href="#proj03">이슈톡</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
             <li><a href="#proj05">리스크관리</a></li>
             <li><a href="#proj06">문서관리</a></li>
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj01" class="tab_contents issue">
+          <section id="proj03" class="tab_contents issue">
             @@include('porject_view_issue.html')
           </section>
           <section id="proj02" class="tab_contents overview">
             @@include('porject_view_overview.html')
           </section>
-          <section id="proj03" class="tab_contents rfp">
+          <section id="proj01" class="tab_contents rfp">
             @@include('project_view_rfp.html')
           </section>
           <section id="proj04" class="tab_contents wbs">

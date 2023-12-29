@@ -27,12 +27,18 @@
     var source = // 일정데이터 
         [
           {//출근
-            title: '10:00',
+            title: '[출근] 10:00',
             start: '2023-12-04T10:00:00',            
             className: 'arrived'
           },
+          {//연차
+            title: '[외출] 14:00~15:00',
+            start: '2023-12-04T14:00:00',            
+            end: '2023-12-04T15:00:00',            
+            className: 'leaved'
+          },
           {//퇴근
-            title: '19:30',
+            title: '[퇴근] 19:30',
             start: '2023-12-04T19:00:00',            
             className: 'leaved'
           },

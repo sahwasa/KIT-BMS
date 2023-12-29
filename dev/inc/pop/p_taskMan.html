@@ -1,15 +1,10 @@
 <dialog class="p_taskMan">
   <form method="dialog">
     <header class="p_header">
-      <strong>업무 관리(업무 추가 및 수정)</strong>
+      <strong>작업 관리(작업 추가 및 수정)</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
-      <div class="tbl_top_area">
-        <span class="btn_toggle_single tool_wrap">
-          <input type="checkbox" id="holding"><label for="holding" data-label="진행 보류" >보류 여부</label>                      
-        </span>
-      </div>
       <table class="tbl_default tbl_row">
         <caption>업무 관리 테이블</caption>
         <colgroup>
@@ -38,11 +33,11 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="work_range">업무범주</label></th>
+            <th scope="row" class="required"><label for="work_range">작업범주</label></th>
             <td>
               <span class="file_input">
                 <select id="nameSelect">
-                  <option value="업무범주를 선택하세요" selected>업무범주를 선택하세요</option>
+                  <option value="작업범주를 선택하세요" selected>작업범주를 선택하세요</option>
                 </select>
               </span>
               <div id="tagList"></div>
