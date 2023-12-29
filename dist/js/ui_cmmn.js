@@ -650,7 +650,7 @@ function setImageEditor() {
 }
 
 // 업무범주 태그(색상 제거)
-function addTag(selectedName, divId, selectId) {
+function addTag(selectedValue, selectedName, divId) {
   if (selectedName) {
     const tags = document.getElementById(divId)
     const existingTags = new Set()
@@ -663,6 +663,7 @@ function addTag(selectedName, divId, selectId) {
     if (!existingTags.has(selectedName)) {
       const tag = document.createElement('span')
       tag.className = 'tags'
+      tag.setAttribute('value',selectedValue)
       const i = document.createElement('i')
       i.appendChild(document.createTextNode(selectedName))
       const button = document.createElement('button')
@@ -680,15 +681,14 @@ function addTag(selectedName, divId, selectId) {
 }
 function initializeTagManager(divId, selectId, initialNames) {
   const select = document.getElementById(selectId)
-  initialNames.forEach(name => {
+  initialNames.forEach(obj => {
     const option = document.createElement('option')
-    option.value = name
-    option.textContent = name
+    option.value = obj.cd
+    option.textContent = obj.cd_nm
     select.appendChild(option)
   })
   select.addEventListener('change', function () {
-    const selectedName = select.value
-    addTag(selectedName, divId, selectId)
+    addTag(select.value, this.options[this.selectedIndex].text, divId)
     select.value = '' // 선택 초기화
   })
 }

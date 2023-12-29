@@ -59,10 +59,10 @@
     <li class="on"><a href="../../html/home/main.html">HOME</a></li>
     <li><a href="../../html/message/message.html">사내쪽지</a></li>
     <li><a href="../../html/approval/approval.html">전자결재</a></li>
-    <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/planner/plan.html">일정</a></li>
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
-    <li><a href="../../html/svc/svc.html">임직원 업무</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/svc/svc.html">사내 서비스</a></li>
     <li><a href="../../html/erp/erp.html">ERP</a></li>
     <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
@@ -383,21 +383,21 @@
         <div class="tab_wrap">
           <!-- ui_cmmn.js 탭기능을 안쓰시려면 .tab > .tab_lst, 하단 .tab_container를 .tab_lst_container로 변경해주세요 -->
           <ul class="tab">
-            <li><a href="#proj01">이슈톡</a></li>
+            <li><a href="#proj01">작업관리</a></li>
             <li><a href="#proj02">개요</a></li>
-            <li><a href="#proj03">요구사항</a></li>
+            <li><a href="#proj03">이슈톡</a></li>
             <li><a href="#proj04">WBS(단계일정)</a></li>
             <li><a href="#proj05">리스크관리</a></li>
             <li><a href="#proj06">문서관리</a></li>
           </ul>
         </div>
         <div class="tab_container">
-          <section id="proj01" class="tab_contents issue">
+          <section id="proj03" class="tab_contents issue">
             <article class="box_compact box_form">
   <ul class="search_list">
     <li>
-      <select class="" title="빠른필터">
-        <option>빠른필터</option>
+      <select class="" title="태그">
+        <option>태그</option>
         <option>전체</option>
         <option>내 담당 업무</option>
         <option>참조된 업무</option>
@@ -405,33 +405,20 @@
       </select>
     </li>
     <li>
-      <input type="text" placeholder="담당자" title="검색어" list="nameList">     
-    </li>
-    <li>
-      <input type="text" placeholder="제목, 내용" title="검색어">
-    </li>
-    <li>
-      <div class="select_custom task_status">
-        <button class="label" data-value="B"><span class="opt_label">상태</span></button>
-        <ul class="optionList">
-          <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
-          <li class="optionItem" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
-          <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
-          <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
-          <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
-          <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
-        </ul>
-      </div>
-    </li>
-    <!-- <li>
-      <select class="" title="업무범주">
-        <option>개발</option>
-        <option>테스트</option>
+      <select class="" title="작성자">
+        <option>작성자</option>
       </select>
-    </li> -->
+    </li>
+    <li>
+      <select class="" title="수신자">
+        <option>수신자</option>
+      </select>
+    </li>
+    <li>
+      <input type="text" placeholder="제목" title="제목">
+    </li>    
     <li>
       <button type="button" class="btn_search">검색</button>
-      <button type="button" class="btn_refresh">초기화</button>
     </li>
   </ul>
   <span class="btn_wrap">
@@ -547,10 +534,11 @@
           <li class="chart_termless">할일</li>
         </ul>
         <ul class="chart_label">
-          <li class="chart_fin">완료됨<span>47&percnt; (13/20)</span></li>
-          <li class="chart_delay">마감일 지남<span>2&percnt; (13/20)</span></li>
-          <li class="chart_todo">진행 중<span>6&percnt; (13/20)</span></li>
-          <li class="chart_termless">할일<span>47&percnt; (13/20)</span></li>
+          <li class="chart_fin">완료됨<span>47&percnt; ( 13 / 20 )</span></li>
+          <li class="chart_delay">지연<span>2&percnt; ( 4 / 20 )</span></li>
+          <li class="chart_todo">진행중<span>6&percnt; ( 1 / 20 )</span></li>
+          <li class="chart_termless">예정<span>47&percnt; ( 1 / 20 )</span></li>
+          <li class="chart_termless">미정<span>47&percnt; ( 1 / 20 )</span></li>
         </ul>
       </article>
       <article>
@@ -568,11 +556,11 @@
               <tr>
                 <th scope="col">멤버</th>
                 <th scope="col">진행률</th>
-                <th scope="col">진행</th>
-                <th scope="col">계획</th>
                 <th scope="col">완료</th>
-                <th scope="col">취소</th>
-                <th scope="col">보류</th>
+                <th scope="col">지연</th>
+                <th scope="col">진행중</th>
+                <th scope="col">예정</th>
+                <th scope="col">미정</th>
               </tr>
             </thead>
             <tbody>
@@ -636,11 +624,11 @@
           </div>
         </header> -->
         <dl class="ipt_lst">
-          <dt>업무상태</dt>
+          <!-- <dt>상태</dt>
           <dd>          
-            <div class="task_status">
+            <div class="task_status"> -->
               <!-- 각 담당자, 작성자별 자신것만 수정 가능, 왼쪽 리스트 표출은 작성자가 설정한 상태 -->
-              <div class="taskstatus_layer">              
+              <!-- <div class="taskstatus_layer">              
                   <div class="select_custom task_status">
   <button class="label"><span class="opt_label">상태</span></button>
   <ul class="optionList">
@@ -653,7 +641,7 @@
   </ul>
 </div>                
               </div>
-            </div>
+            </div> -->
             <!-- <div class="task_status_multi">
               <button class="all_label label"><span class="task_ing">진행</span></button>
               <div class="taskstatus_layer">
@@ -720,13 +708,13 @@
                 </dl> 
               </div>
             </div> -->
-          </dd>          
+          <!-- </dd>           -->
           <dt>작성자</dt>
           <dd><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div></dd>          
-          <dt>담당자</dt>
+          <dt>수신자</dt>
           <dd>
             <ul class="user_lst">
               <li><div class="user_module">
@@ -736,41 +724,28 @@
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><i class="task_ing">진행</i></li>
+</div></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><i class="task_plan">계획</i></li>
+</div></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><i class="task_done">완료</i></li>
+</div></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><i class="task_cancel">취소</i></li>
+</div></li>
               <li><div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div><i class="task_hold">보류</i></li>
+</div></li>
             </ul>
-          </dd>
-          <dt>참조자</dt>
-          <dd>없음</dd>
-          <dt>만기일</dt>
+          </dd>         
+          <dt>태그</dt>
           <dd>
-            <div class="period_custom">
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
-  </span>
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
-  </span>
-</div>
-          </dd>
-          <dt>업무범주</dt>
-          <dd>
-            <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
+            <div class="tags"><i>참조</i><i>개발</i><i>요청</i><i>공지</i><i>긴급</i>
             </div>
           </dd>
           <dt>첨부파일</dt>
@@ -974,33 +949,8 @@
         </section>    
         <section class="issue_set">
           <section class="box_default_w">
-            <dl class="set_list">
-              <dt><label for="">업무상태</label></dt>
-              <dd>
-                <div class="select_custom task_status">
-                  <button class="label" type="button"><span class="opt_label">상태</span></button>
-                  <ul class="optionList">
-                    <li class="optionItem" tabindex="0"><span class="opt_label">상태</span></li>
-                    <li class="optionItem ef" tabindex="-1" data-value="ing"><span class="task_ing">진행</span></li>
-                    <li class="optionItem" tabindex="-1" data-value="plan"><span class="task_plan">계획</span></li>
-                    <li class="optionItem" tabindex="-1" data-value="done"><span class="task_done">완료</span></li>
-                    <li class="optionItem" tabindex="-1" data-value="cancel"><span class="task_cancel">취소</span></li>
-                    <li class="optionItem" tabindex="-1" data-value="hold"><span class="task_hold">보류</span></li>
-                  </ul>
-                </div>
-              </dd>
-              <dt><label for="">만기일</label></dt>
-              <dd>
-                <div class="period_custom">
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
-  </span>
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
-  </span>
-</div>
-              </dd>
-              <dt><label for="">업무범주</label></dt>
+            <dl class="set_list">              
+              <dt><label for="">태그</label></dt>
               <dd>
                 <span class="file_input">
   <select id="nameSelect">
@@ -1044,43 +994,7 @@
     </div>
   </li> 
 </ul>
-          </section>
-          <section class="box_default_w">
-            <h1>참조자</h1>
-            <span class="file_input">
-              <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
-              <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-              <button type="button" class="btn_ogt btnMngTree">조직도</button>
-              <button type="button" class="btn_red_line">저장</button>
-              <button type="button" class="btn_red_line" disabled>저장</button>
-            </span>
-            <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li> 
-</ul>
-          </section>
+          </section>          
           <section class="box_default_w">
             <h1>첨부파일</h1>
             <div class="file_attach btn_attach">
@@ -1286,32 +1200,32 @@
   </form>
 </dialog>
           </section>
-          <section id="proj03" class="tab_contents rfp">
+          <section id="proj01" class="tab_contents rfp">
             <article>
   <header>
     <h1 class="blind">요구사항</h1>
     <div class="proj_legend ico_proj">
-      <!-- 진행상태 (수행중,완료,보류)
+      <!-- 진행상태 (수행중,완료,미정)
       최초 등록 : 수행중
-      최초 등록 후 : 반려는 없고 보류 혹은 수정삭제
+      최초 등록 후 : 반려는 없고 미정 혹은 수정삭제
       완료 요청 : 완료 요청
       완료요청 승인 : 완료
       완료요청 반려 : 수행중
       변경 요청 : 변경 요청
       변경요청 승인 또는 반려 : 수행중
-      보류 : 보류
+      미정 : 미정
        -->
       <ul>        
         <!-- <li><i class="ready">준비</i></li>  -->
         <li><i class="ing">수행중</i></li>
         <li><i class="done">완료</i></li>
-        <li><i class="hold">보류</i></li>
+        <li><i class="hold">미정</i></li>
         <li class="divide"><i class="check">완료요청</i></li>        
         <li><i class="apply">변경요청</i></li>        
       </ul>
     </div>
     <span class="btn_wrap">
-      <button type="button" class="btn_default" disabled>엑셀 일괄 업로드(보류)</button>
+      <button type="button" class="btn_default" disabled>엑셀 일괄 업로드(미정)</button>
       <button type="button" class="btn_default" disabled>엑셀 다운로드(보류)</button>
     </span>
   </header>
@@ -1400,7 +1314,7 @@
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
       </li>
       <li>
-        <a href="#"><i class="hold">보류</i><em>고객 정보 일괄등록 기능(관리자용)</em></a>
+        <a href="#"><i class="hold">미정</i><em>고객 정보 일괄등록 기능(관리자용)</em></a>
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
       </li>
       <li>
@@ -1476,7 +1390,7 @@
   </header>
   <div class="work_form">
     <header>
-      <h1>사업수행계획서 및 착수계 제출</h1>
+      <h1>[요구사항]사업수행계획서 및 착수계 제출</h1>
       <!-- 작성자,작성일 -->
       <div class="user_module">
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -1484,8 +1398,6 @@
       </div>
     </header>
     <dl class="set_list work_dot_wrap">
-      <dt>요구사항ID</dt>
-      <dd>R202300001</dd>
       <dt>단계</dt>
       <dd>
         <div class="tags"><i class="start">착수</i></div>
@@ -1547,6 +1459,7 @@
       <!-- <i class="check">완료요청 승인 대기중</i> -->
     </div>
     <div class="btn_wrap">
+      <button type="button" class="btn_red">수정</button>
       <button type="button" class="btn_red">완료요청</button>
       <button type="button" class="btn_red_line" onclick="event.preventDefault();document.querySelector('.p_require_task_change').showModal();">변경요청</button>
       <!-- PMPL : 최초등록>승인, 반려 필요? 삭제가능?: -->
@@ -1569,7 +1482,7 @@
   <div class="work_form form_view flex_right">
     <article>
       <header>
-        <h1>회원가입 및 로그인 기능 구축</h1>
+        <h1><span>작업</span>회원가입 및 로그인 기능 구축</h1>
         <!-- 작성자,작성일 -->
         <div class="user_module">
           <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -1577,7 +1490,7 @@
         </div>
       </header>
       <dl class="set_list work_dot_wrap">
-        <dt>업무범주</dt>
+        <dt>작업범주</dt>
         <dd>
           <div class="tags">
             <i>개발</i>
@@ -1810,15 +1723,10 @@
 <dialog class="p_taskMan">
   <form method="dialog">
     <header class="p_header">
-      <strong>업무 관리(업무 추가 및 수정)</strong>
+      <strong>작업 관리(작업 추가 및 수정)</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
-      <div class="tbl_top_area">
-        <span class="btn_toggle_single tool_wrap">
-          <input type="checkbox" id="holding"><label for="holding" data-label="진행 보류" >보류 여부</label>                      
-        </span>
-      </div>
       <table class="tbl_default tbl_row">
         <caption>업무 관리 테이블</caption>
         <colgroup>
@@ -1847,11 +1755,11 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="work_range">업무범주</label></th>
+            <th scope="row" class="required"><label for="work_range">작업범주</label></th>
             <td>
               <span class="file_input">
                 <select id="nameSelect">
-                  <option value="업무범주를 선택하세요" selected>업무범주를 선택하세요</option>
+                  <option value="작업범주를 선택하세요" selected>작업범주를 선택하세요</option>
                 </select>
               </span>
               <div id="tagList"></div>
