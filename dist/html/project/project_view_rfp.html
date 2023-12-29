@@ -180,14 +180,14 @@
   <header class="lst_header">
     <h1 class="blind">요구사항 상세</h1>
     <div class="btn_wrap">
-      <button type="button" class="btn_red" onclick="document.querySelector('.p_taskMan').showModal();">업무 추가</button>
+      <button type="button" class="btn_red" onclick="document.querySelector('.p_taskMan').showModal();">작업 추가</button>
       <button type="button" class="btn_red_line">수정</button>
       <button type="button" class="btn_red_line">삭제</button>
     </div>
   </header>
   <div class="work_form">
     <header>
-      <h1>[요구사항]사업수행계획서 및 착수계 제출</h1>
+      <h1><span>요구사항</span>사업수행계획서 및 착수계 제출</h1>
       <!-- 작성자,작성일 -->
       <div class="user_module">
         <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -250,7 +250,7 @@
 </section>
       <section class="task_dtl" style="display:none;">
   <header class="lst_header">
-    <h1 class="blind">업무 상세</h1>
+    <h1 class="blind">작업 상세</h1>
     <div class="apply_status">
       <i class="apply">변경요청 승인 대기중</i>
       <!-- <i class="check">완료요청 승인 대기중</i> -->
@@ -279,7 +279,7 @@
   <div class="work_form form_view flex_right">
     <article>
       <header>
-        <h1><span>작업</span>회원가입 및 로그인 기능 구축</h1>
+        <h1><span>작 업</span>회원가입 및 로그인 기능 구축</h1>
         <!-- 작성자,작성일 -->
         <div class="user_module">
           <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -353,15 +353,8 @@
           </div>
           <div class="changes">
             <dl>
-              <dt>작업기간</dt>
-              <dd>2022-04-01 ~ 2022-04-03</dd>
-              <dt>작업내용</dt>
-              <dd>
-                <div>
-                  · 기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 구현<br/>
-                  · 기관 홈페이지와 SSO 기능구현
-                </div>
-              </dd>
+              <dt>예정기간</dt>
+              <dd>2022-04-01 ~ 2022-04-03</dd>             
               <dt>변경사유</dt>
               <dd>
                 <div>작업내용 변동으로 해당 업무 작업내용과 일정 변경요청합니다.</div>
@@ -676,13 +669,18 @@
                 <input type="date" title="종료일" data-type="to" id="" name="end-date" min="0001-01-01" max="9999-12-31">
               </div>
             </td>
-          </tr>
+          </tr>          
           <tr>
             <th scope="row">
-              <label for="">작업내용</label>
+              <label for="work_expected">실제 작업기간</label>
             </th>
-            <td><div id="" contenteditable style="--h:100px"></div></td>
-          </tr>
+            <td>
+              <div class="period_custom">
+                <input type="date" title="시작일" data-type="from" id="" name="start-date" min="0001-01-01" max="9999-12-31">
+                <input type="date" title="종료일" data-type="to" id="" name="end-date" min="0001-01-01" max="9999-12-31">
+              </div>
+            </td>
+          </tr>          
           <tr>
             <th scope="row">
               <label for="">변경사유</label>
