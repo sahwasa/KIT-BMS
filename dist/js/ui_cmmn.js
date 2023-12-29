@@ -476,19 +476,6 @@ function setEditor(id = 'editor') {
   })
   .then(editor => {
     window.editor = editor;
-    const toolbarContainer =editor.ui.view.toolbar.element.getElementsByClassName('ck-toolbar__items')[0];
-    // Create your custom button
-    const customButton = document.createElement('button');
-    customButton.type = 'button';
-    customButton.textContent = '투표하기';
-    customButton.classList.add('vote','ck','ck-button');
-    customButton.addEventListener('click', () => {
-      // Add your custom button functionality here
-      alert('Custom button clicked!');
-      addNewVoting();
-    });
-    // Append the custom button to the toolbar
-    toolbarContainer.appendChild(customButton);
   })
   .catch(error => {
     console.error('Oops, something went wrong!')
@@ -514,12 +501,11 @@ function setEditor(id = 'editor') {
     // 에디터를 만들어도.. 될까요?
     var checkEditor = setInterval(function () {
       if (setEditor !== null) {
-        setImageEditor()
+        setImageEditor();        
         clearInterval(checkEditor)
       }
     }, 100)
 }
-
 
 const locale_ko = {
   Crop: '자르기',

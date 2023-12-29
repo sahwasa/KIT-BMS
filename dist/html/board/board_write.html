@@ -266,19 +266,32 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 
 </script>
 <link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css">
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script> -->
 <script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script>
   $(function () {
-    setEditor();
     fileDropEvt();
-  })
-  document.querySelector('#voteArea').showModal();
-</script>
+    setEditor()
+    })
+  var checkEditor = setInterval(function () {
+    if (setEditor !== null) {
+      clearInterval(checkEditor);
+      console.log(editor);
+      const toolbarContainer = editor.ui.view.toolbar.element.getElementsByClassName('ck-toolbar__items')[0];
+      // Create your custom button
+      const voteBtn = document.createElement('button');
+      voteBtn.type = 'button';
+      voteBtn.textContent = '투표하기';
+      voteBtn.classList.add('vote','ck','ck-button');
+      voteBtn.addEventListener('click', () => {
+        // Add your custom button functionality here
+        document.querySelector('#voteArea').showModal();
+        addNewVoting();
+      });
+      toolbarContainer.appendChild(voteBtn);
+    }
+}, 100);
 
-<script>
-  var editableDiv = document.querySelector('.ck-editor__editable');
-  // const editorData = window.editor.getData().split('\n')
-  console.log(window.editor)
   // 기존 투표 완료 버튼 요소 가져오기
   const existingVoteCompleteButton = document.getElementById('voteComplete');
   // 투표 화면 HTML을 생성하는 함수
@@ -296,7 +309,9 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 `;
     const voteScreen = document.createElement('div');
     voteScreen.innerHTML = voteScreenHTML;
-    document.getElementById('vote_0').appendChild(voteScreen);
+    editor.setData(voteScreenHTML);
+    // document.getElementById('vote_0').appendChild(voteScreen);
+    // document.getElementsByClassName('ck-editor__editable').appendChild(voteScreen);
   }
 
   // 투표 결과 화면 HTML을 생성하는 함수
@@ -518,7 +533,7 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   function createCustomVoteForm(voteId) {
     // 새로운 투표를 위한 컨테이너 생성
     const newVotingContainer = document.createElement('div');
-    newVotingContainer.className = 'box_compact';
+    newVotingContainer.className = 'p_body';
     newVotingContainer.id = voteId;
 
     // 투표 폼 생성
@@ -591,7 +606,8 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   `;
     const voteScreen = document.createElement('div');
     voteScreen.innerHTML = voteScreenHTML;
-    newVotingContainer.appendChild(voteScreen);
+     $('.ck-editor__editable_inline').html('ddd');
+    // newVotingContainer.appendChild(voteScreen);
 
     // 투표 결과 화면 생성
     const voteResultsHTML = `
@@ -614,8 +630,8 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   handleOptionTypeChange();
 
   // "투표 추가" 버튼에 이벤트 리스너 추가
-  const btnAddVoting = document.getElementById('btnAddVoting');
-  btnAddVoting.addEventListener('click', addNewVoting);
+  // const btnAddVoting = document.getElementById('btnAddVoting');
+  // btnAddVoting.addEventListener('click', addNewVoting);
 
   // 차트 초기화
   const Chart = toastui.Chart;
@@ -661,7 +677,13 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     chart.destroy();
     // 새로운 차트 객체 생성
     chart = Chart.pieChart({ el, data: chartData, options });
-  }
+  } 
+  
+  //  editor.setData(saved_content);
+
+
+  // document.querySelector('#voteArea').showModal();
+  
 </script>
 
 
