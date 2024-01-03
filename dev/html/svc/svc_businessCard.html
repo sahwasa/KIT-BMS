@@ -1,0 +1,139 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>명함관리<span>사내 서비스</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내 서비스</a></li>
+            <li>명함관리</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="">          
+          <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="그룹">
+                  <option value="">그룹</option>
+                  <option value="G">공공기관 및 협회</option>
+                  <option value="C">법인 및 개인</option>
+                  <option value="H">웹호스팅</option>
+                  <option value="B">BOSS</option>
+                  <option value="K">사내업무</option>
+                  <option value="E">기타</option>
+              </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="이름,소속" list="">
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_refresh">초기화</button>
+              </li>
+            </ul>
+            <div class="btn_wrap">
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">추가</button>
+              <button type="button" class="btn_red_line" onclick="">삭제</button>           
+              <button type="button" class="btn_red_line" onclick="">그룹편집</button>           
+            </div>
+          </section>
+          <div class="tbl_top_area">
+            <div class="btn_switch border_none">
+              <input type="radio" id="p_card" name="card" checked>
+              <label for="p_card" class="opened">개인명함</label>
+              <input type="radio" id="emp_card" name="card">
+              <label for="emp_card" class="opened">임직원명함</label>
+              <input type="radio" id="public_card" name="card">
+              <label for="public_card" class="closed">공개명함</label>
+            </div>
+            <div>
+              <select title="목록개수 선택">
+                <option value="15">15줄 보기</option>
+                <option value="50" selected="">50줄 보기</option>
+                <option value="100">100줄 보기</option>
+                <option value="200">200줄 보기</option>
+              </select>
+            </div>
+          </div>
+          <section class="tbl_wrap">
+            <table class="tbl_default tbl_hover row_check">
+              <caption>사업자 리스트</caption>            
+              <thead>
+                <tr>
+                  <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check hasLayer"></th>
+                  <th scope="col">그룹</th>
+                  <th scope="col">이름</th>
+                  <th scope="col">소속</th>
+                  <th scope="col">연락처</th>
+                  <th scope="col">이메일</th>
+                  <th scope="col">등록자</th>
+                  <th scope="col">공개여부</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
+                  <td>조기경보사업</td>
+                  <td>박조기</td>
+                  <td>기상청</td>
+                  <td>010-1234-5678</td>
+                  <td>abc@kma.go.kr</td>
+                  <td>홍길동</td>
+                  <td><i class="tbl_badge public">공개</i></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">그룹이동</button>
+                        <button type="button">개인명함 추가</button>
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr tabindex="0">
+                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
+                  <td>미분류</td>
+                  <td>김경보</td>
+                  <td>기상청</td>
+                  <td>010-1234-5678</td>
+                  <td>abc@kma.go.kr</td>
+                  <td>홍길동</td>
+                  <td><i class="tbl_badge private">비공개</i></td>
+                  <td onclick="event.stopPropagation();">
+                    <div class="layer_tool">
+                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                      <div class="btn_layer">
+                        <button type="button">그룹이동</button>
+                        <button type="button">개인명함 추가</button>
+                        <button type="button">수정</button>
+                        <button type="button">삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            @@include('../../inc/module/paginate.html')
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_addBusiness.html')
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

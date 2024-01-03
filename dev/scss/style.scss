@@ -1204,10 +1204,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         }
       }
     }
-    .right_section{flex:1;@include proj_view_defaultH(74px);@include scrollbarW();padding-top:10px;padding-bottom:$columnGap;
-      @include empty_txt(attr(data-empty));
-    }
-    &:has(.issue_dtl){background-color:#fff;}
+    &:has(.on){background-color:#fff;}
+    .right_section{flex:1;@include proj_view_defaultH(74px);@include scrollbarW();padding-top:10px;padding-bottom:$columnGap;}
+
   }  
   .issue_dtl{
     .task_num{margin-left:10px;}
@@ -1241,7 +1240,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
        }
       }
       article{padding:0 $columnGap 0 10px;}
-      .proj_desc{padding-left:0;
+      .proj_desc{padding-left:0;margin-top:0;
         h2{border-bottom:1px solid #dedede;padding-bottom:10px;margin-bottom:10px;}
         .ipt_lst{column-gap:10px;row-gap:5px;grid-template-columns:repeat(2, 70px 1fr);}
       }
@@ -1376,6 +1375,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       }
     }
     .work_form{padding:15px 12px $columnGap;@include proj_view_defaultH(85px);
+      header{position: relative;
+        .user_module{position:absolute;right:0;top:0;}
+      }      
       h1{display:flex;flex-direction:column;align-items:start;gap:5px;
         span{@extend %type;width:50px;font-size:11px;padding:2px 3px 0;border-radius:3px;text-align:center;}
       }
@@ -1751,6 +1753,17 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
 // .progress_input ~ .btn{display:block;width:100%;margin-top:5px;}
 
 //svc
+.snb .svc{
+    .attendance_desc{text-align:left;padding:10px 15px;border-bottom:1px dashed #bec7d2;background-color:#fff;
+    color:#696969;font-size:11px;
+    .time{display:block;font-size:36px;line-height:1;color:#555;text-align:center;padding:10px 0 20px;}
+    ul{display:flex;flex-direction:column;gap:5px;}
+    li{flex:1;display:flex;justify-content:space-between;align-items:center;em{font-weight:700;}}  
+  }
+  .btn_workset{padding-bottom:5px;}
+  .work_state{border:none;background-color:transparent;font-size:12px;background-position-x:3px;padding-left:20px;}
+}
+
 .tbl_business{td{@include alignL(4);}}
 
 
