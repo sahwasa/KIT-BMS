@@ -1,7 +1,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     var Draggable = FullCalendar.Calendar.Draggable;
-    var calendarEl = document.getElementById('calendar');
+    var calendarEl = document.getElementById('cal_attendance');
     var selectedDate = null;
 
 
@@ -18,12 +18,6 @@
     //   }
     // });
 
-    (function getNowTime() {
-      const date = new Date()
-      nowTime = date.toISOString();
-      nowYear = date.getFullYear();
-      setTimeout(() => getNowTime, 1000);
-    })();
     var source = // 일정데이터 
         [
           {//출근
@@ -106,7 +100,7 @@
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'dayGridMonth,listYear'
+        // right: 'resourceTimelineDay'
       },
       buttonText: {
         today: '오늘',
@@ -114,20 +108,26 @@
         list: '목록',
       },
       schedulerLicenseKey: '0328483609-fcs-1693988989',         
-      editable: true,
-      selectable: true,
-      initialView: 'dayGridMonth',
+      initialView: 'resourceTimelineDay',
       businessHours:  {
         daysOfWeek: [ 1,2,3,4,5 ], // 유연출퇴근 때문에 다른데,,,,?? 어떻게하죠??
-        startTime: '08:00',
-        endTime: '19:00'
+        startTime: '10:00',
+        endTime: '20:00'
       },
       weekNumbers: false,
-      locale: 'ko',
-      droppable: true, // this allows things to be dropped onto the calendar
-      drop: function (info) {
-        info.draggedEl.parentNode.removeChild(info.draggedEl);
-      },
+      locale: 'en-GB',
+      contentHeight: 'auto',
+      resourceAreaWidth:'50px',
+      resourceAreaColumns: [{headerContent:'일자'}],
+      resources:[
+        {id:'0125', title:'25 일'},
+        {id:'0126', title:'26 월'},
+        {id:'0127', title:'27 화'},
+        {id:'0128', title:'28 수'},
+        {id:'0129', title:'29 목'},
+        {id:'0130', title:'30 금'},
+        {id:'0131', title:'31 토'},
+      ],
       dayMaxEvents: true, // allow "more" link when too many events
       eventDidMount: function (el) {
       },
@@ -145,81 +145,15 @@
       select: function(info) {
         selectedDate = info;
       },
-      eventClick: function(info) {
-        alert('Event: ' + info.event.title);
-        alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-        alert('View: ' + info.view.type);
-
-        // change the border color just for fun
-        info.el.style.borderColor = 'red';
-      },
       views: {
-        multiMonthYear: {
-          // multiMonthMaxColumns: 1
-        },        
-        list: {
+        resourceTimelineDay:{
+          slotDuration: '00:30',
+          slotLabelFormat:{hour:'2-digit', omitZeroMinute:true, hour12: false},
+          slotMinWidth: 5
         }
       }
     });
     calendar.render();
-
-    // var addBtn = document.getElementById('addEvt');
-    // addBtn.addEventListener('click', function (e) {
-    //   var date = selectedDate;
-    //   if (date == null) {
-    //     var dateStr = prompt('일정을 추가할 날자를 YYYY-MM-DD 형식으로 입력해주세요.');
-    //     date = new Date(dateStr + 'T00:00:00'); // will be in local time
-    //   }
-    //   if (!isNaN(date.valueOf()) || !(date.end == null)) { // valid?
-    //     var start = date;
-    //     var end;
-    //     if(date.end){
-    //       start = date.start;
-    //       end = date.end;
-    //     }
-    //     calendar.addEvent({
-    //       title: '동적 일정추가',
-    //       start: start,
-    //       end: end,
-    //       allDay: true
-    //     });
-    //     alert('일정을 추가했습니다.');
-    //   } else {
-    //     alert('날자형식이 올바르지 않습니다.');
-    //   }
-    //   selectedDate = null;
-    // });
-
-    var evtSource = [
-      {
-        title: '생일파티',
-        start: '2023-12-29T20:00:00',
-        groupId: 'my_plan',
-        description : '설명'
-      },
-      {
-        title: '저녁약속',
-        start: '2023-12-29T20:00:00',
-        groupId: 'my_plan'
-      },
-      {
-        title: '팀1',
-        start: '2023-12-30T13:00:00',
-        groupId: 'team_plan p1'
-      },
-      {
-        title: '팀2',
-        start: '2023-12-30T20:00:00',
-        groupId: 'team_plan'
-      },
-      {
-        title: '다른팀 스케쥴',
-        start: '2023-12-23',
-        groupId: 'all_plan'
-      }
-    ];
-    // const filterCheck = document.querySelectorAll('.plan .snb_lst ul label');
-    var addedSources = [];
 
     for (var i = 0; i < filterCheck.length; i++) {
       filterCheck[i].addEventListener('change', function (e) {

@@ -34,7 +34,7 @@
           <input type="radio" id="rfp_all" name="rfp_apply" checked>
           <label for="rfp_all" class="opened">전체</label>
           <input type="radio" id="rfp_myTask" name="rfp_apply">
-          <label for="rfp_myTask" class="closed">내 업무<em>30</em>건</label>
+          <label for="rfp_myTask" class="closed">내 작업<em>30</em>건</label>
           <input type="radio" id="rfp_change" name="rfp_apply">
           <label for="rfp_change" class="closed">변경요청<em>1</em>건</label>
           <input type="radio" id="rfp_done" name="rfp_apply">
@@ -301,7 +301,7 @@
         <dt>진행상태</dt>
         <!-- 준비,수행중,보류만 들어갑니다. 변경요청,완료요청 등의 요청은 표기 X -->
         <dd class="ico_proj"><i class="ing"></i>수행중</dd>
-        <dt>담당자</dt>
+        <dt>작업자</dt>
         <dd>
           <div class="user_module">
             <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
@@ -315,9 +315,11 @@
         <dt>인수인계</dt>
         <dd>해당사항 없음</dd>
         <dt>작업내용</dt>
-        <dd>· 기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 구현<br>
-          · 기관 홈페이지와 SSO 기능구현<br>
-          · 기록된 로그 데이터를 유형, 기간 대상자등 다양한 검색조건 추출/조회</dd>
+        <dd class="multi_line">
+          <div>· 기능 구현 시 사용자 UI/UX를 고려하여 정보 접근이 용이하도록 구현</div>
+          <div>· 기관 홈페이지와 SSO 기능구현</div>
+          <div>· 기록된 로그 데이터를 유형, 기간 대상자등 다양한 검색조건 추출/조회</div>
+        </dd>
       </dl>
     </article>
     <section class="change_history">
@@ -532,7 +534,7 @@
             <td>로그인 및 로그이력기능</td>
           </tr>         
           <tr>
-            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <th scope="row" class="required"><label for="work_name">작업명</label></th>
             <td><input type="text" id="work_name"></td>
           </tr>
           <tr>
@@ -556,7 +558,17 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required">담당자(수행기관)</th>
+            <th scope="row" class="required"><label for="work_state">진행상태</label></th>
+            <td>
+              <select name="work_state" id="work_state">
+                <option value="">수행중</option>
+                <option value="">완료</option>
+                <option value="">미정</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">작업자</th>
             <td>
               <span class="file_input">
                 <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
@@ -574,21 +586,7 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-                <button type="button" class="btn_ogt">조직도</button>
               </span>
-              <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li> 
-</ul>
             </td>
           </tr>
           <tr>

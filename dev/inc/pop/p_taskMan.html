@@ -20,7 +20,7 @@
             <td>로그인 및 로그이력기능</td>
           </tr>         
           <tr>
-            <th scope="row" class="required"><label for="work_name">업무명</label></th>
+            <th scope="row" class="required"><label for="work_name">작업명</label></th>
             <td><input type="text" id="work_name"></td>
           </tr>
           <tr>
@@ -44,14 +44,22 @@
             </td>
           </tr>
           <tr>
-            <th scope="row" class="required">담당자(수행기관)</th>
+            <th scope="row" class="required"><label for="work_state">진행상태</label></th>
+            <td>
+              <select name="work_state" id="work_state">
+                <option value="">수행중</option>
+                <option value="">완료</option>
+                <option value="">미정</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">작업자</th>
             <td>
               <span class="file_input">
                 <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
                 @@include('../data/data_emp_name.html')
-                <button type="button" class="btn_ogt">조직도</button>
               </span>
-              @@include('../module/module_slide_user.html')
             </td>
           </tr>
           <tr>
