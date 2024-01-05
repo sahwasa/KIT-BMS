@@ -1690,7 +1690,7 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
 //svc
 .snb .svc{
   .attendance_desc{text-align:left;padding:10px 15px;border-bottom:1px dashed #bec7d2;background-color:#fff;color:#696969;font-size:11px;
-    .time{display:block;font-size:36px;line-height:1;color:#555;text-align:center;padding:10px 0 20px;}
+    .time{display:block;font-size:36px;line-height:1;color:#555;text-align:center;}
     ul{display:flex;flex-direction:column;gap:5px;}
     li{flex:1;display:flex;justify-content:space-between;align-items:center;em{font-weight:700;}}  
   }
@@ -1707,6 +1707,53 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
     .fc-datagrid-cell-cushion{@extend .fc-timeline-slot-cushion;}
   }
 }
+.attendance_summary{margin-bottom:$columnGap;}
+.attendance_type{margin-bottom:5px;}
+.time_summary{display:flex;padding:10px 0;
+  li{flex:1;text-align:center;font-size:24px;color:$blue;font-weight:600;
+    &:nth-child(1),
+    &:nth-child(3){border-right:1px solid $gray;}
+    &:nth-child(4),
+    &:nth-child(5){color:$gray;}
+  }
+  em{display:block;font-size:12px;margin-bottom:5px;color:#555;}
+}
+.attendance_desc{display:flex;flex-direction:column;gap:15px;
+  details{position:relative;}
+  summary{display:flex;align-items:center;gap:5px;font-size:16px;border-bottom:1px solid $gray;padding:0 10px 5px;font-weight:600;cursor:pointer;
+    &::-webkit-details-marker,
+    &::marker{display:none;content:'';}
+    &::before{font-family:'fontello';content:'\f107';display:inline-block;width:10px;font-size:14px;color:#000;}
+    .summary{margin-left:auto;font-size:12px;color:$gray;align-self:flex-end;letter-spacing:-.03em;
+      span{font-weight:normal;font-size:11px;margin-left:3px;
+        em{font-weight:600;}
+      }
+    }
+  }
+  [open]>summary::before{content:'\f106';color:$red;margin-top:-2px;}
+  .desc{margin-top:10px;}
+  .tbl_attendance{width:100%;
+    th,td{text-align:center;}
+    th{font-size:12px;font-weight:600;border-bottom:1px solid #e1e1e1;padding-bottom:9px;
+      &:first-child{text-align:right;}
+    }
+    td{padding:10px 0;
+      &:first-child{width:60px;
+        .date{display:inline-block;width:25px;margin-right:5px;text-align:right;}
+      }
+    }
+    tr:first-child td:first-child,
+    .holiday td:first-child{color:$red;}
+    tr:nth-last-of-type(2) td:first-child{color:$blue;}
+    tr:nth-child(odd):not(.on):hover{@include on-hover;}
+    tr:nth-child(even){display:none;
+      td{padding:10px 10px 10px 25px;}
+    }
+    .on{border:1px solid $skyblue;border-bottom-width:0;
+      & + tr{display:table-row;border:1px solid $skyblue;border-top-width:0;}
+    }
+  }
+}
 .tbl_plan_preview{display:flex;width:100%;}
 $tbl_plan_bordercolor:#e0e0e0;
 $member_width:100px;
@@ -1716,7 +1763,6 @@ $member_width:100px;
 %member{display:inline-flex;width:$member_width;height:25px;line-height:18px;-webkit-box-align:center;align-items:center;border-bottom:1px solid $tbl_plan_bordercolor;
   &>div{display:inline-flex;width:100%;padding:0 8px 0 18px;-webkit-box-align:center;align-items:center;}
 }
-.day_lst,
 .member_lst{display:flex;width:$member_width;flex-direction:column;
   .label_row{@extend %member;height:24px;
     &:first-of-type{border-top:1px solid $tbl_plan_bordercolor;}
@@ -1725,27 +1771,21 @@ $member_width:100px;
   .day_row,
   .member_row{@extend %member;}
 }
-.day_lst{width:70px; 
-  %labelinit{width:100%;text-align:center;padding:0;justify-content:center;}
-  .label_row,
-  .label_row > .label{@extend %labelinit;}
-  .day_row{@extend %labelinit;
-    &:nth-of-type(2){color:$red;}
-    &:last-of-type{color:$blue;}
-  }
-}
+
 .day_body,
 .time_body{position:relative;width:100%;}
 .column_wrap{@extend %flex100;flex-direction:column;}
  .daylabel,
- .timelabel{@extend %inline_flex;height:24px;border:1px solid $tbl_plan_bordercolor;border-width:1px 0;-webkit-box-pack:justify;justify-content:space-between;
-  div{@extend %inline_flex;font-size:12px;line-height:22px;@extend %box_center;border-left:1px solid $tbl_plan_bordercolor;}
+ .timelabel{@extend %inline_flex;height:20px;border-bottom:1px solid $tbl_plan_bordercolor;-webkit-box-pack:justify;justify-content:space-between;
+  div{@extend %inline_flex;font-size:11px;line-height:20px;border-left:1px solid transparent;}
   .sat{color:$blue;background-color:rgba(215, 229, 255, .3);}
   .holyday{color:$red;background-color:rgba(255, 212, 212, 0.3);}
 }
-
-%plan_item{display:block;position:absolute;top:-1px;bottom:-1px;border:1px solid #e0e0e0;height:auto;line-height:initial;}
-%busy{background-color:rgba(87, 146, 255, 0.3);border-color:#5792FF;}//선택한 시간
+%plan_item{display:flex;align-items:center;justify-content:space-between;position:absolute;top:5px;height:20px;line-height:initial;font-size:12px;font-weight:600;
+  span{position:relative;display:inline-block;width:35px;height:100%;line-height:19px;background-color:#fff;color:#fff;}
+}
+// %busy{background-color:rgba(87, 146, 255, 0.3);border-color:#5792FF;color:#3a62ad;}//선택한 시간
+%busy{background-color:#5792FF;color:#fff;}//선택한 시간
 %absence{background-color:rgba(224, 224, 224, 0.45);border-color:#e0e0e0;}//부재
 %holiday{background-color:rgba(255, 0, 0, 0.1);border-color:rgb(255, 0, 0);}//일정있음
 %etc{background-color:rgba(87, 146, 255, 0.3);border-color:#5792FF;}
@@ -1753,10 +1793,17 @@ $member_width:100px;
 .timeline{position:relative;@extend %flex100;flex-direction:column;  
   .col_wrap{position:absolute;@extend %flex100;top:0;left:0;-webkit-box-pack:justify; justify-content:space-between;}
   .row_wrap{position:relative;@extend %flex100;border-bottom:1px solid $tbl_plan_bordercolor;z-index:1;
-      div{display:inline-block;width:100%;text-align:center;height:24px;line-height:18px;border-left:1px solid $tbl_plan_bordercolor;}
-      .absence{@extend %plan_item;@extend %absence;}
-      .busy{@extend %plan_item;@extend %busy;z-index:2;}
+    div{display:inline-block;width:100%;text-align:center;height:30px;line-height:18px;border-left:1px solid $tbl_plan_bordercolor;
+      &:last-of-type{border-right:1px solid $tbl_plan_bordercolor;;}
     }
+    .absence{@extend %plan_item;@extend %absence;}
+    .busy{@extend %plan_item;@extend %busy;width:calc((100% / 24) * var(--workTime) - 2px);left:calc(100% / 24 * var(--workStart) + 1px);z-index:2;
+      span::before{display:inline-block;width:100%;height:100%;position:absolute;top:0;@extend %busy;content:attr(data-text);color:#fff;font-size:12px;}
+    }
+    & > div:nth-of-type(13){@extend %absence;}
+    .work_on::before{left:0;border-radius:10px 0 0 10px;padding-left:10px;}
+    .work_off::before{right:0;border-radius:0 10px 10px 0;padding-right:10px;}
+  }
   .day_wrap,
   .hour_wrap{position:relative;@extend %inline_flex;@extend %box_center;
     div{position:absolute;width:1px;left:50%;top:0;bottom:0;border-left:1px dashed $tbl_plan_bordercolor;}
@@ -1766,18 +1813,15 @@ $member_width:100px;
   @mixin opt($i){width:calc((100% / 24) * $i);}
   &::before{left:0;}
   &::after{right:0;}
-  &.typeA{&::before{@include opt(8)}&::after{@include opt(6)}}
-  &.typeB{&::before{@include opt(9)}&::after{@include opt(5)}}
-  &.typeC{&::before{@include opt(10)}&::after{@include opt(4)}}
+  &.typeA{&::before{@include opt(8)}&::after{@include opt(7)}}
+  &.typeB{&::before{@include opt(9)}&::after{@include opt(6)}}
+  &.typeC{&::before{@include opt(10)}&::after{@include opt(5)}}
 }
 .hover{left:84.6154%;border:1px dashed rgb(18, 93, 230);}
 .mark_wrap{position:absolute;display:flex;top:24px;left:0px;width:100%;height:calc(100% - 24px);flex-direction:column; 
   .marks{position:relative;@extend %flex100;border-bottom:0 solid $tbl_plan_bordercolor;z-index:1;
     &>div{position:absolute;width:calc(15.3846% + 1px);top:-1px;bottom:0px;z-index:2;border-width:1px;border-style:solid;}
     .select{@extend %holiday;}//선택
-    .typeA{@extend %absence;width:calc((100% / 24) * 9 + 1px);left:calc(100% / 24 * 0);}//선택
-    .typeB{@extend %absence;}//선택
-    .typeC{@extend %absence;}//선택
   }
 }
 $_planTypes:(
