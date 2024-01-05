@@ -715,6 +715,5 @@ const scrollToTop = () => {
 const initScrollToTop = () => {
   const scrollBtn = createScrollButton()
   scrollBtn.addEventListener('click', scrollToTop)
-  if(contents!=null)
-	contents.addEventListener('scroll', toggleScrollButton)
+  contents.addEventListener('scroll', toggleScrollButton)
 }
