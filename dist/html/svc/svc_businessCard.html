@@ -76,8 +76,8 @@
       <h2><a href="svc.html">사내 서비스</a></h2>
     </header>
     <div class="attendance_desc">
-      <span class="date">2024-01-03(수)</span>
-      <strong class="time">11:15:38</strong>
+      <span id="today">2024-01-03(수)</span>
+      <strong id="time" class="time">11:15:38</strong>
       <ul>
         <li><em>출근시간</em>09:38:30</li>
         <li><em>퇴근시간</em>미등록</li>
@@ -122,6 +122,32 @@
     </ul>
   </div>
 </section>
+<script>
+  function displayCurrentTime() {
+      var currentTime = new Date();
+      var year = currentTime.getFullYear();
+      var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+      var day = currentTime.getDate().toString().padStart(2, '0');
+      var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+      var dayOfWeek = daysOfWeek[currentTime.getDay()];
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      hours = (hours < 10) ? "0" + hours : hours;
+      hours = (hours < 10) ? "0" + hours : hours;
+      hours = (hours < 10) ? "0" + hours : hours;
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      var dateString = `${year}-${month}-${day}(${dayOfWeek})`;
+      var timeString = `${hours}:${minutes}:${seconds}`;
+
+      document.querySelector('#today').innerHTML = dateString;
+      document.querySelector('#time').innerHTML = timeString;
+  }
+  displayCurrentTime();
+  setInterval(displayCurrentTime, 1000);
+</script>
     <section class="contents">
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
@@ -140,18 +166,14 @@
           <section class="box_compact">
             <ul class="search_list">
               <li>
-                <select name="" id="" title="그룹">
-                  <option value="">그룹</option>
-                  <option value="G">공공기관 및 협회</option>
-                  <option value="C">법인 및 개인</option>
-                  <option value="H">웹호스팅</option>
-                  <option value="B">BOSS</option>
-                  <option value="K">사내업무</option>
-                  <option value="E">기타</option>
-              </select>
+                <input type="text" name="" id="" title="검색어" placeholder="이름,소속">
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="이름,소속" list="">
+                <select name="" id="" title="공개여부">
+                  <option value="">공개여부</option>
+                  <option value="">공개</option>
+                  <option value="">비공개</option>
+                </select>
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
@@ -161,7 +183,7 @@
             <div class="btn_wrap">
               <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">추가</button>
               <button type="button" class="btn_red_line" onclick="">삭제</button>           
-              <button type="button" class="btn_red_line" onclick="">그룹편집</button>           
+              <button type="button" class="btn_red_line" onclick="">그룹이동</button>           
             </div>
           </section>
           <div class="tbl_top_area">
@@ -182,68 +204,113 @@
               </select>
             </div>
           </div>
-          <section class="tbl_wrap">
-            <table class="tbl_default tbl_hover row_check">
-              <caption>사업자 리스트</caption>            
-              <thead>
-                <tr>
-                  <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check hasLayer"></th>
-                  <th scope="col">그룹</th>
-                  <th scope="col">이름</th>
-                  <th scope="col">소속</th>
-                  <th scope="col">연락처</th>
-                  <th scope="col">이메일</th>
-                  <th scope="col">등록자</th>
-                  <th scope="col">공개여부</th>
-                  <th scope="col">관리</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
-                  <td>조기경보사업</td>
-                  <td>박조기</td>
-                  <td>기상청</td>
-                  <td>010-1234-5678</td>
-                  <td>abc@kma.go.kr</td>
-                  <td>홍길동</td>
-                  <td><i class="tbl_badge public">공개</i></td>
-                  <td onclick="event.stopPropagation();">
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                      <div class="btn_layer">
-                        <button type="button">그룹이동</button>
-                        <button type="button">개인명함 추가</button>
-                        <button type="button">수정</button>
-                        <button type="button">삭제</button>
-                      </div>
+          <article class="business_card">
+            <section class="group_lst">
+              <header class="blind">
+                <h1>명함그룹</h1>
+              </header>
+              <div class="tree_wrap">
+                <ul class="sortable tree">
+                  <li>
+                    <span>그룹 접기/열기</span>
+                    <div>
+                      <span>전체</span>
+                      <span>(63)</span>
                     </div>
-                  </td>
-                </tr>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
-                  <td>미분류</td>
-                  <td>김경보</td>
-                  <td>기상청</td>
-                  <td>010-1234-5678</td>
-                  <td>abc@kma.go.kr</td>
-                  <td>홍길동</td>
-                  <td><i class="tbl_badge private">비공개</i></td>
-                  <td onclick="event.stopPropagation();">
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                      <div class="btn_layer">
-                        <button type="button">그룹이동</button>
-                        <button type="button">개인명함 추가</button>
-                        <button type="button">수정</button>
-                        <button type="button">삭제</button>
+                    <ul class="sortable">
+                      <li>
+                        <span>그룹 접기/열기</span>
+                        <div>
+                          <span>조기경보사업</span>
+                          <span>(3)</span>
+                        </div>
+                      </li>
+                      <li>
+                        <span>그룹 접기/열기</span>
+                        <div>
+                          <span>행안부 통합문자</span>
+                          <span>(3)</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="etc_ogt">
+                  <span>미분류 그룹</span>
+                  <span>(90)</span>
+                </div>
+              </div>
+              <div class="section_bot">
+                <span class="btn_wrap">
+                  <button type="button" class="btn_red addOgt">추가</button>
+                  <button type="button" class="btn_red doneAddOgt">완료</button>
+                  <button type="button" class="btn_red_line editOgt">수정</button>
+                  <button type="button" class="btn_red_line delOgt">삭제</button>
+                </span>
+              </div>
+            </section>
+            <section class="tbl_wrap">
+              <table class="tbl_default tbl_hover row_check">
+                <caption>사업자 리스트</caption>            
+                <thead>
+                  <tr>
+                    <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check hasLayer"></th>
+                    <th scope="col">그룹</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">소속</th>
+                    <th scope="col">연락처</th>
+                    <th scope="col">이메일</th>
+                    <th scope="col">등록자</th>
+                    <th scope="col">공개여부</th>
+                    <th scope="col">관리</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr tabindex="0">
+                    <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
+                    <td>조기경보사업</td>
+                    <td>박조기</td>
+                    <td>기상청</td>
+                    <td>010-1234-5678</td>
+                    <td>abc@kma.go.kr</td>
+                    <td>홍길동</td>
+                    <td><i class="tbl_badge public">공개</i></td>
+                    <td onclick="event.stopPropagation();">
+                      <div class="layer_tool">
+                        <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                        <div class="btn_layer">
+                          <button type="button">그룹이동</button>
+                          <button type="button">개인명함 추가</button>
+                          <button type="button">수정</button>
+                          <button type="button">삭제</button>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="paginate tui-pagination" id="pagination">
+                    </td>
+                  </tr>
+                  <tr tabindex="0">
+                    <td><input type="checkbox" name="" id="" class="row_check" title="줄 선택"></td>
+                    <td>미분류</td>
+                    <td>김경보</td>
+                    <td>기상청</td>
+                    <td>010-1234-5678</td>
+                    <td>abc@kma.go.kr</td>
+                    <td>홍길동</td>
+                    <td><i class="tbl_badge private">비공개</i></td>
+                    <td onclick="event.stopPropagation();">
+                      <div class="layer_tool">
+                        <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                        <div class="btn_layer">
+                          <button type="button">그룹이동</button>
+                          <button type="button">개인명함 추가</button>
+                          <button type="button">수정</button>
+                          <button type="button">삭제</button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="paginate tui-pagination" id="pagination">
   <span class="tui-page-btn tui-is-disabled tui-first">
     <span class="tui-ico-first">first</span>
   </span>
@@ -259,7 +326,8 @@
     <span class="tui-ico-last">last</span>
   </a>
 </div>
-          </section>
+            </section>
+          </article>
         </article>
       </div>
     </section>

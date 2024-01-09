@@ -4,8 +4,8 @@
       <h2><a href="svc.html">사내 서비스</a></h2>
     </header>
     <div class="attendance_desc">
-      <span class="date">2024-01-03(수)</span>
-      <strong class="time">11:15:38</strong>
+      <span id="today">2024-01-03(수)</span>
+      <strong id="time" class="time">11:15:38</strong>
       <ul>
         <li><em>출근시간</em>09:38:30</li>
         <li><em>퇴근시간</em>미등록</li>
@@ -50,3 +50,29 @@
     </ul>
   </div>
 </section>
+<script>
+  function displayCurrentTime() {
+      var currentTime = new Date();
+      var year = currentTime.getFullYear();
+      var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+      var day = currentTime.getDate().toString().padStart(2, '0');
+      var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+      var dayOfWeek = daysOfWeek[currentTime.getDay()];
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      hours = (hours < 10) ? "0" + hours : hours;
+      hours = (hours < 10) ? "0" + hours : hours;
+      hours = (hours < 10) ? "0" + hours : hours;
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      var dateString = `${year}-${month}-${day}(${dayOfWeek})`;
+      var timeString = `${hours}:${minutes}:${seconds}`;
+
+      document.querySelector('#today').innerHTML = dateString;
+      document.querySelector('#time').innerHTML = timeString;
+  }
+  displayCurrentTime();
+  setInterval(displayCurrentTime, 1000);
+</script>

@@ -528,6 +528,9 @@ legend{@include tit{font-weight:bold;};}
     }
   }
   .handle_prev::before{content:'\f104';}
+  .handle_today{color:#777;font-size:12px;margin-right:-33px;
+    &:hover{color:#000;}
+  }
 span{font-size:18px;font-weight:bold;}
 }
 
