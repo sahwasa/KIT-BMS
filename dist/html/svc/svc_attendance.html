@@ -704,82 +704,88 @@
       <strong>근무시간 변경신청</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </div>   
-    <div class="p_body">
+    <div class="p_body">      
+      <article>
+        <header class="blind">
+          <h1>변경신청</h1>
+        </header>
+        <table class="tbl_default tbl_row">
+          <caption>변경신청 내역</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="work_range">근무시간</label></th>
+              <td>
+              <select id="nameSelect">
+                <option value="근무시간을 선택하세요">근무시간 타입선택</option>
+                <option value="">A타입 (08:00~17:00)</option>
+                <option value="">B타입 (09:00~18:00)</option>
+                <option value="">C타입 (10:00~19:00)</option>
+              </select>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="work_start">기간</label></th>
+              <td>
+                <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+                <label for=""><input type="checkbox" id="">무기한</label>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">사유</label></th>
+              <td><input type="text" id="" placeholder="사유" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="btn_wrap">
+          <button class="btn_red" type="submit">신청</button>
+          <button class="btn_red_line" type="button">수정</button>
+          <button class="btn_gray_line" type="button">닫기</button>
+        </div>
+      </article>
       <article>
         <header class="p_body_tit">
           <h1>변경이력</h1>
         </header>
         <table class="tbl_default tbl_row">
-          <caption>내 업무 추가 테이블</caption>
-          <colgroup>
-            <col style="width:120px">
-            <col style="width:auto">
-            <col style="width:120px">
-            <col style="width:auto">
-          </colgroup>
+          <caption>변경이력</caption>
           <tbody>
             <tr>
-              <th scope="row" class="required"><label for="">분류</label></th>
-              <td><select name="" id=""><option value="">선택</option></select></td>
-              <th scope="row" class="required"><label for="">사업자명</label></th>
-              <td><input type="text" id="" placeholder="사업자명" /></td>
+              <th scope="row" class="required"><label for="work_range">근무시간</label></th>
+              <td>
+              <select id="nameSelect">
+                <option value="근무시간을 선택하세요">근무시간 선택</option>
+                <option value="">A타입(08:00~17:00)</option>
+                <option value="">B타입(09:00~18:00)</option>
+                <option value="">C타입(10:00~19:00)</option>
+              </select>
             </tr>
             <tr>
-              <th scope="row" class="required"><label for="">사업자번호</label></th>
-              <td><input type="text" id="" placeholder="사업자번호" /></td>
-              <th scope="row"><label for="">대표자명</label></th>
-              <td><input type="text" id="" placeholder="대표자명" /></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">업태</label></th>
-              <td><input type="text" id="" placeholder="업태" /></td>
-              <th scope="row"><label for="">종목</label></th>
-              <td><input type="text" id="" placeholder="종목" /></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">홈페이지</label></th>
-              <td><input type="text" id="" placeholder="홈페이지" /></td>
-              <th scope="row"><label for="">이메일</label></th>
-              <td><input type="text" id="" placeholder="이메일" /></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">연락처</label></th>
-              <td><input type="text" id="" placeholder="연락처" /></td>
-              <th scope="row"><label for="">팩스</label></th>
-              <td><input type="text" id="" placeholder="팩스" /></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">주소</label></th>
-              <td colspan="3">
-                <div class="addr">
-                  <span class="tool_wrap">
-                    <input type="text" id="address" title="우편번호" disabled="">
-                    <button type="button" class="btn_ogt">우편번호</button>
-                  </span>
-                  <input type="text" name="address2" title="주소">
-                  <input type="text" name="address3" title="상세주소">
-                </div>
+              <th scope="row" class="required"><label for="work_start">기간</label></th>
+              <td>
+                <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+                <label for=""><input type="checkbox" id="">무기한</label>
               </td>
             </tr>
             <tr>
-              <th scope="row">공개여부</th>
-              <td colspan="3">
-                <div class="btn_switch">
-                  <input type="radio" id="open1" name="closure" checked>
-                  <label for="open1">공개</label>
-                  <input type="radio" id="private2" name="closure">
-                  <label for="private2">비공개</label>
-                </div>
-              </td>
+              <th scope="row" class="required"><label for="">사유</label></th>
+              <td><input type="text" id="" placeholder="사유" /></td>
             </tr>
           </tbody>
         </table>
       </article>
-      <div class="btn_wrap">
-        <button class="btn_red" type="submit">저장</button>
-        <button class="btn_red_line" type="button">수정</button>
-        <button class="btn_gray_line" type="button">닫기</button>
-      </div>
     </div>
   </form>
 </dialog>
