@@ -612,7 +612,8 @@ function setImageEditor() {
     imageEditorWrap.style.display = 'none'
   })
 
-  var editableDiv = document.querySelector('.ck-editor__editable')
+  var editableDiv = $('.ck-editor__editable:not(.ck-read-only)')[0]
+  //var editableDiv = document.querySelector('.ck-editor__editable')
   editableDiv.addEventListener('paste', function (event) {
     var items = (event.clipboardData || event.originalEvent.clipboardData).items
     for (var index in items) {
@@ -720,13 +721,11 @@ const initScrollToTop = () => {
     contents.addEventListener('scroll', toggleScrollButton)
 }
 
+
 //뷰어로만 사용하는 editor(window.editor 충돌나서 window.viewer로 할당)
 function setViewer(id = 'editor') {
   ClassicEditor.create(document.querySelector('#'+id), {
     licenseKey: '',
-    image: {
-      toolbar: ['toggleImageCaption', 'imageTextAlternative'],
-    },
     list: {
       properties: {
         styles: true,
@@ -762,8 +761,8 @@ function setViewer(id = 'editor') {
       ],
     },
   })
-      .then(editor => {
-        window.viewer = editor;
+      .then(viewer => {
+        window.viewer = viewer;
       })
       .catch(error => {
         console.error('Oops, something went wrong!')
