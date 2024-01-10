@@ -710,7 +710,7 @@
           <h1>변경신청</h1>
         </header>
         <table class="tbl_default tbl_row">
-          <caption>변경신청 내역</caption>
+          <caption>변경신청 내용</caption>
           <tbody>
             <tr>
               <th scope="row" class="required"><label for="work_range">근무시간</label></th>
@@ -750,41 +750,45 @@
       </article>
       <article>
         <header class="p_body_tit">
-          <h1>변경이력</h1>
+          <h1>변경이력 (최근 3개월)</h1>
         </header>
-        <table class="tbl_default tbl_row">
-          <caption>변경이력</caption>
-          <tbody>
-            <tr>
-              <th scope="row" class="required"><label for="work_range">근무시간</label></th>
-              <td>
-              <select id="nameSelect">
-                <option value="근무시간을 선택하세요">근무시간 선택</option>
-                <option value="">A타입(08:00~17:00)</option>
-                <option value="">B타입(09:00~18:00)</option>
-                <option value="">C타입(10:00~19:00)</option>
-              </select>
-            </tr>
-            <tr>
-              <th scope="row" class="required"><label for="work_start">기간</label></th>
-              <td>
-                <div class="period_custom">
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
-  </span>
-  <span>
-    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
-  </span>
-</div>
-                <label for=""><input type="checkbox" id="">무기한</label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" class="required"><label for="">사유</label></th>
-              <td><input type="text" id="" placeholder="사유" /></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>변경이력</caption>
+            <thead>
+              <tr>
+                <th scope="col">신청일자</th>
+                <th scope="col">근무시간</th>
+                <th scope="col">변경기간</th>
+                <th scope="col">사유</th>
+                <th scope="col">승인여부</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>24-12-31</td>
+                <td>B타입</td>
+                <td>24-01-08~</td>
+                <td>일어나기 힘들어요.</td>
+                <td>대기</td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>C타입</td>
+                <td>24-01-05~24-01-05</td>
+                <td>집에 일이 있습니다.</td>
+                <td>승인 : 23-01-04</td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>C타입</td>
+                <td>24-01-05~24-01-05</td>
+                <td>늦잠자고싶어요 </td>
+                <td>반려 : 23-01-04<p>(새나라의 어린이가 되세요.)</p></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </article>
     </div>
   </form>

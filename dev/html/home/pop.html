@@ -67,11 +67,12 @@
       <div class="box_default_w">
         <h1>사내 서비스</h1>
         <ul class="search_list">
-          <li><button type="button" class="btn_default" data-modal="p_cardTree">명함그룹 팝업</button></li>
-          <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
+          <li><button type="button" class="btn_default" data-modal="p_change_flexTime">근무시간 변경신청</button></li>
           <li><button type="button" class="btn_default" data-modal="p_pr_book">도서 구매신청</button></li>         
+          <li><button type="button" class="btn_default" data-modal="p_add_visitor">내방객 사전등록</button></li>         
+          <li><button type="button" class="btn_default" data-modal="p_add_business">증명서 발급신청</button></li>         
           <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
-          <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
+          <!-- <li><button type="button" class="btn_default" data-modal="p_cardTree">명함그룹 팝업</button></li> -->
         </ul>
       </div>
     </div>
@@ -103,6 +104,8 @@
 @@include('../../inc/pop/p_addBusiness.html')
 @@include('../../inc/pop/p_pr_book.html')
 @@include('../../inc/pop/p_businessCardTree.html')
+@@include('../../inc/pop/p_addVisitor.html')
+@@include('../../inc/pop/p_change_flexTime.html')
 
 <script>
   $(function () {

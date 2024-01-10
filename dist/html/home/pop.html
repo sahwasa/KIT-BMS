@@ -134,11 +134,12 @@
       <div class="box_default_w">
         <h1>사내 서비스</h1>
         <ul class="search_list">
-          <li><button type="button" class="btn_default" data-modal="p_cardTree">명함그룹 팝업</button></li>
-          <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
+          <li><button type="button" class="btn_default" data-modal="p_change_flexTime">근무시간 변경신청</button></li>
           <li><button type="button" class="btn_default" data-modal="p_pr_book">도서 구매신청</button></li>         
+          <li><button type="button" class="btn_default" data-modal="p_add_visitor">내방객 사전등록</button></li>         
+          <li><button type="button" class="btn_default" data-modal="p_add_business">증명서 발급신청</button></li>         
           <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
-          <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
+          <!-- <li><button type="button" class="btn_default" data-modal="p_cardTree">명함그룹 팝업</button></li> -->
         </ul>
       </div>
     </div>
@@ -2825,6 +2826,146 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
         <button class="btn_red" type="button">적용</button>
         <button class="btn_gray_line" type="button">취소</button>
       </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_add_visitor" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>내방객 사전등록</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <article>
+        <header class="blind">
+          <h1>내방객 사전등록 정보</h1>
+        </header>
+        <table class="tbl_default tbl_row">
+          <caption>내방객 사전등록 정보</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="">내방객</label></th>
+              <td><input type="text" id="" placeholder="내방객 성명, 소속" /></td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">방문일시</label></th>
+              <td><input type="datetime-local" id="stime" title="시각 선택"></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">목적</label></th>
+              <td><input type="text" id="" placeholder="목적" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">안내장소</label></th>
+              <td><input type="text" id="" placeholder="안내장소(ex.회의실A)" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">차량번호</label></th>
+              <td><input type="text" id="" placeholder="차량번호" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_change_flexTime" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>근무시간 변경신청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">      
+      <article>
+        <header class="blind">
+          <h1>변경신청</h1>
+        </header>
+        <table class="tbl_default tbl_row">
+          <caption>변경신청 내용</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="work_range">근무시간</label></th>
+              <td>
+              <select id="nameSelect">
+                <option value="근무시간을 선택하세요">근무시간 타입선택</option>
+                <option value="">A타입 (08:00~17:00)</option>
+                <option value="">B타입 (09:00~18:00)</option>
+                <option value="">C타입 (10:00~19:00)</option>
+              </select>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="work_start">기간</label></th>
+              <td>
+                <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+                <label for=""><input type="checkbox" id="">무기한</label>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">사유</label></th>
+              <td><input type="text" id="" placeholder="사유" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="btn_wrap">
+          <button class="btn_red" type="submit">신청</button>
+          <button class="btn_red_line" type="button">수정</button>
+          <button class="btn_gray_line" type="button">닫기</button>
+        </div>
+      </article>
+      <article>
+        <header class="p_body_tit">
+          <h1>변경이력 (최근 3개월)</h1>
+        </header>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>변경이력</caption>
+            <thead>
+              <tr>
+                <th scope="col">신청일자</th>
+                <th scope="col">근무시간</th>
+                <th scope="col">변경기간</th>
+                <th scope="col">사유</th>
+                <th scope="col">승인여부</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>24-12-31</td>
+                <td>B타입</td>
+                <td>24-01-08~</td>
+                <td>일어나기 힘들어요.</td>
+                <td>대기</td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>C타입</td>
+                <td>24-01-05~24-01-05</td>
+                <td>집에 일이 있습니다.</td>
+                <td>승인 : 23-01-04</td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>C타입</td>
+                <td>24-01-05~24-01-05</td>
+                <td>늦잠자고싶어요 </td>
+                <td>반려 : 23-01-04<p>(새나라의 어린이가 되세요.)</p></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
     </div>
   </form>
 </dialog>

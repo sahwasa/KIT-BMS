@@ -612,7 +612,8 @@ function setImageEditor() {
     imageEditorWrap.style.display = 'none'
   })
 
-  var editableDiv = document.querySelector('.ck-editor__editable')
+  var editableDiv = $('.ck-editor__editable:not(.ck-read-only)')[0]
+  //var editableDiv = document.querySelector('.ck-editor__editable')
   editableDiv.addEventListener('paste', function (event) {
     var items = (event.clipboardData || event.originalEvent.clipboardData).items
     for (var index in items) {
@@ -691,6 +692,7 @@ function initializeTagManager(divId, selectId, initialNames) {
     addTag(select.value, this.options[this.selectedIndex].text, divId)
     select.value = '' // 선택 초기화
   })
+  select.value = ''
 }
 
 // top scroll
@@ -716,5 +718,55 @@ const initScrollToTop = () => {
   const scrollBtn = createScrollButton()
   scrollBtn.addEventListener('click', scrollToTop)
   if(contents!=null)
-	contents.addEventListener('scroll', toggleScrollButton)
+    contents.addEventListener('scroll', toggleScrollButton)
+}
+
+
+//뷰어로만 사용하는 editor(window.editor 충돌나서 window.viewer로 할당)
+function setViewer(id = 'editor') {
+  ClassicEditor.create(document.querySelector('#'+id), {
+    licenseKey: '',
+    list: {
+      properties: {
+        styles: true,
+        startIndex: true,
+        reversed: true,
+      },
+    },
+    fontFamily: {
+      options: ['나눔고딕', '맑은고딕', '굴림', '돋움', '바탕', '궁서'],
+    },
+    fontSize: {
+      options: [13, 15, 17, 19, 21],
+    },
+    table: {
+      tableProperties: {
+        defaultProperties: {
+          alignment: 'left',
+          resizable: false,
+        },
+      },
+    },
+    htmlSupport: {
+      allow: [
+        {
+          name: /.*/,
+          attributes: true,
+          classes: true,
+          styles: true,
+        },
+      ],
+      disallow: [
+        /* HTML features to disallow */
+      ],
+    },
+  })
+      .then(viewer => {
+        window.viewer = viewer;
+      })
+      .catch(error => {
+        console.error('Oops, something went wrong!')
+        console.warn('Build id: qwsqnzvk7hw9-unxl3nmu7n15')
+        console.error(error)
+      })
 }
