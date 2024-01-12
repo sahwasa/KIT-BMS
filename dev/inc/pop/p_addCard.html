@@ -1,0 +1,60 @@
+<dialog class="p_add_card" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>명함추가 or 수정</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <article>
+        <header class="blind">
+          <h1>명함 등록 정보</h1>
+        </header>
+        <table class="tbl_default tbl_row">
+          <caption>명함 사전등록 정보</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="">이름</label></th>
+              <td><input type="text" id="" placeholder="이름" /></td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">소속</label></th>
+              <td><input type="text" id="" placeholder="소속" /></td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">연락처</label></th>
+              <td><input type="text" id="" placeholder="연락처" /></td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">이메일</label></th>
+              <td><input type="text" id="" placeholder="이메일" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">그룹</label></th>
+              <td>
+                <select id="">
+                  <option value="">미분류</option>
+                </select> 
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">공개여부</th>
+              <td colspan="3">
+                <div class="btn_switch">
+                  <input type="radio" id="open1" name="closure" checked>
+                  <label for="open1">공개</label>
+                  <input type="radio" id="private2" name="closure">
+                  <label for="private2">비공개</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>

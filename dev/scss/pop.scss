@@ -315,6 +315,8 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 .vote_wrap{display:flex;flex-direction:column;gap:5px;margin-top:5px;
   li{display:flex;gap:5px;align-items:center;}
 }
+.p_applyCertificate,
+.p_add_card,
 .p_add_visitor{width:500px;}
 .p_change_flexTime{width:800px;
   .tbl_wrap{height:317px;min-height:auto;

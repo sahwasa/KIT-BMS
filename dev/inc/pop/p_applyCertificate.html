@@ -1,0 +1,61 @@
+<dialog class="p_applyCertificate" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>증명서 발급신청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <article>
+        <table class="tbl_default tbl_row">
+          <caption>내 업무 추가 테이블</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="">분류</label></th>
+              <td>
+                <select name="" id=""><option value="">선택</option></select>
+              </td>            
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">제출처</label></th>
+              <td><input type="text" id="" placeholder="제출처" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">발급용도</label></th>
+              <td><input type="text" id="" placeholder="발급용도" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">사유</label></th>
+              <td><input type="text" id="" placeholder="사유" /></td>
+            </tr>
+            <tr>
+              <th scope="row">직인여부</th>
+              <td>
+                <div class="btn_switch">
+                  <input type="radio" id="necessary" name="seal" checked>
+                  <label for="necessary">필요</label>
+                  <input type="radio" id="unnecessary" name="seal">
+                  <label for="unnecessary">불필요</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">수령방법</th>
+              <td>
+                <div class="btn_switch">
+                  <input type="radio" id="online" name="receiveType" checked>
+                  <label for="online">온라인</label>
+                  <input type="radio" id="offline" name="receiveType">
+                  <label for="offline">오프라인</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">신청</button>
+        <button class="btn_red_line" type="button">신청취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>

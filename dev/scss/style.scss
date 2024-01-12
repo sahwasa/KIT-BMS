@@ -1217,7 +1217,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
           th:nth-child(#{$i}),
           td:nth-child(#{$i}){width:8%;color:$color;font-weight:bold;text-align:center;white-space:nowrap;}
         }
-        .user_module{display:inline-flex;vertical-align:middle;margin-right:4px;}
+        .user_module{display:inline-flex;vertical-align:middle;margin-right:4px;
+          b{align-self:center;}
+        }
         .user_photo{width:24px;height:24px;}      
       }
       details{border-bottom:1px solid #ebebeb;
@@ -1259,8 +1261,8 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &:not(:has(li))::after{display:flex;align-items:center;justify-content:center;height:100%;content:"등록된 요구사항이 없습니다.";background-color:#bfc8d2;font-size:14px;font-weight:700;color:#555;}
       a{display:flex;gap:8px;word-break:keep-all;}
       summary{@include flex_between;min-height:42px;gap:10px;padding:0 10px;border-bottom:1px solid #ebebeb;
-        a{max-width:calc(100% -  21px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-          h4{font-size:14px;font-weight:bold;color:#000;letter-spacing:-0.35px;}
+        a{max-width:calc(100% -  21px);
+          h4{font-size:14px;font-weight:bold;color:#000;letter-spacing:-0.35px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
           span{flex-shrink:0;color:#898989;letter-spacing:-1.05px;font-size:14px;}
           &:hover h4{text-decoration:underline;}
         }
@@ -1289,7 +1291,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         }
       }
     }
-    .badge{@include badge_style(null, 50px);line-height:16px;margin-right:5px;
+    .badge{@include badge_style(null, 50px);flex-shrink:0;line-height:16px;margin-right:5px;
       @each $type, $color in $_projStep{
         &.#{$type}{border-color:darken($color,5);background-color:$color;color:darken($color,50);font-weight:bold;}
       }
@@ -1753,20 +1755,22 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
       &:nth-child(3),
       &:nth-child(4){&:empty::before{content:"-";}}
     }
-    tr{
-      &:first-child td:first-child,
-      &.holiday td:first-child{color:$red;}
-      &:nth-last-of-type(2) td:first-child{color:$blue;}
-      &:nth-child(odd):not(.on):hover{@include on-hover;}
-      &:has([colspan]){display:none;
-        td{padding:10px 10px 10px 20px;}
+    tbody{
+      tr{
+        &:first-child td:first-child,
+        &.holiday td:first-child{color:$red;}
+        &:nth-last-of-type(2) td:first-child{color:$blue;}
+        &:nth-child(odd):not(.on):hover{@include on-hover;}
+        &:has([colspan]){display:none;
+          td{padding:10px 10px 10px 20px;}
+        }
+        &.today .date{background-color:$skyblue;color:#fff;border-radius:50%;text-align:center;}
       }
-      &.today .date{background-color:$skyblue;color:#fff;border-radius:50%;text-align:center;}
-    }
-    .on{border:1px solid $skyblue;border-bottom-width:0;
-      td:first-child{font-weight:600;color:#000;}
-      & + tr{display:table-row;border:1px solid $skyblue;border-top-width:0;box-shadow:2px 5px 4px rgba(0, 0, 0, .05);}
-    }
+      .on{border:1px solid $skyblue;border-bottom-width:0;
+        td:first-child{font-weight:600;color:#000;}
+        & + tr{display:table-row;border:1px solid $skyblue;border-top-width:0;box-shadow:2px 5px 4px rgba(0, 0, 0, .05);}
+      }
+    } 
   }
 }
 .tbl_plan_preview{display:flex;width:100%;}

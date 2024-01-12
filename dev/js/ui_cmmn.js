@@ -435,10 +435,7 @@ function commonInit() {
 // editor
 function setEditor(id = 'editor') {
   ClassicEditor.create(document.querySelector('#'+id), {
-    licenseKey: '',
-    image: {
-      toolbar: ['toggleImageCaption', 'imageTextAlternative'],
-    },
+    licenseKey: '',  
     list: {
       properties: {
         styles: true,
@@ -456,7 +453,7 @@ function setEditor(id = 'editor') {
       tableProperties: {
         defaultProperties: {
           alignment: 'left',
-          resizable: false,
+          // resizable: false,
         },
       },
     },
@@ -592,17 +589,18 @@ function setImageEditor() {
   confirmButton.addEventListener('click', function () {
     if (imageEditor) {
       const editedImage = imageEditor.toDataURL().split(',')[1] // 수정된 이미지의 Data URL 가져오기
-      const markdownImage = `![이미지](data:image/png;base64,${editedImage})`
+      // const markdownImage = `![이미지](data:image/png;base64,${editedImage})`
+      const markdownImage = `<img src="data:image/png;base64,${editedImage}" />`
       const cancelButton = document.getElementById('cancelButton')
       cancelButton.addEventListener('click', function () {
         imageEditorWrap.style.display = 'none'
       })
 
       // CKEditor의 내용에 Markdown 이미지 추가
-      const editorData = editor.getData().split('\n')
+      const editorData = editor.getData().split('</p>')
       const row_num = editor.model.document.selection.getFirstPosition().path[0]
       editorData[row_num] = editorData[row_num] + markdownImage
-      editor.setData(editorData.join('\n'))
+      editor.setData(editorData.join('</p>'))
       // 이미지 에디터 팝업 닫기
       imageEditorWrap.style.display = 'none'
     }

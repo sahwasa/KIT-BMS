@@ -7,11 +7,11 @@
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>증명서 발급<span>임직원 업무</span></h1>
+        <h1>증명서 발급<span>사내 서비스</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">임직원 업무</a></li>
+            <li><a href="#">사내 서비스</a></li>
             <li>증명서 발급</li>
           </ul>
         </section>
@@ -38,7 +38,7 @@
               </li>
             </ul>
             <div class="flex_right">
-              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">증명서 발급신청</button>
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_applyCertificate').showModal();">증명서 발급신청</button>
               <button type="button" class="btn_red_line" onclick="">취소</button>
               <span class="divide">
                 @@include('../../inc/module/opt_lineNum.html')
@@ -59,6 +59,7 @@
                   <th scope="col">제출처</th>
                   <th scope="col">발급용도</th>
                   <th scope="col">사유</th>
+                  <th scope="col">직인여부?</th>
                   <th scope="col">수령방법</th>
                   <th scope="col">처리여부</th>
                 </tr>
@@ -71,6 +72,7 @@
                   <td>보건복지부</td>
                   <td>공공기관 제출용</td>
                   <td>자녀 어린이집 입학서류</td>
+                  <td>요청</td>
                   <td>온라인</td>
                   <td>처리완료</td>
                 </tr>
@@ -81,6 +83,7 @@
                   <td>금융기관 제출용</td>
                   <td>(사)한국재해정보협회</td>
                   <td>02-890-3620</td>
+                  <td>-</td>
                   <td>오프라인</td>
                   <td>처리중</td>
                 </tr>
@@ -91,6 +94,7 @@
                   <td>기타</td>
                   <td>(사)한국재해정보협회</td>
                   <td>02-890-3620</td>
+                  <td>-</td>
                   <td>오프라인</td>
                   <td>처리중</td>
                 </tr>
@@ -104,7 +108,7 @@
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
-@@include('../../inc/pop/p_addBusiness.html')
+@@include('../../inc/pop/p_applyCertificate.html')
 @@include('../../inc/layout/script.html')
 </body>
 

@@ -153,7 +153,7 @@ input[type="time"],
 input[type="datetime-local"],
 input[type="email"],
 input[type="tel"],
-div[contenteditable],p[contenteditable],td[contenteditable]{@include ipt_common;min-height:28px;}
+div[contenteditable]:not(.ck-widget),p[contenteditable],td[contenteditable]{@include ipt_common;min-height:28px;}
 input[type="radio"],
 input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
 width:13px!important;height:13px!important;border:1px solid #606060;
@@ -224,7 +224,6 @@ input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance
 [contenteditable]{white-space:initial;text-align:left;word-break:break-word;}
 // table:has([contenteditable]){table-layout:fixed;}
 // layout
-hr,
 .blind{@include blind}
 .f_blind{@include f_blind;}
 
@@ -912,9 +911,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
         td,
         th {white-space:inherit;}      }
     }    
-  }
-
+  } 
 }
+.ck-editor__editable .ck-horizontal-line hr{border:2px dashed #dedede;background-color:transparent;}
 #image_editor_wrap{display:none;position:fixed;z-index:1100;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
 #image_editor.tui-image-editor-container{width:900px !important;height:700px !important;} /* important 사용하지 않고 적용하는 법 찾아보는중..!! */
 .btn_editor_wrap{margin-top:20px;text-align:center;}
