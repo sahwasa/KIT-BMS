@@ -1379,20 +1379,18 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &::before{content:'[';}
       &::after{content:']';}
     }
-    .lst_wrap .search_list{padding:0 15px;
+    .lst_wrap .search_list{padding:0 10px;margin:0;
       select{border-width:0;}
     }
     .tbl_list{@include proj_view_defaultH(93px);
-      .user_module{flex:inherit;flex-direction:column;align-items:center;gap:0;
-        .user_photo{width:23px;height:23px;}
-      }
-      &>li{gap:40px;@include on-hover();padding:10px 15px;
+     
+      &>li{gap:40px;@include on-hover();padding:10px 21px;
         input[type=checkbox]{align-self:center;}
         .dsc{flex:1;}
         h3{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:bold;
           &::before{@include fontello('\eb82');font-size:16px;color:$red;}
         }
-        .txt_info{display:grid;gap:0;grid-template-columns:80px 250px;
+        .txt_info{display:grid;row-gap:3px;grid-template-columns:80px 150px;
           dt{word-spacing:21px;letter-spacing:2px;color:#333;}
           dd{color:#888;
             a:hover{text-decoration:underline;color:$blue;}
@@ -1408,11 +1406,12 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
     .rfp_step{flex:0 0 auto;}
     .ballon_wrap{@include flex_between;align-items:start;margin-bottom:15px;
+      .user_module{flex:0 0 100px;flex-direction:column;align-items:center;gap:3px;margin-top:5px;
+        .user_photo{width:28px;height:28px;}
+        b{align-self:center;}
+      }
       .ipt_lst{gap:3px 15px;
         .risk_id{flex:0 1 120px;}
-      }
-      &>.user_module{flex:0 1 100px;flex-direction:column;gap:0;margin-top:5px;
-        .user_photo{width:30px;height:30px;}
       }
       .ballon_body{position:relative;flex:1;margin-left:5px;border-radius:5px;
         &::before,

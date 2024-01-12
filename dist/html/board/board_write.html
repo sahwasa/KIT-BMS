@@ -83,8 +83,8 @@
         <ul>
           <li><a href="board_internal.html">사내공지<em>1</em></a></li>
           <li><a href="">경조사</a></li>
-          <li><a href="board_photo.html">사진첩</a></li>
           <li><a href="">자료실</a></li>
+          <li><a href="board_photo.html">사진첩</a></li>
         </ul>
       </li>
       <li><a href="#">동호회 게시판</a>
@@ -128,10 +128,16 @@
                 <dd>
                   <span class="flex_wrap">
                     <select name="work_type" id="work_type">
-                      <option value="업무구분 선택">게시판 선택</option>
-                      <option value="사내공지" selected>사내공지</option>
-                      <option value="경조사공지">경조사공지</option>
-                      <option value="사진첩">사진첩</option>
+                      <optgroup label="공지사항">
+                        <option value="">게시판 선택</option>
+                        <option value="" selected>사내공지</option>
+                        <option value="">경조사공지</option>
+                        <option value="">자료실</option>
+                      </optgroup>
+                      <optgroup label="동호회">
+                        <option value="">산악동호회</option>
+                        <option value="">캠핑동호회</option>
+                      </optgroup>
                     </select>
                     <select name="work_type" id="work_type">
                       <option value="말머리 선택">말머리 선택</option>
