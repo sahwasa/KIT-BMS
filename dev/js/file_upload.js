@@ -92,7 +92,7 @@ function selectFile(event,fileObject,thisEl){
         // 파일 사이즈 체크
         alert("용량 초과\n업로드 가능 용량 : " + uploadSize + " KB");
         break;
-      }else if(fList.length >= maxFileLength){
+      }else if($('#'+thisEl).children().length >= maxFileLength){
         alert("파일첨부갯수 초과");
         break;
       }else{       
@@ -121,22 +121,22 @@ function addFileList(fIndex, fName, fSize, fExt, fSrc, type, thisEl){
   //html += "<i class='ico_ext ext_" + fExt + "'></i>";
   html += fName;
   //html += "<span class='file_size'>" + fSize + fUnit + "</span>";
-  html += "<a href='#' onclick='deleteFile(" + fIndex + "); return false;' class='file_del' title='삭제'>삭제</a>";
+  html += '<a href="#" onclick="deleteFile(' + fIndex + ',\''+thisEl+'\'); return false;" class="file_del" title="삭제">삭제</a>';
   if (type === "image") html += "<img src='"+fSrc+"' class='attach_thumb'>";
   html += "</li>";
   viewList.append(html);
-  infoView();
+  infoView(thisEl);
 }
 
-function deleteFile(fIndex){
+function deleteFile(fIndex,id){
   totalfSize -= fSizeList[fIndex];// 전체 파일 사이즈 수정
   delete fList[fIndex];// 파일 배열에서 삭제
   delete fSizeList[fIndex];// 파일 사이즈 배열 삭제
   $("#fItem_" + fIndex).remove();// 업로드 파일 테이블 목록에서 삭제
-  infoView();
+  infoView(id);
 }
-function infoView(){
-  var fileList = $('.attach_list li').length;
+function infoView(id){
+  var fileList = $('#'+id+'.attach_list li').length;
   var info = $('.drop_info');
   (fileList == 0) ? info.show() : info.hide();
 }
