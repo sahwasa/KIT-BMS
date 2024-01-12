@@ -3,13 +3,13 @@
   <article class="box_compact box_form">
     <ul class="search_list">
       <li>
-        <select class="" title="빠른필터">
-          <option value="">빠른필터</option>
-          <option value="">진행중인 글보기</option>
-          <option value="">내가 쓴 글 보기</option>
-          <option value="">내가 멘션된 글 보기</option>
+        <select class="" title="리스크 유형">
+          <option value="">리스크 유형</option>
         </select>
-      </li>     
+      </li>
+      <li>
+        <button type="button" class="btn_search">검색</button>
+      </li>
     </ul>
     <span class="btn_wrap">
       <button type="button" class="btn_red">추가</button>
@@ -20,9 +20,6 @@
   <div class="lst_wrap">
     <ul class="search_list all_lst_ctrl">
       <li>
-        <input type="checkbox" title="전체선택">
-      </li>
-      <li>
         <div class="btn_switch border_none">
           <input type="radio" id="opened" name="disclosure" checked>
           <label for="opened" class="opened">진행중<em>2</em>건</label>
@@ -30,17 +27,9 @@
           <label for="closed" class="closed">완료<em>30</em>건</label>
         </div>
       </li>
-      <li>
-        <select name="" id="" title="정렬기준">
-          <option value="">↓ 업데이트</option>
-          <option value="">↓ 등록일</option>
-          <option value="">↓ 상태</option>
-        </select>
-      </li>
     </ul>
     <ul class="tbl_list lst_ctrl">
       <li>
-        <input type="checkbox" class="row_check">
         <div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
@@ -61,7 +50,6 @@
         </dl>
       </li>
       <li class="risk_done">
-        <input type="checkbox" class="row_check">
         <div class="user_module">
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
@@ -119,11 +107,14 @@
                   <option value="준공">준공</option>
                   <option value="보고">보고</option>
                 </select>
-                <input type="text" title="요구사항명" placeholder="요구사항명" list="rfp_name">
+                <select name="" id="">
+                  <option value="">요구사항명</option>
+                </select>
+                <!-- <input type="text" title="요구사항명" placeholder="요구사항명" list="rfp_name">
                 <datalist id="rfp_name">
                   <option value="R202300001">사업수행계획서 및 착수계 제출</option>
                   <option value="R202300002">고객정보 관리</option>
-                </datalist>
+                </datalist> -->
               </span>
             </dd>
             <dt>첨부파일</dt>
