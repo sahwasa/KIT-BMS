@@ -1,0 +1,63 @@
+<dialog class="p_addRisk" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>리스크 추가 or 수정</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>리스크 내용</caption>
+        <colgroup>
+          <col style="width:120px">
+          <col style="width:auto">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required"><label for="">제목</label></th>
+            <td><input type="text" id="" placeholder="리스크 제목" /></td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="">관련 요구사항</label></th>
+            <td>
+              <span class="file_input">
+                <select name="require_step" class="rfp_step" id="rfp_step">
+                  <option value="단계 선택">단계 선택</option>
+                  <option value="착수">착수</option>
+                  <option value="분석">분석</option>
+                  <option value="설계">설계</option>
+                  <option value="구축">구축</option>
+                  <option value="시험,운영">시험,운영</option>
+                  <option value="교육">교육</option>
+                  <option value="준공">준공</option>
+                  <option value="보고">보고</option>
+                </select>
+                <select name="" id="">
+                  <option value="">요구사항명</option>
+                </select>
+              </span>
+            </td>              
+          </tr>
+          <tr>
+            <th scope="row"><label for="">첨부파일</label></th>
+            <td>
+              @@include('../module/module_file_attach.html')
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <label for="editor_wrap" class="blind">리스크내용</label>
+              <div class="editor_wrap" id="editor_wrap" style="--h:400px">
+                <textarea name="editor" id="work_day_editor" title="에디터 영역"></textarea>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>

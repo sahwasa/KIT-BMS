@@ -224,6 +224,7 @@ input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance
 [contenteditable]{white-space:initial;text-align:left;word-break:break-word;}
 // table:has([contenteditable]){table-layout:fixed;}
 // layout
+#accessibility+hr,
 .blind{@include blind}
 .f_blind{@include f_blind;}
 
@@ -625,6 +626,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
 }
 .tbl_photo{display:grid;justify-content:space-between;grid-template-columns:repeat(auto-fill, minmax(160px, auto));grid-template-rows:repeat(auto-fill, minmax(160px, auto));column-gap:10px;row-gap:10px;
   li{cursor:pointer;
+    a{position:relative;
+      &:hover::after{@include shape(100%,160px);position:absolute;left:0;top:0; z-index:1;background-color:#00000080;}    
+    }
     img{display:block;width:100%;height:160px;object-fit:cover;}
     em{display:flex;margin-top:3px;}
     b{max-width:155px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;color:#000;font-weight:bold;
@@ -873,6 +877,28 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .editable{
   span{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
   &:empty + .placehold{visibility:visible;}
+}
+.album_view,
+.file_attach.album{max-height:calc(100vh - 328px);min-height:301px;overflow-y:auto;}
+.file_attach.album{
+  .btn_file{top:0;bottom:0;}
+  .drop_info{display:none;}
+  .drop_zone{width:100%;}
+  .album_lst{
+    &::after{@include fontello('\e819');display:flex;width:160px;height:160px;align-items:center;justify-content:center;background-color:#f6f6f6;font-size:30px;margin-top:10px;color:#999;}
+  }  
+  .file_del{position:absolute;right:5px;top:5px;z-index:5;}
+}
+.album_lst{display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fill, minmax(160px, auto));grid-template-rows: repeat(auto-fill, minmax(160px, auto));column-gap:10px;row-gap:10px;
+  li{align-items:center;justify-content:center;gap:0;position:relative;background-color:#f6f6f6;font-size:0;height:160px;overflow:hidden;}
+  a>img,
+  .attach_thumb{max-width:160px;max-height:initial; overflow-clip-margin:content-box;overflow:clip;vertical-align:top;}
+}
+.album_view{
+  a{position:relative;
+    &:hover::before{position:absolute;left:0;top:0;@include shape(100%,100%);background-color:#00000050;z-index:1;}
+  }
+  
 }
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}
 .tribute-container{position:absolute;top:0;left:0;border:1px solid #3d90ff;max-height:400px;overflow:auto;border-radius:3px;z-index:999999;padding:0!important;

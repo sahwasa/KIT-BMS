@@ -35,7 +35,7 @@
 }
 @mixin alignL($numbers){
   @each $num in $numbers{
-   &:nth-of-type(#{$num}){text-align:left;}
+   &:nth-of-type(#{$num}){text-align:left;@content;}
   } 
 }
 

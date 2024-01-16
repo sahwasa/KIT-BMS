@@ -1382,77 +1382,64 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     .lst_wrap .search_list{padding:0 10px;margin:0;
       select{border-width:0;}
     }
-    .tbl_list{@include proj_view_defaultH(93px);
-     
-      &>li{gap:40px;@include on-hover();padding:10px 21px;
+    .tbl_list{@include proj_view_defaultH(93px);     
+      &>li{gap:20px;padding:10px 21px;@include flex_between;align-items:start;
         input[type=checkbox]{align-self:center;}
         .dsc{flex:1;}
-        h3{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:bold;
-          &::before{@include fontello('\eb82');font-size:16px;color:$red;}
-        }
-        .txt_info{display:grid;row-gap:3px;grid-template-columns:80px 150px;
-          dt{word-spacing:21px;letter-spacing:2px;color:#333;}
-          dd{color:#888;
-            a:hover{text-decoration:underline;color:$blue;}
-          }
+        .user_module{flex:0 0 90px;flex-direction:column;align-items:center;gap:3px;margin-top:5px;
+          .user_photo{width:28px;height:28px;}
+          b{align-self:center;}
         }
       }     
-      .risk_done,
-      .risk_done:hover{background-color:#f5f5f5;color:#888;
-        h3::before,
-        .risk_num{color:#888;}
-        h3::before{content:"\eb83";}
-      }
-    }
-    .rfp_step{flex:0 0 auto;}
-    .ballon_wrap{@include flex_between;align-items:start;margin-bottom:15px;
-      .user_module{flex:0 0 100px;flex-direction:column;align-items:center;gap:3px;margin-top:5px;
-        .user_photo{width:28px;height:28px;}
-        b{align-self:center;}
-      }
-      .ipt_lst{gap:3px 15px;
-        .risk_id{flex:0 1 120px;}
-      }
       .ballon_body{position:relative;flex:1;margin-left:5px;border-radius:5px;
         &::before,
         &::after{position:absolute;content:'';top:21px;left:0;width:0;height:0;border:9px solid transparent;border-left:0;border-right-color:#ccc;margin-top:-10px;margin-left:-8px;}
         &::after{top:20px;margin-top:-9px;margin-left:-7px;border-right-color:#f6f8fa;}
         .file_attach{margin-bottom:10px;}
-        header{@include flex_between;padding:7px 10px;border:1px solid #ccc;background-color:#f6f8fa;border-radius:5px 5px 0 0;
-          &>div:has(h1>input){flex:1;
-            h1,input{width:100%;}
-          }
-          h1{font-size:14px;font-weight:bold;}
-          &+div{padding:10px;border:1px solid #ccc;border-top-width:0;background-color:#fff;
-            h2{margin-bottom:5px;font-weight:bold;}
-            .file_attached{padding:0 10px;background-color:#f6f8fa;}         
-            &+ul{@include flex_between;width:100%;flex-direction:column;gap:10px;margin-top:15px;
-              li{align-self:stretch;padding:0;}
-            }
-          }
-          span{font-size:12px;color:#555;}
-        }
-        .ballon_txt{margin-top:10px;padding:10px 2px 15px;@include proj_view_defaultH(199px,true);
+        .ballon_txt{margin-top:10px;padding:10px 2px 15px;
           &+.btn_wrap{justify-content:flex-end;margin-top:5px;}
         }
-        &:has(.editor_wrap){
-          .ck-content{@include proj_view_defaultH(304px,true);}
-          .btn_wrap{justify-content:flex-end;margin-top:5px;}
-        }        
+      }
+      header{display:flex;align-items:flex-start;justify-content:flex-start;gap:10px;padding:7px 10px;border:1px solid #ccc;background-color:#f6f8fa;border-radius:5px 5px 0 0;
+        &::before{@include fontello('\eb82');font-size:14px;color:$red;}
+        h1{font-size:14px;font-weight:bold;}
+        .tags,span{flex-shrink:0;line-height:14px;padding-top:3px;}
+        span{font-size:12px;color:#555;}
+        .layer_tool{margin-left:auto;}
+      }
+      .desc{padding:10px;border:1px solid #ccc;border-top-width:0;background-color:#fff;
+        h2{margin-bottom:5px;font-weight:bold;}
+        .file_attached{padding:0 10px;background-color:#f6f8fa;}         
+        &+ul{@include flex_between;width:100%;flex-direction:column;gap:10px;margin-top:15px;
+          li{align-self:stretch;padding:0;}
+        }
+      }
+      .txt_info{display:grid;row-gap:3px;grid-template-columns:80px 150px;
+        dt{word-spacing:21px;letter-spacing:2px;color:#333;}
+        dd{color:#888;
+          a:hover{text-decoration:underline;color:$blue;}
+        }
+      }
+      .risk_done,
+      .risk_done:hover{background-color:#f5f5f5;color:#888;
+        header::before,
+        .risk_num{color:#888;}
+        header::before{content:"\eb83";}
       }
     }
+    .rfp_step{flex:0 0 auto;}
   }
   // 문서관리
   .doc{
     .tbl_wrap{@include proj_view_defaultH(62px);}
-    .tbl_default td{@include alignL(5);}
+    .tbl_default td{@include alignL(3){max-width:450px;};}
   }
 }
 
 //svc
 .cal_wrap{display:flex;flex-direction:column;gap:$columnGap;height:calc(100vh - 184px);min-height:445px;
   #cal-roombook{height:var(--h);}
-  .tbl_wrap{flex:1;position:relative;height:100vh ;}
+  .tbl_wrap{flex:1;position:relative;height:100vh;}
 }
 
 

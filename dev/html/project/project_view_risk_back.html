@@ -1,0 +1,71 @@
+<!-- 정규직 외에는 탭 숨기기 -->
+<section class="risk_body risk_lst">
+  <article class="box_compact box_form">
+    <ul class="search_list">
+      <li>
+        <select class="" title="리스크 유형">
+          <option value="">리스크 유형</option>
+        </select>
+      </li>
+      <li>
+        <button type="button" class="btn_search">검색</button>
+      </li>
+    </ul>
+    <span class="btn_wrap">
+      <button type="button" class="btn_red">추가</button>
+      <button type="button" class="btn_red_line">수정</button>
+      <button type="button" class="btn_gray_line">삭제</button>
+    </span>
+  </article> 
+  <div class="lst_wrap">
+    <ul class="search_list all_lst_ctrl">
+      <li>
+        <div class="btn_switch border_none">
+          <input type="radio" id="opened" name="disclosure" checked>
+          <label for="opened" class="opened">진행중<em>2</em>건</label>
+          <input type="radio" id="closed" name="disclosure">
+          <label for="closed" class="closed">완료<em>30</em>건</label>
+        </div>
+      </li>
+    </ul>
+    <ul class="tbl_list lst_ctrl">
+      <li>
+        <div class="dsc">
+          <h3>OOO 자료분석​<div class="tags"><i>인력</i><i>비용</i></div>
+          </h3>
+          <p><em class="risk_num">R202200001</em> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
+            분석하는데 해당 언어가 유창한 인력이 필요 예상됨​</p>
+        </div>
+        <dl class="txt_info">
+          <dt>작성자</dt>
+          <dd>
+           <div class="user_module"><em>홍OO 연구원</em></div>
+          </dd>
+          <dt>작성일자</dt>
+          <dd>2023-10-10</dd>
+          <dt>첨부파일</dt>
+          <dd><em class="btn_attached">2</em></dd>
+        </dl>
+      </li>
+      <li class="risk_done">
+        <div class="dsc">
+          <h3>OOO 자료분석​<div class="tags"><i>일정</i><i>계약</i></div></h3>
+          <p><em class="risk_num">R202200001</em> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
+            분석하는데 해당 언어가 유창한 인력이 필요 예상됨​</p>
+        </div>
+        <dl class="txt_info">
+          <dt>작성자</dt>
+          <dd>
+           <div class="user_module"><em>홍OO 연구원</em></div>
+          </dd>
+          <dt>작성일자</dt>
+          <dd>2023-10-10</dd>
+          <dt>첨부파일</dt>
+          <dd>-</dd>
+        </dl>
+      </li>
+    </ul>
+  </div>
+</section>
+@@include('inc_risk_write.html')
+@@include('inc_risk_view.html')

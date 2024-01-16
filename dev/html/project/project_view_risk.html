@@ -12,7 +12,7 @@
       </li>
     </ul>
     <span class="btn_wrap">
-      <button type="button" class="btn_red">추가</button>
+      <button type="button" class="btn_red" onclick="document.querySelector('.p_addRisk').showModal();">추가</button>
       <button type="button" class="btn_red_line">수정</button>
       <button type="button" class="btn_gray_line">삭제</button>
     </span>
@@ -30,42 +30,82 @@
     </ul>
     <ul class="tbl_list lst_ctrl">
       <li>
-        <div class="dsc">
-          <h3>OOO 자료분석​<div class="tags"><i>인력</i><i>비용</i></div>
-          </h3>
-          <p><em class="risk_num">R202200001</em> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
-            분석하는데 해당 언어가 유창한 인력이 필요 예상됨​</p>
+        <div class="user_module">
+          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+          <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
         </div>
-        <dl class="txt_info">
-          <dt>작성자</dt>
-          <dd>
-           <div class="user_module"><em>홍OO 연구원</em></div>
-          </dd>
-          <dt>작성일자</dt>
-          <dd>2023-10-10</dd>
-          <dt>첨부파일</dt>
-          <dd><em class="btn_attached">2</em></dd>
-        </dl>
+        <div class="ballon_body">
+          <header>
+            <h1>OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석OOO 자료분석</h1>
+            <div class="tags"><i>비용</i></div>
+            <span>2022-04-05</span>
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+              <div class="btn_layer">
+                <button type="button">처리완료</button>
+                <button type="button">수정</button>
+                <button type="button">삭제</button>
+              </div>
+            </div>
+          </header>
+          <div class="desc">
+            <h2><span class="risk_num">요구사항 ID</span>요구사항명 요구사항명</h2>
+            <div class="box_default_w file_attached">
+              <ul class="attach_list">
+                <li>
+                  <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
+                  <a href="#" target="_blank" class="preview">미리보기</a>
+                </li>              
+              </ul>
+            </div>
+            <p class="ballon_txt">
+              ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래<br>
+              ( っ /￣￣￣/ ---- 모두 높은 곳을 우러러볼 때 ꒱<br>
+              (´　 ＼/＿＿＿/)<br>
+              --------------------<br>
+              ♡ ૮₍ °´ ˘ ` ° ₎ა ꒰ ---- 난 내 물결을 따라<br>
+              \ ￣￣￣\ ⊂ ) ---- Flow flow along flow along my way ꒱<br>
+              (\＿＿＿ \／ `)
+            </p>
+          </div>
+        </div>
       </li>
       <li class="risk_done">
-        <div class="dsc">
-          <h3>OOO 자료분석​<div class="tags"><i>일정</i><i>계약</i></div></h3>
-          <p><em class="risk_num">R202200001</em> 해당 프로젝트를 진행함에 있어 해외 논문 및 관련 프로젝트에 대한 연구를 반영할 것​<br>OOO 해외자료를
-            분석하는데 해당 언어가 유창한 인력이 필요 예상됨​</p>
+        <div class="user_module">
+          <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure>
+          <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
         </div>
-        <dl class="txt_info">
-          <dt>작성자</dt>
-          <dd>
-           <div class="user_module"><em>홍OO 연구원</em></div>
-          </dd>
-          <dt>작성일자</dt>
-          <dd>2023-10-10</dd>
-          <dt>첨부파일</dt>
-          <dd>-</dd>
-        </dl>
+        <div class="ballon_body">
+          <header>
+            <h1>OOO 자료분석</h1>
+            <div class="tags"><i>비용</i></div>
+            <span>2022-04-05</span>
+            <div class="layer_tool">
+              <button type="button" class="btn_ellipsis" title="더보기" onclick="e.stopPropagation();">더보기</button>
+              <div class="btn_layer">
+                <button type="button">재진행</button>
+                <button type="button">수정</button>
+                <button type="button">삭제</button>
+              </div>
+            </div>
+          </header>
+          <div class="desc">
+            <h2><span class="risk_num">요구사항 ID</span>요구사항명 요구사항명</h2>
+            <div class="box_default_w file_attached">
+              <ul class="attach_list">
+                <li>
+                  <a href="#"><i class="ext_jpg"></i> 후라이의 꿈 - AKMU.song</a>
+                  <a href="#" target="_blank" class="preview">미리보기</a>
+                </li>              
+              </ul>
+            </div>
+            <p class="ballon_txt">
+              ‌ ₍ᐢ๑- ˔ -ᐢ₎ ♡ ꒰ ---- 난 차라리 흘러갈래
+            </p>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
 </section>
-@@include('inc_risk_write.html')
-@@include('inc_risk_view.html')
+@@include('../../inc/pop/p_addRisk.html')

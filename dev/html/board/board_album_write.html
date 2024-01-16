@@ -1,0 +1,70 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/board.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>게시글 등록<span>게시판</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">게시판</a></li>
+            <li>게시글 등록</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            최초 작성의 경우
+            <button type="button" class="btn_red">등록</button>
+            /
+            수정인 경우
+            <button type="button" class="btn_red_line">수정</button>
+            <button type="button" class="btn_red_line">삭제</button>
+            <button type="button" class="btn_gray_line">취소</button>
+          </span>
+        </article>
+        <div class="post_wrap">
+          <section class="post">
+            <article class="box_default_w">
+              <dl class="set_list">
+                <dt><label for="work_title" class="required">앨범이름</label></dt>
+                <dd><span class="file_input"><input type="text" id="work_title" value="2024년 시무식"></span></dd>
+              </dl>
+              <div class="file_attach btn_attach album">
+                <input id="attachFiles" type="file" data-attach="album" name="file" title="파일첨부하기" class="btn_file" multiple accept="image/png,image/jpg,image/jpeg,image/gif,image/*,video/avi,video/wmv,video/mpg,video/mpeg,video/mov,video/asf,video/skm,video/k3g,video/flv,video/mp4,video/3gp,video/m4v,video/mts,video/ts,video/*">
+                <div id="file-drop" class="drop_zone">
+                  <div class="drop_info">
+                    <p>여기에 추가할 <span>이미지 파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+                  </div>
+                  <ul id="album" class="attach_list album_lst">
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_vote.html')
+
+@@include('../../inc/layout/script.html')
+<link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css">
+<script>
+  $(function () {
+    fileDropEvt();
+    setEditor()
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/board.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>게시글 등록<span>게시판</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">게시판</a></li>
+            <li>게시글 등록</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="box_compact box_tool">
+          <button type="button" class="btn_gray_line">목록</button>
+          <span class="floatR">
+            최초 작성의 경우
+            <button type="button" class="btn_red">등록</button>
+            /
+            수정인 경우
+            <button type="button" class="btn_red_line">수정</button>
+            <button type="button" class="btn_red_line">삭제</button>
+            <button type="button" class="btn_gray_line">취소</button>
+          </span>
+        </article>
+        <div class="post_wrap">
+          <section class="post">
+            <article class="box_default_w">
+              <div class="tit">
+                <h1>2024년 시무식<em class="count">12</em></h1>
+              </div>
+              <div class="album_view">
+                <ul class="attach_list album_lst">
+                  <li>
+                    <a href="#" id="photo01">
+                      <img src="https://picsum.photos/1280/960?random=1">
+                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=2">
+                      첨부파일 문서2.jpeg</a>
+                  </li>               
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=3">
+                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=4">
+                      첨부파일 문서2.jpeg</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=5">
+                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=6">
+                      첨부파일 문서2.jpeg</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=7">
+                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=8">
+                      첨부파일 문서2.jpeg</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=9">
+                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=10">
+                      첨부파일 문서2.jpeg</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=11">
+                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="https://picsum.photos/200/300?random=12">
+                      첨부파일 문서2.jpeg</a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+
+@@include('../../inc/layout/script.html')
+<script>
+  $(function () {
+    $('.album_lst').off('click').on('click','a',function(){
+        var id = $(this).attr('id');
+        var source = $(this).children('img').attr('src');
+        var caption = $(this).text();
+        if($('#photoWrap').length==0){
+          var photoWrap = document.createElement('dialog')
+              photoWrap.id = 'photoWrap'
+              photoWrap.innerHTML = `
+                <div class="p_header">
+                  <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+                </div>
+                <div class="p_body">
+                  <figure class="photo_view">
+                    <img id="photo" />
+                    <figcaption></figcaption>
+                  </figure>
+                  <div class="btn_wrap">
+                    <button class="btn_red_line" type="button">수정</button>
+                    <button class="btn_gray_line cancel" type="button">닫기</button>
+                  </div>
+                </div>
+            `
+          var viewWrap = document.getElementById('wrap');
+          viewWrap.insertAdjacentElement('afterend', photoWrap);
+          var index = $(this).closest('li').index();
+        };
+        setPhotoView(source,caption,index);
+
+    })
+    function setPhotoView(source,caption,index){
+          console.log(index)
+      const photoWrap = document.getElementById('photoWrap');
+      $(photoWrap).find('#photo').attr('src',source).next('figcaption').text(caption);
+      photoWrap.showModal();
+      $('.cancel').on('click',function(){
+        photoWrap.close();
+      });
+
+    }
+
+  })
+</script>
+
+</body>
+
+</html>
