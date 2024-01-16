@@ -103,6 +103,24 @@
     rfpboard_init();
     $(this).addClass('on');
   })  
+  $('.risk_write').hide();
+  $('.risk_view').hide();
+  $('.risk_lst .box_form .btn_red').on('click',function(){
+    $('.risk_write').show();
+    $('.risk_lst').hide();
+  })
+  $('.risk_write .btn_red').on('click',function(){
+    $('.risk_write').hide();
+    $('.risk_lst').show();
+  })
+  $('.risk_lst .tbl_list li').on('click',function(){
+    $('.risk_lst').hide();
+    $('.risk_view').show();
+  })
+  $('.risk_view .box_compact .btn_gray_line').on('click',function(){
+    $('.risk_lst').show();
+    $('.risk_view').hide();
+  })
   
 })
   var tribute = new Tribute({
