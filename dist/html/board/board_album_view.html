@@ -132,22 +132,22 @@
                   <li>
                     <a href="#" id="photo01">
                       <img src="https://picsum.photos/1280/960?random=1">
-                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                      1</a>
                   </li>
                   <li>
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=2">
-                      첨부파일 문서2.jpeg</a>
+                      2</a>
                   </li>               
                   <li>
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=3">
-                      나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                      3</a>
                   </li>
                   <li>
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=4">
-                      첨부파일 문서2.jpeg</a>
+                      4</a>
                   </li>
                   <li>
                     <a href="#">
@@ -250,10 +250,9 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 <script>
   $(function () {
     $('.album_lst').off('click').on('click','a',function(){
-        var id = $(this).attr('id');
         var source = $(this).children('img').attr('src');
         var caption = $(this).text();
-        if($('#photoWrap').length==0){
+        if($('#photoWrap').length === 0){
           var photoWrap = document.createElement('dialog')
               photoWrap.id = 'photoWrap'
               photoWrap.innerHTML = `
@@ -261,10 +260,16 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
                   <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
                 </div>
                 <div class="p_body">
-                  <figure class="photo_view">
-                    <img id="photo" />
-                    <figcaption></figcaption>
-                  </figure>
+                  <div class="viewer">                  
+                    <figure class="photo_view">
+                      <img id="photo" />
+                      <figcaption></figcaption>
+                    </figure>
+                    <div class="remote">
+                      <button class="btn_prev" type="button">이전</button>
+                      <button class="btn_next" type="button">다음</button>                      
+                    </div>
+                  </div>
                   <div class="btn_wrap">
                     <button class="btn_red_line" type="button">수정</button>
                     <button class="btn_gray_line cancel" type="button">닫기</button>
@@ -273,20 +278,36 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
             `
           var viewWrap = document.getElementById('wrap');
           viewWrap.insertAdjacentElement('afterend', photoWrap);
-          var index = $(this).closest('li').index();
         };
-        setPhotoView(source,caption,index);
+        var index = $(this).closest('li').index();
+        var max = $(this).parents('.album_lst').find('li').length;
+        setPhotoView(source,caption,index,max);
 
     })
-    function setPhotoView(source,caption,index){
-          console.log(index)
+    function setPhotoView(source,caption,index,max){
+      console.log(index,max)
       const photoWrap = document.getElementById('photoWrap');
       $(photoWrap).find('#photo').attr('src',source).next('figcaption').text(caption);
+      (index == 0) ? $('.btn_prev').hide():$('.btn_prev').show();
+      (index == max - 1) ? $('.btn_next').hide():$('.btn_next').show();
       photoWrap.showModal();
       $('.cancel').on('click',function(){
         photoWrap.close();
       });
-
+      $('.btn_next').on('click',function(){
+        index += 1;
+        remoteShow(index);
+      })
+      $('.btn_prev').on('click',function(){
+        index -= 1;
+        remoteShow(index);
+      })
+    }
+    function remoteShow(index){
+      var target = $('.album_lst').children('li').eq(index);
+      source = target.find('img').attr('src');
+      caption = target.text();
+      setPhotoView(source,caption,index)
     }
 
   })

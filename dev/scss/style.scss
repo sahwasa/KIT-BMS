@@ -615,7 +615,7 @@ z-index:10;
     &:empty::before{@include empty_box('요청 문서가 없습니다');height:541px;background-color:rgba(0, 0, 0, .05);}
   }
   li{@include inner_box(8px);min-height:99px;
-    strong{margin:2px 0 4px;}
+    strong{margin:2px 0 4px;padding-left:0;}
     .badge{@include badge_style(null,54px);font-weight:bold;align-self:flex-start;}
     dl{
       dt{float:left;min-width:55px;
