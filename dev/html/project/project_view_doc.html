@@ -1,8 +1,6 @@
 <div class="tbl_top_area">
   <div class="flex_right">
     <button type="button" class="btn_red" onclick="document.getElementById('p_projDoc').showModal();fileDropEvt();">추가</button>
-    <button type="button" class="btn_red_line">수정</button>
-    <button type="button" class="btn_gray_line">삭제</button>
     <span class="divide">
       @@include('../../inc/module/opt_lineNum.html')
     </span>
@@ -16,7 +14,7 @@
       <col style="width:auto;min-width:200px;">
       <col style="width:80px;">
       <col span="2" style="width:120px;">
-      <col style="width:55px;">
+      <col span="2" style="width:55px;">
     </colgroup>
     <thead>
       <tr>
@@ -26,20 +24,40 @@
         <th scope="col">첨부파일​</th>
         <th scope="col">작성자​</th>
         <th scope="col">작성일자​</th>
+        <th scope="col">공개여부​</th>
         <th scope="col">관리​</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td colspan="7">등록된 문서가 없습니다.</td>
+        <td colspan="8">등록된 문서가 없습니다.</td>
       </tr>
       <tr tabindex="0">
         <td>착수</td>
         <td><div class="tags"><i>업무보고</i></div>​</td>
         <td>착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서착수보고서</td>
-        <td><a href="#" download onclick="event.stopPropagation();" class="ext_zip">파일명</a></td>
+        <td><em class="btn_attached">2</em></td>
         <td>홍길동 (개발1팀)</td>
         <td>2023-05-01</td>
+        <td><i class="tbl_badge public">공개</i></td>
+        <td onclick="event.stopPropagation();">
+          <div class="layer_tool">
+            <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+            <div class="btn_layer">
+              <button type="button">수정</button>
+              <button type="button">삭제</button>
+            </div>
+          </div>
+        </td>
+      </tr>      
+      <tr tabindex="0">
+        <td>착수</td>
+        <td><div class="tags"><i>업무보고</i></div>​</td>
+        <td>회의록</td>
+        <td><em class="btn_attached">2</em></td>
+        <td>홍길동 (개발1팀)</td>
+        <td>2023-05-01</td>
+        <td><i class="tbl_badge private">비공개</i></td>
         <td onclick="event.stopPropagation();">
           <div class="layer_tool">
             <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
@@ -52,6 +70,8 @@
       </tr>      
     </tbody>
   </table>
+  @@include('../../inc/module/paginate.html')
+
   다운로드 : 프로젝트 참여자 중 정규직 or 관리자 <br/>
   정규직 외에는 탭 숨기기
   
