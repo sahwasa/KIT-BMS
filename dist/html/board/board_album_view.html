@@ -99,27 +99,33 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>게시글 등록<span>게시판</span></h1>
+        <h1>사진첩<span>게시판</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">게시판</a></li>
-            <li>게시글 등록</li>
+            <li>사진첩</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
         <article class="box_compact box_tool">
-          <button type="button" class="btn_gray_line">목록</button>
-          <span class="floatR">
-            최초 작성의 경우
-            <button type="button" class="btn_red">등록</button>
-            /
-            수정인 경우
-            <button type="button" class="btn_red_line">수정</button>
-            <button type="button" class="btn_red_line">삭제</button>
-            <button type="button" class="btn_gray_line">취소</button>
+          <a href="board_photo.html" class="btn_gray_line">목록</a>
+          <span class="floatR btn_wrap" id="selMode_off" data-tglwrap>
+            <div class="btn_file_wrap">
+              <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+              <button type="button" class="btn_red">사진추가</button>
+            </div>
+            <button type="button" class="btn_gray_line" data-toggle="selMode_on" data-clickEvt="selMode_on">선택</button>
           </span>
+          <div class="floatR btn_wrap" id="selMode_on" data-tglwrap>
+            <p><strong id="sel_count" class="t_red">0</strong>장의 사진이 선택되었습니다.</p>
+            <button type="button" class="btn_red_line" data-clickEvt="sel_release">선택해제</button>
+            <button type="button" class="btn_red">다운로드</button>
+            <button type="button" class="btn_red_line">이동?</button>
+            <button type="button" class="btn_red_line">삭제</button>
+            <button type="button" class="btn_gray_line" data-toggle="selMode_off" data-clickEvt="selMode_off">나가기</button>
+          </div>
         </article>
         <div class="post_wrap">
           <section class="post">
@@ -130,61 +136,73 @@
               <div class="album_view">
                 <ul class="attach_list album_lst">
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#" id="photo01">
-                      <img src="https://picsum.photos/1280/960?random=1">
+                      <img src="https://picsum.photos/180/30?random=1">
                       1</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=2">
                       2</a>
                   </li>               
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=3">
                       3</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=4">
                       4</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=5">
                       나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=6">
                       첨부파일 문서2.jpeg</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=7">
                       나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=8">
                       첨부파일 문서2.jpeg</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=9">
                       나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=10">
                       첨부파일 문서2.jpeg</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=11">
                       나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
                   </li>
                   <li>
+                    <input type="checkbox" class="check_circle">
                     <a href="#">
                       <img src="https://picsum.photos/200/300?random=12">
                       첨부파일 문서2.jpeg</a>
@@ -244,21 +262,46 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     </div>
   </form>
 </dialog>
-<script>
 
-</script>
 <script>
   $(function () {
-    $('.album_lst').off('click').on('click','a',function(){
+    const list = $('.album_lst');
+    $("[data-clickEvt]").on('click',function(e){
+      var evt = e.target.dataset.clickevt;
+      console.log(e.target.dataset)
+      switch (evt) {
+        case 'selMode_on':
+           list.addClass('select_mode');          
+          break;
+        case 'selMode_off':
+          list.find(':checkbox').prop('checked', false);
+          list.removeClass('select_mode');                    
+          break;
+        default:
+          list.find(':checkbox').prop('checked', false);
+          break;
+      }
+      $('#sel_count').text('0');
+    })
+    list.off('click').on('click','a',function(){
         var source = $(this).children('img').attr('src');
         var caption = $(this).text();
         if($('#photoWrap').length === 0){
           var photoWrap = document.createElement('dialog')
               photoWrap.id = 'photoWrap'
+              photoWrap.classList.add('photo_wrap');
               photoWrap.innerHTML = `
-                <div class="p_header">
-                  <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
-                </div>
+                <header class="p_header">
+                  <div class="pageView">
+                    <strong></strong>
+                    <span class="total"></span>
+                  </div>
+                  <div class="tool">
+                    <a href="" download class="btn btn_download" title="다운로드">다운로드</a>
+                    <button class="btn btn_del" title="삭제">삭제</button>
+                    <button class="btn btnClose cancel" title="닫기">닫기</button>
+                  </div>
+                </header>
                 <div class="p_body">
                   <div class="viewer">                  
                     <figure class="photo_view">
@@ -266,15 +309,13 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
                       <figcaption></figcaption>
                     </figure>
                     <div class="remote">
-                      <button class="btn_prev" type="button">이전</button>
-                      <button class="btn_next" type="button">다음</button>                      
+                      <button class="btn_prev" type="button" title="이전">이전</button>
+                      <button class="btn_next" type="button" title="다음">다음</button>                      
                     </div>
                   </div>
-                  <div class="btn_wrap">
-                    <button class="btn_red_line" type="button">수정</button>
-                    <button class="btn_gray_line cancel" type="button">닫기</button>
-                  </div>
                 </div>
+                <aside>
+                </aside>
             `
           var viewWrap = document.getElementById('wrap');
           viewWrap.insertAdjacentElement('afterend', photoWrap);
@@ -284,22 +325,28 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
         setPhotoView(source,caption,index,max);
 
     })
+    .on('change',':checkbox',function(){
+      if(!(list.hasClass('select_mode'))) $('[data-toggle="selMode_on"]').trigger('click');
+      $('#sel_count').text(list.find(':checked').length);
+    });
     function setPhotoView(source,caption,index,max){
-      console.log(index,max)
       const photoWrap = document.getElementById('photoWrap');
       $(photoWrap).find('#photo').attr('src',source).next('figcaption').text(caption);
-      (index == 0) ? $('.btn_prev').hide():$('.btn_prev').show();
-      (index == max - 1) ? $('.btn_next').hide():$('.btn_next').show();
+      $(photoWrap).find('.btn_download').attr('href',source);
+      $('.total').text(max);
+      $('.total').prev('strong').text(index + 1);
+      (index <= 0) ? $('.btn_prev').hide():$('.btn_prev').show();
+      (index >= max - 1) ? $('.btn_next').hide():$('.btn_next').show();
       photoWrap.showModal();
       $('.cancel').on('click',function(){
         photoWrap.close();
       });
       $('.btn_next').on('click',function(){
-        index += 1;
+        index = index + 1;
         remoteShow(index);
       })
       $('.btn_prev').on('click',function(){
-        index -= 1;
+        index = index - 1;
         remoteShow(index);
       })
     }

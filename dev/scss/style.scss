@@ -499,6 +499,7 @@ z-index:10;
 
 .box_compact{@include box_style(15px,10px);position:sticky;top:-15px;z-index:1050;
   .btn_wrap{margin-left:auto;
+    p{line-height:28px;}
     button{flex-shrink:0;}
   }
   &:has(.search_list){display:flex;margin-bottom:15px;}
@@ -844,7 +845,7 @@ z-index:10;
   img{object-fit:cover;min-height:100%;}
 }
 
-.file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;background-color:#fff;}
+.file_attach{position:relative;display:flex;align-items:center;min-height:70px;border:2px dashed #ebebeb;background-color:#fff;}  
 .drop_zone,
 .attach_zone{padding:0 15px;align-self:flex-start;}
 .attach_list{padding-bottom:10px;}
@@ -860,7 +861,13 @@ z-index:10;
   span{color:#000;}
 }
 .attach_thumb{display:block;max-width:20px;max-height:20px;}
+.btn_file_wrap,
 .file_attach{overflow:hidden;position:relative;text-align:center;}
+.btn_file_wrap{
+  input::-webkit-file-upload-button{cursor:pointer;}
+  &:hover{.btn_red{background-color:#fff;color:$red;}}
+}
+.btn_file_wrap .btn_file,
 .file_attach .btn_file{position:absolute;top:-1px;left:-1px; right:-1px;bottom:-1px;border:none;opacity:0;filter:alpha(opacity=0);cursor:pointer;outline:none;z-index:100;}
 .file_del{@include shape(15px,17px);flex-shrink:0;
   &::before{@include fontello('\e928');font-size:13px;color:$red;line-height:17px;} 
@@ -875,7 +882,7 @@ z-index:10;
 }
 .tbl_approval_outbox td,
 .tbl_approval_inbox td{@include alignL(4);}
-.file_upload{display:none;position:fixed;top:0;width:100vw;height:100vh;z-index:9999;background:rgba(0, 0, 0, 0.466);
+.file_upload{display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:9999;background:rgba(0, 0, 0, 0.466);
   &>*{position:absolute;}
   &>p{top:50%;left:50%;transform:translateX(-50%);font-size:20px;font-weight:bold;color:#fff;text-align:center;}
   &>i{top:39%;left:47.5%;color:#fff;font-size:65px;}
@@ -1167,7 +1174,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     .issue_cont{@include form_style();min-width:auto;
       .ck-content{min-height:465px;}
     }
-    .issue_set{@include set_style();}
+    .issue_set{@include set_style();min-width:337px;}
   }
   // 개요  
   .overview{@include flex_layout;
@@ -1921,6 +1928,25 @@ $_planTypes:(
     }
   }   
 }
+.album_lst{
+  .check_circle{display:none;align-items:center;justify-content:center; position:absolute;left:5px;top:5px;width:30px;height:30px;z-index:15;border-radius:50%;border-width:0;transition:all .2s;cursor:pointer;
+    &::before{@include fontello('\e815');font-size:30px;color:#fff;}
+    &:checked{background:#fff;
+      &::before{content:"\e814";color:$red;font-size:28px;}
+    }
+  }
+  li{border:3px solid transparent;cursor:pointer;
+    a{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+    &:has(.check_circle:checked){border-color:$red;}
+    &:hover{box-shadow:0 0 30px rgba(0, 0, 0, .3) inset;
+      .check_circle{display:flex;}
+      a::before{position:absolute;left:0;top:0;@include shape(100%,100%);background-color:#00000050;z-index:1;}
+    } 
+  }
+  &.select_mode li{
+    .check_circle{display:flex;}
+  }  
+}
 .vote_wrap{
   span:has(input[type="number"]){margin-bottom:5px;
     &+div{
@@ -1935,5 +1961,5 @@ $_planTypes:(
 }
 .tbl_wrap_photo{
   .tbl_wrap{height:calc(100vh - 365px);min-height:264px;margin-top:$columnGap;padding:10px 10px $columnGap;}
-  td{@include alignL(2);}
+  td{@include alignL(1);}
 }

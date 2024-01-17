@@ -156,7 +156,7 @@ input[type="tel"],
 div[contenteditable]:not(.ck-widget),p[contenteditable],td[contenteditable]{@include ipt_common;min-height:28px;}
 input[type="radio"],
 input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
-width:13px!important;height:13px!important;border:1px solid #606060;
+width:13px;height:13px;border:1px solid #606060;
 overflow:hidden;
   &:checked{-webkit-appearance:none; -moz-appearance:none;-o-appearance:none;appearance:none; box-shadow:none;border:none;
   background:url(../images/bg_ipt.png) 0 0 no-repeat;}
@@ -289,6 +289,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
     &::after{left:0;}
   }
 }
+.btn_download{@include ico_only('\eb8d');}
 .btn_back{@include ico_only('\e9ac');align-self:flex-end;
   &::before{font-size:20px;}
 }
@@ -893,12 +894,6 @@ td{white-space:nowrap;text-overflow:ellipsis;
   li{align-items:center;justify-content:center;gap:0;position:relative;background-color:#f6f6f6;font-size:0;height:160px;overflow:hidden;}
   a>img,
   .attach_thumb{max-width:160px;max-height:initial; overflow-clip-margin:content-box;overflow:clip;vertical-align:top;}
-}
-.album_view{
-  a{position:relative;
-    &:hover::before{position:absolute;left:0;top:0;@include shape(100%,100%);background-color:#00000050;z-index:1;}
-  }
-  
 }
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}
 .tribute-container{position:absolute;top:0;left:0;border:1px solid #3d90ff;max-height:400px;overflow:auto;border-radius:3px;z-index:999999;padding:0!important;
