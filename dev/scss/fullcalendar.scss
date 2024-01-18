@@ -32,6 +32,8 @@
 .wbs{
   [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
   .fc-resource-group .fc-datagrid-cell-cushion{@include text_ellipsis(3);padding-bottom:0;}
+  .fc-timeline-header a{color:#363636;}
+  .wbs_step .fc-datagrid-cell-cushion{padding:8px 0 0;}
 }
 .fc-resourceTimelineYear-view .fc-timeline-slot{color:inherit;}
 #cal-roombook{

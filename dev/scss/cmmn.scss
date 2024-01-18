@@ -221,6 +221,7 @@ optgroup.opt_label,
 label>input[type="radio"],
 label>input[type="checkbox"]{position:relative;top:-1px;margin-right:5px;vertical-align:middle;}
 input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+div[contenteditable]:not(.ck-widget),
 [contenteditable]{height:var(--h);white-space:initial;text-align:left;word-break:break-word;overflow-y:auto;}
 // table:has([contenteditable]){table-layout:fixed;}
 // layout

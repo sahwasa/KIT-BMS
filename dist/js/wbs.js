@@ -44,8 +44,8 @@
           group: true,
           field: 'step',
           headerContent: '단계',
-          width:'10%',
-          cellClassNames:'alignC',
+          width:'56px',
+          cellClassNames:'alignC wbs_step',
         },
         {
           field: 'title',
@@ -54,29 +54,29 @@
         {
           field: 'cop',
           headerContent: '담당자',
-          width:'15%',
+          width:'70px',
           cellClassNames:'alignC',
           cellContent:function(arg){return{html: `<i>${arg.fieldValue}</i>`}}
         },
         {
           field: 'period',
           headerContent: '기간',
-          width:'10%',
+          width:'57px',
           cellClassNames:'alignC'
         },
         {
           field: 'poc',
           headerContent: '진행률',
-          width:'10%',
+          width:'57px',
           cellClassNames:'alignR'
         },
       ],
       resourcesInitiallyExpanded:true, //초기 모두 펴기
       // resourceGroupField: 'title',
       resources: [
-        { id: 'a', step:'계획', title: '전자정부프레임워크 체계 전환 및 화면 개선', cop:['홍길동'],period:'3일',poc : '100%',
+        { id: 'a', step:'계획', title: '전자정부프레임워크 체계 전환 및 화면 개선', cop:['홍길동'],period:'100일',poc : '100%',
           children:[
-            { id: 'a1', title: '개별시험', cop:['홍길동'],period:'3일',poc : '100%' },
+            { id: 'a1', title: '개별시험', cop:['홍길동씨'],period:'3일',poc : '100%' },
             { id: 'a2', title: '통합시험', cop:'홍길동',period:'3일',poc : '20%' },
             { id: 'a3', title: '시험운영', cop:'홍길동',period:'3일',poc : '20%' },
           ]
@@ -87,7 +87,7 @@
             {id:'d2', title: '통합시험', cop:'박피엠',period:'3일',poc : '20%' },
             {id:'d3', title: '시험운영', cop:'최운영',period:'3일',poc : '20%' }]
         },
-        { id: 'g', step:'준비', title: '지진해일 피해예측 DB구축 및 표출기능 개선, 라이프라인 시설물 DB갱신', cop:'홍길동',period:'3일',poc : '20%',
+        { id: 'g', step:'시험,운영', title: '지진해일 피해예측 DB구축 및 표출기능 개선, 라이프라인 시설물 DB갱신', cop:'홍길동',period:'3일',poc : '20%',
           children:[
             { id: 'g1', title: '개별시헝', cop:'홍길동',period:'3일',poc : '20%' },
             { id: 'g2', title: '통합시험', cop:'홍길동',period:'3일',poc : '20%' },
