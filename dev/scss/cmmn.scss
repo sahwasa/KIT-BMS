@@ -909,7 +909,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
     }
   .menu-highlighted {font-weight:bold;}
 }
-.mentioned{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
+.mentioned{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;vertical-align:middle;}
 .user_lst{display:flex;gap:10px;flex-wrap:wrap;
   li{display:flex;align-items:center;gap:3px;}
 }

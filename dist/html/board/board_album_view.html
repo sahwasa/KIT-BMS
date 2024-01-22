@@ -122,7 +122,27 @@
             <p><strong id="sel_count" class="t_red">0</strong>장의 사진이 선택되었습니다.</p>
             <button type="button" class="btn_red_line" data-clickEvt="sel_release">선택해제</button>
             <button type="button" class="btn_red">다운로드</button>
-            <button type="button" class="btn_red_line">이동?</button>
+<dialog class="p_moveGroup">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>명함 그룹이동</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="p_body_tit">
+        <h1><label for="">그룹선택</label></h1>
+      </div>
+      <select id="">
+        <option value="이동할 그룹">이동할 그룹선택</option>
+      </select>      
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line" type="button">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+            <button type="button" class="btn_red_line" onclick="document.querySelector('.p_moveAlbum').showModal();">이동?</button>
             <button type="button" class="btn_red_line">삭제</button>
             <button type="button" class="btn_gray_line" data-toggle="selMode_off" data-clickEvt="selMode_off">나가기</button>
           </div>
@@ -220,7 +240,26 @@
   <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
-
+<dialog class="p_moveAlbum">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>앨범이동</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="p_body_tit">
+        <h1><label for="">앨범선택</label></h1>
+      </div>
+      <select id="">
+        <option value="이동할 앨범">이동할 앨범선택</option>
+      </select>      
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line" type="button">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>

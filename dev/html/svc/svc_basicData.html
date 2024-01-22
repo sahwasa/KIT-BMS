@@ -1,0 +1,50 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>기본사항<span>이력관리</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>사내 서비스</li>
+            <li>이력관리</li>
+            <li>기본사항</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body svc_basic">
+        <div class="profile_ipt">
+          <dl>
+            <dt>사번</dt>
+            <dd>0088</dd>
+            <dt>직위</dt>
+            <dd>연구원</dd>
+            <dt>부서명</dt>
+            <dd>개발본부 개발1팀</dd>
+            <dt>입사일</dt>
+            <dd>21-09-24</dd>
+            <dt>생년월일</dt>
+            <dd>90-10-23</dd>
+            <dt><label for="emp_name_kr" class="required">한글이름</label></dt>
+            <dd><input type="text" id="emp_name_kr" value="멋쟁이"></dd>
+            <dt><label for="emp_name_en">영문이름</label></dt>              
+            <dd><input type="text" id="emp_name_en" value="meosjaeng-e"></dd>
+            <dt><label for="emp_phone" class="required">연락처</label></dt>
+            <dd><input type="tel" value="01012345678" id="emp_phone"></dd>
+          </dl>
+          개인이력인적사항, 병역사항, 학력사항, 경력사항, 자격면허, 포상/징계, 발령내역, 교육내역 등
+        </div>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

@@ -98,10 +98,12 @@
       </select>
     </div>
     <ul class="snb_lst">
-      <li><a href="svc_attendance.html">근태관리</a>
+      <li><a href="svc_basicData.html">이력관리</a>
         <ul>
+          <li><a href="svc_basicData.html">기본사항</a></li>       
           <li><a href="svc_attendance.html">근태 현황</a></li>
           <li><a href="svc_annualLeave.html">연차 내역</a></li>
+          <li><a href="svc_edu.html">교육 내역</a></li>
         </ul>      
       </li>
       <li><a href="svc_meetingRoom.html">자원 (보류)</a>        
@@ -133,8 +135,6 @@
       var hours = currentTime.getHours();
       var minutes = currentTime.getMinutes();
       var seconds = currentTime.getSeconds();
-      hours = (hours < 10) ? "0" + hours : hours;
-      hours = (hours < 10) ? "0" + hours : hours;
       hours = (hours < 10) ? "0" + hours : hours;
       minutes = (minutes < 10) ? "0" + minutes : minutes;
       seconds = (seconds < 10) ? "0" + seconds : seconds;
@@ -181,7 +181,7 @@
               </li>
             </ul>
             <div class="btn_wrap">
-              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_card').showModal();">추가</button>
+              <button type="button" class="btn_red" onclick="document.querySelector('.p_moveGroup').showModal();">추가</button>
               <button type="button" class="btn_red_line" onclick="">삭제</button>           
               <button type="button" class="btn_red_line" onclick="document.querySelector('.p_cardTree').showModal();">그룹이동</button>           
             </div>
@@ -397,7 +397,7 @@
     </div>
   </form>
 </dialog>
-<dialog class="p_cardTree">
+<dialog class="p_moveGroup">
   <form method="dialog">
     <div class="p_header">
       <strong>명함 그룹이동</strong>

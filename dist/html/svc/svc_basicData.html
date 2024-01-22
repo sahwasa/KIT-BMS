@@ -152,120 +152,37 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>장비 및 소프트웨어<span>자원</span></h1>
+        <h1>기본사항<span>이력관리</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">사내 서비스</a></li>
-            <li><a href="#">자원</a></li>
-            <li>장비 및 소프트웨어</li>
+            <li>사내 서비스</li>
+            <li>이력관리</li>
+            <li>기본사항</li>
           </ul>
         </section>
       </header>
-      <div class="cont_body">
-        <section class="tbl_top_area">
-            <ul class="search_list">
-              <li>
-                <select name="" id="" title="종류">
-                  <option value="">노트북</option>
-                  <option value="">데스크톱</option>
-                  <option value="">모니터</option>
-                  <option value="">소프트웨어?</option>
-                </select>
-              </li>
-              <li>
-                <select name="" id="" title="상태">
-                  <option value="">신청가능</option>
-                  <option value="">사용중</option>
-                  <option value="">처리중</option>
-                </select>
-              </li>
-              <li>
-                <input type="text" name="" id="" title="검색어" placeholder="등록번호">                
-              </li>
-              <li>
-                <input type="text" name="" id="" title="사용자" placeholder="사용자" list="nameList">
-                <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-              </li>
-              <li>
-                <button type="button" class="btn_search">검색</button>
-                <button type="button" class="btn_refresh">초기화</button>
-              </li>
-            </ul>
-            <div class="flex_right">
-              <button type="button" class="btn_red" onclick="location.href='board_write.html'">신규장비 구매신청? 여기서?</button>
-              <span class="divide">
-                <select title="목록개수 선택">
-                  <option value="15">15줄 보기</option>
-                  <option value="50" selected="">50줄 보기</option>
-                  <option value="100">100줄 보기</option>
-                  <option value="200">200줄 보기</option>
-                </select>
-              </span>
-            </div>
-          </section>
-        <div class="tbl_wrap">
-          <table class="tbl_default hasLayer">
-            <thead>
-              <tr>
-                <th scope="col">등록번호</th>
-                <th scope="col">종류</th>
-                <th scope="col">사용자</th>
-                <th scope="col">사용기간</th>
-                <th scope="col">신청일자</th>
-                <th scope="col">상태</th>
-                <th scope="col">관리</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>KIT-NB67</td>
-                <td>노트북</td>
-                <td>반미선(컨텐츠팀)</td>
-                <td>23-01-31 ~ </td>
-                <td>23-01-31</td>
-                <td>사용중</td>
-                <td onclick="event.stopPropagation();">
-                  <div class="layer_tool">
-                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                    <div class="btn_layer">
-                      <button type="button">사용신청</button>
-                      <button type="button">사용해지</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="paginate tui-pagination" id="pagination">
-  <span class="tui-page-btn tui-is-disabled tui-first">
-    <span class="tui-ico-first">first</span>
-  </span>
-  <span class="tui-page-btn tui-is-disabled tui-prev">
-    <span class="tui-ico-prev">prev</span>
-  </span>
-  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
-  <a href="#" class="tui-page-btn tui-last-child">2</a>
-  <a href="#" class="tui-page-btn tui-next">
-    <span class="tui-ico-next">next</span>
-  </a>
-  <a href="#" class="tui-page-btn tui-last">
-    <span class="tui-ico-last">last</span>
-  </a>
-</div>
+      <div class="cont_body svc_basic">
+        <div class="profile_ipt">
+          <dl>
+            <dt>사번</dt>
+            <dd>0088</dd>
+            <dt>직위</dt>
+            <dd>연구원</dd>
+            <dt>부서명</dt>
+            <dd>개발본부 개발1팀</dd>
+            <dt>입사일</dt>
+            <dd>21-09-24</dd>
+            <dt>생년월일</dt>
+            <dd>90-10-23</dd>
+            <dt><label for="emp_name_kr" class="required">한글이름</label></dt>
+            <dd><input type="text" id="emp_name_kr" value="멋쟁이"></dd>
+            <dt><label for="emp_name_en">영문이름</label></dt>              
+            <dd><input type="text" id="emp_name_en" value="meosjaeng-e"></dd>
+            <dt><label for="emp_phone" class="required">연락처</label></dt>
+            <dd><input type="tel" value="01012345678" id="emp_phone"></dd>
+          </dl>
+          개인이력인적사항, 병역사항, 학력사항, 경력사항, 자격면허, 포상/징계, 발령내역, 교육내역 등
         </div>
       </div>
     </section>
@@ -317,9 +234,6 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   </form>
 </dialog>
 
-
-<!-- https://github.com/frappe/charts -->
-<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
-<script src="../../js/book_meeting_room.js"></script>
-
 </body>
+
+</html>

@@ -30,7 +30,8 @@
             <p><strong id="sel_count" class="t_red">0</strong>장의 사진이 선택되었습니다.</p>
             <button type="button" class="btn_red_line" data-clickEvt="sel_release">선택해제</button>
             <button type="button" class="btn_red">다운로드</button>
-            <button type="button" class="btn_red_line">이동?</button>
+@@include('../../inc/pop/p_moveGroup.html')
+            <button type="button" class="btn_red_line" onclick="document.querySelector('.p_moveAlbum').showModal();">이동?</button>
             <button type="button" class="btn_red_line">삭제</button>
             <button type="button" class="btn_gray_line" data-toggle="selMode_off" data-clickEvt="selMode_off">나가기</button>
           </div>
@@ -125,7 +126,7 @@
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
-
+@@include('../../inc/pop/p_moveAlbum.html')
 @@include('../../inc/layout/script.html')
 <script>
   $(function () {

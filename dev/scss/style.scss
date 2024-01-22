@@ -1709,6 +1709,26 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   .btn_workset{padding-bottom:5px;}
   .work_state{border:none;background-color:transparent;font-size:12px;background-position-x:3px;padding-left:20px;}
 }
+.svc_home{display:flex;flex-wrap:wrap;gap:$columnGap;
+  header{display:flex;align-items:center;@include tit();@include tit_bullet(h1)}
+  article{flex:1 0 auto;width:calc(50% - ($columnGap / 2));}
+  .tbl_wrap{height:auto;min-height:auto;}
+  .attendance_home{width:100%;
+    .refer_date{margin-left:auto;}
+    .summary{display:flex;padding:10px 0;
+      li{flex:1;text-align:center;font-size:24px;color:$blue;font-weight:600;
+        &:nth-child(3){border-right:1px solid $gray;}
+      }
+      em{display:block;font-size:12px;margin-bottom:5px;color:#555;}
+    }
+  }
+}
+.svc_basic{
+  .profile_ipt{
+    dl{display:flex;flex-wrap:wrap;gap:10px;}
+    dt,dd{flex:1 0 20%;}
+  }
+}
 .attendance .fc{
   .fc-header-toolbar{display:none;}
   // .calendar_wrap .fc{height:297px;}

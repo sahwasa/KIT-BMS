@@ -47,6 +47,10 @@
               <h1>첨부파일</h1>
               @@include('../../inc/module/module_file_attached.html')
             </section>
+            <section class="box_default_w">
+              <h1>투표</h1>
+              <div id="chart"></div>
+            </section>
           </article>
         </div>
       </div>
@@ -56,9 +60,51 @@
 </div>
 
 @@include('../../inc/layout/script.html')
+<link rel="stylesheet" href="../../plugins/chart/dist/toastui-chart.min.css">
+<script src="../../plugins/chart/dist/toastui-chart.min.js"></script>
 <script>
   $(function () {
     fileDropEvt();
+
+    const Chart = toastui.Chart;
+    const el = document.getElementById('chart');
+    const data = {
+      categories: ['산리오에서 제일가는 귀염둥이 캐릭터'],
+      series: [
+        {
+          name: '마이멜로디',
+          data: 46,
+        },
+        {
+          name: '시나모롤',
+          data: 70,
+        },
+        {
+          name: '배드바츠마루',
+          data: 7,
+        }
+      ]
+    }
+    const options = {
+      legend: {
+        align: 'bottom',
+      },
+      chart: { width: '100%', height: 250 },
+      series: {
+        angleRange: {
+          start: -90,
+          end: 90,
+        }
+      },
+      tooltip: {
+        offsetX: -250,
+        offsetY: -100,
+      },
+    };
+
+    const chart = Chart.pieChart({ el, data, options });
+
+
   })
 </script>
 </body>
