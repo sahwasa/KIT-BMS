@@ -86,11 +86,11 @@
     </div> -->
     <ul class="snb_lst">
       <li><a href="work_myTodo.html">내 업무함</a>
-        <ul>
+        <!-- <ul>
           <li><a href="work_myTodo.html">나의 할 일</a></li>
           <li><a href="work_myFin.html">완료된 업무</a></li>
           <li><a href="work_myDelay.html">미진 업무</a></li>
-        </ul>
+        </ul> -->
       </li>
       <li class="blind"><a href="work_shareRecept.html">업무 공유함</a>
         <ul>
@@ -102,7 +102,7 @@
       <li><a href="work_performance.html">실적관리</a></li>
       <li><a href="#">업무 보고함</a>
         <ul>
-          <li><a href="work_reportDay.html">일일 업무보고</a></li>
+          <!-- <li><a href="work_reportDay.html">일일 업무보고</a></li> -->
           <li><a href="work_report.html">주간업무보고(개인별)</a></li>
           <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
           <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
@@ -366,13 +366,78 @@
             </div>
             <div class="tab_container">
               <section id="tab_con01" class="tab_contents">
+                <div>
+                  소요시간
+                  <table class="tbl_week">
+                    <caption>소요시간 입력</caption>                         
+                    <thead>
+                      <tr>
+                        <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                      <td></td>
+                      <td><input type="number" title="시간 입력 박스"></td>
+                      <td><input type="number" title="시간 입력 박스"></td>
+                      <td><input type="number" title="시간 입력 박스"></td>
+                      <td><input type="number" title="시간 입력 박스"></td>
+                      <td><input type="number" title="시간 입력 박스"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>휴일</td>
+                      <td><select name="" id="" title="근태">
+  <option value="선택">선택</option>
+  <option value="외근">외근</option>
+  <option value="출장">출장</option>
+  <option value="휴가">휴가</option>
+  <option value="공휴일">공휴일</option>
+</select></td>
+                      <td><select name="" id="" title="근태">
+  <option value="선택">선택</option>
+  <option value="외근">외근</option>
+  <option value="출장">출장</option>
+  <option value="휴가">휴가</option>
+  <option value="공휴일">공휴일</option>
+</select></td>
+                      <td><select name="" id="" title="근태">
+  <option value="선택">선택</option>
+  <option value="외근">외근</option>
+  <option value="출장">출장</option>
+  <option value="휴가">휴가</option>
+  <option value="공휴일">공휴일</option>
+</select></td>
+                      <td><select name="" id="" title="근태">
+  <option value="선택">선택</option>
+  <option value="외근">외근</option>
+  <option value="출장">출장</option>
+  <option value="휴가">휴가</option>
+  <option value="공휴일">공휴일</option>
+</select></td>
+                      <td><select name="" id="" title="근태">
+  <option value="선택">선택</option>
+  <option value="외근">외근</option>
+  <option value="출장">출장</option>
+  <option value="휴가">휴가</option>
+  <option value="공휴일">공휴일</option>
+</select></td>
+                      <td>휴일</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
                 <table class="tbl_row tbl_performance">
                   <caption>등록된 실적</caption>                 
                   <thead>
                     <tr>
                       <th scope="row" rowspan="2">프로젝트</th>
                       <th scope="col">프로젝트명</th>
-                      <td colspan="2">
+                      <td>
                         <ul class="tool_lst">
                           <li>
                             <span class="btn_toggle_single">
@@ -380,18 +445,16 @@
                             </span>
                           </li>                          
                           <li>
-                            <button type="button" class="btn btn_red_line">삭제</button>
+                            <button type="button" class="btn btn_red_line">제외</button>
                           </li>
                         </ul>
                       </td>
-                    </tr>
-                      <th scope="col" colspan="3">요구사항</th>                     
-                    </tr>
+                    </tr>                     
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row" rowspan="2">작업 내용</th>
-                      <th scope="col">업무명(TASK)</th>
+                      <th scope="col">실적명(작업명,업무명,회의명)</th>
                       <th scope="row"><label for="">진행률(&percnt;)</label></th>
                       <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
                     </tr>
@@ -456,7 +519,7 @@
                             </span>
                           </li>                          
                           <li>
-                            <button type="button" class="btn btn_red_line">삭제</button>
+                            <button type="button" class="btn btn_red_line">제외</button>
                           </li>
                         </ul>
                       </td>
@@ -495,7 +558,7 @@
                               <td><input type="number" value="0" title="소요시간"></td>
                             </tr>
                           </tbody>
-                          </table>
+                        </table>
                       </td>
                     </tr>
                   </tbody>
@@ -514,7 +577,7 @@
                             </span>
                           </li>
                           <li>
-                            <button type="button" class="btn btn_red_line">삭제</button>
+                            <button type="button" class="btn btn_red_line">제외</button>
                           </li>
                         </ul>
                       </td>
@@ -580,7 +643,7 @@
                             </span>
                           </li>
                           <li>
-                            <button type="button" class="btn btn_red_line">삭제</button>
+                            <button type="button" class="btn btn_red_line">제외</button>
                           </li>
                         </ul>
                       </td>
@@ -645,7 +708,7 @@
                       </td>
                     </tr>
                   </tbody>
-                </table>                
+                </table>
               </section>
               <section id="tab_con02" class="tab_contents">
                 <table class="tbl_row tbl_performance">
@@ -655,14 +718,9 @@
                       <th scope="row" rowspan="2">프로젝트</th>
                       <th scope="col">프로젝트명</th>
                       <td colspan="2">
-                        <ul class="tool_lst">
+                        <ul class="tool_lst">                         
                           <li>
-                            <span class="btn_toggle_single">
-                              <input type="checkbox" id="progress1" checked><label for="progress1" data-label="진행여부">진행여부</label>                      
-                            </span>
-                          </li>                          
-                          <li>
-                            <button type="button" class="btn btn_red_line">삭제</button>
+                            <button type="button" class="btn btn_red_line">제외</button>
                           </li>
                         </ul>
                       </td>
@@ -701,7 +759,7 @@
                               <td><input type="number" value="0" title="소요시간"></td>
                             </tr>
                           </tbody>
-                          </table>
+                        </table>
                       </td>
                     </tr>
                   </tbody>
