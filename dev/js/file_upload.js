@@ -124,6 +124,7 @@ function addFileList(fIndex, fName, fSize, fExt, fSrc, type, thisEl){
   html += '<a href="#" onclick="deleteFile(' + fIndex + ',\''+thisEl+'\'); return false;" class="file_del" title="삭제">삭제</a>';
   if (type === "image") html += "<img src='"+fSrc+"' class='attach_thumb'>";
   html += "</li>";
+  console.log(viewList)
   viewList.append(html);
   infoView(thisEl);
 }

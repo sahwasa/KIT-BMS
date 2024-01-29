@@ -1267,7 +1267,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     .con_rfp_board{@include proj_view_defaultH(85px);
       &:not(:has(li))::after{display:flex;align-items:center;justify-content:center;height:100%;content:"등록된 요구사항이 없습니다.";background-color:#bfc8d2;font-size:14px;font-weight:700;color:#555;}
       a{display:flex;gap:8px;word-break:keep-all;}
-      summary{@include flex_between;min-height:42px;gap:10px;padding:0 10px;border-bottom:1px solid #ebebeb;
+      summary{@include flex_between;min-height:42px;padding:0 10px;border-bottom:1px solid #ebebeb;
         a{max-width:calc(100% -  21px);
           h4{font-size:14px;font-weight:bold;color:#000;letter-spacing:-0.35px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
           span{flex-shrink:0;color:#898989;letter-spacing:-1.05px;font-size:14px;}
@@ -1710,14 +1710,19 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   .work_state{border:none;background-color:transparent;font-size:12px;background-position-x:3px;padding-left:20px;}
 }
 .svc_home{display:flex;flex-wrap:wrap;gap:$columnGap;
-  header{display:flex;align-items:center;@include tit();@include tit_bullet(h1)}
+  header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
   article{flex:1 0 auto;width:calc(50% - ($columnGap / 2));}
   .tbl_wrap{height:auto;min-height:auto;}
   .attendance_home{width:100%;
-    .refer_date{margin-left:auto;}
+    .refer_date{margin-left:auto;font-size:12px;align-self:flex-end;}
     .summary{display:flex;padding:10px 0;
-      li{flex:1;text-align:center;font-size:24px;color:$blue;font-weight:600;
+      li{flex:1;text-align:center;font-size:24px;color:$gray;font-weight:600;
+        &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3){flex:0.65;}
         &:nth-child(3){border-right:1px solid $gray;}
+        &:nth-child(3),
+        &:nth-last-child(1){color:$blue;}
       }
       em{display:block;font-size:12px;margin-bottom:5px;color:#555;}
     }
