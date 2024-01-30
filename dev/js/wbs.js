@@ -1,4 +1,6 @@
   var calendar;
+  var wbs_range = { start: '2022-10-01', end: '2023-11-30'};
+  var differenceInDays = (new Date(wbs_range.end).getTime() - new Date(wbs_range.start).getTime()) / (1000 * 3600 * 24);
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('wbs');
    
@@ -8,34 +10,32 @@
 
     calendar = new FullCalendar.Calendar(calendarEl, {     
       headerToolbar: {
-        left: 'prev,next',
+        left:'',// 'prev,next',
         center: 'title',
         right: 'fold unfold'
       },     
       customButtons: {
         fold: {
-          text: '요구사항만 보기(전체 접기)',
+          text: '요구사항',
           click: function(resource, cellEls, bodyTds) {
-            alert('어떻게 구현해야하는지 모르겠어요 ㅠ')
+            $('.fc-icon-minus-square').trigger('click');
           }
         },
         unfold: {
-          text: '전체 업무보기(전체 펼치기)',
+          text: '전체 작업',
           click: function() {
-            alert('어떻게 구현해야하는지 모르겠어요 ㅠ')
+            $('.fc-icon-plus-square').trigger('click');
           }
         }
       },
-      validRange: {//프로젝트 기간만 활성화, 프로젝트 기간만 보여지도록 구현하는건 힘들듯...?
-        start: '2022-10-01',
-        end: '2023-11-30',
-      },
+      validRange: wbs_range,
       fixedWeekCount: false,
       timeZone: 'local',
       editable: false,
       selectable: false,
       weekends : true,
-      initialView: 'resourceTimelineYear',
+      initialDate: wbs_range.start,
+      initialView: 'custumRange',
       schedulerLicenseKey: '0328483609-fcs-1693988989',
       locale: 'ko',
       resourceAreaWidth:'40%',
@@ -101,14 +101,17 @@
         { id: 'e3', resourceId: 'c', task:'조기경보회의', start: '2023-09-07T12:00:00', end: '2023-09-07T13:00:00', className: 'cal_busy'}
       ],     
       nowIndicator: true,
-      slotDuration: { days: 1 },      
+      // slotDuration: { days: 1 },      
       views:{        
-        resourceTimelineYear:{
+        custumRange: {
           slotDuration: { week: 1 },
           slotLabelFormat: [
-            { month: 'numeric'},
-            { week: 'numeric'},
-          ]
+              { year: 'numeric'},
+              { month: 'numeric'},
+              { week: 'numeric'},
+          ],
+          type: 'resourceTimeline',
+          duration: { week: Math.round(differenceInDays/7+2) }
         }
       }
     });

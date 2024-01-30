@@ -32,25 +32,18 @@
           <section class="post">
             <article class="box_default_w">
               <dl class="set_list">
-                <dt><label for="work_type" class="required">구분</label></dt>
+                <dt><label for="board_title" class="required">제목</label></dt>
                 <dd>
                   <span class="flex_wrap">
-                    <select name="work_type" id="work_type">
-                      <option value="업무구분 선택">게시판 선택</option>
-                      <option value="사내공지" selected>사내공지</option>
-                      <option value="경조사공지">경조사공지</option>
-                      <option value="사진첩">사진첩</option>
-                    </select>
-                    <select name="work_type" id="work_type">
+                    <select name="" id="">
                       <option value="말머리 선택">말머리 선택</option>
                       <option value="필독" selected>필독</option>
                       <option value="공지">공지</option>
                     </select>
+                    <input type="text" id="board_title" title="업무 제목 입력 박스"
+                      value="2023년 조직개편 및 진급자 발표">
                   </span>
                 </dd>
-                <dt><label for="work_title" class="required">제목</label></dt>
-                <dd><span class="file_input"><input type="text" id="work_title" title="업무 제목 입력 박스"
-                      value="2023년 조직개편 및 진급자 발표"></span></dd>
               </dl>
               <div class="editor_wrap" id="editor_wrap">
                 <textarea name="editor" id="editor" title="에디터 영역"></textarea>

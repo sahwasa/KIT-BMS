@@ -1028,13 +1028,15 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &:first-of-type{margin-top:0;}
     i{@extend %proj_tag;font-size:12px;max-width:none;width:60px;line-height:18px;}  
   }
-  dd{flex:1 auto;max-width:calc((100% - 24px) / 4);
-    .etc{@extend .ico_proj;margin-top:auto;line-height:1;font-size:12px;
+  dd{flex:1 auto;max-width:calc((100% - 24px) / 5);
+    .etc{display:flex;align-items:center;@extend .ico_proj;margin-top:auto;line-height:1;font-size:12px;
       i{font-size:0;}
       i::before{margin-top:0;}
+      .user_module{margin-left:auto;}
     }
+    &.delay{background-color:#fef4f5;box-shadow:0 1px 8px rgba(255,0,0,.2);}
   }
-  @include desktop{dd{max-width:calc((100% - 16px) / 2);}}
+  @include desktop{dd{max-width:calc((100% - 16px) / 3);}}
   dd,
   & > li{@include proj_box(true);display:flex;flex-direction:column;gap:5px;width:100%;min-height:110px;padding:10px 15px;cursor:pointer;
     .task_name{@include text_ellipsis(3);line-height:1.3;} 
@@ -1066,11 +1068,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   .box_default{height:calc(100vh - 227px);min-height:402px;overflow-y:auto;}
 }
 .week_task{flex-grow:1;
-  .proj_legend{justify-content:flex-end;}
-}
-.lazy_task{flex:1 0 283px;
-  h1{font-size:16px;font-weight:700;color:#000;margin:10px 0 8px}
-  .task_lst{flex-direction:column;margin-top:8px;}
+  .lst_header{margin-bottom:5px;}
+  .btn_toggle_single{margin-left:auto;}
+  // .proj_legend{justify-content:flex-end;}
 }
 .project_new{
   .new_contents{@include flex_layout;
