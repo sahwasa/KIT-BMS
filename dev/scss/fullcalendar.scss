@@ -28,6 +28,7 @@
 .cal_busy{@extend %busy;@include customEvt(#00477f){border-width:1px;}}
 .cal_absence{@extend %absence;@include customEvt(#333){border-width:1px;}}
 .cal_holiday{@extend %holiday;@include customEvt(#ff0000){border-width:1px;}}
+.cal_delay{@extend %holiday;@include customEvt(#ff0000){border-width:1px;}}
 
 .wbs{
   [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
