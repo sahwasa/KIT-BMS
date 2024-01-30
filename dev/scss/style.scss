@@ -1065,7 +1065,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   img{object-fit:cover;min-height:100%;}
 }
 .my_task{@include flex_layout;align-items:stretch;height:100%;
-  .box_default{height:calc(100vh - 227px);min-height:402px;overflow-y:auto;}
+  .box_default{height:calc(100vh - 243px);min-height:386px;overflow-y:auto;}
 }
 .week_task{flex-grow:1;
   .lst_header{margin-bottom:5px;}

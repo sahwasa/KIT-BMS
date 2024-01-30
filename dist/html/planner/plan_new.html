@@ -93,7 +93,6 @@
             </span>
           </header>
         </div>
-
         <section class="new_contents">
           <fieldset class="ipt_wrap ipt_set">
             <dl>
@@ -112,6 +111,13 @@
                 </div>
               </dd>
               <dd class="flex_full divideL"><input type="text" id="plan_tit" title="제목 상세 입력 박스" required></dd>
+              <!-- 타입이 회의일 때 선택 -->
+              <dt><span class="label">프로젝트</span></dt>
+              <dd class="flex_full file_input">
+                <select name="" id="prj_org1"><option value="">사업자분류</option></select>
+                <select name="" id="prj_org2"><option value="">기관선택</option></select>
+                <input type="text" id="prj_search" placeholder="프로젝트명을 입력하세요." list="prjList" autocomplete="off">                
+              </dd>
               <dt><label for="plan_period" class="required">기간</label></dt>
               <dd>
                 <div class="period_custom">

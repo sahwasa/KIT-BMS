@@ -1605,17 +1605,21 @@
           </colgroup>
           <tbody>
             <tr>
-              <th scope="row"><label for="plan_period">기간</label></th>
+              <th scope="row">기간</th>
               <td><p>2023-04-14 13:00 ~ 2023-04-14 14:00</p></td>
             </tr>
             <tr>
-              <th scope="row"><label for="plan_tit">제목</label></th>
+              <th scope="row">제목</th>
               <td>
                 <span class="file_input">
                   <span>[중요]</span>
                   <p>제목 상세 입력 박스 임시 일정</p>
                 </span>
               </td>
+            </tr>
+            <tr>
+              <th scope="row">프로젝트</th>
+              <td>BOSS2 1단계</td>            
             </tr>
             <tr>
               <th scope="row"><label for="plan_place">장소</label></th>
@@ -1734,6 +1738,16 @@
                     </ul>
                   </div>
                   <input type="text" id="plan_tit">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">프로젝트</label></th>
+              <td colspan="3">
+                <div class="file_input">
+                  <select name="" id="prj_org1"><option value="">사업자분류</option></select>
+                  <select name="" id="prj_org2"><option value="">기관선택</option></select>
+                  <input type="text" id="prj_search" placeholder="프로젝트명을 입력하세요." list="prjList" autocomplete="off">                
                 </div>
               </td>
             </tr>
