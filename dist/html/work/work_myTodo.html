@@ -190,22 +190,8 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-                <button type="button" class="btn_default">추가</button>
                 <button type="button" class="btn_ogt">조직도</button>
               </span>
-              <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li> 
-</ul>
             </td>
           </tr>
           
@@ -271,14 +257,15 @@
           </div>
           <div class="tbl_top_area">
             <div class="btn_switch border_none">
-              <input type="radio" id="rfp_all" name="rfp_apply" checked="">
-              <label for="rfp_all" class="opened">전체</label>
-              <input type="radio" id="rfp_approve" name="rfp_apply">
-              <label for="rfp_approve" class="opened">완료된 업무<em>2</em>건</label>
-              <input type="radio" id="rfp_change" name="rfp_apply">
-              <label for="rfp_change" class="closed">지연 업무<em>1</em>건</label>
+              <input type="radio" id="all" name="work_type">
+              <label for="all" class="opened">전체</label>
+              <input type="radio" id="done" name="work_type" checked>
+              <label for="done" class="opened">완료된 업무<em>2</em>건</label>
+              <input type="radio" id="delay" name="work_type">
+              <label for="delay" class="closed">지연 업무<em>1</em>건</label>
             </div>
           </div>
+          <!-- 기본값 프로젝트, 개인업무, 일정-회의 순서 -->
           <section class="tbl_wrap">
             <table class="tbl_default tbl_todo hasLayer tbl_hover">
               <caption>나의 할일 리스트</caption>
@@ -293,11 +280,21 @@
               </colgroup>
               <thead>
                 <tr>
-                  <th scope="col">구분</th>
+                  <th scope="col" class="sort">구분
+                    <span class="sorting">
+                      <span class="ico_asc" title="기본순서">기본순서</span>
+                      <span class="ico_desc" title="기본순서 역순">기본순서 역순</span>
+                    </span>
+                  </th>
                   <th scope="col">업무명</th>
                   <th scope="col">업무범주</th>
                   <th scope="col">업무내용</th>
-                  <th scope="col">작업기간</th>
+                  <th scope="col" class="sort basis_asc">작업기간
+                    <span class="sorting">
+                      <span class="ico_asc" title="마감일 빠른 순">마감일 빠른 순</span>
+                      <span class="ico_desc" title="마감일 늦은 순">마감일 늦은 순</span>
+                    </span>
+                  </th>
                   <th scope="col">요청자</th>
                   <th scope="col">진행율</th>
                 </tr>

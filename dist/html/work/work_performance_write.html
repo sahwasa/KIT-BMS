@@ -190,22 +190,8 @@
     <option value="관리핑">경영관리</option>
   </optgroup>                  
 </datalist>
-                <button type="button" class="btn_default">추가</button>
                 <button type="button" class="btn_ogt">조직도</button>
               </span>
-              <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
-</div>
-    </div>
-  </li> 
-</ul>
             </td>
           </tr>
           
@@ -264,21 +250,8 @@
         <article class="box_compact">
           <button type="button" class="btn_gray_line">목록</button>
           <ul class="search_list btn_wrap">
-            <li><label for="" class="required">업무수행일자</label></li>
             <li>
-              <select id="" title="연도 선택">
-                <option disabled="">연도 선택</option>
-                <option selected>2023년</option>
-              </select>
-            </li>
-            <li>
-              <select title="주차 선택">
-                <option disabled="">주차 선택</option>
-                <option selected>14주</option>
-              </select>
-            </li>
-            <li>
-              <button type="button" class="btn_ogt">업무 불러오기</button>
+              <button type="button" class="btn_ogt">금주 업무 다시 불러오기</button>
             </li>
             <li class="divide">
               <button type="button" class="btn_red">저장</button>
@@ -286,8 +259,8 @@
           </ul>
         </article>
         <div class="my_work">
-          <article class="box_default status">
-            <header><h1>지난주 업무 수행내역 : 2023년 13주</h1></header>
+          <article class="box_default status last_week">
+            <header><h1>지난주 업무 수행내역</h1></header>
             <!-- <ul data-empty="지난 업무 수행내역이 없습니다."> 데이터없을 시 -->
             <ul>
               <li class="pro">
@@ -360,320 +333,330 @@
           <article class="performance_write">
             <div class="tab_wrap">
               <ul class="tab tab_l">
-                <li><a href="#tab_con01">실적</a></li>
-                <li><a href="#tab_con02">계획</a></li>
+                <li><a href="#tab_con01">실적 (2023.11.10 ~ 2023.10.20)</a></li>
+                <li><a href="#tab_con02">계획 (2023.10.21 ~ 2023.10.27)</a></li>
               </ul>
             </div>
             <div class="tab_container">
               <section id="tab_con01" class="tab_contents">
-                <div>
-                  소요시간
-                  <table class="tbl_week">
-                    <caption>소요시간 입력</caption>                         
+                <div class="tbl_top_area">
+                  <table class="tbl_row tbl_week">
+                    <caption>소요시간 요약</caption>                         
                     <thead>
                       <tr>
-                        <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                        <th scope="col"><label for="sun_time">일</label></th><th scope="col"><label for="mon_time">월(휴일)</label></th><th scope="col"><label for="tue_time">화(출장)</label></th><th scope="col"><label for="wed_time">수(외근)</label></th><th scope="col"><label for="thu_time">목(휴가)</label></th><th scope="col"><label for="fri_time">금</label></th><th scope="col"><label for="sat_time">토</label></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                      <td></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>휴일</td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td>휴일</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                        <td><input id="sun_time" type="number" readonly title="소요시간"></td>
+                        <td><input id="mon_time" type="number" readonly title="소요시간"></td>
+                        <td><input id="tue_time" type="number" readonly title="소요시간"></td>
+                        <td><input id="wed_time" type="number" readonly title="소요시간"></td>
+                        <td><input id="thu_time" type="number" readonly title="소요시간"></td>
+                        <td><input id="fri_time" type="number" readonly title="소요시간"></td>
+                        <td><input id="sat_time" type="number" readonly title="소요시간"></td>
+                      </tr>                    
                     </tbody>
                   </table>
                 </div>
-                <table class="tbl_row tbl_performance">
-                  <caption>등록된 실적</caption>                 
-                  <thead>
-                    <tr>
-                      <th scope="row" rowspan="2">프로젝트</th>
-                      <th scope="col">프로젝트명</th>
-                      <td>
-                        <ul class="tool_lst">
-                          <li>
-                            <span class="btn_toggle_single">
-                              <input type="checkbox" id="progress1" checked><label for="progress1" data-label="진행여부">진행여부</label>                      
-                            </span>
-                          </li>                          
-                          <li>
-                            <button type="button" class="btn btn_red_line">제외</button>
-                          </li>
-                        </ul>
-                      </td>
-                    </tr>                     
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row" rowspan="2">작업 내용</th>
-                      <th scope="col">실적명(작업명,업무명,회의명)</th>
-                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
-                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" contenteditable>
-                        <img src="../../images/asset/temp_task.jpg" width="300px" ><br />
-                        15일 회의 내용<br />
-                        - 최초 : 프로젝트 > 요구사항 > 업무 > 작업내용 전체 불러옴<br />
-                        - 계획에서는 항상 전체 불러옴<br />
-                        - 지난주에 작성한 계획 중 매핑될 경우 계획내용 불러옴<br />
-                        <br />
-                        의견<br />
-                        - 계획을 무시하고 계획과 전체를 불러오는 것이 어떤지?<br />
-                        - why?전체 작업내용을 참고하고자 할때 탭을 이동하고 해당 업무를 찾아야 하는게 불편함<br />
-                        ex)<br />
-                        ---계획---<br />
-                        -작업1<br />
-                        -작업2<br />
-                        ---전체----<br />
-                        -작업1<br />
-                        -작업2<br />
-                        -작업3<br />
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">소요 시간</th>
-                      <td colspan="3">
-                        <table class="tbl_week">
-                          <caption>소요시간 입력</caption>                         
-                          <thead>
-                            <tr>
-                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                            </tr>
-                          </tbody>
+                <div class="tbl_scroll_wrap">                
+                  <table class="tbl_row tbl_performance">
+                    <caption>등록된 실적</caption>                 
+                    <thead>
+                      <tr>
+                        <th scope="row" rowspan="2">프로젝트</th>
+                        <th scope="col">프로젝트명</th>
+                        <td colspan="2">
+                          <ul class="tool_lst">
+                            <li>
+                              <span class="btn_toggle_single">
+                                <input type="checkbox" id="progress1" checked><label for="progress1" data-label="진행여부">진행여부</label>                      
+                              </span>
+                            </li>                          
+                            <li>
+                              <button type="button" class="btn btn_red_line">제외</button>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>                     
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2">작업 내용</th>
+                        <th scope="col">실적명(작업명,업무명,회의명)</th>
+                        <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                        <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" contenteditable>
+                          <img src="../../images/asset/temp_task.jpg" width="300px" ><br />
+                          15일 회의 내용<br />
+                          - 최초 : 프로젝트 > 요구사항 > 업무 > 작업내용 전체 불러옴<br />
+                          - 계획에서는 항상 전체 불러옴<br />
+                          - 지난주에 작성한 계획 중 매핑될 경우 실적에 지난주에 작성한 계획내용과 진행률 불러옴<br />
+                          <br />
+                          의견<br />
+                          - 지난주에 작성한 계획과 매핑된다면 실적에 계획과 전체를 불러오는 것이 어떤지?<br />
+                          - why?전체 작업내용을 참고하고자 할때 탭을 이동하고 매핑되는 업무를 찾아야 하는게 불편함<br />
+                          ex)<br />
+                          ---계획---<br />
+                          -작업1<br />
+                          -작업2<br />
+                          ---전체----<br />
+                          -작업1<br />
+                          -작업2<br />
+                          -작업3<br />
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">소요 시간</th>
+                        <td colspan="3">
+                          <table class="tbl_week">
+                            <caption>소요시간 입력</caption>                         
+                            <thead>
+                              <tr>
+                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                              </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>                
+                  <table class="tbl_row tbl_performance">
+                    <caption>등록된 실적</caption>                 
+                    <thead>
+                      <tr>
+                        <th scope="row" rowspan="2">프로젝트</th>
+                        <th scope="col">2023년 지진,화산재해 대응시스템 유지보수</th>
+                        <td colspan="2">
+                          <ul class="tool_lst">
+                            <li>
+                              <span class="btn_toggle_single">
+                                <input type="checkbox" id="progress2" checked><label for="progress2" data-label="진행여부">진행여부</label>                      
+                              </span>
+                            </li>                          
+                            <li>
+                              <button type="button" class="btn btn_red_line">제외</button>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2">작업 내용</th>
+                        <th scope="col">업무명(TASK)</th>
+                        <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                        <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" contenteditable>- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">소요 시간</th>
+                        <td colspan="3">
+                          <table class="tbl_week">
+                            <caption>소요시간 입력</caption>                         
+                            <thead>
+                              <tr>
+                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                              </tr>
+                            </tbody>
                           </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>                
-                <table class="tbl_row tbl_performance">
-                  <caption>등록된 실적</caption>                 
-                  <thead>
-                    <tr>
-                      <th scope="row" rowspan="2">프로젝트</th>
-                      <th scope="col">2023년 지진,화산재해 대응시스템 유지보수</th>
-                      <td colspan="2">
-                        <ul class="tool_lst">
-                          <li>
-                            <span class="btn_toggle_single">
-                              <input type="checkbox" id="progress2" checked><label for="progress2" data-label="진행여부">진행여부</label>                      
-                            </span>
-                          </li>                          
-                          <li>
-                            <button type="button" class="btn btn_red_line">제외</button>
-                          </li>
-                        </ul>
-                      </td>
-                    </tr>
-                      <th scope="col" colspan="3">요구사항</th>                     
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row" rowspan="2">작업 내용</th>
-                      <th scope="col">업무명(TASK)</th>
-                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
-                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" contenteditable>- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">소요 시간</th>
-                      <td colspan="3">
-                        <table class="tbl_week">
-                          <caption>소요시간 입력</caption>                         
-                          <thead>
-                            <tr>
-                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table class="tbl_row tbl_performance">
-                  <caption>등록된 실적</caption>
-                  <thead>
-                    <tr>
-                      <th scope="row">개인업무</th>
-                      <th scope="col">(프로젝트명, 생략가능)</th>
-                      <td colspan="2">
-                        <ul class="tool_lst">
-                          <li>
-                            <span class="btn_toggle_single">
-                              <input type="checkbox" id="progress3" checked><label for="progress3" data-label="진행여부">진행여부</label>
-                            </span>
-                          </li>
-                          <li>
-                            <button type="button" class="btn btn_red_line">제외</button>
-                          </li>
-                        </ul>
-                      </td>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row" rowspan="2">작업 내용</th>
-                      <th scope="col">업무명(TASK)</th>
-                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
-                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="3"><div contenteditable style="--h:75px;">- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</div></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">소요 시간</th>
-                      <td colspan="3">
-                        <table class="tbl_week">
-                          <caption>소요시간 입력</caption>
-                          <thead>
-                            <tr>
-                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                            </tr>
-                          </tbody>
-                          </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="alignC"><button type="button" class="btn btn_ogt">개인업무 등록</button></div>
-                <table class="tbl_row tbl_performance">
-                  <caption>등록된 실적</caption>
-                  <thead>
-                    <tr>
-                      <th scope="row">개인업무</th>
-                      <th scope="col">
-                        <div class="file_input">
-                          <select name="" id="" title="사업자분류"><option value="">사업자분류</option></select>
-                          <select name="" id="" title="기관선택"><option value="">기관선택</option></select>
-                          <input type="text" id="work_proj" title="프로젝트명" list="projectList">
-                          <datalist id="projectList">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="tbl_row tbl_performance">
+                    <caption>등록된 실적</caption>
+                    <thead>
+                      <tr>
+                        <th scope="row">개인업무</th>
+                        <th scope="col">(프로젝트명, 생략가능)</th>
+                        <td colspan="2">
+                          <ul class="tool_lst">
+                            <li>
+                              <span class="btn_toggle_single">
+                                <input type="checkbox" id="progress3" checked><label for="progress3" data-label="진행여부">진행여부</label>
+                              </span>
+                            </li>
+                            <li>
+                              <button type="button" class="btn btn_red_line">제외</button>
+                            </li>
+                          </ul>
+                        </td>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2">작업 내용</th>
+                        <th scope="col">업무명(개인이 등록한 업무명)</th>
+                        <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                        <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3"><div contenteditable style="--h:75px;">- 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>- 권한에 따른 메뉴 표출 변경</div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">소요 시간</th>
+                        <td colspan="3">
+                          <table class="tbl_week">
+                            <caption>소요시간 입력</caption>
+                            <thead>
+                              <tr>
+                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                              </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="tbl_row tbl_performance">
+                    <caption>등록된 실적</caption>
+                    <thead>
+                      <tr>
+                        <th scope="row">회의</th>
+                        <th scope="col">(프로젝트명, 생략가능)</th>
+                        <td colspan="2">
+                          <ul class="tool_lst">
+                            <li>
+                              <span class="btn_toggle_single">
+                                <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부">진행여부</label>
+                              </span>
+                            </li>
+                            <li>
+                              <button type="button" class="btn btn_red_line">제외</button>
+                            </li>
+                          </ul>
+                        </td>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2">작업 내용</th>
+                        <th scope="col">회의명</th>
+                        <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                        <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3"><div contenteditable style="--h:75px;">회의내용</div></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">소요 시간</th>
+                        <td colspan="3">
+                          <table class="tbl_week">
+                            <caption>소요시간 입력</caption>
+                            <thead>
+                              <tr>
+                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                              </tr>
+                            </tbody>
+                            </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- <div class="alignC"><button type="button" class="btn btn_ogt">개인업무 등록</button></div>
+                  <table class="tbl_row tbl_performance">
+                    <caption>등록된 실적</caption>
+                    <thead>
+                      <tr>
+                        <th scope="row">개인업무</th>
+                        <th scope="col">
+                          <div class="file_input">
+                            <select name="" id="" title="사업자분류"><option value="">사업자분류</option></select>
+                            <select name="" id="" title="기관선택"><option value="">기관선택</option></select>
+                            <input type="text" id="work_proj" title="프로젝트명" list="projectList">
+                            <datalist id="projectList">
   <option value="조기경보">기상청</option>
   <option value="기상긴급">행안부 연구과제</option>
   <option value="KIT업무관리">사내업무</option>
 </datalist>
-                        </div></th>
-                      <td colspan="2">
-                        <ul class="tool_lst">
-                          <li>
-                            <span class="btn_toggle_single">
-                              <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부">진행여부</label>
-                            </span>
-                          </li>
-                          <li>
-                            <button type="button" class="btn btn_red_line">제외</button>
-                          </li>
-                        </ul>
-                      </td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row" rowspan="2" class="required">작업 내용</th>
-                      <th scope="col"><input type="text" title="업무명" placeholder="업무명 입력" required></th>
-                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
-                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" contenteditable>- 저는 개인업무 등록 버튼을 눌러서 만들어졌습니다! 초기 화면에는 제가 없습니다</td>
-                    </tr>
-                    <tr>
-                      <th scope="row"><label for="" class="required">업무범주</label></th>
-                      <td colspan="3">
-                        <span class="file_input">
-                          <select id="per_nameSelect">
-                            <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
-                          </select>
-                        </span>
-                        <div id="per_tagsList"></div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="required">작업일자</th>
-                      <td colspan="3">
-                        <div class="period_custom">
+                          </div></th>
+                        <td colspan="2">
+                          <ul class="tool_lst">
+                            <li>
+                              <span class="btn_toggle_single">
+                                <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부">진행여부</label>
+                              </span>
+                            </li>
+                            <li>
+                              <button type="button" class="btn btn_red_line">제외</button>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2" class="required">작업 내용</th>
+                        <th scope="col"><input type="text" title="업무명" placeholder="업무명 입력" required></th>
+                        <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                        <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" contenteditable>- 저는 개인업무 등록 버튼을 눌러서 만들어졌습니다! 초기 화면에는 제가 없습니다</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><label for="" class="required">업무범주</label></th>
+                        <td colspan="3">
+                          <span class="file_input">
+                            <select id="per_nameSelect">
+                              <option value="업무범주를 선택하세요" disabled selected>업무범주를 선택하세요</option>
+                            </select>
+                          </span>
+                          <div id="per_tagsList"></div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="required">작업일자</th>
+                        <td colspan="3">
+                          <div class="period_custom">
   <span>
     <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
   </span>
@@ -681,89 +664,111 @@
     <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
   </span>
 </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">소요 시간</th>
-                      <td colspan="3">
-                        <table class="tbl_week">
-                          <caption>소요시간 입력</caption>
-                          <thead>
-                            <tr>
-                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">소요 시간</th>
+                        <td colspan="3">
+                          <table class="tbl_week">
+                            <caption>소요시간 입력</caption>
+                            <thead>
+                              <tr>
+                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table> -->
+                </div>
               </section>
               <section id="tab_con02" class="tab_contents">
-                <table class="tbl_row tbl_performance">
-                  <caption>등록된 실적</caption>                 
-                  <thead>
-                    <tr>
-                      <th scope="row" rowspan="2">프로젝트</th>
-                      <th scope="col">프로젝트명</th>
-                      <td colspan="2">
-                        <ul class="tool_lst">                         
-                          <li>
-                            <button type="button" class="btn btn_red_line">제외</button>
-                          </li>
-                        </ul>
-                      </td>
-                    </tr>
-                      <th scope="col" colspan="3">요구사항</th>                     
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row" rowspan="2">작업 내용</th>
-                      <th scope="col">업무명(TASK)</th>
-                      <th scope="row"><label for="">진행률(&percnt;)</label></th>
-                      <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" contenteditable>- 작업 상세내역</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">소요 시간</th>
-                      <td colspan="3">
-                        <table class="tbl_week">
-                          <caption>소요시간 입력</caption>                         
-                          <thead>
-                            <tr>
-                              <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                              <td><input type="number" value="0" title="소요시간"></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="tbl_top_area">
+                  <table class="tbl_row tbl_week">
+                    <caption>소요 예상시간 요약</caption>                         
+                    <thead>
+                      <tr>
+                        <th scope="col"><label for="sun_pre_pre_time">일</label></th><th scope="col"><label for="mon_pre_time">월</label></th><th scope="col"><label for="tue_pre_time">화</label></th><th scope="col"><label for="wed_pre_time">수</label></th><th scope="col"><label for="thu_pre_time">목</label></th><th scope="col"><label for="fri_pre_time">금</label></th><th scope="col"><label for="sat_pre_time">토</label></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input id="sun_pre_time" type="number" readonly title="소요 예상시간"></td>
+                        <td><input id="mon_pre_time" type="number" readonly title="소요 예상시간"></td>
+                        <td><input id="tue_pre_time" type="number" readonly title="소요 예상시간"></td>
+                        <td><input id="wed_pre_time" type="number" readonly title="소요 예상시간"></td>
+                        <td><input id="thu_pre_time" type="number" readonly title="소요 예상시간"></td>
+                        <td><input id="fri_pre_time" type="number" readonly title="소요 예상시간"></td>
+                        <td><input id="sat_pre_time" type="number" readonly title="소요 예상시간"></td>
+                      </tr>                    
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tbl_scroll_wrap">
+                  <table class="tbl_row tbl_performance">
+                    <caption>계획된 업무</caption>                 
+                    <thead>
+                      <tr>
+                        <th scope="row" rowspan="2">프로젝트</th>
+                        <th scope="col" colspan="2">프로젝트명</th>
+                        <td>
+                          <ul class="tool_lst">                         
+                            <li>
+                              <button type="button" class="btn btn_red_line">제외</button>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" rowspan="2">작업 내용</th>
+                        <th scope="col">업무명(TASK)</th>
+                        <th scope="row"><label for="">진행률(&percnt;)</label></th>
+                        <td><input type="number" min="0" max="100" value="0" title="진행률 입력"></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" contenteditable>- 작업 상세내역</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">소요 예상시간</th>
+                        <td colspan="3">
+                          <table class="tbl_week">
+                            <caption>소요 예상시간 입력</caption>                         
+                            <thead>
+                              <tr>
+                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td><input type="number" value="0" title="소요시간"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </section>
             </div>
           </article>

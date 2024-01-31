@@ -1554,7 +1554,8 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
     .tit{flex-direction:column;align-items:flex-start;}
     .dsc{align-self:flex-end;}
   }
-  .tab_contents{@include my_work_defaultH();display: flex;flex-direction: column;gap:10px;padding-bottom:$columnGap;}
+  // .tab_contents{@include my_work_defaultH();display:flex;flex-direction: column;gap:10px;padding-bottom:$columnGap;}
+  .tbl_scroll_wrap{@include my_work_defaultH(72px);display:flex;flex-direction: column;gap:10px;padding-bottom:$columnGap;}
   .tbl_row{position:relative;width:100%;border:1px solid #ebebeb;border-width:0 1px;font-size:12px;
     td{vertical-align:baseline;
       &[contenteditable]{height:75px;}
@@ -1625,6 +1626,7 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   }
 }
 //실적관리
+.last_week .tit strong{padding-left:15px;}
 .performance ul{@include empty_txt(attr(data-empty),true,150px);}
 .performance_write{flex:1;min-height:0;
   .tbl_performance{position:relative;
@@ -1685,7 +1687,19 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   div[contenteditable]{padding:5px;border:1px solid #ddd;white-space:initial;text-align:left;}
   &.asis tbody td,
   &.tobe tbody td{@include alignL(2);}
-  &.asis_tobe td{@include alignL(3 4);}
+  &.asis_tobe{
+    td{@include alignL(3 4);}
+    tfoot{background-color:inherit;
+      .tbl_week td{padding:0;
+        &:first-child,
+        &:last-child{background-color:#f5f5f5;}
+      }
+      div{text-indent:-8px;padding-left:8px;background-color:transparent;}
+      div[contenteditable]{min-height:100%;border-width:0;text-indent:0;}
+
+
+    }
+  }    
 }
 .work_new,
 .work_view,
