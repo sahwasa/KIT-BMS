@@ -115,7 +115,7 @@
 <dialog class="p_workMy">
   <form method="dialog">
     <header class="p_header">
-      <strong>내 업무 추가</strong>
+      <strong>내 업무 추가, 상세 및 수정</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
@@ -142,6 +142,7 @@
   <option value="기상긴급">행안부 연구과제</option>
   <option value="KIT업무관리">사내업무</option>
 </datalist>
+                <label for="all"><input type="checkbox" id="all">전체</label>
               </div>
             </td>
           </tr>
@@ -193,8 +194,7 @@
                 <button type="button" class="btn_ogt">조직도</button>
               </span>
             </td>
-          </tr>
-          
+          </tr>          
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
@@ -220,6 +220,8 @@
       </table>
       <div class="btn_wrap">
         <button class="btn_red" type="button">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -247,10 +249,8 @@
       </header>
       <div class="cont_body approval_view work">
         <article class="box_compact box_tool">
-          <button type="button" class="btn_gray_line">목록</button>
+          <button type="button" class="btn_gray_line" onclick="location.href='../work/work_report.html'">목록</button>
           <span class="floatR">
-            <button type="button" class="btn_red">전자결재 바로가기</button>
-            <span>임시저장 </span>
             <button type="button" class="btn_red">재상신</button>
             <button type="button" class="btn_red_line">삭제</button>
             <span>/ 상신자 </span>
@@ -281,12 +281,8 @@
                 </colgroup>
                 <tbody>
                   <tr>
-                    <th scope="row">
-                      <label for="form_num" class="required">제목</label>
-                    </th>
-                    <td>
-                      <input type="text" id="form_num" value="14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동)">
-                    </td>
+                    <th scope="row">문서제목</th>
+                    <td>14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동) </td>
                   </tr>
                 </tbody>
               </table>
@@ -603,8 +599,6 @@
   </optgroup>                  
 </datalist>
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                <button type="button" class="btn_red_line">저장</button>
-                <button type="button" class="btn_red_line" disabled>저장</button>
               </span>
               <ul class="btn_slideclose">
   <li>
@@ -668,17 +662,6 @@
             </section>
             <section class="box_default_w">
               <dl class="set_list">
-                <dt>중요도</dt>
-                <dd>
-                  <div class="btn_switch">
-                    <input type="radio" id="high" name="importance" readonly>
-                    <label for="high" class="high_prio">높음</label>
-                    <input type="radio" id="common" name="importance" checked readonly>
-                    <label for="common" class="normal_prio">보통</label>
-                    <input type="radio" id="row" name="importance" readonly>
-                    <label for="row" class="low_prio">낮음</label>
-                  </div>
-                </dd>
                 <dt>공개여부</dt>
                 <dd>
                   <div class="btn_switch">
@@ -686,13 +669,6 @@
                     <label for="open">공개</label>
                     <input type="radio" id="private" name="disclosure">
                     <label for="private">비공개</label>
-                  </div>
-                </dd>
-                <dt class="rel_doc">관련문서</dt>
-                <dd>
-                  <div class="file_input">
-                    <a href="#">23-04-17 휴일근무신청서</a>
-                    <a href="#" target="_blank" class="preview">미리보기</a>
                   </div>
                 </dd>
               </dl>

@@ -115,7 +115,7 @@
 <dialog class="p_workMy">
   <form method="dialog">
     <header class="p_header">
-      <strong>내 업무 추가</strong>
+      <strong>내 업무 추가, 상세 및 수정</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
@@ -142,6 +142,7 @@
   <option value="기상긴급">행안부 연구과제</option>
   <option value="KIT업무관리">사내업무</option>
 </datalist>
+                <label for="all"><input type="checkbox" id="all">전체</label>
               </div>
             </td>
           </tr>
@@ -193,8 +194,7 @@
                 <button type="button" class="btn_ogt">조직도</button>
               </span>
             </td>
-          </tr>
-          
+          </tr>          
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
@@ -220,6 +220,8 @@
       </table>
       <div class="btn_wrap">
         <button class="btn_red" type="button">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -247,7 +249,7 @@
       </header>
       <div class="cont_body approval_draft work">
         <article class="box_compact box_tool">
-          <button type="button" class="btn_gray_line">목록</button>
+          <button type="button" class="btn_gray_line" onclick="location.href='../work/work_reportTeam.html'">목록</button>
           <span class="floatR">
             <button type="button" class="btn_red">상신</button>
             <button type="button" class="btn_gray">임시저장</button>
@@ -266,7 +268,7 @@
                 <tbody>
                   <tr>
                     <th scope="row">
-                      <label for="form_num" class="required">제목</label>
+                      <label for="form_num" class="required">문서제목</label>
                     </th>
                     <td>
                       <input type="text" id="form_num" value="14주차 주간업무보고서(지진사업본부 지진사업1팀)">
@@ -322,7 +324,7 @@
                   </tr>
                 </tbody>
               </table>
-              <table class="tbl_report asis_tobe alignL_3 alignL_4">
+              <table class="tbl_report asis_tobe">
                 <caption>주간업무보고(팀별)</caption>
                 <colgroup>
                   <col style="width:195px">
@@ -368,8 +370,7 @@
                     <td></td>
                     <td>뽀로로</td>
                   </tr>
-                  <tr>
-                    <th style="display:none;">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                  <tr>                    
                     <td>유지보수</td>
                     <td>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -406,7 +407,7 @@
                   </tr>
                   <tr>
                     <th>기타업무</th>
-                    <td style="font-size:30px;">🎸</td>
+                    <td><span style="font-size: 30px;">🎸</span></td>
                     <td>
                       - 팀별 주간회의<br>
                       - 상반기 연구활동비(회의비) 관련 회의<br>
@@ -431,40 +432,68 @@
                     <td>시나모롤</td>
                   </tr>
                 </tbody>
-              </table>
-              <table class="tbl_row tbl_week">
-                <caption>소요시간 입력</caption>
-                <colgroup>
-                  <col span="7" style="width:150px">
-                </colgroup>
-                <thead>
+                <tfoot>
                   <tr>
-                    <th>일(4/9)​</th>
-                    <th>월(4/10)​</th>
-                    <th>화(4/11)​</th>
-                    <th>수(4/12)​</th>
-                    <th>목(4/13)​</th>
-                    <th>금(4/14)​</th>
-                    <th>토(4/15)​</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <ul>
-                        <li>외근 : 뽀로로</li>
-                        <li>출장 : 뽀로로</li>
-                        <li>회의 : 뽀로로</li>
-                      </ul>
+                    <td colspan="7">
+                      <h3>&lt; 주요 일정 계획 &gt;</h3>
+                      <table class="tbl_row tbl_week">
+                        <caption>소요시간 요약</caption>
+                        <colgroup>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                          <col>
+                          <col class="holiday">
+                          <col>
+                        </colgroup>                     
+                        <thead>
+                          <tr>
+                            <th scope="col">일(2.4)</th>
+                            <th scope="col">월(2.5)</th>
+                            <th scope="col">화(2.6)</th>
+                            <th scope="col">수(2.7)</th>
+                            <th scope="col">목(2.8)</th>
+                            <th scope="col" class="holiday">금(2.9)-휴일</th>
+                            <th scope="col">토(2.10)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><div></div></td>
+                            <td>
+                              <div>
+                                - [출장]
+                                <div>- [외근] 송태정 - 문체부 과제회의(10:00 ~,LIGS)</div>
+                                <div>- [외근] 서현정 - 목적(시간 ~, 장소)</div>
+                              </div>
+                            </td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                          </tr>
+                          <tr>
+                            <td><div></div></td>
+                            <td>
+                              <div>
+                                - [연차] 조범준
+                                <div>- [연차] 김종빈</div>
+                                <div>- [반차] 박유빈 - (10:00 ~ 14:00)</div>
+                              </div>
+                            </td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+                  </tr>            
+                </tfoot>
               </table>
               <div class="sign_wrap">
                 <p>상기와 같이 주간업무 보고서를 제출합니다.<br>
@@ -641,8 +670,6 @@
   </optgroup>                  
 </datalist>
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                <button type="button" class="btn_red_line">저장</button>
-                <button type="button" class="btn_red_line" disabled>저장</button>
               </span>
               <ul class="btn_slideclose">
   <li>
@@ -672,18 +699,7 @@
 </div>
             </section>
             <section class="box_default_w">
-              <dl class="set_list">
-                <dt>중요도</dt>
-                <dd>
-                  <div class="btn_switch">
-                    <input type="radio" id="high" name="importance">
-                    <label for="high" class="high_prio">높음</label>
-                    <input type="radio" id="common" name="importance" checked>
-                    <label for="common" class="normal_prio">보통</label>
-                    <input type="radio" id="row" name="importance">
-                    <label for="row" class="low_prio">낮음</label>
-                  </div>
-                </dd>
+              <dl class="set_list">                
                 <dt>공개여부</dt>
                 <dd>
                   <div class="btn_switch">
@@ -693,8 +709,6 @@
                     <label for="private">비공개</label>
                   </div>
                 </dd>
-                <dt class="rel_doc">코멘트</dt>
-                <dd><textarea title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>

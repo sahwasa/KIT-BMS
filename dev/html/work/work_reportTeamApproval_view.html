@@ -7,22 +7,36 @@
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>주간업무보고(부서별) 결재 요청<span>업무</span></h1>
+        <h1>주간업무보고(팀별) 결재 요청<span>업무</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">업무</a></li>
-            <li>주간업무보고(부서별) 작성하기</li>
+            <li>주간업무보고(팀별) 작성하기</li>
           </ul>
         </section>
       </header>
-      <div class="cont_body approval_draft work">
+      <div class="cont_body approval_view work">
         <article class="box_compact box_tool">
-          <button type="button" class="btn_gray_line" onclick="location.href='../work/work_reportDiv.html'">목록</button>
+          <button type="button" class="btn_gray_line" onclick="location.href='../work/work_reportTeam.html'">목록</button>
           <span class="floatR">
-            <button type="button" class="btn_red">상신</button>
-            <button type="button" class="btn_gray">임시저장</button>
-          </span>
+            <button type="button" class="btn_red">재상신</button>
+            <button type="button" class="btn_red_line">삭제</button>
+            <span>/ 상신자 </span>
+            <button type="button" class="btn_red">회수</button>
+            <button type="button" class="btn_gray_line">인쇄</button>
+            <span>/ 결재자 </span>
+            <button type="button" class="btn_red">승인</button>
+            <button type="button" class="btn_red_line">반려</button>
+            <button type="button" class="btn_red">전결</button>
+            <button type="button" class="btn_red">후결</button>
+            <button type="button" class="btn_gray_line">인쇄</button>
+            <span>/ 수신참조 </span>
+            <button type="button" class="btn_red ">확인</button>
+            <button type="button" class="btn_red_line">접수</button>
+            <button type="button" class="btn_red_line">완료</button>
+            <button type="button" class="btn_gray_line">인쇄</button>
+          </span>    
         </article>
         <div class="my_approval">
           <section class="approval_form flex_right">
@@ -36,17 +50,13 @@
                 </colgroup>
                 <tbody>
                   <tr>
-                    <th scope="row">
-                      <label for="form_num" class="required">제목</label>
-                    </th>
-                    <td>
-                      <input type="text" id="form_num" value="14주차 주간업무보고서(SI사업본부)">
-                    </td>
+                    <th scope="row">문서제목</th>
+                    <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
                   </tr>
                 </tbody>
               </table>
               <div class="tit_form">
-                <h2>14주차 주간업무보고서 (SI사업본부)​</h2>
+                <h2>14주차 주간업무보고서<br>(지진사업본부 지진사업1팀)​</h2>
                 <table class="tbl_row">
                   <caption>결재 상황 테이블</caption>
                   <colgroup>
@@ -83,9 +93,9 @@
                 <tbody>
                   <tr>
                     <th scope="row">소속</th>
-                    <td class="alignC">SI사업본부</td>
+                    <td class="alignC">SI사업본부 SI사업1팀</td>
                     <th scope="row">직위(직책)</th>
-                    <td class="alignC">본부장</td>
+                    <td class="alignC">수석</td>
                     <th scope="row">성명</th>
                     <td class="alignC">홍길동</td>
                     <th scope="row">업무보고일자</th>
@@ -93,15 +103,16 @@
                   </tr>
                 </tbody>
               </table>
-              <table class="tbl_report asis_tobe div">
-                <caption>주간업무보고(부서별)</caption>
+              <table class="tbl_report asis_tobe">
+                <caption>주간업무보고(팀별)</caption>
                 <colgroup>
                   <col style="width:195px">
                   <col style="width:95px">
                   <col style="width:330px">
                   <col style="width:330px">
-                  <col style="width:70px">
+                  <col style="width:50px">
                   <col style="width:120px">
+                  <col style="width:70px">
                 </colgroup>
                 <thead>
                   <tr>
@@ -110,7 +121,8 @@
                     <th scope="col">금주 주요실적(2023-04-02 ~ 2023-04-08)</th>
                     <th scope="col">차주 주요계획(2023-04-02 ~ 2023-04-08)</th>
                     <th scope="col">공정율(%)</th>
-                    <th scope="col">이슈</th>
+                    <th scope="col">이슈사항</th>
+                    <th scope="col">작성자</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -135,14 +147,9 @@
                     </td>
                     <td>100</td>
                     <td></td>
+                    <td>뽀로로</td>
                   </tr>
-                  <tr>
-                    <th colspan="3">총 공정율(실적 기준)</th>
-                    <th>25</th>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <th rowspan="3">(행안부) 2023년 통합재난문자시스템 유지보수​(2023-01-01~2023-12-31, 588,000,000원, 박00 수석)</th>
+                  <tr>                    
                     <td>유지보수</td>
                     <td>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -158,8 +165,10 @@
                     </td>
                     <td>30</td>
                     <td></td>
+                    <td>쿠로미</td>
                   </tr>
                   <tr>
+                    <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                     <td>개발</td>
                     <td>
                       - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -173,36 +182,11 @@
                     </td>
                     <td>100</td>
                     <td></td>
+                    <td>시나모롤</td>
                   </tr>
                   <tr>
-                    <th colspan="3">총 공정율(실적 기준)</th>
-                    <th>25</th>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
-                    <td>개발</td>
-                    <td>
-                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
-                      &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
-                      &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
-                    </td>
-                    <td>
-                      - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
-                      &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
-                      &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
-                    </td>
-                    <td>100</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th colspan="3">프로젝트 총 공정율(실적 기준)</th>
-                    <th>25</th>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <th rowspan="2">기타업무</th>
-                    <td>기타</td>
+                    <th>기타업무</th>
+                    <td><span style="font-size: 30px;">🎸</span></td>
                     <td>
                       - 팀별 주간회의<br>
                       - 상반기 연구활동비(회의비) 관련 회의<br>
@@ -224,11 +208,12 @@
                     </td>
                     <td>100</td>
                     <td></td>
+                    <td>시나모롤</td>
                   </tr>
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td colspan="8">
+                    <td colspan="7">
                       <h3>&lt; 주요 일정 계획 &gt;</h3>
                       <table class="tbl_row tbl_week">
                         <caption>소요시간 요약</caption>
@@ -240,7 +225,7 @@
                           <col>
                           <col class="holiday">
                           <col>
-                        </colgroup>
+                        </colgroup>                     
                         <thead>
                           <tr>
                             <th scope="col">일(2.4)</th>
@@ -299,164 +284,88 @@
           </section>
           <article class="approval_set">
             <section class="box_default_w">
-              <h1>결재자 지정</h1>
-              <div class="tab_wrap tab_s">
-                <ul class="tab">
-                  <li class="on"><a href="#tab01">조직도</a></li>
-                  <li><a href="#tab02">부서내</a></li>
-                  <li><a href="#tab03">임의지정</a></li>
-                </ul>
-              </div>
-              <div class="tab_container">
-                <section id="tab01" class="tab_contents">
-                  <ul class="appr_path">
-                    <li>
-                      <span class="user_module">
-                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
-                        <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
-                      </span>
-                      <div class="appr_btn_set">
-                        <a href="#" class="myappr_del">삭제</a>
-                        <div class="btn_switch">
-                          <input type="radio" id="appr1" name="path1" checked>
-                          <label for="appr1">결재</label>
-                          <input type="radio" id="agree1" name="path1">
-                          <label for="agree1">합의</label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <span class="user_module">
-                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
-                        <em>퇴근핑 연구원</em><b>(재난예경보MA팀)</b>
-                      </span>
-                      <div class="appr_btn_set">
-                        <a href="#" class="myappr_del">삭제</a>
-                        <div class="btn_switch">
-                          <input type="radio" id="appr2" name="path2" checked>
-                          <label for="appr2">결재</label>
-                          <input type="radio" id="agree2" name="path2">
-                          <label for="agree2">합의</label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <span class="user_module">
-                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure><em>방글핑 대표</em>
-                      </span>
-                      <div class="appr_btn_set">
-                        <a href="#" class="myappr_del">삭제</a>
-                        <div class="btn_switch">
-                          <input type="radio" id="appr3" name="path3" checked>
-                          <label for="appr3">결재</label>
-                          <input type="radio" id="agree3" name="path3">
-                          <label for="agree3">합의</label>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-                <section id="tab02" class="tab_contents">
-                  <ul class="appr_path">
-                    <li>
-                      <span class="user_module">
-                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
-                        <em>막내핑 연구원</em><b>(재난예경보MA팀)</b>
-                      </span>
-                      <div class="appr_btn_set">
-                        <a href="#" class="myappr_del">삭제</a>
-                        <div class="btn_switch">
-                          <input type="radio" id="appr01" name="path01" checked>
-                          <label for="appr01">결재</label>
-                          <input type="radio" id="agree01" name="path01">
-                          <label for="agree01">합의</label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <span class="user_module">
-                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
-                        <em>중간핑 연구원</em><b>(재난예경보MA팀)</b>
-                      </span>
-                      <div class="appr_btn_set">
-                        <a href="#" class="myappr_del">삭제</a>
-                        <div class="btn_switch">
-                          <input type="radio" id="appr02" name="path02" checked>
-                          <label for="appr02">결재</label>
-                          <input type="radio" id="agree02" name="path02">
-                          <label for="agree02">합의</label>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <span class="user_module">
-                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
-                        <em>대장핑 대표</em>
-                      </span>
-                      <div class="appr_btn_set">
-                        <a href="#" class="myappr_del">삭제</a>
-                        <div class="btn_switch">
-                          <input type="radio" id="appr03" name="path03" checked>
-                          <label for="appr03">결재</label>
-                          <input type="radio" id="agree03" name="path03">
-                          <label for="agree03">합의</label>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-                <section id="tab03" class="tab_contents">
-                  <span class="file_input">
-                    <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
-                    @@include('../../inc/data/data_emp_name.html')
-                    <button type="button" class="btn_red_line">추가</button>
-                    <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                  </span>
-                  <ul class="appr_path">
-                    <li>
-                      <span class="user_module">
-                        <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
-                        <em>막내핑 연구원</em><b>(재난예경보MA팀)</b>
-                      </span>
-                      <div class="appr_btn_set">
-                        <a href="#" class="myappr_del">삭제</a>
-                        <div class="btn_switch">
-                          <input type="radio" id="appr" name="path" checked>
-                          <label for="appr">결재</label>
-                          <input type="radio" id="agree" name="path">
-                          <label for="agree">합의</label>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-              </div>
+              <h1>결재자</h1>
+              <ul class="appr_path">
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="review_txt">빠른 검토 부탁드려요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="draft">상신</b></p>
+                </li>
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="review_txt">연차가 아닌 대체휴가로 올리세요.<br />관련문서는 날자 확인해주시구요.</p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="reject">반려</b></p>
+                </li>
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="review_txt"></p>
+                  <p class="appr_result">2023-02-10 10:00 <b class="approve">승인</b></p>
+                </li>
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                </li>
+              </ul>
             </section>
             <section class="box_default_w">
-              <h1>참조자 지정</h1>
+              <h1>참조자</h1>
               <span class="file_input">
                 <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
                 @@include('../../inc/data/data_emp_name.html')
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
               </span>
               @@include('../../inc/module/module_slide_user.html')
-            </section>
+              <ul class="referrer_act">
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00 <b class="uncheck">미확인</b></p>
+                </li>
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00 <b class="check">확인</b></p>
+                </li>
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00 <b class="ing">접수</b></p>
+                </li>
+                <li>
+                  @@include('../../inc/module/module_user.html')
+                  <p class="appr_result">2023-02-10 10:00 <b class="fin">완료</b></p>
+                </li>
+              </ul>
+            </section>           
             <section class="box_default_w">
               <h1>첨부파일</h1>
-              @@include('../../inc/module/module_file_attach.html')
+              @@include('../../inc/module/module_file_attached.html')
             </section>
             <section class="box_default_w">
               <dl class="set_list">
                 <dt>공개여부</dt>
                 <dd>
                   <div class="btn_switch">
-                    <input type="radio" id="open" name="disclosure">
+                    <input type="radio" id="open" name="disclosure" checked>
                     <label for="open">공개</label>
-                    <input type="radio" id="private" name="disclosure" checked>
+                    <input type="radio" id="private" name="disclosure">
                     <label for="private">비공개</label>
                   </div>
                 </dd>
               </dl>
+            </section>
+            <section class="box_default_w">
+              <h1>활동</h1>
+              <ul class="act_lst">
+                <li>
+                  <p class="date-time">2023-02-18 12:30</p>
+                  <span class="act_name">김개발</span>님이 <span class="act_name">박연구</span>님을 참조자 <span class="t_red act_type">추가</span>하였습니다.
+                </li>
+                <li>
+                  <p class="date-time">2023-02-15 12:30</p>
+                  <span class="act_name">박초롱초롱빛나리</span>님이 <span class="act_name">황금독수리 세상을 놀라게하다</span>님을 참조자 <span class="t_skyblue act_type">삭제</span>하였습니다.
+                </li>
+                <li>
+                  <p class="date-time">2023-02-10 12:30</p>
+                  <span class="act_name">박초롱초롱빛나리</span>님이 <span class="act_name">황금독수리 세상을 놀라게하다</span>님을 참조자 <span class="t_skyblue act_type">추가</span>하였습니다.
+                </li>
+              </ul>
             </section>
           </article>
         </div>

@@ -115,7 +115,7 @@
 <dialog class="p_workMy">
   <form method="dialog">
     <header class="p_header">
-      <strong>내 업무 추가</strong>
+      <strong>내 업무 추가, 상세 및 수정</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
@@ -142,6 +142,7 @@
   <option value="기상긴급">행안부 연구과제</option>
   <option value="KIT업무관리">사내업무</option>
 </datalist>
+                <label for="all"><input type="checkbox" id="all">전체</label>
               </div>
             </td>
           </tr>
@@ -193,8 +194,7 @@
                 <button type="button" class="btn_ogt">조직도</button>
               </span>
             </td>
-          </tr>
-          
+          </tr>          
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
@@ -220,6 +220,8 @@
       </table>
       <div class="btn_wrap">
         <button class="btn_red" type="button">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -247,10 +249,10 @@
       </header>
       <div class="cont_body">
         <article class="box_compact box_tool">
-          <button type="button" class="btn_gray_line">목록</button>
+          <button type="button" class="btn_gray_line" onclick="location.href='../work/work_reportDiv.html'">목록</button>
           <span class="floatR">
             <button type="button" class="btn_red">저장</button>
-            <button type="button" class="btn_red_line">삭제</button>
+            <button type="button" class="btn_red_line">선택 항목삭제</button>
           </span>
         </article>
         <section class="tbl_top_area">
@@ -277,20 +279,20 @@
             </colgroup>
             <thead>
               <tr>
-                <th scope="col">구분</th>
+                <th scope="col">선택</th>
                 <th scope="col">사업명</th>
                 <th scope="col">업무범주</th>
                 <th scope="col">금주 주요실적(2023-04-02 ~ 2023-04-08)</th>
                 <th scope="col">차주 주요계획(2023-04-02 ~ 2023-04-08)</th>
                 <th scope="col">공정율(%)</th>
-                <th scope="col">이슈사항</th>
+                <th scope="col">이슈</th>
                 <th scope="col">팀명</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                <th rowspan="3">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                 <td>개발</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정​<br>
@@ -314,7 +316,6 @@
               </tr>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th style="display:none;">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                 <td>유지보수</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -334,7 +335,6 @@
               </tr>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                 <td>개발</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -351,8 +351,14 @@
                 <td>개발 2팀</td>
               </tr>
               <tr>
+                <th colspan="5">프로젝트 총 공정율(실적 기준)</th>
+                <th><input type="number" title="공정율 입력 박스" value="100"></th>
+                <th></th>
+                <th></th>
+              </tr>
+              <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th>기타업무</th>
+                <th rowspan="3">기타업무</th>
                 <td>디자인</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -370,7 +376,6 @@
               </tr>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th>기타업무</th>
                 <td>개발</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -388,7 +393,6 @@
               </tr>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th>기타업무</th>
                 <td>개발</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -405,6 +409,68 @@
                 <td>개발 2팀</td>
               </tr>
             </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="8">
+                  <h3>&lt; 주요 일정 계획 &gt;</h3>
+                  <table class="tbl_row tbl_week">
+                    <caption>소요시간 요약</caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col class="holiday">
+                      <col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">일(2.4)</th>
+                        <th scope="col">월(2.5)</th>
+                        <th scope="col">화(2.6)</th>
+                        <th scope="col">수(2.7)</th>
+                        <th scope="col">목(2.8)</th>
+                        <th scope="col" class="holiday">금(2.9)-휴일</th>
+                        <th scope="col">토(2.10)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><div contenteditable></div></td>
+                        <td>
+                          <div contenteditable>
+                            - [출장]
+                            <div>- [외근] 송태정 - 문체부 과제회의(10:00 ~,LIGS)</div>
+                            <div>- [외근] 서현정 - 목적(시간 ~, 장소)</div>
+                          </div>
+                        </td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                      </tr>
+                      <tr>
+                        <td><div contenteditable></div></td>
+                        <td>
+                          <div contenteditable>
+                            - [연차] 조범준
+                            <div>- [연차] 김종빈</div>
+                            <div>- [반차] 박유빈 - (10:00 ~ 14:00)</div>
+                          </div>
+                        </td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                        <td><div contenteditable></div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>            
+            </tfoot>
           </table>
         </div>
       </div>

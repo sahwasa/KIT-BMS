@@ -455,7 +455,7 @@ $snbWidth:250px;
 //container
 .container{grid-row:2;grid-column:2;display:flex;overflow-y: auto;}
 .contents{position:relative;flex-grow:1;padding:15px $columnGap 0;height:calc(100vh - 89px);overflow-y:auto;min-height:$minH;}
-.snb_fold{position:absolute;left:-1px;top:10px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
+.snb_fold{position:sticky;left:-1px;top:10px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
 border:1px solid #ebebeb;border-left-width:0;border-radius:0 3px 3px 0;font-size:0;
 z-index:10;
   &::before{@include fontello('\e890');font-size:20px;color:$red;}
@@ -1629,6 +1629,7 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
 .last_week .tit strong{padding-left:15px;}
 .performance ul{@include empty_txt(attr(data-empty),true,150px);}
 .performance_write{flex:1;min-height:0;
+  .tbl_week td{vertical-align:middle;}
   .tbl_performance{position:relative;
     &>thead>tr{
       th:not(:first-child),
@@ -1655,9 +1656,11 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
 .tbl_week{width:100%;border:1px solid #ebebeb;
   th,td{width:calc(100% / 7);text-align:center;}
   th{height:20px;border-bottom-width:0;
-    &:first-child{background-color:#ffe5e5;}
+    &:first-child,
+    &.holiday{background-color:#ffe5e5;}
     &:last-child{background-color:#ccdeff;}
   }
+  .holiday{background-color:#f5f5f5;}
 }
 .tbl_report_wrap{padding:15px 0;border:2px solid #c0c0c0;border-width:2px 0;}
 .tbl_report{table-layout:fixed;width:100%;color:#000;overflow:hidden;
@@ -1688,16 +1691,18 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   &.asis tbody td,
   &.tobe tbody td{@include alignL(2);}
   &.asis_tobe{
-    td{@include alignL(3 4);}
+    td{@include alignL(4 5, true);}
+    &.div td{@include alignL(3 4, true);}
     tfoot{background-color:inherit;
-      .tbl_week td{padding:0;
+      &>tr>td{padding:0;border-width:0;}
+      h3{font-size:14px;margin:10px 0 5px;}
+      .tbl_week td{padding:0;text-align:left;
         &:first-child,
         &:last-child{background-color:#f5f5f5;}
+        & > div{text-indent:0;}
       }
       div{text-indent:-8px;padding-left:8px;background-color:transparent;}
-      div[contenteditable]{min-height:100%;border-width:0;text-indent:0;}
-
-
+      div[contenteditable]{min-height:100%;border-width:0;}
     }
   }    
 }

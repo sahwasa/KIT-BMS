@@ -115,7 +115,7 @@
 <dialog class="p_workMy">
   <form method="dialog">
     <header class="p_header">
-      <strong>내 업무 추가</strong>
+      <strong>내 업무 추가, 상세 및 수정</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
@@ -142,6 +142,7 @@
   <option value="기상긴급">행안부 연구과제</option>
   <option value="KIT업무관리">사내업무</option>
 </datalist>
+                <label for="all"><input type="checkbox" id="all">전체</label>
               </div>
             </td>
           </tr>
@@ -193,8 +194,7 @@
                 <button type="button" class="btn_ogt">조직도</button>
               </span>
             </td>
-          </tr>
-          
+          </tr>          
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
@@ -220,6 +220,8 @@
       </table>
       <div class="btn_wrap">
         <button class="btn_red" type="button">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -305,10 +307,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td colspan="7">작성된 주간업무보고서가 없습니다.</td>
-                </tr>
-                <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
+                <tr tabindex="0" onclick="location.href='../work/work_reportTeamApproval_view.html'">
                   <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
                   <td>홍길동(지진사업1팀)</td>
                   <td>2023-05-01</td>
@@ -323,7 +322,7 @@
                     </div>
                   </td>
                 </tr>
-                <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
+                <tr tabindex="0" onclick="location.href='../work/work_reportTeamApproval.html'">
                   <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
                   <td>홍길동(지진사업1팀)</td>
                   <td>2023-05-01</td>

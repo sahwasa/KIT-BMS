@@ -115,7 +115,7 @@
 <dialog class="p_workMy">
   <form method="dialog">
     <header class="p_header">
-      <strong>내 업무 추가</strong>
+      <strong>내 업무 추가, 상세 및 수정</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
@@ -142,6 +142,7 @@
   <option value="기상긴급">행안부 연구과제</option>
   <option value="KIT업무관리">사내업무</option>
 </datalist>
+                <label for="all"><input type="checkbox" id="all">전체</label>
               </div>
             </td>
           </tr>
@@ -193,8 +194,7 @@
                 <button type="button" class="btn_ogt">조직도</button>
               </span>
             </td>
-          </tr>
-          
+          </tr>          
           <tr>
             <th scope="row" class="required">
               <label for="work_content">업무내용</label>
@@ -220,6 +220,8 @@
       </table>
       <div class="btn_wrap">
         <button class="btn_red" type="button">저장</button>
+        <button class="btn_red_line" type="button">수정</button>
+        <button class="btn_red_line" type="button">삭제</button>
         <button class="btn_gray_line">닫기</button>
       </div>
     </div>
@@ -341,22 +343,28 @@
               <section id="tab_con01" class="tab_contents">
                 <div class="tbl_top_area">
                   <table class="tbl_row tbl_week">
-                    <caption>소요시간 요약</caption>                         
+                    <caption>소요시간 요약</caption>
                     <thead>
                       <tr>
-                        <th scope="col"><label for="sun_time">일</label></th><th scope="col"><label for="mon_time">월(휴일)</label></th><th scope="col"><label for="tue_time">화(출장)</label></th><th scope="col"><label for="wed_time">수(외근)</label></th><th scope="col"><label for="thu_time">목(휴가)</label></th><th scope="col"><label for="fri_time">금</label></th><th scope="col"><label for="sat_time">토</label></th>
+                        <th scope="col">일</th>
+                        <th scope="col" class="holiday">월(휴일)</th>
+                        <th scope="col">화(출장)</th>
+                        <th scope="col">수(외근)</th>
+                        <th scope="col" class="holiday">목(휴가)</th>
+                        <th scope="col">금</th>
+                        <th scope="col">토</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><input id="sun_time" type="number" readonly title="소요시간"></td>
-                        <td><input id="mon_time" type="number" readonly title="소요시간"></td>
-                        <td><input id="tue_time" type="number" readonly title="소요시간"></td>
-                        <td><input id="wed_time" type="number" readonly title="소요시간"></td>
-                        <td><input id="thu_time" type="number" readonly title="소요시간"></td>
-                        <td><input id="fri_time" type="number" readonly title="소요시간"></td>
-                        <td><input id="sat_time" type="number" readonly title="소요시간"></td>
-                      </tr>                    
+                        <td>-</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>-</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -416,7 +424,7 @@
                             <caption>소요시간 입력</caption>                         
                             <thead>
                               <tr>
-                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                                <th scope="col">일</th><th scope="col" class="holiday">월(휴일)</th><th scope="col">화</th><th scope="col">수</th><th scope="col" class="holiday">목(휴가)</th><th scope="col">금</th><th scope="col">토</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -472,7 +480,7 @@
                             <caption>소요시간 입력</caption>                         
                             <thead>
                               <tr>
-                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                                <th scope="col">일</th><th scope="col" class="holiday">월(휴일)</th><th scope="col">화</th><th scope="col">수</th><th scope="col" class="holiday">목(휴가)</th><th scope="col">금</th><th scope="col">토</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -527,7 +535,7 @@
                             <caption>소요시간 입력</caption>
                             <thead>
                               <tr>
-                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                                <th scope="col">일</th><th scope="col" class="holiday">월(휴일)</th><th scope="col">화</th><th scope="col">수</th><th scope="col" class="holiday">목(휴가)</th><th scope="col">금</th><th scope="col">토</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -582,7 +590,7 @@
                             <caption>소요시간 입력</caption>
                             <thead>
                               <tr>
-                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                                <th scope="col">일</th><th scope="col" class="holiday">월(휴일)</th><th scope="col">화</th><th scope="col">수</th><th scope="col" class="holiday">목(휴가)</th><th scope="col">금</th><th scope="col">토</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -700,19 +708,25 @@
                     <caption>소요 예상시간 요약</caption>                         
                     <thead>
                       <tr>
-                        <th scope="col"><label for="sun_pre_pre_time">일</label></th><th scope="col"><label for="mon_pre_time">월</label></th><th scope="col"><label for="tue_pre_time">화</label></th><th scope="col"><label for="wed_pre_time">수</label></th><th scope="col"><label for="thu_pre_time">목</label></th><th scope="col"><label for="fri_pre_time">금</label></th><th scope="col"><label for="sat_pre_time">토</label></th>
+                        <th scope="col">일</th>
+                        <th scope="col">월(휴일)</th>
+                        <th scope="col">화(출장)</th>
+                        <th scope="col">수(외근)</th>
+                        <th scope="col">목(휴가)</th>
+                        <th scope="col">금</th>
+                        <th scope="col">토</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td><input id="sun_pre_time" type="number" readonly title="소요 예상시간"></td>
-                        <td><input id="mon_pre_time" type="number" readonly title="소요 예상시간"></td>
-                        <td><input id="tue_pre_time" type="number" readonly title="소요 예상시간"></td>
-                        <td><input id="wed_pre_time" type="number" readonly title="소요 예상시간"></td>
-                        <td><input id="thu_pre_time" type="number" readonly title="소요 예상시간"></td>
-                        <td><input id="fri_pre_time" type="number" readonly title="소요 예상시간"></td>
-                        <td><input id="sat_pre_time" type="number" readonly title="소요 예상시간"></td>
-                      </tr>                    
+                        <td>-</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>-</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -749,18 +763,18 @@
                             <caption>소요 예상시간 입력</caption>                         
                             <thead>
                               <tr>
-                                <th scope="col">일</th><th scope="col">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                                <th scope="col">일</th><th scope="col" class="holiday">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td><input type="number" value="0" title="소요시간"></td>
-                                <td><input type="number" value="0" title="소요시간"></td>
-                                <td><input type="number" value="0" title="소요시간"></td>
-                                <td><input type="number" value="0" title="소요시간"></td>
-                                <td><input type="number" value="0" title="소요시간"></td>
-                                <td><input type="number" value="0" title="소요시간"></td>
-                                <td><input type="number" value="0" title="소요시간"></td>
+                                <td>-</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>-</td>
                               </tr>
                             </tbody>
                           </table>

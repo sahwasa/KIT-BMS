@@ -18,7 +18,7 @@
       </header>
       <div class="cont_body approval_draft work">
         <article class="box_compact box_tool">
-          <button type="button" class="btn_gray_line">목록</button>
+          <button type="button" class="btn_gray_line" onclick="location.href='../work/work_report.html'">목록</button>
           <span class="floatR">
             <button type="button" class="btn_red">상신</button>
             <button type="button" class="btn_gray">임시저장</button>
@@ -444,8 +444,6 @@
                 <input type="text" id="form_referrer" placeholder="참조자를 입력하세요." list="nameList" autocomplete="off">
                 @@include('../../inc/data/data_emp_name.html')
                 <button type="button" class="btn_ogt btnMngTree">조직도</button>
-                <button type="button" class="btn_red_line">저장</button>
-                <button type="button" class="btn_red_line" disabled>저장</button>
               </span>
               @@include('../../inc/module/module_slide_user.html')
             </section>
@@ -455,17 +453,6 @@
             </section>
             <section class="box_default_w">
               <dl class="set_list">
-                <dt>중요도</dt>
-                <dd>
-                  <div class="btn_switch">
-                    <input type="radio" id="high" name="importance">
-                    <label for="high" class="high_prio">높음</label>
-                    <input type="radio" id="common" name="importance" checked>
-                    <label for="common" class="normal_prio">보통</label>
-                    <input type="radio" id="row" name="importance">
-                    <label for="row" class="low_prio">낮음</label>
-                  </div>
-                </dd>
                 <dt>공개여부</dt>
                 <dd>
                   <div class="btn_switch">
@@ -475,8 +462,6 @@
                     <label for="private">비공개</label>
                   </div>
                 </dd>
-                <dt class="rel_doc">코멘트</dt>
-                <dd><textarea title="코멘트 입력 박스"></textarea></dd>
               </dl>
             </section>
           </article>

@@ -33,9 +33,14 @@
 @mixin f_blind{
   font-size:0!important;line-height:0;color:transparent!important;overflow:hidden;
 }
-@mixin alignL($numbers){
+@mixin alignL($numbers,$reverse : false){
   @each $num in $numbers{
-   &:nth-of-type(#{$num}){text-align:left;@content;}
+    &{text-align:center;}
+    @if($reverse){
+      &:nth-last-of-type(#{$num}){text-align:left;@content;}      
+    }@else{
+      &:nth-of-type(#{$num}){text-align:left;@content;}
+    }
   } 
 }
 

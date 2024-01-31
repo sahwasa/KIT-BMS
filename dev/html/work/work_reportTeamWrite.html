@@ -18,10 +18,10 @@
       </header>
       <div class="cont_body">
         <article class="box_compact box_tool">
-          <button type="button" class="btn_gray_line">목록</button>
+          <button type="button" class="btn_gray_line" onclick="location.href='../work/work_reportTeam.html'">목록</button>
           <span class="floatR">
             <button type="button" class="btn_red">저장</button>
-            <button type="button" class="btn_red_line">삭제</button>
+            <button type="button" class="btn_red_line">선택 항목삭제</button>
           </span>
         </article>
         <section class="tbl_top_area">
@@ -48,7 +48,7 @@
             </colgroup>
             <thead>
               <tr>
-                <th scope="col">구분</th>
+                <th scope="col">선택</th>
                 <th scope="col">사업명</th>
                 <th scope="col">업무범주</th>
                 <th scope="col">금주 주요실적(2024.1.28 ~ 2024.2.3)</th>
@@ -85,7 +85,6 @@
               </tr>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th style="display:none;">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                 <td>유지보수</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -105,7 +104,7 @@
               </tr>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                <th>(기상청) 2024년 지진자료품질관리시스템 구축(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                 <td>개발</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -123,7 +122,7 @@
               </tr>
               <tr>
                 <td><input type="checkbox" title="구분 선택"></td>
-                <th rowspan="2">기타업무<br>(체크박스 필수인가욥?!)</th>
+                <th rowspan="2">기타업무</th>
                 <td>개발</td>
                 <td contenteditable>
                   - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
@@ -159,8 +158,18 @@
             <tfoot>
               <tr>
                 <td colspan="8">
+                  <h3>&lt; 주요 일정 계획 &gt;</h3>
                   <table class="tbl_row tbl_week">
-                    <caption>소요시간 요약</caption>                         
+                    <caption>소요시간 요약</caption>
+                    <colgroup>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col>
+                      <col class="holiday">
+                      <col>
+                    </colgroup>
                     <thead>
                       <tr>
                         <th scope="col">일(2.4)</th>
@@ -168,7 +177,7 @@
                         <th scope="col">화(2.6)</th>
                         <th scope="col">수(2.7)</th>
                         <th scope="col">목(2.8)</th>
-                        <th scope="col">금(2.9)-휴일</th>
+                        <th scope="col" class="holiday">금(2.9)-휴일</th>
                         <th scope="col">토(2.10)</th>
                       </tr>
                     </thead>
@@ -204,7 +213,7 @@
                         <td><div contenteditable></div></td>
                       </tr>
                     </tbody>
-                  </table>                
+                  </table>
                 </td>
               </tr>            
             </tfoot>
