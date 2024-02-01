@@ -276,6 +276,7 @@
             </div>
             <div class="tab_container">
               <section id="tab_con01" class="tab_contents">
+                <!-- 같은 사업끼리 자동 머지 -->
                 <table class="tbl_report asis tbl_week_inner">
                   <caption>주간업무보고(개인별)</caption>
                   <colgroup>
@@ -283,7 +284,13 @@
                     <col style="width:5%">
                     <col>
                     <col style="width:5%">
-                    <col span="7" style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%" class="holiday">
+                    <col style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%">
                     <col span="2" style="width:5%">
                   </colgroup>
                   <thead>
@@ -298,7 +305,7 @@
                     </tr>
                     <tr>
                       <th scope="col">일</th>
-                      <th scope="col">월</th>
+                      <th scope="col" class="holiday">월</th>
                       <th scope="col">화</th>
                       <th scope="col">수</th>
                       <th scope="col">목</th>
@@ -348,12 +355,30 @@
                       <td contenteditable></td>
                       <td contenteditable></td>
                     </tr>
+                    <tr>
+                      <th>기타</th>
+                      <td>보고</td>
+                      <td contenteditable>
+                        - 개인 주간업무보고서 작성<br />
+                        - 팀 주간업무 보고 검토, 취합 및 회의 업무 보고서 작성
+                      </td>
+                      <td>100</td>
+                      <td></td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td>4</td>
+                      <td></td>
+                      <td contenteditable></td>
+                      <td contenteditable></td>
+                    </tr>
                   </tbody>
                   <tfoot>
                     <tr>
                       <th scope="row" colspan="4">근무시간</th>
                       <td></td>
-                      <td>8</td>
+                      <td class="holiday">8</td>
                       <td>8</td>
                       <td>8</td>
                       <td>8</td>
@@ -365,7 +390,7 @@
                     <tr>
                       <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
                       <td>휴일</td>
-                      <td></td>
+                      <td class="holiday">휴일</td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -385,14 +410,20 @@
                     <col style="width:5%">
                     <col>
                     <col style="width:5%">
-                    <col span="7" style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%">
+                    <col style="width:4%" class="holiday">
+                    <col style="width:4%">
                     <col span="2" style="width:5%">
                   </colgroup>
                   <thead>
                     <tr>
                       <th scope="col" rowspan="2">사업명</th>
                       <th scope="col" rowspan="2">업무범주</th>
-                      <th scope="col" rowspan="2">금주실적(2023-04-02 ~ 2023-04-08)</th>
+                      <th scope="col" rowspan="2">차주계획(2023-04-02 ~ 2023-04-08)</th>
                       <th scope="col" rowspan="2">진행률<br>(%)</th>
                       <th scope="col" colspan="7">소요시간</th>
                       <th scope="col" rowspan="2">협조자<br>(부서)</th>
@@ -404,7 +435,7 @@
                       <th scope="col">화</th>
                       <th scope="col">수</th>
                       <th scope="col">목</th>
-                      <th scope="col">금</th>
+                      <th scope="col" class="holiday">금</th>
                       <th scope="col">토</th>
                     </tr>
                   </thead>
@@ -413,29 +444,14 @@
                       <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                       <td>기획,개발,문서,퍼블리싱</td>
                       <td contenteditable>- 지진&sol;가속도 시스템 오류사항 소스 수정<br>&nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>&nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>&nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>&nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경</td>
-                      <td><input type="number" title="진행률 입력"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td contenteditable></td>
-                      <td contenteditable></td>
-                    </tr>
-                    <tr>
-                      <th>(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
-                      <td>개발</td>
-                      <td contenteditable>- 지진&sol;가속도 시스템 오류사항 소스 수정<br>&nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br></td>
-                      <td><input type="number" title="진행률 입력"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
+                      <td>10</td>
+                      <td></td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td></td>
                       <td contenteditable></td>
                       <td contenteditable></td>
                     </tr>
@@ -444,11 +460,11 @@
                     <tr>
                       <th scope="row" colspan="4">근무시간</th>
                       <td></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
-                      <td><input type="number" title="시간 입력 박스"></td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td class="holiday">0</td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -456,41 +472,11 @@
                     <tr>
                       <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
                       <td>휴일</td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
-                      <td><select name="" id="" title="근태">
-  <option value="선택">선택</option>
-  <option value="외근">외근</option>
-  <option value="출장">출장</option>
-  <option value="휴가">휴가</option>
-  <option value="공휴일">공휴일</option>
-</select></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td class="holiday">휴가</td>
                       <td>휴일</td>
                       <td></td>
                       <td></td>
@@ -506,7 +492,7 @@
   </main>
   <footer class="footer">
   <strong class="connect">관리자 연락처 02-8004-9050</strong>
-  <p class="copy">Copyright ⓒ2023 KITValley Co.,Ltd. All right reserved.</p>
+  <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
 <script src="../../plugins/jquery.min.js"></script>

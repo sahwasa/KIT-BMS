@@ -455,10 +455,11 @@ $snbWidth:250px;
 //container
 .container{grid-row:2;grid-column:2;display:flex;overflow-y: auto;}
 .contents{position:relative;flex-grow:1;padding:15px $columnGap 0;height:calc(100vh - 89px);overflow-y:auto;min-height:$minH;}
-.snb_fold{position:sticky;left:-1px;top:10px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
+.snb_fold{position:fixed;left:310px;top:70px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
 border:1px solid #ebebeb;border-left-width:0;border-radius:0 3px 3px 0;font-size:0;
-z-index:10;
+z-index:10;transition:left .51s ease-in-out;
   &::before{@include fontello('\e890');font-size:20px;color:$red;}
+  &[data-value="on"]{left:60px;}
   &[data-value="off"]::before{@include fontello('\e88f')}
 }
 .cont_tit{@include flex_between;font-weight:bold;border-bottom:1px solid #e1e1e1;letter-spacing:$tit_spacing;margin-bottom:12px;padding-bottom:15px;
@@ -1595,7 +1596,7 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   .tit{display:block;font-weight:bold;margin-bottom:5px;}
   .time{display:block;font-size:14px;}
 }
-.tbl_work_report{@include tbl_defaultH(105px);
+.tbl_work_report{@include tbl_defaultH(63px);
   td{@include alignL(1);
     &[colspan]{text-align:center;cursor:default;}
   }
@@ -1668,13 +1669,17 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   td:has(select),td:has(input),
   td:has([contenteditable]){padding:5px;}
   &.tbl_week_inner{
-    thead>tr:last-child>th:first-child{background-color:#ffe5e5;}
+    thead>tr:last-child>th:first-child,
+    thead th.holiday{background-color:#ffe5e5;}
     thead>tr:last-child>th:last-child{background-color:#ccdeff;}
+    .holiday,
     tbody td:empty,
+    tbody td:nth-last-child(3),
+    tbody td:nth-last-child(9),
     tfoot td:nth-child(2),
     tfoot td:nth-child(8){background-color:#f5f5f5;}
     tbody td:last-child,
-    tbody td:nth-last-child(2){background-color:#fff;}
+    tbody td:nth-last-child(2){background-color:#fff;}  
   }
   thead{background-color:#f5f5f5;
     th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:#f5f5f5;}

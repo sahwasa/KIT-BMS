@@ -148,7 +148,7 @@
                           <ul class="tool_lst">
                             <li>
                               <span class="btn_toggle_single">
-                                <input type="checkbox" id="progress1" checked><label for="progress1" data-label="진행여부">진행여부</label>                      
+                                <input type="checkbox" id="progress1" checked><label for="progress1" data-label="진행여부" title="해제 시 주간업무보고 이슈란에 [미진행]으로 자동 기입되며, 작업내용에는 사유를 직접 입력함. ">진행여부</label>                      
                               </span>
                             </li>                          
                             <li>
@@ -222,7 +222,7 @@
                           <ul class="tool_lst">
                             <li>
                               <span class="btn_toggle_single">
-                                <input type="checkbox" id="progress2" checked><label for="progress2" data-label="진행여부">진행여부</label>                      
+                                <input type="checkbox" id="progress2" checked><label for="progress2" data-label="진행여부" title="해제 시 주간업무보고 이슈란에 [미진행]으로 자동 기입되며, 작업내용에는 사유를 직접 입력함. ">진행여부</label>                      
                               </span>
                             </li>                          
                             <li>
@@ -278,7 +278,7 @@
                           <ul class="tool_lst">
                             <li>
                               <span class="btn_toggle_single">
-                                <input type="checkbox" id="progress3" checked><label for="progress3" data-label="진행여부">진행여부</label>
+                                <input type="checkbox" id="progress3" checked><label for="progress3" data-label="진행여부" title="해제 시 주간업무보고 이슈란에 [미진행]으로 자동 기입되며, 작업내용에는 사유를 직접 입력함. ">진행여부</label>
                               </span>
                             </li>
                             <li>
@@ -333,7 +333,7 @@
                           <ul class="tool_lst">
                             <li>
                               <span class="btn_toggle_single">
-                                <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부">진행여부</label>
+                                <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부" title="해제 시 주간업무보고 이슈란에 [미진행]으로 자동 기입되며, 작업내용에는 사유를 직접 입력함. ">진행여부</label>
                               </span>
                             </li>
                             <li>
@@ -395,7 +395,7 @@
                           <ul class="tool_lst">
                             <li>
                               <span class="btn_toggle_single">
-                                <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부">진행여부</label>
+                                <input type="checkbox" id="progress4" checked><label for="progress4" data-label="진행여부" title="해제 시 주간업무보고 이슈란에 [미진행]으로 자동 기입되며, 작업내용에는 사유를 직접 입력함. ">진행여부</label>
                               </span>
                             </li>
                             <li>
@@ -467,10 +467,10 @@
                     <thead>
                       <tr>
                         <th scope="col">일</th>
-                        <th scope="col">월(휴일)</th>
+                        <th scope="col" class="holiday">월(휴일)</th>
                         <th scope="col">화(출장)</th>
                         <th scope="col">수(외근)</th>
-                        <th scope="col">목(휴가)</th>
+                        <th scope="col" class="holiday">목(휴가)</th>
                         <th scope="col">금</th>
                         <th scope="col">토</th>
                       </tr>
@@ -521,18 +521,18 @@
                             <caption>소요 예상시간 입력</caption>                         
                             <thead>
                               <tr>
-                                <th scope="col">일</th><th scope="col" class="holiday">월</th><th scope="col">화</th><th scope="col">수</th><th scope="col">목</th><th scope="col">금</th><th scope="col">토</th>
+                                <th scope="col">일</th><th scope="col" class="holiday">월(휴일)</th><th scope="col">화</th><th scope="col">수</th><th scope="col" class="holiday">목(휴가)</th><th scope="col">금</th><th scope="col">토</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td>-</td>
-                                <td>8</td>
-                                <td>8</td>
-                                <td>8</td>
-                                <td>8</td>
-                                <td>8</td>
-                                <td>-</td>
+                                <td><input type="number" value="0" title="소요 예상시간"></td>
+                                <td><input type="number" value="0" title="소요 예상시간"></td>
+                                <td><input type="number" value="0" title="소요 예상시간"></td>
+                                <td><input type="number" value="0" title="소요 예상시간"></td>
+                                <td><input type="number" value="0" title="소요 예상시간"></td>
+                                <td><input type="number" value="0" title="소요 예상시간"></td>
+                                <td><input type="number" value="0" title="소요 예상시간"></td>
                               </tr>
                             </tbody>
                           </table>
