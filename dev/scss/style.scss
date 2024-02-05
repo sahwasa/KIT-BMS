@@ -1607,7 +1607,7 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
 .ask_approval::after{@include badge_style();content:"결재요청";color:$red;margin-left:3px;padding:0 3px;border:1px solid $red;}
 .tbl_todo td,
 .tbl_work_fin td,
-.tbl_work_delay td{@include alignL(2 4);}
+.tbl_work_delay td{@include alignL(3 4);}
 .tbl_work_share td,
 .tbl_work_reque td,
 .tbl_work_refer td{@include alignL(3);}
@@ -1685,7 +1685,8 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
     th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:#f5f5f5;}
   }
   tfoot{select{padding:0;background:#fff;text-align:center;}}
-  $_reportType:('asis':#f1f8ff,'tobe':#fffae9,'asis_tobe':#f4fff5,'basic':#f5f5f5);
+  $_reportType:('asis':#f1f8ff,'tobe':#fffae9,'basic':#f5f5f5);
+  $_reportProjType:('ing':#c1d6ed,'done':#fffae9,'in-house':#f5f5f5);
   @each $type, $color in $_reportType{
     &.#{$type}{
       tbody th,tfoot{background-color:$color;font-weight:bold;}
@@ -1913,7 +1914,7 @@ $_planTypes:(
 }
 .business_card{@include flex_layout;
   .tree_wrap .sortable{min-width:200px;}
-  .tbl_wrap{flex:1;}
+  .tbl_wrap{flex:1;height:calc(100vh - 288px);}
 }
 .tbl_business{td{@include alignL(4);}}
 .leave_desc{display: flex;flex-direction: column;gap:$columnGap;
