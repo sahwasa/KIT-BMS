@@ -21,11 +21,7 @@
           <header class="blind">
             <h1>나의 할일 목록</h1>
           </header>
-          <div class="handle_week">
-            <button class="handle_prev">이전 주차 이동</button>
-            <span>2023.02.26 ~ 2023.03.04</span>
-            <button class="handle_next" disabled>다음 주차 이동</button>
-          </div>
+          @@include('../../inc/module/module_handle_today.html')
           <div class="tbl_top_area">
             <div class="btn_switch border_none">
               <input type="radio" id="all" name="work_type">

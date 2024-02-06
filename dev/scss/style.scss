@@ -1035,7 +1035,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       i::before{margin-top:0;}
       .user_module{margin-left:auto;}
     }
-    &.delay{background-color:#fef4f5;box-shadow:0 1px 8px rgba(255,0,0,.2);}
+    &.delay{background-color:#fef4f5;box-shadow:0 1px 3px rgba(255,0,0,.2);}
   }
   @include desktop{dd{max-width:calc((100% - 16px) / 3);}}
   dd,
@@ -1664,8 +1664,12 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
   .holiday{background-color:#f5f5f5;}
 }
 .tbl_report_wrap{padding:15px 0;border:2px solid #c0c0c0;border-width:2px 0;}
+$report_blue:#f1f8ff;
+$report_yellow:#fffae9;
+$report_gray:#f5f5f5;
 .tbl_report{table-layout:fixed;width:100%;color:#000;overflow:hidden;
   th,td{padding:5px;border:1px solid #ddd;text-align:center;font-size:12px;word-break:keep-all;white-space:initial}
+  th{background-color:$report_gray;}
   td:has(select),td:has(input),
   td:has([contenteditable]){padding:5px;}
   &.tbl_week_inner{
@@ -1677,19 +1681,24 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
     tbody td:nth-last-child(3),
     tbody td:nth-last-child(9),
     tfoot td:nth-child(2),
-    tfoot td:nth-child(8){background-color:#f5f5f5;}
+    tfoot td:nth-child(8){background-color:$report_gray;}
     tbody td:last-child,
     tbody td:nth-last-child(2){background-color:#fff;}  
   }
-  thead{background-color:#f5f5f5;
-    th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:#f5f5f5;}
+  thead{background-color:$report_gray;
+    th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:$report_gray;}
   }
   tfoot{select{padding:0;background:#fff;text-align:center;}}
-  $_reportType:('asis':#f1f8ff,'tobe':#fffae9,'basic':#f5f5f5);
-  $_reportProjType:('ing':#c1d6ed,'done':#fffae9,'in-house':#f5f5f5);
+  $_reportType:('asis':$report_blue,'tobe':$report_yellow,'basic':$report_gray);
+  $_reportProjType:('work_ing':$report_blue,'work_done':$report_yellow);
   @each $type, $color in $_reportType{
     &.#{$type}{
       tbody th,tfoot{background-color:$color;font-weight:bold;}
+    }
+  }
+  @each $type, $color in $_reportProjType{
+    tr.#{$type}{
+      th{background-color:$color;font-weight:bold;}
     }
   }
   input[type=number]{text-align:center;}
@@ -1704,7 +1713,7 @@ $_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00);
       h3{font-size:14px;margin:10px 0 5px;}
       .tbl_week td{padding:0;text-align:left;
         &:first-child,
-        &:last-child{background-color:#f5f5f5;}
+        &:last-child{background-color:$report_gray;}
         & > div{text-indent:0;}
       }
       div{text-indent:-8px;padding-left:8px;background-color:transparent;}

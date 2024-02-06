@@ -192,7 +192,7 @@
   td{white-space:normal}
 }
 .p_workDay,
-.p_workMy{width:760px;}
+.p_workMy{width:850px;}
 
 header .btnClose{@include cancel(10px,11px,#bebebe);}
 .tbl_default > td[contenteditable]{height:var(--h);max-height:450px;overflow-y:auto;}

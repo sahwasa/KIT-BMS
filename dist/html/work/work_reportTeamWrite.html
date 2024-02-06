@@ -290,8 +290,8 @@
               </tr>
             </thead>
             <tbody>
-              <!-- 진행중 프로젝트:ing / 완료,하자보수 중인 프로젝트:done / 기타 사내업무 등 : in-house -->
-              <tr class="ing">
+              <!-- 진행중 프로젝트:work_ing / 완료,하자보수 중인 프로젝트:work_done / 기타 사내업무 등 : 기본값 -->
+              <tr class="work_ing">
                 <td><input type="checkbox" title="구분 선택"></td>
                 <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                 <td>개발</td>
@@ -334,7 +334,7 @@
                 <td contenteditable></td>
                 <td>뽀로로</td>
               </tr>
-              <tr>
+              <tr class="work_done">
                 <td><input type="checkbox" title="구분 선택"></td>
                 <th>(기상청) 2024년 지진자료품질관리시스템 구축(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                 <td>개발</td>
@@ -371,8 +371,7 @@
                 <td>뿡뿡이</td>
               </tr>
               <tr>
-                <td><input type="checkbox" title="구분 선택"></td>
-                <th style="display:none;">기타업무</th>
+                <td><input type="checkbox" title="구분 선택"></td>               
                 <td>기타</td>
                 <td contenteditable>
                   - 워크숍

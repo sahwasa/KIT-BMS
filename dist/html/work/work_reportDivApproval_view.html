@@ -238,12 +238,12 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>주간업무보고(팀별) 결재 요청<span>업무</span></h1>
+        <h1>주간업무보고(부서별) 결재 요청<span>업무</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">업무</a></li>
-            <li>주간업무보고(팀별) 작성하기</li>
+            <li>주간업무보고(부서별) 작성하기</li>
           </ul>
         </section>
       </header>
@@ -334,6 +334,7 @@
                   </tr>
                 </tbody>
               </table>
+              <!-- 진행중 프로젝트:work_ing / 완료,하자보수 중인 프로젝트:work_done / 기타 사내업무 등 : 기본값 -->
               <table class="tbl_report asis_tobe div">
                 <caption>주간업무보고(부서별)</caption>
                 <colgroup>
@@ -355,7 +356,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr class="work_ing">
                     <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                     <td>개발</td>
                     <td>
@@ -377,12 +378,12 @@
                     <td>100</td>
                     <td></td>
                   </tr>
-                  <tr>
+                  <tr class="work_ing">
                     <th colspan="3">프로젝트 총 공정율(실적 기준)</th>
                     <th>25</th>
                     <th></th>
                   </tr>
-                  <tr>
+                  <tr class="work_ing">
                     <th rowspan="3">(행안부) 2023년 통합재난문자시스템 유지보수​(2023-01-01~2023-12-31, 588,000,000원, 박00 수석)</th>
                     <td>유지보수</td>
                     <td>
@@ -415,12 +416,12 @@
                     <td>100</td>
                     <td></td>
                   </tr>
-                  <tr>
+                  <tr class="work_ing">
                     <th colspan="3">프로젝트 총 공정율(실적 기준)</th>
                     <th>25</th>
                     <th></th>
                   </tr>
-                  <tr>
+                  <tr class="work_done">
                     <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
                     <td>개발</td>
                     <td>
@@ -436,7 +437,7 @@
                     <td>100</td>
                     <td></td>
                   </tr>
-                  <tr>
+                  <tr class="work_done">
                     <th colspan="3">프로젝트 총 공정율(실적 기준)</th>
                     <th>25</th>
                     <th></th>
