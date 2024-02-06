@@ -936,7 +936,8 @@ td{white-space:nowrap;text-overflow:ellipsis;
       }
       .table{float:left;
         td,
-        th {white-space:inherit;}      }
+        th {white-space:inherit;overflow:initial;}
+      }
     }    
   } 
 }
