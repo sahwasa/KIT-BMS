@@ -164,11 +164,13 @@ border:1px solid transparent;align-self:center;@content;}
 }
 @mixin empty_box($con){display:flex;justify-content:center;align-items:center;height:100%;content:$con;padding:10px 5px;border-radius:3px;background-color:#ececec;font-size:13px;color:#777;}
 @mixin empty_txt($con,$box:false,$box_h:0){
-  &[data-empty]{background-color:#f5f7f9;text-align:center;@content;
+  &[data-empty]{background-color:#f5f7f9;text-align:center;@content;    
     &::after{position:relative;display:inline-block;align-self:center;content:$con;font-size:13px;color:#757575;margin-top:40px;background:url(../images/ico_nocontent.png) 0 0 no-repeat;padding-left:27px;line-height:18px;}    
     @if($box){position:relative;background-color:transparent;
       &::before{position:absolute;left:0;top:10px;@include shape(100%,$box_h);border:1px solid #ddd;background-color:#f5f7f9;border-radius:5px;}
       &::after{margin-top: calc($box_h / 2);}
+    }@else{
+      &::before{display:none;}
     }
   }
 }
