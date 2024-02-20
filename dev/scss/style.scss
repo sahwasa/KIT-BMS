@@ -1706,7 +1706,8 @@ $report_gray:#f5f5f5;
   &.asis tbody td,
   &.tobe tbody td{@include alignL(2);}
   &.asis_tobe{
-    td{@include alignL(4 5, true);}
+    td{@include alignL(3 4, true);}
+    &.write td{@include alignL(4 5, true);}
     &.div td{@include alignL(3 4, true);}
     tfoot{background-color:inherit;
       &>tr>td{padding:0;border-width:0;}
@@ -1726,6 +1727,19 @@ $report_gray:#f5f5f5;
 .my_work{@include flex_layout();
   .work_form{flex:1;}
 }
+.lst_work_report{display:grid;grid-template-columns:repeat(4, minmax(100px, auto));gap:5px;
+  li{border:1px solid #ccc;border-radius:5px;padding:10px;cursor:pointer;
+    &:hover{box-shadow:0 0 3px rgba(0, 0, 0, .2);}
+    &.unsubmission{border-color:#eee;color:#999;}
+  }
+  .report_status{display:flex;gap:3px;margin-bottom:5px;
+    &>span{margin-left:auto;font-size:11px;color:#666;}
+  }
+  strong{font-size:16px;letter-spacing:.2em;}
+  .i_approval{display:inline-block;color:#fff;letter-spacing:-0.3px;text-align:center; border-radius:5px;border:1px solid rgba(0,0,0,0);color:#e42b29;padding:0 3px;border: 1px solid #e42b29;opacity: 1;}
+}
+
+
 // .work_new{
 //   .editor_wrap .ck-content{min-height:378px;}
 //   [data-selectTarget]{margin-top:10px;}

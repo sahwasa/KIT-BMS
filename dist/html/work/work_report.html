@@ -106,6 +106,7 @@
           <li><a href="work_report.html">주간업무보고(개인별)</a></li>
           <li><a href="work_reportTeam.html">주간업무보고(팀별)</a></li>
           <li><a href="work_reportDiv.html">주간업무보고(부서별)</a></li>
+          <li><a href="work_reportDiv.html">주간업무보고(본부별)</a></li>
         </ul>
       </li>
       <li><a href="">회의록관리 (보류)</a></li>
@@ -332,14 +333,16 @@
                     <div class="layer_tool">
                       <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                       <div class="btn_layer">
-                        <button type="button">상세보기</button><!-- 본인것만 전자결제로 넘어감 -->
+                        <button type="button">상세보기</button>
+                        <!-- 본인것만 전자결제로 넘어감 -->
                         <button type="button">수정</button>
                         <button type="button">삭제</button>
                       </div>
                     </div>
                   </td>
                 </tr>
-                <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'"><!-- 결재라인 or 공개일경우 전자결제로 넘어감 -->
+                <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'">
+                  <!-- 결재라인 or 공개일경우 전자결제로 넘어감 -->
                   <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
                   <td>폼폼푸린(지진사업1팀)</td>
                   <td>2023-05-01</td>
@@ -385,22 +388,22 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">
     <header class="p_header">
-      <strong>2023년 조직도</strong>
+      <strong>조직도</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
-      <img src="/images/asset/org_2023.jpg" alt="2023조직도">
+      <img src="/images/asset/org.jpg" alt="조직도">
     </div>
   </form>
 </dialog>
 <dialog id="p_seating_chart" class="p_seating_chart">
   <form method="dialog">
     <header class="p_header">
-      <strong>2023년 자리배치도조직도</strong>
+      <strong>자리배치도</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
-      <img src="/images/asset/seating_chart_2023.jpg" alt="2023 자리배치도">
+      <img src="/images/asset/seating_chart.jpg" alt="자리배치도">
     </div>
   </form>
 </dialog>
