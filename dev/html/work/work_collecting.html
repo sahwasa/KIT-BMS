@@ -1,0 +1,368 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/work.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>회의보고용 주간업무 취합
+        <span>업무 보고함</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">업무</a></li>
+            <li><a href="#">내 업무함</a></li>
+            <li>주간업무보고(부서별)</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <section class="box_compact">
+          <ul class="search_list">
+            <li>
+              <select title="연도 선택">
+                <option value="연도 선택">연도 선택</option>
+                <option value="2023년" selected>2023년</option>
+                <option value="2022년">2022년</option>
+              </select>
+            </li>
+            <li>
+              <select title="주차 선택">
+                <option value="주차 선택">주차 선택</option>
+                <option value="14주 (2023-04-02~2023-04-08)​" selected>14주 (2023-04-02~2023-04-08)​</option>
+              </select>
+            </li>
+            <li>
+              <button type="button" class="btn_search">검색</button>
+            </li>
+          </ul>
+        </section>
+        <section class="reports_wrap">
+          @@include('../../inc/module/module_orgChart.html')
+          <div class="reports approval_view work">
+            <article class="tbl_top_area">
+              <i class="tbl_badge ing">결재중</i>
+              <span class="i_private">비공개</span>
+              <!-- <i class="tbl_badge default">미제출</i> -->
+              <!-- <i class="tbl_badge fin">완료</i> -->
+              <span class="tool_wrap">
+                <span>/ 상신자 작성전 </span>
+                <button type="button" class="btn_red" onclick="location.href='../work/work_collecting_write.html'">작성하기</button>
+                <span>/ 상신전 </span>
+                <button type="button" class="btn_red" onclick="location.href='../work/work_collectingApproval.html'">제출하기</button>
+                <button type="button" class="btn_red_line">수정</button>
+                <button type="button" class="btn_red_line">삭제</button>
+                <span>/ 상신 반려 시 재상신, 결재 전 회수 </span>
+                <button type="button" class="btn_red">재상신</button>
+                <button type="button" class="btn_red">회수</button>
+                <span>/ 결재자 결재 전 </span>
+                <button type="button" class="btn_red">승인</button>
+                <button type="button" class="btn_red_line">반려</button>
+                <button type="button" class="btn_gray_line">인쇄</button>
+                <span>/ 공통 결재완료</span>
+                <button type="button" class="btn_gray_line">인쇄</button>
+              </span>    
+            </article>
+            <div class="my_approval" data-empty="작성된 주간업무보고가 없습니다."></div>
+            <div class="my_approval">
+              <section class="approval_form flex_right">
+                <div class="form_wrap"> <!-- form_view : 인쇄용 -->
+                  <table class="tbl_row">
+                    <caption>결재양식 제목 테이블</caption>
+                    <colgroup>
+                      <col style="width:150px">
+                      <col style="width:auto">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">문서제목</th>
+                        <td>14주차 주간업무보고서(SI사업부)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="tit_form">
+                    <h2>14주차 주간업무보고서<br>(SI사업부)​</h2>
+                    <table class="tbl_row">
+                      <caption>결재 상황 테이블</caption>
+                      <colgroup>
+                        <col style="width:25px;">
+                        <col style="width:150px;">
+                        <col style="width:150px;">
+                        <col style="width:150px;">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th scope="col" rowspan="3">결 재</th>
+                          <th scope="col"><strong>상신</strong> 조아핑</th>
+                          <th scope="col"><strong>결재</strong> 퇴근핑</th>
+                          <th scope="col"><strong>합의</strong> 방글핑</th>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <table class="tbl_row">
+                    <caption>업무보고 정보</caption>
+                    <colgroup>
+                      <col span="8" style="width:100px">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th scope="row">소속</th>
+                        <td class="alignC">SI사업본부 SI사업1팀</td>
+                        <th scope="row">직위(직책)</th>
+                        <td class="alignC">부서장</td>
+                        <th scope="row">성명</th>
+                        <td class="alignC">홍길동</td>
+                        <th scope="row">업무보고일자</th>
+                        <td class="alignC">2023년 4월 7일</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- 진행중 프로젝트:work_ing / 완료,하자보수 중인 프로젝트:work_done / 기타 사내업무 등 : 기본값 -->
+                  <table class="tbl_report asis_tobe div">
+                    <caption>주간업무보고(부서별)</caption>
+                    <colgroup>
+                      <col style="width:195px">
+                      <col style="width:95px">
+                      <col style="width:330px">
+                      <col style="width:330px">
+                      <col style="width:70px">
+                      <col style="width:120px">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">사업명</th>
+                        <th scope="col">업무범주</th>
+                        <th scope="col">금주 주요실적(2023-04-02 ~ 2023-04-08)</th>
+                        <th scope="col">차주 주요계획(2023-04-02 ~ 2023-04-08)</th>
+                        <th scope="col">공정율(%)</th>
+                        <th scope="col">이슈</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="work_ing">
+                        <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                        <td>개발</td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정​<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정​<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정​<br>
+                          &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정​<br>
+                          &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경​<br>
+                          &nbsp;&nbsp;+ 가속도 통합모니터링 데이터 미표출 오류 수정​<br>
+                          &nbsp;&nbsp;+ 지진시스템 CBS 송출반경 오류사항 원인 파악​
+                        </td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                          &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                          &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                        </td>
+                        <td>100</td>
+                        <td></td>
+                      </tr>
+                      <tr class="work_ing">
+                        <th colspan="3">프로젝트 총 공정율(실적 기준)</th>
+                        <th>25</th>
+                        <th></th>
+                      </tr>
+                      <tr class="work_ing">
+                        <th rowspan="3">(행안부) 2023년 통합재난문자시스템 유지보수​(2023-01-01~2023-12-31, 588,000,000원, 박00 수석)</th>
+                        <td>유지보수</td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                        </td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정<br>
+                          &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                          &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                        </td>
+                        <td>30</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>개발</td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                          &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                        </td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                        </td>
+                        <td>100</td>
+                        <td></td>
+                      </tr>
+                      <tr class="work_ing">
+                        <th colspan="3">프로젝트 총 공정율(실적 기준)</th>
+                        <th>25</th>
+                        <th></th>
+                      </tr>
+                      <tr class="work_done">
+                        <th rowspan="2">(행안부) 2023년 지진,화산재해 대응시스템 유지보수(2023-02-17~2023-12-31, 604,374,000원, 김승기 수석보)</th>
+                        <td>개발</td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 가속도 시스템 로그인창 계정 자동등록 오류 수정<br>
+                          &nbsp;&nbsp;+ 권한에 따른 메뉴 표출 변경
+                        </td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                        </td>
+                        <td>100</td>
+                        <td></td>
+                      </tr>
+                      <tr class="work_done">
+                        <th colspan="3">프로젝트 총 공정율(실적 기준)</th>
+                        <th>25</th>
+                        <th></th>
+                      </tr>
+                      <tr>
+                        <th rowspan="2">기타업무</th>
+                        <td>기타</td>
+                        <td>
+                          - 팀별 주간회의<br>
+                          - 상반기 연구활동비(회의비) 관련 회의<br>
+                          + 회의비 사용 중복인원 확인<br>
+                          : 참여연구원, 외부인원<br>
+                          + 문서 및 시스템 수정<br>
+                          + 오픈소스 GIS를 활용한 공간분석 기초 (4차) 과정 수료<br>
+                          - 오픈소스 GIS를 활용한 공간분석 기초(8/23~25, LX 공간정보아카데미)<br>
+                          + 교육 대상자 : 주은철 선임<br>
+                          - 대체충원 인력 면접(개발자)<br>
+                          + 8/21, 8/23 3명 실시 및 최종 합격자 통보 등<br>
+                          - 본부 내부 OS 및 office 프로그램 정품여부 확인<br>
+                          + 실태조사 완료 후 문서화 작업 진행
+                        </td>
+                        <td>
+                          - 지진&sol;가속도 시스템 오류사항 소스 수정<br>
+                          &nbsp;&nbsp;+ 지진발생 팝업 미표출 오류 수정<br>
+                          &nbsp;&nbsp;+ 지진발생보고서(MMS) 글자 깨짐 오류 수정
+                        </td>
+                        <td>100</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="8">
+                          <h3>&lt; 주요 일정 계획 &gt;</h3>
+                          <table class="tbl_row tbl_week">
+                            <caption>주요 일정 계획</caption>
+                            <colgroup>
+                              <col>
+                              <col>
+                              <col>
+                              <col>
+                              <col>
+                              <col class="holiday">
+                              <col>
+                            </colgroup>
+                            <thead>
+                              <tr>
+                                <th scope="col">일(2.4)</th>
+                                <th scope="col">월(2.5)</th>
+                                <th scope="col">화(2.6)</th>
+                                <th scope="col">수(2.7)</th>
+                                <th scope="col">목(2.8)</th>
+                                <th scope="col" class="holiday">금(2.9)-휴일</th>
+                                <th scope="col">토(2.10)</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><div></div></td>
+                                <td>
+                                  <div>
+                                    - [출장]
+                                    <div>- [외근] 송태정 - 문체부 과제회의(10:00 ~,LIGS)</div>
+                                    <div>- [외근] 서현정 - 목적(시간 ~, 장소)</div>
+                                  </div>
+                                </td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                              </tr>
+                              <tr>
+                                <td><div></div></td>
+                                <td>
+                                  <div>
+                                    - [연차] 조범준
+                                    <div>- [연차] 김종빈</div>
+                                    <div>- [반차] 박유빈 - (10:00 ~ 14:00)</div>
+                                  </div>
+                                </td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                                <td><div></div></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>            
+                    </tfoot>
+                  </table>
+                  <div class="sign_wrap">
+                    <p>상기와 같이 주간업무 보고서를 제출합니다.<br>
+                      <span>2023년 3월 20일</span>
+                    </p>
+                    <p>신청인 : <span>홍길동</span> (인)</p>
+                  </div>
+                </div>
+              </section>         
+            </div>
+            <div class="file_attached">
+              <ul class="attach_list">
+                <li>
+                  <a href="#"><i class="ext_ppt"></i>나는 2023년 6월 30일 금요일에 작성된 어딘가 모르게 겁나긴 제목의 첨부파일.pptx</a>
+                  <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+                </li>
+                <li>
+                  <a href="#"><i class="ext_jpg"></i> 첨부파일 문서2.jpeg</a>
+                  <!-- <a href="#" target="_blank" class="preview">미리보기</a> -->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+<script>
+$('#fold').on('change',function(){
+  const check = $(this).prop('checked'),
+        target = $('.tree').find('ul > .ui-sortable-handle');
+  (check) ? target.addClass('close') : target.removeClass('close');
+})
+</script>
+</body>
+
+</html>

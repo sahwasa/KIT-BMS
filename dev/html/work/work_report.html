@@ -25,16 +25,6 @@
           <section class="box_compact">
             <ul class="search_list">
               <li>
-                <select title="부서 선택">
-                  <option disabled selected>부서 선택</option>
-                </select>
-              </li>
-              <li>
-                <select title="팀 선택">
-                  <option disabled selected>팀 선택</option>
-                </select>
-              </li>
-              <li>
                 <select title="연도 선택">
                   <option value="연도 선택">연도 선택</option>
                   <option value="2023년" selected>2023년</option>
@@ -52,78 +42,85 @@
               </li>
             </ul>
           </section>
-          <div class="tbl_top_area">
-            <h2>2023년 14주 (2023-04-02~2023-04-08)</h2>
-            <div class="flex_right">
-              <button type="button" class="btn_default" onclick="location.href='../work/work_reportWrite.html'">주간보고 작성</button>
+          <div class="reports_wrap">
+            @@include('../../inc/module/module_orgChart.html')
+            <div class="reports">
+              <div class="tbl_top_area">
+                <h2>
+                  2023년 14주 (2023-04-02~2023-04-08)<strong class="divide">지진사업 1팀</strong>
+                </h2>
+                <div class="flex_right">
+                  <button type="button" class="btn_red" onclick="location.href='../work/work_reportWrite.html'">주간보고 작성</button>
+                </div>
+              </div>
+              <!-- 기본값 소속 팀 전부 -->
+              <div class="tbl_wrap tbl_work_report">
+                <table class="tbl_default tbl_hover hasLayer">
+                  <caption>주간업무보고(개인별) 리스트</caption>
+                  <colgroup>
+                    <col style="width:auto;min-width:240px;">
+                    <col span="3" style="width:150px;">
+                    <col style="width:120px;">
+                    <col style="width:95px;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">제목</th>
+                      <th scope="col">상신자</th>
+                      <th scope="col">상신일시</th>
+                      <th scope="col">상태</th>
+                      <th scope="col">공개여부</th>
+                      <th scope="col">관리</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'">
+                      <td>14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동)</td>
+                      <td>포차코(지진사업1팀)</td>
+                      <td>2023-05-01</td>
+                      <td><i class="tbl_badge ing">결재중</i></td>
+                      <td><i class="tbl_badge public">공개</i></td>
+                      <td>
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
+                      <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                      <td>쿠로미(지진사업1팀)</td>
+                      <td>2023-05-01</td>
+                      <td><i class="tbl_badge default">미제출</i></td>
+                      <td><i class="tbl_badge private">비공개</i></td>
+                      <td onclick="event.stopPropagation();">
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                          <div class="btn_layer">
+                            <button type="button">상세보기</button>
+                            <!-- 본인것만 전자결제로 넘어감 -->
+                            <button type="button">수정</button>
+                            <button type="button">삭제</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'">
+                      <!-- 결재라인 or 공개일경우 전자결제로 넘어감 -->
+                      <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                      <td>폼폼푸린(지진사업1팀)</td>
+                      <td>2023-05-01</td>
+                      <td><i class="tbl_badge fin">완료 <em>2023. 04. 18</em></i></td>
+                      <td><i class="tbl_badge public">공개</i></td>
+                      <td>
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                        </div>
+                      </td>                  
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-          <!-- 기본값 소속 팀 전부 -->
-          <div class="tbl_wrap tbl_work_report">
-            <table class="tbl_default tbl_hover hasLayer">
-              <caption>주간업무보고(개인별) 리스트</caption>
-              <colgroup>
-                <col style="width:auto;min-width:240px;">
-                <col span="3" style="width:150px;">
-                <col style="width:120px;">
-                <col style="width:95px;">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col">제목</th>
-                  <th scope="col">상신자</th>
-                  <th scope="col">상신일시</th>
-                  <th scope="col">상태</th>
-                  <th scope="col">공개여부</th>
-                  <th scope="col">관리</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'">
-                  <td>14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동)</td>
-                  <td>포차코(지진사업1팀)</td>
-                  <td>2023-05-01</td>
-                  <td><i class="tbl_badge ing">결재중</i></td>
-                  <td><i class="tbl_badge public">공개</i></td>
-                  <td>
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                    </div>
-                  </td>
-                </tr>
-                <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
-                  <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
-                  <td>쿠로미(지진사업1팀)</td>
-                  <td>2023-05-01</td>
-                  <td><i class="tbl_badge default">미제출</i></td>
-                  <td><i class="tbl_badge private">비공개</i></td>
-                  <td onclick="event.stopPropagation();">
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                      <div class="btn_layer">
-                        <button type="button">상세보기</button>
-                        <!-- 본인것만 전자결제로 넘어감 -->
-                        <button type="button">수정</button>
-                        <button type="button">삭제</button>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'">
-                  <!-- 결재라인 or 공개일경우 전자결제로 넘어감 -->
-                  <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
-                  <td>폼폼푸린(지진사업1팀)</td>
-                  <td>2023-05-01</td>
-                  <td><i class="tbl_badge fin">완료 <em>2023. 04. 18</em></i></td>
-                  <td><i class="tbl_badge public">공개</i></td>
-                  <td>
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                    </div>
-                  </td>                  
-                </tr>
-              </tbody>
-            </table>
           </div>
         </article>
       </div>
@@ -132,7 +129,13 @@
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/layout/script.html')
-
+<script>
+$('#fold').on('change',function(){
+  const check = $(this).prop('checked'),
+        target = $('.tree').find('ul > .ui-sortable-handle');
+  (check) ? target.addClass('close') : target.removeClass('close');
+})
+</script>
 </body>
 
 </html>

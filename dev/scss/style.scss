@@ -1738,15 +1738,25 @@ $report_gray:#f5f5f5;
   strong{font-size:16px;letter-spacing:.2em;}
   .i_approval{display:inline-block;color:#fff;letter-spacing:-0.3px;text-align:center; border-radius:5px;border:1px solid rgba(0,0,0,0);color:#e42b29;padding:0 3px;border: 1px solid #e42b29;opacity: 1;}
 }
-
-
-// .work_new{
-//   .editor_wrap .ck-content{min-height:378px;}
-//   [data-selectTarget]{margin-top:10px;}
-// }
-
-// .progress_input ~ .btn{display:block;width:100%;margin-top:5px;}
-
+.reports_wrap{display:flex;gap:$columnGap;
+  .orgChart{width:180px;
+    .fold{text-align:right;margin-bottom:2px;}
+  }
+  .tree_wrap>.sortable{min-width:180px;height:calc(100vh - 280px);min-height:344px;
+    div{margin-bottom:10px;}
+  }
+  .reports{flex:1;display:flex;flex-direction:column;overflow-y:auto;padding-right:10px;min-width:180px;height:calc(100vh - 248px);min-height:381px;
+    .tbl_top_area{position:sticky;top:0;left:0;background-color:#fff;border-bottom:2px solid #c0c0c0;padding-bottom:5px;z-index:100;margin-bottom:0;
+      .divide{
+       
+      }
+    }
+    .form_wrap,
+    .tbl_wrap{border-top-width:0;}    
+    .my_approval{@include empty_txt(attr(data-empty)){justify-content:center;flex:1;};}
+    .file_attached{background-color:$report_gray;padding:0 10px;}
+  }
+}
 //svc
 .snb .svc{
   .attendance_desc{text-align:left;padding:10px 15px;border-bottom:1px dashed #bec7d2;background-color:#fff;color:#696969;font-size:11px;
@@ -1971,6 +1981,7 @@ $_planTypes:(
       &:last-child{padding-bottom:0;border-bottom-width:0;}
     }
   }
+  .family_event{min-height:206px;}
   .notice{height:calc(100vh - 224px);min-height:405px;}
   .right{@include flex_layout();flex-direction:column;justify-content:flex-start;
     // .family_event{flex:1 100px;}

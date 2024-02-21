@@ -429,11 +429,17 @@ $btn_red_line:#ff7575;
   &+button{width:100%;margin-top:5px;}
   &+.period_custom{display:none;}
 }
-.pin{
-  label{font-size:0;line-height:1.2;}
-  label::before{@include fontello('\e93f');font-size:16px;}
-  &:checked+label::before{@include fontello('\e940');}
-  label:hover::before{text-shadow:0 0 3px red;}
+.btn_switch_single.pin{
+  label{width:25px;height:25px;font-size:0;line-height:1.2;border-radius:50%;}
+  label::before{@include fontello('\e93f');font-size:16px;line-height:25px;color:#A1ABC2!important;}
+  input:checked+label::before{@include fontello('\e940');}
+  label:hover{background-color:#f5f5f5;}
+}
+.btn_switch_single.fold{
+  label{display:inline-block;width:30px;height:30px;font-size:0;line-height:1.2;border-radius:50%;text-align: center;}
+  label::before{@include fontello('\e819');font-size:16px;line-height:30px;color:#A1ABC2!important;}
+  input:checked+label::before{@include fontello('\e81b');}
+  label:hover{background-color:#f5f5f5;}
 }
 .btn_toggle_single{display:inline-flex;flex-shrink:0;justify-content:center;vertical-align:middle;
   $unselectedColor:#999;$hoverColor:#868686;$selectColor:$tomato;
