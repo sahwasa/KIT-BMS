@@ -54,6 +54,33 @@
                 </div>
               </div>
               <!-- 기본값 소속 팀 전부 -->
+
+              <!-- 상태값 안내
+
+              상신자
+              미등록 : 한번도 저장 안한 상태 , 초기값
+              미제출 : 한번이라도 저장한 상태, 상신 전
+              결재중 : 결재자의 결재대기상태
+              완료 : 결재완료
+              회수 : 미제출과 합침
+              반려 : 반려당함
+
+              결재라인 결재자
+              미등록 : 상동
+              미제출 : 상동
+              결재대기 : 상신자가 상신하여 나의 결재를 기다리는 상태
+              결재중 :  상신자가 상신하였으나 아직 나의 결재차례가 아닌 상태
+              완료 : 상동
+              반려 : 상동
+              회수 : 미제출로 보임 ?
+
+              결재라인이 아닌 외부인
+              미등록 : 상동
+              미제출 : 상동
+              결재중 : 결재자의 결재 대기
+              완료 : 상동
+              회수, 반려 : 미제출로 보임 -->
+
               <div class="tbl_wrap tbl_work_report">
                 <table class="tbl_default tbl_hover hasLayer">
                   <caption>주간업무보고(개인별) 리스트</caption>
@@ -74,6 +101,21 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr tabindex="0">
+                      <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                      <td>쿠로미(지진사업1팀)</td>
+                      <td>2023-05-01</td>
+                      <td><i class="tbl_badge default">미등록</i></td>
+                      <td><i class="tbl_badge private">비공개</i></td>
+                      <td onclick="event.stopPropagation();">
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                          <div class="btn_layer">
+                            <button type="button">작성하기</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
                     <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'">
                       <td>14주차 주간업무보고서(지진사업본부 지진사업1팀_홍길동)</td>
                       <td>포차코(지진사업1팀)</td>
@@ -83,21 +125,24 @@
                       <td>
                         <div class="layer_tool">
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                          <div class="btn_layer">
+                            <button type="button">상세보기</button>
+                          </div>
                         </div>
                       </td>
                     </tr>
                     <tr tabindex="0" onclick="location.href='../work/work_reportApproval.html'">
-                      <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                      <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
                       <td>쿠로미(지진사업1팀)</td>
                       <td>2023-05-01</td>
-                      <td><i class="tbl_badge default">미제출</i></td>
+                      <td><i class="tbl_badge draft">미제출</i></td>
                       <td><i class="tbl_badge private">비공개</i></td>
                       <td onclick="event.stopPropagation();">
                         <div class="layer_tool">
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                           <div class="btn_layer">
                             <button type="button">상세보기</button>
-                            <!-- 본인것만 전자결제로 넘어감 -->
+                            <!-- 본인것만 수정페이지 넘어감 -->
                             <button type="button">수정</button>
                             <button type="button">삭제</button>
                           </div>
@@ -106,7 +151,7 @@
                     </tr>
                     <tr tabindex="0" onclick="location.href='../work/work_reportApproval_view.html'">
                       <!-- 결재라인 or 공개일경우 전자결제로 넘어감 -->
-                      <td class="ask_approval">14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                      <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
                       <td>폼폼푸린(지진사업1팀)</td>
                       <td>2023-05-01</td>
                       <td><i class="tbl_badge fin">완료 <em>2023. 04. 18</em></i></td>
@@ -116,7 +161,31 @@
                           <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                         </div>
                       </td>                  
+                    </tr>                    
+                    <tr tabindex="0">
+                      <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                      <td>폼폼푸린(지진사업1팀)</td>
+                      <td>2023-05-01</td>
+                      <td><i class="tbl_badge wait">결재대기</i></td>
+                      <td><i class="tbl_badge public">공개</i></td>
+                      <td>
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                        </div>
+                      </td>
                     </tr>
+                    <tr tabindex="0">
+                      <td>14주차 주간업무보고서(지진사업본부 지진사업1팀)</td>
+                      <td>폼폼푸린(지진사업1팀)</td>
+                      <td>2023-05-01</td>
+                      <td><i class="tbl_badge reject">반려 <em>2023. 04. 18</em></i></td>
+                      <td><i class="tbl_badge public">공개</i></td>
+                      <td>
+                        <div class="layer_tool">
+                          <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                        </div>
+                      </td>
+                    </tr>                   
                   </tbody>
                 </table>
               </div>
