@@ -201,7 +201,7 @@
 <script>
 $('#fold').on('change',function(){
   const check = $(this).prop('checked'),
-        target = $('.tree').find('ul > .ui-sortable-handle');
+        target = $('.tree').find('ul > .arrow');
   (check) ? target.addClass('close') : target.removeClass('close');
 })
 </script>
