@@ -1,0 +1,97 @@
+<dialog class="p_work_approval" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>주간업무보고 상신하기</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <article class="approval_set">
+        <table class="tbl_default tbl_row">
+          <caption>내 업무 추가 테이블</caption>
+          <colgroup>
+            <col style="width:120px">
+            <col style="width:auto">          
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="">제목</label></th>
+              <td><input type="text" id="" placeholder="제목" /></td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">결재자 지정</label></th>
+              <td>
+                <div class="tab_wrap tab_s">
+                  <ul class="tab">
+                    <li class="on"><a href="#tab01">조직도</a></li>
+                    <li><a href="#tab02">임의지정</a></li>
+                  </ul>
+                </div>
+                <div class="tab_container">
+                  <section id="tab01" class="tab_contents">
+                    <ul class="appr_path">
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>                      
+                      </li>
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>퇴근핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>                      
+                      </li>
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure><em>방글핑 대표</em>
+                        </span>                      
+                      </li>
+                    </ul>
+                  </section>                
+                  <section id="tab02" class="tab_contents">
+                    <span class="file_input">
+                      <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
+                      @@include('../../inc/data/data_emp_name.html')
+                      <button type="button" class="btn_red_line">추가</button>
+                      <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                    </span>
+                    <ul class="appr_path">
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>막내핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>
+                        <div class="appr_btn_set">
+                          <a href="#" class="myappr_del">삭제</a>                        
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">첨부파일</th>
+              <td>@@include('../module/module_file_attach.html')</td>
+            </tr>
+            <tr>
+              <th scope="row">공개여부</th>
+              <td colspan="3">
+                <div class="btn_switch">
+                  <input type="radio" id="open1" name="closure" checked>
+                  <label for="open1">공개</label>
+                  <input type="radio" id="private2" name="closure">
+                  <label for="private2">비공개</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>       
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">상신</button>
+        <button class="btn_gray_line" type="button">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>

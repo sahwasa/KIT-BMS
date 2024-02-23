@@ -21,6 +21,9 @@
           <button type="button" class="btn_gray_line" onclick="location.href='../work/work_report.html'">목록</button>
           <span class="floatR">
             <button type="button" class="btn_red">저장</button>
+            <button type="button" class="btn_red_line">수정</button>
+            <button type="button" class="btn_red_line">삭제</button>
+            <button type="button" class="btn_red" onclick="document.querySelector('.p_work_approval').showModal();" >상신하기</button>
           </span>
         </article>
         <section class="tbl_top_area">
@@ -48,20 +51,7 @@
                 <!-- 같은 사업끼리 자동 머지 -->
                 <table class="tbl_report asis tbl_week_inner">
                   <caption>주간업무보고(개인별)</caption>
-                  <colgroup>
-                    <col style="width:10%">
-                    <col style="width:5%">
-                    <col>
-                    <col style="width:5%">
-                    <col style="width:4%">
-                    <col style="width:4%" class="holiday">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col span="2" style="width:5%">
-                  </colgroup>
+                  @@include('../../inc/module/work_report_colgroup.html')
                   <thead>
                     <tr>
                       <th scope="col" rowspan="2">사업명</th>
@@ -174,20 +164,7 @@
               <section id="tab_con02" class="tab_contents">
                 <table class="tbl_report tobe tbl_week_inner">
                   <caption>주간업무보고 계획 개인</caption>
-                  <colgroup>
-                    <col style="width:10%">
-                    <col style="width:5%">
-                    <col>
-                    <col style="width:5%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%" class="holiday">
-                    <col style="width:4%">
-                    <col span="2" style="width:5%">
-                  </colgroup>
+                  @@include('../../inc/module/work_report_colgroup.html')
                   <thead>
                     <tr>
                       <th scope="col" rowspan="2">사업명</th>
@@ -200,11 +177,11 @@
                     </tr>
                     <tr>
                       <th scope="col">일</th>
-                      <th scope="col">월</th>
+                      <th scope="col" class="holiday">월</th>
                       <th scope="col">화</th>
                       <th scope="col">수</th>
                       <th scope="col">목</th>
-                      <th scope="col" class="holiday">금</th>
+                      <th scope="col">금</th>
                       <th scope="col">토</th>
                     </tr>
                   </thead>
@@ -229,11 +206,11 @@
                     <tr>
                       <th scope="row" colspan="4">근무시간</th>
                       <td></td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
                       <td class="holiday">0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -241,11 +218,11 @@
                     <tr>
                       <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
                       <td>휴일</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
                       <td class="holiday">휴가</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                       <td>휴일</td>
                       <td></td>
                       <td></td>
@@ -261,6 +238,7 @@
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
+@@include('../../inc/pop/p_work_approval.html')
 @@include('../../inc/layout/script.html')
 </body>
 

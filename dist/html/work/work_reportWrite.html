@@ -253,6 +253,9 @@
           <button type="button" class="btn_gray_line" onclick="location.href='../work/work_report.html'">목록</button>
           <span class="floatR">
             <button type="button" class="btn_red">저장</button>
+            <button type="button" class="btn_red_line">수정</button>
+            <button type="button" class="btn_red_line">삭제</button>
+            <button type="button" class="btn_red" onclick="document.querySelector('.p_work_approval').showModal();" >상신하기</button>
           </span>
         </article>
         <section class="tbl_top_area">
@@ -281,19 +284,20 @@
                 <table class="tbl_report asis tbl_week_inner">
                   <caption>주간업무보고(개인별)</caption>
                   <colgroup>
-                    <col style="width:10%">
-                    <col style="width:5%">
-                    <col>
-                    <col style="width:5%">
-                    <col style="width:4%">
-                    <col style="width:4%" class="holiday">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col span="2" style="width:5%">
-                  </colgroup>
+  <col style="width:10%">
+  <col style="width:5%">
+  <col>
+  <col style="width:4%">
+  <col style="width:34px;">
+  <col style="width:34px;" class="holiday">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:5%">
+  <col style="width:8%">
+</colgroup>
                   <thead>
                     <tr>
                       <th scope="col" rowspan="2">사업명</th>
@@ -407,19 +411,20 @@
                 <table class="tbl_report tobe tbl_week_inner">
                   <caption>주간업무보고 계획 개인</caption>
                   <colgroup>
-                    <col style="width:10%">
-                    <col style="width:5%">
-                    <col>
-                    <col style="width:5%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%">
-                    <col style="width:4%" class="holiday">
-                    <col style="width:4%">
-                    <col span="2" style="width:5%">
-                  </colgroup>
+  <col style="width:10%">
+  <col style="width:5%">
+  <col>
+  <col style="width:4%">
+  <col style="width:34px;">
+  <col style="width:34px;" class="holiday">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:34px;">
+  <col style="width:5%">
+  <col style="width:8%">
+</colgroup>
                   <thead>
                     <tr>
                       <th scope="col" rowspan="2">사업명</th>
@@ -432,11 +437,11 @@
                     </tr>
                     <tr>
                       <th scope="col">일</th>
-                      <th scope="col">월</th>
+                      <th scope="col" class="holiday">월</th>
                       <th scope="col">화</th>
                       <th scope="col">수</th>
                       <th scope="col">목</th>
-                      <th scope="col" class="holiday">금</th>
+                      <th scope="col">금</th>
                       <th scope="col">토</th>
                     </tr>
                   </thead>
@@ -461,11 +466,11 @@
                     <tr>
                       <th scope="row" colspan="4">근무시간</th>
                       <td></td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>0</td>
                       <td class="holiday">0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -473,11 +478,11 @@
                     <tr>
                       <th scope="row" colspan="4">외근, 출장, 휴가 사항</th>
                       <td>휴일</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
                       <td class="holiday">휴가</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
                       <td>휴일</td>
                       <td></td>
                       <td></td>
@@ -496,6 +501,125 @@
   <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<dialog class="p_work_approval" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>주간업무보고 상신하기</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <article class="approval_set">
+        <table class="tbl_default tbl_row">
+          <caption>내 업무 추가 테이블</caption>
+          <colgroup>
+            <col style="width:120px">
+            <col style="width:auto">          
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="">제목</label></th>
+              <td><input type="text" id="" placeholder="제목" /></td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">결재자 지정</label></th>
+              <td>
+                <div class="tab_wrap tab_s">
+                  <ul class="tab">
+                    <li class="on"><a href="#tab01">조직도</a></li>
+                    <li><a href="#tab02">임의지정</a></li>
+                  </ul>
+                </div>
+                <div class="tab_container">
+                  <section id="tab01" class="tab_contents">
+                    <ul class="appr_path">
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>                      
+                      </li>
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>퇴근핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>                      
+                      </li>
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure><em>방글핑 대표</em>
+                        </span>                      
+                      </li>
+                    </ul>
+                  </section>                
+                  <section id="tab02" class="tab_contents">
+                    <span class="file_input">
+                      <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
+                      <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                      <button type="button" class="btn_red_line">추가</button>
+                      <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                    </span>
+                    <ul class="appr_path">
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>막내핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>
+                        <div class="appr_btn_set">
+                          <a href="#" class="myappr_del">삭제</a>                        
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">첨부파일</th>
+              <td><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div></td>
+            </tr>
+            <tr>
+              <th scope="row">공개여부</th>
+              <td colspan="3">
+                <div class="btn_switch">
+                  <input type="radio" id="open1" name="closure" checked>
+                  <label for="open1">공개</label>
+                  <input type="radio" id="private2" name="closure">
+                  <label for="private2">비공개</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>       
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">상신</button>
+        <button class="btn_gray_line" type="button">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>

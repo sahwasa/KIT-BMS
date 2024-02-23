@@ -354,3 +354,6 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
     .btn_next::before{@include fontello('\e88c');}
   }
 }
+.p_work_approval{width:700px;
+  .approval_set{width:100%;}
+}
