@@ -356,4 +356,5 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 }
 .p_work_approval{width:700px;
   .approval_set{width:100%;}
+  .approval_set .attach_list:empty::before{display:none;}
 }

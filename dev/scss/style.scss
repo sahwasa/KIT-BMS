@@ -1291,7 +1291,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       }
       .user_photo{width:22px;height:22px;margin-left:auto;}
     }
-    $_projStep:('proposal':#c3f0d3,'start':#c9dbf8,'analysis':#eedcff,'plan':#f8dac9,'build':#c6ebe4,'test':#d1d3fd,'edu':#daefb8,'completion':#eee1d8,'report':#f8ee95);
+    $_projStep:('proposal':#c3f0d3,'start':#c9dbf8,'analysis':#eedcff,'plan':#f8dac9,'build':#c6ebe4,'test':#d1d3fd,'edu':#daefb8,'completion':#eee1d8,'report':#f8ee95,'etc':#eaedf1);
     .tags{margin-right:3px;
       i{@include badge_style();margin-right:0;padding:0 5px;font-size:11px;line-height:13px;font-weight:bold;
         @each $type, $color in $_projStep{
@@ -2005,7 +2005,9 @@ $_planTypes:(
   .file_attached .attach_list:empty::before{@include empty_box('첨부된 파일이 없습니다');}
   .set_list{@include set_list(1);margin-bottom:20px;}
   .editor_wrap .ck-content{height:calc(100vh - 406px);min-height:223px;}
-  .post_view{padding:5px;}
+  .post_view{padding:5px;
+    .ck{border-width:0;}
+  }
 }
 @include desktop('.responsive_disabled'){
   .post_wrap{width:100%;flex-flow:column wrap;
