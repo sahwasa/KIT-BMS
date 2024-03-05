@@ -294,18 +294,20 @@ $columnGap:25px;$minH:540px;
 }
 .util{height:inherit;}
 .profile{
-  position:relative;width:160px;height:inherit;padding:0 19px;
-  .account{position:relative;top:50%;transform:translateY(-50%); display:inline-flex;align-items:center;font-size:13px;letter-spacing:-.33px;
+  position:relative;width:auto;height:inherit;padding:0 19px;
+  .account{position:relative;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;font-size:13px;letter-spacing:-.33px;gap:10px;
     img{border-radius:50%;overflow:hidden;object-fit:cover;}
-    b{margin-left:10px;
-      &::before{position:absolute;left:0;top:0; @include shape(32px,32px);border:1px solid #ddd;border-radius:50%;}
-      &::after{@include fontello("\f004");margin-left:8px;font-size:11px;}
+    &::before{position:absolute;left:0;top:50%;transform:translateY(-50%);@include shape(32px,32px);border:1px solid #ddd;border-radius:50%;}
+    &::after{@include fontello("\f004");margin-left:8px;font-size:11px;}
+    strong{text-align:left;
+      span{display:block;font-size:12px;color:#888;font-weight:normal;letter-spacing:-.05em;}
     }
   }
   &:hover b::before{outline:4px solid rgba(60,64,67,.08);}
   &.on{background:$black;
-    & b{color:$white;}
-    & b::before{border-color:$black;}
+    & strong,& strong span,button::after{color:$white;}
+    button::after{content:'\f005'}
+    button::before{border-color:$black;}
     .my_layer{height:auto;}
   }
 }
@@ -1712,7 +1714,18 @@ $report_gray:#f5f5f5;
   &.asis_tobe{
     td{@include alignL(3 4, true);}
     &.write td{@include alignL(4 5, true);}
-    &.div td{@include alignL(3 4, true);}
+    &.div{table-layout:fixed;
+      tbody tr:last-child td{border-bottom-width:2px;}
+    }
+    &.div{
+      td{@include alignL(4 5, true);}
+      tr{
+        & th:not([colspan]):first-child,
+        & td:first-child,
+        & th:last-child,
+        & td:last-child{display:none;}
+      }
+    } 
     tfoot{background-color:inherit;
       &>tr>td{padding:0;border-width:0;}
       h3{font-size:14px;margin:10px 0 5px;}
