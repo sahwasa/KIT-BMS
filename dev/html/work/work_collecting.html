@@ -364,6 +364,7 @@
 </div>
 @@include('../../inc/layout/script.html')
 <script>
+fileDropEvt();
 $('#fold').on('change',function(){
   const check = $(this).prop('checked'),
         target = $('.tree').find('ul > .ui-sortable-handle');

@@ -678,7 +678,7 @@ z-index:10;transition:left .51s ease-in-out;
   .form_wrap{display:grid;padding:15px 0;border:1px solid #c0c0c0;border-width:2px 0;
     input[type='date']{width:auto;}
     .tbl_report{table-layout:initial;
-      input:disabled{border-width:0;}
+      input:disabled{border-width:0;background-color:transparent;}
     }
     table{border:none;
       &.tbl_use_select{
@@ -764,7 +764,7 @@ z-index:10;transition:left .51s ease-in-out;
   .preview{flex-shrink:0;gap:0;font-size:11px;color:#999;align-items:center;margin-left:10px;line-height:1;
     &::before{@include shape(1px, 10px);background-color:#ddd;margin-right:10px;}
   }
-  .attach_list:empty::before{@include empty_box('첨부된 파일이 없습니다');}
+  &:not(:has(.drop_zone)) .attach_list:empty::before{@include empty_box('첨부된 파일이 없습니다');}
   $_signType:('draft':$draft,'ing':$ing,'approve':$fin,'fin':$fin,'reject':$reject,'return':$reject,'ready':$wait,'wait':$wait,'defer':$defer,'done':$done,'agree':$agree,'cc':$cc,'relay':$relay);
   @each $type, $color in $_signType{
     .#{$type}{border-color:$color !important;color:$color !important;background:#fff !important;}
