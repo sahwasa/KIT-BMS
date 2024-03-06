@@ -747,7 +747,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .tree_wrap{
   .etc_ogt{padding:8px 5px;padding-left:15px;border:1px solid #dddddd;border-top:none;font-size:12px;font-weight:bold;color:#000;letter-spacing:-0.12px;}
   &>.sortable{width:290px;height:353px;padding:8px 0;border:1px solid #dddddd;overflow-x:hidden;overflow-y:auto;}
-  .sortable{
+  ul{
     div:hover,
     div.hover{background-color:#f9fafc;
       & span{color:$red;font-weight:bold;}

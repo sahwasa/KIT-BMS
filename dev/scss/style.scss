@@ -677,7 +677,9 @@ z-index:10;transition:left .51s ease-in-out;
   &>*{padding:0 5px;}
   .form_wrap{display:grid;padding:15px 0;border:1px solid #c0c0c0;border-width:2px 0;
     input[type='date']{width:auto;}
-    .tbl_report{table-layout: initial;}
+    .tbl_report{table-layout:initial;
+      input:disabled{border-width:0;}
+    }
     table{border:none;
       &.tbl_use_select{
         tr{
