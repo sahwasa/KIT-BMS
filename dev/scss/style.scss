@@ -1721,7 +1721,8 @@ $report_gray:#f5f5f5;
     }
     &.div{
       td{@include alignL(4 5, true);}
-      tr{
+      thead tr,
+      tbody tr{
         & th:not([colspan]):first-child,
         & td:first-child,
         & th:last-child,
