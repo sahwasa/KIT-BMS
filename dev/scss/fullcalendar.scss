@@ -34,8 +34,10 @@
   [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
   .fc-resource-group .fc-datagrid-cell-cushion{@include text_ellipsis(3);padding-bottom:0;}
   .fc-timeline-header a{color:#363636;}
+  .wbs_step{background-color:#f9fafc;}
   .wbs_step .fc-datagrid-cell-cushion{padding:8px 0 0;}
   .fc .fc-timeline-lane-frame .fc-timeline-events{top:calc(50% - 12px);}
+  tr[role="row"]:is(:has(.fc-icon-minus-square),:has(.fc-icon-plus-square)) td:not(:first-child){background-color:#edf0f3;font-weight:600;}
 }
 .fc-resourceTimelineYear-view .fc-timeline-slot{color:inherit;}
 #cal-roombook{

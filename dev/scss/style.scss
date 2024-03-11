@@ -1033,7 +1033,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &:first-of-type{margin-top:0;}
     i{@extend %proj_tag;font-size:12px;max-width:none;width:60px;line-height:18px;}  
   }
-  dd{flex:1 auto;max-width:calc((100% - 24px) / 5);
+  dd{flex:1 auto;max-width:calc((100% - 32px) / 5);
     .etc{display:flex;align-items:center;@extend .ico_proj;margin-top:auto;line-height:1;font-size:12px;
       i{font-size:0;}
       i::before{margin-top:0;}
@@ -1356,7 +1356,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       .lst_header{margin-bottom:0;border-bottom-width:0;}
     }
     .cmt_lst{background-color:#f9f9f9;
-      &:empty::after{@include empty_box('변경요청 내역이 없습니다.');margin:7px 15px;}
+      &:empty::after{@include empty_box('변경요청 내역이 없습니다.');margin:7px 15px;background-color:transparent;}
       li{padding:7px 15px;border-top:1px solid #ebebeb;}
       .cmt_user{display:flex;gap:10px;align-items:center;
         .cmt_date{font-size:11px;margin-top:2px;}
