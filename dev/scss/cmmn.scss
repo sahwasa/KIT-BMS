@@ -173,6 +173,7 @@ input[type="radio"]:checked{background-position-y:-23px;}
   }
   input[type="radio"]:checked{background-position:-1px -24px;}
   input[type="checkbox"]:checked{background-position:-1px -1px;}
+  .tbl_report input:disabled{background-color:transparent;border-width:0;}
 }
 // input[type="number"]::-webkit-outer-spin-button,
 // input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;margin:0;}

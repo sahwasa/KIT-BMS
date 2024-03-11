@@ -1685,7 +1685,7 @@ $report_gray:#f5f5f5;
     thead th.holiday{background-color:#ffe5e5;}
     thead>tr:last-child>th:last-child{background-color:#ccdeff;}
     .holiday,
-    tbody td:empty,
+    tbody td:empty:not([contenteditable]),
     tbody td:nth-last-child(3),
     tbody td:nth-last-child(9),
     tfoot td:nth-child(2),
