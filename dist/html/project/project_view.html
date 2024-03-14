@@ -950,28 +950,30 @@
         <tbody>
           <tr>
             <th scope="row" class="required">프로젝트명​</th>
-            <td>(P200200001) 2022년 000 용역</td>
+            <td colspan="3">(P200200001) 2022년 000 용역</td>
           </tr>
           <tr>
             <th scope="row" class="required">요구사항명​</th>
-            <td>로그인 및 로그이력기능</td>
+            <td colspan="3">로그인 및 로그이력기능</td>
           </tr>         
           <tr>
             <th scope="row" class="required"><label for="work_name">작업명</label></th>
-            <td><input type="text" id="work_name"></td>
+            <td colspan="3"><input type="text" id="work_name"></td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_type">유형</label></th>
             <td>
-              <select name="work_type" id="work_type">
-                <option value="단계 선택">단계 선택</option>
-                <option value="내부보고용">내부보고용</option>
-              </select>
+              <div class="btn_switch">
+                <input type="radio" id="C49_1" name="work_type" checked><label for="C49_1">내부보고용</label>
+                <input type="radio" name="work_type" id="C49_2"><label for="C49_2">대외보고용</label>
+              </div>
             </td>
+            <th scope="row"><label for="tab1_sort_num">정렬번호</label></th>
+            <td><input type="number" id="tab1_sort_num" placeholder="미입력시 자동부여"></td>
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_range">작업범주</label></th>
-            <td>
+            <td colspan="3">
               <span class="file_input">
                 <select id="nameSelect">
                   <option value="작업범주를 선택하세요" selected>작업범주를 선택하세요</option>
@@ -982,7 +984,7 @@
           </tr>
           <tr>
             <th scope="row" class="required"><label for="work_state">진행상태</label></th>
-            <td>
+            <td colspan="3">
               <select name="work_state" id="work_state">
                 <option value="">수행중</option>
                 <option value="">완료</option>
@@ -990,33 +992,17 @@
               </select>
             </td>
           </tr>
-          <tr>
+          <tr colspan="3">
             <th scope="row" class="required">작업자</th>
             <td>
-              <span class="file_input">
-                <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
-                <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-              </span>
+             <select name="" id=""><option value=""></option></select>
             </td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_expected">작업 예정기간</label>
             </th>
-            <td>
+            <td colspan="3">
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                 <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
@@ -1027,7 +1013,7 @@
             <th scope="row" class="required">
               <label for="work_start">실제 작업기간</label>
             </th>
-            <td>
+            <td colspan="3">
               <div class="period_custom">
                 <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                 <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
@@ -1038,19 +1024,19 @@
             <th scope="row" class="required">
               <label for="work_content">작업내용</label>
             </th>
-            <td><div id="work_content" contenteditable></div></td>
+            <td colspan="3"><div id="work_content" contenteditable></div></td>
           </tr>
           <tr>
             <th scope="row" class="required">
               <label for="work_place">수행장소</label>
             </th>
-            <td><input type="text" id="work_place"></td>
+            <td colspan="3"><input type="text" id="work_place"></td>
           </tr>         
           <tr>
             <th scope="row">
               <label for="task_handover">인수인계 구분</label>
             </th>
-            <td>
+            <td colspan="3">
               <div class="btn_switch">
                 <input type="radio" id="handover_na" name="task_handover" checked><label for="handover_na">해당없음</label>
                 <input type="radio" name="task_handover" id="handover"><label for="handover">업무인계</label>

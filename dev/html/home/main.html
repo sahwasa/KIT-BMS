@@ -3,16 +3,191 @@
   @@include('../../inc/layout/header.html')
   @@include('../../inc/layout/nav.html')
   <main id="content" class="container main">
-    <header>
+    <header class="blind">
       <h1>메인</h1>
     </header>
     <div class="cont_body">
-      보류
+      <section class="left">
+        <div class="box_default dashboard_item">
+          <article class="box_default_w">
+            <h1>새쪽지</h1>
+            <!-- 0이 아니면 class 't_red' 추가 -->
+            <ul class="dash_lst">
+              <li>개인 쪽지함<strong class="num t_red">2</strong></li>
+              <li>부서 쪽지함<strong class="num">0</strong></li>
+              <li>전체 쪽지함<strong class="num t_red">2</strong></li>
+            </ul>
+          </article>
+          <article class="box_default_w">
+            <h1>전자결재</h1>
+            <ul class="dash_lst">
+              <li>결재 요청<strong class="num t_red">2</strong></li>
+              <li>반려 문서<strong class="num t_red">2</strong></li>
+              <li>결재 대기<strong class="num">0</strong></li>
+              <li>수신 참조<strong class="num">0</strong></li>
+            </ul>
+          </article>
+          <article class="box_default_w dashboard_report">
+            <h1>업무보고</h1>
+            <ul>
+              <!-- draft:미제출, ing:결재중, fin: 결재완료, reject:반려 -->
+              <li><i class="tag ing">결재중</i><strong>개인주간업무보고</strong></li>
+              <li><i class="tag draft">미제출</i><strong>부서별주간업무보고</strong>
+                <dl class="report_count">
+                  <dt>전체 취합 대상 6</dt>
+                  <dd>결재 대기 3</dd>
+                  <dd>결재 완료 3</dd>
+                </dl>
+              </li>
+            </ul>
+          </article>
+        </div>
+        <div class="box_default">
+          <article class="box_default_w board tab_wrap">
+            <ul class="tab tab_sub">
+              <li><a href="">사내공지</a></li>
+              <li><a href="">경조사</a></li>
+              <li><a href="">사진첩</a></li>
+            </ul>
+            <div class="tab_container">
+              <div id="tab01" class="tab_contents">
+                <ul class="dot_list">
+                  <li>[공지사항]  조직개편 및 진급자 발표<span class="date">2024-07-05</span></li>
+                  <li>[공지사항]  조직개편 및 진급자 발표<span class="date">2024-07-05</span></li>
+                  <li>[공지사항]  조직개편 및 진급자 발표<span class="date">2024-07-05</span></li>
+                </ul>
+              </div>              
+              <div id="tab02" class="tab_contents">               
+              </div>              
+              <div id="tab03" class="tab_contents">
+              </div>              
+            </div>
+          </article>
+          <article class="box_default_w week_work">
+            <header>
+              <h1>금주 업무(2024-0303 ~ 2024-03-09)</h1>
+            </header>
+            <ul>
+              <li><span class="done">완료</span>주간업무보고작성</li>
+              <li><span class="ing">진행</span>2023년 지진,화산 재해 대응시스템 유지보수</li>
+              <li><span class="meeting">회의</span>업무관리시스템 회의</li>
+            </ul>
+          </article>
+        </div>
+        <div class="box_default plan">
+          <article class="box_default_w">
+            <header class="blind">
+              <h1>일정</h1>
+            </header>
+            <section>
+              <div id='main_plan' class="main_plan"></div>
+              <div class="plan_lst">
+                <ul>
+                  <li>
+                    <strong>주간업무보고 작성</strong>
+                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                  </li>
+                  <li>
+                    <strong>주간업무보고 작성</strong>
+                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                  </li>
+                  <li>
+                    <strong>주간업무보고 작성</strong>
+                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </article>
+        </div>
+      </section>
+      <section class="right">
+        <div class="box_default">
+          <article class="box_default_w">
+            <div class="attendance_desc">
+              <span id="today">2024-01-03(수)</span>
+              <strong id="time" class="time">11:15:38</strong>
+              <ul>
+                <li><em>출근시간</em>09:38:30</li>
+                <li><em>퇴근시간</em>미등록</li>
+                <li><em>주간 누적 근무시간</em> 10h 31m 48s</li>
+              </ul>
+            </div>
+            <div class="btn_workset">
+              <div class="btn_dbl_btn">
+                <a href="" class="">출근</a>
+                <a href="" >퇴근</a>
+              </div>
+              <select name="" id="" class="work_state">
+                <option value="">근무상태 변경</option>
+                <option value="">업무</option>
+                <option value="">업무 종료</option>
+                <option value="">외근</option>
+                <option value="">회의</option>
+              </select>
+            </div>
+          </article>
+          <article class="box_default_w">
+            <h1>연차현황</h1>
+            <div>
+              <progress id="progress" value="50" min="0" max="100"></progress>
+            </div>            
+          </article>
+          <article class="box_default_w">
+            <h1>금일 부재자</h1>
+            <ul>
+              <li>
+                <div class="status_box">
+                  <i class="tag">휴가</i><span class="time">종일</span>
+                </div>
+                <div class="user_box">
+                  <strong>김개발</strong>
+                  <span>사업본부 SI사업부 SI개발팀</span>
+                </div>
+              </li>
+              <li>
+                <div class="status_box">
+                  <i class="tag">반차</i><span class="time">13:00 ~ 18:00</span>
+                </div>
+                <div class="user_box">
+                  <strong>김개발</strong>
+                  <span>사업본부 SI사업부 SI개발팀</span>
+                </div>
+              </li>
+              <li>
+                <div class="status_box">
+                  <i class="tag">외근</i><span class="time">09:00 ~ 12:00</span>
+                </div>
+                <div class="user_box">
+                  <strong>김개발</strong>
+                  <span>사업본부 SI사업부 SI개발팀</span>
+                </div>
+              </li>
+              <li>
+                <div class="status_box">
+                  <i class="tag">교육</i><span class="time">종일</span>
+                </div>
+                <div class="user_box">
+                  <strong>김개발</strong>
+                  <span>사업본부 SI사업부 SI개발팀</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+          <section class="banner">
+            <ul>
+              <li class="manual"><a href="">매뉴얼 다운로드</a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
     </div>
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/layout/script.html')
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/main_calendar.js"></script>
 </body>
 
 </html>

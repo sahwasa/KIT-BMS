@@ -715,6 +715,13 @@ td{white-space:nowrap;text-overflow:ellipsis;
     a{padding:8px;border-color:#c0c8d3;border-radius:5px;}
   }
 }
+.tab_sub{gap:5px;border-bottom:none;
+  li{min-width:82px;
+    &:hover a{color:#363636;}
+    &.on a{background-color:#363636;color:#fff;}
+    a{padding:4px;border-radius:15px;background-color:transparent;border:none;color:#a1a4ad;font-weight:600;}
+  }
+}
 .tab_wrap:has(.tab_s) + .tab_container .tab_contents,
 .tab_s ~ .tab_contents{margin-top:10px;}
 .tab_s .tab{gap:2px;}

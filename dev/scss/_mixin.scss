@@ -46,6 +46,7 @@
 
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
 @mixin flex_layout{display:flex;justify-content:space-between;gap:$columnGap;@content;}
+@mixin flex_ver{display:flex;flex-direction:column;gap:$columnGap;}
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
 @mixin badge_style($max_w:null,$w:null){display:inline-block;width:$w; max-width:$max_w;color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;

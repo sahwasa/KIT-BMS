@@ -28,6 +28,11 @@
           }
         }
       },
+      titleFormat: function(date){
+        var start =  new Date(wbs_range.start);
+        var end =  new Date(wbs_range.start);
+        return `${start.getFullYear()}년 ${start.getMonth()}월 ${start.getDate()}일 - ${end.getDate()}일 `
+      },   
       validRange: wbs_range,
       fixedWeekCount: false,
       timeZone: 'local',
@@ -81,6 +86,13 @@
             { id: 'a3', title: '시험운영', cop:'홍길동',period:'3일',poc : '20%' },
           ]
          },
+        { id: 'a', step:'계획', title: '전자정부프레임워크 체계 전환 및 화면 개선', cop:['홍길동'],period:'100일',poc : '100%',
+          children:[
+            { id: 'a1', title: '개별시험', cop:['홍길동씨'],period:'3일',poc : '100%' },
+            { id: 'a2', title: '통합시험', cop:'홍길동',period:'3일',poc : '20%' },
+            { id: 'a3', title: '시험운영', cop:'홍길동',period:'3일',poc : '20%' },
+          ]
+         },
         { id: 'd', step:'준비', title: '지진가속도 계측자료에 대한 수신율 분석 및 기능개선', cop:'김피엘',
           children:[
             {id:'d1', title: '개별시험', cop:'김개발',period:'3일',poc : '20%' },
@@ -101,14 +113,15 @@
         { id: 'g1', resourceId: 'g', task:'조기경보회의', start: '2022-09-07T12:00:00', end: '2023-09-07T13:00:00', className: 'cal_busy'}
       ],     
       nowIndicator: true,
-      // slotDuration: { days: 1 },      
+      slotMinWidth: 10,
       views:{        
         custumRange: {
-          slotDuration: { week: 1 },
+          slotDuration:{day: 1 },
+          slotLabelInterval:{week:1},
           slotLabelFormat: [
-              { year: 'numeric'},
-              { month: 'numeric'},
-              { week: 'numeric'},
+            { year: 'numeric'},
+            { month: 'numeric'},
+            { week: '2-digit'}
           ],
           type: 'resourceTimeline',
           duration: { week: Math.round(differenceInDays/7+2) }
