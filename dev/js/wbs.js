@@ -30,8 +30,8 @@
       },
       titleFormat: function(date){
         var start =  new Date(wbs_range.start);
-        var end =  new Date(wbs_range.start);
-        return `${start.getFullYear()}년 ${start.getMonth()}월 ${start.getDate()}일 - ${end.getDate()}일 `
+        var end =  new Date(wbs_range.end);
+        return `${start.getFullYear()}년 ${start.getMonth()}월 ${start.getDate()}일 - ${end.getFullYear()}년 ${end.getMonth()}월 ${end.getDate()}일 `
       },   
       validRange: wbs_range,
       fixedWeekCount: false,
