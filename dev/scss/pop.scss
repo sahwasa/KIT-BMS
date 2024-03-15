@@ -188,9 +188,10 @@
 .p_projDoc,
 .p_requireMan,
 .p_workMy,
-.p_taskkMan{width:700px;
+.p_taskMan{width:700px;
   td{white-space:normal}
 }
+.p_taskMan td{min-width:150px;}
 .p_workDay,
 .p_workMy{width:850px;}
 

@@ -597,8 +597,7 @@ z-index:10;transition:left .51s ease-in-out;
     .dashboard_item{
       .box_default_w{display:flex;gap:40px;align-items:center;
         h1{flex:0 1 83px;font-size:14px;font-weight:600;text-align:center;margin-bottom:0;
-          &::before{display:block;width:100%;height:50px; background:url(../images/tit_mainbg.png) 50% 0 no-repeat;border-radius:0;            
-          }
+          &::before{display:block;width:100%;height:50px; background:url(../images/tit_mainbg.png) 50% 0 no-repeat;border-radius:0;}
         }
         @for $i from 0 to 3{
           &:nth-of-type(#{$i + 1}) h1::before{background-position-y: -70px * $i}
@@ -609,13 +608,21 @@ z-index:10;transition:left .51s ease-in-out;
       }
     }
     .dashboard_report{flex:1.8 auto;
-      ul{@include flex_ver;gap:15px;}
-      li{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:3px;}
+      ul{@include flex_ver;gap:15px;flex:1;}
+      li{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:3px;}
       .tag{@include badge_style($w:40px);font-size:10px;font-weight:600;align-self:initial;}
-        $_signType:('draft':$draft,'ing':$ing,'fin':$fin,'reject':$reject,'ready':$wait,'wait':$wait);
-        @each $type, $color in $_signType{
-          .#{$type}{border-color:$color !important;color:$color !important;background:#fff !important;}
+      $_signType:('draft':$draft,'ing':$ing,'fin':$fin,'reject':$reject,'ready':$wait,'wait':$wait);
+      @each $type, $color in $_signType{
+        .#{$type}{border-color:$color !important;color:$color !important;background:#fff !important;}
+      }
+      .report_count{display:flex;flex-wrap:wrap;font-size:11px;
+        dt,dd{flex-shrink:0;}
+        dt{width:100%;color:#000;margin-right:auto;}
+        dd{color:#71798a;
+          &:first-of-type::after{content:"/";margin:0 10px;}
         }
+      }
+
     }
     .board{
       .dot_list{@include flex_ver;gap:15px;

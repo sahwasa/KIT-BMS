@@ -945,7 +945,7 @@
       <table class="tbl_default tbl_row">
         <caption>업무 관리 테이블</caption>
         <colgroup>
-          <col style="width:130px">
+          <col style="width:130px">         
         </colgroup>
         <tbody>
           <tr>
@@ -961,13 +961,8 @@
             <td colspan="3"><input type="text" id="work_name"></td>
           </tr>
           <tr>
-            <th scope="row" class="required"><label for="work_type">유형</label></th>
-            <td>
-              <div class="btn_switch">
-                <input type="radio" id="C49_1" name="work_type" checked><label for="C49_1">내부보고용</label>
-                <input type="radio" name="work_type" id="C49_2"><label for="C49_2">대외보고용</label>
-              </div>
-            </td>
+            <th scope="row"><label for="task_report">대외보고</label></th>
+            <td><label><input type="checkbox" id="task_report" checked="">사용</label></td>
             <th scope="row"><label for="tab1_sort_num">정렬번호</label></th>
             <td><input type="number" id="tab1_sort_num" placeholder="미입력시 자동부여"></td>
           </tr>
