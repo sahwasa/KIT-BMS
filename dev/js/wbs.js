@@ -121,8 +121,8 @@
           slotLabelFormat: [
             { year: 'numeric'},
             { month: 'numeric'},
-            { week: '2-digit'}
-          ],
+            { week: 'narrow'}
+          ],         
           type: 'resourceTimeline',
           duration: { week: Math.round(differenceInDays/7+2) }
         }
