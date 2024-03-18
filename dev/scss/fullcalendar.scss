@@ -82,7 +82,9 @@
     }
   }
   .fc-daygrid-day-frame{display:flex;align-items:center;justify-content:center;}
-  .fc-daygrid-day-number{width:24px;font-size:11px;color:#737781;border-radius:50%;aspect-ratio:1;text-align:center;}  
+  .fc-daygrid-day-number{width:24px;font-size:11px;color:#737781;border-radius:50%;aspect-ratio:1;text-align:center;
+    &:hover{background-color:#edf0f3;}
+  }  
   .fc-daygrid-day:has(.fc-highlight){
     .fc-highlight{background-color:transparent;}
     .fc-daygrid-day-top .fc-daygrid-day-number{background-color:#e42b29;color:#fff;}    

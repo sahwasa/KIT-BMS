@@ -27,14 +27,14 @@
       },
       schedulerLicenseKey: '0328483609-fcs-1693988989',         
       editable: false,
-      selectable: true,
+      selectable: true,     
       initialView: 'dayGridMonth',   
       weekNumbers: false,
       weekNumberFormat:{week:'narrow'},
       locale: 'ko',
       dayMaxEvents: true, // allow "more" link when too many events
       displayEventTime: false,
-      eventSources:[source],
+      eventSources:[source]
     });
     calendar.render();
   });
