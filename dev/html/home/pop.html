@@ -13,14 +13,14 @@
           <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button></li>
           <li><button type="button" class="btn_default" data-modal="p_self_certification">본인인증</button></li>
           <li><button type="button" class="btn_default" data-modal="p_change_pw">비밀번호변경</button></li>
-          <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
-          <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
         </ul>
       </div>
       <div class="box_default_w">
         <h1>팝업 공통</h1>
         <ul class="search_list">
           <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
           <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
           <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert" checked>통합알림</label></li>
           <li><button type="button" class="btn_default" data-modal="p_DM">DM</button></li>
@@ -51,6 +51,7 @@
         <ul class="search_list">
           <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
           <li><button type="button" class="btn_default" data-modal="p_workDay">일일업무일지 추가</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_work_approval">주간업무보고 상신하기</button></li>
         </ul>
       </div>
       <div class="box_default_w">
@@ -106,6 +107,7 @@
 @@include('../../inc/pop/p_moveGroup.html')
 @@include('../../inc/pop/p_addVisitor.html')
 @@include('../../inc/pop/p_change_flexTime.html')
+@@include('../../inc/pop/p_work_approval.html')
 
 <script>
   $(function () {

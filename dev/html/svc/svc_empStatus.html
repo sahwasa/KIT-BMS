@@ -1,0 +1,97 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>임직원 현황</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>임직원 현황</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article class="emp_status">          
+          <section class="group_chart">
+            <header class="blind">
+              <h1>조직도</h1>
+            </header>
+              @@include('../../inc/module/module_orgChart.html')
+          </section>
+          <section class="group_lst">
+            <header>
+              <h1>임직원 목록</h1>
+            </header>
+            <div class="tbl_header">
+              <div class="tbl_caption">
+                <h2>사업본부</h2>
+                <span class="count">총 30명</span>
+              </div>
+              <div class="search_box">
+                <input type="text" title="임직원 검색" placeholder="이름, 연락처, 이메일 검색" list="nameList">
+                @@include('../../inc/data/data_emp_name.html')
+                <button type="button">검색</button>
+              </div>
+            </div>
+            <div class="tbl_wrap">
+              <table class="tbl_default no_thead">
+                <caption>임직원</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">이름</th>
+                    <th scope="col">직위</th>
+                    <th scope="col">직책</th>
+                    <th scope="col">연락처</th>
+                    <th scope="col">이메일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="ico_leader">리더</span>박리더<span class="depart_abbr">(SI사업본부)</span></td>
+                    <td>본부장</td>
+                    <td>수석</td>
+                    <td>010-1234-5678</td>
+                    <td>kitvalley@kitvalley.com</td>
+                  </tr>
+                  <tr>
+                    <td>반미선<span class="depart_abbr">(SI컨텐츠팀)</span></td>
+                    <td>팀장</td>
+                    <td>책임</td>
+                    <td>010-1234-5678</td>
+                    <td>kitvalley@kitvalley.com</td>
+                  </tr>
+                  <tr>
+                    <td>임선<span class="depart_abbr">(SI컨텐츠팀)</span></td>
+                    <td>팀원</td>
+                    <td>연구원</td>
+                    <td>010-1234-5678</td>
+                    <td>kitvalley@kitvalley.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>          
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_addCard.html')
+@@include('../../inc/pop/p_moveGroup.html')
+@@include('../../inc/layout/script.html')
+<script>
+$('#fold').on('change',function(){
+  const check = $(this).prop('checked'),
+        target = $('.tree').find('ul > .arrow');
+  (check) ? target.addClass('close') : target.removeClass('close');
+})
+</script>
+</body>
+
+</html>

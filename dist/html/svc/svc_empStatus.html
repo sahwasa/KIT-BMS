@@ -156,119 +156,241 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>내방객 사전등록<span>사내 서비스</span></h1>
+        <h1>임직원 현황</h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">사내 서비스</a></li>
-            <li>내방객 사전등록</li>
+            <li>임직원 현황</li>
           </ul>
         </section>
       </header>
       <div class="cont_body">
-        <article class="">          
-          <section class="tbl_top_area">
-            <ul class="search_list">
+        <article class="emp_status">          
+          <section class="group_chart">
+            <header class="blind">
+              <h1>조직도</h1>
+            </header>
+              <section class="orgChart"> 
+  <div class="btn_switch_single fold">
+    <input type="checkbox" id="fold">
+    <label for="fold" title="전체" >전체</label>
+  </div>
+  <div class="section_body tree_wrap">
+    <ul class="tree">
+      <li>
+        <span>그룹 접기/열기</span>
+        <div>
+          <span>케이아이티밸리</span>
+        </div>
+        <ul>
+          <li>
+            <span>그룹 접기/열기</span>
+            <div>
+              <span>연구본부</span>
+            </div>
+            <ul>
               <li>
-                <div class="period_custom">
-                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
-                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>연구기획실</span>
                 </div>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어">                
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>연구행정팀</span>
+                </div>
               </li>
               <li>
-                <button type="button" class="btn_search">검색</button>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>연구개발팀</span>
+                </div>
               </li>
-              <li>(최근 30일만?)</li>
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>연구1팀</span>
+                </div>
+              </li>
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>연구2팀</span>
+                </div>
+              </li>
             </ul>
-            <div class="flex_right">
-              <button type="button" class="btn_red" onclick="document.querySelector('.p_add_visitor').showModal();">추가</button>
-              <button type="button" class="btn_red_line" onclick="">삭제</button>
-              <span class="divide">
-                <select title="목록개수 선택">
-  <option value="15">15줄 보기</option>
-  <option value="50" selected>50줄 보기</option>
-  <option value="100">100줄 보기</option>
-  <option value="200">200줄 보기</option>
-</select>
-              </span>
+          </li>
+          <li>
+            <span>그룹 접기/열기</span>
+            <div>
+              <span>사업본부</span>
             </div>
+            <ul class="sortable move_sortable">                       
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>SI사업부</span>
+                </div>
+                <ul>
+                  <li>
+                    <span>그룹 접기/열기</span>
+                    <div>
+                      <span>개발팀</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span>그룹 접기/열기</span>
+                    <div>
+                      <span>컨텐츠팀</span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>SM사업부</span>
+                </div>
+                <ul>
+                  <li>
+                    <span>그룹 접기/열기</span>
+                    <div>
+                      <span>레이다팀</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span>그룹 접기/열기</span>
+                    <div>
+                      <span>사업관리팀</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span>그룹 접기/열기</span>
+                    <div>
+                      <span>재난예경보팀</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span>그룹 접기/열기</span>
+                    <div>
+                      <span>해양기상팀</span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span>그룹 접기/열기</span>
+            <div>
+              <span>지진조기경보TFT</span>
+            </div>
+            <ul>
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>개발팀</span>
+                </div>
+              </li>
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>분석팀</span>
+                </div>
+              </li>                       
+            </ul>
+          </li>
+          <li>
+            <span>그룹 접기/열기</span>
+            <div>
+              <span>경영관리실</span>
+            </div>
+            <ul>
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>재무회계팀</span>
+                </div>
+              </li>
+              <li>
+                <span>그룹 접기/열기</span>
+                <div>
+                  <span>인사총무팀</span>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </ul>          
+  </div>       
+</section>
           </section>
-          <section class="tbl_wrap">
-            <table class="tbl_default tbl_hover row_check hasLayer">
-              <caption>사업자 리스트</caption>
-              <colgroup>
-                
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check"></th>
-                  <th scope="col">내방객</th>
-                  <th scope="col">방문일시</th>
-                  <th scope="col">목적</th>
-                  <th scope="col">안내장소</th>
-                  <th scope="col">차량번호</th>
-                  <th scope="col">신청일</th>
-                  <th scope="col">관리</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check"></td>
-                  <td>주식회사 갑을 김병정 대표</td>
-                  <td>2023-05-06 14:00</td>
-                  <td>신규 과제 추진 회의</td>
-                  <td>회의실 A</td>
-                  <td>825가 8282</td>
-                  <td>2023-05-07</td>
-                  <td onclick="event.stopPropagation();">
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                      <div class="btn_layer">
-                        <button type="button">수정</button>
-                        <button type="button">삭제</button>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check"></td>
-                  <td>세종대학교 김갑 교수</td>
-                  <td>2023-05-06 14:00</td>
-                  <td>신규 과제 추진 회의</td>
-                  <td>회의실 A</td>
-                  <td>-</td>
-                  <td>2023-05-07</td>
-                  <td onclick="event.stopPropagation();">
-                    <div class="layer_tool">
-                      <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
-                      <div class="btn_layer">
-                        <button type="button">수정</button>
-                        <button type="button">삭제</button>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="paginate tui-pagination" id="pagination">
-  <span class="tui-page-btn tui-is-disabled tui-first">
-    <span class="tui-ico-first">first</span>
-  </span>
-  <span class="tui-page-btn tui-is-disabled tui-prev">
-    <span class="tui-ico-prev">prev</span>
-  </span>
-  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
-  <a href="#" class="tui-page-btn tui-last-child">2</a>
-  <a href="#" class="tui-page-btn tui-next">
-    <span class="tui-ico-next">next</span>
-  </a>
-  <a href="#" class="tui-page-btn tui-last">
-    <span class="tui-ico-last">last</span>
-  </a>
-</div>
+          <section class="group_lst">
+            <header>
+              <h1>임직원 목록</h1>
+            </header>
+            <div class="tbl_header">
+              <div class="tbl_caption">
+                <h2>사업본부</h2>
+                <span class="count">총 30명</span>
+              </div>
+              <div class="search_box">
+                <input type="text" title="임직원 검색" placeholder="이름, 연락처, 이메일 검색" list="nameList">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                <button type="button">검색</button>
+              </div>
+            </div>
+            <div class="tbl_wrap">
+              <table class="tbl_default no_thead">
+                <caption>임직원</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">이름</th>
+                    <th scope="col">직위</th>
+                    <th scope="col">직책</th>
+                    <th scope="col">연락처</th>
+                    <th scope="col">이메일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="ico_leader">리더</span>박리더<span class="depart_abbr">(SI사업본부)</span></td>
+                    <td>본부장</td>
+                    <td>수석</td>
+                    <td>010-1234-5678</td>
+                    <td>kitvalley@kitvalley.com</td>
+                  </tr>
+                  <tr>
+                    <td>반미선<span class="depart_abbr">(SI컨텐츠팀)</span></td>
+                    <td>팀장</td>
+                    <td>책임</td>
+                    <td>010-1234-5678</td>
+                    <td>kitvalley@kitvalley.com</td>
+                  </tr>
+                  <tr>
+                    <td>임선<span class="depart_abbr">(SI컨텐츠팀)</span></td>
+                    <td>팀원</td>
+                    <td>연구원</td>
+                    <td>010-1234-5678</td>
+                    <td>kitvalley@kitvalley.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>          
           </section>
         </article>
       </div>
@@ -279,39 +401,54 @@
   <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
-<dialog class="p_add_visitor" tabindex="0">
+<dialog class="p_add_card" tabindex="0">
   <form method="dialog">
     <div class="p_header">
-      <strong>내방객 사전등록</strong>
+      <strong>명함추가 or 수정</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </div>   
     <div class="p_body">
       <article>
         <header class="blind">
-          <h1>내방객 사전등록 정보</h1>
+          <h1>명함 등록 정보</h1>
         </header>
         <table class="tbl_default tbl_row">
-          <caption>내방객 사전등록 정보</caption>
+          <caption>명함 사전등록 정보</caption>
           <tbody>
             <tr>
-              <th scope="row" class="required"><label for="">내방객</label></th>
-              <td><input type="text" id="" placeholder="내방객 성명, 소속" /></td>
+              <th scope="row" class="required"><label for="">이름</label></th>
+              <td><input type="text" id="" placeholder="이름" /></td>
             </tr>
             <tr>
-              <th scope="row" class="required"><label for="">방문일시</label></th>
-              <td><input type="datetime-local" id="stime" title="시각 선택"></td>
+              <th scope="row" class="required"><label for="">소속</label></th>
+              <td><input type="text" id="" placeholder="소속" /></td>
             </tr>
             <tr>
-              <th scope="row"><label for="">목적</label></th>
-              <td><input type="text" id="" placeholder="목적" /></td>
+              <th scope="row" class="required"><label for="">연락처</label></th>
+              <td><input type="text" id="" placeholder="연락처" /></td>
             </tr>
             <tr>
-              <th scope="row"><label for="">안내장소</label></th>
-              <td><input type="text" id="" placeholder="안내장소(ex.회의실A)" /></td>
+              <th scope="row" class="required"><label for="">이메일</label></th>
+              <td><input type="text" id="" placeholder="이메일" /></td>
             </tr>
             <tr>
-              <th scope="row"><label for="">차량번호</label></th>
-              <td><input type="text" id="" placeholder="차량번호" /></td>
+              <th scope="row"><label for="">그룹</label></th>
+              <td>
+                <select id="">
+                  <option value="">미분류</option>
+                </select> 
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">공개여부</th>
+              <td colspan="3">
+                <div class="btn_switch">
+                  <input type="radio" id="open1" name="closure" checked>
+                  <label for="open1">공개</label>
+                  <input type="radio" id="private2" name="closure">
+                  <label for="private2">비공개</label>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -320,6 +457,26 @@
         <button class="btn_red" type="submit">저장</button>
         <button class="btn_red_line" type="button">수정</button>
         <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_moveGroup">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>명함 그룹이동</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="p_body_tit">
+        <h1><label for="">그룹선택</label></h1>
+      </div>
+      <select id="">
+        <option value="이동할 그룹">이동할 그룹선택</option>
+      </select>      
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line" type="button">취소</button>
       </div>
     </div>
   </form>
@@ -366,6 +523,13 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   </form>
 </dialog>
 
+<script>
+$('#fold').on('change',function(){
+  const check = $(this).prop('checked'),
+        target = $('.tree').find('ul > .arrow');
+  (check) ? target.addClass('close') : target.removeClass('close');
+})
+</script>
 </body>
 
 </html>

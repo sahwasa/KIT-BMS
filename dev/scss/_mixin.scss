@@ -217,3 +217,11 @@ border:1px solid transparent;align-self:center;@content;}
     dd:has([data-selectEvt]){align-self:start;}
   }
 }
+@mixin staticOrgChart{
+  .orgChart{width:180px;
+    .fold{text-align:right;margin-bottom:2px;}
+  }
+  .tree_wrap > .tree{min-width:180px;height:calc(100vh - 280px);min-height:344px;padding:8px 0;border:1px solid #ddd;overflow-x:hidden;overflow-y:auto;
+    div{margin-bottom:10px;}
+  }
+}

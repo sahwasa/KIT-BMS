@@ -468,7 +468,9 @@ $snbWidth:250px;
 
 //container
 .container{grid-row:2;grid-column:2;display:flex;overflow-y: auto;}
-.contents{position:relative;flex-grow:1;padding:15px $columnGap 0;height:calc(100vh - 89px);overflow-y:auto;min-height:$minH;}
+.contents{position:relative;flex-grow:1;padding:15px $columnGap 0;height:calc(100vh - 89px);overflow-y:auto;min-height:$minH;
+  &:has(.error_wrap){display:flex;align-items:center;justify-content:center;}
+}
 .snb_fold{position:fixed;left:310px;top:70px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
 border:1px solid #ebebeb;border-left-width:0;border-radius:0 3px 3px 0;font-size:0;
 z-index:10;transition:left .51s ease-in-out;
@@ -1324,7 +1326,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   .issue_dtl{
     .task_num{margin-left:10px;}
     .ipt_lst{padding-left:10px;}
-    .issue_txt{margin-top:15px;border-top:1px solid #ccc;padding:15px;}
+    .issue_txt{margin-top:15px;border-top:1px solid #ccc;padding:15px;
+      .ck-content{border-width:0;}
+    }
     .task_status_multi{position:relative;
       .all_label{width:100px;height:28px;padding-left:5px;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #ccc;border-radius:2px;text-align:left;}
       .taskstatus_layer{display:none;position:absolute;left:0;top:100%;width:400px;border:1px solid #000;background-color:#fff;padding:10px;z-index:10;
@@ -1921,12 +1925,7 @@ $report_gray:#f5f5f5;
   .i_approval{display:inline-block;color:#fff;letter-spacing:-0.3px;text-align:center; border-radius:5px;border:1px solid rgba(0,0,0,0);color:#e42b29;padding:0 3px;border: 1px solid #e42b29;opacity: 1;}
 }
 .reports_wrap{display:flex;gap:$columnGap;
-  .orgChart{width:180px;
-    .fold{text-align:right;margin-bottom:2px;}
-  }
-  .tree_wrap > .tree{min-width:180px;height:calc(100vh - 280px);min-height:344px;padding:8px 0;border:1px solid #ddd;overflow-x:hidden;overflow-y:auto;
-    div{margin-bottom:10px;}
-  }
+  @include staticOrgChart;
   .reports{flex:1;display:flex;flex-direction:column;overflow-y:auto;padding-right:10px;min-width:180px;height:calc(100vh - 248px);min-height:381px;
     .tbl_top_area{position:sticky;top:0;left:0;background-color:#fff;border-bottom:2px solid #c0c0c0;padding-bottom:5px;z-index:100;margin-bottom:0;
       .divide{vertical-align:middle;font-size:14px;color:$gray;margin-left:5px;
@@ -2124,6 +2123,7 @@ $_planTypes:(
 }
 .tbl_business{td{@include alignL(4);}}
 .leave_desc{display: flex;flex-direction: column;gap:$columnGap;
+   header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
   .tbl_wrap{height:auto;}
 }
 .leave_summary{display:flex;padding:10px 0;
@@ -2136,7 +2136,24 @@ $_planTypes:(
   }
   em{display:block;font-size:12px;margin-bottom:5px;color:#555;}
 }
-
+.emp_status{@include flex_layout;
+  header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
+  @include staticOrgChart;
+  .tree_wrap > .tree{height:calc(100vh - 216px);min-height:413px;}
+  .group_lst{flex:1;
+    header{margin-bottom:9px;}
+    .tbl_caption{padding-left:10px;}
+    .search_box{width:250px;}
+    .tbl_wrap{border-top-width:0;height:calc(100vh - 256px);min-height:373px;
+      td{@include alignL(1);padding-left:50px;
+        &:has(.ico_leader){text-indent:-23px;}
+      }
+    }
+  }
+}
+.business_lst{
+  .btn_switch label{min-width:auto;}
+}
 //notice
 .notice_board{@include flex_layout();
   &>section{flex:1 0 auto;}

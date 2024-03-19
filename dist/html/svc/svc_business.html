@@ -103,13 +103,14 @@
     <ul class="snb_lst">
       <li><a href="svc_basicData.html">이력관리</a>
         <ul>
-          <li><a href="svc_basicData.html">기본사항</a></li>       
-          <li><a href="svc_attendance.html">근태 현황</a></li>
+          <!-- <li><a href="svc_basicData.html">기본사항</a></li>        -->
+          <!-- <li><a href="svc_attendance.html">근태 현황</a></li> -->
           <li><a href="svc_annualLeave.html">연차 내역</a></li>
-          <li><a href="svc_edu.html">교육 내역</a></li>
+          <!-- <li><a href="svc_edu.html">교육 내역</a></li> -->
         </ul>      
       </li>
-      <li><a href="svc_meetingRoom.html">자원 (보류)</a>        
+      <li><a href="svc_empStatus.html">임직원 현황</a></li>
+      <!-- <li><a href="svc_meetingRoom.html">자원 (보류)</a>        
         <ul>
           <li><a href="svc_meetingRoom.html">회의실</a></li>
           <li><a href="svc_equip.html">장비 및 소프트웨어?</a></li>
@@ -121,7 +122,7 @@
         </ul>
       </li>
       <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li>
-      <li><a href="svc_certificate.html">증명서 발급</a></li>
+      <li><a href="svc_certificate.html">증명서 발급</a></li> -->
       <li><a href="svc_business.html">사업자관리</a></li>
       <li><a href="svc_businessCard.html">명함관리</a></li>
     </ul>
@@ -165,8 +166,8 @@
         </section>
       </header>
       <div class="cont_body">
-        <article class="">          
-          <section class="tbl_top_area">
+        <article class="business_lst">          
+          <section class="box_compact">
             <ul class="search_list">
               <li>
                 <select name="" id="" title="분류">
@@ -177,7 +178,7 @@
                   <option value="B">BOSS</option>
                   <option value="K">사내업무</option>
                   <option value="E">기타</option>
-              </select>
+                </select>
               </li>
               <li>
                 <input type="text" name="" id="" title="검색어" placeholder="검색어" list="">
@@ -187,19 +188,59 @@
                 <button type="button" class="btn_refresh">초기화</button>
               </li>
             </ul>
-            <div class="flex_right">
+            <div class="btn_wrap">
               <button type="button" class="btn_red" onclick="document.querySelector('.p_add_business').showModal();">추가</button>
               <button type="button" class="btn_red_line" onclick="">삭제</button>
-              <span class="divide">
-                <select title="목록개수 선택">
+            </div>
+          </section>
+          <div class="tbl_top_area">
+            <div class="btn_switch border_none">
+              <input type="radio" id="all" name="letter" checked>
+              <label for="all">전체</label>
+              <input type="radio" id="1" name="letter">
+              <label for="1">ㄱ</label>
+              <input type="radio" id="2" name="letter">
+              <label for="2">ㄴ</label>
+              <input type="radio" id="3" name="letter">
+              <label for="3">ㄷ</label>
+              <input type="radio" id="4" name="letter">
+              <label for="4">ㄹ</label>
+              <input type="radio" id="5" name="letter">
+              <label for="5">ㅁ</label>
+              <input type="radio" id="6" name="letter">
+              <label for="6">ㅂ</label>
+              <input type="radio" id="7" name="letter">
+              <label for="7">ㅅ</label>
+              <input type="radio" id="8" name="letter">
+              <label for="8">ㅇ</label>
+              <input type="radio" id="9" name="letter">
+              <label for="9">ㅈ</label>
+              <input type="radio" id="10" name="letter">
+              <label for="10">ㅊ</label>
+              <input type="radio" id="11" name="letter">
+              <label for="11">ㅋ</label>
+              <input type="radio" id="12" name="letter">
+              <label for="12">ㅌ</label>
+              <input type="radio" id="13" name="letter">
+              <label for="13">ㅍ</label>
+              <input type="radio" id="14" name="letter">
+              <label for="14">ㅎ</label>
+              <input type="radio" id="15" name="letter">
+              <label for="15">A-Z</label>
+              <input type="radio" id="16" name="letter">
+              <label for="16">0-9</label>
+              <input type="radio" id="etc" name="letter">
+              <label for="etc">기타</label>              
+            </div>
+            <div class="tool">
+              <select title="목록개수 선택">
   <option value="15">15줄 보기</option>
   <option value="50" selected>50줄 보기</option>
   <option value="100">100줄 보기</option>
   <option value="200">200줄 보기</option>
 </select>
-              </span>
             </div>
-          </section>
+          </div>
           <section class="tbl_wrap tbl_business">
             <table class="tbl_default tbl_hover row_check">
               <caption>사업자 리스트</caption>
@@ -277,11 +318,13 @@
           <h1>사업자정보</h1>
         </header>
         <table class="tbl_default tbl_row">
-          <caption>내 업무 추가 테이블</caption>
+          <caption>사업자정보</caption>
           <colgroup>
-            <col style="width:120px">
+            <col style="width:90px">
             <col style="width:auto">
-            <col style="width:120px">
+            <col style="width:90px">
+            <col style="width:auto">
+            <col style="width:90px">
             <col style="width:auto">
           </colgroup>
           <tbody>
@@ -290,47 +333,45 @@
               <td><select name="" id=""><option value="">선택</option></select></td>
               <th scope="row" class="required"><label for="">사업자명</label></th>
               <td><input type="text" id="" placeholder="사업자명" /></td>
-            </tr>
-            <tr>
               <th scope="row" class="required"><label for="">사업자번호</label></th>
               <td><input type="text" id="" placeholder="사업자번호" /></td>
-              <th scope="row"><label for="">대표자명</label></th>
-              <td><input type="text" id="" placeholder="대표자명" /></td>
             </tr>
             <tr>
+              <th scope="row"><label for="">대표자명</label></th>
+              <td><input type="text" id="" placeholder="대표자명" /></td>
               <th scope="row"><label for="">업태</label></th>
               <td><input type="text" id="" placeholder="업태" /></td>
               <th scope="row"><label for="">종목</label></th>
               <td><input type="text" id="" placeholder="종목" /></td>
             </tr>
             <tr>
-              <th scope="row"><label for="">홈페이지</label></th>
-              <td><input type="text" id="" placeholder="홈페이지" /></td>
-              <th scope="row"><label for="">이메일</label></th>
-              <td><input type="text" id="" placeholder="이메일" /></td>
-            </tr>
-            <tr>
               <th scope="row"><label for="">연락처</label></th>
               <td><input type="text" id="" placeholder="연락처" /></td>
               <th scope="row"><label for="">팩스</label></th>
               <td><input type="text" id="" placeholder="팩스" /></td>
+              <th scope="row"><label for="">이메일</label></th>
+              <td><input type="text" id="" placeholder="이메일" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="">주소</label></th>
-              <td colspan="3">
+              <td colspan="5">
                 <div class="addr">
                   <span class="tool_wrap">
                     <input type="text" id="address" title="우편번호" disabled="">
                     <button type="button" class="btn_ogt">우편번호</button>
                   </span>
-                  <input type="text" name="address2" title="주소">
-                  <input type="text" name="address3" title="상세주소">
+                  <span class="file_input">
+                    <input type="text" name="address2" placeholder="주소" title="주소">
+                    <input type="text" name="address3" placeholder="상세주소" title="상세주소">
+                  </span>
                 </div>
               </td>
             </tr>
             <tr>
+              <th scope="row"><label for="">홈페이지</label></th>
+              <td colspan="3"><input type="text" id="" placeholder="홈페이지" /></td>
               <th scope="row">공개여부</th>
-              <td colspan="3">
+              <td>
                 <div class="btn_switch">
                   <input type="radio" id="open1" name="closure" checked>
                   <label for="open1">공개</label>
@@ -344,39 +385,50 @@
       </article>
       <article class="more_info">
         <header class="p_body_tit">
-          <h1>추가정보</h1>       
+          <h1>결제정보</h1>       
         </header>
         <table class="tbl_default tbl_row">
-          <caption>내 업무 추가 테이블</caption>
+          <caption>결제정보</caption>
           <colgroup>
-            <col style="width:120px">
+            <col style="width:90px">
+            <col style="width:auto">
+            <col style="width:90px">
             <col style="width:auto">
           </colgroup>
           <tbody>
             <tr>
-              <th scope="row">계산서</th>
+              <th scope="row">결제수단</th>
               <td>
                 <div class="btn_switch">
-                  <input type="radio" id="open" name="disclosure" checked>
-                  <label for="open">발행</label>
-                  <input type="radio" id="private" name="disclosure">
-                  <label for="private">미발행</label>
+                  <input type="checkbox" id="pay1" name="disclosure" checked>
+                  <label for="pay1">현금</label>
+                  <input type="checkbox" id="pay2" name="disclosure" checked>
+                  <label for="pay2">신용카드</label>
+                  <input type="checkbox" id="pay3" name="disclosure">
+                  <label for="pay3">어음</label>
                 </div>
-              </td>
-              <th scope="row"><label for="">결재방식</label></th>
-              <td colspan="3">
-                <select name="" id=""><option value="">선택</option></select>
+              </td>            
+              <th scope="row">계좌정보</th>
+              <td>
+                <span class="tool_wrap">
+                  <select name="" id=""><option value="">은행명</option></select>
+                  <input type="text" name="" title="" placeholder="계좌번호">
+                  <input type="text" name="" title="" placeholder="예금주">
+                </span>
               </td>
             </tr>
             <tr>
-              <th scope="row">은행</th>
-              <td colspan="3"><input type="text"></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">예금주</label></th>
-              <td><input type="text"></td>
-              <th scope="row"><label for="">계좌번호</label></th>
-              <td><input type="text"></td>
+              <th scope="row">첨부파일</th>
+              <td colspan="3"><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div></td>
             </tr>
             <tr>
               <th scope="row">메모</th>

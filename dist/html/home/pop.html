@@ -83,14 +83,14 @@
           <li><button type="button" class="btn_default" data-modal="p_loginId">아이디&sol;비밀번호 찾기</button></li>
           <li><button type="button" class="btn_default" data-modal="p_self_certification">본인인증</button></li>
           <li><button type="button" class="btn_default" data-modal="p_change_pw">비밀번호변경</button></li>
-          <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
-          <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
         </ul>
       </div>
       <div class="box_default_w">
         <h1>팝업 공통</h1>
         <ul class="search_list">
           <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
           <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
           <li><label for=""><input type="checkbox" id="period_repeat" data-checkevt="alert" checked>통합알림</label></li>
           <li><button type="button" class="btn_default" data-modal="p_DM">DM</button></li>
@@ -121,6 +121,7 @@
         <ul class="search_list">
           <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
           <li><button type="button" class="btn_default" data-modal="p_workDay">일일업무일지 추가</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_work_approval">주간업무보고 상신하기</button></li>
         </ul>
       </div>
       <div class="box_default_w">
@@ -2507,11 +2508,13 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
           <h1>사업자정보</h1>
         </header>
         <table class="tbl_default tbl_row">
-          <caption>내 업무 추가 테이블</caption>
+          <caption>사업자정보</caption>
           <colgroup>
-            <col style="width:120px">
+            <col style="width:90px">
             <col style="width:auto">
-            <col style="width:120px">
+            <col style="width:90px">
+            <col style="width:auto">
+            <col style="width:90px">
             <col style="width:auto">
           </colgroup>
           <tbody>
@@ -2520,47 +2523,45 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
               <td><select name="" id=""><option value="">선택</option></select></td>
               <th scope="row" class="required"><label for="">사업자명</label></th>
               <td><input type="text" id="" placeholder="사업자명" /></td>
-            </tr>
-            <tr>
               <th scope="row" class="required"><label for="">사업자번호</label></th>
               <td><input type="text" id="" placeholder="사업자번호" /></td>
-              <th scope="row"><label for="">대표자명</label></th>
-              <td><input type="text" id="" placeholder="대표자명" /></td>
             </tr>
             <tr>
+              <th scope="row"><label for="">대표자명</label></th>
+              <td><input type="text" id="" placeholder="대표자명" /></td>
               <th scope="row"><label for="">업태</label></th>
               <td><input type="text" id="" placeholder="업태" /></td>
               <th scope="row"><label for="">종목</label></th>
               <td><input type="text" id="" placeholder="종목" /></td>
             </tr>
             <tr>
-              <th scope="row"><label for="">홈페이지</label></th>
-              <td><input type="text" id="" placeholder="홈페이지" /></td>
-              <th scope="row"><label for="">이메일</label></th>
-              <td><input type="text" id="" placeholder="이메일" /></td>
-            </tr>
-            <tr>
               <th scope="row"><label for="">연락처</label></th>
               <td><input type="text" id="" placeholder="연락처" /></td>
               <th scope="row"><label for="">팩스</label></th>
               <td><input type="text" id="" placeholder="팩스" /></td>
+              <th scope="row"><label for="">이메일</label></th>
+              <td><input type="text" id="" placeholder="이메일" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="">주소</label></th>
-              <td colspan="3">
+              <td colspan="5">
                 <div class="addr">
                   <span class="tool_wrap">
                     <input type="text" id="address" title="우편번호" disabled="">
                     <button type="button" class="btn_ogt">우편번호</button>
                   </span>
-                  <input type="text" name="address2" title="주소">
-                  <input type="text" name="address3" title="상세주소">
+                  <span class="file_input">
+                    <input type="text" name="address2" placeholder="주소" title="주소">
+                    <input type="text" name="address3" placeholder="상세주소" title="상세주소">
+                  </span>
                 </div>
               </td>
             </tr>
             <tr>
+              <th scope="row"><label for="">홈페이지</label></th>
+              <td colspan="3"><input type="text" id="" placeholder="홈페이지" /></td>
               <th scope="row">공개여부</th>
-              <td colspan="3">
+              <td>
                 <div class="btn_switch">
                   <input type="radio" id="open1" name="closure" checked>
                   <label for="open1">공개</label>
@@ -2574,39 +2575,50 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
       </article>
       <article class="more_info">
         <header class="p_body_tit">
-          <h1>추가정보</h1>       
+          <h1>결제정보</h1>       
         </header>
         <table class="tbl_default tbl_row">
-          <caption>내 업무 추가 테이블</caption>
+          <caption>결제정보</caption>
           <colgroup>
-            <col style="width:120px">
+            <col style="width:90px">
+            <col style="width:auto">
+            <col style="width:90px">
             <col style="width:auto">
           </colgroup>
           <tbody>
             <tr>
-              <th scope="row">계산서</th>
+              <th scope="row">결제수단</th>
               <td>
                 <div class="btn_switch">
-                  <input type="radio" id="open" name="disclosure" checked>
-                  <label for="open">발행</label>
-                  <input type="radio" id="private" name="disclosure">
-                  <label for="private">미발행</label>
+                  <input type="checkbox" id="pay1" name="disclosure" checked>
+                  <label for="pay1">현금</label>
+                  <input type="checkbox" id="pay2" name="disclosure" checked>
+                  <label for="pay2">신용카드</label>
+                  <input type="checkbox" id="pay3" name="disclosure">
+                  <label for="pay3">어음</label>
                 </div>
-              </td>
-              <th scope="row"><label for="">결재방식</label></th>
-              <td colspan="3">
-                <select name="" id=""><option value="">선택</option></select>
+              </td>            
+              <th scope="row">계좌정보</th>
+              <td>
+                <span class="tool_wrap">
+                  <select name="" id=""><option value="">은행명</option></select>
+                  <input type="text" name="" title="" placeholder="계좌번호">
+                  <input type="text" name="" title="" placeholder="예금주">
+                </span>
               </td>
             </tr>
             <tr>
-              <th scope="row">은행</th>
-              <td colspan="3"><input type="text"></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">예금주</label></th>
-              <td><input type="text"></td>
-              <th scope="row"><label for="">계좌번호</label></th>
-              <td><input type="text"></td>
+              <th scope="row">첨부파일</th>
+              <td colspan="3"><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div></td>
             </tr>
             <tr>
               <th scope="row">메모</th>
@@ -2832,6 +2844,125 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
           </table>
         </div>
       </article>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_work_approval" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>주간업무보고 상신하기</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <article class="approval_set">
+        <table class="tbl_default tbl_row">
+          <caption>내 업무 추가 테이블</caption>
+          <colgroup>
+            <col style="width:120px">
+            <col style="width:auto">          
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="">제목</label></th>
+              <td><input type="text" id="" placeholder="제목" /></td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">결재자 지정</label></th>
+              <td>
+                <div class="tab_wrap tab_s">
+                  <ul class="tab">
+                    <li class="on"><a href="#tab01">조직도</a></li>
+                    <li><a href="#tab02">임의지정</a></li>
+                  </ul>
+                </div>
+                <div class="tab_container">
+                  <section id="tab01" class="tab_contents">
+                    <ul class="appr_path">
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>조아핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>                      
+                      </li>
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>퇴근핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>                      
+                      </li>
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure><em>방글핑 대표</em>
+                        </span>                      
+                      </li>
+                    </ul>
+                  </section>                
+                  <section id="tab02" class="tab_contents">
+                    <span class="file_input">
+                      <input type="text" id="form_referrer" placeholder="결재자를 입력하세요." list="nameList" autocomplete="off">
+                      <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+                      <button type="button" class="btn_red_line">추가</button>
+                      <button type="button" class="btn_ogt btnMngTree">조직도</button>
+                    </span>
+                    <ul class="appr_path">
+                      <li>
+                        <span class="user_module">
+                          <figure class="user_photo"><img src="../../images/ic_user.png" alt=""></figure>
+                          <em>막내핑 연구원</em><b>(재난예경보MA팀)</b>
+                        </span>
+                        <div class="appr_btn_set">
+                          <a href="#" class="myappr_del">삭제</a>                        
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">첨부파일</th>
+              <td><div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div></td>
+            </tr>
+            <tr>
+              <th scope="row">공개여부</th>
+              <td colspan="3">
+                <div class="btn_switch">
+                  <input type="radio" id="open1" name="closure" checked>
+                  <label for="open1">공개</label>
+                  <input type="radio" id="private2" name="closure">
+                  <label for="private2">비공개</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>       
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">상신</button>
+        <button class="btn_gray_line" type="button">취소</button>
+      </div>
     </div>
   </form>
 </dialog>

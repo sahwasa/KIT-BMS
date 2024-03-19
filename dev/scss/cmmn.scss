@@ -756,6 +756,12 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .validity{font-size:12px;color:#7a7a7a;letter-spacing:-0.3px;line-height:17px;}
 
 /* tree(부서 검색 등 공통 영역이 존재하여 따로 분리) */
+.ico_leader{display:inline-block;min-width:19px;border-radius:10px;font-size:0;margin-right:5px;color:#fff;background-color:$red;vertical-align:middle;text-align:center;text-indent:0;
+  &.txt{padding-right:6px;font-size:11px;
+    &::before{padding:0 2px 0 5px;}
+  }
+  &::before{@include fontello('\e806');height:19px;line-height:19px;font-size:10px;}
+}
 .tree_wrap{
   .etc_ogt{padding:8px 5px;padding-left:15px;border:1px solid #dddddd;border-top:none;font-size:12px;font-weight:bold;color:#000;letter-spacing:-0.12px;}
   &>.sortable{width:290px;height:353px;padding:8px 0;border:1px solid #dddddd;overflow-x:hidden;overflow-y:auto;}
