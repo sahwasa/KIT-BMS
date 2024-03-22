@@ -1446,8 +1446,11 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     span.score{margin-left:3px;color:#e77b79;
       b{font-weight:bold;color:#e42b29;}
     }    
-    .con_rfp_board{@include proj_view_defaultH(85px);
-      &:not(:has(li))::after{display:flex;align-items:center;justify-content:center;height:100%;content:"등록된 요구사항이 없습니다.";background-color:#bfc8d2;font-size:14px;font-weight:700;color:#555;}
+    .con_rfp_board{@include proj_view_defaultH(85px);position:relative;
+      &.loading::before,
+      &:not(:has(li))::before{display:flex;align-items:center;justify-content:center;height:100%;content:"등록된 요구사항이 없습니다.";background-color:#bfc8d2;font-size:14px;font-weight:700;color:#555;}
+      &.loading::before{content:'';}
+      &.loading::after{@include fontello('\ece6');position:absolute;left:50%;top:50%;font-size:20px;transform:translate(-50%, -50%);@include animate-spin;}
       a{display:flex;gap:8px;word-break:keep-all;}
       summary{@include flex_between;min-height:42px;padding:0 10px;border-bottom:1px solid #ebebeb;
         a{max-width:calc(100% -  21px);
@@ -2134,7 +2137,7 @@ $_planTypes:(
 .tbl_business{td{@include alignL(4);}}
 .leave_desc{display: flex;flex-direction: column;gap:$columnGap;
    header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
-  .tbl_wrap{height:auto;min-height:auto;}
+  .tbl_wrap{height:calc(100vh - 370px);min-height:250px;}
 }
 .leave_summary{display:flex;padding:10px 0;
   li{flex:1;text-align:center;font-size:24px;color:$gray;font-weight:600;
