@@ -696,8 +696,9 @@ function initializeTagManager(divId, selectId, initialNames) {
 // top scroll
 const createScrollButton = () => {
   const scrollBtn = document.createElement('button')
-  scrollBtn.innerHTML = '상단으로 이동'
-  scrollBtn.classList.add('btn_scroll')
+  scrollBtn.innerHTML = '상단으로 이동';
+  scrollBtn.setAttribute('id', 'btn_scroll');
+  scrollBtn.classList.add('btn_scroll');
   document.body.appendChild(scrollBtn)
   return scrollBtn
 }
@@ -713,7 +714,12 @@ const scrollToTop = () => {
   }
 }
 const initScrollToTop = () => {
-  const scrollBtn = createScrollButton()
+  let scrollBtn;
+  if($('#btn_scroll').length==0){    
+    scrollBtn = createScrollButton()
+  }else{
+    scrollBtn = $('#btn_scroll');
+  }
   scrollBtn.addEventListener('click', scrollToTop)
   if(contents!=null)
     contents.addEventListener('scroll', toggleScrollButton)
