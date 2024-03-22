@@ -1209,11 +1209,12 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   @include desktop{dd{max-width:calc((100% - 16px) / 3);}}
   dd,
   & > li{@include proj_box(true);display:flex;flex-direction:column;gap:5px;width:100%;min-height:110px;padding:10px 15px;cursor:pointer;
-    .task_name{@include text_ellipsis(3);line-height:1.3;} 
+    .task_name{@include text_ellipsis(2);line-height:1.3;} 
   }
   .tit{display:flex;gap:10px;
-    input,i{flex-shrink:0;}    
+    input,i{flex-shrink:0;}
   }
+  .date{font-size:12px;color:#999;}
   .task_{@include taskColor(true);}
 }
 .pic{display:flex;gap:2px;margin-bottom:-4px;
@@ -1258,7 +1259,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   $proj_viewMinH:416px;
   height:calc($proj_viewH - $gap);min-height:calc($proj_viewMinH - $gap);overflow-y:auto;
   @if($max){
-    height:auto;max-height:calc($proj_viewH - $gap);;
+    height:auto;max-height:calc($proj_viewH - $gap);
   }
 }
 .proj_view{padding-bottom:0; 
@@ -1298,7 +1299,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     li{font-weight:bold;}
     em{color:#888;margin-right:5px;&::before{content:"·";margin:0 5px;}}
   }
-  // 이슈
+  // 이슈톡
   .task_body{@include flex_layout{margin-top:$columnGap;};background-color:#edf0f3;
     .left_section{flex:0 0 350px;background-color:#fff;
       .task_lst_wrap{height:100%;
@@ -1310,9 +1311,11 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         li:last-child{margin-left:auto;}
       }
       .task_lst{gap:0;flex-direction:column;flex-wrap:nowrap;border-top:1px solid #ebebeb;border-right:1px solid #ebebeb;@include proj_view_defaultH(74px);
-        &>li{height:95px;border-bottom:1px solid #ebebeb;box-shadow:none;border-radius:0;
+        &>li{min-height:auto;border-bottom:1px solid #ebebeb;box-shadow:none;border-radius:0;gap:0;
           @include on-hover;
         }
+        .tit i{@extend %proj_tag;margin-left:auto;align-self:flex-start;}
+        .etc{margin-top:5px;}
         &:not(:has(li))::after{display:flex;align-items:center;justify-content:center;height:100%;content:"등록된 이슈톡이 없습니다.";background-color:#bfc8d2;font-size:14px;font-weight:700;color:#555;}
         .tit{align-items:flex-start;
           input[type="checkbox"]{position:relative;top:2px;margin-left:-20px;}
@@ -1321,9 +1324,16 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
     &:has(.on){background-color:#fff;}
     .right_section{flex:1;@include proj_view_defaultH(74px);@include scrollbarW();padding-top:10px;padding-bottom:$columnGap;}
-
   }  
   .issue_dtl{
+    header{gap:$columnGap;justify-content:flex-start;
+      .btn_wrap{margin-left:auto;align-self:flex-start;}
+    }
+    .stat{margin-bottom:15px;border-bottom:1px solid #ccc;padding-bottom:5px;
+      .btn_toggle_single{padding-left:5px;}
+      i{@extend %proj_tag;padding:2px 5px;font-size:12px;}
+      .date{flex-shrink:0;font-size:12px;font-weight:normal;margin-left:15px;}
+    }
     .task_num{margin-left:10px;}
     .ipt_lst{padding-left:10px;}
     .issue_txt{margin-top:15px;border-top:1px solid #ccc;padding:15px;
@@ -2124,7 +2134,7 @@ $_planTypes:(
 .tbl_business{td{@include alignL(4);}}
 .leave_desc{display: flex;flex-direction: column;gap:$columnGap;
    header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
-  .tbl_wrap{height:auto;}
+  .tbl_wrap{height:auto;min-height:auto;}
 }
 .leave_summary{display:flex;padding:10px 0;
   li{flex:1;text-align:center;font-size:24px;color:$gray;font-weight:600;

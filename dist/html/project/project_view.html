@@ -1364,10 +1364,11 @@
     <li>
       <select class="" title="태그">
         <option>태그</option>
+        <option>진행중</option>
+        <option>완료</option>
         <option>전체</option>
-        <option>내 담당 업무</option>
-        <option>참조된 업무</option>
-        <option>내가 등록한 업무</option>
+        <option>참조된 이슈</option>
+        <option>내가 등록한 이슈</option>
       </select>
     </li>
     <li>
@@ -1400,7 +1401,9 @@
         <li>
           <div class="tit">            
             <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
+            <i class="ing">진행</i>
           </div>
+            <div class="date">23-05-06 12:34</div>
           <div class="etc">
             <div class="tags"><i>테스트</i></div>
             <ul class="pic_lst">
@@ -1411,7 +1414,9 @@
         <li>
           <div class="tit">            
             <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
+            <i class="done">완료</i>
           </div>
+          <div class="date">23-05-06 12:34</div>
           <div class="etc">
             <div class="tags"><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i><i>개발</i><i>테스트</i>
             </div>
@@ -1452,12 +1457,23 @@
     <div class="issue_dtl">
       <article>
         <header>
-          <h1>ktko 자료 생성 웹페이지 구현</h1>
+          <h1>ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현            
+          </h1>
           <div class="btn_wrap">
             <button type="button" class="btn_red_line" onclick="document.querySelector('.p_issue_write').showModal();">수정</button>
             <button type="button" class="btn_red_line">삭제</button>
           </div>
         </header>
+        <div class="stat">
+          <!-- 작성자만 보임 -->
+          <span class="btn_toggle_single">
+            <input type="checkbox" id="progress1" checked=""><label for="progress1" title="해제 시 해당 이슈 완료처리">진행여부</label>                      
+          </span>
+          <!-- 작성자만 보임__e -->
+          <i class="ing">진행</i>
+          <!-- <i class="done">완료</i> -->
+          <span class="date">2023-05-06 12:34:45</span>
+        </div>
         <!-- <header>
           <input type="text" title="제목" placeholder="제목" value="ktko 자료 생성 웹페이지 구현">
           <div class="btn_wrap">
@@ -1465,12 +1481,11 @@
             <button type="button" class="btn_red_line">취소</button>
           </div>
         </header> -->
-        <dl class="ipt_lst">
-          <!-- <dt>상태</dt>
-          <dd>          
-            <div class="task_status"> -->
-              <!-- 각 담당자, 작성자별 자신것만 수정 가능, 왼쪽 리스트 표출은 작성자가 설정한 상태 -->
-              <!-- <div class="taskstatus_layer">              
+        <dl class="ipt_lst">         
+          <!-- <dd>          
+            <div class="task_status">
+              각 담당자, 작성자별 자신것만 수정 가능, 왼쪽 리스트 표출은 작성자가 설정한 상태
+              <div class="taskstatus_layer">              
                   <div class="select_custom task_status">
   <button class="label"><span class="opt_label">상태</span></button>
   <ul class="optionList">
@@ -1483,7 +1498,8 @@
   </ul>
 </div>                
               </div>
-            </div> -->
+            </div>
+          </dd> -->
             <!-- <div class="task_status_multi">
               <button class="all_label label"><span class="task_ing">진행</span></button>
               <div class="taskstatus_layer">
@@ -1556,6 +1572,7 @@
   <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
   <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
 </div></dd>          
+          
           <dt>수신자</dt>
           <dd>
             <ul class="user_lst">
