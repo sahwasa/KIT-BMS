@@ -718,7 +718,8 @@ const initScrollToTop = () => {
   if($('#btn_scroll').length==0){    
     scrollBtn = createScrollButton()
   }else{
-    scrollBtn = $('#btn_scroll');
+    // scrollBtn = $('#btn_scroll');
+    scrollBtn = document.getElementById('scrollBtn');
   }
   scrollBtn.addEventListener('click', scrollToTop)
   if(contents!=null)

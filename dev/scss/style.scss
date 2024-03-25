@@ -2137,7 +2137,9 @@ $_planTypes:(
 .tbl_business{td{@include alignL(4);}}
 .leave_desc{display: flex;flex-direction: column;gap:$columnGap;
    header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
-  .tbl_wrap{height:calc(100vh - 370px);min-height:250px;}
+  .tbl_wrap{height:calc(100vh - 370px);min-height:250px;
+    span{@include text_ellipsis;width:380px;text-align:left;}
+  }
 }
 .leave_summary{display:flex;padding:10px 0;
   li{flex:1;text-align:center;font-size:24px;color:$gray;font-weight:600;
