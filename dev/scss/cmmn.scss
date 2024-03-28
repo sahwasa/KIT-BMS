@@ -264,18 +264,21 @@ input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;}
 input[type="date"]::after{@include fontello('\f133');font-size:15px;}
 input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
-  input{width:auto;padding-right:4px;}
+  input{width:auto;min-width:95px;padding-right:4px;letter-spacing:-.05em;
+    &::-webkit-date-and-time-value{text-align:left;}
+  }
   &>*:first-child{position:relative;overflow:visible;
     &::before{content:"~";position:absolute;right:-19px;top:50%;transform:translate(-50%,-50%);}
   }
   &>span{display:inline-flex;gap:3px;}
+  
 }
 .time_range{@include tilde();}
 .split_area{@include flex_between();}
 
 //btn
 .tool_wrap,
-.btn_wrap{display:flex;gap:4px;
+.btn_wrap{display:flex;gap:4px;align-items:center;
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
   select,input{width:auto;}
@@ -423,6 +426,19 @@ $btn_red_line:#ff7575;
   }
   .desc{line-height:29px;margin-left:10px;font-size:12px;color:#989898;
     &::before{content:'※';margin-right:3px;}
+  }
+  &.after_svc{overflow:hidden;align-items:center;
+    &.divide::after{@include shape(1px, 15px);background-color:#ccc;margin-left:4px;}
+    label{padding:2px 8px 3px;min-width:auto;
+      &:first-of-type{border-radius:3px 0 0 3px;}
+      &:last-of-type{border-radius:0 3px 3px 0;}
+    }
+    input{
+      &[type="radio"]:checked,
+      &[type="checkbox"]:checked{
+        &+label{border-color:#ff5c5c;background-color:#ff7575;color:#fff;transition:0.5s;}
+      }
+    }
   }
 }
 .btn_switch_single{text-align:center;
@@ -611,6 +627,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
     &::after{@include badge_style();content:"회수";background-color:$gray;margin-left:3px;padding:0 3px;}
    }
    .cancellation{@extend .withdrawal;&::after{content:"취소"};}
+   [--h]{text-align:left;height:var(--h);overflow-y:auto;}
 }
 .tbl_use_select td:first-child{width:60px;}
 .tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}

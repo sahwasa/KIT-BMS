@@ -130,7 +130,13 @@
           <li><button type="button" class="btn_default" data-modal="p_relProj">관련 프로젝트</button></li>
           <li><button type="button" class="btn_default" data-modal="p_relProj_dtl">관련 프로젝트 상세</button></li>
           <li><button type="button" class="btn_default" data-modal="p_requireMan">요구사항 관리</button></li>
-          <li><button type="button" class="btn_default" data-modal="p_taskMan">업무 관리</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_taskMan">작업 관리</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_projDoc">문서관리</button></li>
+        </ul>
+      </div>
+      <div class="box_default_w">
+        <h1>업무</h1>
+        <ul class="search_list">
           <li><button type="button" class="btn_default" data-modal="p_workMy">내 업무 추가</button></li>
           <li><button type="button" class="btn_default" data-modal="p_workDay">일일업무일지 추가</button></li>
         </ul>
@@ -2965,6 +2971,101 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
       </div>
     </div>
   </form>
+</dialog>
+<dialog id="p_projDoc" class="p_projDoc">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>문서 추가</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <table class="tbl_default tbl_row">
+        <caption>문서 추가 테이블</caption>
+        <colgroup>
+          <col style="width:110px" />
+          <col />
+          <col style="width:110px" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row" class="required"><label for="doc_type">단계</label></th>
+            <td>
+              <select name="doc_type" id="doc_type">
+                <option >단계 선택</option>
+                <option value="">착수</option>
+                <option value="">분석</option>
+                <option value="">설계</option>
+                <option value="">구축</option>
+                <option value="">시험운영</option>
+                <option value="">교육</option>
+                <option value="">준공</option>
+                <option value="">보고</option>
+              </select>
+            </td>
+            <th scope="row" class="required"><label for="doc_type">유형</label></th>
+            <td>
+              <select name="doc_type" id="doc_type">
+                <option value="유형 선택">유형 선택</option>
+                <option value="업무보고">업무보고</option>
+                <option value="산출물">산출물</option>
+                <option value="감리">감리</option>
+                <option value="회의록">회의록</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="doc_name">문서 제목</label></th>
+            <td colspan="3"><input type="text" id="doc_name"></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required"><label for="doc_dsc">내용</label></th>
+            <td colspan="3"><div id="doc_dsc" style="--h:250px" contenteditable></div></td>
+          </tr>
+          <tr>
+            <th scope="row" class="required">
+              <label for="doc_content">파일첨부</label>
+            </th>
+            <td colspan="3">
+              <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div>
+            </td>
+          </tr>          
+          <tr>
+            <th scope="row"><label for="">제출일자</label></th>
+            <td><input type="date"></td>
+            <th scope="row">공개여부​</th>
+            <td colspan="3">
+              <div class="btn_switch">
+                <input type="radio" id="public1" name="disclosure_status" checked>
+                <label for="public1">공개</label>
+                <input type="radio" id="private1" name="disclosure_status">
+                <label for="private1">비공개</label>
+                <span class="desc">PM, PL만 선택 가능</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">등록 &sol; 수정</button>
+        <button class="btn_gray_line">닫기</button>
+      </div>
+    </div>
+  </form>
+<div class="file_upload">
+  <i class="demo-icon icon-spin4 animate-spin"></i>
+  <p>파일을 업로드 중입니다<br>잠시만 기다려주세요</p>
+</div>
+
 </dialog>
 
 <script>

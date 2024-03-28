@@ -19,7 +19,7 @@
       <div class="cont_body approval_view">
         <article class="box_compact box_tool">
           <button type="button" class="btn_gray_line">목록</button>
-          <span class="floatR">
+          <span class="btn_wrap">
             <span>임시저장 </span>
             <button type="button" class="btn_red">출장 취소</button>
             <button type="button" class="btn_red">재상신</button>
@@ -34,9 +34,14 @@
             <button type="button" class="btn_red">후결</button>
             <button type="button" class="btn_gray_line">인쇄</button>
             <span>&sol; 수신참조 </span>
-            <button type="button" class="btn_red ">확인</button>
-            <button type="button" class="btn_red_line">접수</button>
-            <button type="button" class="btn_red_line">완료</button>
+            <div class="btn_switch after_svc divide">
+              <input type="radio" id="afterSvc1" name="afterSvc" checked>
+              <label for="afterSvc1">확인</label>
+              <input type="radio" id="afterSvc2" name="afterSvc">
+              <label for="afterSvc2">접수</label>
+              <input type="radio" id="afterSvc3" name="afterSvc">
+              <label for="afterSvc3">완료</label>
+            </div>
             <button type="button" class="btn_gray_line">인쇄</button>
           </span>
         </article>
