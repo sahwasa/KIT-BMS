@@ -600,7 +600,7 @@ z-index:10;transition:left .51s ease-in-out;
 .board_new{@include flex_layout();}
 
 //main
-.main .cont_body{@include flex_layout;width:100%;height:calc(100vh - 89px);min-height:741px;padding:$columnGap;align-items:stretch;  
+.main{@include flex_layout;width:100%;height:calc(100vh - 89px);min-height:741px;padding:$columnGap;align-items:stretch;  
   .box_default_w{border-width:0;box-shadow:0 1px 8px 0 rgba(0, 0, 0, .07);
     h1{color:#404654;font-size:14px;font-weight:600;min-width:50px;margin-bottom:0;
       &::before{display:none;margin:0;}
