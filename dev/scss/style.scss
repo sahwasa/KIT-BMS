@@ -760,6 +760,7 @@ z-index:10;transition:left .51s ease-in-out;
   }
 }
 .my_form{position:static;}
+.box_compact.my_form{flex-direction:column;}
 .my_form,.box_tool{margin-bottom:15px;
   .btn_wrap{align-self:flex-start;}
   ul{display:flex;gap:4px;
