@@ -116,7 +116,7 @@ border:1px solid transparent;align-self:center;@content;}
 @mixin ico_ext($x,$y){background-position:#{$x} #{$y};@extend %ico_ext;}
 
 @mixin box_style($w_pd,$h_pd){background-color:#edf0f3;padding:$h_pd $w_pd;border-radius:5px;
-  header{@include flex_between;margin-bottom:if($h_pd >= 20, 15px, 12px);
+  header{@include flex_between;width:100%;margin-bottom:if($h_pd >= 20, 15px, 12px);
     &:only-child,
     &:empty{margin-bottom:0;}
   }
