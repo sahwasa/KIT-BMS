@@ -73,239 +73,241 @@
   </ul>
 </nav>
   <main id="content" class="container">
-    <header class="blind">
-      <h1>메인</h1>
-    </header>
-    <div class="cont_body main">
-      <section class="left">
-        <div class="box_default dashboard_item">
-          <article class="box_default_w">
-            <h1>새쪽지</h1>
-            <!-- 0이 아니면 class 't_red' 추가 -->
-            <ul class="dash_lst">
-              <li>개인 쪽지함<a href="" class="num t_red">2</a></li>
-              <li>부서 쪽지함<a href="" class="num">0</a></li>
-              <li>전체 쪽지함<a href="" class="num t_red">9999</a></li>
-            </ul>
-          </article>
-          <article class="box_default_w">
-            <h1>전자결재</h1>
-            <ul class="dash_lst">
-              <li>결재 요청<a href="" class="num t_red">9999</a></li>
-              <li>반려 문서<a href="" class="num t_red">2</a></li>
-              <li>결재 대기<a href="" class="num">0</a></li>
-              <li>수신 참조<a href="" class="num">0</a></li>
-            </ul>
-          </article>
-          <article class="box_default_w dashboard_report">
-            <h1>업무보고</h1>
-            <ul>
-              <!-- draft:미제출, ing:결재중, fin: 결재완료, reject:반려 -->
-              <li><i class="tag ing">결재중</i><strong>개인주간업무보고</strong></li>
-              <li><i class="tag draft">미제출</i><strong>부서별주간업무보고</strong>
-                <dl class="report_count">
-                  <dt>전체 취합 대상 6</dt>
-                  <dd>결재 대기 3</dd>
-                  <dd>결재 완료 3</dd>
-                </dl>
-              </li>
-            </ul>
-          </article>
-        </div>
-        <div class="box_default">
-          <article class="box_default_w board">
-            <div class="tab_wrap">
-              <ul class="tab tab_sub">
-                <li><a href="#tab01">사내공지</a></li>
-                <li><a href="#tab02">경조사</a></li>
-                <li><a href="#tab03">사진첩</a></li>
+    <section class="contents">
+      <header class="blind">
+        <h1>메인</h1>
+      </header>
+      <div class="cont_body main">
+        <section class="left">
+          <div class="box_default dashboard_item">
+            <article class="box_default_w">
+              <h1>새쪽지</h1>
+              <!-- 0이 아니면 class 't_red' 추가 -->
+              <ul class="dash_lst">
+                <li>개인 쪽지함<a href="" class="num t_red">2</a></li>
+                <li>부서 쪽지함<a href="" class="num">0</a></li>
+                <li>전체 쪽지함<a href="" class="num t_red">9999</a></li>
               </ul>
-            </div>
-            <div class="tab_container">
-              <div id="tab01" class="tab_contents">
-                <ul class="dot_list">
-                  <li><a href="">[공지사항]  조직개편 및 진급자 발표 조직개편 및 진급자 발표 조직개편 및 진급자 발표 조직개편 및 진급자 발표</a><span class="date">2024-07-05</span></li>
-                  <li><a href="">[공지사항]  조직개편 및 진급자 발표</a><span class="date">2024-07-05</span></li>
-                  <li><a href="">[공지사항]  조직개편 및 진급자 발표</a><span class="date">2024-07-05</span></li>
-                </ul>
-              </div>              
-              <div id="tab02" class="tab_contents">
-                <ul class="dot_list">
-                  <li><a href="">[부고알림] 부고</a><span class="date">2024-07-05</span></li>
-                  <li><a href="">[결혼소식] 결혼소식</a><span class="date">2024-07-05</span></li>
-                  <li><a href="">[생일] 생일</a><span class="date">2024-07-05</span></li>
-                </ul> 
-              </div>              
-              <div id="tab03" class="tab_contents represent_album">
-                <a href="../board/board_album_view.html">
-                  <div class="thumb"><img src="https://picsum.photos/1200/1500?random=1"></div>
-                  <div class="album_desc">
-                    <em>
-                      <b>2022년 케이아이티그룹 워크샵 - 1일차(공연)</b><span class="cmt_num">3</span>
-                    </em>
-                    <p class="date">2023.09.15</p>   
-                  </div>
-                </a>
-              </div>              
-            </div>
-          </article>
-          <article class="box_default_w week_work">
-            <header>
-              <h1>금주 업무(2024-0303 ~ 2024-03-09)<span class="t_blue">5</span></h1>
-              <strong>지연업무<span class="t_red">1</span></strong>
-            </header>
-            <ul>
-              <li><strong class="meet">회의</strong><a href="">회의명</a></li>
-              <li class="delay"><strong class="per">개인</strong><a href="">주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성</a></li>
-              <li><strong class="per">2024년 지진재해 지역위험도(3/4차년)</strong><a href="">지반분포도 추가</a></li>
-              <li><strong class="pro">프로젝트명</strong>
-              <a href="">인천대 건축물 자료 업데이트</a></li>
-              <li>
-                <strong class="pro">2023년 KIT 업무관리시스템 1차</strong><a href="">업무명이 들어가요</a>
-              </li>
-            </ul>
-          </article>
-        </div>
-        <div class="box_default plan">
-          <article class="box_default_w">
-            <header class="blind">
-              <h1>일정</h1>
-            </header>
-            <section>
-              <div id='main_plan' class="main_plan"></div>
-              <div class="plan_lst">
-                <ul>
-                  <li>
-                    <strong>주간업무보고 작성</strong>
-                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
-                  </li>
-                  <li>
-                    <strong>업무관리시스템 회의</strong>
-                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
-                  </li>
-                  <li>
-                    <strong>업무관리시스템 리뷰</strong>
-                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
-                  </li>
-                  <li>
-                    <strong>주간업무보고 작성</strong>
-                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
-                  </li>
-                  <li>
-                    <strong>업무관리시스템 회의</strong>
-                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
-                  </li>
-                  <li>
-                    <strong>업무관리시스템 리뷰</strong>
-                    <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
-                  </li>
-                </ul>
-              </div>
-            </section>
-          </article>
-        </div>
-      </section>
-      <section class="right">
-        <div class="box_default">
-          <article class="box_default_w attendance">
-            <div class="attendance_desc">
-              <span id="today">2024-01-03(수)</span>
-              <strong id="time" class="time">11:15:38</strong>
+            </article>
+            <article class="box_default_w">
+              <h1>전자결재</h1>
+              <ul class="dash_lst">
+                <li>결재 요청<a href="" class="num t_red">9999</a></li>
+                <li>반려 문서<a href="" class="num t_red">2</a></li>
+                <li>결재 대기<a href="" class="num">0</a></li>
+                <li>수신 참조<a href="" class="num">0</a></li>
+              </ul>
+            </article>
+            <article class="box_default_w dashboard_report">
+              <h1>업무보고</h1>
               <ul>
-                <li><em>출근시간</em>09:38:30</li>
-                <li><em>퇴근시간</em>미등록</li>
-                <li><em>주간 누적 근무시간</em> 10h 31m 48s</li>
+                <!-- draft:미제출, ing:결재중, fin: 결재완료, reject:반려 -->
+                <li><i class="tag ing">결재중</i><strong>개인주간업무보고</strong></li>
+                <li><i class="tag draft">미제출</i><strong>부서별주간업무보고</strong>
+                  <dl class="report_count">
+                    <dt>전체 취합 대상 6</dt>
+                    <dd>결재 대기 3</dd>
+                    <dd>결재 완료 3</dd>
+                  </dl>
+                </li>
               </ul>
-            </div>
-            <div class="btn_workset">
-              <div class="btn_dbl_btn">
-                <a href="" class="">출근</a>
-                <a href="" >퇴근</a>
+            </article>
+          </div>
+          <div class="box_default">
+            <article class="box_default_w board">
+              <div class="tab_wrap">
+                <ul class="tab tab_sub">
+                  <li><a href="#tab01">사내공지</a></li>
+                  <li><a href="#tab02">경조사</a></li>
+                  <li><a href="#tab03">사진첩</a></li>
+                </ul>
               </div>
-              <select name="" id="" class="work_state">
-                <option value="">근무상태 변경</option>
-                <option value="">업무</option>
-                <option value="">업무 종료</option>
-                <option value="">외근</option>
-                <option value="">회의</option>
-              </select>
-            </div>
-          </article>
-          <article class="box_default_w leave_stat">
-            <header>
-              <h1>연차현황</h1>
-              <strong class="t_blue">총 160시간</strong>
-              <a href="#">연차신청</a>
-            </header>
-            <div class="leave_progress">            
-              <progress id="progress" value="20.5" min="0" max="160"></progress>
-              <div class="leave_dtl">
-                <span>20시간 30분</span>
-                <span>남은시간 <strong class="t_blue">135시간 30분</strong></span>
+              <div class="tab_container">
+                <div id="tab01" class="tab_contents">
+                  <ul class="dot_list">
+                    <li><a href="">[공지사항]  조직개편 및 진급자 발표 조직개편 및 진급자 발표 조직개편 및 진급자 발표 조직개편 및 진급자 발표</a><span class="date">2024-07-05</span></li>
+                    <li><a href="">[공지사항]  조직개편 및 진급자 발표</a><span class="date">2024-07-05</span></li>
+                    <li><a href="">[공지사항]  조직개편 및 진급자 발표</a><span class="date">2024-07-05</span></li>
+                  </ul>
+                </div>              
+                <div id="tab02" class="tab_contents">
+                  <ul class="dot_list">
+                    <li><a href="">[부고알림] 부고</a><span class="date">2024-07-05</span></li>
+                    <li><a href="">[결혼소식] 결혼소식</a><span class="date">2024-07-05</span></li>
+                    <li><a href="">[생일] 생일</a><span class="date">2024-07-05</span></li>
+                  </ul> 
+                </div>              
+                <div id="tab03" class="tab_contents represent_album">
+                  <a href="../board/board_album_view.html">
+                    <div class="thumb"><img src="https://picsum.photos/1200/1500?random=1"></div>
+                    <div class="album_desc">
+                      <em>
+                        <b>2022년 케이아이티그룹 워크샵 - 1일차(공연)</b><span class="cmt_num">3</span>
+                      </em>
+                      <p class="date">2023.09.15</p>   
+                    </div>
+                  </a>
+                </div>              
               </div>
-            </div>            
-          </article>
-          <article class="box_default_w absentee">
-            <header>
-              <h1>금일 부재자</h1>
-            </header>
-            <!-- 휴가관련 : leave, 출장 등 회사 업무관련 : meeting, 교육관련 : edu -->
-            <ul>
-              <li>
-                <div class="status_box">
-                  <i class="leave">휴가</i><span class="time">종일</span>
+            </article>
+            <article class="box_default_w week_work">
+              <header>
+                <h1>금주 업무(2024-0303 ~ 2024-03-09)<span class="t_blue">5</span></h1>
+                <strong>지연업무<span class="t_red">1</span></strong>
+              </header>
+              <ul>
+                <li><strong class="meet">회의</strong><a href="">회의명</a></li>
+                <li class="delay"><strong class="per">개인</strong><a href="">주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성주간업무보고작성</a></li>
+                <li><strong class="per">2024년 지진재해 지역위험도(3/4차년)</strong><a href="">지반분포도 추가</a></li>
+                <li><strong class="pro">프로젝트명</strong>
+                <a href="">인천대 건축물 자료 업데이트</a></li>
+                <li>
+                  <strong class="pro">2023년 KIT 업무관리시스템 1차</strong><a href="">업무명이 들어가요</a>
+                </li>
+              </ul>
+            </article>
+          </div>
+          <div class="box_default plan">
+            <article class="box_default_w">
+              <header class="blind">
+                <h1>일정</h1>
+              </header>
+              <section>
+                <div id='main_plan' class="main_plan"></div>
+                <div class="plan_lst">
+                  <ul>
+                    <li>
+                      <strong>주간업무보고 작성</strong>
+                      <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                    </li>
+                    <li>
+                      <strong>업무관리시스템 회의</strong>
+                      <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                    </li>
+                    <li>
+                      <strong>업무관리시스템 리뷰</strong>
+                      <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                    </li>
+                    <li>
+                      <strong>주간업무보고 작성</strong>
+                      <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                    </li>
+                    <li>
+                      <strong>업무관리시스템 회의</strong>
+                      <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                    </li>
+                    <li>
+                      <strong>업무관리시스템 리뷰</strong>
+                      <p>2024. 3. 7 (화)  오전 10:00 ~ 오전 11:00</p>
+                    </li>
+                  </ul>
                 </div>
-                <div class="user_box">
-                  <strong>김개발</strong>
-                  <span>사업본부 SI사업부 SI개발팀</span>
+              </section>
+            </article>
+          </div>
+        </section>
+        <section class="right">
+          <div class="box_default">
+            <article class="box_default_w attendance">
+              <div class="attendance_desc">
+                <span id="today">2024-01-03(수)</span>
+                <strong id="time" class="time">11:15:38</strong>
+                <ul>
+                  <li><em>출근시간</em>09:38:30</li>
+                  <li><em>퇴근시간</em>미등록</li>
+                  <li><em>주간 누적 근무시간</em> 10h 31m 48s</li>
+                </ul>
+              </div>
+              <div class="btn_workset">
+                <div class="btn_dbl_btn">
+                  <a href="" class="">출근</a>
+                  <a href="" >퇴근</a>
                 </div>
-              </li>
-              <li>
-                <div class="status_box">
-                  <i class="leave">반차</i><span class="time">13:00 ~ 18:00</span>
+                <select name="" id="" class="work_state">
+                  <option value="">근무상태 변경</option>
+                  <option value="">업무</option>
+                  <option value="">업무 종료</option>
+                  <option value="">외근</option>
+                  <option value="">회의</option>
+                </select>
+              </div>
+            </article>
+            <article class="box_default_w leave_stat">
+              <header>
+                <h1>연차현황</h1>
+                <strong class="t_blue">총 160시간</strong>
+                <a href="#">연차신청</a>
+              </header>
+              <div class="leave_progress">            
+                <progress id="progress" value="20.5" min="0" max="160"></progress>
+                <div class="leave_dtl">
+                  <span>20시간 30분</span>
+                  <span>남은시간 <strong class="t_blue">135시간 30분</strong></span>
                 </div>
-                <div class="user_box">
-                  <strong>김개발</strong>
-                  <span>사업본부 SI사업부 SI개발팀</span>
-                </div>
-              </li>
-              <li>
-                <div class="status_box">
-                  <i class="meeting">외근</i><span class="time">09:00 ~ 12:00</span>
-                </div>
-                <div class="user_box">
-                  <strong>김개발</strong>
-                  <span>사업본부 SI사업부 SI개발팀</span>
-                </div>
-              </li>
-              <li>
-                <div class="status_box">
-                  <i class="meeting">출장</i><span class="time">종일</span>
-                </div>
-                <div class="user_box">
-                  <strong>김개발</strong>
-                  <span>사업본부 SI사업부 SI개발팀</span>
-                </div>
-              </li>
-              <li>
-                <div class="status_box">
-                  <i class="edu">교육</i><span class="time">종일</span>
-                </div>
-                <div class="user_box">
-                  <strong>김개발</strong>
-                  <span>사업본부 SI사업부 SI개발팀</span>
-                </div>
-              </li>
-            </ul>
-          </article>
-          <section class="banner">
-            <ul>
-              <li class="manual"><a href="">매뉴얼 다운로드</a></li>
-            </ul>
-          </section>
-        </div>
-      </section>
-    </div>
+              </div>            
+            </article>
+            <article class="box_default_w absentee">
+              <header>
+                <h1>금일 부재자</h1>
+              </header>
+              <!-- 휴가관련 : leave, 출장 등 회사 업무관련 : meeting, 교육관련 : edu -->
+              <ul>
+                <li>
+                  <div class="status_box">
+                    <i class="leave">휴가</i><span class="time">종일</span>
+                  </div>
+                  <div class="user_box">
+                    <strong>김개발</strong>
+                    <span>사업본부 SI사업부 SI개발팀</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="status_box">
+                    <i class="leave">반차</i><span class="time">13:00 ~ 18:00</span>
+                  </div>
+                  <div class="user_box">
+                    <strong>김개발</strong>
+                    <span>사업본부 SI사업부 SI개발팀</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="status_box">
+                    <i class="meeting">외근</i><span class="time">09:00 ~ 12:00</span>
+                  </div>
+                  <div class="user_box">
+                    <strong>김개발</strong>
+                    <span>사업본부 SI사업부 SI개발팀</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="status_box">
+                    <i class="meeting">출장</i><span class="time">종일</span>
+                  </div>
+                  <div class="user_box">
+                    <strong>김개발</strong>
+                    <span>사업본부 SI사업부 SI개발팀</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="status_box">
+                    <i class="edu">교육</i><span class="time">종일</span>
+                  </div>
+                  <div class="user_box">
+                    <strong>김개발</strong>
+                    <span>사업본부 SI사업부 SI개발팀</span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+            <section class="banner">
+              <ul>
+                <li class="manual"><a href="">매뉴얼 다운로드</a></li>
+              </ul>
+            </section>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
   <footer class="footer">
   <strong class="connect">관리자 연락처 02-8004-9050</strong>
