@@ -260,8 +260,8 @@ input[type="time"],
 input[type="date"]{width:auto;
   &::after{position:absolute;z-index:1;right:5px;top:50%;transform:translateY(-50%);color:$red;}
 }
-input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;}
-input[type="date"]::after{@include fontello('\f133');font-size:15px;}
+input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;padding-right:10px;}
+input[type="date"]::after{@include fontello('\f133');font-size:15px;padding-right:10px;}
 input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
   input{width:auto;min-width:95px;padding-right:4px;letter-spacing:-.05em;
@@ -307,6 +307,8 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 }
 $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f);
 $_planType:('personal':#1E7B45,'attendance':#7249bd, 'event':#d85c82, 'meeting':#4285f4, 'leave':#7249BD, 'admin':#2a516f, 'edu': #d85c82);
+$_taskType:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$task_cancel,'hold':$task_hold);
+
 // admin : 관리자 추가 일정, personal : 개인, meeting : 회의, event : 행사, attendance :근태
 .select_custom{position:relative;cursor:pointer;background:url(../images/btn_select.png) right 8px center no-repeat,rgba(255,255,255,.9);border:1px solid #cccccc;border-radius:2px;vertical-align:middle;min-width:60px;
   &.active{
@@ -314,9 +316,10 @@ $_planType:('personal':#1E7B45,'attendance':#7249bd, 'event':#d85c82, 'meeting':
       &>.label{background:url(../images/btn_select.png) right 8px center no-repeat,#f8f8f8;}
       .optionList{max-height:500px;top:calc(100% + 1px);}
     }
+    & > ul{border-width:0 1px 1px;}
   }
   .label{align-items:center;display:flex;gap:8px;width:100%;height:26px;padding-left:5px;cursor:pointer;text-align:left;}
-  &>ul{position:absolute;top:100%;left:-1px;width:calc(100% + 2px);max-height:0;border:1px solid #ccc;border-top-width:0;background:#fff;color:#000;list-style-type:none;overflow:hidden;
+  &>ul{position:absolute;top:100%;left:-1px;width:calc(100% + 2px);max-height:0;border:1px solid #ccc;border-width:0 1px;background:#fff;color:#000;list-style-type:none;overflow:hidden;
     &>li{display:flex;align-items:center;gap:8px;position:relative;border-bottom:1px dashed #cccccc85;transition:.1s;line-height:26px;padding:0 10px;      
       &.disabled{background-color:#eee;cursor:not-allowed;color:#aaa;
         &:hover{background:#eee;}
@@ -337,6 +340,19 @@ $_planType:('personal':#1E7B45,'attendance':#7249bd, 'event':#d85c82, 'meeting':
     i{width:15px;height:15px;top:0;}    
     @each $type, $color in $_planType{
       .s_#{$type}{background-color:$color;}
+    }
+  }
+  &.task_status{display:inline-flex;width:80px;padding:0;border-width:0;
+    & > ul{display:flex;flex-direction:column;border-width:0 1px;left:0;
+      li{padding:0 4px;
+        &:first-child{border-top:1px solid #ccc;}
+        &:last-child{border-bottom:1px solid #ccc;}
+      }
+    }
+    .label{height:auto;}
+    span{display:inline-block;width:45px;max-width:45px;line-height:13px;color:#fff;text-align:center;border-radius:5px;align-self:center;letter-spacing:-.25px;padding:3px 5px;font-size:12px;margin:3px 0;font-weight:700;}
+    @each $type, $color in $_taskType{
+      .task_#{$type}{background-color:$color;}
     }
   }
 }

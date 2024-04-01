@@ -108,12 +108,13 @@
         }
       ],
       events:[
-        { id: 'e1', resourceId: 'a', task:'아무튼 바쁨', title:'', start: '2022-09-07T09:00:00', end: '2024-01-07T12:00:00', className: 'cal_delay'},
-        { id: 'd1', resourceIds: ['d'], task:'출장', start: '2022-09-07T10:30:00', end: '2023-10-14T15:30:00', className: 'cal_absence'},
+        { id: 'e1', resourceId: 'a', task:'아무튼 바쁨', title:'', start: '2022-10-07T09:00:00', end: '2022-10-07T12:00:00', className: 'cal_delay'},
+        { id: 'd1', resourceIds: ['d'], task:'출장', start: '2022-10-07T10:30:00', end: '2022-10-10T15:30:00', className: 'cal_absence'},
         { id: 'g1', resourceId: 'g', task:'조기경보회의', start: '2022-09-07T12:00:00', end: '2023-09-07T13:00:00', className: 'cal_busy'}
       ],     
       nowIndicator: true,
       slotMinWidth: 10,
+      eventMinWidth : 0,
       views:{        
         custumRange: {
           slotDuration:{day: 1 },

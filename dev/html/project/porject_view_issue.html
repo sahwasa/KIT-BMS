@@ -40,7 +40,46 @@
         <li>
           <div class="tit">            
             <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
-            <i class="ing">진행</i>
+            <i class="task_plan">계획</i>
+          </div>
+            <div class="date">23-05-06 12:34</div>
+          <div class="etc">
+            <div class="tags"><i>테스트</i></div>
+            <ul class="pic_lst">
+              <li><img src="https://picsum.photos/100/100?random=1" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">            
+            <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_cancel">취소</i>
+          </div>
+            <div class="date">23-05-06 12:34</div>
+          <div class="etc">
+            <div class="tags"><i>테스트</i></div>
+            <ul class="pic_lst">
+              <li><img src="https://picsum.photos/100/100?random=1" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">            
+            <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_hold">보류</i>
+          </div>
+            <div class="date">23-05-06 12:34</div>
+          <div class="etc">
+            <div class="tags"><i>테스트</i></div>
+            <ul class="pic_lst">
+              <li><img src="https://picsum.photos/100/100?random=1" alt="" loading="lazy"></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="tit">            
+            <p class="task_name">ktko 자료 생성 웹페이지 구현</p>
+            <i class="task_ing">진행</i>
           </div>
             <div class="date">23-05-06 12:34</div>
           <div class="etc">
@@ -53,7 +92,7 @@
         <li>
           <div class="tit">            
             <p class="task_name">ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현ktko 자료 생성 웹페이지 구현 ktko 자료 생성 웹페이지 구현</p>
-            <i class="done">완료</i>
+            <i class="task_done">완료</i>
           </div>
           <div class="date">23-05-06 12:34</div>
           <div class="etc">
@@ -93,21 +132,19 @@
         </header>
         <div class="stat">
           <!-- 작성자만 보임 -->
-          <span class="btn_toggle_single">
-            <input type="checkbox" id="progress1" checked=""><label for="progress1" title="해제 시 해당 이슈 완료처리">진행여부</label>                      
-          </span>
-          <!-- 작성자만 보임__e -->
-          <i class="ing">진행</i>
+          @@include('../../inc/module/module_taskstatus.html')
+          <span class="date">2023-05-06 12:34:45</span>
+        </div>
+        <!-- 작성자만 보임__e -->
+        
+        <!-- 작성자 외 -->
+        <div class="stat">
+          <i class="task_ing">진행</i>
           <!-- <i class="done">완료</i> -->
           <span class="date">2023-05-06 12:34:45</span>
         </div>
-        <!-- <header>
-          <input type="text" title="제목" placeholder="제목" value="ktko 자료 생성 웹페이지 구현">
-          <div class="btn_wrap">
-            <button type="button" class="btn_red">저장</button>
-            <button type="button" class="btn_red_line">취소</button>
-          </div>
-        </header> -->
+        <!-- 작성자 외__e -->
+
         <dl class="ipt_lst">         
           <!-- <dd>          
             <div class="task_status">

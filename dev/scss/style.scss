@@ -1180,14 +1180,13 @@ $defalutColor:#009dee;
   }  
 }
 $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$task_cancel,'hold':$task_hold);
-%task_type{display:inline-block;width:28px;height:17px;font-size:11px;line-height:15px;text-align:center;border-radius:3px;margin-left:auto;}
 @mixin taskColor($tagType:false){
   @each $type, $val in $taskColorMap{
     &#{$type}{color:darken($color:$val, $amount:15);
-      @if($tagType){@extend %task_type;
+      @if($tagType){
         border:1px solid darken($color:$val, $amount:15);
-        background-color:lighten($color:$val, $amount:25);
-        @if(lightness($val) < 60){background-color:lighten($color:$val, $amount:36);}
+        background-color:$val;
+        // @if(lightness($val) < 60){background-color:lighten($color:$val, $amount:36);}
       }
     }
   }
@@ -1317,7 +1316,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         &>li{min-height:auto;border-bottom:1px solid #ebebeb;box-shadow:none;border-radius:0;gap:0;
           @include on-hover;
         }
-        .tit i{@extend %proj_tag;margin-left:auto;align-self:flex-start;}
+        .tit i{@extend %proj_tag;margin-left:auto;align-self:flex-start;font-weight:normal;font-size:11px;}
         .etc{margin-top:5px;}
         &:not(:has(li))::after{display:flex;align-items:center;justify-content:center;height:100%;content:"등록된 이슈톡이 없습니다.";background-color:#bfc8d2;font-size:14px;font-weight:700;color:#555;}
         .tit{align-items:flex-start;
@@ -1334,7 +1333,11 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     }
     .stat{margin-bottom:15px;border-bottom:1px solid #ccc;padding-bottom:5px;
       .btn_toggle_single{padding-left:5px;}
-      i{@extend %proj_tag;padding:2px 5px;font-size:12px;}
+      i{@extend %proj_tag;padding:2px 5px;font-size:12px;margin-left:5px;
+        @each $type, $color in $_taskType{
+          &.task_#{$type}{background-color:$color;}
+        }
+      }
       .date{flex-shrink:0;font-size:12px;font-weight:normal;margin-left:15px;}
     }
     .task_num{margin-left:10px;}
@@ -1353,7 +1356,6 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
         &:focus-within{display:block;}
       }  
     }
-    .user_lst > li{.task_{@include taskColor(true);}}
   }
   .issue_write{@include flex_layout();
     .issue_cont{@include form_style();min-width:auto;
@@ -1640,7 +1642,8 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   // 문서관리
   .doc{
     .tbl_wrap{@include proj_view_defaultH(62px);}
-    .tbl_default td{@include alignL(3){max-width:450px;};}
+    .tbl_default td{@include alignL(3){max-width:450px;};
+    }
   }
 }
 
