@@ -413,11 +413,13 @@ function commonInit() {
   const options = select_custom.find('.optionItem')
   options.off('click').on('click', function (e) {
     const eclass = Array.prototype.slice.apply(e.target.classList)
+    e.preventDefault();
     if (!eclass.includes('optionItem'))
       handleSelect($(this).closest('.optionItem')[0])
     else handleSelect(e.target)
   })
-  label.off('click').on('click', function () {
+  label.off('click').on('click', function (e) {
+    e.preventDefault();
     select_custom.removeClass('active')
     $(this).parent().hasClass('active')
         ? $(this).parent().removeClass('active')
