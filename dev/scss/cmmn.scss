@@ -158,23 +158,25 @@ input[type="datetime-local"],
 input[type="email"],
 input[type="tel"],
 div[contenteditable]:not(.ck-widget),p[contenteditable],td[contenteditable]{@include ipt_common;min-height:28px;}
+// input[type="radio"],
+// input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
+// width:13px;height:13px;border:1px solid #606060;
+// overflow:hidden;
+//   &:checked{-webkit-appearance:none; -moz-appearance:none;-o-appearance:none;appearance:none; box-shadow:none;border:none;
+//   background:url(../images/bg_ipt.png) 0 0 no-repeat;}
+// }
 input[type="radio"],
-input[type="checkbox"]{-webkit-appearance:none;-moz-appearance:none; -o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
-width:13px;height:13px;border:1px solid #606060;
-overflow:hidden;
-  &:checked{-webkit-appearance:none; -moz-appearance:none;-o-appearance:none;appearance:none; box-shadow:none;border:none;
-  background:url(../images/bg_ipt.png) 0 0 no-repeat;}
-}
+input[type="checkbox"]{accent-color:$red;}
 input[type="radio"]{border-radius:50%;}
 input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
-input[type="radio"]:checked{background-position-y:-23px;}
+// input[type="radio"]:checked{background-position-y:-23px;}
 @media print{
-  input[type="radio"],
-  input[type="checkbox"]{position:relative;
-    &:checked{background:transparent;border:1px solid $red;
-      &::before{position:absolute;z-index:0;top:-2px;left:1px;content:'\eb2d';font-family:'fontello';font-size:10px;color:$red;}
-    }
-  }
+  // input[type="radio"],
+  // input[type="checkbox"]{position:relative;
+  //   &:checked{background:transparent;border:1px solid $red;
+  //     &::before{position:absolute;z-index:0;top:-2px;left:1px;content:'\eb2d';font-family:'fontello';font-size:10px;color:$red;}
+  //   }
+  // }
   input[type="radio"]:checked{background-position:-1px -24px;}
   input[type="checkbox"]:checked{background-position:-1px -1px;}
   .tbl_report input:disabled{background-color:transparent;border-width:0;}
@@ -261,7 +263,7 @@ input[type="date"]{width:auto;
   &::after{position:absolute;z-index:1;right:5px;top:50%;transform:translateY(-50%);color:$red;}
 }
 input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;padding-right:10px;}
-input[type="date"]::after{@include fontello('\f133');font-size:15px;padding-right:10px;}
+input[type="date"]::after{@include fontello('\f133');font-size:15px;}
 input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;gap:20px;position:relative;vertical-align:middle;
   input{width:auto;min-width:95px;padding-right:4px;letter-spacing:-.05em;
