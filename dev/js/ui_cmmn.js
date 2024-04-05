@@ -11,7 +11,7 @@ const handleSelect = function (item) {
     result.html(item.innerHTML).attr('data-value', resultVal)
     result.parent().removeClass('active')
     console.log(resultVal)
-    //변경시 이벤트 발생 추가
+    //변경시 이벤트 발생 추가(옵션 ul에 onchange 이벤트 추가되어 있으면 실행)
     if (item.parentNode.onchange) {
       item.parentNode.onchange()
     }
@@ -418,7 +418,7 @@ function commonInit() {
       handleSelect($(this).closest('.optionItem')[0])
     else handleSelect(e.target)
   })
-  label.off('click').on('click', function (e) {
+  label.off('click').on('click', function () {
     e.preventDefault();
     select_custom.removeClass('active')
     $(this).parent().hasClass('active')
@@ -720,8 +720,7 @@ const initScrollToTop = () => {
   if($('#btn_scroll').length==0){    
     scrollBtn = createScrollButton()
   }else{
-    // scrollBtn = $('#btn_scroll');
-    scrollBtn = document.getElementById('scrollBtn');
+    scrollBtn = $('#btn_scroll').get(0);
   }
   scrollBtn.addEventListener('click', scrollToTop)
   if(contents!=null)
