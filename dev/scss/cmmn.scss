@@ -985,7 +985,7 @@ $photoSize:290px;
     .ck-content{max-height:var(--h);
       .todo-list{
         li{margin-bottom:0 !important;margin-left:5px;}
-        .todo-list__label>input::before{background:$red;border-color:#606060;}
+        .todo-list__label>input::before{background:transparent;border-color:#606060;}
         .todo-list__label>input[checked]::before{background:$red;border-color:$red;}
         .todo-list__label>input[checked]::after{border-color:#fff;}
       }
