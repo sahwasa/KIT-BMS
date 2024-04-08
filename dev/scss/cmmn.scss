@@ -991,6 +991,9 @@ $photoSize:290px;
       }
       ol,
       ul{margin-left:25px;}
+      ol{list-style:decimal;
+        li::marker{padding:inherit;}
+      }
       li{list-style:inherit;}
       &[dir=ltr] .table{
         th.editor_th,

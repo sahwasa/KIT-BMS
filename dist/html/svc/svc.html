@@ -81,24 +81,25 @@
     <div class="attendance_desc">
       <span id="today">2024-01-03(수)</span>
       <strong id="time" class="time">11:15:38</strong>
+      <!-- 잘못눌렀을 때 취소 -->
       <ul>
-        <li><em>출근시간</em>09:38:30</li>
-        <li><em>퇴근시간</em>미등록</li>
+        <li><em>출근시간</em>09:38:30<button class="btn_cancel" title="취소">취소</button></li>
+        <li><em>퇴근시간</em>-</li>
         <li><em>주간 누적 근무시간</em> 10h 31m 48s</li>
       </ul>
     </div>
     <div class="btn_workset">
       <div class="btn_dbl_btn">
-        <a href="" class="">출근</a>
-        <a href="" >퇴근</a>
+        <button type="button" disabled>출근</button>
+        <button type="button" >퇴근</button>
       </div>
-      <select name="" id="" class="work_state">
+      <!-- <select name="" id="" class="work_state">
         <option value="">근무상태 변경</option>
         <option value="">업무</option>
         <option value="">업무 종료</option>
         <option value="">외근</option>
         <option value="">회의</option>
-      </select>
+      </select> -->
     </div>
     <ul class="snb_lst">
       <li><a href="svc_basicData.html">이력관리</a>
@@ -186,55 +187,27 @@
             </ul>
           </div>
         </article>        
-        <article>
+        <article class="flexible_working">
           <header>
             <h1>유연근무 신청현황</h1>
-          </header>
-          <div class="tbl_wrap">
-            <table class="tbl_default">
-              <caption>유연근무 신청현황</caption>
-              <thead>
-                <tr>
-                  <th scope="col">신청일자</th>
-                  <th scope="col">근무시간</th>
-                  <th scope="col">변경기간</th>
-                  <th scope="col">사유</th>
-                  <th scope="col">승인여부</th>
-                  <th scope="col">승인자</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>24-12-31</td>
-                  <td>B타입</td>
-                  <td>24-01-08~</td>
-                  <td>일어나기 힘들어요.</td>
-                  <td>상신</td>
-                  <td>김상사</td>
-                </tr>
-                <tr>
-                  <td>24-12-31</td>
-                  <td>C타입</td>
-                  <td>24-01-05~24-01-05</td>
-                  <td>집에 일이 있습니다.</td>
-                  <td>승인</td>
-                  <td>김상사</td>
-                </tr>
-                <tr>
-                  <td>24-12-31</td>
-                  <td>C타입</td>
-                  <td>24-01-05~24-01-05</td>
-                  <td>늦잠자고싶어요 </td>
-                  <td>반려</p></td>
-                  <td>김상사</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>     
-        <article>
-          <header>
-            <h1>유연근무 수신현황</h1>
+            <div class="search_box">
+              <input type="text" title="임직원 검색" placeholder="이름, 부서 검색" list="nameList">
+              <datalist id="nameList">
+                <optgroup label="개발본부">
+                  <option value="대장발핑">개발본부</option>
+                  <option value="개발핑">개발 1팀</option>
+                  <option value="새발핑">개발 1팀</option>
+                  <option value="말발핑">개발 2팀</option>
+                  <option value="소발핑">개발 2팀</option>
+                  <option value="곰발핑">개발 2팀</option>
+                </optgroup>
+                <optgroup label="경영관리">
+                  <option value="경영핑">경영관리</option>
+                  <option value="관리핑">경영관리</option>
+                </optgroup>                  
+              </datalist>
+              <button type="button">검색</button>
+            </div>
           </header>
           <div class="tbl_wrap">
             <table class="tbl_default">
@@ -243,51 +216,63 @@
                 <tr>
                   <th scope="col">신청자</th>
                   <th scope="col">신청일자</th>
-                  <th scope="col">근무시간</th>
+                  <th scope="col">기존 근무시간</th>
+                  <th scope="col">신청 근무시간</th>
                   <th scope="col">변경기간</th>
                   <th scope="col">사유</th>
+                  <th scope="col">승인자</th>
                   <th scope="col">승인여부</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>김개발</td>
+                  <td>김개발 (지진경보장치팀)</td>
                   <td>24-12-31</td>
-                  <td>B타입</td>
-                  <td>24-01-08~</td>
-                  <td>일어나기 힘들어요.</td>
+                  <td>10:00 ~ 19:00</td>
+                  <td>09:00 ~ 18:00</td>
+                  <td>24-03-08~</td>
+                  <td><em>매우 구구절절한 사연을 구구절절한 사연을 써보지만 반려당할 것만 같은 사유 매우 구구절절한 사연을 구구절절하게 써보지만 반려당할 것만 같은 사유</em></td>
+                  <td>-</td>
                   <td>
                     <button type="button" class="btn_red_line">승인</button>
                     <button type="button" class="btn_gray_line">반려</button>
                   </td>
                 </tr>
                 <tr>
-                  <td>김연구</td>
+                  <td>김개발 (지진경보장치팀)</td>
                   <td>24-12-31</td>
-                  <td>C타입</td>
-                  <td>24-01-05~24-01-05</td>
-                  <td>집에 일이 있습니다.</td>
-                  <td>
-                    <button type="button" class="btn_red_line">승인</button>
-                    <button type="button" class="btn_gray_line">반려</button>
-                  </td>
+                  <td>08:00 ~ 17:00</td>
+                  <td>10:00 ~ 19:00</td>
+                  <td>24-02-08~</td>
+                  <td><em>일찍가고 싶어요.</em></td>
+                  <td>-</td>
+                  <td>승인대기</td>
                 </tr>
                 <tr>
-                  <td>김기획</td>
+                  <td>김개발 (지진경보장치팀)</td>
                   <td>24-12-31</td>
-                  <td>C타입</td>
+                  <td>09:00 ~ 18:00</td>
+                  <td>08:00 ~ 17:00</td>
                   <td>24-01-05~24-01-05</td>
-                  <td>늦잠자고싶어요 </td>
-                  <td>
-                    <button type="button" class="btn_red_line">승인</button>
-                    <button type="button" class="btn_gray_line">반려</button>
-                  </td>
+                  <td><em>집에 일이 있습니다.</em></td>
+                  <td>김상사<span class="date">24-02-10 11:00</span></td>
+                  <td>승인</td>
+                </tr>
+                <tr>
+                  <td>김개발 (지진경보장치팀)</td>
+                  <td>24-12-31</td>
+                  <td>08:00 ~ 17:00</td>
+                  <td>10:00 ~ 19:00</td>
+                  <td>24-01-05~24-01-05</td>
+                  <td><em>늦잠자고싶어요.</em></td>
+                  <td>김상사<span class="date">24-02-10 11:00</span></td>
+                  <td>반려</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </article>     
-        <article>
+        <!-- <article>
           <header>
             <h1>자원 신청이력 및 현황</h1>
           </header>
@@ -309,7 +294,7 @@
               </tbody>
             </table>
           </div>
-        </article>     
+        </article>      -->
       </div>
     </section>
   </main>
