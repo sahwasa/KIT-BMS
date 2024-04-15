@@ -325,7 +325,10 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 .p_add_visitor{width:500px;}
 .p_change_flexTime{width:800px;
   .tbl_wrap{height:317px;min-height:auto;
-    td{@include alignL(3 4);}
+    td{@include alignL(5);
+      span{@include text_ellipsis;width:200px;}
+    }
+    
   }
   .btn_wrap{margin-bottom:15px;}
 }

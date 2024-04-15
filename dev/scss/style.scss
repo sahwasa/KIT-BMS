@@ -466,7 +466,7 @@ $snbWidth:250px;
     .btn_cancel{@include ico_only('\e92a');
       &::before{color:$red;};
     }
-  }
+  }  
   .btn_workset:has(.work_state){padding-bottom:5px;}
   .work_state{display:block;border-color:transparent;font-size:12px;color:#71798a;min-height:auto;line-height:20px;margin-top:5px;padding-left:25px;background-position-x:8px;background-color:transparent;}
 }
@@ -707,8 +707,9 @@ z-index:10;transition:left .51s ease-in-out;
         .work_state{width:auto;border-color:#dadada;border-radius:10px;padding:0 8px 0 28px;font-size:12px;}
         .btn_dbl_btn{position:relative;@include btn($btn_red, false, false);display:flex;align-items:center;gap:1px;padding:0;
           &::before{position:absolute;left:50%;@include shape(0, 14px);border-left:1px solid $btn_red;}
-          a{flex:1 1 auto;border-radius:0;text-align:center;line-height:32px;
-            &:hover{color:#fff;background-color:$btn_red;}
+          button{flex:1 1 auto;border-radius:0;text-align:center;line-height:32px;
+            &:hover:not(:disabled){color:#fff;background-color:$btn_red;}
+            &:disabled{position:relative;color:#f8c9ce;cursor:default;}
           }
         }
       }
@@ -1964,13 +1965,15 @@ $report_gray:#f5f5f5;
 //svc
 .svc_home{@include flex_ver;
   header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
-  .flexible_working{
+  .flexible_working{@include flex_layout;
+    & > article{flex-grow:1;}
     .search_box{margin-left:auto;display:inline-flex;width:300px;}
-    .tbl_wrap{@include tbl_defaultH(144px);
+    .tbl_wrap{height:auto;min-height:auto;
+      @include tbl_defaultH(144px);
       th,td{vertical-align:middle;white-space:nowrap;}
-      em{text-align:left;@include text_ellipsis;max-width:700px;}
+      em{text-align:left;@include text_ellipsis;width:100%;}
       .date{font-size:11px;color:#71798a;margin-left:5px;}
-    }
+    }   
   }
   .attendance_home{width:100%;
     .refer_date{margin-left:auto;font-size:12px;align-self:flex-end;}
@@ -2003,7 +2006,6 @@ $report_gray:#f5f5f5;
     .fc-datagrid-cell-cushion{@extend .fc-timeline-slot-cushion;}
   }
 }
-.attendance_summary{margin-bottom:$columnGap;}
 .attendance_type{display:flex;gap:5px;align-items:center;margin-bottom:5px;
   em{font-weight:600;font-size:14px;}
 }
@@ -2029,10 +2031,13 @@ $report_gray:#f5f5f5;
     }
   }
   [open]>summary::before{content:'\f106';color:$red;margin-top:-2px;}
-  .desc{margin-top:10px;}
-  .tbl_attendance{width:100%;
+  .tbl_attendance{width:100%;border-top:1px solid $gray;
+    .btn_default{font-size:12px;line-height:17px;padding:0 3px;}
+    .btn_modify{@include ico_only('\f14b');
+      &::before{font-size:16px;}
+    }
     th,td{text-align:center;}
-    th{font-size:12px;font-weight:600;border-bottom:1px solid #e1e1e1;padding-bottom:9px;
+    th{font-size:12px;font-weight:600;border-bottom:1px solid #e1e1e1;padding:9px 0;
       &:first-child{text-align:right;}
     }
     td{padding:10px 0;line-height:20px;color:#555;
@@ -2040,16 +2045,18 @@ $report_gray:#f5f5f5;
         .date{display:inline-block;width:20px;margin-right:5px;}
       }
       &:nth-child(2),
-      &:nth-child(3){&:not(:empty){color:$skyblue;}}
+      &:nth-child(3){&:not(:empty){color:$skyblue;}
+        &.abnormal{color:$red;}//지각 또는 조퇴
+      }
       &:nth-child(2),
       &:nth-child(3),
       &:nth-child(4){&:empty::before{content:"-";}}
     }
     tbody{
       tr{
-        &:first-child td:first-child,
+        &.sun td:first-child,
         &.holiday td:first-child{color:$red;}
-        &:nth-last-of-type(2) td:first-child{color:$blue;}
+        &.sat td:first-child{color:$blue;}
         &:nth-child(odd):not(.on):hover{@include on-hover;}
         &:has([colspan]){display:none;
           td{padding:10px 10px 10px 20px;}
@@ -2093,7 +2100,10 @@ $member_width:100px;
   span{position:relative;display:inline-block;width:35px;height:100%;line-height:19px;background-color:#fff;color:#fff;}
 }
 %busy{background-color:rgba(87, 146, 255, 0.3);border-color:#5792FF;color:#3a62ad;}//선택한 시간
-%attendance{background-color:#5792FF;color:#fff;}//선택한 시간
+%attendance{background-color:#62B3D1;color:#fff;}//선택한 시간
+%overtime{background-color:#ffab4a;color:#fff;}//연장근무
+%off{background-color:#7249bd;color:#fff;}//휴가
+%out{background-color:#FE5E82;color:#fff;}//외근
 %absence{background-color:rgba(224, 224, 224, 0.45);border-color:#e0e0e0;}//부재
 %holiday{background-color:rgba(255, 0, 0, 0.1);border-color:rgb(255, 0, 0);}//일정있음
 %etc{background-color:rgba(87, 146, 255, 0.3);border-color:#5792FF;}
@@ -2105,12 +2115,37 @@ $member_width:100px;
       &:last-of-type{border-right:1px solid $tbl_plan_bordercolor;;}
     }
     .absence{@extend %plan_item;@extend %absence;}
-    .attendance{@extend %plan_item;@extend %attendance;width:calc((100% / 24) * var(--workTime) - 2px);left:calc(100% / 24 * var(--workStart) + 1px);z-index:2;
-      span::before{display:inline-block;width:100%;height:100%;position:absolute;top:0;@extend %attendance;content:attr(data-text);color:#fff;font-size:12px;}
+    .attendance,
+    .off,
+    .overtime{
+      @extend %plan_item;width:calc((100% / 24) * var(--workTime) - 1.5px);left:calc(100% / 24 * var(--workStart) + 1px);
+      button,span{
+        &::before{display:inline-block;width:100%;height:100%;position:absolute;top:0;content:attr(data-text);font-size:11px;letter-spacing:-.05em;line-height:19px;}
+      }
     }
+    .attendance{@extend %attendance;z-index:2;
+      &:not(:has(.work_on)){justify-content:flex-end;
+        span{background-color:#F1F1F1;}
+      }
+      span::before{@extend %attendance;}
+    }
+    .overtime{z-index:3;background-color:#F1F1F1;border-radius:10px 0 0 10px;overflow:hidden;
+      button{width:100%;height:100%;@extend %overtime;border-radius:10px;overflow:hidden;
+        &::before{left:0;}
+      }
+    }
+    .off{z-index:3;
+      span{width:100%;@extend %off;border-radius:10px;overflow:hidden;
+        &::before{left:0;}
+      }
+    }
+    .out{@extend .off;
+      span{@extend %out;}
+    }
+
     & > div:nth-of-type(13){@extend %absence;}
-    .work_on::before{left:0;border-radius:10px 0 0 10px;padding-left:10px;}
-    .work_off::before{right:0;border-radius:0 10px 10px 0;padding-right:10px;}
+    .work_on::before{left:0;border-radius:10px 0 0 10px;}
+    .work_off::before{right:0;border-radius:0 10px 10px 0;}
   }
   .day_wrap,
   .hour_wrap{position:relative;@extend %inline_flex;@extend %box_center;

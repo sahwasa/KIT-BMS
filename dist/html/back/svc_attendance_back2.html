@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=0.5, maximum-scale=5">
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+    <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <strong>
+            <b>관리자님</b>
+            <span>기상/기후개발팀</span>
+          </strong>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/svc/svc.html">사내 서비스</a></li>
+    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container svc">
+    <header>
+      <h2><a href="svc.html">사내 서비스</a></h2>
+    </header>
+    <div class="attendance_desc">
+      <span id="today">2024-01-03(수)</span>
+      <strong id="time" class="time">11:15:38</strong>
+      <!-- 잘못눌렀을 때 취소 -->
+      <ul>
+        <li><em>출근시간</em>09:38<button class="btn_cancel" title="취소">취소</button></li>
+        <li><em>퇴근시간</em>-</li>
+        <li><em>주간 누적 근무시간</em> 10H 31M</li>
+      </ul>
+    </div>
+    <div class="btn_workset">
+      <div class="btn_dbl_btn">
+        <button type="button" disabled>출근</button>
+        <button type="button" >퇴근</button>
+      </div>
+      <!-- <select name="" id="" class="work_state">
+        <option value="">근무상태 변경</option>
+        <option value="">업무</option>
+        <option value="">업무 종료</option>
+        <option value="">외근</option>
+        <option value="">회의</option>
+      </select> -->
+    </div>
+    <ul class="snb_lst">
+      <li><a href="svc_basicData.html">이력관리</a>
+        <ul>
+          <!-- <li><a href="svc_basicData.html">기본사항</a></li>        -->
+          <li><a href="svc_attendance.html">근태 현황</a></li>
+          <li><a href="svc_annualLeave.html">연차 내역</a></li>
+          <!-- <li><a href="svc_edu.html">교육 내역</a></li> -->
+        </ul>      
+      </li>
+      <li><a href="svc_empStatus.html">임직원 현황</a></li>
+      <!-- <li><a href="svc_meetingRoom.html">자원 (보류)</a>        
+        <ul>
+          <li><a href="svc_meetingRoom.html">회의실</a></li>
+          <li><a href="svc_equip.html">장비 및 소프트웨어?</a></li>
+          <li><a href="svc_book.html">도서대여 및 구매신청</a></li>
+          <li><a href="svc_locker.html">사물함대여</a></li>
+          <li><a href="svc_supplies.html">물품신청</a></li>
+          <li><a href="svc_supplies.html">방화벽 허용신청??</a></li>
+          <li><a href="svc_app_history.html">신청이력 및 현황</a></li>
+        </ul>
+      </li>
+      <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li>
+      <li><a href="svc_certificate.html">증명서 발급</a></li> -->
+      <li><a href="svc_business.html">사업자관리</a></li>
+      <li><a href="svc_businessCard.html">명함관리</a></li>
+    </ul>
+  </div>
+</section>
+<script>
+  function displayCurrentTime() {
+      var currentTime = new Date();
+      var year = currentTime.getFullYear();
+      var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+      var day = currentTime.getDate().toString().padStart(2, '0');
+      var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+      var dayOfWeek = daysOfWeek[currentTime.getDay()];
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      hours = (hours < 10) ? "0" + hours : hours;
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      var dateString = `${year}-${month}-${day}(${dayOfWeek})`;
+      var timeString = `${hours}:${minutes}:${seconds}`;
+
+      document.querySelector('#today').innerHTML = dateString;
+      document.querySelector('#time').innerHTML = timeString;
+  }
+  displayCurrentTime();
+  setInterval(displayCurrentTime, 1000);
+</script>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>근태 현황<span>근태관리</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>사내 서비스</li>
+            <li>근태관리</li>
+            <li>근태 현황</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body attendance">
+        <div class="attendance_type">
+          <em>정규 근무시간 (09:00~18:00)</em>
+          <button type="button" class="btn_default" onclick="document.querySelector('.p_change_flexTime').showModal();">변경신청</button>
+        </div>          
+        <section class="attendance_summary">
+          <div class="handle_week">
+            <button type="button" class="handle_prev">이전 달 이동</button>
+            <span>2023. 01</span>
+            <button type="button" class="handle_next" disabled>다음 달 이동</button>
+            <button type="button" class="handle_today">오늘</button>
+          </div>
+        </section>
+        <section class="attendance_desc">
+          <div class="desc">
+            <table class="tbl_attendance">
+              <thead>
+                <tr>
+                  <th scope="col">일자</th>
+                  <th scope="col">업무시작</th>
+                  <th scope="col">업무종료</th>
+                  <th scope="col">총 근무시간</th>
+                  <th scope="col">근무시간 상세</th>
+                  <th scope="col">비고</th>
+                  <th scope="col">작업</th>
+                </tr>
+              </thead>
+              <tbody>                
+                <tr class="holiday">
+                  <td><span class="date">01</span>월</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>기본 - &sol; 연장 -</td>
+                  <td>신정,연차,외근(13:00 ~ 15:30 / 행선지),출장(행선지)</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td colspan="7">                    
+                  </td>
+                </tr>
+                <tr class="on">
+                  <td><span class="date">02</span>화</td>
+                  <td>08:50:20</td>
+                  <td>18:00:00</td>
+                  <td>6H 30M</td>
+                  <td>기본 6H 30M &sol; 연장 1H 30M</td>
+                  <td>반차(13:00 ~ 15:30)</td>
+                  <td><button type="button" class="btn_default" onclick="document.querySelector('.p_overtime').showModal();">연장신청</button></td>
+                </tr>
+                <tr>
+                  <td colspan="7">                    
+                    <div class="tbl_plan_wrap">
+                      <div class="tbl_plan_preview">
+                        <div class="time_body">
+                          <div class="column_wrap">
+                            <div class="timelabel">
+                              <div>00</div><div>01</div><div>02</div><div>03</div><div>04</div><div>05</div>
+                              <div>06</div><div>07</div><div>08</div><div>09</div><div>10</div><div>11</div>
+                              <div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
+                              <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
+                            </div>
+                            <!-- typeA:08~17, tybeB:09~18, typeC:10~19 -->
+                            <div class="timeline typeB">
+                              <div class="col_wrap">
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                              </div>
+                              <div class="row_wrap">
+                                <!-- 생성한 시간 갯수만큼 기본 생성(예제는 13개) -->
+                                <!-- width값, left값 (100% / 시간갯수 * 0.5=30분 -->
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div>
+                                <em class="attendance" style="--workTime:10.5;--workStart:9;">
+                                  <span class="work_on" data-text="출근"></span>
+                                  <span class="work_off" data-text="퇴근"></span>
+                                </em>
+                                <em class="overtime" style="--workTime:1.5;--workStart:18;">
+                                  <button type="button" class="work" data-text="연장"></button>                                  
+                                </em>
+                                <em class="overtime" style="--workTime:3;--workStart:20;">
+                                  <button class="work" data-text="연장"></button>                                 
+                                </em>
+                                <em class="off" style="--workTime:2.5;--workStart:11;">
+                                  <span class="work" data-text="반차"></span>
+                                </em>
+                              </div>                                         
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="on">
+                  <td><span class="date">03</span>수</td>
+                  <td>08:35:20</td>
+                  <td>01:35:10 (+1)</td>
+                  <td>-</td>
+                  <td>기본 8H &sol; 연장 -</td>
+                  <td>-</td>
+                  <td><button type="button" class="btn_default" onclick="document.querySelector('.p_overtime').showModal();">연장신청</button></td>
+                </tr>
+                <tr>
+                  <td colspan="7"> 
+                    <div class="tbl_plan_wrap">
+                      <div class="tbl_plan_preview">
+                        <div class="time_body">
+                          <div class="column_wrap">
+                            <div class="timelabel">
+                              <div>00</div><div>01</div><div>02</div><div>03</div><div>04</div><div>05</div>
+                              <div>06</div><div>07</div><div>08</div><div>09</div><div>10</div><div>11</div>
+                              <div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
+                              <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
+                            </div>
+                            <!-- typeA:08~17, tybeB:09~18, typeC:10~19 -->
+                            <div class="timeline typeB">
+                              <div class="col_wrap">
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                                <div class="hour_wrap"><div></div></div>
+                              </div>
+                              <div class="row_wrap">
+                                <!-- 생성한 시간 갯수만큼 기본 생성(예제는 13개) -->
+                                <!-- width값, left값 (100% / 시간갯수 * 0.5=30분 -->
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div><div></div>
+                                <div></div><div></div><div></div><div></div>
+                                <em class="attendance" style="--workTime:15;--workStart:9;">
+                                  <span class="work_on" data-text="출근"></span>
+                                </em>                               
+                                <em class="out" style="--workTime:2;--workStart:13;">
+                                  <span class="work" data-text="외근"></span>
+                                </em>                               
+                              </div>                                         
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>                   
+                  </td>
+                </tr>
+                <tr class="today on">
+                  <td><span class="date">04</span>목</td>
+                  <td class="abnormal">13:55:20</td><!-- 지각 조퇴시 abnormal추가 -->
+                  <td class="abnormal">- <button type="button" class="btn_modify" title="퇴근시간 정정">퇴근시간 정정</button></td>
+                  <td>3H 0M</td>
+                  <td>기본 8H &sol; 연장 -</td>
+                  <td>-</td>
+                  <td>
+                    <button type="button" class="btn_default" onclick="document.querySelector('.p_overtime').showModal();">연장신청</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="7">                    
+                    <div class="tbl_plan_wrap">
+  <div class="tbl_plan_preview">
+    <div class="time_body">
+      <div class="column_wrap">
+        <div class="timelabel">
+          <div>00</div><div>01</div><div>02</div><div>03</div><div>04</div><div>05</div>
+          <div>06</div><div>07</div><div>08</div><div>09</div><div>10</div><div>11</div>
+          <div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
+          <div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
+        </div>
+        <!-- typeA:08~17, tybeB:09~18, typeC:10~19 -->
+        <div class="timeline typeC">
+          <div class="col_wrap">
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+            <div class="hour_wrap"><div></div></div>
+          </div>
+          <div class="row_wrap">
+            <!-- 생성한 시간 갯수만큼 기본 생성(예제는 13개) -->
+            <!-- width값, left값 (100% / 시간갯수 * 0.5=30분 -->
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <em class="attendance" style="--workTime:1.5;--workStart:0;">
+              <span class="work_off" data-text="퇴근"></span>
+            </em>
+            <em class="attendance" style="--workTime:10;--workStart:14;">
+              <span class="work_on" data-text="출근"></span>
+            </em>
+          </div>                                         
+      </div>
+    </div>
+  </div>
+</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="date">05</span>금</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>기본 8H &sol; 연장 -</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="7">                    
+                  </td>
+                </tr>
+                <tr class="sat">
+                  <td><span class="date">06</span>토</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>기본 - &sol; 연장 -</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="7">                    
+                  </td>
+                </tr>
+                <tr class="sun">
+                  <td><span class="date">06</span>일</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>기본 - &sol; 연장 -</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="7">                    
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="date">07</span>월</td>
+                  <td>이하 생략</td>
+                  <td></td>
+                  <td></td>
+                  <td>기본 - &sol; 연장 -</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td colspan="7">                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="calendar_wrap">
+          <!-- <div id='cal_attendance'></div> -->
+        </div>
+          <!-- 일정상세보기 -->
+          <!-- 연차:상세팝업X / 출장 및 외근 : 출장,외근 신청서 전자결재 연동 / 회의 : 기본 팝업 -->
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<dialog class="p_change_flexTime" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>유연근무 신청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">      
+      <article>
+        <header class="blind">
+          <h1>변경신청</h1>
+        </header>
+        <table class="tbl_default tbl_row">
+          <caption>변경신청 내용</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="required"><label for="work_range">근무시간</label></th>
+              <td>
+              <select id="nameSelect">
+                <option value="근무시간을 선택하세요">근무시간 선택</option>
+                <option value="">08:00~17:00</option>
+                <option value="">08:30~17:30</option>
+                <option value="">09:00~18:00</option>
+                <option value="">09:30~18:30</option>
+                <option value="">10:00~19:00</option>
+              </select>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="work_start">기간</label></th>
+              <td>
+                <div class="period_custom">
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" id="" name="start_date" title="시작일">
+  </span>
+  <span>
+    <input type="date" min="0001-01-01" max="9999-12-31" title="종료일" name="end_date">
+  </span>
+</div>
+                <span>(※ 종료일 미정시 당해 연도 말까지 적용됨)</span>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="">사유</label></th>
+              <td><input type="text" id="" placeholder="사유" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="btn_wrap">
+          <button class="btn_red" type="submit">신청</button>
+          <button class="btn_gray_line" type="button">닫기</button>
+        </div>
+      </article>
+      <article>
+        <header class="p_body_tit">
+          <h1>신청이력 (최근 10개)</h1>
+        </header>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>신청이력</caption>
+            <thead>
+              <tr>
+                <th scope="col">신청일자</th>
+                <th scope="col">기존 근무시간</th>
+                <th scope="col">신청 근무시간</th>
+                <th scope="col">변경기간</th>
+                <th scope="col">사유</th>
+                <th scope="col">승인여부</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>24-05-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-05-18~24-12-31</td>
+                <td><span>일찍 일어나볼께요.</span></td>
+                <td>대기</td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>08:00~17:00</td>
+                <td>10:00~19:00</td>
+                <td>24-01-08~24-05-30</td>
+                <td><span>일어나기 힘들어요.</span></td>
+                <td>대기</td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>08:00~17:00</td>
+                <td>10:00~19:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>늦잠자고싶어요.</span></td>
+                <td><em title="김상사(23-01-04) : 새나라의 어린이가 되세요.">반려</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_overtime" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>연창근무 신청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_info">
+      <h3>연장 근무를 신청합니다.</h3>
+      <p>새 비밀번호는 8자 이상으로 생성해주세요. 영문(대문자, 소문자), 숫자, 특수문자 사용이 가능합니다.</p>
+    </div>
+    <div class="p_body">
+      <article class="pw_change_step01 ipt_wrap">
+        <dl>
+          <dt><label for="old_PW">기존 비밀번호</label></dt>
+          <dd>
+            <div class="period_custom">
+                <input type="datetime-local" id="stime" title="시각 선택"></input>
+                <input type="datetime-local" id="stime" title="시각 선택"></input>
+              </div>
+          </dd>
+          <dt><label for="old_PW">새 비밀번호</label></dt>
+          <dd>
+            <input type="password" id="old_PW" placeholder="새 비밀번호" />
+            <p class="info_warn">비밀번호 형식을 확인해주세요.</p>
+          </dd>
+          <dt><label for="old_PW">비밀번호 재확인</label></dt>
+          <dd>
+            <input type="password" id="old_PW" placeholder="비밀번호 재확인" />
+            <p class="info_ok">비밀번호 일치</p>
+          </dd>
+        </dl>
+      </article>
+      <article class="pw_change_step02">
+        <div class="auth">
+          <h2>비밀번호 변경 완료</h2>
+          <p>비밀번호 변경이 완료되었습니다.</p>
+        </div>
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="../../images/asset/org.jpg" alt="조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>자리배치도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="../../images/asset/seating_chart.jpg" alt="자리배치도">
+    </div>
+  </form>
+</dialog>
+
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
+<script src="../../js/attendance_fullcalendar.js"></script>
+</body>
+
+</html>

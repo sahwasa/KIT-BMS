@@ -7,166 +7,21 @@
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>근태 현황<span>근태관리</span></h1>
+        <h1>근태현황</h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li>사내 서비스</li>
-            <li>근태관리</li>
-            <li>근태 현황</li>
+            <li><a href="#">사내서비스</a></li>
+            <li>근태현황</li>
           </ul>
         </section>
       </header>
-      <div class="cont_body attendance">
-        <section class="attendance_summary">
-          <div class="handle_week">
-            <button type="button" class="handle_prev">이전 달 이동</button>
-            <span>2023. 01</span>
-            <button type="button" class="handle_next" disabled>다음 달 이동</button>
-            <button type="button" class="handle_today">오늘</button>
-          </div>
-          <div class="attendance_type">
-            <em>B타입 (09:00~18:00)</em>
-            <button type="button" class="btn_default" onclick="document.querySelector('.p_change_flexTime').showModal();">변경신청</button>
-          </div>
-          <div class="box_compact">
-            <ul class="time_summary">
-              <li><em>이번주 누적 근무시간</em>8h 0m 0s</li>
-              <li><em>이번주 초과 근무시간</em>8h 0m 0s</li>
-              <li><em>이번주 잔여 근무시간</em>8h 0m 0s</li>
-              <li><em>이번달 누적 근무시간</em>8h 0m 0s</li>
-              <li><em>이번달 연장 근무시간</em>8h 0m 0s</li>
-            </ul>
-          </div>
+      <div class="cont_body">
+        <!-- 일정상세보기 -->
+        <!-- 연차:상세팝업X / 출장 및 외근 : 출장,외근 신청서 전자결재 연동 / 회의 : 기본 팝업 -->
+        <section>
+          <div id='calendar' class='calendar_attendance'></div>
         </section>
-        <section class="attendance_desc">
-          <details open>
-            <summary>1주차
-              <div class="summary">누적 근무시간 40h 0m 0s<span>( 초과 근무시간 <em>0h 0m 0s</em> )</span></div>
-            </summary>
-            <div class="desc">
-              <table class="tbl_attendance">
-                <thead>
-                  <tr>
-                    <th scope="col">일자</th>
-                    <th scope="col">업무시작</th>
-                    <th scope="col">업무종료</th>
-                    <th scope="col">총 근무시간</th>
-                    <th scope="col">근무시간 상세</th>
-                    <th scope="col">승인요청내역</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="date">31</span>일</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>기본 - &sol; 연장 - &sol; 야간 -</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">                    
-                      @@include('../../inc/module/module_tbl_attendance.html')
-                    </td>
-                  </tr>
-                  <tr class="holiday">
-                    <td><span class="date">01</span>월</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>기본 - &sol; 연장 - &sol; 야간 -</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">                    
-                      @@include('../../inc/module/module_tbl_attendance.html')
-                    </td>
-                  </tr>
-                  <tr class="on">
-                    <td><span class="date">02</span>화</td>
-                    <td>09:00:00</td>
-                    <td>18:00:00</td>
-                    <td>8h 0m 0s</td>
-                    <td>기본 8h 0m 0s &sol; 연장 0h 0m 0s &sol; 야간 0h 0m 0s</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">                    
-                      @@include('../../inc/module/module_tbl_attendance.html')
-                    </td>
-                  </tr>
-                  <tr class="today">
-                    <td><span class="date">03</span>수</td>
-                    <td>09:00:00</td>
-                    <td>18:00:00</td>
-                    <td>8h 0m 0s</td>
-                    <td>기본 8h 0m 0s &sol; 연장 0h 0m 0s &sol; 야간 0h 0m 0s</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">                    
-                      @@include('../../inc/module/module_tbl_attendance.html')
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><span class="date">04</span>목</td>
-                    <td>09:00:00</td>
-                    <td>18:00:00</td>
-                    <td>8h 0m 0s</td>
-                    <td>기본 8h 0m 0s &sol; 연장 0h 0m 0s &sol; 야간 0h 0m 0s</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">                    
-                      @@include('../../inc/module/module_tbl_attendance.html')
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><span class="date">05</span>금</td>
-                    <td>09:00:00</td>
-                    <td>18:00:00</td>
-                    <td>8h 0m 0s</td>
-                    <td>기본 8h 0m 0s &sol; 연장 0h 0m 0s &sol; 야간 0h 0m 0s</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">                    
-                      @@include('../../inc/module/module_tbl_attendance.html')
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><span class="date">06</span>토</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>기본 - &sol; 연장 - &sol; 야간 -</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">                    
-                      @@include('../../inc/module/module_tbl_attendance.html')
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          <details>
-            <summary>2주차
-              <div class="summary">누적 근무시간 0h 0m 0s<span>( 초과 근무시간 <em>0h 0m 0s</em> )</span></div>
-            </summary>
-            <div class="desc">
-              .tbl_attendance, 생략
-            </div>
-          </details>
-        </section>
-
-        <div class="calendar_wrap">
-          <!-- <div id='cal_attendance'></div> -->
-        </div>
-          <!-- 일정상세보기 -->
-          <!-- 연차:상세팝업X / 출장 및 외근 : 출장,외근 신청서 전자결재 연동 / 회의 : 기본 팝업 -->
       </div>
     </section>
   </main>
@@ -174,9 +29,9 @@
 </div>
 @@include('../../inc/pop/p_change_flexTime.html')
 @@include('../../inc/layout/script.html')
+
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
-<script src="../../js/attendance_fullcalendar.js"></script>
+<script src="../../js/attendance.js"></script>
 </body>
-
 </html>

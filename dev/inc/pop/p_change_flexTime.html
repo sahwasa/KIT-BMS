@@ -1,7 +1,7 @@
 <dialog class="p_change_flexTime" tabindex="0">
   <form method="dialog">
     <div class="p_header">
-      <strong>근무시간 변경신청</strong>
+      <strong>유연근무 신청</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </div>   
     <div class="p_body">      
@@ -16,16 +16,19 @@
               <th scope="row" class="required"><label for="work_range">근무시간</label></th>
               <td>
               <select id="nameSelect">
-                <option value="근무시간을 선택하세요">근무시간 타입선택</option>
-                <option value="">A타입 (08:00~17:00)</option>
-                <option value="">B타입 (09:00~18:00)</option>
-                <option value="">C타입 (10:00~19:00)</option>
+                <option value="근무시간을 선택하세요">근무시간 선택</option>
+                <option value="">08:00~17:00</option>
+                <option value="">08:30~17:30</option>
+                <option value="">09:00~18:00</option>
+                <option value="">09:30~18:30</option>
+                <option value="">10:00~19:00</option>
               </select>
             </tr>
             <tr>
               <th scope="row" class="required"><label for="work_start">기간</label></th>
               <td>
                 @@include('../module/module_period.html')
+                <span>(※ 종료일 미정시 당해 연도 말까지 적용됨)</span>
               </td>
             </tr>
             <tr>
@@ -41,15 +44,16 @@
       </article>
       <article>
         <header class="p_body_tit">
-          <h1>변경이력 (최근 3개월)</h1>
+          <h1>신청이력 (최근 10개)</h1>
         </header>
         <div class="tbl_wrap">
           <table class="tbl_default">
-            <caption>변경이력</caption>
+            <caption>신청이력</caption>
             <thead>
               <tr>
                 <th scope="col">신청일자</th>
-                <th scope="col">근무시간</th>
+                <th scope="col">기존 근무시간</th>
+                <th scope="col">신청 근무시간</th>
                 <th scope="col">변경기간</th>
                 <th scope="col">사유</th>
                 <th scope="col">승인여부</th>
@@ -58,31 +62,83 @@
             <tbody>
               <tr>
                 <td>24-05-31</td>
-                <td>A타입</td>
-                <td>24-05-18~</td>
-                <td>일찍 일어나볼께요.</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-05-18~24-12-31</td>
+                <td><span>일찍 일어나볼께요.</span></td>
                 <td>대기</td>
               </tr>
               <tr>
                 <td>24-12-31</td>
-                <td>B타입</td>
+                <td>08:00~17:00</td>
+                <td>10:00~19:00</td>
                 <td>24-01-08~24-05-30</td>
-                <td>일어나기 힘들어요.</td>
+                <td><span>일어나기 힘들어요.</span></td>
                 <td>대기</td>
               </tr>
               <tr>
                 <td>24-12-31</td>
-                <td>C타입</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
                 <td>24-01-05~24-01-05</td>
-                <td>집에 일이 있습니다.</td>
-                <td>승인 : 23-01-04</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
               </tr>
               <tr>
                 <td>24-12-31</td>
-                <td>C타입</td>
+                <td>08:00~17:00</td>
+                <td>10:00~19:00</td>
                 <td>24-01-05~24-01-05</td>
-                <td>늦잠자고싶어요 </td>
-                <td>반려 : 23-01-04<p>(새나라의 어린이가 되세요.)</p></td>
+                <td><span>늦잠자고싶어요.</span></td>
+                <td><em title="김상사(23-01-04) : 새나라의 어린이가 되세요.">반려</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
+              </tr>
+              <tr>
+                <td>24-12-31</td>
+                <td>10:00~19:00</td>
+                <td>08:00~17:00</td>
+                <td>24-01-05~24-01-05</td>
+                <td><span>집에 일이 있습니다.</span></td>
+                <td><em title="김상사(23-01-04)">승인</em></td>
               </tr>
             </tbody>
           </table>
