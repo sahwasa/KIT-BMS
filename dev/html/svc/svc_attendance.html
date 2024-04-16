@@ -19,8 +19,21 @@
       <div class="cont_body">
         <!-- 일정상세보기 -->
         <!-- 연차:상세팝업X / 출장 및 외근 : 출장,외근 신청서 전자결재 연동 / 회의 : 기본 팝업 -->
-        <section>
-          <div id='calendar' class='calendar_attendance'></div>
+        <section class='calendar_attendance'>
+          <div id='calendar'></div>
+          <ul class="attendace_legend">
+            <li>근무예정</li>
+            <li>근무중</li>
+            <li>근무완료</li>
+            <li>연장근무</li>
+            <li>특별근무</li>
+            <li>퇴근미입력</li>
+            <li>지각,조퇴</li>
+            <li>결근</li>
+            <li>휴가,반차</li>
+            <li>외근,출장</li>
+            <li>철야</li>
+          </ul>
         </section>
       </div>
     </section>
@@ -28,6 +41,7 @@
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/pop/p_change_flexTime.html')
+@@include('../../inc/pop/p_require_overtime.html')
 @@include('../../inc/layout/script.html')
 
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>

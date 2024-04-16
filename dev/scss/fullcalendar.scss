@@ -85,7 +85,7 @@
   .fc-daygrid-day-number{width:24px;font-size:11px;color:#737781;border-radius:50%;aspect-ratio:1;text-align:center;
     &:hover{background-color:#edf0f3;}
   }  
-  .fc-daygrid-day:has(.fc-highlight){
+  .selected{
     .fc-highlight{background-color:transparent;}
     .fc-daygrid-day-top .fc-daygrid-day-number{background-color:#e42b29;color:#fff;}    
   }
@@ -97,44 +97,58 @@
     &:hover{color:#363636;}
   }
 }
+$on-duty:#006875;
 $regular:#62b3d1;
+$holiday_work:#ff9924;
 $overtime:#ffab4a;
 $off:#7249bd;
 $out:#3788D8;
 $night:#21D4A9;
 $late:#ff3c87;
-// $late:$red;
 $truancy:$red;
-$not_entered:#FF9A00;
+$not_entered:#FFC580;
 $scheduled:$gray;
 
 @mixin cal_ico($col:$regular,$font){
   @include customEvt($col){display:flex;align-items:center;background-color:rgba($col,.13);font-size:11px;border-width:0;
     &::before{@include fontello($font);color:$col;margin:0 4px;}
-    // &.fc-event .fc-event-title{color:#a1a4ad;}
     &.fc-daygrid-dot-event{background-color:transparent;}
   } 
 }
-$attendance_legend :($regular:'\eb6c',$overtime:'\ebc3',$off:'\ebc3',$out:'\f0f2',$night:'\e8cc',$late:'\b38');
-.calendar_attendance.fc{
-  .fc-event{border-width:0;background-color:transparent;}
-  .regular{@include cal_ico($font:'\eb6c');}
-  .early,
-  .late{@include cal_ico($late,'\eb38');
-    &.fc-event .fc-event-title{color:$regular;}
-    b{font-weight:700;color:$late;}
+$_attendance_legend :($scheduled:'\ebc3',$on-duty:'\eb39',$regular:'\eb6c',$overtime:'\ebc3',$holiday_work:'\f274',$not_entered:'\e81d',$late:'\eb38',$truancy:'\e876',$off:'\e860',$out:'\f0f2',$night:'\e8cc',);
+.calendar_attendance{position:relative;display:flex;flex-direction:column;gap:10px;
+  .attendace_legend{flex-shrink:0;display:flex;gap:15px;margin-top:auto;
+    li{font-size:12px;color:#a1a4ad;
+      &::before{@include fontello('font');margin-right:5px;vertical-align:middle;}
+    }
+    @each $type, $font in $_attendance_legend{
+      $i: index($_attendance_legend, $type $font);
+      li:nth-child(#{$i}){
+        &::before{content:$font;color:$type;}
+      }
+    }
   }
-  .scheduled{@include cal_ico($scheduled,'\ebc3');
-    &.fc-event .fc-event-title{color:#ccc;}
-  }
-  .on-duty{@include cal_ico($font:'\eb39');}
-  .overtime{@include cal_ico($overtime,'\ebc3');}
-  .holiday_work{@include cal_ico($overtime,'\f274');}
-  .night{@include cal_ico($night,'\e8cc');}
-  .off{@include cal_ico($off,'\e860');}
-  .out{@include cal_ico($out,'\f0f2');}
-  .truancy{@include cal_ico($truancy,'\e876');}
-  .not_entered{@extend .regular;
-    b{font-weight:700;color:$not_entered;}
+  #calendar{flex:1 1 auto;min-height:420px;max-height:calc(100vh - 210px);
+    .fc-event{border-width:0;background-color:transparent;}
+    .regular{@include cal_ico($font:'\eb6c');}
+    .early,
+    .late{@include cal_ico($late,'\eb38');
+      &.fc-event .fc-event-title{color:$regular;}
+      b{font-weight:700;color:$late;}
+    }
+    .scheduled{@include cal_ico($scheduled,'\ebc3');
+      &.fc-event .fc-event-title{color:#ccc;}
+    }
+    .on-duty{@include cal_ico($on-duty,'\eb39');}
+    .overtime{@include cal_ico($overtime,'\ebc3');}
+    .holiday_work{@include cal_ico($holiday_work,'\f274');}
+    .night{@include cal_ico($night,'\e8cc');}
+    .off{@include cal_ico($off,'\e860');}
+    .out{@include cal_ico($out,'\f0f2');}
+    .truancy{@include cal_ico($truancy,'\e876');}
+    .not_entered{@include cal_ico($not_entered,'\e81d');
+      &.fc-event .fc-event-title{color:$regular;}
+      b{font-weight:700;color:$not_entered;}
+    }
   }
 }

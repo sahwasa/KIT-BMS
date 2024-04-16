@@ -27,7 +27,18 @@
       },
       schedulerLicenseKey: '0328483609-fcs-1693988989',         
       editable: false,
-      selectable: true,     
+      selectable: false,
+      dateClick: function(info) {
+        var allDate = document.querySelectorAll('.fc .fc-day');
+        allDate.forEach(function(el){
+          el.classList.remove('selected');
+        })
+        info.dayEl.classList.add('selected');
+        console.log(info.dateStr)
+      },     
+      datesSet: function(info) {    
+        document.querySelector('.fc .fc-day.fc-day-today').classList.add('selected');
+      },
       initialView: 'dayGridMonth',   
       weekNumbers: false,
       weekNumberFormat:{week:'narrow'},

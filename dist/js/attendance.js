@@ -189,7 +189,8 @@
           }
         }
       },
-      schedulerLicenseKey: '0328483609-fcs-1693988989',         
+      schedulerLicenseKey: '0328483609-fcs-1693988989',
+      selectable:false,         
       initialView: 'dayGridMonth',
       businessHours:  {
         daysOfWeek: [ 1,2,3,4,5 ],      
@@ -198,6 +199,11 @@
       locale: 'ko',    
       dayMaxEvents: true, // allow "more" link when too many events    
       displayEventTime: false,
+      dateClick: function(info) {
+        document.querySelector('.p_overtime').showModal();
+        document.getElementById('overwork_date').value = info.dateStr;
+        // info.dayEl.style.backgroundColor = 'red';
+      },
       eventSources:[source],
       eventContent: function(info) {
         let tit = info.event.title;        
@@ -223,7 +229,8 @@
         }
       },
       eventClick: function(info) {
-        if(info.event.title.search('미입력')){
+        if(info.event.title.search('미입력') > 0){
+          document.querySelector('.p_overtime').showModal();
         }
       }     
     });
