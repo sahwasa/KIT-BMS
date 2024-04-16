@@ -384,6 +384,9 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   }
   .approval_set .attach_list:empty::before{display:none;}
 }
+.p_offWork,
 .p_overtime{width:500px;
+  .p_body{padding-top:10px;}
   .night_work{margin-left:30px;}
 }
+.p_offWork{width:350px;}

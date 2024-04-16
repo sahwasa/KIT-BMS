@@ -230,7 +230,10 @@
       },
       eventClick: function(info) {
         if(info.event.title.search('미입력') > 0){
-          document.querySelector('.p_overtime').showModal();
+          document.querySelector('.p_offWork').showModal();
+          var start = info.event.startStr.substring(0,10);
+          console.log(start.substring(0,10))
+          document.getElementById('offwork_date').value = start;
         }
       }     
     });
