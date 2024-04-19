@@ -58,20 +58,21 @@ $red:#e42b29;
 $tomato:#ff6664;
 $skyblue:#05b4d9;
 $blue:#2974e4;
-$yellow:#ff9702;
+$yellow:#f0a44f;
+$orange:#f0a44f;
 $gray:#999;
 $green:#35b821; // 승인 결재완료 종료
 
-$draft:#30b4e9; // 상신 
-$ing:#2974e4; // 진행중 수행중 진행 결재진행 전결
-$fin:#35b821; // 승인 결재완료 종료
+$draft:#30b4e9; // 접수
+$ing:#2974e4; // 진행중, 수행중, 진행, 결재진행, 전결
+$fin:$green; // 승인, 결재완료, 종료
 $agree:#be68e0; // 합의
-$reject:#ff7575; // 회수 반려
-$wait:#f0a44f; // 준비 결재대기
-$defer:#f58d39; // 후결대기
-$done:#55b2b7; // 후결
-$cc:#8867c9; // 참조
-$relay:#c94b9f; // 전달
+$reject:$tomato; // 회수, 반려
+$wait:$yellow; // 준비, 결재대기, 참조 접수
+$defer:$orange; // 후결대기
+$done:#55b2b7; // 후결, 참조완료, 확인
+$cc:#8867c9; // 참조확인
+$relay:#c94b9f;
 
 //task
 $task_ing:#2ea3fc;
@@ -92,9 +93,8 @@ $task_hold:#2cc78b;
 .ready,
 .wait{@include badge_color($wait)} // 준비 결재대기
 .defer{@include badge_color($defer)} // 후결대기
-.done{@include badge_color($done)} // 전결 후결
-.cc{@include badge_color($cc)} // 참조
-.relay{@include badge_color($relay)} // 전달
+.done{@include badge_color($done)} // 전결 후결 참조완료
+.cc{@include badge_color($cc)} // 참조 미확인
 .default{@include badge_color(#b6b6b6)}
 .public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
