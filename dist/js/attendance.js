@@ -14,7 +14,7 @@
             start: '2024-04-01T08:20:20',
             end: '2024-04-01T19:30:20',
             className:'regular',
-            description:'정상근무'
+            description:'근무완료'
           },
           {
             title: '18:00 - 19:30',
@@ -112,19 +112,33 @@
             className : 'early',
             description: '조퇴'
           },
-           {
+          {
             title: '09:00 - 18:00',
             start: '2024-04-17T08:20:20',
-            end: '2024-04-17T19:30:20',
+            end: '2024-04-17T12:00:20',
             className:'regular',
-            description:'정상근무'
+            description:'근무완료'
+          },
+          {
+            title: '13:00 - 15:00',
+            start: '2024-04-17T13:00:20',
+            end: '2024-04-17T15:00:20',
+            className:'off',
+            description:'반차'
+          },
+          {
+            title: '15:00 - 18:00',
+            start: '2024-04-17T14:55:20',
+            end: '2024-04-17T18:05:20',
+            className:'regular',
+            description:'근무완료'
           },
            {
             title: '09:00 - 18:00',
             start: '2024-04-18T08:20:20',
             end: '2024-04-18T19:30:20',
             className:'regular',
-            description:'정상근무'
+            description:'근무완료'
           },
           {
             title: '09:00 -',
