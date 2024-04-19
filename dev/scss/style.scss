@@ -1966,14 +1966,21 @@ $report_gray:#f5f5f5;
 .svc_home{@include flex_ver;
   header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
   .flexible_working{@include flex_layout;
-    & > article{flex-grow:1;min-width:500px;}
+    & > article{flex-grow:1;min-width:390px;}
     .search_box{margin-left:auto;display:inline-flex;width:300px;}
     .tbl_wrap{height:auto;min-height:auto;
-      @include tbl_defaultH(144px);
-      th,td{vertical-align:middle;white-space:nowrap;}
-      em{text-align:left;@include text_ellipsis;width:100%;}
+      @include tbl_defaultH(144px);      
+      th,td{vertical-align:middle;word-break:keep-all;}
+      th{white-space:nowrap;}
+      td:first-child{text-align:left;}
       .date{font-size:11px;color:#71798a;margin-left:5px;}
-    }   
+    }
+    .flexible_history{
+      td{@include alignL(2,true);
+        &:last-child{white-space:nowrap;}
+        em{display:inline-block;max-width:400px;}
+      }
+    }
   }
   .attendance_home{width:100%;
     .refer_date{margin-left:auto;font-size:12px;align-self:flex-end;}

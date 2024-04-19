@@ -1,0 +1,37 @@
+<dialog class="p_modify_attendance" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>출퇴근 추가 입력</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_info">
+      <h3>미입력한 출퇴근시각을 입력합니다</h3>
+    </div>
+    <div class="p_body">
+      <article class="pw_change_step01 ipt_wrap">
+        <dl>
+          <dt><label for="" class="required">출근시각</label></dt>
+          <dd>
+            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
+            <div class="tool_lst">
+              <input type="date" id="arrival" title="출근일" min="0000-01-01" max="9999-12-31">
+              <input type="time" id="on_time" title="출근시각">
+            </div>          
+          </dd>         
+          <dt><label for="" class="required">퇴근시각</label></dt>
+          <dd>
+            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
+            <div class="tool_lst">
+              <input type="date" id="departure" title="퇴근일" min="0000-01-01" max="9999-12-31">
+              <input type="time" id="off_time" title="퇴근시각">
+            </div>          
+          </dd>         
+        </dl>
+      </article>     
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>

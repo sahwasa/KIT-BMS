@@ -38,7 +38,7 @@
             description:'무단결근'
           },
           {
-            title: '09:00 - 미입력',
+            title: '09:00 - ',
             start: '2024-04-04T08:20:20',
             className:'not_entered', //출근or퇴근미입력,
             description: '퇴근 미입력'
@@ -112,25 +112,25 @@
             className : 'early',
             description: '조퇴'
           },
+           {
+            title: '09:00 - 18:00',
+            start: '2024-04-17T08:20:20',
+            end: '2024-04-17T19:30:20',
+            className:'regular',
+            description:'정상근무'
+          },
+           {
+            title: '09:00 - 18:00',
+            start: '2024-04-18T08:20:20',
+            end: '2024-04-18T19:30:20',
+            className:'regular',
+            description:'정상근무'
+          },
           {
-            title: '09:00 - 근무중',
-            start: '2024-04-17T08:55:23',
+            title: '09:00 -',
+            start: '2024-04-19T08:55:23',
             className : 'on-duty',
             description: '근무중'
-          },
-          {
-            title: '10:00-19:00',
-            start: '2024-04-18T10:00:00',
-            end: '2024-04-18T19:00:00',
-            className : 'scheduled',
-            description: '근무예정'
-          },
-          {
-            title: '09:00-18:00',
-            start: '2024-04-19T09:00:00',
-            end: '2024-04-19T18:00:00',
-            className : 'scheduled',
-            description: '근무예정'
           },
           {
             title: '연차',
@@ -200,8 +200,14 @@
       dayMaxEvents: true, // allow "more" link when too many events    
       displayEventTime: false,
       dateClick: function(info) {
-        document.querySelector('.p_overtime').showModal();
-        document.getElementById('overwork_date').value = info.dateStr;
+        let today = new(Date);
+        let sTime = `${today.getHours()}:${today.getMinutes()}`;
+        let eTime = `${today.getHours() + 1}:${today.getMinutes()}`;
+        document.querySelector('.p_modify_attendance').showModal();
+        document.getElementById('arrival').value = info.dateStr;
+        document.getElementById('departure').value = info.dateStr;
+        document.getElementById('on_time').value = sTime;
+        document.getElementById('off_time').value = eTime;
         // info.dayEl.style.backgroundColor = 'red';
       },
       eventSources:[source],
@@ -209,9 +215,7 @@
         let tit = info.event.title;        
         let type = info.event.classNames;
         let tmpl;
-        if (tit.search('미입력') > 0){
-          tit = tit.replace("미입력", "<b>미입력</b>");
-        } else if(type.includes('late') || type.includes('early')){
+        if(type.includes('late') || type.includes('early')){
           let split = tit.split('-');
           let start = split[0];
           let end = split[1];
@@ -229,11 +233,24 @@
         }
       },
       eventClick: function(info) {
-        if(info.event.title.search('미입력') > 0){
-          document.querySelector('.p_offWork').showModal();
-          var start = info.event.startStr.substring(0,10);
-          console.log(start.substring(0,10))
-          document.getElementById('offwork_date').value = start;
+        let type = info.event.classNames;        
+        if(type.includes('not_entered') || type.includes('truancy')){
+          document.querySelector('.p_modify_attendance').showModal();
+          console.log(info.event)
+          let start = info.event.startStr.split('T');
+          let sDate = start[0];
+          let sTime = start[1].substring(0,5);
+          document.getElementById('arrival').value = sDate;
+          document.getElementById('on_time').value = sTime;
+          document.getElementById('departure').value = sDate;
+          document.getElementById('off_time').value = null;
+          if(type.includes('truancy')){
+            let end = info.event.endStr.split('T');
+            let eDate = end[0];
+            let eTime = end[1].substring(0,5);
+            document.getElementById('departure').value = eDate;
+            document.getElementById('off_time').value = eTime;
+          }
         }
       }     
     });
