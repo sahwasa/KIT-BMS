@@ -957,7 +957,7 @@ $photoSize:290px;
 .album_lst{display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fill, minmax($photoSize, auto));grid-template-rows: repeat(auto-fill, minmax($photoSize, auto));column-gap:5px;row-gap:5px;
   li{align-items:center;justify-content:center;gap:0;position:relative;background-color:#f6f6f6;font-size:0;height:$photoSize;overflow:hidden;}
   a>img,
-  .attach_thumb{max-width:$photoSize;max-height:initial; overflow-clip-margin:content-box;overflow:clip;vertical-align:top;}
+  .attach_thumb{max-width:$photoSize;max-height:initial;min-width:100%;min-height:100%; overflow-clip-margin:content-box;overflow:clip;vertical-align:top;}
 }
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}
 .tribute-container{position:absolute;top:0;left:0;border:1px solid #3d90ff;max-height:400px;overflow:auto;border-radius:3px;z-index:999999;padding:0!important;

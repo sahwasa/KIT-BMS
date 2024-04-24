@@ -1777,7 +1777,9 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
     }
   }
 }
-.work_todo .tbl_wrap{@include tbl_defaultH(19px);}
+.work_todo .tbl_wrap{@include tbl_defaultH(19px);
+  .project_name{font-size:11px;color:#a0a0a0;word-break:keep-all;}
+}
 .work .form_wrap{row-gap:10px;}
 .work .tbl_wrap{@include tbl_defaultH(41px);}
 .tbl_work_day{@include tbl_defaultH(66px);
