@@ -42,6 +42,7 @@
     "fullcalendar": "^6.1.8",
     "fullcalendar-scheduler": "^6.1.8",
     "jquery": "^3.6.4",
+    "jquery-ui": "^1.13.3",
     "moment": "^2.30.1",
     "tributejs": "^5.1.3"
   }

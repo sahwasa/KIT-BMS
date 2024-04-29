@@ -33,6 +33,7 @@ $('html').on('click',function(e){
   let range = ['.layer_tool'];
   handleClose(eTarget,range);
 })
+
 //로딩순서 때문에 수동실행
 function commonInit() {
   //gnb
@@ -108,7 +109,16 @@ function commonInit() {
     }
   })
 
-
+  $('dialog').draggable({ handle: ".p_header", cursor: "move" })
+  $('dialog').on('mousedown',function(e){
+    let eTarget = $(e.target);
+    let range = ['form'];
+    for (let i=0; i<=range.length; i++){
+      if(eTarget.parents(range[i]).length < 1){
+        e.target.close();
+      }
+    }
+  })
   // table_row checked
   $('.row_check').on({
     click: function (e) {

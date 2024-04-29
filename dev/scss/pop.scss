@@ -386,5 +386,9 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 }
 .p_modify_attendance{width:350px;
   .p_body{padding-top:10px;}
+  .recordDate{border-bottom:1px solid #edf0f3;font-size:13px;margin-bottom:20px;padding-bottom:5px;
+    label{@include f_blind;}
+    input{border:none;background-color:#ffffff90;text-align:center;font-size:18px;}
+  }
   .night_work{margin-left:30px;}
 }

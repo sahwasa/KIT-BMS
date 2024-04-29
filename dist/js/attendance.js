@@ -98,13 +98,13 @@
             className:'out',//외근 or 출장
             description: '출장(세종)'
           },
-          {
-            title: '09:00 - 1:20(+1)',
-            start: '2024-04-15T09:00:00',
-            end: '2024-04-16T01:20:00',
-            className:'night',
-            description: '철야'
-          },         
+          // {
+          //   title: '09:00 - 1:20(+1)',
+          //   start: '2024-04-15T09:00:00',
+          //   end: '2024-04-16T01:20:00',
+          //   className:'night',
+          //   description: '철야'
+          // },         
           {
             title: '10:00 - 15:20',
             start: '2024-04-16T10:00:00',
@@ -219,7 +219,7 @@
         let eTime = `${today.getHours() + 1}:${today.getMinutes()}`;
         document.querySelector('.p_modify_attendance').showModal();
         document.getElementById('arrival').value = info.dateStr;
-        document.getElementById('departure').value = info.dateStr;
+        // document.getElementById('departure').value = info.dateStr;
         document.getElementById('on_time').value = sTime;
         document.getElementById('off_time').value = eTime;
         // info.dayEl.style.backgroundColor = 'red';

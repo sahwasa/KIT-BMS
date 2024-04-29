@@ -182,7 +182,7 @@
             <li>결근</li>
             <li>휴가,반차</li>
             <li>외근,출장</li>
-            <li>철야</li>
+            <!-- <li>철야</li> -->
           </ul>
         </section>
       </div>
@@ -359,21 +359,15 @@
       <h3>미입력한 출퇴근시각을 입력합니다</h3>
     </div>
     <div class="p_body">
-      <article class="pw_change_step01 ipt_wrap">
+      <article class="ipt_wrap">
+        <div class="recordDate">
+          <label for="arrival">입력일자</label><input type="text" id="arrival" disabled title="근무일자">
+        </div>
         <dl>
-          <dt><label for="" class="required">출근시각</label></dt>
+          <dt><label for="" class="required">근무시각</label></dt>
           <dd>
-            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
-            <div class="tool_lst">
-              <input type="date" id="arrival" title="출근일" min="0000-01-01" max="9999-12-31">
+            <div class="period_custom">
               <input type="time" id="on_time" title="출근시각">
-            </div>          
-          </dd>         
-          <dt><label for="" class="required">퇴근시각</label></dt>
-          <dd>
-            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
-            <div class="tool_lst">
-              <input type="date" id="departure" title="퇴근일" min="0000-01-01" max="9999-12-31">
               <input type="time" id="off_time" title="퇴근시각">
             </div>          
           </dd>         
