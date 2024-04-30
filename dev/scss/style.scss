@@ -1256,6 +1256,9 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       .box_default_w{height:100%;overflow-y:auto;height:calc(100vh - 286px);min-height:403px;}
       dl{gap:5px;align-items:flex-start;}
       dd{margin-bottom:5px;}
+      legend{display:flex;width:100%;align-items:center;
+        .info{margin-left:auto;font-size:12px;align-self:flex-end;color:$tomato;}
+      }
     }
     .ipt_innerwrap{margin-top:5px;}
   }
