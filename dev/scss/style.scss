@@ -877,7 +877,7 @@ z-index:10;transition:left .51s ease-in-out;
     &+.btn_wrap{margin:10px 0;justify-content:flex-end;}
   }
   .editor_wrap{width:100%;margin-top:-1px;padding:13px 10px;border:1px solid #ebebeb;
-    textarea{height:300px;}
+    textarea{height:300px;}   
   }
   .sign_wrap{padding:35px 0 15px;font-size:13px;color:#111;font-weight:bold;line-height:30px;
     p{
@@ -2283,12 +2283,7 @@ $_planTypes:(
   }   
 }
 .album_lst{
-  .check_circle{display:none;align-items:center;justify-content:center; position:absolute;left:5px;top:5px;width:30px;height:30px;z-index:15;border-radius:50%;border-width:0;transition:all .2s;cursor:pointer;
-    &::before{@include fontello('\e815');font-size:30px;color:#fff;}
-    &:checked{background:#fff;
-      &::before{content:"\e814";color:$red;font-size:28px;}
-    }
-  }
+  .check_circle{display:none;align-items:center;justify-content:center; position:absolute;left:5px;top:5px;width:30px;height:30px;z-index:15;border-radius:50%;border-width:0;transition:all .2s;cursor:pointer;}
   li{border:3px solid transparent;cursor:pointer;
     a{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
     &:has(.check_circle:checked){border-color:$red;}

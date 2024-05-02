@@ -243,6 +243,7 @@ input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance
 
 .full{@include full;}
 .scroll{overflow-y:scroll;background-color:#f5f5f5;}
+.cursor_init{cursor: default !important;}
 
 //badge
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
@@ -980,7 +981,7 @@ $photoSize:290px;
 .editor_wrap{ 
   .ck-editor{
     .ck-source-editing-area,
-    .ck-editor__editable_inline {min-height:100px;height:auto;cursor:text;}
+    .ck-editor__editable_inline {min-height:300px;height:auto;cursor:text;}
     .ck-source-editing-area textarea{overflow:auto;}
     .ck-content{max-height:var(--h);
       .todo-list{
@@ -1004,7 +1005,15 @@ $photoSize:290px;
         th {white-space:inherit;overflow:initial;}
       }
     }    
-  } 
+  }
+}
+.ck-body-wrapper{
+  .ck.ck-balloon-panel.ck-powered-by-balloon[class*=position_border],
+  .ck.ck-balloon-panel.ck-powered-by-balloon{border:none;
+    .ck.ck-powered-by{width:50px;opacity:.3;
+      .ck-powered-by__label{display:none;}
+    }    
+  }
 }
 .ck-editor__editable .ck-horizontal-line hr{border:2px dashed #dedede;background-color:transparent;}
 #image_editor_wrap{display:none;position:fixed;z-index:1100;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
