@@ -1466,6 +1466,7 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
       &.loading::after{@include fontello('\ece6');position:absolute;left:50%;top:50%;font-size:20px;transform:translate(-50%, -50%);@include animate-spin;}
       a{display:flex;gap:8px;word-break:keep-all;}
       summary{@include flex_between;min-height:42px;padding:0 10px;border-bottom:1px solid #ebebeb;
+        &::-webkit-details-marker { display:none; }
         a{max-width:calc(100% -  21px);
           h4{font-size:14px;font-weight:bold;color:#000;letter-spacing:-0.35px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
           span{flex-shrink:0;color:#898989;letter-spacing:-1.05px;font-size:14px;}
