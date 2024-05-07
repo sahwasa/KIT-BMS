@@ -495,11 +495,11 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
       $('.cancel').on('click',function(){
         photoWrap.close();
       });
-      $('.btn_next').on('click',function(){
+      $('.btn_next').off('click').on('click',function(){
         index = index + 1;
         remoteShow(index);
       })
-      $('.btn_prev').on('click',function(){
+      $('.btn_prev').off('click').on('click',function(){
         index = index - 1;
         remoteShow(index);
       })

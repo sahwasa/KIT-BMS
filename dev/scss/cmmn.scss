@@ -290,7 +290,7 @@ input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color:#999;text-align:left;line-height:34px;
   &[disabled]{cursor:default;}
   &::before{position:absolute;top:2px;right:16px;display:inline-block;content:"";width:11px;height:11px;background-color:#fff;border-radius:50%;transition:.1s;}
-  &::after{position:relative;;top:-4px;left:0;font-size:12px;color:#fff;}
+  &::after{position:relative;top:-4px;left:0;font-size:12px;color:#fff;}
   &[data-value="on"]{background-color:#e42b29;border-color:#e42b29;
     &::before{right:2px;}
     &::after{padding-right:6px;float:right;}
@@ -1016,8 +1016,21 @@ $photoSize:290px;
   }
 }
 .ck-editor__editable .ck-horizontal-line hr{border:2px dashed #dedede;background-color:transparent;}
-#image_editor_wrap{display:none;position:fixed;z-index:1100;width:auto;left:calc(50% - 400px);top:calc(50% - 400px);padding:13px 10px;border:1px solid #d7d7d7;background:#fff;}
-#image_editor.tui-image-editor-container{width:900px !important;height:700px !important;} /* important 사용하지 않고 적용하는 법 찾아보는중..!! */
+#image_editor_wrap{display:none;position:fixed;z-index:1100;left:0;right:0;top:0;bottom:0;padding:13px 10px;border:1px solid #d7d7d7;background-color:#fff;
+  .tui-image-editor-main{
+    &.tui-image-editor-menu-resize,
+    &.tui-image-editor-menu-crop,
+    &.tui-image-editor-menu-flip,
+    &.tui-image-editor-menu-rotate,
+    &.tui-image-editor-menu-draw,
+    &.tui-image-editor-menu-shape,
+    &.tui-image-editor-menu-icon,
+    &.tui-image-editor-menu-rotate,
+    &.tui-image-editor-menu-text,
+    &.tui-image-editor-menu-mask{.tui-image-editor-wrap{bottom:150px!important;}}
+    &.tui-image-editor-menu-filter{.tui-image-editor-wrap{bottom:195px!important;}}
+  }
+}
 .btn_editor_wrap{margin-top:20px;text-align:center;}
 .tui-image-editor-header-buttons,
 .tui-image-editor-header-logo{display:none;}

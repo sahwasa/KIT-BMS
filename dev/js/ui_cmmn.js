@@ -109,9 +109,10 @@ function commonInit() {
     }
   })
 
-  $('dialog').draggable({ handle: ".p_header", cursor: "move" })
-  $('dialog').on('mousedown',function(e){
+  $('dialog:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" })
+  $('dialog:has(.p_header)').on('mousedown',function(e){
     let eTarget = $(e.target);
+    console.log(eTarget)
     let range = ['form'];
     for (let i=0; i<=range.length; i++){
       if(eTarget.parents(range[i]).length < 1){
@@ -428,7 +429,7 @@ function commonInit() {
       handleSelect($(this).closest('.optionItem')[0])
     else handleSelect(e.target)
   })
-  label.off('click').on('click', function () {
+  label.off('click').on('click', function (e) {
     e.preventDefault();
     select_custom.removeClass('active')
     $(this).parent().hasClass('active')
