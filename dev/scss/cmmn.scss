@@ -1016,7 +1016,7 @@ $photoSize:290px;
   }
 }
 .ck-editor__editable .ck-horizontal-line hr{border:2px dashed #dedede;background-color:transparent;}
-#image_editor_wrap{display:none;position:fixed;z-index:1100;left:0;right:0;top:0;bottom:0;padding:13px 10px;border:1px solid #d7d7d7;background-color:#fff;
+#image_editor_wrap{display:none;position:fixed;z-index:1100;left:0;right:0;top:0;bottom:0;padding:0 0 50px;background-color:#2B2B2B;
   .tui-image-editor-main{
     &.tui-image-editor-menu-resize,
     &.tui-image-editor-menu-crop,
@@ -1031,7 +1031,7 @@ $photoSize:290px;
     &.tui-image-editor-menu-filter{.tui-image-editor-wrap{bottom:195px!important;}}
   }
 }
-.btn_editor_wrap{margin-top:20px;text-align:center;}
+.btn_editor_wrap{margin-top:10px;text-align:center;}
 .tui-image-editor-header-buttons,
 .tui-image-editor-header-logo{display:none;}
 
