@@ -168,7 +168,15 @@ div[contenteditable]:not(.ck-widget),p[contenteditable],td[contenteditable]{@inc
 //   background:url(../images/bg_ipt.png) 0 0 no-repeat;}
 // }
 input[type="radio"],
-input[type="checkbox"]{accent-color:$red;}
+input[type="checkbox"],
+input[type="radio"][disabled]{accent-color:$red;pointer-events: none;}
+input[type="radio"][readonly],
+input[type="radio"][readonly] + label,
+label:has(input[type="radio"][readonly]),
+input[type="checkbox"][readonly],
+input[type="checkbox"][readonly] + label,
+label:has(input[type="checkbox"][readonly]),
+select[readonly]{pointer-events:none;}
 input[type="radio"]{border-radius:50%;}
 input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
 // input[type="radio"]:checked{background-position-y:-23px;}
