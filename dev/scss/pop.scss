@@ -21,6 +21,8 @@
       }
       *{align-self:center;vertical-align:middle;}
     }
+    &:not(:has(h1)){margin-bottom:3px;}
+    .tool{margin-left:auto;}
   }
   .auth{
     h2{font-size:26px;font-weight:600;color:#000;letter-spacing:-1.95px;text-align:center;}
@@ -78,7 +80,8 @@
       }
     }
   }
-  .tree_result{width:325px;height:496px;padding:10px 0;}
+  .selected{margin-top:10px;}
+  .tree_result{width:325px;height:523px;padding:10px 0;}
 }
 // p_mngTree
 .p_moveGroup,
@@ -207,6 +210,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   header{display:flex;align-items:center;gap:8px;height:40px;padding:0 15px;border-bottom:1px solid #d7d7d7;
     h1{font-size:15px;color:#404654;font-weight:bold;letter-spacing:-.7px;}
     .btnClose{margin:0 0 0 auto;}
+    .btn_switch_single{width:auto;}
   }
   .alert_lst{max-height:calc(100vh - 150px);overflow-y:auto;padding:1px;border:1px solid #d7d7d7;border-width:0 1px;
     li{border-top:1px solid #d7d7d7;padding:10px;cursor:pointer;

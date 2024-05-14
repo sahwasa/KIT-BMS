@@ -1117,9 +1117,9 @@ $defalutColor:#009dee;
     &:last-child{color:#333;font-weight:bold;}
   }   
 }
-.briefing_state{width:220px;text-align:right;
-  select{display:block;margin-bottom:2px;}
-  button{display: flex;gap:6px;letter-spacing:-.05em;
+.briefing_state{text-align:right;overflow:hidden;
+  select{display:block;margin:0 0 2px auto;width:220px;}
+  button{display:flex;gap:6px;letter-spacing:-.05em;
     &:hover{text-decoration:underline;}
   }
 }
@@ -1176,7 +1176,7 @@ $defalutColor:#009dee;
 .task_desc{@extend .proj_desc;display:flex;flex-direction:column;line-height:1.2;gap:5px;
   li:nth-child(2){@include text_ellipsis(2);}
 }
-.proj_home{
+.proj_home{@include flex_layout;
   header{display:flex;align-items:center;gap:5px;
     h1{@include tit;font-size:22px;}
     .count{@include tit;gap:0;letter-spacing:-.5px;
@@ -1205,15 +1205,15 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
     &:first-of-type{margin-top:0;}
     i{@extend %proj_tag;font-size:12px;max-width:none;width:60px;line-height:18px;}  
   }
-  dd{flex:1 auto;max-width:calc((100% - 32px) / 5);
+  dd{flex:1 auto;max-width:calc((100% - 32px) / 3);
     .etc{display:flex;align-items:center;@extend .ico_proj;margin-top:auto;line-height:1;font-size:12px;
       i{font-size:0;}
       i::before{margin-top:0;}
       .user_module{margin-left:auto;}
     }
     &.delay{background-color:#fef4f5;box-shadow:0 1px 3px rgba(255,0,0,.2);}
+    @include desktop(){max-width:calc((100% - 10px) / 2);};
   }
-  @include desktop{dd{max-width:calc((100% - 16px) / 3);}}
   dd,
   & > li{@include proj_box(true);display:flex;flex-direction:column;gap:5px;width:100%;min-height:110px;padding:10px 15px;cursor:pointer;
     .task_name{@include text_ellipsis(2);line-height:1.3;} 
@@ -1249,6 +1249,20 @@ $taskColorMap:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$tas
   .lst_header{margin-bottom:5px;}
   .btn_toggle_single{margin-left:auto;}
   // .proj_legend{justify-content:flex-end;}
+}
+.my_issue{@include box_style(0,1px);flex:0 0 300px;
+  .task_lst_wrap{height:calc(100vh - 185px);min-height:443px;overflow-y:auto;
+    .etc{display:flex;align-items:flex-end;margin-top:auto;}
+    .pic_lst{flex-shrink:0;margin-left:auto;}
+  }
+  .task_lst{position:relative;gap:0;flex-direction:column;flex-wrap:nowrap;
+    &[data-proj]::before{display:block;position:sticky;top:0;left:0;content:'- 'attr(data-proj)' -';font-size:12px;line-height:1;z-index:10;text-align:center;padding:5px 0;background-color:#edf0f3;opacity:.9;word-break:keep-all;line-height:1.2;}
+    &>li{min-height:auto;border:1px solid #ebebeb;box-shadow:none;gap:0;
+      @include on-hover;
+    }
+    .tit i{@extend %proj_tag;margin-left:auto;align-self:flex-start;font-weight:normal;font-size:11px;}
+    &:not(:has(li))::after{display:flex;align-items:center;justify-content:center;height:100%;content:"등록된 이슈톡이 없습니다.";background-color:#bfc8d2;font-size:14px;font-weight:700;color:#555;}   
+  }
 }
 .project_new{
   .new_contents{@include flex_layout;
