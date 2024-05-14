@@ -89,6 +89,7 @@
         <h1>팝업 공통</h1>
         <ul class="search_list">
           <li><button type="button" class="btn_default" data-modal="p_mngDel">경고</button></li>
+          <li><button type="button" class="btn_default" data-modal="p_confirm">확인</button></li>
           <li><button type="button" class="btn_default" data-modal="p_org_chart">조직도</button></li>
           <li><button type="button" class="btn_default" data-modal="p_seating_chart">자리배치도</button></li>
           <li><button type="button" class="btn_default" data-modal="p_mngTree">조직도 팝업</button></li>
@@ -516,6 +517,18 @@
     </div>
   </form>
 </dialog> <!--// 경고(공통) -->
+<dialog class="p_confirm">
+  <form method="dialog">    
+    <div class="p_body">
+      <!-- <p class="msg">등록완료</p> -->
+        <div class="msg"><p>결제 프로세스 변경 시 기존에 등록한 결재자 정보가 삭제됩니다.</p></div>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">확인</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog> <!--// 확인(공통) -->
 <dialog class="p_mngTree">
   <form method="dialog">
     <div class="p_header">
