@@ -217,7 +217,7 @@ input, select{
   &.w_week{width:60px;
     &+span{vertical-align:middle;}
   }
-  &.w_money{width:200px;text-align:right;
+  &.w_money{text-align:right;
     &+span{vertical-align:middle;}
   }
   &.w_auto{width:auto;}
