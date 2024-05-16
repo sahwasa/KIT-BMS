@@ -924,7 +924,7 @@ z-index:10;transition:left .51s ease-in-out;
   }
 }
 .appr_result{align-self:flex-end;margin-left:auto;
-  b{@include badge_style(null);padding:1px 3px 0;font-size:11px;font-weight:bold;min-width:39px;}
+  b{@include badge_style(null);padding:1px 2px 0;font-size:11px;font-weight:bold;min-width:39px;}
   button{line-height:21px;}  
 }
 .approval_set{@include set_style(false);  
@@ -964,7 +964,7 @@ z-index:10;transition:left .51s ease-in-out;
     .appr_result{font-size:12px;b{margin-left:3px;}}
     $_signType:('uncheck':#b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
     @each $type, $color in $_signType{
-      .#{$type}{width:43px;margin-left:3px;border-color:$color !important;color:$color !important;}
+      .#{$type}{width:40px;margin-left:3px;border-color:$color !important;color:$color !important;}
     }
   }
 }
@@ -1015,7 +1015,7 @@ z-index:10;transition:left .51s ease-in-out;
     }
   }
 }
-.user_module{display:flex;gap:5px;align-items:center;position:relative;
+.user_module{display:flex;gap:3px;align-items:center;position:relative;
   span,
   b{font-size:11px;color:#717889;align-self:flex-end;}
   em{background-color:transparent!important;}
