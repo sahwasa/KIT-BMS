@@ -168,8 +168,7 @@ div[contenteditable]:not(.ck-widget),p[contenteditable],td[contenteditable]{@inc
 //   background:url(../images/bg_ipt.png) 0 0 no-repeat;}
 // }
 input[type="radio"],
-input[type="checkbox"],
-input[type="radio"][disabled]{accent-color:$red;pointer-events: none;}
+input[type="checkbox"]{accent-color:$red;}
 input[type="radio"][readonly],
 input[type="radio"][readonly] + label,
 label:has(input[type="radio"][readonly]),
