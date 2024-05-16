@@ -1,9 +1,11 @@
+.modal,
 :modal{min-width:300px;margin:auto;padding:0;border:none;box-shadow:1.4px 1.4px 29px 0 rgba(0, 0, 0, 0.08);font-size:13px;
   &::-webkit-scrollbar{width:17px;}
   &::-webkit-scrollbar-track{background-color:transparent;}
   &::-webkit-scrollbar-thumb{background-color:#e5e6e8;border-radius:10px;background-clip:padding-box;border:5px solid transparent;}
   ::backdrop{background-color:$black;}
 }
+.modal{position:fixed;left:50%;top:50%;z-index:99999;background-color:#fff;transform:translate(-50%,-50%);}
 
 .p_header {display:flex;padding:7px 18px 8px;background-color:#e42b29;color:#fff;font-size:16px;letter-spacing:-0.4px;
   strong {flex:1;}

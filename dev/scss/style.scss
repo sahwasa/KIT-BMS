@@ -475,11 +475,11 @@ $snbWidth:250px;
 .container{grid-row:2;grid-column:2;display:flex;overflow-y: auto;}
 .contents{position:relative;flex-grow:1;padding:15px $columnGap 0;height:calc(100vh - 89px);overflow-y:auto;min-height:$minH;
 }
-.snb_fold{position:fixed;left:310px;top:70px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
+.snb_fold{position:absolute;left:0;top:10px;display:flex;align-items:center;justify-content:center;width:12px;height:38px;
 border:1px solid #ebebeb;border-left-width:0;border-radius:0 3px 3px 0;font-size:0;
 z-index:10;transition:left .51s ease-in-out;
   &::before{@include fontello('\e890');font-size:20px;color:$red;}
-  &[data-value="on"]{left:60px;}
+  // &[data-value="on"]{left:60px;}
   &[data-value="off"]::before{@include fontello('\e88f')}
 }
 .cont_tit{@include flex_between;font-weight:bold;border-bottom:1px solid #e1e1e1;letter-spacing:$tit_spacing;margin-bottom:12px;padding-bottom:15px;
