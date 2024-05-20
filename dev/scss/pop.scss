@@ -398,7 +398,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   }
   .night_work{margin-left:30px;}
 }
-.p_confirm{max-width:300px;
+.p_confirm{max-width:300px;z-index:999991;
   .msg{display:flex;align-items:center;gap:20px;
     // &::before{@include shape(44px, 34px);;background:url(../images/ic_warning.png) 0 no-repeat;}
     p{display:flex;align-items:center;flex:1;min-height:40px;white-space:initial;word-break:keep-all;}
