@@ -650,6 +650,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   th{background-color:#fff;color:#111;font-weight:bold;z-index:50;}
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
+    &:has(.w_week){white-space:nowrap;}
   }
   .tags{display:inline-flex;gap:3px;}  
   .withdrawal{text-decoration:line-through;color:$gray;
