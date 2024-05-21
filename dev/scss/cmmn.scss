@@ -434,7 +434,7 @@ $btn_red_line:#ff7575;
 }
 .btn_switch{display:flex;padding:2px;
   $unselectedColor:#cbcbcb;$hoverColor:#868686;
-  label{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px;position:relative;left:-1px;min-width:70px;padding:3px 10px 4px;border:1px solid $unselectedColor;font-size:13px;font-weight:bold;color:$unselectedColor;z-index:100;
+  label{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5px;position:relative;left:-1px;min-width:70px;padding:3px 10px 4px;border:1px solid $unselectedColor;font-size:13px;font-weight:bold;color:$unselectedColor;z-index:100;white-space:nowrap;
     &::before{line-height:17px;}
   }
   input{position:absolute;opacity:0;width:0;height:0;
@@ -458,7 +458,7 @@ $btn_red_line:#ff7575;
   }
   &.after_svc{overflow:hidden;align-items:center;
     &.divide::after{@include shape(1px, 15px);background-color:#ccc;margin-left:4px;}
-    label{padding:2px 8px 3px;min-width:auto;
+    label{padding:2px 8px 3px;min-width:auto;background-color:#fff;color:#565656;
       &:first-of-type{border-radius:3px 0 0 3px;}
       &:last-of-type{border-radius:0 3px 3px 0;}
     }

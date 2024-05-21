@@ -110,16 +110,17 @@ function commonInit() {
   })
 
   $('dialog:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" })
-  $('dialog:has(.p_header)').on('mousedown',function(e){
-    let eTarget = $(e.target);
-    console.log(eTarget)
-    let range = ['form'];
-    for (let i=0; i<=range.length; i++){
-      if(eTarget.parents(range[i]).length < 1){
-        e.target.close();
-      }
-    }
-  })
+  $('.modal:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" })
+  // $('dialog:has(.p_header)').on('mousedown',function(e){
+  //   let eTarget = $(e.target);
+  //   console.log(eTarget)
+  //   let range = ['form'];
+  //   for (let i=0; i<=range.length; i++){
+  //     if(eTarget.parents(range[i]).length < 1){
+  //       e.target.close();
+  //     }
+  //   }
+  // })
   // table_row checked
   $('.row_check').on({
     click: function (e) {
