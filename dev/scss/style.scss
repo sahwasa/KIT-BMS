@@ -1,7 +1,13 @@
 $columnGap:25px;$minH:540px;
 //layout
 #wrap{position:relative;font-size:13px;color:$black;font-family:"NanumGothic","나눔고딕","Malgun Gothic","맑은고딕","Apple SD Gothic Neo","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;}
-.wrap{display:grid;grid-template-columns:60px 1fr;grid-template-rows:60px 1fr 29px;width:100%;min-width:1280px;min-height:100vh;}
+.wrap{display:grid;grid-template-columns:60px 1fr;grid-template-rows:60px 1fr 29px;width:100%;min-width:1280px;min-height:100vh;
+  &.free_header{grid-template-rows:1fr 29px;
+    .header{display:none;}
+    .container{grid-row:1;height:calc(100vh - 29px)}
+    .footer{grid-row:2;}
+  }
+}
 .header{grid-row:1;grid-column:1/span 2;padding:0 $columnGap; border-bottom:1px solid #989898;}
 
 //header
@@ -285,7 +291,7 @@ $columnGap:25px;$minH:540px;
       &::before{background-image:url(../images/btn_top_svc_on.png);}
     }
   }
-  @for $i from 1 to 5{
+  @for $i from 1 through 5{
     & li:nth-child(#{$i}) a::before{
       background-position-y:-35px * ($i - 1);
     }
@@ -1888,7 +1894,7 @@ $report_blue:#f1f8ff;
 $report_yellow:#fffae9;
 $report_gray:#f5f5f5;
 .tbl_report{table-layout:fixed;width:100%;color:#000;overflow:hidden;
-  th,td{padding:5px;border:1px solid #ddd;text-align:center;font-size:12px;word-break:keep-all;white-space:initial}
+  th,td{padding:5px;border:1px solid #ddd;text-align:center;font-size:12px;word-break:keep-all;white-space:pre-wrap;}
   th{background-color:$report_gray;}
   td:has(select),td:has(input),
   td:has([contenteditable]){padding:5px;}
@@ -1897,7 +1903,6 @@ $report_gray:#f5f5f5;
     thead th.holiday{background-color:#ffe5e5;}
     thead>tr:last-child>th:last-child{background-color:#ccdeff;}
     .holiday,
-    tbody td:empty:not([contenteditable]),
     tbody td:nth-last-child(3),
     tbody td:nth-last-child(9),
     tfoot td:nth-child(2),
