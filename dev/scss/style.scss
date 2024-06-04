@@ -17,6 +17,22 @@ $columnGap:25px;$minH:540px;
   .logo{display:inline-block;@include f_blind;width:114px;height:25px;background:url(../images/logo.png) 0 0 no-repeat;vertical-align:text-bottom;margin-right:19px;}
   .t_red{margin-left:10px;}
 }
+.noti-container{position:fixed;top:10px;right:10px;display:flex;align-items:center;border:1px solid rgb(204, 204, 204);border-radius:8px;padding:10px;box-shadow:0 2px 15px rgba(0, 0, 0, .1);background-color:#fff;transform:translateX(0);transition: transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s;opacity:1;z-index:99999;max-width:400px;
+  .noti{position:relative;display:flex;gap:10px;align-items:center;
+    &::before{float:left;flex-shrink:0;@include shape(34px,34px);border-radius:50%;background:url(../images/bg_alert.png) 50% 8px no-repeat,#ffecec;font-size:14px;color:$red;text-align:center;line-height:34px;vertical-align:middle;}
+  }
+  $_nav_lst:'home','message','approval','work','planner','project','svc','erp''board','set';
+  @each $nav in $_nav_lst{
+    $index :index($_nav_lst, $nav);
+    .#{$nav}::before{background-position-y:calc((-32px * (#{$index} - 1)) + 8px);}
+  }
+  .inner_wrap{flex:1;position:relative;display:flex;flex-direction:column;align-items:flex-start;}
+  .noti-header{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;
+    .noti-tit{flex:1 1 auto;font-size:14px;letter-spacing:-.35px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+    .noti_info{flex-shrink:0;color:#b6b5b5;font-size:11px;letter-spacing:0;}
+  }
+  .noti-body{@include text_ellipsis(2);color:#71798a;font-size:12px;word-break:keep-all;font-weight:normal;}  
+}
 //footer
 .footer{display:flex;align-items:center;justify-content:center;grid-row:3;grid-column:2;border-top:1px solid #e1e1e1;padding:0 $columnGap;
   .connect{display:none;}
@@ -342,7 +358,9 @@ background:$black;
     a{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:$white;font-size:10px;letter-spacing:.25px;
       &::before{@include shape(26px,26px);background:url('../images/bg_nav.png') 0 0 no-repeat;position:relative;margin-bottom:3px;}
     }    
-    &.on a,&:hover a{background:$red;color:$white;}
+    &.on a,&:hover a{background:$red;color:$white;
+      @include hover_init{background-color:transparent;}
+    }
     // &:last-child{margin-top:auto;}
     &.disabled{
       &::after{position:absolute;left:0;top:0;@include shape(100%,100%);background-color:#00000090;}
@@ -589,8 +607,10 @@ z-index:10;transition:left .51s ease-in-out;
   .user_lst li{line-height:28px;} 
 }
 //message
-.tbl_message{td{@include alignL(4);}}
-.tbl_archive{td{@include alignL(5);}}
+.tbl_message td{@include alignL(4);
+  &::nth-child(3){white-space:nowrap;}
+}
+.tbl_archive td{@include alignL(5);}
 .msg{display:inline-block;max-width:32vw;text-overflow:ellipsis;white-space:nowrap;overflow: hidden;vertical-align:top;}
 .receiver_dtl{display:inline-block;flex-shrink:0;}
 .receiver_wrap{display:none;position:absolute;right:0;top:calc(100% + 5px);width:300px;height:fit-content;max-height:200px;overflow-y:auto;background-color:#fff;border:1px solid $gray;padding:5px;
@@ -1908,7 +1928,7 @@ $report_gray:#f5f5f5;
     tfoot td:nth-child(2),
     tfoot td:nth-child(8){background-color:$report_gray;}
     tbody td:last-child,
-    tbody td:nth-last-child(2){background-color:#fff;}  
+    tbody td:nth-last-child(2){background-color:#fff;}
   }
   thead{background-color:$report_gray;
     th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:$report_gray;}
@@ -1945,7 +1965,7 @@ $report_gray:#f5f5f5;
         & th:last-child,
         & td:last-child{display:none;}
       }
-    } 
+    }
     tfoot{background-color:inherit;
       &>tr>td{padding:0;border-width:0;}
       h3{font-size:14px;margin:10px 0 5px;}
@@ -2193,7 +2213,7 @@ $member_width:100px;
   &.typeA{&::before{@include opt(8)}&::after{@include opt(7)}}
   &.typeB{&::before{@include opt(9)}&::after{@include opt(6)}}
   &.typeC{&::before{@include opt(10)}&::after{@include opt(5)}}
-}
+}summary
 .hover{left:84.6154%;border:1px dashed rgb(18, 93, 230);}
 .mark_wrap{position:absolute;display:flex;top:24px;left:0px;width:100%;height:calc(100% - 24px);flex-direction:column; 
   .marks{position:relative;@extend %flex100;border-bottom:0 solid $tbl_plan_bordercolor;z-index:1;
@@ -2219,7 +2239,7 @@ $_planTypes:(
   .tree_wrap .sortable{min-width:200px;}
   .tbl_wrap{flex:1;height:calc(100vh - 288px);}
 }
-.tbl_business{td{@include alignL(4);}}
+.tbl_business{td{@include alignL(4);}@include tbl_defaultH(41px);}
 .leave_desc{display: flex;flex-direction: column;gap:$columnGap;
    header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
   .tbl_wrap{height:calc(100vh - 370px);min-height:250px;
@@ -2311,7 +2331,7 @@ $_planTypes:(
     &:has(.check_circle:checked){border-color:$red;}
     &:hover{box-shadow:0 0 30px rgba(0, 0, 0, .3) inset;
       .check_circle{display:flex;}
-      a::before{position:absolute;left:0;top:0;@include shape(100%,100%);background-color:#00000050;z-index:1;}
+      a::after{position:absolute;left:0;top:0;@include shape(100%,100%);background-color:#00000050;z-index:1;}
     } 
   }
   &.select_mode li{

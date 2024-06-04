@@ -44,7 +44,7 @@ table {border-collapse:collapse;border-spacing:0}
 caption{@include blind;}
 ul,ol,li{box-sizing:border-box;list-style:none;margin:0;}
 strong{font-weight:bold;} // 웹에디터 용
-[contenteditable]{cursor:text;}
+[contenteditable]{cursor:text;white-space:pre-wrap;}
 /* accessibility */
 #accessibility{position:absolute;width:100%;z-index:999;
   a{
@@ -189,8 +189,13 @@ input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
   input[type="radio"]:checked{background-position:-1px -24px;}
   input[type="checkbox"]:checked{background-position:-1px -1px;}
   .tbl_report input:disabled{background-color:transparent;border-width:0;}
-  // .contents{transform: scale(0.7);}
+  thead,
+  tfoot{display:table-row-group;}
 }
+@page {
+  size:210mm 297mm; /*A4*/
+  margin:0mm
+ }
 // input[type="number"]::-webkit-outer-spin-button,
 // input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;margin:0;}
 // input[type="number"]{-moz-appearance:textfield;}
@@ -239,7 +244,7 @@ label>input[type="radio"],
 label>input[type="checkbox"]{position:relative;top:-1px;margin-right:5px;vertical-align:middle;}
 input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance:none;-webkit-appearance:none;}
 [contenteditable]:not(.ck-widget),
-.ck:not(:has([contenteditable])) [contenteditable]{height:var(--h);white-space:initial;text-align:left;word-break:break-word;overflow-y:auto;}
+.ck:not(:has([contenteditable])) [contenteditable]{height:var(--h);white-space:pre-wrap;text-align:left;word-break:break-word;overflow-y:auto;}
 // layout
 #accessibility+hr,
 .blind{@include blind}
@@ -955,22 +960,30 @@ td{white-space:nowrap;text-overflow:ellipsis;
   span{@include badge_style;background-color:#e4f1ff;padding:0 3px;color:#3d90ff;font-weight:600;}
   &:empty + .placehold{visibility:visible;}
 }
+$photoSize:290px;
+$attachPhotoSize:160px;
 .album_view,
 .file_attach.album{max-height:calc(100vh - 328px);min-height:301px;overflow-y:auto;}
 .file_attach.album{
   .btn_file{top:0;bottom:0;}
-  .drop_info{display:none;}
+  .drop_info{display:none !important;}
   .drop_zone{width:100%;}
-  .album_lst{
-    &::after{@include fontello('\e819');display:flex;width:160px;height:160px;align-items:center;justify-content:center;background-color:#f6f6f6;font-size:30px;margin-top:10px;color:#999;}
+  .album_lst{grid-template-columns: repeat(auto-fill, minmax($attachPhotoSize, auto));grid-template-rows: repeat(auto-fill, minmax($attachPhotoSize, auto));
+    &::after{@include fontello('\e819');display:flex;width:$attachPhotoSize;height:$attachPhotoSize;align-items:center;justify-content:center;background-color:#f6f6f6;font-size:30px;margin-top:10px;color:#999;}
+    li{height:$attachPhotoSize;}
+    a > img,
+    .attach_thumb{max-width:$attachPhotoSize;}
+    .file_del{right:0;top:0;
+      &::before{padding:9px 8px 9px 6px;border-radius:50%;z-index:10;font-size:20px;background-color:#fff;}
+    }
   }  
   .file_del{position:absolute;right:5px;top:5px;z-index:5;}
 }
-$photoSize:290px;
-.album_lst{display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fill, minmax($photoSize, auto));grid-template-rows: repeat(auto-fill, minmax($photoSize, auto));column-gap:5px;row-gap:5px;
-  li{align-items:center;justify-content:center;gap:0;position:relative;background-color:#f6f6f6;font-size:0;height:$photoSize;overflow:hidden;}
-  a>img,
-  .attach_thumb{max-width:$photoSize;max-height:initial;min-width:100%;min-height:100%; overflow-clip-margin:content-box;overflow:clip;vertical-align:top;}
+.album_lst{
+  display:grid;justify-content:space-between;grid-template-columns: repeat(auto-fill, minmax($photoSize, auto));grid-template-rows: repeat(auto-fill, minmax($photoSize, auto));column-gap:5px;row-gap:5px;
+  li{align-items:center;justify-content:center;gap:0;position:relative;background-color:#f6f6f6;font-size:0;height:$photoSize;overflow:hidden;aspect-ratio:1;}
+  a > img,
+  .attach_thumb{max-width:$photoSize;max-height:initial;min-width:100%;min-height:100%; overflow-clip-margin:content-box;overflow:clip;vertical-align:top;} 
 }
 // .editable:empty:after{content:"댓글을 입력하세요.";color:$gray;}
 .tribute-container{position:absolute;top:0;left:0;border:1px solid #3d90ff;max-height:400px;overflow:auto;border-radius:3px;z-index:999999;padding:0!important;

@@ -24,6 +24,11 @@
 @mixin desktop_only{
   @media (min-width: #{$breakpoint-desktop}) { @content; }
 }
+@mixin hover_init{
+  @media (hover:none) {
+    @content;    
+  }
+}
 @mixin blind{
   font-size:0;line-height:0;position:absolute!important;left:0;top:0;text-indent:-9999px;visibility:hidden;overflow:hidden;
 }

@@ -37,7 +37,7 @@
       <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
     </ul>
     <div class="util">
-    <div class="profile">
+      <div class="profile">
         <button type="button" class="account">
           <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
           <strong>
@@ -53,6 +53,23 @@
             <li><a href="#">로그아웃</a></li>
           </ul>
         </div>
+      </div>
+    </div>
+    <div class="noti-container">
+      <!-- 'home','message','approval','work','planner','project','svc','erp''board','set'; -->
+      <div class="noti hidden planner">
+        <section class="inner_wrap">
+          <header class="noti-header">
+            <h1 class="noti-tit">ㅇㅇㅇ회의</h1>
+            <div class="noti_info">
+              <span class="date">12:30</span>
+              <span class="writer">권기봉</span>
+            </div>
+          </header>
+          <div class="noti-body">
+            23-04-02 OOO회의에 참석요청23-04-02 OOO회의에 참석요청23-04-02 OOO회의에 참석요청23-04-02 OOO회의에 참석요청참석요청23-04-02 OOO회의에 참석요청참석요청23-04-02 OOO회의에 참석요청
+          </div>
+        </section>
       </div>
     </div>
   </section>
@@ -123,9 +140,8 @@
                   </select> 
                 </div>
               </dd>
-              <dt><label for="" class="required">프로젝트명 &sol; 약어</label></dt>
+              <dt><label for="" class="required">프로젝트명</label></dt>
               <dd class="flex_full"><input type="text" id="" title="프로젝트명"></dd>
-              <dd class="flex_full divideL"><input type="text" id="" title="약어"></dd>
               <dt class="required">발주기관</dt>
               <dd class="flex_full">
                 <div class="file_input">
@@ -291,6 +307,8 @@
   </span>
 </div>
               </dd>
+              <dt><label for="">계약명</label></dt>
+              <dd class="flex_full"><input type="text" id="" title="계약명"></dd>
               <dt><label for="">컨소시엄 총괄기관 &sol; 구성</label></dt>
               <dd><input type="text" placeholder="컨소시엄 총괄기관" id=""></dd>
               <dd class="flex_full divideL"><input type="text" id="" placeholder="컨소시엄 구성"></dd>
