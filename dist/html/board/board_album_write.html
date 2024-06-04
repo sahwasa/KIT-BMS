@@ -144,13 +144,14 @@
                 <dt><label for="work_title" class="required">앨범이름</label></dt>
                 <dd><span class="file_input"><input type="text" id="work_title" value="2024년 시무식"></span></dd>
               </dl>
-              <div class="file_attach btn_attach album">
+              <div class="file_attach btn_attach album">               
                 <input id="attachFiles" type="file" data-attach="album" name="file" title="파일첨부하기" class="btn_file" multiple accept="image/png,image/jpg,image/jpeg,image/gif,image/*,video/avi,video/wmv,video/mpg,video/mpeg,video/mov,video/asf,video/skm,video/k3g,video/flv,video/mp4,video/3gp,video/m4v,video/mts,video/ts,video/*">
                 <div id="file-drop" class="drop_zone">
                   <div class="drop_info">
                     <p>여기에 추가할 <span>이미지 파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
                   </div>
                   <ul id="album" class="attach_list album_lst">
+                  <li id="fItem_0">20240402.jpg<a href="#" onclick="deleteFile(0,'album'); return false;" class="file_del" title="삭제">삭제</a><img src="blob:http://localhost:3000/e6d0926c-9612-4f6f-90b3-248d630c467f" class="attach_thumb"></li>
                   </ul>
                 </div>
               </div>

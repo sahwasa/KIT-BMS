@@ -963,7 +963,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
 $photoSize:290px;
 $attachPhotoSize:160px;
 .album_view,
-.file_attach.album{max-height:calc(100vh - 328px);min-height:301px;overflow-y:auto;}
+.file_attach .drop_zone{max-height:calc(100vh - 328px);min-height:301px;overflow-y:auto;}
 .file_attach.album{
   .btn_file{top:0;bottom:0;}
   .drop_info{display:none !important;}
