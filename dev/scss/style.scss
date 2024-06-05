@@ -17,8 +17,8 @@ $columnGap:25px;$minH:540px;
   .logo{display:inline-block;@include f_blind;width:114px;height:25px;background:url(../images/logo.png) 0 0 no-repeat;vertical-align:text-bottom;margin-right:19px;}
   .t_red{margin-left:10px;}
 }
-.noti-container{position:fixed;top:10px;right:10px;display:flex;align-items:center;border:1px solid rgb(204, 204, 204);border-radius:8px;padding:10px;box-shadow:0 2px 15px rgba(0, 0, 0, .1);background-color:#fff;transform:translateX(0);transition: transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s;opacity:1;z-index:99999;max-width:400px;
-  .noti{position:relative;display:flex;gap:10px;align-items:center;
+.noti-container{position:fixed;top:10px;right:10px;max-height:100vh;display:flex;align-items:center;flex-direction:column-reverse;gap:5px;z-index:99999;overflow:hidden;
+  .noti{position:relative;display:flex;gap:10px;align-items:center;justify-content:flex-end;width:350px; border:1px solid rgb(204, 204, 204);border-radius:8px;padding:10px;box-shadow:0 2px 15px rgba(0, 0, 0, .1);background-color:#fff;transform:translateX(0);transition: transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s;opacity:1;
     &::before{float:left;flex-shrink:0;@include shape(34px,34px);border-radius:50%;background:url(../images/bg_alert.png) 50% 8px no-repeat,#ffecec;font-size:14px;color:$red;text-align:center;line-height:34px;vertical-align:middle;}
   }
   $_nav_lst:'home','message','approval','work','planner','project','svc','erp''board','set';
