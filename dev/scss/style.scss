@@ -17,7 +17,7 @@ $columnGap:25px;$minH:540px;
   .logo{display:inline-block;@include f_blind;width:114px;height:25px;background:url(../images/logo.png) 0 0 no-repeat;vertical-align:text-bottom;margin-right:19px;}
   .t_red{margin-left:10px;}
 }
-.noti-container{position:fixed;top:10px;right:10px;max-height:100vh;display:flex;align-items:center;flex-direction:column-reverse;gap:5px;z-index:99999;overflow:hidden;
+.noti-container{position:fixed;bottom:10px;right:10px;max-height:100vh;display:flex;align-items:center;flex-direction:column;gap:5px;z-index:99999;overflow:hidden;padding-top:4px;
   .noti{position:relative;display:flex;gap:10px;align-items:center;justify-content:flex-end;width:350px; border:1px solid rgb(204, 204, 204);border-radius:8px;padding:10px;box-shadow:0 2px 15px rgba(0, 0, 0, .1);background-color:#fff;transform:translateX(0);transition: transform 0.5s ease-out 0s, opacity 0.5s ease-out 0s;opacity:1;
     &::before{float:left;flex-shrink:0;@include shape(34px,34px);border-radius:50%;background:url(../images/bg_alert.png) 50% 8px no-repeat,#ffecec;font-size:14px;color:$red;text-align:center;line-height:34px;vertical-align:middle;}
   }
@@ -26,9 +26,11 @@ $columnGap:25px;$minH:540px;
     $index :index($_nav_lst, $nav);
     .#{$nav}::before{background-position-y:calc((-32px * (#{$index} - 1)) + 8px);}
   }
-  .inner_wrap{flex:1;position:relative;display:flex;flex-direction:column;align-items:flex-start;}
-  .noti-header{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;
-    .noti-tit{flex:1 1 auto;font-size:14px;letter-spacing:-.35px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+  .inner_wrap{flex:1;width:calc(100% - 44px);display:flex;flex-direction:column;align-items:flex-start;}
+  .noti-header{display:flex;align-items:center;justify-content:space-between;width:100%;
+    .noti-tit{flex:1 1 auto;font-size:14px;letter-spacing:-.35px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
+      em{position:absolute;left:5px;top:-4px;color:#fff;font-size:11px;background-color:#ff6664;padding:2px 3px;border-radius:3px;margin-right:3px;box-shadow:1px 1px 1px #ccc;line-height:1;}
+    }
     .noti_info{flex-shrink:0;color:#b6b5b5;font-size:11px;letter-spacing:0;}
   }
   .noti-body{@include text_ellipsis(2);color:#71798a;font-size:12px;word-break:keep-all;font-weight:normal;}  
@@ -608,7 +610,7 @@ z-index:10;transition:left .51s ease-in-out;
 }
 //message
 .tbl_message td{@include alignL(4);
-  &::nth-child(3){white-space:nowrap;}
+  &:nth-of-type(3){white-space:nowrap;}
 }
 .tbl_archive td{@include alignL(5);}
 .msg{display:inline-block;max-width:32vw;text-overflow:ellipsis;white-space:nowrap;overflow: hidden;vertical-align:top;}
