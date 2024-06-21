@@ -1147,7 +1147,7 @@ $defalutColor:#009dee;
     &:last-child{color:#333;font-weight:bold;}
   }   
 }
-.briefing_state{text-align:right;overflow:hidden;
+.briefing_state{text-align:right;
   select{display:block;margin:0 0 2px auto;width:220px;}
   button{display:flex;gap:6px;letter-spacing:-.05em;
     &:hover{text-decoration:underline;}
