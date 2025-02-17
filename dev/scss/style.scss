@@ -761,12 +761,13 @@ z-index:10;transition:left .51s ease-in-out;
     .absentee{flex:1;overflow-y:auto;padding-top:0;
       header{position:sticky;top:0;left:0;background-color:#fff;padding-top:15px;}
       ul{@include flex_ver;gap:15px;}
-      i{@include badge_style($w:34px);font-size:10px;color:#404654;font-weight:600;margin-right:5px;line-height:13px;}
+      i{@include badge_style($w:45px);font-size:10px;color:#404654;font-weight:600;margin-right:5px;line-height:13px;white-space:nowrap;}
       @each $type, $col in $_planType{
         .#{$type}{background-color:lighten($color: $col, $amount: 32);}
       }
       .time{color:#9ea4ae;font-size:11px;}
       .user_box{font-size:12px;
+        strong{display:inline-block;min-width:45px;text-align: center;}
         span{color:#9ea4ae;}
       }
     }
