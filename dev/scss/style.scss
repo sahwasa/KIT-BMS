@@ -1087,7 +1087,9 @@ z-index:10;transition:left .51s ease-in-out;
     &:hover{text-decoration:underline;}
     &.preview{flex-shrink:0;}
   }
-  i{flex-shrink:0;position:relative;top:1px;}  
+  i{flex-shrink:0;position:relative;top:1px;
+
+  }
 }
 .tbl_approval_outbox td,
 .tbl_approval_inbox td{@include alignL(4);}
