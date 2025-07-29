@@ -635,7 +635,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   .count{color:#424242;font-size:12px;margin-left:12px;}
 }
 @mixin tbl_defaultH($gap:0px,$max:false){
-  $tbl_H:calc(100vh - 222px);
+  $tbl_H:calc(100vh - 422px);
   $tbl_MinH:407px;
   height:calc($tbl_H - $gap);min-height:calc($tbl_MinH - $gap);
   @if($max){
