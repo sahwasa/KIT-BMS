@@ -404,3 +404,6 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
     p{display:flex;align-items:center;flex:1;min-height:40px;white-space:initial;word-break:keep-all;}
   }
 }
+.p_org_chart,.p_seating_chart{
+  img{max-width:1280px;}
+}
