@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5, user-scalable=yes">
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="" title="새창복사">새창복사</a></li>
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <strong>
+            <b>관리자님</b>
+            <span>기상/기후개발팀</span>
+          </strong>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="noti-container">      
+      <!-- 'home','message','approval','work','planner','project','svc','erp''board','set'; -->
+      <div class="noti hidden approval">
+        <section class="inner_wrap">
+          <header class="noti-header">
+            <h1 class="noti-tit"><em>전자결재</em>ㅇㅇㅇ회의</h1>
+            <div class="noti_info">
+              <span class="date">12:30</span>
+              <span class="writer">권기봉</span>
+            </div>
+          </header>
+          <div class="noti-body">
+            23-04-02 OOO회의에 참석요청
+          </div>
+        </section>
+      </div>
+      <div class="noti hidden planner">
+        <section class="inner_wrap">
+          <header class="noti-header">
+            <h1 class="noti-tit"><em>일정</em>현장 지진감지장치 유지관리 용역 제안서작업.</h1>
+            <div class="noti_info">
+              <span class="date">12:30</span>
+              <span class="writer">권기봉</span>
+            </div>
+          </header>
+          <div class="noti-body">
+            [현장 지진감지장치 유지관리 용역 제안]<br/>
+            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참것을 요청하셨습니다.
+          </div>
+        </section>
+      </div>
+      <div class="noti hidden svc">
+        <section class="inner_wrap">
+          <header class="noti-header">
+            <h1 class="noti-tit"><em>사내 서비스</em>현장 지진감지장치 유지관리 용역 제안서작업.</h1>
+            <div class="noti_info">
+              <span class="date">12:30</span>
+              <span class="writer">권기봉</span>
+            </div>
+          </header>
+          <div class="noti-body">
+            [현장 지진감지장치 유지관리 용역 제안]<br/>
+            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참것을 요청하셨습니다.
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/svc/svc.html">사내 서비스</a></li>
+    <li><a href="../../html/hr/hr_leaveMng.html">인사총무</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container svc">
+    <header>
+      <h2><a href="svc.html">인사총무</a></h2>
+    </header>
+    <ul class="snb_lst">
+      <li><a href="hr_leaveMng.html">연차관리</a>            
+      <li><a href="hr_holidayWorkMng.html">휴일근무관리</a></li>
+      <li><a href="hr_commuteLog.html">출퇴근이력</a></li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>출퇴근이력<span>인사총무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>사내 서비스</li>
+            <li>인사총무</li>
+            <li>출퇴근이력</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body leave_desc">        
+        <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <div class="period_group">
+                  <input type="radio" name="select_period" id="week"><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="month"><label for="month">1달</label>
+                  <input type="radio" name="select_period" id="year"><label for="year">1년</label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>
+              <li>
+                <select name="" id="" title="부서">
+                  <option value="">부서</option>                 
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="이름 or 사번" list="">
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>            
+            <div class="btn_wrap">
+              <button type="button" class="btn_refresh">정보갱신</button>
+              <button type="button" class="btn_gray_line">다운로드</button>
+            </div>
+          </section>
+        <article>          
+          <section class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>사업 담당자 리스트</caption>
+              <thead>
+                <tr>
+                  <th scope="col">사번</th>
+                  <th scope="col">사원명</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">근무일자</th>
+                  <th scope="col">근무형태</th>
+                  <th scope="col">선택 근로시간</th>
+                  <th scope="col">출근</th>
+                  <th scope="col">퇴근</th>
+                  <th scope="col">근무지</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="9">검색할 부서 또는 사원을 입력해주세요.</td>
+                </tr>
+                <tr>
+                  <td>150</td>
+                  <td>하츄핑</td>
+                  <td>사업본부</td>
+                  <td>02-01</td>
+                  <td>휴일</td>
+                  <td>10~19</td>
+                  <td>10:03 &sol; 02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05 &sol; 02-03<div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
+                <tr>
+                  <td>150</td>
+                  <td>하츄핑</td>
+                  <td>사업본부</td>
+                  <td>02-02</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>10:03 &sol; 02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05 &sol; 02-03<div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
+               
+              </tbody>
+            </table>
+          </section>        
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<dialog class="p_holidayWorkDtl">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>임직원 휴일근무이력 상세</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <strong>2025년 귀속_홍길동(사번 : 0090)</strong>
+      <div class="box_compact">
+        <ul class="summary">
+          <!-- 해가 바꼈을때는?? -->
+          <li><em>누적 근무시간</em>15H</li>
+          <li><em>사용 시간</em>4H</li>
+          <li><em>잔여 시간</em>4H</li>
+        </ul>
+      </div>
+      <article>          
+        <header class="p_body_tit">
+          <h1>휴일근무 이력</h1>
+        </header>
+        <section class="tbl_wrap">
+          <table class="tbl_default hasLayer">
+            <caption>휴일근무 이력</caption>
+            <thead>
+              <tr>
+                <!-- 휴일근무 결과보고서 기반 -->
+                <th scope="col">문서번호</th>
+                <th scope="col">휴일근무일</th>
+                <th scope="col">근무시간</th>
+                <th scope="col">사용권장 기한 </th>                    
+                <th scope="col">누적 근무시간</th> 
+                <th scope="col">관리</th> 
+              </tr>
+            </thead>
+            <tbody>          
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>8H</td>
+                <td>2024-02-01</td>
+                <td>16H</td>
+                <td>
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button" onclick="">사용촉진</button>
+                      <button type="button" onclick="">기한연장</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <!-- 사용권장기한이 일주일 전으로 임박? 어떻게 매핑? 누적근무 - 잔여? -->
+              <tr class="attention">
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>8H</td>
+                <td>2024-02-01</td>
+                <td>16H</td>
+                <td>
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button" onclick="">사용촉진</button>
+                      <button type="button" onclick="">기한연장</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>8H</td>
+                <td>2024-02-01</td>
+                <td>16H</td>
+                <td>
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button" onclick="">사용촉진</button>
+                      <button type="button" onclick="">기한연장</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>        
+      </article>
+      <article>
+        <header class="p_body_tit">
+          <h1>대체휴무 사용이력</h1>
+        </header>
+        <section class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>대체휴무 사용이력</caption>
+            <thead>
+              <tr>
+                <!-- 휴가신청서, 휴가변경신청서 기반 -->
+                <th scope="col">문서번호</th>
+                <th scope="col">사용일</th>
+                <th scope="col">차감시간</th>
+                <th scope="col">잔여시간 </th>
+                <th scope="col">비고</th>
+              </tr>
+            </thead>
+            <tbody>          
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>+4H</td>
+                <td>8H</td>
+                <td><span>휴가취소</span></td>
+              </tr>
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>-4H</td>
+                <td>4H</td>
+                <td><span>-</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>        
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_modifyLeave">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>임직원 연차관리 조정</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div>
+        <table class="tbl_default tbl_row">
+          <caption>임직원 연차관리</caption>
+          <colgroup>
+            <col style="width:150px">
+            <col style="width:auto">
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row">사번</th>
+              <td><p>0090</p></td>
+            </tr>
+            <tr>
+              <th scope="row">사원명</th>
+              <td><p>홍길동</p></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">기본연차</label></th>
+              <td><input class="" type="number" value="15" title="기본연차"> D</td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">가산연차</label></th>
+              <td><input class="" type="number" value="5" title="가산연차"> D</td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">조정연차</label></th>
+              <td>
+                <input class="" type="number" value="0" title="조정연차"> D
+                <input class="" type="number" value="0" title="조정연차"> H
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">월례연차</label></th>
+              <td><input class="" type="number" value="0" title="월례연차"> D</td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">이월연차</label></th>
+              <td>                
+                <input class="" type="number" value="0" title="이월연차"> D
+                <input class="" type="number" value="0" title="이월연차"> H                
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="">변경사유</label></th>
+              <td>
+                <textarea name="" id="" placeholder="변경사유"></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script>
+//퍼블용
+commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="../../images/asset/org.jpg" alt="조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>자리배치도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="../../images/asset/seating_chart.jpg" alt="자리배치도">
+    </div>
+  </form>
+</dialog>
+
+</body>
+</html>

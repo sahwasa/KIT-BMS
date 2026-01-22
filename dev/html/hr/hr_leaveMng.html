@@ -1,0 +1,121 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/hr.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>연차관리<span>인사총무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>사내 서비스</li>
+            <li>인사총무</li>
+            <li>연차관리</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body leave_desc">
+        <section>
+          <div class="handle_week">
+            <button type="button" class="handle_prev">이전 년 이동</button>
+            <span>2023</span>
+            <button type="button" class="handle_next" disabled>다음 년 이동</button>
+            <div class="tool_wrap">
+            </div>
+          </div>          
+        </section>
+        <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="부서">
+                  <option value="">부서</option>                 
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="이름 or 사번" list="">
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>            
+            <div class="btn_wrap">
+              <button type="button" class="btn_refresh">정보갱신</button>
+              <button type="button" class="btn_gray_line">다운로드</button>
+            </div>
+          </section>
+        <article>          
+          <section class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>사업 담당자 리스트</caption>
+              <thead>
+                <tr>
+                  <th scope="col">사번</th>
+                  <th scope="col">사원명</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">입사일</th>
+                  <th scope="col">근속연수</th>
+                  <th scope="col">기본연차</th>
+                  <th scope="col">가산연차</th>
+                  <th scope="col">조정연차</th>
+                  <th scope="col">월례연차</th>
+                  <th scope="col">이월연차</th>
+                  <th scope="col">총 연차</th>
+                  <th scope="col">사용연차</th>
+                  <th scope="col">잔여연차</th>
+                  <th scope="col">갱신일자</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="document.querySelector('.p_leaveDtl').showModal();">
+                  <td>150</td>
+                  <td>하츄핑</td>
+                  <td>사업본부</td>
+                  <td>YYYY-MM-DD</td>
+                  <td>30D</td>
+                  <td>15D</td>
+                  <td>5D</td>
+                  <td>-2D</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>23D</td>
+                  <td>15D 4H</td>
+                  <td>8D 4H</td>
+                  <td>2026-06-01</td>
+                  <td><button type="button" class="btn_modify" onclick="event.stopPropagation();document.querySelector('.p_modifyLeave').showModal();">수정</button></td>
+                </tr>
+                <tr onclick="document.querySelector('.p_leaveDtl').showModal();">
+                  <td>151</td>
+                  <td>꾸래핑</td>
+                  <td>사업본부</td>
+                  <td>YYYY-MM-DD</td>
+                  <td>30D</td>
+                  <td>15D</td>
+                  <td>5D</td>
+                  <td>-2D</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>23D</td>
+                  <td>15D 4H</td>
+                  <td>8D 4H</td>
+                  <td></td>
+                  <td><button type="button" class="btn_modify" onclick="event.stopPropagation();document.querySelector('.p_modifyLeave').showModal();">수정</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>        
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+@@include('../../inc/pop/p_leaveDtl.html')
+@@include('../../inc/pop/p_modifyLeave.html')
+</body>
+
+</html>

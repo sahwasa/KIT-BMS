@@ -1,0 +1,131 @@
+<dialog class="p_holidayWorkDtl">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>임직원 휴일근무이력 상세</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <strong>2025년 귀속_홍길동(사번 : 0090)</strong>
+      <div class="box_compact">
+        <ul class="summary">
+          <!-- 해가 바꼈을때는?? -->
+          <li><em>누적 근무시간</em>15H</li>
+          <li><em>사용 시간</em>4H</li>
+          <li><em>잔여 시간</em>4H</li>
+        </ul>
+      </div>
+      <article>          
+        <header class="p_body_tit">
+          <h1>휴일근무 이력</h1>
+        </header>
+        <section class="tbl_wrap">
+          <table class="tbl_default hasLayer">
+            <caption>휴일근무 이력</caption>
+            <thead>
+              <tr>
+                <!-- 휴일근무 결과보고서 기반 -->
+                <th scope="col">문서번호</th>
+                <th scope="col">휴일근무일</th>
+                <th scope="col">근무시간</th>
+                <th scope="col">사용권장 기한 </th>                    
+                <th scope="col">누적 근무시간</th> 
+                <th scope="col">관리</th> 
+              </tr>
+            </thead>
+            <tbody>          
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>8H</td>
+                <td>2024-02-01</td>
+                <td>16H</td>
+                <td>
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button" onclick="">사용촉진</button>
+                      <button type="button" onclick="">기한연장</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <!-- 사용권장기한이 일주일 전으로 임박? 어떻게 매핑? 누적근무 - 잔여? -->
+              <tr class="attention">
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>8H</td>
+                <td>2024-02-01</td>
+                <td>16H</td>
+                <td>
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button" onclick="">사용촉진</button>
+                      <button type="button" onclick="">기한연장</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>8H</td>
+                <td>2024-02-01</td>
+                <td>16H</td>
+                <td>
+                  <div class="layer_tool">
+                    <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
+                    <div class="btn_layer">
+                      <button type="button" onclick="">사용촉진</button>
+                      <button type="button" onclick="">기한연장</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>        
+      </article>
+      <article>
+        <header class="p_body_tit">
+          <h1>대체휴무 사용이력</h1>
+        </header>
+        <section class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>대체휴무 사용이력</caption>
+            <thead>
+              <tr>
+                <!-- 휴가신청서, 휴가변경신청서 기반 -->
+                <th scope="col">문서번호</th>
+                <th scope="col">사용일</th>
+                <th scope="col">차감시간</th>
+                <th scope="col">잔여시간 </th>
+                <th scope="col">비고</th>
+              </tr>
+            </thead>
+            <tbody>          
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>+4H</td>
+                <td>8H</td>
+                <td><span>휴가취소</span></td>
+              </tr>
+              <tr>
+                <td>KIT-WA03-2025080002</td>
+                <td>2024-01-02</td>
+                <td>-4H</td>
+                <td>4H</td>
+                <td><span>-</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>        
+      </article>
+      <div class="btn_wrap">
+        <button class="btn_red" type="button">적용</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>

@@ -1,0 +1,126 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>휴일근무이력<span>사내 서비스</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내 서비스</a></li>
+            <li>휴일근무이력</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body holiday_work">
+        <section>
+          <div class="handle_week">
+            <button type="button" class="handle_prev">이전 년 이동</button>
+            <span>2023</span>
+            <button type="button" class="handle_next" disabled>다음 년 이동</button>
+          </div>        
+          <div class="box_compact">
+            <ul class="summary">
+              <!-- 해가 바꼈을때는?? -->
+              <li><em>누적 근무시간</em>15H</li>
+              <li><em>사용 시간</em>4H</li>
+              <li><em>잔여 시간</em>4H</li>
+            </ul>
+          </div>
+        </section>
+        <section class="history">
+          <article>          
+            <header>
+              <h1>휴일근무 이력</h1>
+            </header>
+            <section class="tbl_wrap">
+              <table class="tbl_default">
+                <caption>휴일근무 이력</caption>
+                <thead>
+                  <tr>
+                    <!-- 휴일근무 결과보고서 기반 -->
+                    <th scope="col">문서번호</th>
+                    <th scope="col">휴일근무일</th>
+                    <th scope="col">근무시간</th>
+                    <th scope="col">사용권장 기한 </th>                    
+                    <th scope="col">누적 근무시간</th> 
+                  </tr>
+                </thead>
+                <tbody>          
+                  <tr>
+                    <td>KIT-WA03-2025080002</td>
+                    <td>2024-01-02</td>
+                    <td>8H</td>
+                    <td>2024-02-01</td>
+                    <td>16H</td>
+                  </tr>
+                  <!-- 사용권장기한이 일주일 전으로 임박? 어떻게 매핑? 누적근무 - 잔여? -->
+                  <tr class="attention">
+                    <td>KIT-WA03-2025080002</td>
+                    <td>2024-01-02</td>
+                    <td>8H</td>
+                    <td>2024-02-01</td>
+                    <td>16H</td>
+                  </tr>
+                  <tr>
+                    <td>KIT-WA03-2025080002</td>
+                    <td>2024-01-02</td>
+                    <td>8H</td>
+                    <td>2024-02-01</td>
+                    <td>16H</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>        
+          </article>
+          <article>
+            <header>
+              <h1>대체휴무 사용이력</h1>
+            </header>
+            <section class="tbl_wrap">
+              <table class="tbl_default">
+                <caption>대체휴무 사용이력</caption>
+                <thead>
+                  <tr>
+                    <!-- 휴가신청서, 휴가변경신청서 기반 -->
+                    <th scope="col">문서번호</th>
+                    <th scope="col">사용일</th>
+                    <th scope="col">차감시간</th>
+                    <th scope="col">잔여시간 </th>
+                    <th scope="col">비고</th>
+                  </tr>
+                </thead>
+                <tbody>          
+                  <tr>
+                    <td>KIT-WA03-2025080002</td>
+                    <td>2024-01-02</td>
+                    <td>+4H</td>
+                    <td>8H</td>
+                    <td>휴가취소</td>
+                  </tr>
+                  <tr>
+                    <td>KIT-WA03-2025080002</td>
+                    <td>2024-01-02</td>
+                    <td>-4H</td>
+                    <td>4H</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>        
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_addBusiness.html')
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

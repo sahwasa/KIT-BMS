@@ -52,8 +52,17 @@
           </section>
           <article class="post_etc">
             <section class="box_default_w">
+              <h1>문자발신 여부</h1>             
+              <div class="btn_switch">
+                <input type="radio" id="send" name="sms">
+                <label for="send">보냄</label>
+                <input type="radio" id="desend" name="sms" checked>
+                <label for="desend">안보냄</label>
+              </div>
+            </section>
+            <section class="box_default_w">
               <h1>첨부파일</h1>
-              @@include('../../inc/module/module_file_attach.html')
+              @@include('../../inc/module/module_file_attach.html')              
             </section>
           </article>
         </div>

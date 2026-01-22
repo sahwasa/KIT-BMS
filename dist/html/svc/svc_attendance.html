@@ -114,7 +114,7 @@
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
     <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/svc/svc.html">사내 서비스</a></li>
-    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/hr/hr_leaveMng.html">인사총무</a></li>
     <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
     <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
@@ -155,11 +155,12 @@
           <!-- <li><a href="svc_basicData.html">기본사항</a></li>        -->
           <li><a href="svc_attendance.html">근태 현황</a></li>
           <li><a href="svc_annualLeave.html">연차 내역</a></li>
-          <li><a href="svc_edu.html">교육 내역</a></li>
+          <li><a href="svc_holidayWokrLog.html">휴일근무이력</a></li>
+          <!-- <li><a href="svc_edu.html">교육 내역</a></li> -->
         </ul>      
       </li>
       <li><a href="svc_empStatus.html">임직원 현황</a></li>
-      <li><a href="svc_meetingRoom.html">자원 (보류)</a>        
+      <!-- <li><a href="svc_meetingRoom.html">자원 (보류)</a>        
         <ul>
           <li><a href="svc_meetingRoom.html">회의실</a></li>
           <li><a href="svc_equip.html">장비 및 소프트웨어?</a></li>
@@ -169,11 +170,13 @@
           <li><a href="svc_supplies.html">방화벽 허용신청??</a></li>
           <li><a href="svc_app_history.html">신청이력 및 현황</a></li>
         </ul>
-      </li>
-      <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li>
-      <li><a href="svc_certificate.html">증명서 발급</a></li>
+      </li> -->
+      <!-- <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li> -->
+      <!-- <li><a href="svc_certificate.html">증명서 발급</a></li> -->
       <li><a href="svc_business.html">사업자관리</a></li>
-      <li><a href="svc_businessCard.html">명함관리</a></li>
+      <li><a href="svc_businessMng.html">사업 담당자현황</a></li>
+      <li><a href="svc_teamAttendance.html">부서원 근태관리</a></li>
+      <!-- <li><a href="svc_businessCard.html">명함관리</a></li> -->
     </ul>
   </div>
 </section>
@@ -423,17 +426,15 @@
       </article>      -->
       <article class="ipt_wrap">
         <dl>
-          <dt><label for="" class="required">출근시각</label></dt>
+          <dt><label for="" class="required">출근일시</label></dt>
           <dd>
-            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
             <div class="tool_lst">
-              <input type="date" id="arrival" title="출근일" min="0000-01-01" max="9999-12-31">
+              <input type="date" id="arrival" title="출근일" min="0000-01-01" max="9999-12-31" readonly>
               <input type="time" id="on_time" title="출근시각">
             </div>          
           </dd>         
-          <dt><label for="" class="required">퇴근시각</label></dt>
+          <dt><label for="" class="required">퇴근일시</label></dt>
           <dd>
-            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
             <div class="tool_lst">
               <input type="date" id="departure" title="퇴근일" min="0000-01-01" max="9999-12-31">
               <input type="time" id="off_time" title="퇴근시각">

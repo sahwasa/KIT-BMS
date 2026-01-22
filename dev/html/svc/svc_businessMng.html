@@ -1,0 +1,84 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>사업자관리<span>사내 서비스</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내 서비스</a></li>
+            <li>사업자관리</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article>
+          <div class="handle_week">
+            <button class="handle_prev">이전 연도 이동</button>
+            <span>2026년</span>
+            <button class="handle_next">다음 연도 이동</button>
+            <button type="button" class="handle_today">오늘</button>        
+          </div>          
+          <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="사업유형">
+                  <option value="">사업유형 전체</option>
+                  <option value="">개발</option>
+                  <option value="">유지보수</option>
+                  <option value="">연구과제</option>
+                  <option value="">물품구매</option>
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="">
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>            
+          </section>
+          <section class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>사업 담당자 리스트</caption>
+              <thead>
+                <tr>
+                  <th scope="col">사업유형</th>
+                  <th scope="col">프로젝트명</th>
+                  <th scope="col">발주기관</th>
+                  <th scope="col">수행기간</th>
+                  <th scope="col">총괄책임</th>
+                  <th scope="col">수행PM</th>
+                  <th scope="col">비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr tabindex="0">
+                  <td>연구과제</td>
+                  <td>2026년 (1세부) 지반변위 고려 급경사지 재해 위험성 분석기술 개발 과제(2/4차년)</td>
+                  <td>행정안전부</td>
+                  <td>2026-01-01 ~ 2026-12-31</td>
+                  <td>@@include('../../inc/module/module_user.html')</td>
+                  <td>@@include('../../inc/module/module_user.html')</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            @@include('../../inc/module/paginate.html')
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_addBusiness.html')
+@@include('../../inc/layout/script.html')
+</body>
+
+</html>

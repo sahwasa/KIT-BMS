@@ -1,0 +1,176 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>부서원 근태관리</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내서비스</a></li>
+            <li>부서원 근태관리</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <article>
+          <div class="handle_week">
+              <button type="button" class="handle_prev" onclick="setMonth(-1)">이전 달 이동</button>
+              <span id="year">2026년 3월</span>
+              <button type="button" class="handle_next" onclick="setMonth(+1)" disabled="">다음 달 이동</button>
+          </div>
+          <div class="tbl_top_area">
+            <div class="btn_switch border_none">
+              <input type="radio" id="btn_month" name="table_button" checked>
+              <label for="btn_month" class="opened">월간</label>
+              <input type="radio" id="btn_year" name="table_button">
+              <label for="btn_year" class="closed">연간</label>
+            </div>
+          </div>
+          <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="부서">
+                  <option value="">본인 부서 기본값</option>                 
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="">
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>            
+            <div class="btn_wrap">
+              <button type="button" class="btn_red_line" onclick="document.querySelector('.p_uploadFile').showModal();">캡스업로드</button>
+              <button type="button" class="btn_gray_line">다운로드</button>
+            </div>
+          </section>
+          <section class="tbl_wrap tbl_attendance">
+            <!-- 월간 -->
+            <table class="tbl_default tbl_hover monthly">
+              <caption>월별 근태목록</caption>
+              <thead>
+                <tr>
+                  <th scope="col">사번</th>
+                  <th scope="col">사원명</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">근무지</th>
+                  <th scope="col">지각</th>
+                  <th scope="col">1일</th><th scope="col">2일</th><th scope="col">3일</th>
+                  <th scope="col">4일</th><th scope="col">5일</th><th scope="col">6일</th>
+                  <th scope="col">7일</th><th scope="col">8일</th><th scope="col">9일</th>
+                  <th scope="col">10일</th><th scope="col">11일</th><th scope="col">12일</th>
+                  <th scope="col">13일</th><th scope="col">14일</th><th scope="col">15일</th>
+                  <th scope="col">16일</th><th scope="col">17일</th><th scope="col">18일</th>
+                  <th scope="col">19일</th><th scope="col">20일</th><th scope="col">21일</th>
+                  <th scope="col">22일</th><th scope="col">23일</th><th scope="col">24일</th>
+                  <th scope="col">25일</th><th scope="col">26일</th><th scope="col">27일</th>
+                  <th scope="col">28일</th><th scope="col">29일</th><th scope="col">30일</th>
+                  <th scope="col">31일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">150</td>
+                  <td rowspan="2">홍길동</td>
+                  <td rowspan="2">경영관리실</td>
+                  <td rowspan="2">본사</td>
+                  <td>2</td>
+                  <td>휴일<div>(10~19)</div></td><td>휴일<div>(10~19)</div></td> <td>09:30<div>(10~19)</div></td> <td class="review late">10:01<div>(10~19)</div></td><td>09:58<div>(10~19)</div></td> <td class="review late">10:04<div>(10~19)</div></td><td>휴일<div>(10~19)</div></td> <td>휴일<div>(10~19)</div></td><td>출장<div>(10~19)</div></td> <td>외근<div>(10~19)</div></td>
+                </tr>
+                <tr>
+                  <td>0</td><td>-</td><td>-</td><td>09:35</td> <td class="review">10:00</td><td>10:00</td><td class="review">10:00</td> <td>-</td><td>-</td><td>-</td><td>-</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">150</td>
+                  <td rowspan="2">하츄핑</td>
+                  <td rowspan="2">사업본부</td>
+                  <td rowspan="2">본사</td>
+                  <td class="late">5</td> 
+                  <!-- 지각 5개 이상이면 .late추가 -->
+                  <td>휴일<div>(10~19)</div></td><td>휴일<div>(10~19)</div></td> <td class="late">09:30<div>(09~18)</div></td> <td class="late">10:01<div>(09~18)</div></td><td class="late">09:58<div>(09~18)</div></td> <td class="late">10:04<div>(09~18)</div></td><td>휴일<div>(09~18)</div></td> <td>휴일<div>(09~18)</div></td><td>출장<div>(09~18)</div></td> <td class="late">09:55<div>(09~18)</div></td>
+                </tr>
+                <tr>
+                  <td class="late">5</td><td>-</td><td>-</td><td class="late">09:35</td> <td class="late">10:00</td><td class="late">10:00</td><td class="late">10:00</td> <td>-</td><td>-</td><td>-</td><td class="late">10:00</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- 월간__e -->
+         
+            <!-- 연간 -->
+            <table class="tbl_default tbl_hover">
+              <caption>연간 근태목록</caption>
+              <thead>
+                <tr>
+                  <th scope="col">사번</th>
+                  <th scope="col">사원명</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">근무지</th>
+                  <th scope="col">지각</th>
+                  <th scope="col">1월</th><th scope="col">2월</th><th scope="col">3월</th>
+                  <th scope="col">4월</th><th scope="col">5월</th><th scope="col">6월</th>
+                  <th scope="col">7월</th><th scope="col">8월</th><th scope="col">9월</th>
+                  <th scope="col">10월</th><th scope="col">11월</th><th scope="col">12월</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">150</td>
+                  <td rowspan="2">홍길동</td>
+                  <td rowspan="2">사업본부</td>
+                  <td rowspan="2">본사</td>
+                  <td class="late">5</td>
+                  <td>0</td> <td>0</td> <td class="late">5</td> <td class="review late">1</td> <td>0</td> <td class="review late">1</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td>
+                </tr>
+                <tr>
+                  <td>1</td> <td>0</td> <td>0</td> <td>0</td> <td class="review">0</td> <td>0</td> <td class="review">0</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">151</td>
+                  <td rowspan="2">하츄핑</td>
+                  <td rowspan="2">사업본부</td>
+                  <td rowspan="2">본사</td>
+                  <td>2</td> <td>0</td> <td>0</td> <td>0</td> <td class="late">1</td> <td>0</td> <td class="late">1</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td>
+                </tr>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td><td class="late">1</td><td>0</td><td class="late">1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              </tbody>
+            </table>
+            <!-- 연간__e -->
+          </section>
+       </article>        
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+@@include('../../inc/pop/p_uploadFile.html')
+<script>
+// 테이블 x스크롤 이벤트
+const $dragArea = $('.tbl_attendance');
+let isDown = false;
+let startX, scrollLeft;
+
+$dragArea.on('mousedown', function (e) {
+  isDown = true;
+  startX = e.pageX;
+  scrollLeft = this.scrollLeft;
+  $(this).addClass('is-dragging');
+});
+$(document).on('mouseup', () => {
+  isDown = false;
+  $dragArea.removeClass('is-dragging');
+});
+$dragArea.on('mousemove', function (e) {
+  if (!isDown) return;
+  e.preventDefault();
+  this.scrollLeft = scrollLeft + (startX - e.pageX);
+});
+</script>
+</body>
+</html>

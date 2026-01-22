@@ -24,17 +24,15 @@
       </article>      -->
       <article class="ipt_wrap">
         <dl>
-          <dt><label for="" class="required">출근시각</label></dt>
+          <dt><label for="" class="required">출근일시</label></dt>
           <dd>
-            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
             <div class="tool_lst">
-              <input type="date" id="arrival" title="출근일" min="0000-01-01" max="9999-12-31">
+              <input type="date" id="arrival" title="출근일" min="0000-01-01" max="9999-12-31" readonly>
               <input type="time" id="on_time" title="출근시각">
             </div>          
           </dd>         
-          <dt><label for="" class="required">퇴근시각</label></dt>
+          <dt><label for="" class="required">퇴근일시</label></dt>
           <dd>
-            <!-- 날자는 자동으로 들어오되 수정 가능, 철야 체크시 다음날로 인식 -->
             <div class="tool_lst">
               <input type="date" id="departure" title="퇴근일" min="0000-01-01" max="9999-12-31">
               <input type="time" id="off_time" title="퇴근시각">

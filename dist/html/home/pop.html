@@ -114,7 +114,7 @@
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
     <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/svc/svc.html">사내 서비스</a></li>
-    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/hr/hr_leaveMng.html">인사총무</a></li>
     <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
     <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
@@ -195,6 +195,7 @@
         <ul class="search_list">
           <li><button type="button" class="btn_default" data-modal="p_change_flexTime">근무시간 변경신청</button></li>
           <li><button type="button" class="btn_default" data-modal="p_pr_book">도서 구매신청</button></li>         
+          <li><button type="button" class="btn_default" data-modal="p_uploadFile">캡스파일 업로드</button></li>         
           <li><button type="button" class="btn_default" data-modal="p_add_visitor">내방객 사전등록</button></li>         
           <li><button type="button" class="btn_default" data-modal="p_add_business">증명서 발급신청</button></li>         
           <li><button type="button" class="btn_default" data-modal="p_add_business">사업자 추가</button></li>         
@@ -3188,6 +3189,36 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   <p>파일을 업로드 중입니다<br>잠시만 기다려주세요</p>
 </div>
 
+</dialog>
+<dialog class="p_uploadFile" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>캡스파일 업로드</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_info">
+      <h3>안내</h3>
+      <ul>
+        <li>사원번호는 필수값입니다.</li>
+      </ul>
+    </div>
+    <div class="p_body">
+      <div class="file_attach btn_attach">
+  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
+  <div id="file-drop" class="drop_zone">
+    <div class="drop_info">
+      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
+    </div>
+    <ul id="doc" class="attach_list">
+    </ul>
+  </div>
+</div> 
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
 </dialog>
 
 <script>

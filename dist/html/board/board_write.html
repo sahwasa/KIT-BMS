@@ -114,7 +114,7 @@
     <li><a href="../../html/project/projectList.html">프로젝트</a></li>
     <li><a href="../../html/work/work.html">업무</a></li>
     <li><a href="../../html/svc/svc.html">사내 서비스</a></li>
-    <li><a href="../../html/erp/erp.html">ERP</a></li>
+    <li><a href="../../html/hr/hr_leaveMng.html">인사총무</a></li>
     <li><a href="../../html/board/board.html">게시판</a></li>
     <li><a href="../../html/home/pop.html">팝업샘플</a></li>
     <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
@@ -195,6 +195,15 @@
           </section>
           <article class="post_etc">
             <section class="box_default_w">
+              <h1>문자발신 여부</h1>             
+              <div class="btn_switch">
+                <input type="radio" id="send" name="sms">
+                <label for="send">보냄</label>
+                <input type="radio" id="desend" name="sms" checked>
+                <label for="desend">안보냄</label>
+              </div>
+            </section>
+            <section class="box_default_w">
               <h1>첨부파일</h1>
               <div class="file_attach btn_attach">
   <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
@@ -205,7 +214,7 @@
     <ul id="doc" class="attach_list">
     </ul>
   </div>
-</div>
+</div>              
             </section>
           </article>
         </div>

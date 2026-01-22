@@ -407,3 +407,20 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 .p_org_chart,.p_seating_chart{
   img{max-width:1280px;}
 }
+.p_uploadFile{width:500px;}
+.p_leaveDtl,.p_holidayWorkDtl{width:1000px;
+  .p_body{display:flex;flex-direction:column;gap:25px;}
+  .p_body_tit{margin-bottom:5px;}
+  .tbl_wrap{height:auto;max-height:250px;min-height:auto;
+    span{@include text_ellipsis;width:380px;text-align:left;}
+  }
+  .leave_changeHistory span{width:720px;padding:0 20px;}
+}
+.p_modifyLeave{
+  input{width:80px;text-align:center;
+    &:not(:first-of-type){margin-left:20px;}
+  }
+}
+.p_holidayWorkDtl{
+
+}
