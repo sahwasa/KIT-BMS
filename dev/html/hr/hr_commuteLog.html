@@ -37,7 +37,7 @@
                 </select>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="이름 or 사번" list="">
+                <input type="text" name="" id="" title="검색어" placeholder="사원명 or 사번" list="">
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
@@ -49,19 +49,78 @@
             </div>
           </section>
         <article>          
-          <section class="tbl_wrap">
+          <!-- <section class="tbls_wrap" data-empty="부서, 또는 사원을 검색해주세요."></section> -->
+          <section class="tbls_wrap" data-empty="부서, 또는 사원을 겁색해주세요.">
+            <header><h1>사업본부_하츄핑 (사번:0014)</h1></header>
             <table class="tbl_default">
-              <caption>사업 담당자 리스트</caption>
+              <caption>출퇴근 이력</caption>
               <thead>
                 <tr>
-                  <th scope="col">사번</th>
-                  <th scope="col">사원명</th>
-                  <th scope="col">부서</th>
                   <th scope="col">근무일자</th>
                   <th scope="col">근무형태</th>
                   <th scope="col">선택 근로시간</th>
                   <th scope="col">출근</th>
+                  <th scope="col">출근 입력정보</th>
                   <th scope="col">퇴근</th>
+                  <th scope="col">퇴근 입력정보</th>
+                  <th scope="col">근무지</th>
+                </tr>
+              </thead>
+              <tbody>                
+                <tr>
+                  <td>02-01</td>
+                  <td>휴일</td>
+                  <td>10~19</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>                  
+                  <td>본사</td>
+                </tr>
+                <tr>
+                  <td>02-02</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
+                <tr>
+                  <td>02-03</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>외근</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>경찰청</td>
+                </tr>
+                <tr>
+                  <td>02-04</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>외근</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>경찰청</td>
+                </tr>
+              </tbody>
+            </table>
+            <header><h1>사업본부_꾸래핑 (사번:0015)</h1></header>
+            <table class="tbl_default">
+              <caption>출퇴근 이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">근무일자</th>
+                  <th scope="col">근무형태</th>
+                  <th scope="col">선택 근로시간</th>
+                  <th scope="col">출근</th>
+                  <th scope="col">출근 입력정보</th>
+                  <th scope="col">퇴근</th>
+                  <th scope="col">퇴근 입력정보</th>
                   <th scope="col">근무지</th>
                 </tr>
               </thead>
@@ -70,30 +129,47 @@
                   <td colspan="9">검색할 부서 또는 사원을 입력해주세요.</td>
                 </tr>
                 <tr>
-                  <td>150</td>
-                  <td>하츄핑</td>
-                  <td>사업본부</td>
                   <td>02-01</td>
                   <td>휴일</td>
                   <td>10~19</td>
-                  <td>10:03 &sol; 02-03<div>(PC:123.456.7.89)</div></td>
-                  <td>19:05 &sol; 02-03<div>(Mobile:위도/경도)</div></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                   <td>본사</td>
                 </tr>
                 <tr>
-                  <td>150</td>
-                  <td>하츄핑</td>
-                  <td>사업본부</td>
                   <td>02-02</td>
                   <td>평일</td>
                   <td>10~19</td>
-                  <td>10:03 &sol; 02-03<div>(PC:123.456.7.89)</div></td>
-                  <td>19:05 &sol; 02-03<div>(Mobile:위도/경도)</div></td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
                   <td>본사</td>
                 </tr>
-               
+                <tr>
+                  <td>02-03</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
+                <tr>
+                  <td>02-04</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
               </tbody>
-            </table>
+            </table>            
           </section>        
         </article>
       </div>

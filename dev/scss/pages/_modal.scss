@@ -421,6 +421,6 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
     &:not(:first-of-type){margin-left:20px;}
   }
 }
-.p_holidayWorkDtl{
-
+.p_monthlyAttendance{width:700px;
+  .tbl_wrap{height:auto;max-height:250px;min-height:auto;}
 }

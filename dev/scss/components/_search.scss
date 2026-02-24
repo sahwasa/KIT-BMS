@@ -1,0 +1,43 @@
+// search
+.search_box{
+  $b_color:#c5c5c5;
+  @include flex_between;width:160px;height:27px;border:1px solid $b_color;border-radius:2px;overflow:hidden;
+  input{width:calc(100% - 27px);height:100%;border:none;padding:0 8px;}
+  button{width:27px;height:100%;@include f_blind;border-left:1px solid $b_color;
+    &::before{@include fontello('\e802');color:$btn_red;font-size:15px;vertical-align:middle;}
+  }
+  &.long{width:276px;}
+}
+.search_list{display:flex;flex-flow:row wrap;align-items:center;gap:5px;margin-right:10px;}
+.search_list li{
+  &:has(p.required){margin-right:15px;font-weight:bold;align-self:center;}
+  &.divide{@include divide(16px, 5px);}
+}
+.btn_search{@include btn($btn_red,true);
+  &::before{@include fontello('\e802');}
+}
+.btn_refresh{@include btn($btn_gray,true);
+  &::before{@include fontello('\e8a7');}
+}
+.btn_del{
+  &::before{@include fontello('\e839'){margin-right:3px;font-size:14px;};}
+  &:hover{color:$red;}
+}
+.btn_add{line-height:21px;
+  &::before{@include fontello('\f0fe'){position:relative;top:1px; margin-right:3px;font-size:14px;};}
+  &:hover{color:$red;}
+}
+.handle_week{@include flex_between;gap:15px;justify-content:center;margin-bottom:10px;padding-top:5px;
+  .handle_prev,
+  .handle_next{font-size:0;
+    &::before{display:block;@include fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:50%;color:#000;font-weight:bold;}
+    &:disabled{cursor:not-allowed;
+      &::before{border-color:#d2d2d2;color:#d2d2d2;}
+    }
+  }
+  .handle_prev::before{content:'\f104';}
+  .handle_today{color:#777;font-size:12px;margin-right:-39px;padding:0 3px;
+    &:hover{background-color:#edf0f3;border-radius:5px;}
+  }
+  span{font-size:18px;font-weight:bold;}
+}

@@ -1,0 +1,154 @@
+// table
+$th_border_color:#c0c0c0;
+$td_border_color:#ebebeb;
+.tbl_top_area{@include flex_between;margin-bottom:9px;
+  .tool_wrap{margin-left:auto;}
+  .flex_right{display:flex;margin-left:auto;gap:5px;flex-shrink:0;}
+  .divide{@include divide(16px, 5px);
+    &.search_list{margin:0 auto 0 10px;}
+  }
+  &:has(h2){@include flex_between;
+    h2{font-size:16px;color:#000;font-weight:bold;
+      &::before{position:relative;display:inline-block;content:'';width:4px;height:4px;border-radius:4px;background-color:#000;margin-right:8px;margin-bottom:2.5px;}
+    }
+  }
+}
+.tbl_bottom_area{@include flex_between;margin-top:9px;}
+td{white-space:nowrap;text-overflow:ellipsis;
+  &:has(.tbl_badge+.layer_tool){position:relative;
+    .layer_tool{display:none;position:absolute;left:calc(50% - 50px);width:100px;z-index:10;padding:2px 5px;border:1px solid #666;background-color:#fff;
+      p{display:block;font-weight:bold;color:$red;}
+    }
+    .layer_tool:hover,
+    .tbl_badge:hover+.layer_tool{display:block;}
+  }
+}
+.tbl_header{@include flex_between;border-top:2px solid $th_border_color;
+  .tbl_caption{display:flex;align-items:center;line-height:37px;
+    .row_check{margin:0 16px 0 24px;}
+    h2{color:$red;font-weight:bold;font-size:14px;}
+  }
+  .count{color:#424242;font-size:12px;margin-left:12px;}
+}
+@mixin tbl_defaultH($gap:0px,$max:false){
+  $tbl_H:calc(100vh - 217px);
+  $tbl_MinH:407px;
+  height:calc($tbl_H - $gap);min-height:calc($tbl_MinH - $gap);
+  @if($max){
+    height:auto;max-height:calc($proj_viewH - $gap);
+  }
+}
+.tbl_wrap{position:relative;@include tbl_defaultH();overflow-y:auto;border-top:2px solid $th_border_color;
+  .tbl_default{border-top-width:0;}
+  th{position:sticky;top:0;
+    &::after{position:absolute;left:0;bottom:-1px;@include shape(100%,0);border-bottom:1px solid $th_border_color;z-index:1;}
+  }
+  tr.attention{background-color:#fef4f5;td{color:$red;}}
+  tbody .review{background-color:#fef4f5;}
+  .late{color:$red;}
+}
+.tbls_wrap{@include tbl_defaultH(50px);overflow-y:auto;
+  @include empty_txt(attr(data-empty)){background-color:transparent;};
+  header{position:sticky;top:0;left:0;background-color:#fff;z-index:60;border-bottom:2px solid $th_border_color;padding-bottom:5px;
+    &:not(:first-of-type){margin-top:20px;}
+  }
+  table{border-top-width:0;}
+  thead th{padding-top:2px;}
+}
+.tbl_default{width:100%;text-align:center;border-top:2px solid $th_border_color;
+  &.no_thead{border-top:1px solid $th_border_color;
+    thead{@include blind;}
+  }
+  th,td{border-bottom:1px solid $th_border_color;padding:7px 5px;letter-spacing:-.333px;text-align:center;word-break:keep-all;white-space:initial;vertical-align:top;}
+  th{background-color:#fff;color:#111;font-weight:bold;z-index:50;}
+  td{border-color:$td_border_color;color:#333;
+    &.new::after{@include newmark;}
+    &:has(.w_week){white-space:nowrap;}
+  }
+  .tags{display:inline-flex;gap:3px;}  
+  .withdrawal{text-decoration:line-through;color:$gray;
+    &::after{@include badge_style();content:"회수";background-color:$gray;margin-left:3px;padding:0 3px;}
+   }
+   .cancellation{@extend .withdrawal;&::after{content:"취소"};}
+   [--h]{text-align:left;height:var(--h);overflow-y:auto;}
+}
+.tbl_use_select td:first-child{width:60px;}
+.tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}
+.tbl_use_select{
+  tbody tr.select_tr{background-color:lighten($red, 45%);}
+  td:first-child{width:60px;}
+}
+.tbl_row{border:2px solid $th_border_color;border-width:2px 0;font-size:13px;
+  th,
+  td{height:37px;padding:3px 7px;border:1px solid $td_border_color;text-align:left;word-break:keep-all;vertical-align:middle;}
+  th{background-color:#f5f5f5;font-weight:600;color:#111;text-align:center;}
+  td{text-align:left;color:#333;
+    &:last-child{border-right-width:0;}
+  }
+  tr:first-child th,
+  tr:first-child td{border-top-color:$td_border_color;}
+  tr:last-child th,
+  tr:last-child td{border-bottom-color:$td_border_color;}
+  & + .gis_wrap{margin-top:6px;}
+}
+.tbl_scroll{overflow-y:scroll;background-color:#fafafa;border-bottom:1px solid #ebebeb;
+  table{
+    &.no_thead{border-top:none;}
+    &.tbl_default{background-color:#ffffff;}
+  }
+}
+.tbl_photo{display:grid;justify-content:space-between;grid-template-columns:repeat(auto-fill, minmax(160px, auto));grid-template-rows:repeat(auto-fill, minmax(160px, auto));column-gap:10px;row-gap:10px;
+  li{cursor:pointer;
+    a{position:relative;
+      &:hover::after{@include shape(100%,160px);position:absolute;left:0;top:0; z-index:1;background-color:#00000080;}    
+    }
+    img{display:block;width:100%;height:160px;object-fit:cover;}
+    em{display:flex;margin-top:3px;}
+    b{max-width:155px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px;color:#000;font-weight:bold;
+      &:hover{text-decoration:underline;}
+    }
+    .date{font-size:11px;color:#717889;}
+  }
+}
+.cmt_num{color:$red;font-weight:bold;margin-left:5px;
+  $cmtmargin :2px;
+  &::before{content:"[";margin-right:$cmtmargin;}
+  &::after{content:"]";margin-left:$cmtmargin;}
+}
+.layer_tool{position:relative;
+  .btn_ellipsis{@include ico_only;
+    &::before{@include fontello('\f142');font-size:14px;padding:0 10px;}
+  }
+  .btn_layer{position:absolute;top:100%;right:0;display:inline-flex;flex-direction:column;height:0;z-index:10;overflow:hidden;box-sizing:border-box;white-space:nowrap;
+    button{margin:3px 0;padding:2px 10px;}
+    button:hover{background-color:#e5e6e8;}
+    &:not(:has(button)){width:100px;padding:5px;white-space:inherit;
+      p{display:block;font-weight:bold;color:$red;}
+    }
+  }
+  &.on .btn_layer{height:auto;border:1px solid #666;background-color:$white;}
+}
+.sorting{position:relative;
+  span{@include ico_only;
+    &::before{position:absolute;left:0;top:50%;font-size:12px;transform:translateY(-50%);color:$btn_gray;}
+    &:hover::before{color:#555;}
+  }
+   .ico_asc::before{@include fontello('\e86b');margin-top:-3px;}
+   .ico_desc::before{@include fontello('\e86a');left:2px;margin-top:3px;}
+}
+.sort{cursor:pointer;
+  &.basis_asc .ico_asc::before,
+  &.basis_desc .ico_desc::before{color:$red}
+}
+.tbl_ico{@include shape(19px, 19px);display:inline-flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
+.ico_attach::before{@include fontello('\ec66');color:#848484;font-size:14px;}
+.tbl_badge{@include badge_style(50px);min-width:50px;font-size:11px;font-weight:bold;}
+.check_group{display:inline-flex;justify-content:flex-start;
+  li{margin-right:10px;}
+  *{align-self:center;vertical-align:middle;}
+}
+@for $left from 1 to 10{
+  .alignL_#{$left}{
+    tbody>tr>td:nth-child(#{$left}){text-align:left;}
+  }
+}

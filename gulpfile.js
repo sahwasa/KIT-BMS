@@ -20,8 +20,13 @@ const dist = "dist";
 
 // 작업용 폴더 파일 path
 const path = {
-  html:dev + "/**/*.html",
-  scss: dev + "/scss/*.scss",
+  html: [
+    dev + "/**/*.html",
+    "!" + dev + "/**/inc/**/*.html"   // ⭐ inc 폴더 제외
+  ],
+  htmlWatch: dev + "/**/*.html", 
+  scss: dev + "/scss/main.scss",
+  scssWatch: dev + "/scss/**/*.scss",
   js: dev + "/js/*.js",
   esjs: dev + "/js/bundle/*.js",
   images: dev + "/**/images/**/*",
@@ -79,14 +84,10 @@ var scssOptions = {
 }
 
 function scss(){
-  return merge(
-    src([path.scss], {sourcemaps: true })
-    .pipe(concat(mergefileName.style))
+  return src(path.scss, {sourcemaps: true})  // ✅ concat 제거
     .pipe(sass(scssOptions).on('error', sass.logError))
-    //.pipe(sourcemaps.write('/maps'))
-    .pipe(dest(dist + '/css',{ sourcemaps: true }))
-    .pipe(bs.stream())
-  )
+    .pipe(dest(dist + '/css', {sourcemaps: './maps'}))
+    .pipe(bs.stream());
 }
 // function esjs(){
 //   return merge(
@@ -115,11 +116,11 @@ function setBs(){
   });
 }
 function watchs(){  
-  watch(path.html, inc);
+  watch(path.htmlWatch, inc);
   watch(path.page, incIndex)
   watch(path.images, imgMin);
   watch(path.js, js);
-  watch(path.scss, scss);  
+  watch(path.scssWatch, scss);  
 }
   
 

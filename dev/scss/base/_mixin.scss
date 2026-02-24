@@ -1,5 +1,3 @@
-@import "./variables";
-
 @mixin mobile_only {
   @media (max-width: #{$breakpoint-mobile}) { @content; }
 }

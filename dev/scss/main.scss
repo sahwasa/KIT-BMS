@@ -1,0 +1,77 @@
+// ========================================
+// Main SCSS Entry Point
+// ========================================
+// 이 파일은 모든 SCSS 파일을 import합니다.
+// 필요한 컴포넌트만 선택적으로 import하여 사용하세요.
+
+// ========================================
+// 1. Base
+// ========================================
+// 기본 설정 - 항상 포함
+@import 'base/variables';       // 변수 정의
+@import 'base/fonts';            // 폰트 정의
+@import 'base/reset';            // CSS 리셋
+@import 'base/forms';            // 폼 요소 스타일
+
+// ========================================
+// 2. Utils
+// ========================================
+// 믹스인과 헬퍼 클래스
+@import 'base/mixin';            // 믹스인 (원본 파일 사용)
+// @import 'utils/helpers';       // 헬퍼 클래스 (필요시 활성화)
+
+// ========================================
+// 3. Layout
+// ========================================
+@import 'layout/base';           // 기본 레이아웃
+@import 'layout/navigation';         // 헤더
+@import 'layout/print';         // 헤더
+
+// ========================================
+// 4. Components
+// ========================================
+// UI 컴포넌트 (필요한 것만 활성화)
+@import 'components/buttons';
+@import 'components/comment';
+@import 'components/file';
+@import 'components/file_extension';
+@import 'components/search';
+@import 'components/tab';
+@import 'components/table';
+@import 'components/tree';
+@import 'components/dm';
+@import 'components/badge';
+@import 'components/paginate';
+
+// ========================================
+// 5. Pages
+// ========================================
+// 페이지별 스타일 (필요한 것만 활성화)
+@import 'pages/main';            // 메인 페이지
+@import 'pages/modal';           // 모달
+@import 'pages/user_info';       // 사용자정보 페이지
+@import 'pages/error';           // 에러 페이지
+
+// ========================================
+// 6. Vendors
+// ========================================
+// 외부 라이브러리 스타일 (필요한 것만 활성화)
+@import 'vendors/fullcalendar';  // Fullcalendar
+
+// ========================================
+// 사용 가이드
+// ========================================
+/*
+새 프로젝트에서 사용 시:
+
+1. scss 폴더 전체를 복사
+2. 이 main.scss에서 필요한 모듈만 import (주석 해제)
+3. base/_variables.scss 프로젝트에 맞게 수정
+
+예시:
+  - 간단한 페이지: base, utils, pages/main만
+  - 관리자 페이지: base, utils, layout, components, pages 전체
+  - 특정 기능: 필요한 components만 선택
+
+불필요한 import는 주석처리하여 CSS 파일 크기 최적화
+*/

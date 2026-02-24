@@ -1,0 +1,132 @@
+@import 'base/variables'; 
+// ========================================
+// Form Elements Base Styles
+// ========================================
+
+select,
+textarea,
+input[type="text"],
+input[type="date"],
+input[type="file"],
+input[type="color"],
+input[type="number"],
+input[type="password"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="tel"],
+div[contenteditable]:not(.ck-widget),
+p[contenteditable],
+td[contenteditable] {
+  @include ipt_common;
+  min-height: 28px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: $red;
+}
+
+input[type="radio"][readonly],
+input[type="radio"][readonly] + label,
+label:has(input[type="radio"][readonly]),
+input[type="checkbox"][readonly],
+input[type="checkbox"][readonly] + label,
+label:has(input[type="checkbox"][readonly]),
+select[readonly] {
+  pointer-events: none;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="checkbox"] {
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+input[type="radio"],
+input[type="checkbox"]{accent-color:$red;}
+input[type="radio"][readonly],
+input[type="radio"][readonly] + label,
+label:has(input[type="radio"][readonly]),
+input[type="checkbox"][readonly],
+input[type="checkbox"][readonly] + label,
+label:has(input[type="checkbox"][readonly]),
+select[readonly]{pointer-events:none;}
+input[type="radio"]{border-radius:50%;}
+input[type="checkbox"]{border-radius:2px;vertical-align:middle;}
+// input[type="radio"]:checked{background-position-y:-23px;}
+
+// input[type="number"]::-webkit-outer-spin-button,
+// input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;margin:0;}
+// input[type="number"]{-moz-appearance:textfield;}
+input[type="datetime-local"],
+input[type="time"],
+input[type="date"]{position:relative;}
+input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+input[type='time']::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator{position:relative;z-index:2;right:0;width:13px;height:14px;background:transparent;}
+textarea{min-height:100px;max-height:300px;resize:none;}
+input[list]::-webkit-calendar-picker-indicator,
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-right:20px;background:url(../images/btn_select.png) right 5px center no-repeat, rgba(255,255,255,.9);list-style:none!important;
+  option:nth-of-type(1){color:#989898;}
+}
+progress{appearance:none;height:8px;
+  &::-webkit-progress-bar {background:#edf0f3;border-radius:5px;}
+  &::-webkit-progress-value{border-radius:10px;background:#ff6664;}
+}
+textarea.line1{height:28px;min-height:28px;}
+input, select{
+  &.w_day{width:30px;
+    &+span{vertical-align:middle;}
+  }
+  &.w_week{width:60px;
+    &+span{vertical-align:middle;}
+  }
+  &.w_money{text-align:right;
+    &+span{vertical-align:middle;}
+  }
+  &.w_auto{width:auto;}
+}
+input[type=number]{-moz-appearance:textfield;} // firefox hide arrrow
+::-webkit-input-placeholder{color:$gray;}
+:-ms-input-placeholder{color:$gray;}
+::placeholder,
+.opt_label,
+select{color:$gray;}
+select{
+  option,
+  &:has(option[selected]){color:#333;}
+}
+optgroup.opt_label,
+.opt_label option{display:none;}
+label>input[type="radio"],
+label>input[type="checkbox"]{position:relative;top:-1px;margin-right:5px;vertical-align:middle;}
+input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+[contenteditable]:not(.ck-widget),
+.ck:not(:has([contenteditable])) [contenteditable]{height:var(--h);white-space:pre-wrap;text-align:left;word-break:break-word;overflow-y:auto;}
+
+
+input[type="datetime-local"],
+input[type="time"],
+input[type="date"]{width:auto;min-width:104px;
+  &::after{position:absolute;z-index:1;right:5px;top:50%;transform:translateY(-50%);color:$red;}
+}
+input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;padding-right:10px;}
+input[type="date"]::after{@include fontello('\f133');font-size:15px;}
+input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
+.period_custom{display:inline-flex;justify-content:space-between;align-items:center;gap:10px;position:relative;vertical-align:middle;
+  input{width:auto;padding-right:4px;letter-spacing:-.05em;
+    &::-webkit-date-and-time-value{text-align:left;}
+  }
+  &>*:first-child{position:relative;overflow:visible;order:-1;}
+  &::before{content:"~";}
+  &>span{display:inline-flex;gap:3px;}  
+}
+
+
+
+

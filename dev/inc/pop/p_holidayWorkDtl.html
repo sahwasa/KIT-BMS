@@ -43,8 +43,8 @@
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button" onclick="">사용촉진</button>
-                      <button type="button" onclick="">기한연장</button>
+                      <button type="button" onclick="document.querySelector('#confirm1').showModal();">사용촉진</button>
+                      <button type="button" onclick="document.querySelector('#confirm2').showModal();">기한연장</button>
                     </div>
                   </div>
                 </td>
@@ -60,8 +60,8 @@
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button" onclick="">사용촉진</button>
-                      <button type="button" onclick="">기한연장</button>
+                      <button type="button" onclick="document.querySelector('#confirm1').showModal();">사용촉진</button>
+                      <button type="button" onclick="document.querySelector('#confirm2').showModal();">기한연장</button>
                     </div>
                   </div>
                 </td>
@@ -76,8 +76,8 @@
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button" onclick="">사용촉진</button>
-                      <button type="button" onclick="">기한연장</button>
+                      <button type="button" onclick="document.querySelector('#confirm1').showModal();">사용촉진</button>
+                      <button type="button" onclick="document.querySelector('#confirm2').showModal();">기한연장</button>
                     </div>
                   </div>
                 </td>
@@ -121,11 +121,29 @@
             </tbody>
           </table>
         </section>        
-      </article>
-      <div class="btn_wrap">
-        <button class="btn_red" type="button">적용</button>
-        <button class="btn_gray_line">취소</button>
-      </div>
+      </article>      
     </div>
   </form>
+</dialog>
+<dialog id="confirm1" class="p_confirm modal">
+  <div class="p_body">
+    <div class="msg">
+      <p>사용촉진 시 대상자에게 문자알람이 갑니다.</p>
+    </div>
+    <div class="btn_wrap">
+      <button class="btn_red" type="button">확인</button>
+      <button class="btn_gray_line">취소</button>
+    </div>
+  </div>
+</dialog>
+<dialog id="confirm2" class="p_confirm modal">
+  <div class="p_body">
+    <div class="msg">
+      <p>사용권장 기한이 1개월 늘어납니다.</p>
+    </div>
+    <div class="btn_wrap">
+      <button class="btn_red" type="button">확인</button>
+      <button class="btn_gray_line">취소</button>
+    </div>
+  </div>
 </dialog>

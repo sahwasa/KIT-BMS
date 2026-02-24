@@ -1,0 +1,86 @@
+<dialog class="p_monthlyAttendance" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>근태 상세</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>    
+    <div class="p_body">
+      <header class="p_body_tit"><h1>사업본부_홍길동(사번:150)</h1></header>
+      <div class="tbl_wrap">
+        <table class="tbl_default">
+          <caption>월별 근태목록</caption>
+          <thead>
+            <th scope="col">근무일자</th>
+            <th scope="col">근무형태</th>
+            <th scope="col">선택 근로시간</th>
+            <th scope="col">시스템 출근시각</th>
+            <th scope="col">캡스정보</th>
+            <th scope="col">근무지</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>03-01</td>
+              <td>휴일</td>
+              <td>10~19</td>
+              <td>-</td>
+              <td>-</td>
+              <td>본사</td>
+            </tr>
+            <tr>
+              <td>03-02</td>
+              <td>휴일</td>
+              <td>10~19</td>
+              <td>-</td>
+              <td>-</td>
+              <td>본사</td>
+            </tr>
+            <tr>
+              <td>03-03</td>
+              <td>평일</td>
+              <td>10~19</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근</button></td>
+              <td>-</td>
+              <td>기상청</td>
+            </tr>
+            <tr>
+              <td>03-04</td>
+              <td>평일</td>
+              <td>10~19</td>
+              <td class="late">10:01</td>
+              <td class="late">10:05</td>
+              <td>본사</td>
+            </tr>
+            <tr>
+              <td>03-05</td>
+              <td>평일</td>
+              <td>10~19</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장</button></td>
+              <td>-</td>
+              <td>세종시</td>
+            </tr>
+            <tr>
+              <td>03-06</td>
+              <td>평일</td>
+              <td>10~19</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button></td>
+              <td>-</td>
+              <td>본사</td>
+            </tr>      
+            <tr class="review">
+              <td>03-07</td>
+              <td>평일</td>
+              <td>09~18</td>
+              <td class="late">09:05</td>
+              <td>09:00</td>
+              <td>본사</td>
+            </tr>          
+          </tbody>
+        </table>
+      </div>     
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>

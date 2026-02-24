@@ -1,0 +1,68 @@
+// Breakpoints
+$breakpoint-mobile: 767px;
+$breakpoint-mobile_tablet: 1024px;
+$breakpoint-tablet: 1300px;
+$breakpoint-desktop: 1600px;
+
+//color
+
+$white:#fff;
+$black:#363636;
+$red:#e42b29;
+$tomato:#ff6664;
+$skyblue:#05b4d9;
+$blue:#2974e4;
+$yellow:#f0a44f;
+$orange:#f0a44f;
+$gray:#999;
+$green:#35b821; // 승인 결재완료 종료
+
+$draft:#30b4e9; // 접수
+$ing:#2974e4; // 진행중, 수행중, 진행, 결재진행, 전결
+$fin:$green; // 승인, 결재완료, 종료
+$agree:#be68e0; // 합의
+$reject:$tomato; // 회수, 반려
+$wait:$yellow; // 준비, 결재대기, 참조 접수
+$defer:$orange; // 후결대기
+$done:#55b2b7; // 후결, 참조완료, 확인
+$cc:#8867c9; // 참조확인
+$relay:#c94b9f;
+
+//task
+$task_ing:#2ea3fc;
+$task_plan:#b179ea;
+$task_done:#9fadb8;
+$task_cancel:#e68fba;
+$task_hold:#2cc78b;
+
+$report_blue:#f1f8ff;
+$report_yellow:#fffae9;
+$report_gray:#f5f5f5;
+$proj_blue:#deedfc;
+$proj_yellow:#f9f2b4;
+$proj_pink:#ffecec;
+$proj_green:#dfedc7;
+$proj_gray:#edf0f3;
+
+$btn_red:#f05050;
+$btn_gray:#979797;
+$btn_red_line:#ff7575;
+
+//업무
+$_titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00, 'meet':#d85c82);  
+
+$_roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f, 'F':#4285f4, 'G':#7f4103, 'H':#87d254);
+$_planType:('personal':#1E7B45,'attendance':#7249bd, 'event':#d85c82, 'meeting':#4285f4, 'leave':#7249BD, 'admin':#2a516f, 'edu': #d85c82);
+$_taskType:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$task_cancel,'hold':$task_hold);
+
+
+
+// font
+.t{
+  &_red{color: $red !important;}
+  &_gray{color: $gray !important;}
+  &_green{color: $green !important;}
+  &_blue{color: $blue !important;}
+  &_skyblue{color: $skyblue !important;}
+}
+$tit_spacing:.45px;

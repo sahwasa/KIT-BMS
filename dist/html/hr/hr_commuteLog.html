@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
   <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
   <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
-  <link rel="stylesheet" href="../../css/merge.css">
+  <link rel="stylesheet" href="../../css/main.css">
 </head>
 <body>
 
@@ -122,12 +122,13 @@
 </nav>
   <main id="content" class="container">
     <section class="snb">
-  <div class="snb_container svc">
+  <div class="snb_container hr">
     <header>
-      <h2><a href="svc.html">인사총무</a></h2>
+      <h2><a href="hr_attendance.html">인사총무</a></h2>
     </header>
     <ul class="snb_lst">
-      <li><a href="hr_leaveMng.html">연차관리</a>            
+      <li><a href="hr_attendance.html">근태관리</a>      
+      <li><a href="hr_leaveMng.html">연차관리</a>      
       <li><a href="hr_holidayWorkMng.html">휴일근무관리</a></li>
       <li><a href="hr_commuteLog.html">출퇴근이력</a></li>
     </ul>
@@ -167,7 +168,7 @@
                 </select>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="이름 or 사번" list="">
+                <input type="text" name="" id="" title="검색어" placeholder="사원명 or 사번" list="">
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
@@ -179,19 +180,78 @@
             </div>
           </section>
         <article>          
-          <section class="tbl_wrap">
+          <!-- <section class="tbls_wrap" data-empty="부서, 또는 사원을 검색해주세요."></section> -->
+          <section class="tbls_wrap" data-empty="부서, 또는 사원을 겁색해주세요.">
+            <header><h1>사업본부_하츄핑 (사번:0014)</h1></header>
             <table class="tbl_default">
-              <caption>사업 담당자 리스트</caption>
+              <caption>출퇴근 이력</caption>
               <thead>
                 <tr>
-                  <th scope="col">사번</th>
-                  <th scope="col">사원명</th>
-                  <th scope="col">부서</th>
                   <th scope="col">근무일자</th>
                   <th scope="col">근무형태</th>
                   <th scope="col">선택 근로시간</th>
                   <th scope="col">출근</th>
+                  <th scope="col">출근 입력정보</th>
                   <th scope="col">퇴근</th>
+                  <th scope="col">퇴근 입력정보</th>
+                  <th scope="col">근무지</th>
+                </tr>
+              </thead>
+              <tbody>                
+                <tr>
+                  <td>02-01</td>
+                  <td>휴일</td>
+                  <td>10~19</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>                  
+                  <td>본사</td>
+                </tr>
+                <tr>
+                  <td>02-02</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
+                <tr>
+                  <td>02-03</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>외근</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>경찰청</td>
+                </tr>
+                <tr>
+                  <td>02-04</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>외근</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>경찰청</td>
+                </tr>
+              </tbody>
+            </table>
+            <header><h1>사업본부_꾸래핑 (사번:0015)</h1></header>
+            <table class="tbl_default">
+              <caption>출퇴근 이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">근무일자</th>
+                  <th scope="col">근무형태</th>
+                  <th scope="col">선택 근로시간</th>
+                  <th scope="col">출근</th>
+                  <th scope="col">출근 입력정보</th>
+                  <th scope="col">퇴근</th>
+                  <th scope="col">퇴근 입력정보</th>
                   <th scope="col">근무지</th>
                 </tr>
               </thead>
@@ -200,30 +260,47 @@
                   <td colspan="9">검색할 부서 또는 사원을 입력해주세요.</td>
                 </tr>
                 <tr>
-                  <td>150</td>
-                  <td>하츄핑</td>
-                  <td>사업본부</td>
                   <td>02-01</td>
                   <td>휴일</td>
                   <td>10~19</td>
-                  <td>10:03 &sol; 02-03<div>(PC:123.456.7.89)</div></td>
-                  <td>19:05 &sol; 02-03<div>(Mobile:위도/경도)</div></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
                   <td>본사</td>
                 </tr>
                 <tr>
-                  <td>150</td>
-                  <td>하츄핑</td>
-                  <td>사업본부</td>
                   <td>02-02</td>
                   <td>평일</td>
                   <td>10~19</td>
-                  <td>10:03 &sol; 02-03<div>(PC:123.456.7.89)</div></td>
-                  <td>19:05 &sol; 02-03<div>(Mobile:위도/경도)</div></td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
                   <td>본사</td>
                 </tr>
-               
+                <tr>
+                  <td>02-03</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
+                <tr>
+                  <td>02-04</td>
+                  <td>평일</td>
+                  <td>10~19</td>
+                  <td>10:03</td>
+                  <td>02-03<div>(PC:123.456.7.89)</div></td>
+                  <td>19:05</td>
+                  <td>02-03 <div>(Mobile:위도/경도)</div></td>
+                  <td>본사</td>
+                </tr>
               </tbody>
-            </table>
+            </table>            
           </section>        
         </article>
       </div>
@@ -279,8 +356,8 @@
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button" onclick="">사용촉진</button>
-                      <button type="button" onclick="">기한연장</button>
+                      <button type="button" onclick="document.querySelector('#confirm1').showModal();">사용촉진</button>
+                      <button type="button" onclick="document.querySelector('#confirm2').showModal();">기한연장</button>
                     </div>
                   </div>
                 </td>
@@ -296,8 +373,8 @@
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button" onclick="">사용촉진</button>
-                      <button type="button" onclick="">기한연장</button>
+                      <button type="button" onclick="document.querySelector('#confirm1').showModal();">사용촉진</button>
+                      <button type="button" onclick="document.querySelector('#confirm2').showModal();">기한연장</button>
                     </div>
                   </div>
                 </td>
@@ -312,8 +389,8 @@
                   <div class="layer_tool">
                     <button type="button" class="btn_ellipsis" title="더보기">더보기</button>
                     <div class="btn_layer">
-                      <button type="button" onclick="">사용촉진</button>
-                      <button type="button" onclick="">기한연장</button>
+                      <button type="button" onclick="document.querySelector('#confirm1').showModal();">사용촉진</button>
+                      <button type="button" onclick="document.querySelector('#confirm2').showModal();">기한연장</button>
                     </div>
                   </div>
                 </td>
@@ -357,13 +434,31 @@
             </tbody>
           </table>
         </section>        
-      </article>
-      <div class="btn_wrap">
-        <button class="btn_red" type="button">적용</button>
-        <button class="btn_gray_line">취소</button>
-      </div>
+      </article>      
     </div>
   </form>
+</dialog>
+<dialog id="confirm1" class="p_confirm modal">
+  <div class="p_body">
+    <div class="msg">
+      <p>사용촉진 시 대상자에게 문자알람이 갑니다.</p>
+    </div>
+    <div class="btn_wrap">
+      <button class="btn_red" type="button">확인</button>
+      <button class="btn_gray_line">취소</button>
+    </div>
+  </div>
+</dialog>
+<dialog id="confirm2" class="p_confirm modal">
+  <div class="p_body">
+    <div class="msg">
+      <p>사용권장 기한이 1개월 늘어납니다.</p>
+    </div>
+    <div class="btn_wrap">
+      <button class="btn_red" type="button">확인</button>
+      <button class="btn_gray_line">취소</button>
+    </div>
+  </div>
 </dialog>
 <dialog class="p_modifyLeave">
   <form method="dialog">

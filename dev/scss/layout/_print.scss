@@ -1,0 +1,17 @@
+@media print{
+  // input[type="radio"],
+  // input[type="checkbox"]{position:relative;
+  //   &:checked{background:transparent;border:1px solid $red;
+  //     &::before{position:absolute;z-index:0;top:-2px;left:1px;content:'\eb2d';font-family:'fontello';font-size:10px;color:$red;}
+  //   }
+  // }
+  input[type="radio"]:checked{background-position:-1px -24px;}
+  input[type="checkbox"]:checked{background-position:-1px -1px;}
+  .tbl_report input:disabled{background-color:transparent;border-width:0;}
+  thead,
+  tfoot{display:table-row-group;}
+}
+@page {
+  size:210mm 297mm; /*A4*/
+  margin:0mm
+ }
