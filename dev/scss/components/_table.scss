@@ -152,3 +152,8 @@ td{white-space:nowrap;text-overflow:ellipsis;
     tbody>tr>td:nth-child(#{$left}){text-align:left;}
   }
 }
+.tbl_hr{
+  .late,.out{color:$late;
+    &::after{@include fontello(map-get($_attendance_legend, $late));color:$late;margin-left:5px;}
+  }
+}

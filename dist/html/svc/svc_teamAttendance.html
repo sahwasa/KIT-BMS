@@ -348,81 +348,91 @@
   <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
-<dialog class="p_monthlyAttendance" tabindex="0">
+<dialog class="p_monthlyAttendance tbl_hr" tabindex="0">
   <form method="dialog">
     <div class="p_header">
-      <strong>근태 상세</strong>
+      <strong>근태 상세 (월별)</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </div>    
     <div class="p_body">
-      <header class="p_body_tit"><h1>사업본부_홍길동(사번:150)</h1></header>
+      <header class="p_body_tit">
+        <h1>2026년 3월 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
+        <span class="tool">
+          지각 : 1 / 조퇴 : 1
+        </span>
+      </header>
       <div class="tbl_wrap">
         <table class="tbl_default">
           <caption>월별 근태목록</caption>
           <thead>
             <th scope="col">근무일자</th>
             <th scope="col">근무형태</th>
-            <th scope="col">선택 근로시간</th>
             <th scope="col">시스템 출근시각</th>
-            <th scope="col">캡스정보</th>
+            <th scope="col">캡스 출근시각</th>
+            <th scope="col">시스템 퇴근시각</th>
+            <th scope="col">캡스 퇴근시각</th>
             <th scope="col">근무지</th>
+            <th scope="col">비고</th>
           </thead>
           <tbody>
-            <tr>
-              <td>03-01</td>
-              <td>휴일</td>
-              <td>10~19</td>
+            <tr class="review">
+              <td>03-06</td>
+              <td>평일(10~19)</td>
+              <td>- (PC:123.456.7.89)</td>
               <td>-</td>
-              <td>-</td>
-              <td>본사</td>
-            </tr>
-            <tr>
-              <td>03-02</td>
-              <td>휴일</td>
-              <td>10~19</td>
-              <td>-</td>
+              <td>- (Mobile:위도/경도)</td>
               <td>-</td>
               <td>본사</td>
-            </tr>
+              <td>캡스시간 누락</td>
+            </tr>           
             <tr>
-              <td>03-03</td>
-              <td>평일</td>
-              <td>10~19</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근</button></td>
+              <td>03-05</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
+              <td>-</td>
+              <td>-</td>
               <td>-</td>
               <td>기상청</td>
+              <td>-</td>
             </tr>
             <tr>
               <td>03-04</td>
-              <td>평일</td>
-              <td>10~19</td>
-              <td class="late">10:01</td>
-              <td class="late">10:05</td>
-              <td>본사</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
+              <td class="late">18:01</td>
+              <td>-</td>
+              <td>10:05 <sup class="t_blue">+1일</sup></td>
+              <td>-</td>
+              <td>기상청</td>
+              <td>-</td>
             </tr>
             <tr>
-              <td>03-05</td>
-              <td>평일</td>
-              <td>10~19</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장</button></td>
+              <td>03-03</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장(09~18)</button></td>
+              <td>08:50 (Mobile:위도/경도)</td>
+              <td>-</td>
+              <td>18:05 (Mobile:위도/경도)</td>
               <td>-</td>
               <td>세종시</td>
+              <td>-</td>
             </tr>
             <tr>
-              <td>03-06</td>
-              <td>평일</td>
-              <td>10~19</td>
+              <td>03-02</td>
               <td><button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button></td>
               <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td>본사</td>
+              <td>-</td>
             </tr>      
             <tr class="review">
-              <td>03-07</td>
-              <td>평일</td>
-              <td>09~18</td>
-              <td class="late">09:05</td>
+              <td>03-01</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('휴일근무신청서 ? 결과보고서? 연결');">휴일근무(09~14)</button></td>
+              <td class="late">09:06 (PC:123.456.7.89)</td>
               <td>09:00</td>
+              <td>15:10 (PC:123.456.7.89)</td>
+              <td>15:05</td>
               <td>본사</td>
+              <td>상태 불일치</td>
             </tr>          
           </tbody>
         </table>

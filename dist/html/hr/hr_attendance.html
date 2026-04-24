@@ -148,20 +148,7 @@
         </section>
       </header>
       <div class="cont_body">
-        <article>
-          <div class="handle_week">
-              <button type="button" class="handle_prev" onclick="setMonth(-1)">이전 달 이동</button>
-              <span id="year">2026년 3월</span>
-              <button type="button" class="handle_next" onclick="setMonth(+1)" disabled="">다음 달 이동</button>
-          </div>
-          <div class="tbl_top_area">
-            <div class="btn_switch border_none">
-              <input type="radio" id="btn_month" name="table_button" checked>
-              <label for="btn_month" class="opened">월간</label>
-              <input type="radio" id="btn_year" name="table_button">
-              <label for="btn_year" class="closed">연간</label>
-            </div>
-          </div>
+        <article>       
           <section class="box_compact">
             <ul class="search_list">
               <li>
@@ -170,7 +157,21 @@
                 </select>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="">
+                <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
@@ -181,100 +182,8 @@
               <button type="button" class="btn_gray_line">다운로드</button>
             </div>
           </section>
-          <section class="tbl_wrap tbl_attendance_wrap">
-            <!-- 월간 -->
-            <table class="tbl_default monthly">
-              <caption>월별 근태목록</caption>
-              <thead>
-                <tr>
-                  <th scope="col">사번</th>
-                  <th scope="col">사원명</th>
-                  <th scope="col">부서</th>
-                  <th scope="col">근무지</th>
-                  <th scope="col">지각</th>
-                  <th scope="col">1일</th><th scope="col">2일</th><th scope="col">3일</th>
-                  <th scope="col">4일</th><th scope="col">5일</th><th scope="col">6일</th>
-                  <th scope="col">7일</th><th scope="col">8일</th><th scope="col">9일</th>
-                  <th scope="col">10일</th><th scope="col">11일</th><th scope="col">12일</th>
-                  <th scope="col">13일</th><th scope="col">14일</th><th scope="col">15일</th>
-                  <th scope="col">16일</th><th scope="col">17일</th><th scope="col">18일</th>
-                  <th scope="col">19일</th><th scope="col">20일</th><th scope="col">21일</th>
-                  <th scope="col">22일</th><th scope="col">23일</th><th scope="col">24일</th>
-                  <th scope="col">25일</th><th scope="col">26일</th><th scope="col">27일</th>
-                  <th scope="col">28일</th><th scope="col">29일</th><th scope="col">30일</th>
-                  <th scope="col">31일</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="2">150</td>
-                  <td rowspan="2">홍길동</td>
-                  <td rowspan="2">경영관리실</td>
-                  <td rowspan="2">본사</td>
-                  <td>2</td>
-                  <td>휴일</td><td>휴일</td><td>09:30<div>(10~19)</div></td><td class="review late">10:01<div>(10~19)</div></td><td>09:58<div>(10~19)</div></td> <td class="review late">10:04<div>(10~19)</div></td><td>휴일</td> <td>휴일</td><td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장</button></td> <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근</button></td>
-                </tr>
-                <tr>
-                  <td>0</td><td>-</td><td>-</td><td>09:35</td> <td class="review">10:00</td><td>10:00</td><td class="review">10:00</td> <td>-</td><td>-</td><td>-</td><td>-</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">150</td>
-                  <td rowspan="2">하츄핑</td>
-                  <td rowspan="2">사업본부</td>
-                  <td rowspan="2">본사</td>
-                  <td class="late">5</td> 
-                  <!-- 지각 5개 이상이면 .late추가 -->
-                  <td>휴일</td><td>휴일</td> <td class="late">09:30<div>(09~18)</div></td> <td class="late">10:01<div>(09~18)</div></td><td class="late">09:58<div>(09~18)</div></td> <td class="late">10:04<div>(09~18)</div></td><td>휴일</td> <td>휴일</td><td><button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button></td> <td class="late">09:55<div>(09~18)</div></td>
-                </tr>
-                <tr>
-                  <td class="late">5</td><td>-</td><td>-</td><td class="late">09:35</td> <td class="late">10:00</td><td class="late">10:00</td><td class="late">10:00</td> <td>-</td><td>-</td><td>-</td><td class="late">10:00</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- 월간__e -->
-         
-            <!-- 연간 -->
-            <table class="tbl_default tbl_hover">
-              <caption>연간 근태목록</caption>
-              <thead>
-                <tr>
-                  <th scope="col">사번</th>
-                  <th scope="col">사원명</th>
-                  <th scope="col">부서</th>
-                  <th scope="col">근무지</th>
-                  <th scope="col">지각</th>
-                  <th scope="col">1월</th><th scope="col">2월</th><th scope="col">3월</th>
-                  <th scope="col">4월</th><th scope="col">5월</th><th scope="col">6월</th>
-                  <th scope="col">7월</th><th scope="col">8월</th><th scope="col">9월</th>
-                  <th scope="col">10월</th><th scope="col">11월</th><th scope="col">12월</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="2">150</td>
-                  <td rowspan="2">홍길동</td>
-                  <td rowspan="2">사업본부</td>
-                  <td rowspan="2">본사</td>
-                  <td>5</td>
-                  <td onclick="document.querySelector('.p_monthlyAttendance').showModal();">0</td> <td>0</td> <td class="late">5</td> <td class="review">1</td> <td>0</td> <td class="review">1</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td onclick="document.querySelector('.p_monthlyAttendance').showModal();">0</td> <td>0</td> <td>0</td> <td class="review">0</td> <td>0</td> <td class="review">0</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">151</td>
-                  <td rowspan="2">하츄핑</td>
-                  <td rowspan="2">사업본부</td>
-                  <td rowspan="2">본사</td>
-                  <td>2</td>
-                  <td onclick="document.querySelector('.p_monthlyAttendance').showModal();">0</td> <td>0</td> <td>0</td> <td>1</td> <td>0</td> <td>1</td> <td>0</td> <td>0</td> <td>0</td> <td>0</td>
-                </tr>
-                <tr><td>0</td>
-                <td onclick="document.querySelector('.p_monthlyAttendance').showModal();">0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              </tbody>
-            </table>
-            <!-- 연간__e -->
+          <section>
+            <div id='hrAttendance' class="hr_attendance"></div>
           </section>
        </article>        
       </div>
@@ -357,81 +266,141 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     </div>
   </form>
 </dialog>
-<dialog class="p_monthlyAttendance" tabindex="0">
+<dialog class="p_dailyAttendance tbl_hr" tabindex="0">
   <form method="dialog">
     <div class="p_header">
-      <strong>근태 상세</strong>
+      <strong>근태 상세 (일별)</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </div>    
     <div class="p_body">
-      <header class="p_body_tit"><h1>사업본부_홍길동(사번:150)</h1></header>
+      <header class="p_body_tit">
+        <h1>2026년 3월 5일 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
+      </header>
+      <div>
+        <table class="tbl_default tbl_row">
+          <caption>내방객 사전등록 정보</caption>
+          <tbody>
+            <tr>
+              <th scope="row" colspan="2">근무형태</th>
+              <td>평일 (09~18)</td> 
+            </tr>
+            <tr>
+              <th scope="rowgroup" rowspan="2">출근</th>
+              <th scope="row">시스템</th>
+              <td class="late">09:01 (PC:123.456.7.89)</td> 
+            </tr>
+            <tr>
+              <th scope="row">캡스</th>
+              <td>09:00</td> 
+            </tr>
+            <tr>
+              <th scope="rowgroup" rowspan="2">퇴근</th>
+              <th scope="row">시스템</th>
+              <td>09:01 <sup class="t_blue">+1일</sup> (PC:123.456.7.89)</td> 
+            </tr>
+            <tr>
+              <th scope="row">캡스</th>
+              <td colspan="2">09:00</td> 
+            </tr>
+            <tr>
+              <th scope="row" colspan="2">비고</th>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>     
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_monthlyAttendance tbl_hr" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>근태 상세 (월별)</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>    
+    <div class="p_body">
+      <header class="p_body_tit">
+        <h1>2026년 3월 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
+        <span class="tool">
+          지각 : 1 / 조퇴 : 1
+        </span>
+      </header>
       <div class="tbl_wrap">
         <table class="tbl_default">
           <caption>월별 근태목록</caption>
           <thead>
             <th scope="col">근무일자</th>
             <th scope="col">근무형태</th>
-            <th scope="col">선택 근로시간</th>
             <th scope="col">시스템 출근시각</th>
-            <th scope="col">캡스정보</th>
+            <th scope="col">캡스 출근시각</th>
+            <th scope="col">시스템 퇴근시각</th>
+            <th scope="col">캡스 퇴근시각</th>
             <th scope="col">근무지</th>
+            <th scope="col">비고</th>
           </thead>
           <tbody>
-            <tr>
-              <td>03-01</td>
-              <td>휴일</td>
-              <td>10~19</td>
+            <tr class="review">
+              <td>03-06</td>
+              <td>평일(10~19)</td>
+              <td>- (PC:123.456.7.89)</td>
               <td>-</td>
-              <td>-</td>
-              <td>본사</td>
-            </tr>
-            <tr>
-              <td>03-02</td>
-              <td>휴일</td>
-              <td>10~19</td>
-              <td>-</td>
+              <td>- (Mobile:위도/경도)</td>
               <td>-</td>
               <td>본사</td>
-            </tr>
+              <td>캡스시간 누락</td>
+            </tr>           
             <tr>
-              <td>03-03</td>
-              <td>평일</td>
-              <td>10~19</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근</button></td>
+              <td>03-05</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
+              <td>-</td>
+              <td>-</td>
               <td>-</td>
               <td>기상청</td>
+              <td>-</td>
             </tr>
             <tr>
               <td>03-04</td>
-              <td>평일</td>
-              <td>10~19</td>
-              <td class="late">10:01</td>
-              <td class="late">10:05</td>
-              <td>본사</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
+              <td class="late">18:01</td>
+              <td>-</td>
+              <td>10:05 <sup class="t_blue">+1일</sup></td>
+              <td>-</td>
+              <td>기상청</td>
+              <td>-</td>
             </tr>
             <tr>
-              <td>03-05</td>
-              <td>평일</td>
-              <td>10~19</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장</button></td>
+              <td>03-03</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장(09~18)</button></td>
+              <td>08:50 (Mobile:위도/경도)</td>
+              <td>-</td>
+              <td>18:05 (Mobile:위도/경도)</td>
               <td>-</td>
               <td>세종시</td>
+              <td>-</td>
             </tr>
             <tr>
-              <td>03-06</td>
-              <td>평일</td>
-              <td>10~19</td>
+              <td>03-02</td>
               <td><button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button></td>
               <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td>본사</td>
+              <td>-</td>
             </tr>      
             <tr class="review">
-              <td>03-07</td>
-              <td>평일</td>
-              <td>09~18</td>
-              <td class="late">09:05</td>
+              <td>03-01</td>
+              <td><button type="button" onclick="event.stopPropagation();alert('휴일근무신청서 ? 결과보고서? 연결');">휴일근무(09~14)</button></td>
+              <td class="late">09:06 (PC:123.456.7.89)</td>
               <td>09:00</td>
+              <td>15:10 (PC:123.456.7.89)</td>
+              <td>15:05</td>
               <td>본사</td>
+              <td>상태 불일치</td>
             </tr>          
           </tbody>
         </table>
@@ -443,27 +412,12 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     </div>
   </form>
 </dialog>
-<script>
-// 테이블 x스크롤 이벤트
-const $dragArea = $('.tbl_attendance_wrap');
-let isDown = false;
-let startX, scrollLeft;
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<script src="../../js/hr_attendance.js"></script>
 
-$dragArea.on('mousedown', function (e) {
-  isDown = true;
-  startX = e.pageX;
-  scrollLeft = this.scrollLeft;
-  $(this).addClass('is-dragging');
-});
-$(document).on('mouseup', () => {
-  isDown = false;
-  $dragArea.removeClass('is-dragging');
-});
-$dragArea.on('mousemove', function (e) {
-  if (!isDown) return;
-  e.preventDefault();
-  this.scrollLeft = scrollLeft + (startX - e.pageX);
-});
+<script>
+// document.querySelector('.p_monthlyAttendance').showModal();
+document.querySelector('.p_dailyAttendance').showModal();
 </script>
 </body>
 </html>

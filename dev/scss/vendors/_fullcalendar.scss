@@ -97,17 +97,6 @@
     &:hover{color:#363636;}
   }
 }
-$on-duty:#006875;
-$regular:#62b3d1;
-$holiday_work:#ff9924;
-$overtime:#ffab4a;
-$off:#7249bd;
-$out:#3788D8;
-$night:#21D4A9;
-$late:#ff3c87;
-$truancy:$red;
-$not_entered:#FFC580;
-$scheduled:$gray;
 
 @mixin cal_ico($col:$regular,$font){
   @include customEvt($col){display:flex;align-items:center;background-color:rgba($col,.13);font-size:11px;border-width:0;
@@ -115,7 +104,7 @@ $scheduled:$gray;
     &.fc-daygrid-dot-event{background-color:transparent;}
   } 
 }
-$_attendance_legend :($scheduled:'\ebc3',$on-duty:'\eb39',$regular:'\eb6c',$overtime:'\ebc3',$holiday_work:'\f274',$not_entered:'\e81d',$late:'\eb38',$truancy:'\e876',$off:'\e860',$out:'\f0f2',$night:'\e8cc',);
+
 .calendar_attendance{position:relative;display:flex;flex-direction:column;gap:10px;
   .attendace_legend{flex-shrink:0;display:flex;gap:15px;margin-top:auto;
     li{font-size:12px;color:#a1a4ad;
@@ -150,5 +139,21 @@ $_attendance_legend :($scheduled:'\ebc3',$on-duty:'\eb39',$regular:'\eb6c',$over
       &.fc-event .fc-event-title{color:$regular;}
       b{font-weight:700;color:$not_entered;}
     }
+  }
+}
+.hr_attendance{
+  .fc-datagrid-header{background-color:#edf0f3;}
+  .fc-timeline-header{background-color:#f5f5f5;}
+  td .fc-datagrid-cell-frame{display:flex;align-items:center;justify-content:center;}
+  [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
+  .fc-timeline-events{height:inherit !important;padding-bottom:0 !important;}
+  .fc-timeline-event-harness{height:inherit;visibility:visible !important;}
+  .fc-event{height:inherit;text-align:center;background-color:transparent;border-color:transparent;margin:0 0 0 1px !important; box-sizing:border-box;padding:1px 0 0;}
+  .fc-event-main{color:initial;}
+  .cal_check{background-color:#ffecec;}
+  .fc-yearlyView-view th.fc-day-sat,
+  .fc-yearlyView-view th.fc-day-sun {
+    background: inherit !important;
+    color: inherit !important;
   }
 }

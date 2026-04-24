@@ -55,7 +55,20 @@ $_roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f, 'F':
 $_planType:('personal':#1E7B45,'attendance':#7249bd, 'event':#d85c82, 'meeting':#4285f4, 'leave':#7249BD, 'admin':#2a516f, 'edu': #d85c82);
 $_taskType:('ing':$task_ing,'plan':$task_plan,'done':$task_done,'cancel':$task_cancel,'hold':$task_hold);
 
+//근태
+$on-duty:#006875;
+$regular:#62b3d1;
+$holiday_work:#ff9924;
+$overtime:#ffab4a;
+$off:#7249bd;
+$out:#3788D8;
+$night:#21D4A9;
+$late:#ff3c87;
+$truancy:$red;
+$not_entered:#FFC580;
+$scheduled:$gray;
 
+$_attendance_legend :($scheduled:'\ebc3',$on-duty:'\eb39',$regular:'\eb6c',$overtime:'\ebc3',$holiday_work:'\f274',$not_entered:'\e81d',$late:'\eb38',$truancy:'\e876',$off:'\e860',$out:'\f0f2',$night:'\e8cc',);
 
 // font
 .t{

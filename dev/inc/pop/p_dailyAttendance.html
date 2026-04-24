@@ -1,0 +1,50 @@
+<dialog class="p_dailyAttendance tbl_hr" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>근태 상세 (일별)</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>    
+    <div class="p_body">
+      <header class="p_body_tit">
+        <h1>2026년 3월 5일 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
+      </header>
+      <div>
+        <table class="tbl_default tbl_row">
+          <caption>내방객 사전등록 정보</caption>
+          <tbody>
+            <tr>
+              <th scope="row" colspan="2">근무형태</th>
+              <td>평일 (09~18)</td> 
+            </tr>
+            <tr>
+              <th scope="rowgroup" rowspan="2">출근</th>
+              <th scope="row">시스템</th>
+              <td class="late">09:01 (PC:123.456.7.89)</td> 
+            </tr>
+            <tr>
+              <th scope="row">캡스</th>
+              <td>09:00</td> 
+            </tr>
+            <tr>
+              <th scope="rowgroup" rowspan="2">퇴근</th>
+              <th scope="row">시스템</th>
+              <td>09:01 <sup class="t_blue">+1일</sup> (PC:123.456.7.89)</td> 
+            </tr>
+            <tr>
+              <th scope="row">캡스</th>
+              <td colspan="2">09:00</td> 
+            </tr>
+            <tr>
+              <th scope="row" colspan="2">비고</th>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>     
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>

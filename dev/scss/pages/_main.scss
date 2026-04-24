@@ -1750,36 +1750,37 @@ $fixed-cols: 5;
 $fixed-width:80px;
 $z-head: 70;
 
-.tbl_attendance_wrap {@include tbl_defaultH(88px);overflow-x:auto;cursor:grab;
-  &.is-dragging tr:hover{cursor:grabbing;}
-  table {table-layout:fixed;border-collapse:separate;user-select:none;}
-  tr:hover{font-weight:600;}
-  .monthly :is(th,td){width:60px;}
-  th,
-  td {border-left:1px solid $td_border_color;background:#fff;vertical-align:middle;white-space:nowrap;} 
-  th {
-    @for $i from 1 through $fixed-cols{
-      &:nth-child(#{$i}) {
-        @include sticky-cell($fixed-width * ($i - 1),$fixed-width, $z-head);
-      }
-    }  
-    &:first-child{border-left-width:0;}
-  }
-  tr:nth-child(odd) td {
-    @for $i from 1 through $fixed-cols{
-      &:nth-child(#{$i}) {
-        @include sticky-cell($fixed-width * ($i - 1),$fixed-width);
-      }
-    }  
-    &:first-child{border-left-width:0;}
-  }  
-  tr:nth-child(even) td:first-child {
-    @include sticky-cell($fixed-width * ($fixed-cols - 1),$fixed-width);
-  }
-  th:nth-child(#{$fixed-cols}),
-  tr:nth-child(odd) td:nth-child(#{$fixed-cols}),
-  tr:nth-child(even) td:first-child{border-right:2px solid $th_border_color;} 
-}
+.hr_attendance{@include tbl_defaultH(25px);}
+// .tbl_attendance_wrap {@include tbl_defaultH(88px);overflow-x:auto;cursor:grab;
+//   &.is-dragging tr:hover{cursor:grabbing;}
+//   table {table-layout:fixed;border-collapse:separate;user-select:none;}
+//   tr:hover{font-weight:600;}
+//   .monthly :is(th,td){width:60px;}
+//   th,
+//   td {border-left:1px solid $td_border_color;background:#fff;vertical-align:middle;white-space:nowrap;} 
+//   th {
+//     @for $i from 1 through $fixed-cols{
+//       &:nth-child(#{$i}) {
+//         @include sticky-cell($fixed-width * ($i - 1),$fixed-width, $z-head);
+//       }
+//     }  
+//     &:first-child{border-left-width:0;}
+//   }
+//   tr:nth-child(odd) td {
+//     @for $i from 1 through $fixed-cols{
+//       &:nth-child(#{$i}) {
+//         @include sticky-cell($fixed-width * ($i - 1),$fixed-width);
+//       }
+//     }  
+//     &:first-child{border-left-width:0;}
+//   }  
+//   tr:nth-child(even) td:first-child {
+//     @include sticky-cell($fixed-width * ($fixed-cols - 1),$fixed-width);
+//   }
+//   th:nth-child(#{$fixed-cols}),
+//   tr:nth-child(odd) td:nth-child(#{$fixed-cols}),
+//   tr:nth-child(even) td:first-child{border-right:2px solid $th_border_color;} 
+// }
 .box_bot{display:flex;align-items:center;margin-top:5px;}
 $reaction-types: ( like, good, confirm, fun, wow, sad );
 .reaction_area{margin-left:auto;}

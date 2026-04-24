@@ -127,3 +127,5 @@ strong {
 .required::before{content:"* ";color:$red;font-size:13px;font-weight:600;}
 .validity{font-size:12px;color:#7a7a7a;letter-spacing:-0.3px;line-height:17px;}
 .placehold{position:absolute;left:15px;top:39px;color:$gray;visibility:hidden;}
+
+sup{font-size:0.8462em;}
