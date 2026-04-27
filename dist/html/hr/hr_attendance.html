@@ -245,7 +245,7 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     <div class="p_info">
       <h3>안내</h3>
       <ul>
-        <li>사원번호는 필수값입니다.</li>
+        <li>사원번호는 필수값이며 출근 혹은 퇴근정보가 있어야 정상적으로 업로드됩니다.</li>
       </ul>
     </div>
     <div class="p_body">
@@ -258,7 +258,50 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     <ul id="doc" class="attach_list">
     </ul>
   </div>
-</div> 
+</div>
+      <div class="tbl_wrap tbl_scroll_x">        
+        <table class="tbl_default">   
+          <caption>캡스데이터</caption>
+          <thead>           
+            <tr>
+              <th scope="col">번호</th>
+              <th scope="col">사용자ID</th>
+              <th scope="col">부서</th>
+              <th scope="col">직급</th>
+              <th scope="col">사원번호</th>
+              <th scope="col">이름</th>
+              <th scope="col">근무일자</th>
+              <th scope="col">근무일명칭</th>
+              <th scope="col">출근</th>
+              <th scope="col">퇴근</th>
+              <th scope="col">기본</th>
+              <th scope="col">연장</th>
+              <th scope="col">총합</th>
+              <th scope="col">인정</th>
+              <th scope="col">수정</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>             
+              <td>1</td>
+              <td>0001</td>
+              <td>임원실</td>
+              <td>회장</td>
+              <td>0001</td>
+              <td>장미호</td>
+              <td>6/1</td>
+              <td>휴일</td>
+              <td>-</td>
+              <td>-</td>
+              <td>0:00</td>
+              <td>0:00</td>
+              <td>0:00</td>
+              <td>0:00</td>
+              <td>-</td>
+            </tr>            
+          </tbody>
+        </table>       
+      </div>
       <div class="btn_wrap">
         <button class="btn_red" type="submit">확인</button>
         <button class="btn_gray_line" type="button">닫기</button>
@@ -274,44 +317,116 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     </div>    
     <div class="p_body">
       <header class="p_body_tit">
-        <h1>2026년 3월 5일 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
+        <h1>2026년 3월 5일 <span class="divide">IT사업본부 홍길동</span></h1>       
       </header>
       <div>
-        <table class="tbl_default tbl_row">
-          <caption>내방객 사전등록 정보</caption>
-          <tbody>
+        <article>
+          <table class="tbl_default tbl_row">
+            <caption>변경신청 내용</caption>
+            <tbody>
             <tr>
-              <th scope="row" colspan="2">근무형태</th>
-              <td>평일 (09~18)</td> 
+              <th scope="row">근무지</th>
+              <td>본사</td>
+              <th scope="row">근무형태</th>
+              <td>평일(09~18)</td>
+              <!-- 외근(09~12),반차,휴일근무,출장,교대근무 등등 -->            
+              <th scope="row">근태판정</th>
+              <td>
+                <div class="file_input">
+                  <select name="" id="">
+                    <option value="">지각</option>
+                    <option value="">정시출근</option>
+                  </select>
+                  <select name="" id="">
+                    <option value="">무단조퇴</option>
+                    <option value="">정시퇴근</option>
+                  </select>
+                  <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
+                </div>
+              </td>        
             </tr>
             <tr>
-              <th scope="rowgroup" rowspan="2">출근</th>
-              <th scope="row">시스템</th>
-              <td class="late">09:01 (PC:123.456.7.89)</td> 
+              <th scope="row" class="required"><label for="rm">비고</label></th>
+              <td colspan="6"><input type="text" id="rm" placeholder="비고" maxlength="100"></td>
             </tr>
-            <tr>
-              <th scope="row">캡스</th>
-              <td>09:00</td> 
-            </tr>
-            <tr>
-              <th scope="rowgroup" rowspan="2">퇴근</th>
-              <th scope="row">시스템</th>
-              <td>09:01 <sup class="t_blue">+1일</sup> (PC:123.456.7.89)</td> 
-            </tr>
-            <tr>
-              <th scope="row">캡스</th>
-              <td colspan="2">09:00</td> 
-            </tr>
-            <tr>
-              <th scope="row" colspan="2">비고</th>
-              <td>-</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>     
+            </tbody>
+          </table>          
+        </article>
+        <article class="attendance_record">
+          <header class="p_body_tit">
+            <h1>출퇴근 기록</h1>
+            <span class="info">근무시간은 휴게시간 포함</span>
+          </header>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>출퇴근 기록</caption>
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">구분</th>
+                  <th scope="colgroup" colspan="2">출근</th>
+                  <th scope="colgroup" colspan="2">퇴근</th>
+                  <th scope="col">근무시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="7">당일 출퇴근 기록이 없습니다.</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>캡스</td>              
+                  <td colspan="2" class="late">09:01</td>
+                  <td colspan="2">09:00 <sup class="t_blue">+1일</sup></td>
+                  <td>24시간 1분</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>시스템</td>
+                  <td class="late">09:03</td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td class="out">08:59 <sup class="t_blue">+1일</sup></td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td>23시간 54분</td>
+                </tr>           
+                <tr>
+                  <td>3</td>
+                  <td>시스템</td>
+                  <td>09:35 <sup class="t_blue">+1일</sup></td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td>12:00 <sup class="t_blue">+1일</sup></td>
+                  <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+                  <td>2시간 25분</td>
+                </tr>           
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
       <div class="btn_wrap">
+        <div class="more">최종수정 : 24-06-05 15:30</div>
         <button class="btn_red" type="submit">확인</button>
         <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_approvalOpinion">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>직권수정</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="approval_often">
+        <div class="p_body_tit">
+          <h1>수정사유</h1>
+        </div>
+      </div>
+      <textarea name="" id="" placeholder="수정사유를 입력해주세요."></textarea>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line">취소</button>
       </div>
     </div>
   </form>
@@ -333,22 +448,26 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
         <table class="tbl_default">
           <caption>월별 근태목록</caption>
           <thead>
-            <th scope="col">근무일자</th>
-            <th scope="col">근무형태</th>
-            <th scope="col">시스템 출근시각</th>
-            <th scope="col">캡스 출근시각</th>
-            <th scope="col">시스템 퇴근시각</th>
-            <th scope="col">캡스 퇴근시각</th>
-            <th scope="col">근무지</th>
-            <th scope="col">비고</th>
+            <tr>
+              <th scope="col" rowspan="2">근무일자</th>
+              <th scope="col" rowspan="2">근무형태</th>
+              <th scope="col" colspan="2">시스템 출근</th>
+              <th scope="col" colspan="2">시스템 퇴근</th>
+              <th scope="col">캡스 출근</th>
+              <th scope="col">캡스 퇴근</th>
+              <th scope="col" rowspan="2">근무지</th>
+              <th scope="col" rowspan="2">비고</th>
+            </tr>
           </thead>
-          <tbody>
+          <tbody>            
             <tr class="review">
               <td>03-06</td>
               <td>평일(10~19)</td>
-              <td>- (PC:123.456.7.89)</td>
+              <td>10:00</td>
+              <td><i class="ico_pc">PC</i> : 123.456.7.89</td>
+              <td>18:00</td>
+              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
               <td>-</td>
-              <td>- (Mobile:위도/경도)</td>
               <td>-</td>
               <td>본사</td>
               <td>캡스시간 누락</td>
@@ -356,6 +475,9 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
             <tr>
               <td>03-05</td>
               <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -367,7 +489,9 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
               <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
               <td class="late">18:01</td>
               <td>-</td>
-              <td>10:05 <sup class="t_blue">+1일</sup></td>
+              <td>10:05<sup class="t_blue">+1일</sup></td>
+              <td>-</td>
+              <td>-</td>
               <td>-</td>
               <td>기상청</td>
               <td>-</td>
@@ -375,9 +499,11 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
             <tr>
               <td>03-03</td>
               <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장(09~18)</button></td>
-              <td>08:50 (Mobile:위도/경도)</td>
+              <td>08:50</td>
+              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+              <td>18:05</td>
+              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
               <td>-</td>
-              <td>18:05 (Mobile:위도/경도)</td>
               <td>-</td>
               <td>세종시</td>
               <td>-</td>
@@ -389,15 +515,19 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
               <td>-</td>
               <td>-</td>
               <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td>본사</td>
               <td>-</td>
-            </tr>      
+            </tr>
             <tr class="review">
               <td>03-01</td>
               <td><button type="button" onclick="event.stopPropagation();alert('휴일근무신청서 ? 결과보고서? 연결');">휴일근무(09~14)</button></td>
-              <td class="late">09:06 (PC:123.456.7.89)</td>
+              <td class="late">09:06</td>
+              <td><i class="ico_pc">PC</i>:123.456.7.89</td>
               <td>09:00</td>
-              <td>15:10 (PC:123.456.7.89)</td>
+              <td><i class="ico_pc">PC</i>:123.456.7.89</td>
+              <td>15:05 <sup class="t_blue">+1일</sup></td>
               <td>15:05</td>
               <td>본사</td>
               <td>상태 불일치</td>
@@ -414,10 +544,12 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 </dialog>
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/hr_attendance.js"></script>
-
 <script>
-document.querySelector('.p_monthlyAttendance').showModal();
 document.querySelector('.p_dailyAttendance').showModal();
+//퍼블용
+commonInit();
+$('.tab').find('li:first').addClass('on')
+$('.tab_container').find('.tab_contents:not(:first)').hide()
 </script>
 </body>
 </html>

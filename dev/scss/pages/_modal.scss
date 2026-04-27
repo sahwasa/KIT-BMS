@@ -408,23 +408,41 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 .p_org_chart,.p_seating_chart{
   img{max-width:1280px;}
 }
-.p_uploadFile{width:500px;}
+.p_uploadFile{width:800px;
+  .tbl_wrap{max-height:300px;height:auto;min-height:auto;margin-top:30px;}
+  th,td{width:70px;}
+}
 .p_leaveDtl,.p_holidayWorkDtl{width:1000px;
   .p_body{display:flex;flex-direction:column;gap:25px;}
   .p_body_tit{margin-bottom:5px;}
   .tbl_wrap{height:auto;max-height:250px;min-height:auto;
     span{@include text_ellipsis;width:380px;text-align:left;}
+    td:has(.tbl_ico){width:60px;}
   }
   .leave_changeHistory span{width:720px;padding:0 20px;}
 }
-.p_modifyLeave{
+.p_modifyLeave{  
   input{width:80px;text-align:center;
     &:not(:first-of-type){margin-left:20px;}
   }
 }
 .p_monthlyAttendance{width:1100px;
-  .tbl_wrap{height:auto;max-height:250px;min-height:auto;}
+  th{vertical-align:middle;
+    &:not(:first-of-type){border-left:1px solid $th_border_color;}
+  }
+  td{
+    &:not(:first-of-type){border-left:1px solid $td_border_color;}
+  }
 }
-.p_dailyAttendance{width:500px;
-  th{width:60px;}
-}
+.p_dailyAttendance{width:1000px;
+  .tbl_row select{width:30px;}
+  .attendance_record{margin-top:30px;
+    .tbl_wrap{height:auto;max-height:545px;min-height:auto;}
+  }
+  .tbl_wrap{height:auto;max-height:545px;min-height:auto;}
+  tbody tr:not(:first-of-type) td{@include alignL(3 4 5 6){width:150px;};
+    &:nth-child(3),
+    &:nth-child(5){text-indent:40px;}
+  }
+  .more{margin-right:auto;}
+ }

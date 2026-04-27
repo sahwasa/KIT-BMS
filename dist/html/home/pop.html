@@ -3199,7 +3199,7 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     <div class="p_info">
       <h3>안내</h3>
       <ul>
-        <li>사원번호는 필수값입니다.</li>
+        <li>사원번호는 필수값이며 출근 혹은 퇴근정보가 있어야 정상적으로 업로드됩니다.</li>
       </ul>
     </div>
     <div class="p_body">
@@ -3212,7 +3212,50 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     <ul id="doc" class="attach_list">
     </ul>
   </div>
-</div> 
+</div>
+      <div class="tbl_wrap tbl_scroll_x">        
+        <table class="tbl_default">   
+          <caption>캡스데이터</caption>
+          <thead>           
+            <tr>
+              <th scope="col">번호</th>
+              <th scope="col">사용자ID</th>
+              <th scope="col">부서</th>
+              <th scope="col">직급</th>
+              <th scope="col">사원번호</th>
+              <th scope="col">이름</th>
+              <th scope="col">근무일자</th>
+              <th scope="col">근무일명칭</th>
+              <th scope="col">출근</th>
+              <th scope="col">퇴근</th>
+              <th scope="col">기본</th>
+              <th scope="col">연장</th>
+              <th scope="col">총합</th>
+              <th scope="col">인정</th>
+              <th scope="col">수정</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>             
+              <td>1</td>
+              <td>0001</td>
+              <td>임원실</td>
+              <td>회장</td>
+              <td>0001</td>
+              <td>장미호</td>
+              <td>6/1</td>
+              <td>휴일</td>
+              <td>-</td>
+              <td>-</td>
+              <td>0:00</td>
+              <td>0:00</td>
+              <td>0:00</td>
+              <td>0:00</td>
+              <td>-</td>
+            </tr>            
+          </tbody>
+        </table>       
+      </div>
       <div class="btn_wrap">
         <button class="btn_red" type="submit">확인</button>
         <button class="btn_gray_line" type="button">닫기</button>

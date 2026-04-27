@@ -108,7 +108,6 @@ function commonInit() {
       iptEvt(editIpt)
     }
   })
-
   $('dialog:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" })
   $('.modal:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" })
   // $('dialog:has(.p_header)').on('mousedown',function(e){

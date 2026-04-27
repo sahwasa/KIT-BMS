@@ -119,7 +119,7 @@
 
     calendar = new FullCalendar.Calendar(calendarEl, {     
       headerToolbar: {
-        left:'',// 'prev,next',
+        left: 'prevYear,prev,next,nextYear todayBtn',
         center: 'title',
         right: 'monthly,yearly'
       },     
@@ -128,25 +128,23 @@
           text: '월간',
           click: function() {
             calendar.changeView('monthlyView');
+            document.querySelector('.fc-todayBtn-button').textContent = '당월';
           }
         },
         yearly: {
           text: '연간',
           click: function() {
             calendar.changeView('yearlyView');
+            document.querySelector('.fc-todayBtn-button').textContent = '당해';
           }
-        }
+        },
+        todayBtn: {
+          text: '당월',
+          click: function() {
+            calendar.today();
+          }
+        },
       },
-      buttonText: {
-        monthly: '월간',
-        yearly: '연간'       
-      },
-      // titleFormat: function(date){
-      //   var start =  new Date(wbs_range.start);
-      //   var end =  new Date(wbs_range.end);
-      //   return `${start.getFullYear()}년 ${start.getMonth()}월 ${start.getDate()}일 - ${end.getFullYear()}년 ${end.getMonth()}월 ${end.getDate()}일 `
-      // },   
-      // validRange: wbs_range,
       fixedWeekCount: false,
       timeZone: 'local',
       editable: false,
@@ -158,14 +156,7 @@
       schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
       locale: 'ko',
       resourceAreaWidth:'420px',
-      resourceAreaColumns: [
-        {
-          group: true,
-          field: 'employee_id',
-          headerContent: '사번',
-          width:'40px',
-          cellClassNames:'alignC'
-        },      
+      resourceAreaColumns: [            
         {
           field: 'employee_name',
           headerContent: '사원명',
@@ -211,7 +202,6 @@
           calendar.addEventSource(monthlyEvents);
         }
       },
-
       eventContent: function(arg) {
         if (arg.view.type === 'yearlyView') {
           return {
@@ -222,6 +212,15 @@
           html: `${arg.event.extendedProps.type}<br/>${arg.event.extendedProps.time}`
         };
       },      
+      eventClick: function(info) {
+        if (info.view.type === 'monthlyView') {
+          let PopDaily = document.querySelector('.p_dailyAttendance');          
+          PopDaily.showModal();
+        } else if (info.view.type === 'yearlyView') {
+          let PopMonthly = document.querySelector('.p_monthlyAttendance');          
+          PopMonthly.showModal();
+        }
+      },
       datesSet: function(arg) {
         calendar.removeAllEvents();
         if (arg.view.type === 'yearlyView') {
@@ -238,8 +237,7 @@
             // { month: 'long' },
             { day: 'numeric' }       // "1", "2", ... "31" 형태
           ],
-          type: 'resourceTimeline',
-          // duration: { week: Math.round(differenceInDays/7+2) }
+          type: 'resourceTimeline',          
           duration : {month:1},
           slotLaneClassNames: function(arg) {
             if (!arg.date) return [];

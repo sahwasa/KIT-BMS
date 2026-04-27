@@ -64,6 +64,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   td{border-color:$td_border_color;color:#333;
     &.new::after{@include newmark;}
     &:has(.w_week){white-space:nowrap;}
+    &:has(.tbl_ico){width:50px;}
   }
   .tags{display:inline-flex;gap:3px;}  
   .withdrawal{text-decoration:line-through;color:$gray;
@@ -115,7 +116,7 @@ td{white-space:nowrap;text-overflow:ellipsis;
   &::before{content:"[";margin-right:$cmtmargin;}
   &::after{content:"]";margin-left:$cmtmargin;}
 }
-.layer_tool{position:relative;
+.layer_tool{position:relative;color:#333;
   .btn_ellipsis{@include ico_only;
     &::before{@include fontello('\f142');font-size:14px;padding:0 10px;}
   }
@@ -154,6 +155,13 @@ td{white-space:nowrap;text-overflow:ellipsis;
 }
 .tbl_hr{
   .late,.out{color:$late;
-    &::after{@include fontello(map-get($_attendance_legend, $late));color:$late;margin-left:5px;}
+    &::after{@include fontello(map-get($_attendance_legend, $late));color:$late;margin-left:5px;text-indent:0;}
+  }
+}
+.tbl_scroll_x{
+  table {table-layout:fixed;border-collapse:separate;user-select:none;}
+  th,
+  td{background:#fff;vertical-align:middle;white-space:nowrap;
+    &:not(:first-of-type){border-left:1px solid $td_border_color;}
   }
 }

@@ -11,6 +11,14 @@
   &.wait::before{@include fontello('\eb74');color:#f0a44f;}
   &.suspension::before{@include fontello('\eb6f');color:#ff6363;}
 }
+.ico{
+  &_pc,
+  &_mobile{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;background-color:$btn_gray;border-radius:50%;font-size:0;vertical-align:middle;
+    &::before{@include fontello('\f108');color:#fff;}
+  }
+  &_pc::before{content:'\f108';font-size:13px;padding-top:3px;}
+  &_mobile::before{content:'\f10b';font-size:18px;}
+}
 .draft{@include badge_color($draft)} // 상신
 .ing{@include badge_color($ing)} // 진행중 수행중 진행 결재진행
 .approve,

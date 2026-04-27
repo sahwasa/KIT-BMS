@@ -35,14 +35,14 @@
                 </select>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="이름 or 사번" list="">
+                <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+                @@include('../../inc/data/data_emp_name.html')
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
               </li>
             </ul>            
-            <div class="btn_wrap">
-              <button type="button" class="btn_refresh">정보갱신</button>
+            <div class="btn_wrap">              
               <button type="button" class="btn_gray_line">다운로드</button>
             </div>
           </section>
@@ -52,27 +52,39 @@
               <caption>사업 담당자 리스트</caption>
               <thead>
                 <tr>
-                  <th scope="col">사번</th>
+                  <th scope="col">상태</th>
                   <th scope="col">사원명</th>
                   <th scope="col">부서</th>
-                  <th scope="col">총 근무시간</th>
+                  <th scope="col">이월 근무시간</th>
+                  <th scope="col">당해 누적 근무시간</th>
                   <th scope="col">사용시간</th>
                   <th scope="col">잔여시간</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="attention" onclick="document.querySelector('.p_holidayWorkDtl').showModal();">
-                  <td>150</td>
+                  <td><i class="tbl_ico high_prio" title="사용권장 기한 경과">사용권장 기한 경과</i></td>
                   <td>하츄핑</td>
-                  <td>사업본부</td>
+                  <td>IT사업본부</td>
+                  <td>0</td>
                   <td>30</td>
                   <td>15</td>
-                  <td>5</td>
+                  <td>15</td>
+                </tr>
+                <tr class="attention" onclick="document.querySelector('.p_holidayWorkDtl').showModal();">
+                  <td><i class="tbl_ico normal_prio" title="사용권장 기한 임박">사용권장 기한 임박</i></td>
+                  <td>꾸래핑</td>
+                  <td>IT사업본부</td>
+                  <td>0</td>
+                  <td>8</td>
+                  <td>8</td>
+                  <td>0</td>
                 </tr>
                 <tr onclick="document.querySelector('.p_holidayWorkDtl').showModal();">
-                  <td>151</td>
-                  <td>꾸래핑</td>
-                  <td>사업본부</td>
+                  <td>&nbsp;</td>
+                  <td>차차핑</td>
+                  <td>솔루션개발팀</td>
+                  <td>0</td>
                   <td>8</td>
                   <td>8</td>
                   <td>0</td>

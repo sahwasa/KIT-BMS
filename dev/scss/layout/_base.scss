@@ -26,7 +26,9 @@ $columnGap:25px;$minH:540px;
 }
 
 .att::before{@include fontello('\e876');margin-right:10px;}
-.info::before{@include fontello('\eaf1');margin-right:3px;}
+.info{color:$tomato;
+  &::before{@include fontello('\eaf1');margin-right:3px;}
+}
 
 //layout
 #wrap{position:relative;font-size:13px;color:$black;font-family:"NanumGothic","나눔고딕","Malgun Gothic","맑은고딕","Apple SD Gothic Neo","AppleSDGothic","Nanum Barun Gothic","NanumGothic","AppleGothic","Dotum","Arial",sans-serif;}

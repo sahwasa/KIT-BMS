@@ -6,44 +6,116 @@
     </div>    
     <div class="p_body">
       <header class="p_body_tit">
-        <h1>2026년 3월 5일 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
+        <h1>2026년 3월 5일 <span class="divide">IT사업본부 홍길동</span></h1>       
       </header>
       <div>
-        <table class="tbl_default tbl_row">
-          <caption>내방객 사전등록 정보</caption>
-          <tbody>
+        <article>
+          <table class="tbl_default tbl_row">
+            <caption>변경신청 내용</caption>
+            <tbody>
             <tr>
-              <th scope="row" colspan="2">근무형태</th>
-              <td>평일 (09~18)</td> 
+              <th scope="row">근무지</th>
+              <td>본사</td>
+              <th scope="row">근무형태</th>
+              <td>평일(09~18)</td>
+              <!-- 외근(09~12),반차,휴일근무,출장,교대근무 등등 -->            
+              <th scope="row">근태판정</th>
+              <td>
+                <div class="file_input">
+                  <select name="" id="">
+                    <option value="">지각</option>
+                    <option value="">정시출근</option>
+                  </select>
+                  <select name="" id="">
+                    <option value="">무단조퇴</option>
+                    <option value="">정시퇴근</option>
+                  </select>
+                  <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
+                </div>
+              </td>        
             </tr>
             <tr>
-              <th scope="rowgroup" rowspan="2">출근</th>
-              <th scope="row">시스템</th>
-              <td class="late">09:01 (PC:123.456.7.89)</td> 
+              <th scope="row" class="required"><label for="rm">비고</label></th>
+              <td colspan="6"><input type="text" id="rm" placeholder="비고" maxlength="100"></td>
             </tr>
-            <tr>
-              <th scope="row">캡스</th>
-              <td>09:00</td> 
-            </tr>
-            <tr>
-              <th scope="rowgroup" rowspan="2">퇴근</th>
-              <th scope="row">시스템</th>
-              <td>09:01 <sup class="t_blue">+1일</sup> (PC:123.456.7.89)</td> 
-            </tr>
-            <tr>
-              <th scope="row">캡스</th>
-              <td colspan="2">09:00</td> 
-            </tr>
-            <tr>
-              <th scope="row" colspan="2">비고</th>
-              <td>-</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>     
+            </tbody>
+          </table>          
+        </article>
+        <article class="attendance_record">
+          <header class="p_body_tit">
+            <h1>출퇴근 기록</h1>
+            <span class="info">근무시간은 휴게시간 포함</span>
+          </header>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>출퇴근 기록</caption>
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">구분</th>
+                  <th scope="colgroup" colspan="2">출근</th>
+                  <th scope="colgroup" colspan="2">퇴근</th>
+                  <th scope="col">근무시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="7">당일 출퇴근 기록이 없습니다.</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>캡스</td>              
+                  <td colspan="2" class="late">09:01</td>
+                  <td colspan="2">09:00 <sup class="t_blue">+1일</sup></td>
+                  <td>24시간 1분</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>시스템</td>
+                  <td class="late">09:03</td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td class="out">08:59 <sup class="t_blue">+1일</sup></td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td>23시간 54분</td>
+                </tr>           
+                <tr>
+                  <td>3</td>
+                  <td>시스템</td>
+                  <td>09:35 <sup class="t_blue">+1일</sup></td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td>12:00 <sup class="t_blue">+1일</sup></td>
+                  <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+                  <td>2시간 25분</td>
+                </tr>           
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
       <div class="btn_wrap">
+        <div class="more">최종수정 : 24-06-05 15:30</div>
         <button class="btn_red" type="submit">확인</button>
         <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_approvalOpinion">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>직권수정</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="approval_often">
+        <div class="p_body_tit">
+          <h1>수정사유</h1>
+        </div>
+      </div>
+      <textarea name="" id="" placeholder="수정사유를 입력해주세요."></textarea>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line">취소</button>
       </div>
     </div>
   </form>
