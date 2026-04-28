@@ -1,0 +1,65 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/hr.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>근무표 관리</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>근무표 관리</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body">
+        <section class="calendar_hrPlan">
+          <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="부서">
+                  <option value="">본인 부서 기본값</option>                 
+                </select>
+              </li>
+              <li>
+                <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+                @@include('../../inc/data/data_emp_name.html')
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>            
+            <div class="btn_wrap">
+              <button type="button" class="btn_red_line" onclick="document.querySelector('.p_uploadFile').showModal();">캡스업로드</button>
+              <button type="button" class="btn_gray_line">다운로드</button>
+            </div>
+          </section>
+          <div id='calendar-container'>
+            <div id='calendar'></div>          
+          </div>
+          <div class="hr_plan_legend" id="legend"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+<!-- 팝오버 -->
+<dialog class="cal_popover" id="popover">
+  <button class="popover-close" id="popover-close">×</button>
+  <div class="popover-title" id="popover-title"></div>
+  <div class="popover-count" id="popover-count"></div>
+  <div class="popover-members" id="popover-members"></div>
+</dialog>
+@@include('../../inc/layout/script.html')
+
+
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
+<script src="../../js/hr_plancalendar.js"></script>
+</body>
+
+</html>

@@ -26,6 +26,7 @@
       resourceId: '150',
       start: '2026-04-03',
       end: '2026-04-03',
+      className: 'cal_modified',      
       extendedProps: {
         type: '반차(13~19)',
         time: '- / <span class="t_red">-30분</span>'

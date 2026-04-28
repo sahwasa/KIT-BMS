@@ -122,123 +122,99 @@
 </nav>
   <main id="content" class="container">
     <section class="snb">
-  <div class="snb_container svc">
+  <div class="snb_container plan">
     <header>
-      <h2><a href="svc.html">사내 서비스</a></h2>
+      <h2><a href="plan.html">일정</a></h2>
     </header>
-    <div class="attendance_desc">
-      <span id="today">2024-01-03(수)</span>
-      <strong id="time" class="time">11:15:38</strong>
-      <!-- 잘못눌렀을 때 취소 -->
-      <ul>
-        <li><em>출근시간</em>09:38<button class="btn_cancel" title="취소">취소</button></li>
-        <li><em>퇴근시간</em>-</li>
-        <li><em>주간 누적 근무시간</em> 10H 31M</li>
-      </ul>
-    </div>
     <div class="btn_workset">
-      <div class="btn_dbl_btn">
-        <button type="button" disabled>출근</button>
-        <button type="button" >퇴근</button>
-      </div>
-      <!-- <select name="" id="" class="work_state">
-        <option value="">근무상태 변경</option>
-        <option value="">업무</option>
-        <option value="">업무 종료</option>
-        <option value="">외근</option>
-        <option value="">회의</option>
-      </select> -->
+      <a href="plan_new.html" class="btn_default" >일정추가</a>
     </div>
+
     <ul class="snb_lst">
-      <li><a href="svc_basicData.html">이력관리</a>
-        <ul>
-          <!-- <li><a href="svc_basicData.html">기본사항</a></li>        -->
-          <li><a href="svc_attendance.html">근태 현황</a></li>
-          <li><a href="svc_annualLeave.html">연차 내역</a></li>
-          <li><a href="svc_holidayWokrLog.html">휴일근무이력</a></li>
-          <!-- <li><a href="svc_edu.html">교육 내역</a></li> -->
-        </ul>      
-      </li>
-      <li><a href="svc_empStatus.html">임직원 현황</a></li>
-      <!-- <li><a href="svc_meetingRoom.html">자원 (보류)</a>        
-        <ul>
-          <li><a href="svc_meetingRoom.html">회의실</a></li>
-          <li><a href="svc_equip.html">장비 및 소프트웨어?</a></li>
-          <li><a href="svc_book.html">도서대여 및 구매신청</a></li>
-          <li><a href="svc_locker.html">사물함대여</a></li>
-          <li><a href="svc_supplies.html">물품신청</a></li>
-          <li><a href="svc_supplies.html">방화벽 허용신청??</a></li>
-          <li><a href="svc_app_history.html">신청이력 및 현황</a></li>
+      <li><a href="plan_briefingBoard.html">브리핑보드</a></li>
+      <li>
+        <h3 class="all_lst_ctrl"><label for="my_cal"><input type="checkbox" id="my_cal">내 캘린더</label></h3>
+        <ul class="lst_ctrl lst_plan_my">
+          <li class="p_personal"><label for="my_plan"><input type="checkbox" id="my_plan" checked>개인 일정</label></li>
+          <!-- <li class="p_business"><label for="work_plan"><input type="checkbox" id="work_plan" checked>할일 일정</label> -->
+          <li class="p_event"><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>행사 일정</label>
+          <!-- 개인 행사는 수정삭제 가능 -->
+          <li class="p_meeting"><label for="ta_plan"><input type="checkbox" id="ta_plan" checked>회의 일정</label>
+          <!-- 회의는 작성자만 수정 -->
+          <li class="p_leave"><label for=""><input type="checkbox" id="" checked>근태 일정</label></li>
+          <!-- 근태는 수정삭제 불가 -->
         </ul>
-      </li> -->
-      <!-- <li><a href="svc_visitor_reservation.html">내방객 사전등록</a></li> -->
-      <!-- <li><a href="svc_certificate.html">증명서 발급</a></li> -->
-      <li><a href="svc_business.html">사업자관리</a></li>
-      <li><a href="svc_businessMng.html">사업 담당자현황</a></li>
-      <li><a href="svc_teamAttendance.html">부서원 근태현황</a></li>
-      <!-- <li><a href="svc_businessCard.html">명함관리</a></li> -->
+      </li>
+      <li>
+        <h3 class="all_lst_ctrl" ><label for="p_cal"><input type="checkbox" id="p_cal">프로젝트 캘린더</label></h3>
+        <ul class="lst_ctrl lst_plan_proj">
+          <li>
+            <label for="p1"><input type="checkbox" id="p1" checked>OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 유지보수</label>
+          </li>
+          <li>
+            <label for="p2"><input type="checkbox" id="p2">OOO 용역</label>
+          </li>
+          <li>
+            <label for="p3"><input type="checkbox" id="p3" checked>OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 유지보수</label>
+          </li>
+          <li>
+            <label for="p4"><input type="checkbox" id="p4" checked>OOO 용역</label>
+          </li>
+        </ul>
+      </li>
+      <li><h3><label for="all_ta_cal"><input type="checkbox" id="all_ta_cal" data-checkevt="!all_emp">전 사원 근태</label></h3></li>
     </ul>
+    <section class="plan_add" id="all_emp">
+      <span class="file_input">
+        <input type="text" id="form_referrer" placeholder="이름, 조직명" list="nameList">
+        <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
+      </span>
+      <ul class="btn_slideclose">
+  <li>
+    <div>
+      <p>유한아름</p><button type="button">삭제</button>
+    </div>
+    <div class="tooltip">
+      <div class="user_module">
+  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+</div>
+    </div>
+  </li> 
+</ul>
+    </section>
   </div>
 </section>
-<script>
-  function displayCurrentTime() {
-      var currentTime = new Date();
-      var year = currentTime.getFullYear();
-      var month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
-      var day = currentTime.getDate().toString().padStart(2, '0');
-      var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
-      var dayOfWeek = daysOfWeek[currentTime.getDay()];
-      var hours = currentTime.getHours();
-      var minutes = currentTime.getMinutes();
-      var seconds = currentTime.getSeconds();
-      hours = (hours < 10) ? "0" + hours : hours;
-      minutes = (minutes < 10) ? "0" + minutes : minutes;
-      seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-      var dateString = `${year}-${month}-${day}(${dayOfWeek})`;
-      var timeString = `${hours}:${minutes}:${seconds}`;
-
-      document.querySelector('#today').innerHTML = dateString;
-      document.querySelector('#time').innerHTML = timeString;
-  }
-  displayCurrentTime();
-  setInterval(displayCurrentTime, 1000);
-</script>
     <section class="contents">
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>기본사항<span>이력관리</span></h1>
+        <h1>일정</h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li>사내 서비스</li>
-            <li>이력관리</li>
-            <li>기본사항</li>
+            <li>일정</li>
           </ul>
         </section>
       </header>
-      <div class="cont_body svc_basic">
-        <div class="profile_ipt">
-          <dl>
-            <dt>사번</dt>
-            <dd>0088</dd>
-            <dt>직위</dt>
-            <dd>연구원</dd>
-            <dt>부서명</dt>
-            <dd>개발본부 개발1팀</dd>
-            <dt>입사일</dt>
-            <dd>21-09-24</dd>
-            <dt>생년월일</dt>
-            <dd>90-10-23</dd>
-            <dt><label for="emp_name_kr" class="required">한글이름</label></dt>
-            <dd><input type="text" id="emp_name_kr" value="멋쟁이"></dd>
-            <dt><label for="emp_name_en">영문이름</label></dt>              
-            <dd><input type="text" id="emp_name_en" value="meosjaeng-e"></dd>
-            <dt><label for="emp_phone" class="required">연락처</label></dt>
-            <dd><input type="tel" value="01012345678" id="emp_phone"></dd>
-          </dl>
-          개인이력인적사항, 병역사항, 학력사항, 경력사항, 자격면허, 포상/징계, 발령내역, 교육내역 등
+      <div class="cont_body">
+        <div id='calendar-container'>
+          <div id='calendar'></div>
+          <!-- 일정상세보기 -->
+          <!-- 연차:상세팝업X / 출장 및 외근 : 출장,외근 신청서 전자결재 연동 / 회의 : 기본 팝업 -->
         </div>
       </div>
     </section>
@@ -290,6 +266,10 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   </form>
 </dialog>
 
+
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
+<script src="../../js/plan_fullcalendar.js"></script>
 </body>
 
 </html>

@@ -79,3 +79,18 @@ $_attendance_legend :($scheduled:'\ebc3',$on-duty:'\eb39',$regular:'\eb6c',$over
   &_skyblue{color: $skyblue !important;}
 }
 $tit_spacing:.45px;
+:root{
+  --C62_1: #d4f0e0;  --C62_1-text: #1a6b3a;  /* 08:00~17:00 */
+  --C62_2: #cce5ff;  --C62_2-text: #0a4a8a;  /* 09:00~18:00 */
+  --C62_3: #fff0c2;  --C62_3-text: #7a5500;  /* 10:00~19:00 */
+  --C62_4: #ffe0c2;  --C62_4-text: #8a3a00;  /* 09:00~09:00(24h) */
+  --C62_5: #ffd6e0;  --C62_5-text: #8a0a2a;  /* 09:00~21:00(12h) */
+  --C62_6: #e8d5ff;  --C62_6-text: #4a1a8a;  /* 08:00~12:00(4h) */
+  --C62_7: #d0f5f0;  --C62_7-text: #0a5a50;  /* 09:00~18:00(격일) */
+   --bg: #f6f7f9;
+      --surface: #ffffff;
+      --border: #e2e5ea;
+      --text-primary: #1a1d23;
+      --text-secondary: #6b7280;
+      --header-bg: #ffffff;
+}

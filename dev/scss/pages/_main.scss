@@ -1636,7 +1636,7 @@ $_planTypes:(
   }
   em{display:block;font-size:12px;margin-bottom:5px;color:#555;}
 }
-.holiday_work{display: flex;flex-direction: column;gap:$columnGap;
+.cont_body.holiday_work{display: flex;flex-direction: column;gap:$columnGap;
   header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
   .history{@include flex_layout;
     & > article{flex:1;}
