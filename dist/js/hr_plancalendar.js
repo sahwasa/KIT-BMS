@@ -2,13 +2,13 @@
 // 1. DB 데이터 정의 (cd_group = 'C62')
 // =============================================
 const SHIFT_TYPES = {
-  C62_1: { cd: 'C62_1', nm: '08:00~17:00',      rmrk1: '0800', rmrk2: '1700', color: '#d4f0e0', textColor: '#1a6b3a' },
-  C62_2: { cd: 'C62_2', nm: '09:00~18:00',      rmrk1: '0900', rmrk2: '1800', color: '#cce5ff', textColor: '#0a4a8a' },
-  C62_3: { cd: 'C62_3', nm: '10:00~19:00',      rmrk1: '1000', rmrk2: '1900', color: '#fff0c2', textColor: '#7a5500' },
-  C62_4: { cd: 'C62_4', nm: '09:00~09:00<sup>+1일</sup>_(24h)', rmrk1: '0900', rmrk2: '0900', color: '#ffe0c2', textColor: '#8a3a00' },
-  C62_5: { cd: 'C62_5', nm: '09:00~21:00_(12h)', rmrk1: '0900', rmrk2: '2100', color: '#ffd6e0', textColor: '#8a0a2a' },
-  C62_6: { cd: 'C62_6', nm: '08:00~12:00_(4h)',  rmrk1: '0800', rmrk2: '1200', color: '#e8d5ff', textColor: '#4a1a8a' },
-  C62_7: { cd: 'C62_7', nm: '09:00~18:00_(격일)', rmrk1: '0900', rmrk2: '1800', color: '#d0f5f0', textColor: '#0a5a50' },
+  C62_1: { cd: 'C62_1', nm: '08:00~17:00',                      color: '#d4f0e0', textColor: '#1a6b3a' },
+  C62_2: { cd: 'C62_2', nm: '09:00~18:00',                      color: '#cce5ff', textColor: '#0a4a8a' },
+  C62_3: { cd: 'C62_3', nm: '10:00~19:00',                      color: '#fff0c2', textColor: '#7a5500' },
+  C62_4: { cd: 'C62_4', nm: '09:00~09:00<sup>+1일</sup>_(24h)', color: '#ffe0c2', textColor: '#8a3a00' },
+  C62_5: { cd: 'C62_5', nm: '09:00~21:00_(12h)',                color: '#ffd6e0', textColor: '#8a0a2a' },
+  C62_6: { cd: 'C62_6', nm: '08:00~12:00_(4h)',                 color: '#e8d5ff', textColor: '#4a1a8a' },
+  C62_7: { cd: 'C62_7', nm: '09:00~18:00_(격일)',                color: '#d0f5f0', textColor: '#0a5a50' },
 };
 
 // =============================================
@@ -69,6 +69,95 @@ const SHIFT_DATA = [
   { date: '2026-04-14', shiftCd: 'C62_6', members: ['한지민', '오지은'] },
   { date: '2026-04-30', shiftCd: 'C62_1', members: ['최경희', '신새미', '강민경', '윤재원', '정우성', '한지민', '오지은', '차지원', '김민준'] },
 ];
+ var monthlyEvents = [
+    {
+      resourceId: '150',
+      start: '2026-04-01',
+      end: '2026-04-01',
+      extendedProps: {
+        type: '외근(09~13)'
+      }
+    },
+    {
+      resourceId: '150',
+      start: '2026-04-02',
+      end: '2026-04-02',
+      className: 'cal_check',
+      extendedProps: {
+        type: '평일(09~18)'
+      }
+    },
+    {
+      resourceId: '150',
+      start: '2026-04-03',
+      end: '2026-04-03',
+      className: 'cal_modified',      
+      extendedProps: {
+        type: '반차(13~19)'
+      }
+    },
+    {
+      resourceId: '150',
+      start: '2026-04-04',
+      end: '2026-04-04',
+      extendedProps: {
+        type: '휴일'
+      }
+    },  
+    {
+      resourceId: '150',
+      start: '2026-04-05',
+      end: '2026-04-05',
+      extendedProps: {
+        type: '휴일'
+      }
+    },
+    {
+      resourceId: '151',
+      start: '2026-04-01',
+      end: '2026-04-01',
+      className: 'cal_delay',
+      extendedProps: {
+        type: '연차'
+      }
+    },
+    {
+      resourceId: '151',
+      start: '2026-04-02',
+      end: '2026-04-02',
+      className: 'cal_delay',
+      extendedProps: {
+        type: '평일(10~19)'
+      }
+    },
+    {
+      resourceId: '151',
+      start: '2026-04-03',
+      end: '2026-04-03',
+      className: 'cal_delay',
+      extendedProps: {
+        type: '출장'
+      }
+    },
+    {
+      resourceId: '151',
+      start: '2026-04-04',
+      end: '2026-04-04',
+      className: 'cal_delay',
+      extendedProps: {
+        type: '휴일근무(09~18)'
+      }
+    },
+    {
+      resourceId: '151',
+      start: '2026-04-05',
+      end: '2026-04-05',
+      className: 'cal_delay',
+      extendedProps: {
+        type: '휴일'
+      }
+    },
+  ];
 
 // =============================================
 // 3. 데이터 → FullCalendar 이벤트 변환
@@ -128,11 +217,9 @@ document.addEventListener('click', e => {
   }
 });
 
-function showPopover(jsEvent, shift, members) {
-  const d = new Date(date);
-  const dateStr = `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
+function showPopover(jsEvent, shift, members, date) { 
   popoverTitle.textContent = `${shift.nm}`;
-  popoverCount.textContent = `dateStr | 총 ${members.length}명`;
+  popoverCount.textContent = `${date} | 총 ${members.length}명`;
   popoverMembers.innerHTML = '';
   members.forEach(name => {
     const initials = name.slice(-2);
@@ -185,38 +272,65 @@ document.addEventListener('DOMContentLoaded', () => {
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'dayGridMonth,dayGridWeek'
+      right: 'dayGridMonth,dayGridWeek,monthlyList'
     },
     buttonText: {
       today: '오늘',
       month: '월간',
       week:  '주간',
     },
+    customButtons: {
+      monthlyList: {
+        text: '목록',
+        click: function() {
+          calendar.changeView('monthlyView');
+        }
+      },
+    },
     initialDate: '2026-04-01',
-    events: buildEvents(SHIFT_DATA),
-    eventMaxStack: 5,
+    eventMaxStack: 3,
     dayMaxEvents: false,
     eventOrder: 'shiftCd',
+    datesSet: function(arg) {
+     if (arg.view.type === 'monthlyView') {
+        if (shiftSource) { shiftSource.remove(); shiftSource = null; }
+        if (!monthlySource) {
+          monthlySource = calendar.addEventSource(monthlyEvents);
+        }
+      } else {
+        if (monthlySource) { monthlySource.remove(); monthlySource = null; }
+        if (!shiftSource) {
+          shiftSource = calendar.addEventSource(buildEvents(SHIFT_DATA));
+        }
+      }
+    },
 
     // 커스텀 이벤트 렌더링
     eventContent(arg) {
-      const ep = arg.event.extendedProps;
-      const shift = ep.shift;
+      if (arg.view.type === 'monthlyView') {
+        return{
+          html: `${arg.event.extendedProps.type}`
+        };
+      }else{
+        const ep = arg.event.extendedProps;
+        const shift = ep.shift;
+        const wrapper = document.createElement('div');
+        wrapper.className = 'shift-chip';
+        wrapper.style.background = shift.color;
+        wrapper.style.color = shift.textColor;
 
-      const wrapper = document.createElement('div');
-      wrapper.className = 'shift-chip';
-      wrapper.style.background = shift.color;
-      wrapper.style.color = shift.textColor;
+        wrapper.innerHTML = `
+          <div class="shift-chip-row">
+            <span class="shift-chip-label" style="color:${shift.textColor}">${shift.nm}</span>
+            <span class="shift-chip-count" style="color:${shift.textColor}">${ep.count}</span>
+          </div>
+          <div class="shift-chip-names" style="color:${shift.textColor}">${ep.displayNames}</div>
+        `;
 
-      wrapper.innerHTML = `
-        <div class="shift-chip-row">
-          <span class="shift-chip-label" style="color:${shift.textColor}">${shift.nm}</span>
-          <span class="shift-chip-count" style="color:${shift.textColor}">${ep.count}</span>
-        </div>
-        <div class="shift-chip-names" style="color:${shift.textColor}">${ep.displayNames}</div>
-      `;
+        return { domNodes: [wrapper] };
+      }
 
-      return { domNodes: [wrapper] };
+      
     },
 
     // 클릭 시 팝오버
@@ -225,6 +339,33 @@ document.addEventListener('DOMContentLoaded', () => {
       showPopover(info.jsEvent, ep.shift, ep.members, info.event.startStr);
       info.jsEvent.stopPropagation();
     },
+
+    views:{        
+      monthlyView: {
+        slotDuration:{day: 1 },
+        slotLabelInterval:{day:1},
+        slotLabelFormat: [
+          // { month: 'long' },
+          { day: 'numeric' }       // "1", "2", ... "31" 형태
+        ],
+        type: 'resourceTimeline',          
+        duration : {month:1},
+        slotLaneClassNames: function(arg) {
+          if (!arg.date) return [];
+          var day = arg.date.getDay(); // 0:일, 6:토
+          if (day === 0) return ['fc-day-sun'];
+          if (day === 6) return ['fc-day-sat'];
+          return [];
+        },
+        slotLabelClassNames: function(arg) {
+          if (!arg.date) return [];
+          var day = arg.date.getDay();
+          if (day === 0) return ['fc-day-sun'];
+          if (day === 6) return ['fc-day-sat'];
+          return [];
+        },
+      }
+    }
   });
 
   calendar.render();

@@ -347,8 +347,8 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
               </td>        
             </tr>
             <tr>
-              <th scope="row" class="required"><label for="rm">비고</label></th>
-              <td colspan="6"><input type="text" id="rm" placeholder="비고" maxlength="100"></td>
+              <th scope="row" class="required"><label for="rm">수정사유</label></th>
+              <td colspan="6"><input type="text" id="rm" placeholder="수정사유" maxlength="100" readonly /></td>
             </tr>
             </tbody>
           </table>          
@@ -374,7 +374,7 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
                 <tr>
                   <td colspan="7">당일 출퇴근 기록이 없습니다.</td>
                 </tr>
-                <tr>
+                <tr class="caps">
                   <td>1</td>
                   <td>캡스</td>              
                   <td colspan="2" class="late">09:01</td>
