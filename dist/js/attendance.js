@@ -6,175 +6,31 @@
 
     // initialize the external events
     // -----------------------------------------------------------------
-
-    var source = // 일정데이터 
-        [
-          {
-            title: '09:00 - 18:00(+1)',
-            start: '2026-04-01T08:20:20',
-            end: '2026-04-02T19:30:20',
-            className:'regular',
-            description:'근무완료'
-          },
-          {
-            title: '18:00 - 19:30',
-            start: '2026-04-01T18:00:00',
-            end: '2026-04-01T19:30:30',
-            className:'overtime',
-            description:'연장근무'
-          },
-          {
-            title: '외근(기상청)',
-            start: '2026-04-02T09:00:00',
-            end: '2026-04-02T18:00:00',
-            className:'out',
-            description:'외근'
-          },
-          {
-            title: '결근',
-            start: '2026-04-03T09:00:00',
-            end: '2026-04-03T18:00:00',
-            className:'truancy',
-            description:'무단결근'
-          },
-          {
-            title: '09:00 - ',
-            start: '2026-04-04T08:20:20',
-            className:'not_entered', //출근or퇴근미입력,
-            description: '퇴근 미입력'
-          },       
-          {
-            title: '09:40 - 18:00',
-            start: '2026-04-05T09:40:20',
-            start: '2026-04-05T18:40:20',
-            className:'late',
-            description:'지각'
-          },       
-          {
-            title: '09:00 - 18:00',
-            start: '2026-04-06T09:20:20',
-            end: '2026-04-06T19:30:20',
-            className:'holiday_work',
-            description:'휴일근무'
-          },
-          {
-            title: '연차',
-            start: '2026-04-08T09:00:00',
-            end: '2026-04-08T18:00:00',
-            className:'off',
-            description: '연차'
-          },
-          {
-            title: '국회의원선거',
-            start: '2026-04-09',
-            className:'cal_holiday',
-            description: '휴일'
-          },
-          {
-            title: '반차 (09:00 - 12:00)',
-            start: '2026-04-10T09:00:20',
-            end: '2026-04-10T12:00:00',
-            className:'off',
-            description: '반차'
-          },
-          {
-            title: '13:00 - 15:00',
-            start: '2026-04-10T13:10:20',
-            end: '2026-04-10T14:55:00',
-            className:'late early',
-            description: '지각, 조퇴'
-          },
-          {
-            title: '반차(15:00 - 18:00)',
-            start: '2026-04-10T15:00:00',
-            end: '2026-04-10T18:00:00',
-            className:'off',
-            description: '반차'
-          },
-          {
-            title: '출장(세종)',
-            start: '2026-04-11T09:00:00',
-            end: '2026-04-12T18:00:00',
-            className:'out',//외근 or 출장
-            description: '출장(세종)'
-          },         
-          {
-            title: '10:00 - 15:20',
-            start: '2026-04-16T10:00:00',
-            end: '2026-04-16T15:20:00',
-            className : 'early',
-            description: '조퇴'
-          },
-          {
-            title: '09:00 - 18:00',
-            start: '2026-04-17T08:20:20',
-            end: '2026-04-17T12:00:20',
-            className:'regular',
-            description:'근무완료'
-          },
-          {
-            title: '13:00 - 15:00',
-            start: '2026-04-17T13:00:20',
-            end: '2026-04-17T15:00:20',
-            className:'off',
-            description:'반차'
-          },
-          {
-            title: '15:00 - 18:00',
-            start: '2026-04-17T14:55:20',
-            end: '2026-04-17T18:05:20',
-            className:'regular',
-            description:'근무완료'
-          },
-           {
-            title: '09:00 - 18:00(+1)',
-            start: '2026-04-18T08:20:20',
-            end: '2026-04-18T19:30:20',
-            className:'regular',
-            description:'근무완료'
-          },
-          {
-            title: '09:00 -',
-            start: '2026-04-19T08:55:23',
-            className : 'on-duty',
-            description: '근무중'
-          },
-          {
-            title: '연차',
-            start: '2026-04-22T09:00:00',
-            end: '2026-04-24T18:00:00',
-            className : 'off',
-            description: '연차'
-          },
-          {
-            title: '09:00-18:00',
-            start: '2026-04-25T09:00:00',
-            end: '2026-04-25T18:00:00',
-            className : 'scheduled',
-            description: '근무예정'
-          },
-          {
-            title: '09:00-09:00(+1)_24H',
-            start: '2026-04-26T09:00:00',
-            end: '2026-04-27T09:00:00',
-            className : 'scheduled',
-            description: '근무예정'
-          },
-          {
-            title: '09:00-21:00_12H',
-            start: '2026-04-27T09:00:00',
-            end: '2026-04-27T21:00:00',
-            className : 'scheduled',
-            description: '근무예정'
-          },
-          {
-            title: 'Off',
-            start: '2026-04-28',
-            end: '2026-04-28',
-            className : 'scheduled',
-            description: 'Off'
-          }
-        ];
+    var source = [
+      {title:'09:00 - 09:00<sup>(+1)</sup>',start:'2026-04-01T08:20:20',end:'2026-04-02T09:30:20',className:'regular',description:'근무완료'},
+      {title:'18:00 - 19:30',start:'2026-04-01T18:00:00',end:'2026-04-01T19:30:30',className:'overtime',description:'연장근무'},
+      {title:'외근(기상청)',start:'2026-04-02T09:00:00',end:'2026-04-02T18:00:00',className:'out',description:'외근'},
+      {title:'결근',start:'2026-04-03T09:00:00',end:'2026-04-03T18:00:00',className:'truancy',description:'무단결근'},
+      {title:'09:00 - ',start:'2026-04-04T08:20:20',className:'not_entered',description:'퇴근 미입력'},
+      {title:'09:40 - 18:00',start:'2026-04-05T18:40:20',className:'late',description:'지각'},
+      {title:'09:00 - 18:00',start:'2026-04-06T09:20:20',end:'2026-04-06T19:30:20',className:'holiday_work',description:'휴일근무'},
+      {title:'연차',start:'2026-04-08T09:00:00',end:'2026-04-08T18:00:00',className:'off',description:'연차'},
+      {title:'국회의원선거',start:'2026-04-09',className:'cal_holiday',description:'휴일'},
+      {title:'반차 (09:00 - 12:00)',start:'2026-04-10T09:00:20',end:'2026-04-10T12:00:00',className:'off',description:'반차'},
+      {title:'13:00 - 15:00',start:'2026-04-10T13:10:20',end:'2026-04-10T14:55:00',className:'late early',description:'지각, 조퇴'},
+      {title:'반차(15:00 - 18:00)',start:'2026-04-10T15:00:00',end:'2026-04-10T18:00:00',className:'off',description:'반차'},
+      {title:'출장(세종)',start:'2026-04-11T09:00:00',end:'2026-04-12T18:00:00',className:'out',description:'출장(세종)'},
+      {title:'10:00 - 15:20',start:'2026-04-16T10:00:00',end:'2026-04-16T15:20:00',className:'early',description:'조퇴'},
+      {title:'09:00 - 18:00',start:'2026-04-17T08:20:20',end:'2026-04-17T12:00:20',className:'regular',description:'근무완료'},
+      {title:'13:00 - 15:00',start:'2026-04-17T13:00:20',end:'2026-04-17T15:00:20',className:'off',description:'반차'},
+      {title:'15:00 - 18:00',start:'2026-04-17T14:55:20',end:'2026-04-17T18:05:20',className:'regular',description:'근무완료'},
+      {title:'09:00 -',start:'2026-04-19T08:55:23',className:'on-duty',description:'근무중'},
+      {title:'연차',start:'2026-04-22T09:00:00',end:'2026-04-24T18:00:00',className:'off',description:'연차'},
+      {title:'09:00-18:00',start:'2026-04-25T09:00:00',end:'2026-04-25T18:00:00',className:'scheduled',description:'근무예정'},
+      {title:'09:00-09:00(+1)_24H',start:'2026-04-26T09:00:00',end:'2026-04-27T09:00:00',className:'scheduled',description:'근무예정'},
+      {title:'09:00-21:00_12H',start:'2026-04-27T09:00:00',end:'2026-04-27T21:00:00',className:'scheduled',description:'근무예정'},
+      {title:'Off',start:'2026-04-28',end:'2026-04-28',className:'scheduled',description:'Off'},
+    ];
 
     // initialize the calendar
     // -----------------------------------------------------------------

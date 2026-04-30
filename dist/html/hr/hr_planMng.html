@@ -182,12 +182,26 @@
               <button type="button" class="btn_gray_line">다운로드</button>
             </div>
           </section>
-          <div id='calendar-container'>
-            <div id='calendar'></div>          
-          </div>
-          <div class="hr_plan_legend" id="legend"></div>
+          <section class="calendar_wrap">
+            <div id='planCalendarMng' class="calendar"></div>          
+            <div class="hr_plan_legend legend" id="legend"></div>
+          </section>
+          <section class="calendar_wrap plan_list">
+            <div id="planListMng" class="calendar"></div>
+            <div class='calendar_attendance legend'>
+              <ul class="attendace_legend attendace_legend--plan">
+                <li>근무예정</li>
+                <li>근무완료</li>
+                <li>연장근무</li>
+                <li>특별근무</li>
+                <li>휴가,반차</li>
+                <li>외근,출장</li>
+              </ul>
+            </div>
+          </section>
         </section>
-      </div>
+        </div>
+        </section>
     </section>
   </main>
   <footer class="footer">

@@ -1,3 +1,8 @@
+.fc{
+  .fc-datagrid-header{background-color:#edf0f3;}
+  .fc-timeline-header .fc-timeline-header-row {background-color:#f5f5f5;}
+  [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
+}
 #calendar{height:100vh;max-height:calc(100vh - 184px);min-height:445px;}
 .gcal-holiday{border:none;background-color: rgba(250, 204, 208, 0.3) !important;
   .fc-event-title{color:#7b0000;}
@@ -31,9 +36,6 @@
 .cal_delay{@extend %holiday;@include customEvt(#ff0000){border-width:1px;}}
 
 .wbs{
-  .fc-datagrid-header{background-color:#edf0f3;}
-  .fc-timeline-header{background-color:#f5f5f5;}
-  [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
   .fc-resource-group .fc-datagrid-cell-cushion{@include text_ellipsis(3);padding-bottom:0;}
   .fc-timeline-header a{color:#363636;}
   .wbs_step{background-color:#f9fafc;}
@@ -100,52 +102,62 @@
 
 @mixin cal_ico($col:$regular,$font){
   @include customEvt($col){display:flex;align-items:center;background-color:rgba($col,.13);font-size:11px;border-width:0;
-    &::before{@include fontello($font);color:$col;margin:0 4px;}
+    &::before{@include fontello($font);min-width:11px;color:$col;margin:0 4px;text-align:center;}
     &.fc-daygrid-dot-event{background-color:transparent;}
   } 
 }
-
-.calendar_attendance{position:relative;display:flex;flex-direction:column;gap:10px;
-  .attendace_legend{flex-shrink:0;display:flex;gap:15px;margin-top:auto;
-    li{font-size:12px;color:#a1a4ad;
-      &::before{@include fontello('font');margin-right:5px;vertical-align:middle;}
-    }
-    @each $type, $font in $_attendance_legend{
-      $i: index($_attendance_legend, $type $font);
-      li:nth-child(#{$i}){
-        &::before{content:$font;color:$type;}
+@mixin attendance_legend_items($indices: null) {
+  @each $type, $font in $_attendance_legend {
+    $i: index($_attendance_legend, $type $font);    
+    @if $indices == null or index($indices, $i) {
+      // 전체일 땐 원래 인덱스, 부분일 땐 뽑은 순서로 nth-child
+      $nth: if($indices == null, $i, index($indices, $i));      
+      li:nth-child(#{$nth}) {
+        &::before { content: $font; color: $type; }
       }
     }
   }
-  #calendar{flex:1 1 auto;min-height:420px;max-height:calc(100vh - 200px);
-    .fc-event{border-width:0;background-color:transparent;}
-    .regular{@include cal_ico($font:'\eb6c');}
-    .early,
-    .late{@include cal_ico($late,'\eb38');
-      &.fc-event .fc-event-title{color:$regular;}
-      b{font-weight:700;color:$late;}
-    }
-    .scheduled{@include cal_ico($scheduled,'\ebc3');
-      &.fc-event .fc-event-title{color:#ccc;}
-    }
-    .on-duty{@include cal_ico($on-duty,'\eb39');}
-    .overtime{@include cal_ico($overtime,'\ebc3');}
-    .holiday_work{@include cal_ico($holiday_work,'\f274');}
-    .night{@include cal_ico($night,'\e8cc');}
-    .off{@include cal_ico($off,'\e860');}
-    .out{@include cal_ico($out,'\f0f2');}
-    .truancy{@include cal_ico($truancy,'\e876');}
-    .not_entered{@include cal_ico($not_entered,'\e81d');
-      &.fc-event .fc-event-title{color:$regular;}
-      b{font-weight:700;color:$not_entered;}
-    }
+}
+.attendace_legend{flex-shrink:0;display:flex;gap:15px;margin-top:auto;
+  li{font-size:12px;color:#a1a4ad;
+    &::before{@include fontello('font');margin-right:5px;vertical-align:middle;}
+  }
+   // 전체
+  @include attendance_legend_items();
+  &--plan {
+    @include attendance_legend_items((1, 3, 4, 5, 9, 10));
   }
 }
+@mixin cal_attendance{
+  .regular{@include cal_ico($font:'\eb6c');}  
+  .on-duty{@include cal_ico($on-duty,'\eb39');}
+  .overtime{@include cal_ico($overtime,'\ebc3');}
+  .holiday_work{@include cal_ico($holiday_work,'\f274');}
+  .night{@include cal_ico($night,'\e8cc');}
+  .off{@include cal_ico($off,'\e860');}
+  .out{@include cal_ico($out,'\f0f2');}
+  .truancy{@include cal_ico($truancy,'\e876');}
+  .not_entered{@include cal_ico($not_entered,'\e81d');
+    &.fc-event .fc-event-title{color:$regular;}
+    b{font-weight:700;color:$not_entered;}
+  }
+  .early,
+  .late{@include cal_ico($late,'\eb38');
+    &.fc-event .fc-event-title{color:$regular;}
+    b{font-weight:700;color:$late;}
+  }
+  .scheduled{@include cal_ico($scheduled,'\ebc3');
+    &.fc-event .fc-event-title{color:#ccc;}
+  }
+  .fc-event{border-width:0;background-color:transparent;}
+}
+.calendar_attendance{position:relative;display:flex;flex-direction:column;gap:10px;
+  #calendar{flex:1 1 auto;min-height:420px;max-height:calc(100vh - 200px);
+    @include cal_attendance;
+  }
+}
+
 .hr_attendance{
-  .fc-datagrid-header{background-color:#edf0f3;}
-  .fc-timeline-header .fc-timeline-header-row {background-color:#f5f5f5;}
-  td .fc-datagrid-cell-frame{display:flex;align-items:center;justify-content:center;}
-  [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
   .fc-timeline-events{height:inherit !important;padding-bottom:0 !important;}
   .fc-timeline-event-harness{height:inherit;visibility:visible !important;}
   .fc-event{height:inherit;text-align:center;background-color:transparent;border-color:transparent;margin:0 0 0 1px !important; box-sizing:border-box;padding:1px 0 0;}
@@ -159,17 +171,24 @@
   }
 }
 .calendar_hrPlan{position:relative;display:flex;flex-direction:column;gap:10px;
-  .hr_plan_legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;
+  .calendar{flex:1 1 auto;min-height:420px;max-height:calc(100vh - 280px);}
+  .legend{margin-top:10px;}
+  .hr_plan_legend{display:flex;flex-wrap:wrap;gap:8px;
     .legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-secondary);letter-spacing:-.02em;}
     .legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
   }
-  #calendar{flex:1 1 auto;min-height:420px;max-height:calc(100vh - 280px);}
   /* 커스텀 이벤트 컨텐츠 */
-    .shift-chip{display:flex;flex-direction:column;padding:2px 5px;border-radius:5px;gap:1px;}
-    .shift-chip-row{display:flex;align-items:center;justify-content:space-between;gap:4px;}
-    .shift-chip-label{font-size:10.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-    .shift-chip-count{font-size:10.5px;font-weight:600;flex-shrink:0;}
-    .shift-chip-names{font-size:9.5px;opacity:0.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .shift-chip{display:flex;flex-direction:column;padding:2px 5px;border-radius:5px;gap:1px;}
+  .shift-chip-row{display:flex;align-items:center;justify-content:space-between;gap:4px;}
+  .shift-chip-label{font-size:10.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .shift-chip-count{font-size:10.5px;font-weight:600;flex-shrink:0;}
+  .shift-chip-names{font-size:9.5px;opacity:0.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .plan_list{   
+    [role='columnheader'] .fc-datagrid-cell-frame{justify-content:center;}
+    .fc-event-main{color:initial;}
+    .fc .fc-timeline-lane-frame .fc-timeline-events{transform:translateY(8px);}
+    @include cal_attendance;
+  }
 }
 /* 팝오버 */
  .cal_popover{position:fixed;z-index:9999;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);padding:14px;min-width:200px;max-width:260px;
