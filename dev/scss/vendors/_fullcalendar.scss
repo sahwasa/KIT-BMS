@@ -160,8 +160,8 @@
 .hr_attendance{
   .fc-timeline-events{height:inherit !important;padding-bottom:0 !important;}
   .fc-timeline-event-harness{height:inherit;visibility:visible !important;}
-  .fc-event{height:inherit;text-align:center;background-color:transparent;border-color:transparent;margin:0 0 0 1px !important; box-sizing:border-box;padding:1px 0 0;}
-  .fc-event-main{color:initial;}
+  .fc-event{height:inherit;text-align:center;background-color:transparent;border-color:transparent;margin:-1px 0 0 1px !important; box-sizing:border-box;padding:1px 0 0;}
+  .fc-event-main{color:inherit;}
   .cal_check{background-color:#ffecec;}
   .cal_modified{background-color:#dce9fd;}
   .fc-yearlyView-view th.fc-day-sat,
@@ -200,3 +200,4 @@
 .popover-member{display:flex;align-items:center;gap:7px;font-size:12px;}
 .popover-avatar{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;}
 .popover-close{position:absolute;top:8px;right:10px;font-size:16px;cursor:pointer;color:var(--text-secondary);line-height:1;border:none;background:none;}
+tr:has(>.fc-resource-selected){outline:1px solid $blue;background-color: rgba(188, 232, 241, 0.3)!important;color: #000 !important;;}
