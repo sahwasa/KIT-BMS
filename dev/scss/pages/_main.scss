@@ -1385,38 +1385,23 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
   }
 }
 //svc
-.svc_home{@include flex_ver;
-  header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
-  .flexible_working{@include flex_layout;
-    & > article{flex-grow:1;min-width:390px;}
-    .search_box{margin-left:auto;display:inline-flex;width:300px;}
-    .tbl_wrap{height:auto;min-height:auto;
-      @include tbl_defaultH(144px);      
-      th,td{vertical-align:middle;word-break:keep-all;}
-      th{white-space:nowrap;}
-      td:first-child{text-align:left;}
-      .date{font-size:11px;color:#71798a;margin-left:5px;}
-    }
-    .flexible_history{
-      td{@include alignL(2,true);
-        &:last-child{white-space:nowrap;}
-        em{display:inline-block;max-width:400px;}
-      }
-    }
+.svc_home{@include flex_layout;align-items:stretch;
+  // header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);}
+  h1{color:#404654;font-size:14px;font-weight:600;min-width:50px;margin-bottom:0;
+    &::before{display:none;margin:0;}
   }
-  .attendance_home{width:100%;
-  .refer_date{margin-left:auto;font-size:12px;align-self:flex-end;}
-  .summary{
+  .box_default{flex:0.8;position:relative;@include flex_ver;gap:calc($columnGap - 10px);height:100%;}
+  .attendance_desc{padding:0;
+    ul{border-top-width:0;padding:0;}
     li{
-      &:nth-last-child(1),
-      &:nth-last-child(2),
-      &:nth-last-child(3){flex:0.65;}
-      &:nth-child(3){border-right:1px solid $gray;}
-      &:nth-child(3),
-      &:nth-last-child(1){color:$blue;}
-    }    
-  } 
-}
+      &:nth-child(4){border-top:1px solid #e0e0e0;padding-top:6px;}      
+      &:nth-child(n+4):nth-child(-n+6){em{background-image:url(../../images/ico_calendar.png);}}
+    }
+    
+  }
+  .today_teamPlan{
+    .tbl_wrap{height:calc(100vh - 485px);min-height:auto;}
+  }
 }
 .box_compact:has(.summary){
   .summary{display:flex;padding:10px 0;
@@ -1636,7 +1621,7 @@ $_planTypes:(
   }
   em{display:block;font-size:12px;margin-bottom:5px;color:#555;}
 }
-.cont_body.holiday_work{display: flex;flex-direction: column;gap:$columnGap;
+.cont_body.holiday_work{display:flex;flex-direction:column;gap:$columnGap;
   header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
   .history{@include flex_layout;
     & > article{flex:1;}
@@ -1666,6 +1651,33 @@ $_planTypes:(
 .business_lst{
   .btn_switch label{min-width:auto;}
 }
+
+.svc_teamPlanMng{@include flex_layout();}
+.lst_flexible{@include flex_ver;gap:5px;width:300px;height:calc(100vh - 175px);overflow-y:auto;
+  & > li{display:flex;flex-direction:column;gap:5px;border:1px solid #ebebeb;border-radius:3px;padding:8px;}
+  .date{font-size:12px;color:#999;}
+  .tobe{display:flex;align-items:center;gap:5px;
+    &::before{@include fontello('\e9ad');}
+    li{flex:1;background-color:#edf0f3;border-radius:3px;padding:5px;
+      strong{display:block;font-weight:normal;font-size:11px;color:#757575}
+      &:first-child{order:-1;}
+    }
+  }
+  .desc{
+    li{display:flex;}
+    strong{flex-shrink:0;width:80px;
+    @include dot_list(3px);
+      &::before{background-color:#bec7d2;}
+    }
+  }
+  .foot{display:flex;}
+  .btn_wrap,.user_module{margin-left:auto;}
+  button{padding:0 4px;font-size:11px;line-height:17px;white-space:nowrap;}
+  
+}
+
+
+
 //notice
 .notice_board{@include flex_layout();
   &>section{flex:1 0 auto;}

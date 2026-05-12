@@ -2,13 +2,13 @@
 // 1. 근무 유형 정의 (cd_group = 'C62')
 // =============================================
 const SHIFT_TYPES = {
-  C62_1: { cd: 'C62_1', nm: '08:00~17:00',                       color: '#fff0c2', textColor: '#7a5500' },
-  C62_2: { cd: 'C62_2', nm: '09:00~18:00',                       color: '#d4f0e0', textColor: '#1a6b3a' },
-  C62_3: { cd: 'C62_3', nm: '10:00~19:00',                       color: '#cce5ff', textColor: '#0a4a8a' },
+  C62_1: { cd: 'C62_1', nm: '08:00~17:00',                       color: '#d4f0e0', textColor: '#1a6b3a' },
+  C62_2: { cd: 'C62_2', nm: '09:00~18:00',                       color: '#cce5ff', textColor: '#0a4a8a' },
+  C62_3: { cd: 'C62_3', nm: '10:00~19:00',                       color: '#fff0c2', textColor: '#7a5500' },
   C62_4: { cd: 'C62_4', nm: '09:00~09:00<sup>+1일</sup>_(24h)', color: '#ffe0c2', textColor: '#8a3a00' },
   C62_5: { cd: 'C62_5', nm: '09:00~21:00_(12h)',                 color: '#ffd6e0', textColor: '#8a0a2a' },
   C62_6: { cd: 'C62_6', nm: '08:00~12:00_(4h)',                  color: '#e8d5ff', textColor: '#4a1a8a' },
-  C62_7: { cd: '2C62_7', nm: '09:00~18:00_(격일)',                color: '#cffafe', textColor: '#164e63' },
+  C62_7: { cd: 'C62_7', nm: '09:00~18:00_(격일)',                color: '#d0f5f0', textColor: '#0a5a50' },
 };
 
 // =============================================
@@ -129,7 +129,7 @@ function buildEvents(data) {
 
 /** 근무 유형 범례 렌더링 */
 function renderLegend() {
-  const el = document.getElementById('plan_legend');
+  const el = document.getElementById('legend');
   Object.values(SHIFT_TYPES).forEach(s => {
     const item = document.createElement('div');
     item.className = 'legend-item';
@@ -141,60 +141,6 @@ function renderLegend() {
   });
 }
 
-// =============================================
-// 6. 팝오버
-// =============================================
-const popover        = document.getElementById('popover');
-const popoverTitle   = document.getElementById('popover-title');
-const popoverCount   = document.getElementById('popover-count');
-const popoverMembers = document.getElementById('popover-members');
-
-document.getElementById('popover-close').addEventListener('click', () => popover.classList.remove('active'));
-document.addEventListener('click', e => {
-  if (!popover.contains(e.target) && !e.target.closest('.fc-event')) {
-    popover.classList.remove('active');
-  }
-});
-
-function showPopover(jsEvent, shift, members, date) {
-  popoverTitle.textContent = shift.nm;
-  popoverCount.textContent = `${date} | 총 ${members.length}명`;
-  popoverMembers.innerHTML = '';
-
-  members.forEach(name => {
-    const div = document.createElement('div');
-    div.className = 'popover-member';
-    div.innerHTML = `
-      <div class="popover-avatar" style="background:${shift.color};color:${shift.textColor}">${name.slice(-2)}</div>
-      <span>${name}</span>
-    `;
-    popoverMembers.appendChild(div);
-  });
-
-  // 위치 계산 전 크기 측정
-  popover.style.visibility = 'hidden';
-  popover.style.display = 'block';
-  const popH = popover.offsetHeight;
-  const popW = popover.offsetWidth;
-  popover.style.display = '';
-  popover.style.visibility = '';
-
-  const rect   = jsEvent.target.getBoundingClientRect();
-  const margin = 8;
-
-  // 오른쪽 공간 없으면 왼쪽에 표시
-  let left = rect.right + margin;
-  if (left + popW > window.innerWidth) left = rect.left - popW - margin;
-
-  // 하단 넘치면 위로 올림
-  let top = rect.top;
-  if (top + popH > window.innerHeight - margin) top = window.innerHeight - popH - margin;
-  if (top < margin) top = margin;
-
-  popover.style.left = `${left}px`;
-  popover.style.top  = `${top}px`;
-  popover.classList.add('active');
-}
 
 // =============================================
 // 7. FullCalendar 초기화
@@ -297,23 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
     headerToolbar: {
       left:   'prevYear,prev,next,nextYear today',
       center: 'title',
-      right:  'dayGridMonth,dayGridWeek,monthlyList',
+      right:  'dayGridMonth,dayGridWeek',
     },
     buttonText: {
       today: '오늘',
       month: '월간',
       week:  '주간',
-    },
-    customButtons: {
-      monthlyList: {
-        text: '목록',
-        click: function() {
-          calEl.closest('.calendar_wrap').style.display = 'none';
-          listEl.closest('.calendar_wrap').style.display = '';
-          calendar2.gotoDate(calendar.getDate());
-          scrollToToday();
-        },
-      },
     },
     // 뷰 전환·날짜 이동 시 캘린더 사이즈 재계산
     datesSet: function() {
@@ -347,118 +282,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   calendar.render();
 
-  // ─── 목록 뷰 캘린더 (calendar2) ───────────────────
-  const calendar2 = new FullCalendar.Calendar(listEl, {
-    schedulerLicenseKey: '0328483609-fcs-1693988989',
-    locale: 'ko',
-    initialDate: new Date(),
-    initialView: 'resourceTimelineMonth',
-    headerToolbar: {
-      left:   'prevYear,prev,next,nextYear today',
-      center: 'title',
-      right:  'dayGridMonth,dayGridWeek,monthlyList',
-    },
-    buttonText: { today: '오늘' },
-    customButtons: {
-      dayGridMonth: {
-        text: '월간',
-        click: function() {
-          listEl.closest('.calendar_wrap').style.display = 'none';
-          calEl.closest('.calendar_wrap').style.display = '';
-          calendar.gotoDate(calendar2.getDate());
-          calendar.changeView('dayGridMonth');
-          requestAnimationFrame(() => calendar.updateSize());
-        },
-      },
-      dayGridWeek: {
-        text: '주간',
-        click: function() {
-          listEl.closest('.calendar_wrap').style.display = 'none';
-          calEl.closest('.calendar_wrap').style.display = '';
-          calendar.gotoDate(calendar2.getDate());
-          calendar.changeView('dayGridWeek');
-          requestAnimationFrame(() => calendar.updateSize());
-        },
-      },
-      monthlyList: {
-        text: '목록',
-        click: function() {},
-      },
-    },
-    timeZone: 'local',
-    weekends: true,
-    editable: false,
-    selectable: false,
-    nowIndicator: true,
-    slotMinWidth: 115,
-    resourceAreaWidth: '250px',
-    resourceOrder: 'dept,employee_name',
-    resourceAreaColumns: [
-      {
-        ...makeSortableHeader('employee_name', '사원명'),
-        width: '60px',
-        cellClassNames: 'alignC'
-      },
-      {
-        ...makeSortableHeader('dept', '부서'),
-        width: '80px',
-        cellClassNames: 'alignC'
-      },
-      {
-        ...makeSortableHeader('loc', '근무지'),
-        width: '65px',
-        cellClassNames: 'alignC'
-      },
-    ],
-    resources: RESOURCES,
-    businessHours: { daysOfWeek: [1, 2, 3, 4, 5] },
-    // 오른쪽 lane 클릭으로도 row 선택 가능
-    resourceLaneDidMount: function(arg) {
-      arg.el.style.cursor = 'pointer';
-      arg.el.addEventListener('click', () => selectResource(arg.resource.id));
-    },
-    // 월 이동 시 오늘 날짜로 스크롤 (뷰 전환은 scrollToToday가 담당)
-    datesSet: function(dateInfo) {
-      const today = new Date();
-      if (today >= dateInfo.start && today < dateInfo.end) {
-        scrollToToday();
-      }
-    },
-    events: monthlyEvents,
-    displayEventTime: false,
-    eventClick: function() {},
-    slotLabelFormat: [
-      { day: 'numeric' },
-      { weekday: 'short' },
-    ],
-    slotLaneClassNames: function(arg) {
-      if (!arg.date) return [];
-      const day = arg.date.getDay();
-      return day === 0 ? ['fc-day-sun'] : day === 6 ? ['fc-day-sat'] : [];
-    },
-    slotLabelClassNames: function(arg) {
-      if (!arg.date) return [];
-      const day = arg.date.getDay();
-      return day === 0 ? ['fc-day-sun'] : day === 6 ? ['fc-day-sat'] : [];
-    },
-  });
-  calendar2.render();
-
-  // 이벤트 위임으로 리소스 셀 클릭 시 row 선택
-  listEl.addEventListener('click', function (e) {
-    const cell = e.target.closest('[data-resource-id]');
-    if (cell) selectResource(cell.dataset.resourceId);
-  });
-
-  // 마우스 휠로 가로 스크롤 (세로 스크롤 차단)
-  listEl.addEventListener('wheel', function(e) {
-    const scroller = [...listEl.querySelectorAll('.fc-scroller-liquid-absolute')].at(-1);
-    if (scroller) {
-      e.preventDefault();
-      scroller.scrollLeft += e.deltaY;
-    }
-  }, { passive: false });
-
-  // 초기 표시: 목록 뷰 숨김
-  listEl.closest('.calendar_wrap').style.display = 'none';
 });

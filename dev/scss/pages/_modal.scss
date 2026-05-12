@@ -224,7 +224,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
     &::before{@include empty_box('알림이 없습니다.');height:100px;background-color:rgba(0, 0, 0, .05);}
     }
   }
-  .alert_tit{@include flex_between;margin-bottom:7px;  
+  .alert_tit{@include flex_between;margin-bottom:7px;max-width:initial;padding:0;  
     h2{position:relative;flex:1 0 auto;font-size:14px;font-weight:bold;letter-spacing:-.35px;
     text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
       &::before{@include shape(34px,34px);float:left;border-radius:50%;background:url(../images/bg_alert.png) 50% 8px no-repeat,#ffecec;font-size:14px;color:$red;text-align:center;line-height:34px;margin:3px 10px 0 0;}

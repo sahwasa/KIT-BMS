@@ -2,13 +2,13 @@
 // 1. 근무 유형 정의 (cd_group = 'C62')
 // =============================================
 const SHIFT_TYPES = {
-  C62_1: { cd: 'C62_1', nm: '08:00~17:00',                       color: '#d4f0e0', textColor: '#1a6b3a' },
-  C62_2: { cd: 'C62_2', nm: '09:00~18:00',                       color: '#cce5ff', textColor: '#0a4a8a' },
-  C62_3: { cd: 'C62_3', nm: '10:00~19:00',                       color: '#fff0c2', textColor: '#7a5500' },
+  C62_1: { cd: 'C62_1', nm: '08:00~17:00',                       color: '#fff0c2', textColor: '#7a5500' },
+  C62_2: { cd: 'C62_2', nm: '09:00~18:00',                       color: '#d4f0e0', textColor: '#1a6b3a' },
+  C62_3: { cd: 'C62_3', nm: '10:00~19:00',                       color: '#cce5ff', textColor: '#0a4a8a' },
   C62_4: { cd: 'C62_4', nm: '09:00~09:00<sup>+1일</sup>_(24h)', color: '#ffe0c2', textColor: '#8a3a00' },
   C62_5: { cd: 'C62_5', nm: '09:00~21:00_(12h)',                 color: '#ffd6e0', textColor: '#8a0a2a' },
   C62_6: { cd: 'C62_6', nm: '08:00~12:00_(4h)',                  color: '#e8d5ff', textColor: '#4a1a8a' },
-  C62_7: { cd: 'C62_7', nm: '09:00~18:00_(격일)',                color: '#d0f5f0', textColor: '#0a5a50' },
+  C62_7: { cd: '2C62_7', nm: '09:00~18:00_(격일)',                color: '#cffafe', textColor: '#164e63' },
 };
 
 // =============================================
@@ -129,7 +129,7 @@ function buildEvents(data) {
 
 /** 근무 유형 범례 렌더링 */
 function renderLegend() {
-  const el = document.getElementById('legend');
+  const el = document.getElementById('plan_legend');
   Object.values(SHIFT_TYPES).forEach(s => {
     const item = document.createElement('div');
     item.className = 'legend-item';

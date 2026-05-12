@@ -1,0 +1,523 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/svc.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>부서 근무표관리<span>부서 현황</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">사내서비스</a></li>
+            <li>부서 근태관리</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body svc_teamPlanMng">
+        
+        <div class="shift_plan">
+          <div class="handle_week">
+            <button type="button" class="handle_prev">이전 달 이동</button>
+            <span>2023년 5월</span>
+            <button type="button" class="handle_next" disabled="">다음 달 이동</button>
+          </div>
+          <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="부서">
+                  <option value="">부서</option>                 
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="이름 or 사번" list="">
+              </li>
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>            
+            <div class="btn_wrap">
+              <button type="button" class="btn_refresh" disabled id="btn-undo" onclick="undo()">되돌리기<span class="change-badge" id="change-count" style="display:none">0</span>
+              </button>
+              <button type="button" class="btn_gray_line" disabled id="btn-save" onclick="saveChanges()">저장</button>
+            </div>
+          </section>
+          <div class="day-grid" id="day-grid"></div>
+          <div class="shift_toast" id="shift_toast"></div>
+        </div>
+
+        <section class="flexible_working">        
+          <ul class="lst_flexible">
+            <li>
+              <strong class="tit">
+                <em>하츄핑</em>님이 근무시간 변경요청을 하였습니다.
+              </strong>
+              <ul class="tobe">
+                <li>
+                  <strong>기존 근무시간</strong>
+                  <span>09:00~21:00(12h)</span>
+                </li>
+                <li>
+                  <strong>변경 근무시간</strong>
+                  <span>09:00~09:00<sup>+1</sup>(24h)</span>
+                </li>
+              </ul>
+              <ul class="desc">                
+                <li>
+                  <strong>변경기간</strong>
+                  <span>26-03-16~26-12-31</span>
+                </li>
+                <li>
+                  <strong>변경사유</strong>
+                  <span>-</span>
+                </li>
+              </ul>
+              <div class="foot">
+                <div class="date">
+                  26-03-15 13:00
+                </div>
+                <div class="btn_wrap">                  
+                  <button type="button" class="btn_red_line" aria-label="근무시간 변경 승인">승인</button>
+                  <button type="button" class="btn_gray_line" aria-label="근무시간 변경 반려">반려</button>
+                </div>
+              </div>                
+            </li>
+            <li>
+              <strong class="tit">
+                <em>달콤핑</em>님이 근무시간 변경요청을 하였습니다.
+              </strong>
+              <ul class="tobe">
+                <li>
+                  <strong>기존 근무시간</strong>
+                  <span>10:00~19:00</span>
+                </li>
+                <li>
+                  <strong>변경 근무시간</strong>
+                  <span>09:00~18:00</span>
+                </li>
+              </ul>
+              <ul class="desc">                
+                <li>
+                  <strong>변경기간</strong>
+                  <span>26-03-16~26-12-31</span>
+                </li>
+                <li>
+                  <strong>변경사유</strong>
+                  <span>-</span>
+                </li>
+              </ul>
+              <div class="foot">
+                <div class="date">
+                  26-03-15 13:00
+                </div>
+                <div class="user_module state">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <span title="2026-01-08 18:44">승인</span>
+                </div>
+              </div>                
+            </li>
+            <li>
+              <strong class="tit">
+                <em>달콤핑</em>님이 근무시간 변경요청을 하였습니다.
+              </strong>
+              <ul class="tobe">
+                <li>
+                  <strong>기존 근무시간</strong>
+                  <span>10:00~19:00</span>
+                </li>
+                <li>
+                  <strong>변경 근무시간</strong>
+                  <span>10:00~19:00</span>
+                </li>
+              </ul>
+              <ul class="desc">                
+                <li>
+                  <strong>변경기간</strong>
+                  <span>26-03-16~26-12-31</span>
+                </li>
+                <li>
+                  <strong>변경사유</strong>
+                  <span>-</span>
+                </li>               
+              </ul>
+              <div class="foot">
+                <div class="date">
+                  26-03-15 13:00
+                </div>
+                <div class="user_module state">
+                  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
+                  <span class="t_red" title="2026-01-08 18:44">반려</span>
+                </div>
+              </div>                
+            </li>
+          </ul>        
+
+        </section>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/pop/p_calendar_popover.html')
+@@include('../../inc/layout/script.html')
+<script>
+/* =========================================================
+   SHIFT META — 근무 유형 정의
+   ========================================================= */
+const SHIFT_META = {
+  C62_2: { label: '09:00~18:00',                    color: '#E1F5EE', textColor: '#085041', border: '#9FE1CB' },
+  C62_3: { label: '10:00~19:00',                    color: '#E6F1FB', textColor: '#0C447C', border: '#85B7EB' },
+  C62_4: { label: '09:00~09:00<sup>+1</sup>(24h)',  color: '#EEEDFE', textColor: '#3C3489', border: '#AFA9EC' },
+  C62_5: { label: '09:00~21:00(12h)',               color: '#FAECE7', textColor: '#712B13', border: '#F0997B' },
+  C62_6: { label: '08:00~12:00(4h)',                color: '#FBEAF0', textColor: '#72243E', border: '#ED93B1' },
+  C62_7: { label: '09:00~18:00(격일)',              color: '#EAF3DE', textColor: '#27500A', border: '#97C459' },
+};
+ 
+ 
+/* =========================================================
+   RAW DATA — 근무 스케줄 원본
+   ========================================================= */
+const RAW = [
+  { date: '2026-04-01', shiftCd: 'C62_2', members: ['한지민', '오지은', '윤재원'] },
+  { date: '2026-04-01', shiftCd: 'C62_6', members: ['류다언', '조현완'] },
+  { date: '2026-04-02', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '정우성', '류다언'] },
+  { date: '2026-04-02', shiftCd: 'C62_3', members: ['윤재원', '강민경', '차지원'] },
+  { date: '2026-04-02', shiftCd: 'C62_6', members: ['조현완'] },
+  { date: '2026-04-03', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-01', shiftCd: 'C62_2', members: ['한지민', '오지은', '윤재원'] },
+  { date: '2026-05-01', shiftCd: 'C62_6', members: ['류다언', '조현완'] },
+  { date: '2026-05-02', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '정우성', '류다언'] },
+  { date: '2026-05-02', shiftCd: 'C62_3', members: ['윤재원', '강민경', '차지원'] },
+  { date: '2026-05-02', shiftCd: 'C62_6', members: ['조현완'] },
+  { date: '2026-05-03', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-03', shiftCd: 'C62_3', members: ['강민경'] },
+  { date: '2026-05-03', shiftCd: 'C62_7', members: ['이서연', '박지호'] },
+  { date: '2026-05-04', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-04', shiftCd: 'C62_3', members: ['차지원', '강민경', '윤재원', '한지민'] },
+  { date: '2026-05-06', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-06', shiftCd: 'C62_6', members: ['조현완', '류다언'] },
+  { date: '2026-05-06', shiftCd: 'C62_5', members: ['한지민', '오지은', '차지원'] },
+  { date: '2026-05-07', shiftCd: 'C62_3', members: ['이서연', '박지호', '최수빈', '류다언', '조현완', '신새미'] },
+  { date: '2026-05-07', shiftCd: 'C62_6', members: ['한지민', '오지은'] },
+  { date: '2026-05-08', shiftCd: 'C62_6', members: ['조현완'] },
+  { date: '2026-05-09', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-09', shiftCd: 'C62_5', members: ['한지민', '오지은', '차지원'] },
+  { date: '2026-05-10', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-10', shiftCd: 'C62_6', members: ['윤재원', '강민경'] },
+  { date: '2026-05-11', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-11', shiftCd: 'C62_5', members: ['한지민', '오지은', '차지원', '강민경', '윤재원', '정우성'] },
+  { date: '2026-05-13', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-14', shiftCd: 'C62_3', members: ['이서연', '박지호', '최수빈', '류다언', '조현완'] },
+  { date: '2026-05-14', shiftCd: 'C62_6', members: ['한지민', '오지은'] },
+  { date: '2026-05-30', shiftCd: 'C62_2', members: ['최경희', '신새미', '강민경', '윤재원', '정우성', '한지민', '오지은', '차지원', '김민준'] },
+];
+ 
+ 
+/* =========================================================
+   STATE — 앱 전역 상태
+   ========================================================= */
+const MONTHS_WITH_DATA = [...new Set(RAW.map(s => s.date.slice(0, 7)))].sort();
+ 
+let currentYear  = new Date(RAW[0].date).getFullYear();
+let currentMonth = new Date(RAW[0].date).getMonth(); // 0-indexed
+ 
+let ACTIVE_SHIFT_CDS = JSON.parse(localStorage.getItem('activeShiftCds')) || Object.keys(SHIFT_META);
+const DATE_SHIFTS = {};
+ 
+let state   = deepClone(RAW);
+let history = [];
+let dragInfo = null;
+ 
+ 
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+function deepClone(d) {
+  return JSON.parse(JSON.stringify(d));
+}
+ 
+function getMembers(date, shiftCd) {
+  const found = state.find(s => s.date === date && s.shiftCd === shiftCd);
+  return found ? found.members : [];
+}
+ 
+function showToast(msg) {
+  const t = document.getElementById('shift_toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+ 
+ 
+/* =========================================================
+   MONTH NAVIGATION
+   ========================================================= */
+function buildDateShifts() {
+  const prefix = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}`;
+  Object.keys(DATE_SHIFTS).forEach(k => delete DATE_SHIFTS[k]);
+  RAW.forEach(s => {
+    if (s.date.startsWith(prefix) && !DATE_SHIFTS[s.date]) {
+      DATE_SHIFTS[s.date] = ACTIVE_SHIFT_CDS;
+    }
+  });
+}
+ 
+function updateMonthHeader() {
+  const ym  = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}`;
+  const idx = MONTHS_WITH_DATA.indexOf(ym);
+ 
+  document.querySelector('.handle_week span').textContent = `${currentYear}년 ${currentMonth + 1}월`;
+  document.querySelector('.handle_prev').disabled = idx <= 0;
+  document.querySelector('.handle_next').disabled = idx >= MONTHS_WITH_DATA.length - 1;
+}
+ 
+function moveMonth(direction) {
+  const ym  = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}`;
+  const idx = MONTHS_WITH_DATA.indexOf(ym);
+  const next = MONTHS_WITH_DATA[idx + direction];
+  if (!next) return;
+ 
+  const [y, m] = next.split('-').map(Number);
+  currentYear  = y;
+  currentMonth = m - 1;
+ 
+  buildDateShifts();
+  updateMonthHeader();
+  render();
+}
+ 
+document.querySelector('.handle_prev').addEventListener('click', () => moveMonth(-1));
+document.querySelector('.handle_next').addEventListener('click', () => moveMonth(+1));
+ 
+ 
+/* =========================================================
+   TOOLBAR — 변경 카운트 / 저장 / 되돌리기
+   ========================================================= */
+function countChanges() {
+  let n = 0;
+  RAW.forEach(orig => {
+    const cur = state.find(s => s.date === orig.date && s.shiftCd === orig.shiftCd);
+    const curMembers = cur ? cur.members : [];
+    n += orig.members.filter(m => !curMembers.includes(m)).length;
+    n += curMembers.filter(m => !orig.members.includes(m)).length;
+  });
+  return n;
+}
+ 
+function updateToolbar() {
+  const n     = countChanges();
+  const badge = document.getElementById('change-count');
+ 
+  badge.style.display = n > 0 ? '' : 'none';
+  badge.textContent   = n;
+ 
+  document.getElementById('btn-save').disabled = n === 0;
+  document.getElementById('btn-undo').disabled = history.length === 0;
+}
+ 
+function saveChanges() {
+  RAW.length = 0;
+  deepClone(state).forEach(s => RAW.push(s));
+  history = [];
+  showToast('✓ 저장되었습니다');
+  updateToolbar();
+  console.log('SAVED:', JSON.stringify(state, null, 2));
+}
+ 
+function undo() {
+  if (!history.length) return;
+  state = history.pop();
+  render();
+  updateToolbar();
+  showToast('되돌렸습니다');
+}
+ 
+ 
+/* =========================================================
+   DRAG & DROP — 멤버 이동
+   ========================================================= */
+function moveMember(member, fromDate, fromShift, toShift) {
+  if (fromShift === toShift) return;
+ 
+  history.push(deepClone(state));
+ 
+  const src = state.find(s => s.date === fromDate && s.shiftCd === fromShift);
+  if (!src) return;
+  src.members = src.members.filter(m => m !== member);
+ 
+  let dst = state.find(s => s.date === fromDate && s.shiftCd === toShift);
+  if (!dst) {
+    dst = { date: fromDate, shiftCd: toShift, members: [] };
+    state.push(dst);
+  }
+  if (!dst.members.includes(member)) dst.members.push(member);
+ 
+  render();
+  updateToolbar();
+}
+ 
+ 
+/* =========================================================
+   SHIFT FILTER — 근무 유형 체크박스
+   ========================================================= */
+function renderShiftFilter() {
+  const container = document.createElement('div');
+  container.className = 'shift-filter';
+ 
+  Object.entries(SHIFT_META).forEach(([cd, meta]) => {
+    const label = document.createElement('label');
+    label.className  = 'shift-filter-item';
+    label.style.cssText = `background:${meta.color}; border-color:${meta.border}; color:${meta.textColor};`;
+ 
+    const cb   = document.createElement('input');
+    cb.type    = 'checkbox';
+    cb.checked = ACTIVE_SHIFT_CDS.includes(cd);
+    cb.addEventListener('change', () => {
+      ACTIVE_SHIFT_CDS = cb.checked
+        ? [...ACTIVE_SHIFT_CDS, cd]
+        : ACTIVE_SHIFT_CDS.filter(c => c !== cd);
+      localStorage.setItem('activeShiftCds', JSON.stringify(ACTIVE_SHIFT_CDS));
+      render();
+    });
+ 
+    label.appendChild(cb);
+    label.insertAdjacentHTML('beforeend', meta.label);
+    container.appendChild(label);
+  });
+ 
+  document.querySelector('.handle_week').appendChild(container);
+}
+ 
+ 
+/* =========================================================
+   RENDER — 달력 그리기
+   ========================================================= */
+function render() {
+  const grid = document.getElementById('day-grid');
+  grid.innerHTML = '';
+ 
+  const year     = currentYear;
+  const month    = currentMonth;
+  const firstDow = new Date(year, month, 1).getDay();
+  const lastDay  = new Date(year, month + 1, 0).getDate();
+ 
+  // 요일 헤더
+  const dowHeader = document.createElement('div');
+  dowHeader.className = 'cal-dow-header';
+  ['일','월','화','수','목','금','토'].forEach((d, i) => {
+    const cell = document.createElement('div');
+    cell.className   = 'cal-dow-cell';
+    cell.textContent = d;
+    cell.style.color = i === 0 ? '#E24B4A' : i === 6 ? '#378ADD' : '';
+    dowHeader.appendChild(cell);
+  });
+  grid.appendChild(dowHeader);
+ 
+  // 날짜 셀
+  const calGrid = document.createElement('div');
+  calGrid.className = 'cal-grid';
+ 
+  // 첫 주 앞 빈칸
+  for (let i = 0; i < firstDow; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'cal-cell';
+    calGrid.appendChild(empty);
+  }
+ 
+  for (let day = 1; day <= lastDay; day++) {
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const dow     = (firstDow + day - 1) % 7;
+    const isSun   = dow === 0;
+    const isSat   = dow === 6;
+ 
+    const cell = document.createElement('div');
+    cell.className = 'cal-cell';
+ 
+    const dayNum = document.createElement('div');
+    dayNum.className   = 'cal-day-num';
+    dayNum.textContent = day;
+    dayNum.style.color = isSun ? '#E24B4A' : isSat ? '#378ADD' : '';
+    cell.appendChild(dayNum);
+ 
+    if (DATE_SHIFTS[dateStr]) {
+      ACTIVE_SHIFT_CDS.forEach(shiftCd => {
+        const meta    = SHIFT_META[shiftCd];
+        const members = getMembers(dateStr, shiftCd);
+ 
+        // 근무 블록
+        const block = document.createElement('div');
+        block.className = 'shift-block';
+        block.style.cssText = `background:${meta.color}; border-color:${meta.border};`;
+ 
+        block.addEventListener('dragover',  e => { e.preventDefault(); block.classList.add('drag-over'); });
+        block.addEventListener('dragleave', ()  => block.classList.remove('drag-over'));
+        block.addEventListener('drop', e => {
+          e.preventDefault();
+          block.classList.remove('drag-over');
+          if (!dragInfo) return;
+          if (dragInfo.date !== dateStr) { showToast('같은 날짜 내에서만 이동할 수 있어요'); return; }
+          moveMember(dragInfo.member, dragInfo.date, dragInfo.shiftCd, shiftCd);
+        });
+ 
+        // 근무 시간 레이블
+        const lbl = document.createElement('div');
+        lbl.className = 'shift-label';
+        lbl.innerHTML = `<span style="color:${meta.textColor}; font-size:11px; font-weight:500;">${meta.label}</span>`;
+        block.appendChild(lbl);
+ 
+        // 멤버 칩 목록
+        const mList = document.createElement('div');
+        mList.className = 'members-list';
+ 
+        if (members.length === 0) {
+          const hint = document.createElement('span');
+          hint.className   = 'empty-hint';
+          hint.textContent = '여기에 드롭';
+          mList.appendChild(hint);
+        } else {
+          members.forEach(member => {
+            const chip = document.createElement('span');
+            chip.className  = 'member-chip';
+            chip.draggable  = true;
+            chip.style.cssText = `background:${meta.border}; color:${meta.textColor};`;
+            chip.textContent   = member;
+ 
+            chip.addEventListener('dragstart', e => {
+              dragInfo = { member, date: dateStr, shiftCd };
+              chip.classList.add('dragging');
+              e.dataTransfer.effectAllowed = 'move';
+            });
+            chip.addEventListener('dragend', () => {
+              chip.classList.remove('dragging');
+              dragInfo = null;
+            });
+ 
+            mList.appendChild(chip);
+          });
+        }
+ 
+        block.appendChild(mList);
+        cell.appendChild(block);
+      });
+    }
+ 
+    calGrid.appendChild(cell);
+  }
+ 
+  grid.appendChild(calGrid);
+}
+ 
+ 
+/* =========================================================
+   INIT — 초기 실행
+   ========================================================= */
+buildDateShifts();
+updateMonthHeader();
+renderShiftFilter();
+render();
+updateToolbar();
+</script>
+</body>
+</html>

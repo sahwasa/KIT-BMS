@@ -39,7 +39,7 @@
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'flexTime planApproval'
+        right: 'flexTime'
       },
       buttonText: {
         today: '오늘',
@@ -50,13 +50,7 @@
           click: function() {
             document.querySelector('.p_change_flexTime').showModal();
           }
-        },
-        planApproval : {
-          text:'근무표 상신',
-          click: function() {
-            document.querySelector('.p_change_flexTime').showModal();
-          }
-        }
+        }    
       },
       schedulerLicenseKey: '0328483609-fcs-1693988989',
       selectable:false,         

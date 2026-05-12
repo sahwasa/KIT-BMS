@@ -15,152 +15,134 @@
           </ul>
         </section>
       </header>
-      <div class="cont_body svc_home">      
-        <article class="attendance_home">
-          <header>
-            <h1>근태 및 연차현황</h1>
-          </header>
-          <div class="box_compact">
-            <ul class="summary">
-              <li><em>이번주 누적 근무시간</em>8H 0M</li>
-              <li><em>이번주 초과 근무시간</em>8H 0M</li>
-              <li><em>이번주 잔여 근무시간</em>36H 0M</li>
-              <li><em>보유 연차</em>22D 0H</li>
-              <li><em>사용 연차</em>0D 0H</li>
-              <li><em>잔여 연차</em>22D 0H</li>
-            </ul>
-          </div>
-        </article>        
-        <section class="flexible_working">
-          <article>
+      <div class="cont_body svc_home">
+        <article class="calendar_teamPlan">
+          <header class="blind">
+            <h1>부서원 근무표</h1>            
+          </header>          
+          <section class="calendar_wrap">
+            <div id='planCalendarMng' class="calendar"></div>          
+            <div class="teamPlan_legend" id="plan_legend"></div>
+          </section>
+          <section class="calendar_wrap plan_list">
+            <div id="planListMng" class="calendar"></div>
+            <div class='calendar_attendance legend'>
+              <ul class="attendace_legend attendace_legend--plan">
+                <li>근무예정</li>
+                <li>근무완료</li>
+                <li>연장근무</li>
+                <li>특별근무</li>
+                <li>휴가,반차</li>
+                <li>외근,출장</li>
+              </ul>
+            </div>
+          </section>
+        </article>
+        <div class="box_default">
+          <article class="attendance_home box_default_w">
             <header>
-              <h1>부서별 유연근무 실시현황</h1>            
+              <h1>근태 및 연차현황</h1>
             </header>
-            <!-- 기본값 본인 본부 각 인원별 가장 최근 변경신청 후 승인된 이력, 이름순 -->
+            <div class="attendance_desc">
+              <ul>
+                <li><em>금주 누적 근무시간</em>8H 0M</li>
+                <li><em>금주 초과 근무시간</em>8H 0M</li>
+                <li><em>금주 잔여 근무시간</em>36H 0M</li>
+                <li><em>당해 보유 연차</em>22D 0H</li>
+                <li><em>당해 사용 연차</em>0D 0H</li>
+                <li><em>당해 잔여 연차</em>22D 0H</li>
+              </ul>
+            </div>
+          </article>
+          <article class="today_teamPlan box_default_w">
+            <header>
+              <h1>금일 부서원 근무현황</h1>            
+            </header>
             <div class="tbl_wrap">
-              <table class="tbl_default">
-                <caption>부서별 유연근무 현황</caption>
+              <table class="tbl_default tbl_hover">
+                <caption>부서별 근무표 현황</caption>
                 <thead>
                   <tr>
-                    <th scope="col">이름(소속)</th>
-                    <th scope="col">기존 근무 시간</th>
-                    <th scope="col">변경 근무 시간</th>
-                    <th scope="col">변경 기간</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">근로시간</th>
+                    <th scope="col">출근시각</th>
+                    <th scope="col">퇴근시각</th>
+                    <th scope="col">현황</th>
                   </tr>
                 </thead>
-                <tbody>                
+                <tbody>
                   <tr>
-                    <td>강감찬 (지진경보장치팀)</td>
+                    <td>하츄핑</td>
                     <td>09:00~18:00</td>
-                    <td>08:00~17:00</td>
-                    <td>24-02-08 ~ 24-12-31</td>
-                  </tr>                  
+                    <td>08:50</td>
+                    <td>-</td>
+                    <td>평일</td>
+                  </tr>
                   <tr>
-                    <td>김개발 (지진경보장치팀)</td>
+                    <td>아자핑</td>
                     <td>09:00~18:00</td>
-                    <td>08:00~17:00</td>
-                    <td>24-02-08 ~ 24-12-31</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>대휴</td>
                   </tr>
                   <tr>
-                    <td>나비야 (지진경보장치팀)</td>
+                    <td>꾸래핑</td>
+                    <td>10:00~19:00</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>반차(10~15)</td>
+                  </tr>
+                  <tr>
+                    <td>달콤핑</td>
                     <td>09:00~18:00</td>
-                    <td>08:00~17:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span title="태풍센터, 우주환경센터">출장</span></td>
                   </tr>
                   <tr>
-                    <td>다람쥐 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
-                    <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
+                    <td>또너핑</td>
+                    <td>09:00~18:00</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span title="기상청">외근(09~14)</span></td>
                   </tr>
                   <tr>
-                    <td>라면왕 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
-                    <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
+                    <td>마카핑</td>
+                    <td>09:00~09:00<sup>+1일</sup>_(24h)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>비번</td>
                   </tr>
                   <tr>
-                    <td>마피아 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
-                    <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
+                    <td>바로핑</td>
+                    <td>09:00~21:00_(12h)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>휴일근무</td>
                   </tr>
                   <tr>
-                    <td>바밤바 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
+                    <td>요거핑</td>
                     <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
-                  </tr>
-                  <tr>
-                    <td>사랑해 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
-                    <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
-                  </tr>
-                  <tr>
-                    <td>아리랑 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
-                    <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>외근(10~12)<br />반차(13~19)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </article>
-          <!-- 본부장만 보임 -->
-          <article class="flexible_history">
-            <header>
-              <h1>유연근무 신청 이력 (최근 3개월)</h1>
-            </header>
-            <div class="tbl_wrap">
-              <table class="tbl_default">
-                <caption>유연근무 신청현황</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">신청자(소속)</th>
-                    <th scope="col">신청시간</th>
-                    <th scope="col">신청기간</th>
-                    <th scope="col">사유</th>
-                    <th scope="col">승인여부</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td title="(신청일:23-03-01)">강감찬 (지진경보장치팀)</td>
-                    <td>09:00~18:00</td>
-                    <td>24-03-08 ~ 24-12-31</td>
-                    <td><em>매우 구구절절한 사연을 구구절절한 사연을 써보지만 반려당할 것만 같은 사유 매우 구구절절한 사연을 구구절절하게 써보지만 반려당할 것만 같은 사유</em></td>
-                    <td>
-                      <button type="button" class="btn_red">승인</button>
-                      <button type="button" class="btn_default">반려</button>
-                    </td>
-                  </tr>               
-                  <tr>
-                    <td title="(신청일:23-03-01)">나비야 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
-                    <td><em>집에 일이 있습니다.</em></td>
-                    <td title="24-02-10 11:00">승인</td>
-                  </tr>
-                  <tr>
-                    <td title="(신청일:23-03-01)">다람쥐 (컨텐츠팀)</td>
-                    <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
-                    <td><em>늦잠자고싶어요.</em></td>
-                    <td title="24-02-10 11:00">반려</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </article>     
-        </section>     
-        <!-- 대표님 아래 최상위 조직장만 보임 -->        
-      </div>
+        </div>               
+      </div>          
     </section>
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
+@@include('../../inc/pop/p_calendar_popover.html')
+
 @@include('../../inc/layout/script.html')
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
+<script src="../../js/hr_plancalendar.js"></script>
 </body>
 
 </html>

@@ -39,7 +39,7 @@
           </section>
           <section class="calendar_wrap">
             <div id='planCalendarMng' class="calendar"></div>          
-            <div class="hr_plan_legend legend" id="legend"></div>
+            <div class="teamPlan_legend legend" id="plan_legend"></div>
           </section>
           <section class="calendar_wrap plan_list">
             <div id="planListMng" class="calendar"></div>
@@ -56,21 +56,14 @@
           </section>
         </section>
         </div>
-        </section>
+      </section>
     </section>
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
-<!-- 팝오버 -->
-<dialog class="cal_popover" id="popover">
-  <button class="popover-close" id="popover-close">×</button>
-  <div class="popover-title" id="popover-title"></div>
-  <div class="popover-count" id="popover-count"></div>
-  <div class="popover-members" id="popover-members"></div>
-</dialog>
+@@include('../../inc/pop/p_calendar_popover.html')
+
 @@include('../../inc/layout/script.html')
-
-
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
 <script src="../../js/hr_plancalendar.js"></script>
