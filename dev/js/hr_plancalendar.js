@@ -267,6 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── 목록 뷰 오늘 날짜로 스크롤 ──────────────────
   function scrollToToday() {
+    if (listEl.style.display === 'none') return;
+
     setTimeout(() => {
       calendar2.updateSize();
       requestAnimationFrame(() => {
@@ -279,15 +281,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollers.forEach(s => {
           if (s.scrollWidth > s.clientWidth) {
-            // 날짜 위치 비율 계산 (중앙 정렬을 위해 0.5일 보정)
+            // 오늘 날짜가 화면 중앙에 오도록 계산 (0.5일 보정)
             const scrollPos = (s.scrollWidth * (dayOfMonth - 0.5)) / lastDay;
-            // 화면 중앙 오프셋 계산
             const centerOffset = s.clientWidth / 2;
             s.scrollLeft = Math.max(0, scrollPos - centerOffset);
           }
         });
       });
-    }, 200);
+    }, 250);
   }
 
   // ─── 월간/주간 캘린더 (calendar) ──────────────────
@@ -364,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initialDate: new Date(),
     initialView: 'resourceTimelineMonth',
     headerToolbar: {
-      left:   'prevYear,prev,next,nextYear today',
+      left:   'prevYear,prev,next,nextYear todayBtn',
       center: 'title',
       right:  'dayGridMonth,dayGridWeek,monthlyList',
     },
@@ -392,8 +393,17 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       monthlyList: {
         text: '목록',
-        click: function() {},
+        click: function() {
+          scrollToToday();
+        },
       },
+      todayBtn: {
+        text: '오늘',
+        click: function() {
+          calendar2.today();
+          scrollToToday();
+        }
+      }
     },
     timeZone: 'local',
     weekends: true,
