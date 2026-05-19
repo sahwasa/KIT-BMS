@@ -42,6 +42,7 @@
 @import 'components/dm';
 @import 'components/badge';
 @import 'components/paginate';
+@import 'components/drag_scroll';
 
 // ========================================
 // 5. Pages
@@ -51,28 +52,10 @@
 @import 'pages/modal';           // 모달
 @import 'pages/user_info';       // 사용자정보 페이지
 @import 'pages/error';           // 에러 페이지
-@import 'pages/shift_editor';    // 부서별 근무표관리
+@import 'pages/svc_teamPlanMng'; // 근무표관리 페이지
 
 // ========================================
 // 6. Vendors
 // ========================================
 // 외부 라이브러리 스타일 (필요한 것만 활성화)
 @import 'vendors/fullcalendar';  // Fullcalendar
-
-// ========================================
-// 사용 가이드
-// ========================================
-/*
-새 프로젝트에서 사용 시:
-
-1. scss 폴더 전체를 복사
-2. 이 main.scss에서 필요한 모듈만 import (주석 해제)
-3. base/_variables.scss 프로젝트에 맞게 수정
-
-예시:
-  - 간단한 페이지: base, utils, pages/main만
-  - 관리자 페이지: base, utils, layout, components, pages 전체
-  - 특정 기능: 필요한 components만 선택
-
-불필요한 import는 주석처리하여 CSS 파일 크기 최적화
-*/

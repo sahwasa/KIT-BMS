@@ -93,7 +93,7 @@ border:1px solid transparent;align-self:center;@content;}
   &:hover::after{box-shadow:0 0 2px darken($color: $color, $amount:.5);}
 }
 @mixin full_btn($color){  
-  line-height:26px;border:1px solid darken($color, 5%);background-color:$color;border-radius:2px;padding:0 8px;cursor:pointer;font-weight:bold;letter-spacing:-.32px;color:#fff;
+  line-height:25px;border:1px solid darken($color, 5%);background-color:$color;border-radius:2px;padding:0 8px;cursor:pointer;font-weight:bold;letter-spacing:-.32px;color:#fff;
   &:hover,&:hover::before{border-color:$color;background-color:#fff;color:darken($color, 5%);}
 }
 @mixin form_btn{

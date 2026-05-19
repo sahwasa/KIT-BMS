@@ -19,6 +19,10 @@
   &_pc::before{content:'\f108';font-size:13px;padding-top:3px;}
   &_mobile::before{content:'\f10b';font-size:18px;}
 }
+.ic_modified{margin-left:auto;@include ico_only('\eb93');
+  &.is_rejected::before{color:#e11d48 !important;}
+}
+
 .draft{@include badge_color($draft)} // 상신
 .ing{@include badge_color($ing)} // 진행중 수행중 진행 결재진행
 .approve,

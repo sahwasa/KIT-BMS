@@ -2,20 +2,22 @@
 // 1. 근무 유형 정의 (cd_group = 'C62')
 // =============================================
 const SHIFT_TYPES = {
-  C62_1: { cd: 'C62_1', nm: '08:00~17:00',                       color: '#fff0c2', textColor: '#7a5500' },
+  // C62_1: { cd: 'C62_1', nm: '08:00~17:00',                       color: '#fff0c2', textColor: '#7a5500' },
   C62_2: { cd: 'C62_2', nm: '09:00~18:00',                       color: '#d4f0e0', textColor: '#1a6b3a' },
   C62_3: { cd: 'C62_3', nm: '10:00~19:00',                       color: '#cce5ff', textColor: '#0a4a8a' },
   C62_4: { cd: 'C62_4', nm: '09:00~09:00<sup>+1일</sup>_(24h)', color: '#ffe0c2', textColor: '#8a3a00' },
   C62_5: { cd: 'C62_5', nm: '09:00~21:00_(12h)',                 color: '#ffd6e0', textColor: '#8a0a2a' },
   C62_6: { cd: 'C62_6', nm: '08:00~12:00_(4h)',                  color: '#e8d5ff', textColor: '#4a1a8a' },
   C62_7: { cd: '2C62_7', nm: '09:00~18:00_(격일)',                color: '#cffafe', textColor: '#164e63' },
+  // C62_8: { cd: 'C62_8', nm: '22:00~07:00_(야간)',                color: '#e0e7ff', textColor: '#3730a3' },
+  // C62_9: { cd: 'C62_9', nm: '13:00~22:00_(오후)',                color: '#ecfccb', textColor: '#365314' },
 };
 
 // =============================================
 // 2. 샘플 근무 데이터 (실제 DB 연동 시 교체)
 // =============================================
 const SHIFT_DATA = [
-  { date: '2026-05-01', shiftCd: 'C62_1', members: ['유한아름', '이서연', '박지호', '최수빈', '정우성'] },
+  // { date: '2026-05-01', shiftCd: 'C62_8', members: ['유한아름', '이서연', '박지호', '최수빈', '정우성'] },
   { date: '2026-05-01', shiftCd: 'C62_2', members: ['한지민', '오지은', '윤재원'] },
   { date: '2026-05-01', shiftCd: 'C62_6', members: ['류다언', '조현완'] },
   { date: '2026-05-02', shiftCd: 'C62_2', members: ['김민준', '이서연', '박지호', '최수빈', '정우성', '류다언'] },
@@ -48,32 +50,27 @@ const SHIFT_DATA = [
 // 3. 목록 뷰 이벤트 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var monthlyEvents = [
-  { resourceId: '150', start: '2026-05-04',          end: '2026-05-04',          className: 'out',        title: '외근(09~13)'   },
-  { resourceId: '150', start: '2026-05-06',          end: '2026-05-06',          className: 'regular',    title: '평일(09~18)'   },
-  { resourceId: '150', start: '2026-05-07T10:00:00', end: '2026-05-07T12:00:00', className: 'out',        title: '외근(10~12)'   },
-  { resourceId: '150', start: '2026-05-07T13:00:00', end: '2026-05-07T19:00:00', className: 'off',        title: '반차(13~19)'   },
-  { resourceId: '150', start: '2026-05-08',          end: '2026-05-08',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '150', start: '2026-05-11',          end: '2026-05-11',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '150', start: '2026-05-12',          end: '2026-05-12',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '150', start: '2026-05-13',          end: '2026-05-13',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '150', start: '2026-05-14',          end: '2026-05-14',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '151', start: '2026-05-01',          end: '2026-05-01',          className: 'holiday_work', title: '휴일근무(09~18)' },
-  { resourceId: '151', start: '2026-05-06',          end: '2026-05-06',          className: 'regular',    title: '평일(10~19)'   },
-  { resourceId: '151', start: '2026-05-07',          end: '2026-05-07',          className: 'out',        title: '출장'          },
-  { resourceId: '151', start: '2026-05-08',          end: '2026-05-08',          className: 'off',        title: '연차'          },
-  { resourceId: '151', start: '2026-05-11',          end: '2026-05-11',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '151', start: '2026-05-12',          end: '2026-05-12',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '151', start: '2026-05-13',          end: '2026-05-13',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '151', start: '2026-05-14',          end: '2026-05-14',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '152', start: '2026-05-01',          end: '2026-05-01',          className: 'holiday_work', title: '휴일근무(09~18)' },
-  { resourceId: '152', start: '2026-05-04',          end: '2026-05-04',          className: 'late early', title: '평일(09~18)'   },
-  { resourceId: '152', start: '2026-05-06',          end: '2026-05-06',          className: 'regular',    title: '평일(10~19)'   },
-  { resourceId: '152', start: '2026-05-07',          end: '2026-05-07',          className: 'regular',    title: '평일(10~19'    },
-  { resourceId: '152', start: '2026-05-08',          end: '2026-05-08',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '152', start: '2026-05-11',          end: '2026-05-11',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '152', start: '2026-05-12',          end: '2026-05-12',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '152', start: '2026-05-13',          end: '2026-05-13',          className: 'scheduled',  title: '평일(09~18)'   },
-  { resourceId: '152', start: '2026-05-14',          end: '2026-05-14',          className: 'scheduled',  title: '평일(09~18)'   },
+  // { resourceId: '150', start: '2026-05-04', end: '2026-05-04', title: '22:00~07:00(야간)', extendedProps: { shiftCd: 'C62_8' } },
+  { resourceId: '150', start: '2026-05-06', end: '2026-05-06', title: '09:00~18:00', extendedProps: { shiftCd: 'C62_2' } },
+  { resourceId: '150', start: '2026-05-07', end: '2026-05-07', title: '10:00~19:00', extendedProps: { shiftCd: 'C62_3' } },
+  { resourceId: '150', start: '2026-05-08', end: '2026-05-08', title: '09:00~09:00<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
+  { resourceId: '150', start: '2026-05-11', end: '2026-05-11', title: '09:00~21:00', extendedProps: { shiftCd: 'C62_5' } },
+  // { resourceId: '150', start: '2026-05-12', end: '2026-05-12', title: '13:00~22:00(오후)', extendedProps: { shiftCd: 'C62_9' } },
+  { resourceId: '150', start: '2026-05-13', end: '2026-05-13', title: '09:00~18:00(격일)', extendedProps: { shiftCd: 'C62_7' } },
+  
+  { resourceId: '151', start: '2026-05-01', end: '2026-05-01', title: '09:00~09:00<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
+  // { resourceId: '151', start: '2026-05-06', end: '2026-05-06', title: '22:00~07:00(야간)', extendedProps: { shiftCd: 'C62_8' } },
+  { resourceId: '151', start: '2026-05-07', end: '2026-05-07', title: '09:00~18:00', extendedProps: { shiftCd: 'C62_2' } },
+  { resourceId: '151', start: '2026-05-08', end: '2026-05-08', title: '10:00~19:00', extendedProps: { shiftCd: 'C62_3' } },
+  { resourceId: '151', start: '2026-05-11', end: '2026-05-11', title: '08:00~12:00', extendedProps: { shiftCd: 'C62_6' } },
+  { resourceId: '151', start: '2026-05-13', end: '2026-05-13', title: '09:00~21:00', extendedProps: { shiftCd: 'C62_5' } },
+  
+  { resourceId: '152', start: '2026-05-01', end: '2026-05-01', title: '09:00~18:00(격일)', extendedProps: { shiftCd: 'C62_7' } },
+  // { resourceId: '152', start: '2026-05-04', end: '2026-05-04', title: '13:00~22:00(오후)', extendedProps: { shiftCd: 'C62_9' } },
+  { resourceId: '152', start: '2026-05-06', end: '2026-05-06', title: '09:00~21:00', extendedProps: { shiftCd: 'C62_5' } },
+  { resourceId: '152', start: '2026-05-07', end: '2026-05-07', title: '09:00~09:00<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
+  { resourceId: '152', start: '2026-05-10', end: '2026-05-10', title: '08:00~12:00', extendedProps: { shiftCd: 'C62_6' } },
+  { resourceId: '152', start: '2026-05-12', end: '2026-05-12', title: '10:00~19:00', extendedProps: { shiftCd: 'C62_3' } },
 ];
 
 // =============================================
@@ -105,6 +102,8 @@ const RESOURCES = [
 function buildEvents(data) {
   return data.map((row, idx) => {
     const shift = SHIFT_TYPES[row.shiftCd];
+    if (!shift) return null; // 주석 처리된 유형 대응
+
     const maxShow = 3;
     const displayNames = row.members.slice(0, maxShow).join(' ');
     const extra = row.members.length > maxShow ? ` +${row.members.length - maxShow}` : '';
@@ -124,7 +123,7 @@ function buildEvents(data) {
         count: row.members.length,
       },
     };
-  });
+  }).filter(Boolean); // null 제외
 }
 
 /** 근무 유형 범례 렌더링 */
@@ -135,7 +134,7 @@ function renderLegend() {
     item.className = 'legend-item';
     item.innerHTML = `
       <div class="legend-dot" style="background:${s.color};border:1px solid ${s.textColor}33"></div>
-      <span>${s.nm}</span>
+      <span style="color:${s.textColor}; font-weight:600;">${s.nm}</span>
     `;
     el.appendChild(item);
   });
@@ -200,7 +199,7 @@ function showPopover(jsEvent, shift, members, date) {
 // 7. FullCalendar 초기화
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
-  renderLegend();
+  // renderLegend();
 
   const calEl  = document.getElementById('planCalendarMng'); // 월간/주간 뷰
   const listEl = document.getElementById('planListMng');     // 목록 뷰
@@ -271,21 +270,24 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       calendar2.updateSize();
       requestAnimationFrame(() => {
-        const scrollers = [...listEl.querySelectorAll('.fc-scroller-liquid-absolute')];
-        scrollers.forEach(s => s.scrollLeft = 0);
+        const scrollers = listEl.querySelectorAll('.fc-scroller');
+        if (!scrollers.length) return;
 
-        const today     = new Date();
+        const today = new Date();
         const dayOfMonth = today.getDate();
-        const totalDays  = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+        const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
 
-        requestAnimationFrame(() => {
-          if (!scrollers.length) return;
-          const offset     = scrollers[0].scrollWidth * (dayOfMonth - 1) / totalDays;
-          const viewOffset = scrollers[0].clientWidth * 0.2;
-          scrollers.forEach(s => s.scrollLeft = Math.max(0, offset - viewOffset));
+        scrollers.forEach(s => {
+          if (s.scrollWidth > s.clientWidth) {
+            // 날짜 위치 비율 계산 (중앙 정렬을 위해 0.5일 보정)
+            const scrollPos = (s.scrollWidth * (dayOfMonth - 0.5)) / lastDay;
+            // 화면 중앙 오프셋 계산
+            const centerOffset = s.clientWidth / 2;
+            s.scrollLeft = Math.max(0, scrollPos - centerOffset);
+          }
         });
       });
-    }, 150);
+    }, 200);
   }
 
   // ─── 월간/주간 캘린더 (calendar) ──────────────────
@@ -308,8 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
       monthlyList: {
         text: '목록',
         click: function() {
-          calEl.closest('.calendar_wrap').style.display = 'none';
-          listEl.closest('.calendar_wrap').style.display = '';
+          calEl.style.display = 'none';
+          listEl.style.display = '';
           calendar2.gotoDate(calendar.getDate());
           scrollToToday();
         },
@@ -317,6 +319,13 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     // 뷰 전환·날짜 이동 시 캘린더 사이즈 재계산
     datesSet: function() {
+      const titleEl = calEl.querySelector('.fc-toolbar-title');
+      if (titleEl && !titleEl.querySelector('.fc-title-sub')) {
+        const sub = document.createElement('span');
+        sub.className   = 'fc-title-sub';
+        sub.textContent = ' 근무표';
+        titleEl.appendChild(sub);
+      }
       requestAnimationFrame(() => calendar.updateSize());
     },
     events: buildEvents(SHIFT_DATA),
@@ -346,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
   calendar.render();
+  renderLegend();
 
   // ─── 목록 뷰 캘린더 (calendar2) ───────────────────
   const calendar2 = new FullCalendar.Calendar(listEl, {
@@ -363,8 +373,8 @@ document.addEventListener('DOMContentLoaded', () => {
       dayGridMonth: {
         text: '월간',
         click: function() {
-          listEl.closest('.calendar_wrap').style.display = 'none';
-          calEl.closest('.calendar_wrap').style.display = '';
+          listEl.style.display = 'none';
+          calEl.style.display = '';
           calendar.gotoDate(calendar2.getDate());
           calendar.changeView('dayGridMonth');
           requestAnimationFrame(() => calendar.updateSize());
@@ -373,8 +383,8 @@ document.addEventListener('DOMContentLoaded', () => {
       dayGridWeek: {
         text: '주간',
         click: function() {
-          listEl.closest('.calendar_wrap').style.display = 'none';
-          calEl.closest('.calendar_wrap').style.display = '';
+          listEl.style.display = 'none';
+          calEl.style.display = '';
           calendar.gotoDate(calendar2.getDate());
           calendar.changeView('dayGridWeek');
           requestAnimationFrame(() => calendar.updateSize());
@@ -390,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
     editable: false,
     selectable: false,
     nowIndicator: true,
-    slotMinWidth: 115,
+    slotMinWidth: 95,
     resourceAreaWidth: '250px',
     resourceOrder: 'dept,employee_name',
     resourceAreaColumns: [
@@ -412,21 +422,30 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     resources: RESOURCES,
     businessHours: { daysOfWeek: [1, 2, 3, 4, 5] },
-    // 오른쪽 lane 클릭으로도 row 선택 가능
-    resourceLaneDidMount: function(arg) {
-      arg.el.style.cursor = 'pointer';
-      arg.el.addEventListener('click', () => selectResource(arg.resource.id));
-    },
     // 월 이동 시 오늘 날짜로 스크롤 (뷰 전환은 scrollToToday가 담당)
     datesSet: function(dateInfo) {
       const today = new Date();
       if (today >= dateInfo.start && today < dateInfo.end) {
         scrollToToday();
       }
+      const titleEl = listEl.querySelector('.fc-toolbar-title');
+      if (titleEl && !titleEl.querySelector('.fc-title-sub')) {
+        const sub = document.createElement('span');
+        sub.className   = 'fc-title-sub';
+        sub.textContent = ' 근무표';
+        titleEl.appendChild(sub);
+      }
     },
     events: monthlyEvents,
     displayEventTime: false,
-    eventClick: function() {},
+    eventContent: function(arg) {
+      const shiftCd = arg.event.extendedProps.shiftCd;
+      const shift = SHIFT_TYPES[shiftCd];
+      const textColor = shift ? shift.textColor : 'inherit';
+      return {
+        html: `<span style="color:${textColor}; font-weight:600;">${arg.event.title}</span>`
+      };
+    },
     slotLabelFormat: [
       { day: 'numeric' },
       { weekday: 'short' },
@@ -444,21 +463,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   calendar2.render();
 
-  // 이벤트 위임으로 리소스 셀 클릭 시 row 선택
-  listEl.addEventListener('click', function (e) {
-    const cell = e.target.closest('[data-resource-id]');
-    if (cell) selectResource(cell.dataset.resourceId);
+  // ─── 드래그 스크롤 및 줄 선택 통합 적용 (ui_cmmn.js) ──────────
+  initInteractiveDrag('#planListMng', {
+    onClick: function (e) {
+      const cell = e.target.closest('[data-resource-id]');
+      if (cell) selectResource(cell.dataset.resourceId);
+    }
   });
 
-  // 마우스 휠로 가로 스크롤 (세로 스크롤 차단)
-  listEl.addEventListener('wheel', function(e) {
-    const scroller = [...listEl.querySelectorAll('.fc-scroller-liquid-absolute')].at(-1);
-    if (scroller) {
-      e.preventDefault();
-      scroller.scrollLeft += e.deltaY;
-    }
-  }, { passive: false });
-
   // 초기 표시: 목록 뷰 숨김
-  listEl.closest('.calendar_wrap').style.display = 'none';
+  listEl.style.display = 'none';
 });

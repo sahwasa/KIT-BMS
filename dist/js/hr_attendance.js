@@ -4,51 +4,71 @@ var calendar;
 // 1. 월간 뷰 이벤트 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var monthlyEvents = [
-  { resourceId: '150', start: '2026-05-01', end: '2026-05-01',
-    extendedProps: { type: '외근(09~13)',   time: '- / -' } },
-  { resourceId: '150', start: '2026-05-02', end: '2026-05-02', className: 'cal_check',
-    extendedProps: { type: '평일(09~18)',   time: '<span class="t_red">+3분</span> / -' } },
-  { resourceId: '150', start: '2026-05-03', end: '2026-05-03', className: 'cal_modified',
-    extendedProps: { type: '반차(13~19)',   time: '- / <span class="t_red">-30분</span>' } },
-  { resourceId: '150', start: '2026-05-04', end: '2026-05-04',
-    extendedProps: { type: '휴일',          time: '- / -' } },
-  { resourceId: '150', start: '2026-05-05', end: '2026-05-05',
-    extendedProps: { type: '휴일',          time: '- / -' } },
-  { resourceId: '151', start: '2026-05-01', end: '2026-05-01', className: 'cal_delay',
-    extendedProps: { type: '연차',          time: '- / -' } },
-  { resourceId: '151', start: '2026-05-02', end: '2026-05-02', className: 'cal_delay',
-    extendedProps: { type: '평일(10~19)',   time: '- / -' } },
-  { resourceId: '151', start: '2026-05-03', end: '2026-05-03', className: 'cal_delay',
-    extendedProps: { type: '출장',          time: '- / -' } },
-  { resourceId: '151', start: '2026-05-04', end: '2026-05-04', className: 'cal_delay',
-    extendedProps: { type: '휴일근무(09~18)', time: '- / -' } },
-  { resourceId: '151', start: '2026-05-05', end: '2026-05-05', className: 'cal_delay',
-    extendedProps: { type: '휴일',          time: '- / -' } },
+  // 꾸래핑 (150)
+  { resourceId: '150', start: '2026-05-01', extendedProps: { type: '정상(09~18)', time: '08:52 / 18:05' } },
+  { resourceId: '150', start: '2026-05-04', extendedProps: { type: '정상(09~18)', time: '08:45 / 18:10' } },
+  { resourceId: '150', start: '2026-05-05', extendedProps: { type: '휴일',        time: '- / -' } },
+  { resourceId: '150', start: '2026-05-06', className: 'cal_check', extendedProps: { type: '지각(09~18)', time: '<span class="t_red">09:05</span> / 18:02' } },
+  { resourceId: '150', start: '2026-05-07', extendedProps: { type: '외근(09~13)', time: '- / 18:15' } },
+  { resourceId: '150', start: '2026-05-08', extendedProps: { type: '정상(09~18)', time: '08:58 / 18:00' } },
+  { resourceId: '150', start: '2026-05-11', extendedProps: { type: '정상(09~18)', time: '08:50 / 18:05' } },
+  { resourceId: '150', start: '2026-05-12', className: 'cal_modified', extendedProps: { type: '조퇴(09~18)', time: '08:55 / <span class="t_red">16:30</span>' } },
+  { resourceId: '150', start: '2026-05-13', extendedProps: { type: '정상(09~18)', time: '08:40 / 18:20' } },
+  { resourceId: '150', start: '2026-05-14', extendedProps: { type: '반차(09~14)', time: '08:50 / 14:05' } },
+  { resourceId: '150', start: '2026-05-15', extendedProps: { type: '정상(09~18)', time: '08:52 / 18:10' } },
+  { resourceId: '150', start: '2026-05-18', extendedProps: { type: '정상(09~18)', time: '08:48 / 18:03' } },
+  { resourceId: '150', start: '2026-05-19', extendedProps: { type: '정상(09~18)', time: '08:55 / -' } },
+
+  // 바로핑 (151)
+  { resourceId: '151', start: '2026-05-01', extendedProps: { type: '연차',        time: '- / -' } },
+  { resourceId: '151', start: '2026-05-04', extendedProps: { type: '정상(10~19)', time: '09:50 / 19:05' } },
+  { resourceId: '151', start: '2026-05-05', extendedProps: { type: '휴일',        time: '- / -' } },
+  { resourceId: '151', start: '2026-05-06', extendedProps: { type: '출장',        time: '- / -' } },
+  { resourceId: '151', start: '2026-05-07', extendedProps: { type: '출장',        time: '- / -' } },
+  { resourceId: '151', start: '2026-05-08', extendedProps: { type: '정상(10~19)', time: '09:55 / 19:10' } },
+  { resourceId: '151', start: '2026-05-11', extendedProps: { type: '정상(10~19)', time: '09:45 / 19:02' } },
+  { resourceId: '151', start: '2026-05-12', extendedProps: { type: '정상(10~19)', time: '09:58 / 19:00' } },
+  { resourceId: '151', start: '2026-05-13', className: 'cal_delay', extendedProps: { type: '결근',       time: '- / -' } },
+  { resourceId: '151', start: '2026-05-14', extendedProps: { type: '정상(10~19)', time: '09:52 / 19:05' } },
+  { resourceId: '151', start: '2026-05-15', extendedProps: { type: '정상(10~19)', time: '09:50 / 19:15' } },
+  { resourceId: '151', start: '2026-05-18', extendedProps: { type: '정상(10~19)', time: '09:40 / 19:08' } },
+  { resourceId: '151', start: '2026-05-19', extendedProps: { type: '정상(10~19)', time: '09:55 / -' } },
+
+  // 하츄핑 (152)
+  { resourceId: '152', start: '2026-05-01', extendedProps: { type: '정상(09~18)', time: '08:50 / 18:10' } },
+  { resourceId: '152', start: '2026-05-04', extendedProps: { type: '정상(09~18)', time: '08:45 / 18:05' } },
+  { resourceId: '152', start: '2026-05-08', extendedProps: { type: '정상(09~18)', time: '08:55 / 18:00' } },
+  { resourceId: '152', start: '2026-05-11', extendedProps: { type: '정상(09~18)', time: '08:48 / 18:12' } },
+  { resourceId: '152', start: '2026-05-15', extendedProps: { type: '정상(09~18)', time: '08:52 / 18:05' } },
+  { resourceId: '152', start: '2026-05-18', extendedProps: { type: '오전반차',    time: '13:50 / 18:05' } },
+  { resourceId: '152', start: '2026-05-19', extendedProps: { type: '정상(09~18)', time: '08:45 / -' } },
+
+  // 아자핑 (153)
+  { resourceId: '153', start: '2026-05-01', extendedProps: { type: '정상(09~18)', time: '08:40 / 18:20' } },
+  { resourceId: '153', start: '2026-05-04', extendedProps: { type: '정상(09~18)', time: '08:55 / 18:10' } },
+  { resourceId: '153', start: '2026-05-11', extendedProps: { type: '정상(09~18)', time: '08:50 / 18:05' } },
+  { resourceId: '153', start: '2026-05-19', extendedProps: { type: '정상(09~18)', time: '08:58 / -' } },
 ];
 
 // =============================================
 // 2. 연간 뷰 이벤트 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var yearlyEvents = [
-  { resourceId: '150', start: '2026-01-01', extendedProps: { late: 0, early_leave: 0 } },
-  { resourceId: '150', start: '2026-02-01', extendedProps: { late: 0, early_leave: 0 } },
-  { resourceId: '150', start: '2026-03-01', extendedProps: { late: 0, early_leave: 0 } },
   { resourceId: '150', start: '2026-05-01', extendedProps: { late: 1, early_leave: 1 } },
-  { resourceId: '151', start: '2026-01-01', extendedProps: { late: 0, early_leave: 0 } },
-  { resourceId: '151', start: '2026-02-01', extendedProps: { late: 0, early_leave: 0 } },
-  { resourceId: '151', start: '2026-03-01', extendedProps: { late: 0, early_leave: 0 } },
   { resourceId: '151', start: '2026-05-01', extendedProps: { late: 0, early_leave: 0 } },
+  { resourceId: '152', start: '2026-05-01', extendedProps: { late: 0, early_leave: 0 } },
+  { resourceId: '153', start: '2026-05-01', extendedProps: { late: 0, early_leave: 0 } },
 ];
 
 // =============================================
 // 3. 리소스(사원) 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var RESOURCES = [
-  { id: '150', employee_id: '150', employee_name: '꾸래핑', dept: 'IT사업본부', loc: '본사', attendance: '1 / 1' },
-  { id: '151', employee_id: '151', employee_name: '바로핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0' },
-  { id: '152', employee_id: '152', employee_name: '하츄핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0' },
-  { id: '153', employee_id: '153', employee_name: '아자핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0' },
-  { id: '154', employee_id: '154', employee_name: '차차핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0' },
+  { id: '150', employee_id: '150', employee_name: '꾸래핑', dept: 'IT사업본부', loc: '본사', attendance: '1 / 1 / 0' },
+  { id: '151', employee_id: '151', employee_name: '바로핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 1' },
+  { id: '152', employee_id: '152', employee_name: '하츄핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0' },
+  { id: '153', employee_id: '153', employee_name: '아자핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0' },
+  { id: '154', employee_id: '154', employee_name: '차차핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0' },
 ];
 
 // =============================================
@@ -116,6 +136,36 @@ document.addEventListener('DOMContentLoaded', function () {
       .forEach(el => el.classList.remove('fc-resource-selected'));
     calendarEl.querySelectorAll(`[data-resource-id="${resourceId}"]`)
       .forEach(el => el.classList.add('fc-resource-selected'));
+  }
+
+  // ─── 오늘 날짜로 스크롤 ──────────────────
+  function scrollToToday() {
+    if (calendar.view.type !== 'monthlyView') return;
+
+    // 렌더링 완료 후 안정적인 위치 계산을 위해 지연 실행
+    setTimeout(() => {
+      calendar.updateSize();
+      requestAnimationFrame(() => {
+        const scrollers = calendarEl.querySelectorAll('.fc-scroller');
+        if (!scrollers.length) return;
+
+        const today = new Date();
+        const dayOfMonth = today.getDate();
+        const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+
+        scrollers.forEach(s => {
+          // 가로 스크롤이 발생하는 스크롤러만 대상
+          if (s.scrollWidth > s.clientWidth) {
+            // 날짜 위치 비율 계산 (정확한 위치를 위해 0.5일 정도 보정)
+            const scrollPos = (s.scrollWidth * (dayOfMonth - 0.5)) / lastDay;
+            // 화면 중앙에 오도록 오프셋 계산 (화면 너비의 절반 차감)
+            const centerOffset = s.clientWidth / 2;
+            
+            s.scrollLeft = Math.max(0, scrollPos - centerOffset);
+          }
+        });
+      });
+    }, 200);
   }
 
   // ─── 캘린더 초기화 ────────────────────────────────
@@ -192,6 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
         calendar.addEventSource(yearlyEvents);
       } else {
         calendar.addEventSource(monthlyEvents);
+        scrollToToday(); // 오늘 날짜로 스크롤
       }
     },
     eventContent: function (arg) {
@@ -206,11 +257,6 @@ document.addEventListener('DOMContentLoaded', function () {
       } else if (info.view.type === 'yearlyView') {
         document.querySelector('.p_monthlyAttendance').showModal();
       }
-    },
-    // 오른쪽 lane 클릭으로도 row 선택
-    resourceLaneDidMount: function (arg) {
-      arg.el.style.cursor = 'pointer';
-      arg.el.addEventListener('click', () => selectResource(arg.resource.id));
     },
     views: {
       monthlyView: {
@@ -241,20 +287,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   calendar.render();
-
-  // 이벤트 위임으로 리소스 셀 클릭 시 row 선택
-  calendarEl.addEventListener('click', function (e) {
-    const cell = e.target.closest('[data-resource-id]');
-    if (cell) selectResource(cell.dataset.resourceId);
+  
+  // ─── 드래그 스크롤 및 줄 선택 통합 적용 (ui_cmmn.js) ──────────
+  initInteractiveDrag('#hrAttendance', {
+    onClick: function (e) {
+      const cell = e.target.closest('[data-resource-id]');
+      if (cell) selectResource(cell.dataset.resourceId);
+    }
   });
-
-  // 마우스 휠로 가로 스크롤 (세로 스크롤 차단)
-  // calendarEl.addEventListener('wheel', function (e) {
-  //   const scroller = [...calendarEl.querySelectorAll('.fc-scroller-liquid-absolute')].at(-1);
-  //   if (scroller) {
-  //     e.preventDefault();
-  //     scroller.scrollLeft += e.deltaY;
-  //   }
-  // }, { passive: false });
-
 });

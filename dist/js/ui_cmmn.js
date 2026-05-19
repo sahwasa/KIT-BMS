@@ -787,3 +787,105 @@ function setViewer(id = 'editor') {
         console.error(error)
       })
 }
+
+/**
+ * 드래그 스크롤 및 클릭 통합 제어 유틸리티
+ * @param {string} selector - 대상 컨테이너 선택자
+ * @param {object} options - 설정 (onClick: 클릭 콜백, speed: 스크롤 배율, threshold: 구분 임계값, exclude: 제외 요소)
+ */
+function initInteractiveDrag(selector, options = {}) {
+  const settings = {
+    speed: options.speed || 2.0,
+    threshold: options.threshold || 10,
+    exclude: options.exclude || 'button, a, input, select, textarea, .fc-event',
+    onClick: options.onClick || null, // 드래그가 아닌 클릭 시 실행할 함수
+    ...options
+  };
+
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  let isDown = false;
+  let isDragging = false;
+  let startX = 0, startY = 0;
+  let scrollData = [];
+
+  const onPointerDown = (e) => {
+    if (e.button !== 0 || e.target.closest(settings.exclude)) return;
+
+    // 가로 스크롤 가능 요소 탐색
+    const scrollers = Array.from(container.querySelectorAll('*')).filter(el => {
+      const style = window.getComputedStyle(el);
+      return (style.overflowX === 'auto' || style.overflowX === 'scroll' || el.classList.contains('fc-scroller')) 
+             && el.scrollWidth > el.clientWidth;
+    });
+
+    if (scrollers.length === 0 && !settings.onClick) return;
+
+    isDown = true;
+    isDragging = false;
+    startX = e.clientX;
+    startY = e.clientY;
+    scrollData = scrollers.map(s => ({ el: s, initialLeft: s.scrollLeft }));
+  };
+
+  const onPointerMove = (e) => {
+    if (!isDown) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    if (!isDragging) {
+      if (Math.abs(dx) > settings.threshold || Math.abs(dy) > settings.threshold) {
+        isDragging = true;
+        container.classList.add('dragging');
+        document.documentElement.classList.add('drag-active-global');
+        container.setPointerCapture(e.pointerId);
+      } else {
+        return;
+      }
+    }
+
+    if (e.cancelable) e.preventDefault();
+    e.stopPropagation();
+
+    scrollData.forEach(data => {
+      data.el.scrollLeft = data.initialLeft - dx * settings.speed;
+    });
+  };
+
+  const onPointerUp = (e) => {
+    if (!isDown) return;
+
+    if (isDragging) {
+      const preventClick = (ev) => {
+        ev.stopImmediatePropagation();
+        container.removeEventListener('click', preventClick, true);
+      };
+      container.addEventListener('click', preventClick, true);
+      container.releasePointerCapture(e.pointerId);
+      e.stopPropagation();
+    } else {
+      // 드래그가 발생하지 않은 경우 = 클릭으로 간주
+      if (typeof settings.onClick === 'function') {
+        settings.onClick(e);
+      }
+    }
+
+    isDown = false;
+    isDragging = false;
+    container.classList.remove('dragging');
+    document.documentElement.classList.remove('drag-active-global');
+    scrollData = [];
+  };
+
+  container.addEventListener('pointerdown', onPointerDown, { capture: true });
+  container.addEventListener('pointermove', onPointerMove, { capture: true });
+  container.addEventListener('pointerup', onPointerUp, { capture: true });
+  container.addEventListener('pointercancel', onPointerUp, { capture: true });
+}
+
+// 기존 함수와 호환성을 위한 별칭 또는 레거시 래퍼
+function initCommonDragScroll(selector, options) {
+  initInteractiveDrag(selector, options);
+}

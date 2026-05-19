@@ -209,134 +209,151 @@
       <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
 "닫기" title="닫기">닫기</a>
       <header class="cont_tit">
-        <h1>신청이력 및 현황<span>사내 서비스</span></h1>
+        <h1>사내 서비스</h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">사내 서비스</a></li>
-            <li>신청이력 및 현황</li>
+            <li>사내 서비스</li>
           </ul>
         </section>
       </header>
-      <div class="cont_body">
-        <article class="">          
+      <div class="cont_body svc_home">
+        <article class="calendar_teamPlan">
+          <header class="blind">
+            <h1>근무표</h1>            
+          </header>          
           <section class="box_compact">
             <ul class="search_list">
               <li>
-                <select name="" id="" title="상태">
-                  <option value="">대여중</option>
-                  <option value="">반납완료</option>
-                  <option value="">반납처리중</option>
-                  <option value="">구매신청</option>
-              </select>
+                <select name="" id="" title="부서">
+                  <option value="">본인 부서 기본값</option>                 
+                </select>
               </li>
               <li>
-                <input type="text" name="" id="" title="검색어" placeholder="검색어" list="">
+                <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+                <datalist id="nameList">
+  <optgroup label="개발본부">
+    <option value="대장발핑">개발본부</option>
+    <option value="개발핑">개발 1팀</option>
+    <option value="새발핑">개발 1팀</option>
+    <option value="말발핑">개발 2팀</option>
+    <option value="소발핑">개발 2팀</option>
+    <option value="곰발핑">개발 2팀</option>
+  </optgroup>
+  <optgroup label="경영관리">
+    <option value="경영핑">경영관리</option>
+    <option value="관리핑">경영관리</option>
+  </optgroup>                  
+</datalist>
               </li>
               <li>
                 <button type="button" class="btn_search">검색</button>
-                <button type="button" class="btn_refresh">초기화</button>
               </li>
-            </ul>
+            </ul>           
           </section>
-          <div class="tbl_top_area">
-            <div class="btn_switch border_none">
-              <input type="radio" id="all" name="category" checked>
-              <label for="all" class="opened">전체</label>
-              <input type="radio" id="equip" name="category">
-              <label for="equip" class="opened">장비 및 소프트웨어</label>
-              <input type="radio" id="books" name="category">
-              <label for="books" class="opened">도서</label>
-              <input type="radio" id="locker" name="category">
-              <label for="locker" class="opened">사물함</label>
-            </div>         
-            <div class="flex_right">
-              <select title="목록개수 선택">
-  <option value="15">15줄 보기</option>
-  <option value="50" selected>50줄 보기</option>
-  <option value="100">100줄 보기</option>
-  <option value="200">200줄 보기</option>
-</select>
-            </div>
-          </div>
-          <section class="tbl_wrap">
-            <table class="tbl_default tbl_hover row_check">
-              <caption>사업자 리스트</caption>
-              <colgroup>
-                
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col"><input type="checkbox" name="" id="" class="row_check all_check"></th>
-                  <th scope="col">분류</th>
-                  <th scope="col">상세</th>
-                  <th scope="col">신청일</th>
-                  <th scope="col">상태</th>
-                  <th scope="col">비고</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check"></td>
-                  <td>도서</td>
-                  <td>혼자 공부하는 자바스크립트</td>
-                  <td>2023-05-07</td>
-                  <td>구매신청</td>
-                  <td>-</td>                  
-                </tr>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check"></td>
-                  <td>도서</td>
-                  <td>혼자 공부하는 자바스크립트</td>
-                  <td>2023-05-07</td>
-                  <td>반납완료</td>
-                  <td>-</td>                  
-                </tr>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check"></td>
-                  <td>도서</td>
-                  <td>혼자 공부하는 자바스크립트</td>
-                  <td>2023-05-06</td>
-                  <td>대여중</td>
-                  <td>-</td>                  
-                </tr>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check"></td>
-                  <td>장비</td>
-                  <td>노트북</td>
-                  <td>2023-05-06</td>
-                  <td>처리중</td>
-                  <td>-</td>
-                </tr>
-                <tr tabindex="0">
-                  <td><input type="checkbox" name="" id="" class="row_check"></td>
-                  <td>사물함</td>
-                  <td>A10</td>
-                  <td>2023-05-06</td>
-                  <td>대여중</td>
-                  <td>-</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="paginate tui-pagination" id="pagination">
-  <span class="tui-page-btn tui-is-disabled tui-first">
-    <span class="tui-ico-first">first</span>
-  </span>
-  <span class="tui-page-btn tui-is-disabled tui-prev">
-    <span class="tui-ico-prev">prev</span>
-  </span>
-  <strong class="tui-page-btn tui-is-selected tui-first-child">1</strong>
-  <a href="#" class="tui-page-btn tui-last-child">2</a>
-  <a href="#" class="tui-page-btn tui-next">
-    <span class="tui-ico-next">next</span>
-  </a>
-  <a href="#" class="tui-page-btn tui-last">
-    <span class="tui-ico-last">last</span>
-  </a>
-</div>
+          <section class="calendar_wrap">
+            <div id='planCalendarMng' class="calendar"></div>          
+            <div class="teamPlan_legend" id="plan_legend"></div>
+          </section>
+          <section class="calendar_wrap plan_list">
+            <div id="planListMng" class="calendar"></div>            
           </section>
         </article>
-      </div>
+        <div class="box_default">
+          <article class="attendance_home box_default_w">
+            <header>
+              <h1>근태 및 연차현황</h1>
+            </header>
+            <div class="attendance_desc">
+              <ul>
+                <li><em>금주 누적 근무시간</em>8H 0M</li>
+                <li><em>금주 초과 근무시간</em>8H 0M</li>
+                <li><em>금주 잔여 근무시간</em>36H 0M</li>
+                <li><em>당해 보유 연차</em>22D 0H</li>
+                <li><em>당해 사용 연차</em>0D 0H</li>
+                <li><em>당해 잔여 연차</em>22D 0H</li>
+              </ul>
+            </div>
+          </article>
+          <article class="today_teamPlan box_default_w">
+            <header>
+              <h1>금일 부서원 근무현황</h1>            
+            </header>
+            <div class="tbl_wrap" tabindex="0">
+              <table class="tbl_default tbl_hover">
+                <caption>부서별 근무표 현황</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">이름</th>
+                    <th scope="col">근로시간</th>
+                    <th scope="col">출근시각</th>
+                    <th scope="col">퇴근시각</th>
+                    <th scope="col">현황</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>하츄핑</td>
+                    <td>09:00~18:00</td>
+                    <td>08:50</td>
+                    <td>-</td>
+                    <td>평일</td>
+                  </tr>
+                  <tr>
+                    <td>아자핑</td>
+                    <td>09:00~18:00</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>대휴</td>
+                  </tr>
+                  <tr>
+                    <td>꾸래핑</td>
+                    <td>10:00~19:00</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>반차(10~15)</td>
+                  </tr>
+                  <tr>
+                    <td>달콤핑</td>
+                    <td>09:00~18:00</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span title="태풍센터, 우주환경센터">출장</span></td>
+                  </tr>
+                  <tr>
+                    <td>또너핑</td>
+                    <td>09:00~18:00</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><span title="기상청">외근(09~14)</span></td>
+                  </tr>
+                  <tr>
+                    <td>마카핑</td>
+                    <td>09:00~09:00<sup>+1일</sup>_(24h)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>비번</td>
+                  </tr>
+                  <tr>
+                    <td>바로핑</td>
+                    <td>09:00~21:00_(12h)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>휴일근무</td>
+                  </tr>
+                  <tr>
+                    <td>요거핑</td>
+                    <td>10:00~19:00</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>외근(10~12)<br />반차(13~19)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>               
+      </div>          
     </section>
   </main>
   <footer class="footer">
@@ -344,147 +361,14 @@
   <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
-<dialog class="p_add_business" tabindex="0">
-  <form method="dialog">
-    <div class="p_header">
-      <strong>사업자 추가</strong>
-      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
-    </div>   
-    <div class="p_body">
-      <article>
-        <header class="p_body_tit">
-          <h1>사업자정보</h1>
-        </header>
-        <table class="tbl_default tbl_row">
-          <caption>사업자정보</caption>
-          <colgroup>
-            <col style="width:90px">
-            <col style="width:auto">
-            <col style="width:90px">
-            <col style="width:auto">
-            <col style="width:90px">
-            <col style="width:auto">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th scope="row" class="required"><label for="">분류</label></th>
-              <td><select name="" id=""><option value="">선택</option></select></td>
-              <th scope="row" class="required"><label for="">사업자명</label></th>
-              <td><input type="text" id="" placeholder="사업자명" /></td>
-              <th scope="row" class="required"><label for="">사업자번호</label></th>
-              <td><input type="text" id="" placeholder="사업자번호" /></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">대표자명</label></th>
-              <td><input type="text" id="" placeholder="대표자명" /></td>
-              <th scope="row"><label for="">업태</label></th>
-              <td><input type="text" id="" placeholder="업태" /></td>
-              <th scope="row"><label for="">종목</label></th>
-              <td><input type="text" id="" placeholder="종목" /></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">연락처</label></th>
-              <td><input type="text" id="" placeholder="연락처" /></td>
-              <th scope="row"><label for="">팩스</label></th>
-              <td><input type="text" id="" placeholder="팩스" /></td>
-              <th scope="row"><label for="">이메일</label></th>
-              <td><input type="text" id="" placeholder="이메일" /></td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">주소</label></th>
-              <td colspan="5">
-                <div class="addr">
-                  <span class="tool_wrap">
-                    <input type="text" id="address" title="우편번호" disabled="">
-                    <button type="button" class="btn_ogt">우편번호</button>
-                  </span>
-                  <span class="file_input">
-                    <input type="text" name="address2" placeholder="주소" title="주소">
-                    <input type="text" name="address3" placeholder="상세주소" title="상세주소">
-                  </span>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="">홈페이지</label></th>
-              <td colspan="3"><input type="text" id="" placeholder="홈페이지" /></td>
-              <th scope="row">공개여부</th>
-              <td>
-                <div class="btn_switch">
-                  <input type="radio" id="open1" name="closure" checked>
-                  <label for="open1">공개</label>
-                  <input type="radio" id="private2" name="closure">
-                  <label for="private2">비공개</label>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </article>
-      <article class="more_info">
-        <header class="p_body_tit">
-          <h1>결제정보</h1>       
-        </header>
-        <table class="tbl_default tbl_row">
-          <caption>결제정보</caption>
-          <colgroup>
-            <col style="width:90px">
-            <col style="width:auto">
-            <col style="width:90px">
-            <col style="width:auto">
-          </colgroup>
-          <tbody>
-            <tr>
-              <th scope="row">결제수단</th>
-              <td>
-                <div class="btn_switch">
-                  <input type="checkbox" id="pay1" name="disclosure" checked>
-                  <label for="pay1">현금</label>
-                  <input type="checkbox" id="pay2" name="disclosure" checked>
-                  <label for="pay2">신용카드</label>
-                  <input type="checkbox" id="pay3" name="disclosure">
-                  <label for="pay3">어음</label>
-                </div>
-              </td>            
-              <th scope="row">계좌정보</th>
-              <td>
-                <span class="tool_wrap">
-                  <select name="" id=""><option value="">은행명</option></select>
-                  <input type="text" name="" title="" placeholder="계좌번호">
-                  <input type="text" name="" title="" placeholder="예금주">
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">첨부파일</th>
-              <td colspan="3"><div class="file_attach btn_attach">
-  <input id="attachFiles" type="file" data-attach="doc" name="file" title="파일첨부하기" class="btn_file" multiple>
-  <div id="file-drop" class="drop_zone">
-    <div class="drop_info">
-      <p>여기에 <span>파일을 드래그</span> 하거나 <span> 클릭하여</span> 파일을 선택해주세요!</p>
-    </div>
-    <ul id="doc" class="attach_list">
-    </ul>
-  </div>
-</div></td>
-            </tr>
-            <tr>
-              <th scope="row">메모</th>
-              <td colspan="3">
-                <textarea name="" id="" cols="100" rows="1"></textarea>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </article>    
-      <div class="btn_wrap">
-        <button class="btn_red" type="submit">저장</button>
-        <button class="btn_red_line" type="button">수정</button>
-        <button class="btn_gray_line" type="button">닫기</button>
-      </div>
-    </div>
-  </form>
+<!-- 팝오버 -->
+<dialog class="cal_popover" id="popover">
+  <button class="popover-close" id="popover-close">×</button>
+  <div class="popover-title" id="popover-title"></div>
+  <div class="popover-count" id="popover-count"></div>
+  <div class="popover-members" id="popover-members"></div>
 </dialog>
+
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>
@@ -527,6 +411,9 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
   </form>
 </dialog>
 
+<script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
+<!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->
+<script src="../../js/hr_plancalendar.js"></script>
 </body>
 
 </html>

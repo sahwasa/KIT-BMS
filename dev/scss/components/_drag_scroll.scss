@@ -1,0 +1,6 @@
+.drag-container{cursor:grab;position:relative;
+  &.dragging{
+    &::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999999;pointer-events:auto !important;cursor:grabbing !important;}
+  }
+}
+.drag-active-global, .drag-active-global *{cursor:grabbing !important;user-select:none !important;-webkit-user-select:none !important;}
