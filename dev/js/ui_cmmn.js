@@ -444,6 +444,91 @@ function commonInit() {
   initScrollToTop();
 }
 
+// Toast UI & Global Utilities
+const UI = {
+  /**
+   * 토스트 알림 표시
+   * @param {string} msg - 표시할 메시지
+   * @param {number} duration - 표시 시간 (ms), 0이면 수동 종료만 가능
+   * @param {string} type - 'info', 'success', 'warning', 'error'
+   */
+  toast: function(msg, duration = 3000, type = 'info') {
+    let wrap = document.querySelector('.toast_wrap');
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.className = 'toast_wrap';
+      document.body.appendChild(wrap);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${type}`;
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `
+      <i class="toast_icon" aria-hidden="true"></i>
+      <span class="toast_msg">${msg}</span>
+      <button type="button" class="btn_toast_close" aria-label="알림 닫기">✕</button>
+    `;
+
+    wrap.appendChild(toast);
+
+    const closeToast = () => {
+      toast.classList.add('toast--hiding');
+      setTimeout(() => toast.remove(), 400); // 애니메이션 시간 고려
+    };
+
+    toast.querySelector('.btn_toast_close').onclick = closeToast;
+    if (duration > 0) setTimeout(closeToast, duration);
+  },
+
+  /** 
+   * 공통 모달 열기 (dialog 요소 대응)
+   * @param {string} selector - dialog 요소 선택자
+   */
+  openModal: function(selector) {
+    const modal = document.querySelector(selector);
+    if (modal && typeof modal.showModal === 'function') {
+      modal.showModal();
+    } else if (modal) {
+      modal.style.display = 'block';
+    }
+  },
+
+  /** 공통 모달 닫기 */
+  closeModal: function(selector) {
+    const modal = document.querySelector(selector);
+    if (modal && typeof modal.close === 'function') {
+      modal.close();
+    } else if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+};
+
+// =============================================
+// 공통 이벤트 위임 핸들러
+// =============================================
+$(document).on('click', '[data-action]', function(e) {
+  const action = this.dataset.action;
+  
+  switch(action) {
+    case 'open-modal':
+      const target = this.dataset.target;
+      if (target) UI.openModal(target);
+      break;
+    case 'close-modal':
+      const closestModal = $(this).closest('dialog, .modal_wrap, .modal')[0];
+      if (closestModal) {
+        if (closestModal.tagName === 'DIALOG') closestModal.close();
+        else $(closestModal).hide();
+      }
+      break;
+    case 'open-upload': // HR 근태관리 등에서 공통 사용
+      UI.openModal('.p_uploadFile');
+      break;
+  }
+});
+
 
 // editor
 function setEditor(id = 'editor') {

@@ -1,9 +1,11 @@
+@use '../base/variables' as vars;
+@use '../base/mixin' as mixins;
 //gnb
 .gnb{display:flex;height:100%;}
 .gnb_lst{display:flex;
   li{width:60px;position:relative;}
-  a{height:100%;display:flex;align-items:center;justify-content:center;@include f_blind;border:5px solid #fff;border-radius:50%;
-    &::before{@include shape(24px,24px);background:url(../images/btn_top_svc.png) 0 0 no-repeat;}
+  a{height:100%;display:flex;align-items:center;justify-content:center;@include mixins.f_blind;border:5px solid #fff;border-radius:50%;
+    &::before{@include mixins.shape(24px,24px);background:url(../images/btn_top_svc.png) 0 0 no-repeat;}
     &.on,
     &:hover{background-color:#edf0f3;transition:background-color .2s ease-in;
       &::before{background-image:url(../images/btn_top_svc_on.png);}
@@ -21,26 +23,26 @@
   position:relative;width:auto;height:inherit;padding:0 19px;
   .account{position:relative;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;font-size:13px;letter-spacing:-.33px;gap:10px;
     img{border-radius:50%;overflow:hidden;object-fit:cover;}
-    &::before{position:absolute;left:0;top:50%;transform:translateY(-50%);@include shape(32px,32px);border:1px solid #ddd;border-radius:50%;}
-    &::after{@include fontello("\f004");margin-left:8px;font-size:11px;}
+    &::before{position:absolute;left:0;top:50%;transform:translateY(-50%);@include mixins.shape(32px,32px);border:1px solid #ddd;border-radius:50%;}
+    &::after{@include mixins.fontello("\f004");margin-left:8px;font-size:11px;}
     strong{text-align:left;
       span{display:block;font-size:12px;color:#888;font-weight:normal;letter-spacing:-.05em;}
     }
   }
   &:hover b::before{outline:4px solid rgba(60,64,67,.08);}
-  &.on{background:$black;
-    & strong,& strong span,button::after{color:$white;}
+  &.on{background:vars.$black;
+    & strong,& strong span,button::after{color:vars.$white;}
     button::after{content:'\f005'}
-    button::before{border-color:$black;}
+    button::before{border-color:vars.$black;}
     .my_layer{height:auto;}
   }
 }
 .my_layer{position:absolute;top:59px;left:0;width:100%; 
-height:0;overflow:hidden;background-color:$black;z-index:10100;
+height:0;overflow:hidden;background-color:vars.$black;z-index:10100;
   .my_svc{padding:10px 29px;
     & a{display:flex;align-items:center;line-height:30px; font-size:13px;color:#a4a3a3;
-      &::before{@include shape(16px,16px);background:url(../images/my_layer.png) 0 0 no-repeat;margin-right:17px;}
-      &:hover{color:$white;
+      &::before{@include mixins.shape(16px,16px);background:url(../images/my_layer.png) 0 0 no-repeat;margin-right:17px;}
+      &:hover{color:vars.$white;
         &::before{background-image:url(../images/my_layer_fff.png);}
       }
     }
@@ -53,18 +55,18 @@ height:0;overflow:hidden;background-color:$black;z-index:10100;
 }
 //nav
 .nav{position:relative;z-index:1;grid-row:1/span 3;grid-column:1/1;
-background:$black;
-  .nav_lst{display:flex;flex-direction:column;height:100vh;min-height:$minH;overflow-y:auto;@include scrollbarW();}
+background:vars.$black;
+  .nav_lst{display:flex;flex-direction:column;height:100vh;min-height:vars.$minH;overflow-y:auto;@include mixins.scrollbarW();}
   li{flex-shrink:0;position:relative;width:100%;height:60px;border-bottom:1px solid #575656;
-    a{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:$white;font-size:10px;letter-spacing:.25px;
-      &::before{@include shape(26px,26px);background:url('../images/bg_nav.png') 0 0 no-repeat;position:relative;margin-bottom:3px;}
+    a{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:vars.$white;font-size:10px;letter-spacing:.25px;
+      &::before{@include mixins.shape(26px,26px);background:url('../images/bg_nav.png') 0 0 no-repeat;position:relative;margin-bottom:3px;}
     }    
-    &.on a,&:hover a{background:$red;color:$white;
-      @include hover_init{background-color:transparent;}
+    &.on a,&:hover a{background:vars.$red;color:vars.$white;
+      @include mixins.hover_init{background-color:transparent;}
     }
     // &:last-child{margin-top:auto;}
     &.disabled{
-      &::after{position:absolute;left:0;top:0;@include shape(100%,100%);background-color:#00000090;}
+      &::after{position:absolute;left:0;top:0;@include mixins.shape(100%,100%);background-color:#00000090;}
       a{background:transparent;}
     }
   }
@@ -78,19 +80,19 @@ background:$black;
 $snbWidth:250px;
 .snb{width:$snbWidth;border-right:1px solid #eee;text-align:center;padding:0;overflow:hidden;flex-shrink:0;background-color:#f9fafc;
   $border-color:#bec7d2;
-  .snb_container{min-width:$snbWidth;height:calc(100vh - 90px);min-height:$minH;overflow-y:auto;padding-top:15px;@include scrollbarW();}
+  .snb_container{min-width:$snbWidth;height:calc(100vh - 90px);min-height:vars.$minH;overflow-y:auto;padding-top:15px;@include mixins.scrollbarW();}
   h2{padding:0 15px 12px;font-size:20px;font-weight:bold;letter-spacing:-.5px;border-bottom:1px solid $border-color;overflow:hidden;}
-  .btn_workset{background-color:#edf0f3;border-bottom:1px solid $border-color;border-width:1px 0;padding:13px #{$columnGap - 10px};
+  .btn_workset{background-color:#edf0f3;border-bottom:1px solid $border-color;border-width:1px 0;padding:13px #{vars.$columnGap - 10px};
     button,a{display:block;width:100%;font-weight:bold;font-size:14px;letter-spacing:-.35px;border-radius:5px;line-height:32px;}
-    .btn_dbl_btn{position:relative;@include btn($btn_red, false, false);display:flex;align-items:center;padding:0;gap:1px;
-      &::before{position:absolute;left:50%;@include shape(0, 14px);border-left:1px solid $btn_red;}
+    .btn_dbl_btn{position:relative;@include mixins.btn(vars.$btn_red, false, false);display:flex;align-items:center;padding:0;gap:1px;
+      &::before{position:absolute;left:50%;@include mixins.shape(0, 14px);border-left:1px solid vars.$btn_red;}
       a,button{flex:1 1 auto;border-radius:0;
-        &:hover:not(:disabled){color:#fff;background-color:$btn_red;}
+        &:hover:not(:disabled){color:#fff;background-color:vars.$btn_red;}
         &:disabled{position:relative;color:#f8c9ce;cursor:default;}
       }
     }
   }
-  .data_count .list_wrap{@include flex_between;padding:16px 0;border-bottom:1px solid $border-color;
+  .data_count .list_wrap{@include mixins.flex_between;padding:16px 0;border-bottom:1px solid $border-color;
     li{flex:1;font-weight:bold;font-size:12px;color:#000;border-left:1px solid #cdcdcd;line-height:10px;text-align:center;
       &:first-child{border-left:0;}
     }
@@ -102,9 +104,9 @@ $snbWidth:250px;
     .on a{color:#ff6664;}
   }
   .tab_container .tab_contents{margin-top:0;}
-  $snb_item_padding:10px #{$columnGap - 10px};
+  $snb_item_padding:10px #{vars.$columnGap - 10px};
   $snb-border-color:#ebebeb;
-  .filter{position:relative;padding:7px #{$columnGap - 10px};color:#989898;border-bottom:1px solid $snb-border-color;
+  .filter{position:relative;padding:7px #{vars.$columnGap - 10px};color:#989898;border-bottom:1px solid $snb-border-color;
     .flex_ipt input{flex-grow:1;color:inherit;margin-right:2px;}
     [name="ipt_year"]+.unit{color:inherit;margin-right:15px;}
   }
@@ -113,11 +115,11 @@ $snbWidth:250px;
       &>*:first-child::before{right:-14px;}
       input{width:104px;text-indent:0;}
     }
-    .add_opt{@include flex_between;gap:4px;}
+    .add_opt{@include mixins.flex_between;gap:4px;}
   }
-  .proj_count{padding:8px #{$columnGap - 10px};border-bottom:1px solid $snb-border-color;
-    .list_wrap{@include flex_between;gap:5px;padding:0;
-      li{flex:1 0 53px;color:$white;font-weight:700;font-size:12px;letter-spacing:-.6px;
+  .proj_count{padding:8px #{vars.$columnGap - 10px};border-bottom:1px solid $snb-border-color;
+    .list_wrap{@include mixins.flex_between;gap:5px;padding:0;
+      li{flex:1 0 53px;color:vars.$white;font-weight:700;font-size:12px;letter-spacing:-.6px;
         em{display:block;}
         label{display:block;min-width:auto;border-radius:5px;padding:2px 0;border:none;color:#ffffff50;opacity:.5;}
         input:checked+label{color:#fff;opacity:1;}
@@ -128,9 +130,9 @@ $snbWidth:250px;
     & > li{position:relative;font-size:14px;border-bottom:1px solid $snb-border-color;background-color:#f9fafc;
       & > h3,
       & > a{display:block;font-weight:bold;padding:$snb_item_padding;letter-spacing:-.35px;}
-      ul{border-top:1px solid $snb-border-color;background-color:$white;padding:10px 0;
+      ul{border-top:1px solid $snb-border-color;background-color:vars.$white;padding:10px 0;
         %sublst,
-        a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px 5px 6px #{$columnGap - 10px};
+        a{display:flex;align-items:center;font-size:13px;color:#696969;padding:5px 5px 6px #{vars.$columnGap - 10px};
           &::before{content:"·";font-weight:bold;font-size:18px;margin:0 8px;line-height:17px;}
           &:hover .layer_tool{display:block;}
         }      
@@ -139,10 +141,10 @@ $snbWidth:250px;
         input{top:3px;}
       }
       .hasLayer:empty{padding:0;border-top-width:0;}
-      &.on > a,&:hover > a{color:$red;}
+      &.on > a,&:hover > a{color:vars.$red;}
       & li.on a,& li:hover a{background-color:#fee;color:#424242;}
-      & li.on a{color:$red;font-weight:bold;} // on 추가
-      a em{color:$red;font-size:12px;font-weight:800;margin-left:10px;}
+      & li.on a{color:vars.$red;font-weight:bold;} // on 추가
+      a em{color:vars.$red;font-size:12px;font-weight:800;margin-left:10px;}
     }
   }
   label input{flex-shrink:0;margin-right:5px;}
@@ -153,7 +155,7 @@ $snbWidth:250px;
     }
     &.lst_ctrl input{appearance:auto;background:none;color:#fff;}
     &.lst_plan_my{
-      @each $type, $color in $_planType{
+      @each $type, $color in vars.$planType{
         .p_#{$type}{input{accent-color:$color}}
       }
     }
@@ -171,7 +173,7 @@ $snbWidth:250px;
   .tooltip{left:0;right:auto;
     .user_module{flex-direction:column;gap:0;}
   }
-  .nav_btn_add{position:absolute;top:10px;right:15px;@include ico_only;
+  .nav_btn_add{position:absolute;top:10px;right:15px;@include mixins.ico_only;
     &::before{display:flex;align-items:center;justify-content:center;width:21px;height:21px;font-size:13px;content:"╊";border:1px solid $border-color;color:#989898;border-radius:2px;}
     &:hover::before{border-color:#989898;}
   }
@@ -191,7 +193,7 @@ $snbWidth:250px;
   li{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:5px;
     em{font-weight:700;background:url(../images/ico_clock.png) 0 50% no-repeat;padding-left:18px;margin-right:auto;}
   }
-  .btn_cancel{@include ico_only('\e92a');
-    &::before{color:$red;};
+  .btn_cancel{@include mixins.ico_only('\e92a');
+    &::before{color:vars.$red;};
   }
 }

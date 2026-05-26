@@ -150,7 +150,7 @@
       </select> -->
     </div>
     <ul class="snb_lst">
-      <li><a href="svc_basicData.html">근태관리</a>
+      <li><a href="svc_attendance.html">근태관리</a>
         <ul>
           <!-- <li><a href="svc_basicData.html">기본사항</a></li>        -->
           <li><a href="svc_attendance.html">내 근태</a></li>
@@ -264,6 +264,142 @@
   <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+<dialog class="p_dailyAttendance tbl_hr" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>근태 상세 (일별)</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>    
+    <div class="p_body">
+      <header class="p_body_tit">
+        <h1>2026년 3월 5일 <span class="divide">IT사업본부 홍길동</span></h1>       
+      </header>
+      <div>
+        <article>
+          <table class="tbl_default tbl_row">
+            <caption>변경신청 내용</caption>
+            <tbody>
+            <tr>
+              <th scope="row">근무지</th>
+              <td>본사</td>
+              <th scope="row">근무형태</th>
+              <td>평일(09~18)</td>
+              <!-- 외근(09~12),반차,휴일근무,출장,교대근무 등등 -->            
+            </tr>
+            <tr>
+              <th scope="row">근태판정</th>
+              <td colspan="3">
+                <div class="file_input">
+                  <span>
+                    <label for="">출근 :</label>
+                    <input type="date" title="출근일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                    <input type="time" name="start_time" title="출근시각">
+                  </span>
+                  <span>
+                    <label for="">퇴근 :</label>
+                    <input type="date" min="0001-01-01" max="9999-12-31" title="퇴근일" name="end_date" min="0001-01-01" max="9999-12-31">
+                    <input type="time" title="퇴근시각" name="end_time">
+                  </span>
+                  <select name="" id="">
+                    <option value="">정상근무</option>
+                    <option value="">지각</option>
+                    <option value="">무단조퇴</option>
+                    <option value="">지각,무단조퇴</option>
+                    <option value="">결근</option>
+                    <option value="">등등</option>
+                  </select>
+                  <span class="divide">
+                    <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row" class="required"><label for="rm">수정사유</label></th>
+              <td colspan="3"><input type="text" id="rm" placeholder="수정사유" maxlength="100" readonly /></td>
+            </tr>
+            </tbody>
+          </table>          
+        </article>
+        <article class="attendance_record">
+          <header class="p_body_tit">
+            <h1>출퇴근 기록</h1>
+            <span class="info">근무시간은 휴게시간 포함</span>
+          </header>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>출퇴근 기록</caption>
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">구분</th>
+                  <th scope="colgroup" colspan="2">출근</th>
+                  <th scope="colgroup" colspan="2">퇴근</th>
+                  <th scope="col">근무시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="7">당일 출퇴근 기록이 없습니다.</td>
+                </tr>
+                <tr class="caps">
+                  <td>1</td>
+                  <td>캡스</td>              
+                  <td colspan="2" class="late">09:01</td>
+                  <td colspan="2">09:00 <sup class="t_blue">+1일</sup></td>
+                  <td>24시간 1분</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>시스템</td>
+                  <td class="late">09:03</td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td class="out">08:59 <sup class="t_blue">+1일</sup></td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td>23시간 54분</td>
+                </tr>           
+                <tr>
+                  <td>3</td>
+                  <td>시스템</td>
+                  <td>09:35 <sup class="t_blue">+1일</sup></td>
+                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td>12:00 <sup class="t_blue">+1일</sup></td>
+                  <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+                  <td>2시간 25분</td>
+                </tr>           
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+      <div class="btn_wrap">
+        <div class="more">최종수정 : 24-06-05 15:30</div>
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<dialog class="p_approvalOpinion">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>직권수정</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="approval_often">
+        <div class="p_body_tit">
+          <h1>수정사유</h1>
+        </div>
+      </div>
+      <textarea name="" id="" placeholder="수정사유를 입력해주세요."></textarea>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
 <dialog class="p_monthlyAttendance tbl_hr" tabindex="0">
   <form method="dialog">
     <div class="p_header">
@@ -375,6 +511,232 @@
     </div>
   </form>
 </dialog>
+<dialog id="p_attendanceLocation" class="p_attendance_location">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>위치현황</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#185FA5;"></div>출근</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#BA7517;"></div>퇴근</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#534AB7;"></div>클러스터</div>
+      </div>
+      <div class="map-wrap" id="mapWrap">
+        <!-- <img src="https://tile.openstreetmap.org/14/13712/6231.png" id="map-svg" alt=""> -->
+        <!-- 마커 컨테이너 -->
+        <!-- <div id="markerContainer" class="maker_container" > -->
+        <div id="" class="maker_container" >
+          <div class="maker checkin" style="left: 461.5px; top: 198.648px;">
+            <strong>하츄핑</strong><span>09:40</span>
+          </div>
+          <div class="maker checkout" style="left: 520.1px; top: 233.1px;">
+            <strong>하츄핑</strong><span>20:10</span>
+          </div> 
+          <div class="cluster" style="left: 575px; top: 111px;">2</div>       
+        </div>
+        <div class="tooltip" style="left: 606.9px; top: 86.937px;">
+          <div class="tooltip-name">총 2건</div>
+          <div class="tooltip-meta" style="margin-bottom:6px;">출근 1건 · 퇴근 1건</div>
+          <hr class="tooltip-divider"><div class="tooltip-row"><div class="tooltip-dot" style="background:#185FA5;"></div>하츄핑 · 출근 09:02</div><div class="tooltip-row"><div class="tooltip-dot" style="background:#BA7517;"></div>하츄핑 · 퇴근 18:15</div>
+        </div>
+        <!-- 줌 컨트롤 -->
+        <div class="zoom_ctrl">
+          <button type="button" class="zoom_btn" id="zoomIn">+</button>
+          <button type="button" class="zoom_btn" id="zoomOut">−</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</dialog>
+<script>
+const attendanceData = [
+  { name:'김철수', type:'checkin',  time:'09:02', px:25, py:22 },
+  { name:'김철수', type:'checkout', time:'18:15', px:27, py:25 },
+  { name:'이영희', type:'checkin',  time:'08:55', px:52, py:20 },
+  { name:'이영희', type:'checkout', time:'18:30', px:55, py:23 },
+  { name:'박민준', type:'checkin',  time:'09:10', px:15, py:42 },
+  { name:'최수연', type:'checkin',  time:'08:48', px:72, py:35 },
+  { name:'최수연', type:'checkout', time:'17:58', px:74, py:38 },
+  { name:'정우성', type:'checkin',  time:'09:30', px:38, py:60 },
+  { name:'정우성', type:'checkout', time:'18:20', px:40, py:63 },
+  { name:'한지민', type:'checkout', time:'18:45', px:60, py:75 },
+  { name:'한지민', type:'checkin',  time:'09:05', px:58, py:72 },
+  { name:'오세진', type:'checkin',  time:'08:50', px:84, py:55 },
+];
+
+const mapWrap = document.getElementById('mapWrap');
+const mc      = document.getElementById('markerContainer');
+let zoom      = 1;
+let pan       = { x:0, y:0 };
+let dragging  = false;
+let dragStart = { x:0, y:0 };
+let panStart  = { x:0, y:0 };
+let activeTooltip = null;
+
+const CLUSTER_ZOOM = 1.3;
+const CLUSTER_PX   = 80;
+
+function hideTooltip() {
+  if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; }
+}
+
+function showTooltip(html, cx, cy) {
+  hideTooltip();
+  const tip = document.createElement('div');
+  tip.className = 'tooltip';
+  tip.innerHTML = html;
+  mapWrap.appendChild(tip);
+
+  const mw = mapWrap.offsetWidth;
+  const mh = mapWrap.offsetHeight;
+  let tx = cx + 14, ty = cy - 80;
+  if (tx + 180 > mw) tx = cx - 194;
+  if (ty < 10) ty = cy + 20;
+  if (ty + 140 > mh) ty = mh - 150;
+  tip.style.left = tx + 'px';
+  tip.style.top  = ty + 'px';
+  activeTooltip  = tip;
+}
+
+function pxToScreen(px, py) {
+  const mw = mapWrap.offsetWidth;
+  const mh = mapWrap.offsetHeight;
+  return {
+    x: (px / 100) * mw * zoom + pan.x,
+    y: (py / 100) * mh * zoom + pan.y
+  };
+}
+
+function dist2d(a, b) {
+  return Math.sqrt((a.sx - b.sx) ** 2 + (a.sy - b.sy) ** 2);
+}
+
+function render() {
+  mc.innerHTML = '';
+  hideTooltip();
+
+  const pts = attendanceData.map(d => {
+    const s = pxToScreen(d.px, d.py);
+    return { data:d, sx:s.x, sy:s.y };
+  });
+
+  if (zoom >= CLUSTER_ZOOM) {
+    pts.forEach(p => {
+      const el = document.createElement('div');
+      el.className = `marker-wrap ${p.data.type}`;
+      el.style.cssText = `left:${p.sx}px;top:${p.sy}px;pointer-events:auto;`;
+      el.innerHTML = `
+        <div class="marker-bubble">
+          <div class="marker-dot"></div>
+          ${p.data.name}
+          <span style="opacity:0.6;font-size:11px;margin-left:2px;">${p.data.time}</span>
+        </div>
+        <div class="marker-tail"></div>
+        <div class="marker-pin"></div>`;
+      el.addEventListener('click', e => {
+        e.stopPropagation();
+        const dot   = p.data.type === 'checkin' ? '#185FA5' : '#BA7517';
+        const label = p.data.type === 'checkin' ? '출근' : '퇴근';
+        showTooltip(`
+          <div class="tooltip-name">${p.data.name}</div>
+          <div class="tooltip-row">
+            <div class="tooltip-dot" style="background:${dot};"></div>
+            ${label} · ${p.data.time}
+          </div>
+          <div class="tooltip-meta">위치 좌표 (${p.data.px.toFixed(1)}, ${p.data.py.toFixed(1)})</div>
+        `, p.sx, p.sy);
+      });
+      mc.appendChild(el);
+    });
+  } else {
+    const used     = new Array(pts.length).fill(false);
+    const clusters = [];
+    for (let i = 0; i < pts.length; i++) {
+      if (used[i]) continue;
+      const group = [pts[i]];
+      used[i] = true;
+      for (let j = i+1; j < pts.length; j++) {
+        if (!used[j] && dist2d(pts[i], pts[j]) < CLUSTER_PX) {
+          group.push(pts[j]); used[j] = true;
+        }
+      }
+      const cx = group.reduce((s,p)=>s+p.sx,0)/group.length;
+      const cy = group.reduce((s,p)=>s+p.sy,0)/group.length;
+      clusters.push({ members: group.map(p=>p.data), cx, cy });
+    }
+
+    clusters.forEach(cl => {
+      const inCnt  = cl.members.filter(m=>m.type==='checkin').length;
+      const outCnt = cl.members.filter(m=>m.type==='checkout').length;
+      const size   = Math.min(38 + cl.members.length * 5, 62);
+      let bg, border;
+      if (inCnt>0 && outCnt>0)  { bg='#534AB7'; border='#AFA9EC'; }
+      else if (inCnt>0)          { bg='#185FA5'; border='#85B7EB'; }
+      else                        { bg='#BA7517'; border='#EF9F27'; }
+
+      const el = document.createElement('div');
+      el.className = 'cluster-wrap';
+      el.style.cssText = `left:${cl.cx}px;top:${cl.cy}px;width:${size}px;height:${size}px;background:${bg};border-color:${border};pointer-events:auto;`;
+      el.textContent = cl.members.length;
+      el.addEventListener('click', e => {
+        e.stopPropagation();
+        const rows = cl.members.map(m => {
+          const dot   = m.type==='checkin' ? '#185FA5' : '#BA7517';
+          const label = m.type==='checkin' ? '출근' : '퇴근';
+          return `<div class="tooltip-row"><div class="tooltip-dot" style="background:${dot};"></div>${m.name} · ${label} ${m.time}</div>`;
+        }).join('');
+        showTooltip(`
+          <div class="tooltip-name">총 ${cl.members.length}건</div>
+          <div class="tooltip-meta" style="margin-bottom:6px;">출근 ${inCnt}건 · 퇴근 ${outCnt}건</div>
+          <hr class="tooltip-divider">${rows}
+        `, cl.cx, cl.cy);
+      });
+      mc.appendChild(el);
+    });
+  }
+
+  // const svg = document.getElementById('map-svg');
+  // svg.style.transform = `translate(${pan.x}px,${pan.y}px) scale(${zoom})`;
+  // svg.style.transformOrigin = '0 0';
+}
+
+document.getElementById('zoomIn').addEventListener('click', () => {
+  zoom = Math.min(zoom + 0.3, 3);
+  render();
+});
+document.getElementById('zoomOut').addEventListener('click', () => {
+  zoom = Math.max(zoom - 0.3, 0.6);
+  render();
+});
+
+mapWrap.addEventListener('mousedown', e => {
+  if (e.target.closest('.marker-wrap,.cluster-wrap,.zoom-ctrl')) return;
+  dragging = true;
+  dragStart = { x:e.clientX, y:e.clientY };
+  panStart  = { ...pan };
+});
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  pan.x = panStart.x + (e.clientX - dragStart.x);
+  pan.y = panStart.y + (e.clientY - dragStart.y);
+  render();
+});
+window.addEventListener('mouseup', () => { dragging = false; });
+
+mapWrap.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoom = Math.max(0.6, Math.min(3, zoom - e.deltaY * 0.001));
+  render();
+}, { passive:false });
+
+mapWrap.addEventListener('click', e => {
+  if (!e.target.closest('.marker-wrap,.cluster-wrap')) hideTooltip();
+});
+
+render();
+</script>
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>
@@ -384,15 +746,22 @@
 <script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
 <script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
 <script src="../../js/message.js"></script>
-<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
-//퍼블용
-commonInit();
-$('.tab').find('li:first').addClass('on')
-$('.tab_container').find('.tab_contents:not(:first)').hide()
+$(function() {
+  // 전역 공통 초기화
+  if (typeof commonInit === 'function') commonInit();
+  
+  // 탭 초기 활성화
+  $('.tab').each(function() {
+    $(this).find('li:first').addClass('on');
+    const container = $(this).closest('.tab_wrap').next('.tab_container');
+    container.find('.tab_contents:not(:first)').hide();
+  });
+});
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">

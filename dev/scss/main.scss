@@ -8,54 +8,61 @@
 // 1. Base
 // ========================================
 // 기본 설정 - 항상 포함
-@import 'base/variables';       // 변수 정의
-@import 'base/fonts';            // 폰트 정의
-@import 'base/reset';            // CSS 리셋
-@import 'base/forms';            // 폼 요소 스타일
+@use 'base/variables';       // 변수 정의
+@use 'base/fonts';            // 폰트 정의
+@use 'base/reset';            // CSS 리셋
+@use 'base/forms';            // 폼 요소 스타일
 
 // ========================================
 // 2. Utils
 // ========================================
 // 믹스인과 헬퍼 클래스
-@import 'base/mixin';            // 믹스인 (원본 파일 사용)
-// @import 'utils/helpers';       // 헬퍼 클래스 (필요시 활성화)
+@use 'base/mixin';            // 믹스인 (원본 파일 사용)
+// @use 'utils/helpers';       // 헬퍼 클래스 (필요시 활성화)
 
 // ========================================
 // 3. Layout
 // ========================================
-@import 'layout/base';           // 기본 레이아웃
-@import 'layout/navigation';         // 헤더
-@import 'layout/print';         // 헤더
+@use 'layout/base';           // 기본 레이아웃
+@use 'layout/navigation';         // 헤더
+@use 'layout/print';         // 헤더
 
 // ========================================
 // 4. Components
 // ========================================
 // UI 컴포넌트 (필요한 것만 활성화)
-@import 'components/buttons';
-@import 'components/comment';
-@import 'components/file';
-@import 'components/file_extension';
-@import 'components/search';
-@import 'components/tab';
-@import 'components/table';
-@import 'components/tree';
-@import 'components/dm';
-@import 'components/badge';
-@import 'components/paginate';
-@import 'components/drag_scroll';
+@use 'components/buttons';
+@use 'components/comment';
+@use 'components/file';
+@use 'components/file_extension';
+@use 'components/search';
+@use 'components/tab';
+@use 'components/table';
+@use 'components/tree';
+@use 'components/dm';
+@use 'components/badge';
+@use 'components/paginate';
+@use 'components/drag_scroll';
+@use 'components/toast';
+@use 'components/reaction';
+@use 'components/tooltip';
 
 // ========================================
 // 5. Pages
 // ========================================
 // 페이지별 스타일 (필요한 것만 활성화)
-@import 'pages/main';            // 메인 페이지
-@import 'pages/modal';           // 모달
-@import 'pages/user_info';       // 사용자정보 페이지
-@import 'pages/error';           // 에러 페이지
-@import 'pages/svc_teamPlanMng'; // 근무표관리 페이지
+@use 'pages/main';            // 메인 페이지
+@use 'pages/modal';           // 모달
+@use 'pages/user_info';       // 사용자정보 페이지
+@use 'pages/error';           // 에러 페이지
+@use 'pages/project'; // 프로젝트 페이지
+@use 'pages/work'; // 업무 페이지
+@use 'pages/svc'; // 사내서비스 페이지
+@use 'pages/notice'; // 게시판 페이지
+@use 'pages/hr'; // 인사총무 페이지
 
 // ========================================
 // 6. Vendors
 // ========================================
 // 외부 라이브러리 스타일 (필요한 것만 활성화)
-@import 'vendors/fullcalendar';  // Fullcalendar
+@use 'vendors/fullcalendar';  // Fullcalendar

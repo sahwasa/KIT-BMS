@@ -39,19 +39,11 @@
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'flexTime'
+        right:''
       },
       buttonText: {
         today: '오늘',
-      },
-      customButtons:{
-        flexTime : {
-          text:'유연근무 신청',
-          click: function() {
-            document.querySelector('.p_change_flexTime').showModal();
-          }
-        }    
-      },
+      },     
       schedulerLicenseKey: '0328483609-fcs-1693988989',
       selectable:false,         
       initialView: 'dayGridMonth',

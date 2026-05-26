@@ -2,15 +2,15 @@
 // 1. 근무 유형 정의 (cd_group = 'C62')
 // =============================================
 const SHIFT_TYPES = {
-  // C62_1: { cd: 'C62_1', nm: '08:00~17:00',                       color: '#fff0c2', textColor: '#7a5500' },
-  C62_2: { cd: 'C62_2', nm: '09:00~18:00',                       color: '#d4f0e0', textColor: '#1a6b3a' },
-  C62_3: { cd: 'C62_3', nm: '10:00~19:00',                       color: '#cce5ff', textColor: '#0a4a8a' },
-  C62_4: { cd: 'C62_4', nm: '09:00~09:00<sup>+1일</sup>_(24h)', color: '#ffe0c2', textColor: '#8a3a00' },
-  C62_5: { cd: 'C62_5', nm: '09:00~21:00_(12h)',                 color: '#ffd6e0', textColor: '#8a0a2a' },
-  C62_6: { cd: 'C62_6', nm: '08:00~12:00_(4h)',                  color: '#e8d5ff', textColor: '#4a1a8a' },
-  C62_7: { cd: '2C62_7', nm: '09:00~18:00_(격일)',                color: '#cffafe', textColor: '#164e63' },
-  // C62_8: { cd: 'C62_8', nm: '22:00~07:00_(야간)',                color: '#e0e7ff', textColor: '#3730a3' },
-  // C62_9: { cd: 'C62_9', nm: '13:00~22:00_(오후)',                color: '#ecfccb', textColor: '#365314' },
+  // C62_1: { cd: 'C62_1', nm: '08~17시',                       color: '#fff0c2', textColor: '#7a5500' },
+  C62_2: { cd: 'C62_2', nm: '09~18시',                       color: '#d4f0e0', textColor: '#1a6b3a' },
+  C62_3: { cd: 'C62_3', nm: '10~19시',                       color: '#cce5ff', textColor: '#0a4a8a' },
+  C62_4: { cd: 'C62_4', nm: '09~09시<sup>+1일</sup>_(24h)', color: '#ffe0c2', textColor: '#8a3a00' },
+  C62_5: { cd: 'C62_5', nm: '09~21시_(12h)',                 color: '#ffd6e0', textColor: '#8a0a2a' },
+  C62_6: { cd: 'C62_6', nm: '08~12시_(4h)',                  color: '#e8d5ff', textColor: '#4a1a8a' },
+  C62_7: { cd: '2C62_7', nm: '09~18시_(격일)',                color: '#cffafe', textColor: '#164e63' },
+  // C62_8: { cd: 'C62_8', nm: '22~07시_(야간)',                color: '#e0e7ff', textColor: '#3730a3' },
+  // C62_9: { cd: 'C62_9', nm: '13~22시_(오후)',                color: '#ecfccb', textColor: '#365314' },
 };
 
 // =============================================
@@ -50,27 +50,27 @@ const SHIFT_DATA = [
 // 3. 목록 뷰 이벤트 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var monthlyEvents = [
-  // { resourceId: '150', start: '2026-05-04', end: '2026-05-04', title: '22:00~07:00(야간)', extendedProps: { shiftCd: 'C62_8' } },
-  { resourceId: '150', start: '2026-05-06', end: '2026-05-06', title: '09:00~18:00', extendedProps: { shiftCd: 'C62_2' } },
-  { resourceId: '150', start: '2026-05-07', end: '2026-05-07', title: '10:00~19:00', extendedProps: { shiftCd: 'C62_3' } },
-  { resourceId: '150', start: '2026-05-08', end: '2026-05-08', title: '09:00~09:00<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
-  { resourceId: '150', start: '2026-05-11', end: '2026-05-11', title: '09:00~21:00', extendedProps: { shiftCd: 'C62_5' } },
-  // { resourceId: '150', start: '2026-05-12', end: '2026-05-12', title: '13:00~22:00(오후)', extendedProps: { shiftCd: 'C62_9' } },
-  { resourceId: '150', start: '2026-05-13', end: '2026-05-13', title: '09:00~18:00(격일)', extendedProps: { shiftCd: 'C62_7' } },
+  // { resourceId: '150', start: '2026-05-04', end: '2026-05-04', title: '22~07시(야간)', extendedProps: { shiftCd: 'C62_8' } },
+  { resourceId: '150', start: '2026-05-06', end: '2026-05-06', title: '09~18시', extendedProps: { shiftCd: 'C62_2' } },
+  { resourceId: '150', start: '2026-05-07', end: '2026-05-07', title: '10~19시', extendedProps: { shiftCd: 'C62_3' } },
+  { resourceId: '150', start: '2026-05-08', end: '2026-05-08', title: '09~09시<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
+  { resourceId: '150', start: '2026-05-11', end: '2026-05-11', title: '09~21시', extendedProps: { shiftCd: 'C62_5' } },
+  // { resourceId: '150', start: '2026-05-12', end: '2026-05-12', title: '13~22시(오후)', extendedProps: { shiftCd: 'C62_9' } },
+  { resourceId: '150', start: '2026-05-13', end: '2026-05-13', title: '09~18시(격일)', extendedProps: { shiftCd: 'C62_7' } },
   
-  { resourceId: '151', start: '2026-05-01', end: '2026-05-01', title: '09:00~09:00<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
-  // { resourceId: '151', start: '2026-05-06', end: '2026-05-06', title: '22:00~07:00(야간)', extendedProps: { shiftCd: 'C62_8' } },
-  { resourceId: '151', start: '2026-05-07', end: '2026-05-07', title: '09:00~18:00', extendedProps: { shiftCd: 'C62_2' } },
-  { resourceId: '151', start: '2026-05-08', end: '2026-05-08', title: '10:00~19:00', extendedProps: { shiftCd: 'C62_3' } },
-  { resourceId: '151', start: '2026-05-11', end: '2026-05-11', title: '08:00~12:00', extendedProps: { shiftCd: 'C62_6' } },
-  { resourceId: '151', start: '2026-05-13', end: '2026-05-13', title: '09:00~21:00', extendedProps: { shiftCd: 'C62_5' } },
+  { resourceId: '151', start: '2026-05-01', end: '2026-05-01', title: '09~09시<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
+  // { resourceId: '151', start: '2026-05-06', end: '2026-05-06', title: '22~07시(야간)', extendedProps: { shiftCd: 'C62_8' } },
+  { resourceId: '151', start: '2026-05-07', end: '2026-05-07', title: '09~18시', extendedProps: { shiftCd: 'C62_2' } },
+  { resourceId: '151', start: '2026-05-08', end: '2026-05-08', title: '10~19시', extendedProps: { shiftCd: 'C62_3' } },
+  { resourceId: '151', start: '2026-05-11', end: '2026-05-11', title: '08~12시', extendedProps: { shiftCd: 'C62_6' } },
+  { resourceId: '151', start: '2026-05-13', end: '2026-05-13', title: '09~21시', extendedProps: { shiftCd: 'C62_5' } },
   
-  { resourceId: '152', start: '2026-05-01', end: '2026-05-01', title: '09:00~18:00(격일)', extendedProps: { shiftCd: 'C62_7' } },
-  // { resourceId: '152', start: '2026-05-04', end: '2026-05-04', title: '13:00~22:00(오후)', extendedProps: { shiftCd: 'C62_9' } },
-  { resourceId: '152', start: '2026-05-06', end: '2026-05-06', title: '09:00~21:00', extendedProps: { shiftCd: 'C62_5' } },
-  { resourceId: '152', start: '2026-05-07', end: '2026-05-07', title: '09:00~09:00<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
-  { resourceId: '152', start: '2026-05-10', end: '2026-05-10', title: '08:00~12:00', extendedProps: { shiftCd: 'C62_6' } },
-  { resourceId: '152', start: '2026-05-12', end: '2026-05-12', title: '10:00~19:00', extendedProps: { shiftCd: 'C62_3' } },
+  { resourceId: '152', start: '2026-05-01', end: '2026-05-01', title: '09~18시(격일)', extendedProps: { shiftCd: 'C62_7' } },
+  // { resourceId: '152', start: '2026-05-04', end: '2026-05-04', title: '13~22시(오후)', extendedProps: { shiftCd: 'C62_9' } },
+  { resourceId: '152', start: '2026-05-06', end: '2026-05-06', title: '09~21시', extendedProps: { shiftCd: 'C62_5' } },
+  { resourceId: '152', start: '2026-05-07', end: '2026-05-07', title: '09~09시<sup>+1일</sup>', extendedProps: { shiftCd: 'C62_4' } },
+  { resourceId: '152', start: '2026-05-10', end: '2026-05-10', title: '08~12시', extendedProps: { shiftCd: 'C62_6' } },
+  { resourceId: '152', start: '2026-05-12', end: '2026-05-12', title: '10~19시', extendedProps: { shiftCd: 'C62_3' } },
 ];
 
 // =============================================
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
     editable: false,
     selectable: false,
     nowIndicator: true,
-    slotMinWidth: 95,
+    slotMinWidth: 80,
     resourceAreaWidth: '250px',
     resourceOrder: 'dept,employee_name',
     resourceAreaColumns: [
@@ -456,10 +456,11 @@ document.addEventListener('DOMContentLoaded', () => {
         html: `<span style="color:${textColor}; font-weight:600;">${arg.event.title}</span>`
       };
     },
-    slotLabelFormat: [
-      { day: 'numeric' },
-      { weekday: 'short' },
-    ],
+    slotLabelFormat: function (arg) {
+      const d = arg.date.marker;
+      const weekday = ['일', '월', '화', '수', '목', '금', '토'][d.getDay()];
+      return d.getDate() + '일 (' + weekday + ')';
+    }, // "20일 (수)" 형태로 표시
     slotLaneClassNames: function(arg) {
       if (!arg.date) return [];
       const day = arg.date.getDay();

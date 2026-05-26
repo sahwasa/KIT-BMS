@@ -150,7 +150,7 @@
       </select> -->
     </div>
     <ul class="snb_lst">
-      <li><a href="svc_basicData.html">근태관리</a>
+      <li><a href="svc_attendance.html">근태관리</a>
         <ul>
           <!-- <li><a href="svc_basicData.html">기본사항</a></li>        -->
           <li><a href="svc_attendance.html">내 근태</a></li>
@@ -223,14 +223,34 @@
             <h1>근태 및 연차현황</h1>
           </header>
           <div class="box_compact">
-            <ul class="summary">
-              <li><em>이번주 누적 근무시간</em>8H 0M</li>
-              <li><em>이번주 초과 근무시간</em>8H 0M</li>
-              <li><em>이번주 잔여 근무시간</em>36H 0M</li>
-              <li><em>보유 연차</em>22D 0H</li>
-              <li><em>사용 연차</em>0D 0H</li>
-              <li><em>잔여 연차</em>22D 0H</li>
-            </ul>
+            <div class="box_default_w">
+              <ul class="worktime_summary">
+                <li><em>금주 누적근무</em>8H 0M</li>
+                <li><em>금주 초과근무</em>8H 0M</li>
+                <li><em>금주 잔여근무</em>36H 0M</li>
+                <li><em>보유 연차</em>22D 0H</li>
+                <li><em>사용 연차</em>0D 0H</li>
+                <li><em>잔여 연차</em>22D 0H</li>
+              </ul>
+              <div class="attendance_summary">
+                <dl>                
+                  <dt>당해 근태</dt>
+                  <dd><em>지각</em>1</dd>
+                  <dd><em>조퇴</em>1</dd>
+                  <dd><em>결근</em>1</dd>
+                </dl>
+                <dl>                
+                  <dt>이번달 근태</dt>
+                  <dd><em>지각</em>1</dd>
+                  <dd><em>조퇴</em>1</dd>
+                  <dd class="is_zero"><em>결근</em>0</dd>
+                </dl>
+                <dl>                
+                  <dt>근태 이상 감지</dt>
+                  <dd>3건</dd>
+                </dl>                
+              </div>          
+            </div>
           </div>
         </article>        
         <section class="flexible_working">
@@ -241,7 +261,7 @@
             <div class="tbl_wrap" tabindex="0">
               <table class="tbl_default tbl_hover">
                 <caption>부서별 근무표 현황</caption>
-                <thead>
+                <thead class="tbl_thead">
                   <tr>
                     <th scope="col">이름</th>
                     <th scope="col">근로시간</th>
@@ -250,62 +270,72 @@
                     <th scope="col">현황</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="tbl_tbody">
                   <tr>
                     <td>하츄핑</td>
-                    <td>09:00~18:00</td>
+                    <td>09~18시</td>
                     <td>08:50</td>
                     <td>-</td>
-                    <td>평일</td>
+                    <td>
+                      <span class="status_type">평일</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>아자핑</td>
-                    <td>09:00~18:00</td>
+                    <td>09~18시</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>대휴</td>
+                    <td>
+                      <span class="status_type">대휴</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>꾸래핑</td>
-                    <td>10:00~19:00</td>
+                    <td>10~19시</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>반차(10~15)</td>
+                    <td>
+                      <span class="status_type">반차</span>
+                      <span class="status_time">10~15시</span>
+                    </td>
                   </tr>
                   <tr>
                     <td>달콤핑</td>
-                    <td>09:00~18:00</td>
+                    <td>09~18시</td>
                     <td>-</td>
                     <td>-</td>
-                    <td><span title="태풍센터, 우주환경센터">출장</span></td>
+                    <td>
+                      <div class="status_wrap">
+                        <span class="status_type">출장</span>
+                        <span class="tooltip_trigger" tabindex="0">
+                          <span class="tooltip_box">태풍센터, 우주환경센터</span>
+                        </span>
+                      </div>
+                    </td>
                   </tr>
                   <tr>
                     <td>또너핑</td>
-                    <td>09:00~18:00</td>
+                    <td>09~18시</td>
                     <td>-</td>
                     <td>-</td>
-                    <td><span title="기상청">외근(09~14)</span></td>
+                    <td>
+                      <div class="status_wrap">
+                        <span class="status_type">외근</span>
+                        <span class="status_time">09~14시</span>
+                        <span class="tooltip_trigger" tabindex="0">
+                          <span class="tooltip_box">기상청</span>
+                        </span>
+                      </div>
+                    </td>
                   </tr>
                   <tr>
                     <td>마카핑</td>
-                    <td>09:00~09:00<sup>+1일</sup>_(24h)</td>
+                    <td>09~09시<sup>+1일</sup>_(24h)</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>비번</td>
-                  </tr>
-                  <tr>
-                    <td>바로핑</td>
-                    <td>09:00~21:00_(12h)</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>휴일근무</td>
-                  </tr>
-                  <tr>
-                    <td>요거핑</td>
-                    <td>10:00~19:00</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>외근(10~12)<br />반차(13~19)</td>
+                    <td>
+                      <span class="status_type">비번</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -318,7 +348,7 @@
             <div class="tbl_wrap">
               <table class="tbl_default">
                 <caption>유연근무 신청현황</caption>
-                <thead>
+                <thead class="tbl_thead">
                   <tr>
                     <th scope="col">신청자(소속)</th>
                     <th scope="col">신청시간</th>
@@ -327,36 +357,23 @@
                     <th scope="col">승인여부</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="tbl_tbody">
                   <tr>
                     <td title="(신청일:23-03-01)">강감찬 (지진경보장치팀)</td>
-                    <td>09:00~18:00</td>
+                    <td>09~18시</td>
                     <td>24-03-08 ~ 24-12-31</td>
-                    <td><em>매우 구구절절한 사연을 구구절절한 사연을 써보지만 반려당할 것만 같은 사유 매우 구구절절한 사연을 구구절절하게 써보지만 반려당할 것만 같은 사유</em></td>
+                    <td><em>매우 구구절절한 사연...</em></td>
                     <td>
-                      <button type="button" class="btn_red">승인</button>
-                      <button type="button" class="btn_default">반려</button>
+                      <button type="button" class="btn_red" aria-label="강감찬 신청 승인">승인</button>
+                      <button type="button" class="btn_red_line" aria-label="강감찬 신청 반려">반려</button>
                     </td>
-                  </tr>               
-                  <tr>
-                    <td title="(신청일:23-03-01)">나비야 (지진경보장치팀)</td>
-                    <td>08:00~17:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
-                    <td><em>집에 일이 있습니다.</em></td>
-                    <td title="24-02-10 11:00">승인</td>
-                  </tr>
-                  <tr>
-                    <td title="(신청일:23-03-01)">다람쥐 (컨텐츠팀)</td>
-                    <td>10:00~19:00</td>
-                    <td>24-01-05 ~ 24-01-05</td>
-                    <td><em>늦잠자고싶어요.</em></td>
-                    <td title="24-02-10 11:00">반려</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </article>              
-        </section>     
+        </section>
+     
         <!-- 대표님 아래 최상위 조직장만 보임 -->        
       </div>
     </section>
@@ -383,15 +400,22 @@
 <script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
 <script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
 <script src="../../js/message.js"></script>
-<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
-//퍼블용
-commonInit();
-$('.tab').find('li:first').addClass('on')
-$('.tab_container').find('.tab_contents:not(:first)').hide()
+$(function() {
+  // 전역 공통 초기화
+  if (typeof commonInit === 'function') commonInit();
+  
+  // 탭 초기 활성화
+  $('.tab').each(function() {
+    $(this).find('li:first').addClass('on');
+    const container = $(this).closest('.tab_wrap').next('.tab_container');
+    container.find('.tab_contents:not(:first)').hide();
+  });
+});
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">

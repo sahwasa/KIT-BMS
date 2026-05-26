@@ -16,110 +16,123 @@
           </ul>
         </section>
       </header>
+
       <div class="cont_body svc_teamPlanMng">
         <section class="management_container">
-          <!-- 사이드바 -->
+
+          <!-- ── 사이드바 ── -->
           <aside class="management_sidebar box_default">
+
+            <!-- 이번달 신청현황 -->
             <div class="sb_section box_default_w">
               <h1>이번달 신청현황</h1>
-              <div class="group_card dashed" onclick="showGroupTooltip(event, 'flex')">
-                <div class="group_time">유연근무 신청</div>
+              <div class="group_card dashed" data-group-id="flex" role="button" aria-label="이번 달 유연근무 신청 현황 보기">
+                <strong>유연근무 신청</strong>
                 <div class="group_chips">
-                  <span class="chip" id="flexCount">이번 달 0건</span>
+                  <span class="chip" id="flexCount">조회 중...</span>
                 </div>
               </div>
-              <div class="group_card dashed" onclick="showGroupTooltip(event, 'manual')">
-                <div class="group_time">근무변경 신청</div>
+
+              <div class="group_card dashed" data-group-id="manual" role="button" aria-label="이번 달 근무변경 신청 현황 보기">
+                <strong>근무변경 신청</strong>
                 <div class="group_chips">
-                  <span class="chip" id="manualCount">이번 달 0건</span>
+                  <span class="chip" id="manualCount">조회 중...</span>
                 </div>
               </div>
             </div>
+            <!-- 금일 근무현황 -->
             <div class="sb_section box_default_w">
               <h1>금일 근무현황</h1>
-              <div class="group_card" onclick="showGroupTooltip(event, 'g1')">
-                <div class="group_time">09:00 – 18:00</div>
-                <div class="group_chips">
-                  <span class="chip">김선욱</span><span class="chip">최희석</span><span class="chip">김홍관</span>
-                  <span class="chip chip_more">+6</span>
-                </div>
+              <div class="sb_group">
+                <h2>정규근무</h2>
+                <div id="regularList"></div>
               </div>
-              <div class="group_card" onclick="showGroupTooltip(event, 'g2')">
-                <div class="group_time">10:00 – 19:00</div>
-                <div class="group_chips">
-                  <span class="chip">윤정진</span><span class="chip">반미선</span><span class="chip">이광철</span>
-                  <span class="chip chip_more">+4</span>
-                </div>
-              </div>
-              
-              <div class="divide">
-                <h1 class="blind">교대 근무</h1>
-                <div class="code_list" id="codeList"></div>
+
+              <div class="sb_group">
+                <h2>비정규 근무</h2>
+                <div class="irregular_list" id="irregularList"></div>
               </div>
             </div>
-            
+
           </aside>
 
-          <!-- 캘린더 영역 -->
+          <!-- ── 캘린더 영역 ── -->
           <div class="management">
             <section class="box_compact">
               <ul class="search_list">
                 <li>
                   <select name="" id="" title="부서">
-                    <option value="">본인 부서 기본값</option>                 
+                    <option value="">부서</option>
+                    <option value="">김천</option>
+                    <option value="">레이더</option>
+                    <option value="">행안부</option>
                   </select>
                 </li>
                 <li>
-                  <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+                  <select name="" id="" title="부서">
+                    <option value="">본인 부서 기본값</option>
+                  </select>
+                </li>
+                <li>
+                  <input type="text" placeholder="사원명 검색" list="nameList" autocomplete="off">
                   @@include('../../inc/data/data_emp_name.html')
                 </li>
                 <li>
                   <button type="button" class="btn_search">검색</button>
                 </li>
-              </ul>        
+              </ul>
+
               <div class="btn_wrap">
-                <button type="button" class="btn_red_line" onclick="triggerUpload()">교대근무 엑셀 업로드 </button>
-                <button type="button" class="btn_default" onclick="downloadTemplate()">근무표 양식 다운로드</button>
+                <button type="button" id="uploadBtn" class="btn_red_line">근무표 엑셀 업로드</button>
+                <button type="button" id="downloadBtn" class="btn_default">근무표 양식 다운로드</button>
                 <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none">
-              </div>    
-            </section>
-            <div class="management_content">
-            <div class="calendar_wrap">
-              <div id="calendar"></div>
-            </div>            
-            <!-- 클릭 패널 -->
-            <div class="detail_panel" id="managementPanel">
-              <div class="panel_header">
-                <span class="panel_date" id="panelDate"></span>
-                <div class="panel_spacer"></div>
-                <button type="button" class="btn_gray_line btn_sm" onclick="closePanel()">✕ 닫기</button>
               </div>
-              <div class="panel_body" id="panelBody"></div>
+            </section>
+
+            <div class="management_content">
+              <div class="calendar_wrap">
+                <div id="calendar"></div>
+              </div>
+
+              <!-- 클릭 패널 -->
+              <div class="detail_panel" id="managementPanel">
+                <div class="panel_header">
+                  <span class="panel_date" id="panelDate"></span>
+                  <div class="panel_spacer"></div>
+                  <button type="button" id="panelCloseBtn" class="btn_gray_line btn_sm">✕ 닫기</button>
+                </div>
+                <div class="panel_body" id="panelBody"></div>
+              </div>
             </div>
           </div>
+
         </section>
 
-        <!-- 유연근무 상세 팝업 (임시 모달) -->
+        <!-- ── 유연근무 상세 팝업 ── -->
         <dialog id="flexModal" class="flextime_status" tabindex="0">
-            <div class="p_header">
-              <strong>유연근무 신청 상세</strong>
-              <button type="button" class="btnClose ico_org cancel" aria-label="close" onclick="closeFlexModal()">닫기</button>
-            </div>
-            <div class="p_body">
-              <div class="modal_body" id="flexModalBody"></div>
-              <div class="btn_wrap" id="flexModalFooter"></div>
-            </div>
+          <div class="p_header">
+            <strong>유연근무 신청 상세</strong>
+            <button type="button"
+              class="btnClose ico_org cancel"
+              data-action="flex-modal-close"
+              aria-label="닫기">닫기</button>
+          </div>
+          <div class="p_body">
+            <div class="modal_body" id="flexModalBody"></div>
+            <div class="btn_wrap" id="flexModalFooter"></div>
+          </div>
         </dialog>
 
-        
       </div>
     </section>
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
+
 @@include('../../inc/pop/p_calendar_popover.html')
 @@include('../../inc/pop/p_change_flexTime.html')
 @@include('../../inc/layout/script.html')
+
 <!-- FullCalendar & SheetJS -->
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>

@@ -19,9 +19,21 @@
               <th scope="row">근무형태</th>
               <td>평일(09~18)</td>
               <!-- 외근(09~12),반차,휴일근무,출장,교대근무 등등 -->            
+            </tr>
+            <tr>
               <th scope="row">근태판정</th>
-              <td>
+              <td colspan="3">
                 <div class="file_input">
+                  <span>
+                    <label for="">출근 :</label>
+                    <input type="date" title="출근일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                    <input type="time" name="start_time" title="출근시각">
+                  </span>
+                  <span>
+                    <label for="">퇴근 :</label>
+                    <input type="date" min="0001-01-01" max="9999-12-31" title="퇴근일" name="end_date" min="0001-01-01" max="9999-12-31">
+                    <input type="time" title="퇴근시각" name="end_time">
+                  </span>
                   <select name="" id="">
                     <option value="">정상근무</option>
                     <option value="">지각</option>
@@ -30,13 +42,15 @@
                     <option value="">결근</option>
                     <option value="">등등</option>
                   </select>
-                  <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
+                  <span class="divide">
+                    <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
+                  </span>
                 </div>
-              </td>        
+              </td>
             </tr>
             <tr>
               <th scope="row" class="required"><label for="rm">수정사유</label></th>
-              <td colspan="6"><input type="text" id="rm" placeholder="수정사유" maxlength="100" readonly /></td>
+              <td colspan="3"><input type="text" id="rm" placeholder="수정사유" maxlength="100" readonly /></td>
             </tr>
             </tbody>
           </table>          

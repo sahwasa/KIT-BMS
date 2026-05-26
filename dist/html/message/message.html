@@ -322,15 +322,22 @@
 <script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
 <script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
 <script src="../../js/message.js"></script>
-<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
-//퍼블용
-commonInit();
-$('.tab').find('li:first').addClass('on')
-$('.tab_container').find('.tab_contents:not(:first)').hide()
+$(function() {
+  // 전역 공통 초기화
+  if (typeof commonInit === 'function') commonInit();
+  
+  // 탭 초기 활성화
+  $('.tab').each(function() {
+    $(this).find('li:first').addClass('on');
+    const container = $(this).closest('.tab_wrap').next('.tab_container');
+    container.find('.tab_contents:not(:first)').hide();
+  });
+});
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">

@@ -2514,15 +2514,22 @@ about:blank#blocked    <div class="btn_wrap">
 <script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
 <script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
 <script src="../../js/message.js"></script>
-<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
-//퍼블용
-commonInit();
-$('.tab').find('li:first').addClass('on')
-$('.tab_container').find('.tab_contents:not(:first)').hide()
+$(function() {
+  // 전역 공통 초기화
+  if (typeof commonInit === 'function') commonInit();
+  
+  // 탭 초기 활성화
+  $('.tab').each(function() {
+    $(this).find('li:first').addClass('on');
+    const container = $(this).closest('.tab_wrap').next('.tab_container');
+    container.find('.tab_contents:not(:first)').hide();
+  });
+});
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">
@@ -2835,16 +2842,77 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
           <caption>변경신청 내용</caption>
           <tbody>
             <tr>
-              <th scope="row" class="required"><label for="work_range">근무시간</label></th>
+              <th scope="row" class="required"><label for="workTimeSelect">근무시간</label></th>
               <td>
-              <select id="nameSelect">
-                <option value="근무시간을 선택하세요">근무시간 선택</option>
-                <option value="">08:00~17:00</option>
-                <option value="">08:30~17:30</option>
-                <option value="">09:00~18:00</option>
-                <option value="">09:30~18:30</option>
-                <option value="">10:00~19:00</option>
-              </select>
+                <select id="workTimeSelect" data-selectEvt="v_work_">
+                  <option value="">근무시간 선택</option>
+                  <option value="0900">09:00~18:00</option>
+                  <option value="1000">10:00~19:00</option>
+                  <option value="etc">기타 (직접 입력)</option>
+                </select>
+                <div id="v_work_etc" data-selectTarget class="v_work_etc">
+                    <span>
+                      <label for="workStartTime">출근 :</label>                      
+                      <select id="workStartTime">
+                        <option value="">시간 선택</option>
+                        <option value="00">00시</option>
+                        <option value="01">01시</option>
+                        <option value="02">02시</option>
+                        <option value="03">03시</option>
+                        <option value="04">04시</option>
+                        <option value="05">05시</option>
+                        <option value="06">06시</option>
+                        <option value="07">07시</option>
+                        <option value="08">08시</option>
+                        <option value="09">09시</option>
+                        <option value="10">10시</option>
+                        <option value="11">11시</option>
+                        <option value="12">12시</option>
+                        <option value="13">13시</option>
+                        <option value="14">14시</option>
+                        <option value="15">15시</option>
+                        <option value="16">16시</option>
+                        <option value="17">17시</option>
+                        <option value="18">18시</option>
+                        <option value="19">19시</option>
+                        <option value="20">20시</option>
+                        <option value="21">21시</option>
+                        <option value="22">22시</option>
+                        <option value="23">23시</option>
+                      </select>
+                    </span>
+                    <span>
+                      <label for="workEndTime">퇴근 :</label>
+                      <select id="workEndTime">
+                        <option value="">시간 선택</option>
+                        <option value="00">00시</option>
+                        <option value="01">01시</option>
+                        <option value="02">02시</option>
+                        <option value="03">03시</option>
+                        <option value="04">04시</option>
+                        <option value="05">05시</option>
+                        <option value="06">06시</option>
+                        <option value="07">07시</option>
+                        <option value="08">08시</option>
+                        <option value="09">09시</option>
+                        <option value="10">10시</option>
+                        <option value="11">11시</option>
+                        <option value="12">12시</option>
+                        <option value="13">13시</option>
+                        <option value="14">14시</option>
+                        <option value="15">15시</option>
+                        <option value="16">16시</option>
+                        <option value="17">17시</option>
+                        <option value="18">18시</option>
+                        <option value="19">19시</option>
+                        <option value="20">20시</option>
+                        <option value="21">21시</option>
+                        <option value="22">22시</option>
+                        <option value="23">23시</option>
+                      </select>
+                    </span>
+                </div>
+              </td>
             </tr>
             <tr>
               <th scope="row" class="required"><label for="work_start">기간</label></th>

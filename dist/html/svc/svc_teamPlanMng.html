@@ -150,7 +150,7 @@
       </select> -->
     </div>
     <ul class="snb_lst">
-      <li><a href="svc_basicData.html">근태관리</a>
+      <li><a href="svc_attendance.html">근태관리</a>
         <ul>
           <!-- <li><a href="svc_basicData.html">기본사항</a></li>        -->
           <li><a href="svc_attendance.html">내 근태</a></li>
@@ -218,61 +218,65 @@
           </ul>
         </section>
       </header>
+
       <div class="cont_body svc_teamPlanMng">
         <section class="management_container">
-          <!-- 사이드바 -->
+
+          <!-- ── 사이드바 ── -->
           <aside class="management_sidebar box_default">
+
+            <!-- 이번달 신청현황 -->
             <div class="sb_section box_default_w">
               <h1>이번달 신청현황</h1>
-              <div class="group_card dashed" onclick="showGroupTooltip(event, 'flex')">
-                <div class="group_time">유연근무 신청</div>
+              <div class="group_card dashed" data-group-id="flex" role="button" aria-label="이번 달 유연근무 신청 현황 보기">
+                <strong>유연근무 신청</strong>
                 <div class="group_chips">
-                  <span class="chip" id="flexCount">이번 달 0건</span>
+                  <span class="chip" id="flexCount">조회 중...</span>
                 </div>
               </div>
-              <div class="group_card dashed" onclick="showGroupTooltip(event, 'manual')">
-                <div class="group_time">근무변경 신청</div>
+
+              <div class="group_card dashed" data-group-id="manual" role="button" aria-label="이번 달 근무변경 신청 현황 보기">
+                <strong>근무변경 신청</strong>
                 <div class="group_chips">
-                  <span class="chip" id="manualCount">이번 달 0건</span>
+                  <span class="chip" id="manualCount">조회 중...</span>
                 </div>
               </div>
             </div>
+            <!-- 금일 근무현황 -->
             <div class="sb_section box_default_w">
               <h1>금일 근무현황</h1>
-              <div class="group_card" onclick="showGroupTooltip(event, 'g1')">
-                <div class="group_time">09:00 – 18:00</div>
-                <div class="group_chips">
-                  <span class="chip">김선욱</span><span class="chip">최희석</span><span class="chip">김홍관</span>
-                  <span class="chip chip_more">+6</span>
-                </div>
+              <div class="sb_group">
+                <h2>정규근무</h2>
+                <div id="regularList"></div>
               </div>
-              <div class="group_card" onclick="showGroupTooltip(event, 'g2')">
-                <div class="group_time">10:00 – 19:00</div>
-                <div class="group_chips">
-                  <span class="chip">윤정진</span><span class="chip">반미선</span><span class="chip">이광철</span>
-                  <span class="chip chip_more">+4</span>
-                </div>
-              </div>
-              
-              <div class="divide">
-                <h1 class="blind">교대 근무</h1>
-                <div class="code_list" id="codeList"></div>
+
+              <div class="sb_group">
+                <h2>비정규 근무</h2>
+                <div class="irregular_list" id="irregularList"></div>
               </div>
             </div>
-            
+
           </aside>
 
-          <!-- 캘린더 영역 -->
+          <!-- ── 캘린더 영역 ── -->
           <div class="management">
             <section class="box_compact">
               <ul class="search_list">
                 <li>
                   <select name="" id="" title="부서">
-                    <option value="">본인 부서 기본값</option>                 
+                    <option value="">부서</option>
+                    <option value="">김천</option>
+                    <option value="">레이더</option>
+                    <option value="">행안부</option>
                   </select>
                 </li>
                 <li>
-                  <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+                  <select name="" id="" title="부서">
+                    <option value="">본인 부서 기본값</option>
+                  </select>
+                </li>
+                <li>
+                  <input type="text" placeholder="사원명 검색" list="nameList" autocomplete="off">
                   <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
@@ -291,42 +295,49 @@
                 <li>
                   <button type="button" class="btn_search">검색</button>
                 </li>
-              </ul>        
+              </ul>
+
               <div class="btn_wrap">
-                <button type="button" class="btn_red_line" onclick="triggerUpload()">교대근무 엑셀 업로드 </button>
-                <button type="button" class="btn_default" onclick="downloadTemplate()">근무표 양식 다운로드</button>
+                <button type="button" id="uploadBtn" class="btn_red_line">근무표 엑셀 업로드</button>
+                <button type="button" id="downloadBtn" class="btn_default">근무표 양식 다운로드</button>
                 <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none">
-              </div>    
-            </section>
-            <div class="management_content">
-            <div class="calendar_wrap">
-              <div id="calendar"></div>
-            </div>            
-            <!-- 클릭 패널 -->
-            <div class="detail_panel" id="managementPanel">
-              <div class="panel_header">
-                <span class="panel_date" id="panelDate"></span>
-                <div class="panel_spacer"></div>
-                <button type="button" class="btn_gray_line btn_sm" onclick="closePanel()">✕ 닫기</button>
               </div>
-              <div class="panel_body" id="panelBody"></div>
+            </section>
+
+            <div class="management_content">
+              <div class="calendar_wrap">
+                <div id="calendar"></div>
+              </div>
+
+              <!-- 클릭 패널 -->
+              <div class="detail_panel" id="managementPanel">
+                <div class="panel_header">
+                  <span class="panel_date" id="panelDate"></span>
+                  <div class="panel_spacer"></div>
+                  <button type="button" id="panelCloseBtn" class="btn_gray_line btn_sm">✕ 닫기</button>
+                </div>
+                <div class="panel_body" id="panelBody"></div>
+              </div>
             </div>
           </div>
+
         </section>
 
-        <!-- 유연근무 상세 팝업 (임시 모달) -->
+        <!-- ── 유연근무 상세 팝업 ── -->
         <dialog id="flexModal" class="flextime_status" tabindex="0">
-            <div class="p_header">
-              <strong>유연근무 신청 상세</strong>
-              <button type="button" class="btnClose ico_org cancel" aria-label="close" onclick="closeFlexModal()">닫기</button>
-            </div>
-            <div class="p_body">
-              <div class="modal_body" id="flexModalBody"></div>
-              <div class="btn_wrap" id="flexModalFooter"></div>
-            </div>
+          <div class="p_header">
+            <strong>유연근무 신청 상세</strong>
+            <button type="button"
+              class="btnClose ico_org cancel"
+              data-action="flex-modal-close"
+              aria-label="닫기">닫기</button>
+          </div>
+          <div class="p_body">
+            <div class="modal_body" id="flexModalBody"></div>
+            <div class="btn_wrap" id="flexModalFooter"></div>
+          </div>
         </dialog>
 
-        
       </div>
     </section>
   </main>
@@ -335,6 +346,7 @@
   <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
+
 <!-- 팝오버 -->
 <dialog class="cal_popover" id="popover">
   <button class="popover-close" id="popover-close">×</button>
@@ -357,16 +369,77 @@
           <caption>변경신청 내용</caption>
           <tbody>
             <tr>
-              <th scope="row" class="required"><label for="work_range">근무시간</label></th>
+              <th scope="row" class="required"><label for="workTimeSelect">근무시간</label></th>
               <td>
-              <select id="nameSelect">
-                <option value="근무시간을 선택하세요">근무시간 선택</option>
-                <option value="">08:00~17:00</option>
-                <option value="">08:30~17:30</option>
-                <option value="">09:00~18:00</option>
-                <option value="">09:30~18:30</option>
-                <option value="">10:00~19:00</option>
-              </select>
+                <select id="workTimeSelect" data-selectEvt="v_work_">
+                  <option value="">근무시간 선택</option>
+                  <option value="0900">09:00~18:00</option>
+                  <option value="1000">10:00~19:00</option>
+                  <option value="etc">기타 (직접 입력)</option>
+                </select>
+                <div id="v_work_etc" data-selectTarget class="v_work_etc">
+                    <span>
+                      <label for="workStartTime">출근 :</label>                      
+                      <select id="workStartTime">
+                        <option value="">시간 선택</option>
+                        <option value="00">00시</option>
+                        <option value="01">01시</option>
+                        <option value="02">02시</option>
+                        <option value="03">03시</option>
+                        <option value="04">04시</option>
+                        <option value="05">05시</option>
+                        <option value="06">06시</option>
+                        <option value="07">07시</option>
+                        <option value="08">08시</option>
+                        <option value="09">09시</option>
+                        <option value="10">10시</option>
+                        <option value="11">11시</option>
+                        <option value="12">12시</option>
+                        <option value="13">13시</option>
+                        <option value="14">14시</option>
+                        <option value="15">15시</option>
+                        <option value="16">16시</option>
+                        <option value="17">17시</option>
+                        <option value="18">18시</option>
+                        <option value="19">19시</option>
+                        <option value="20">20시</option>
+                        <option value="21">21시</option>
+                        <option value="22">22시</option>
+                        <option value="23">23시</option>
+                      </select>
+                    </span>
+                    <span>
+                      <label for="workEndTime">퇴근 :</label>
+                      <select id="workEndTime">
+                        <option value="">시간 선택</option>
+                        <option value="00">00시</option>
+                        <option value="01">01시</option>
+                        <option value="02">02시</option>
+                        <option value="03">03시</option>
+                        <option value="04">04시</option>
+                        <option value="05">05시</option>
+                        <option value="06">06시</option>
+                        <option value="07">07시</option>
+                        <option value="08">08시</option>
+                        <option value="09">09시</option>
+                        <option value="10">10시</option>
+                        <option value="11">11시</option>
+                        <option value="12">12시</option>
+                        <option value="13">13시</option>
+                        <option value="14">14시</option>
+                        <option value="15">15시</option>
+                        <option value="16">16시</option>
+                        <option value="17">17시</option>
+                        <option value="18">18시</option>
+                        <option value="19">19시</option>
+                        <option value="20">20시</option>
+                        <option value="21">21시</option>
+                        <option value="22">22시</option>
+                        <option value="23">23시</option>
+                      </select>
+                    </span>
+                </div>
+              </td>
             </tr>
             <tr>
               <th scope="row" class="required"><label for="work_start">기간</label></th>
@@ -507,15 +580,22 @@
 <script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
 <script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
 <script src="../../js/message.js"></script>
-<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
-//퍼블용
-commonInit();
-$('.tab').find('li:first').addClass('on')
-$('.tab_container').find('.tab_contents:not(:first)').hide()
+$(function() {
+  // 전역 공통 초기화
+  if (typeof commonInit === 'function') commonInit();
+  
+  // 탭 초기 활성화
+  $('.tab').each(function() {
+    $(this).find('li:first').addClass('on');
+    const container = $(this).closest('.tab_wrap').next('.tab_container');
+    container.find('.tab_contents:not(:first)').hide();
+  });
+});
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">
@@ -539,6 +619,7 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
     </div>
   </form>
 </dialog>
+
 
 <!-- FullCalendar & SheetJS -->
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>

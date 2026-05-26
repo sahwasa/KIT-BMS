@@ -48,4 +48,15 @@
       eventSources:[source]
     });
     calendar.render();
+
+    // 출근 알림 샘플 (퍼블리싱용 시뮬레이션)
+    setTimeout(() => {
+      const attendanceSection = document.querySelector('.attendance_desc ul li:first-child');
+      if (attendanceSection && attendanceSection.textContent.includes('미등록')) {
+        UI.toast('금일 출근 기록이 없습니다. 출근 버튼을 눌러주세요!');
+      } else {
+        // 샘플 확인을 위해 강제로 띄우는 코드 (실제 운영 시에는 위 조건문만 사용)
+        // UI.toast('금일 출근 기록이 없습니다. 출근 버튼을 눌러주세요!');
+      }
+    }, 1000);
   });

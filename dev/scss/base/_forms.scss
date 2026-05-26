@@ -1,4 +1,5 @@
-@import 'base/variables'; 
+@use 'variables' as vars;
+@use 'mixin' as mixins;
 // ========================================
 // Form Elements Base Styles
 // ========================================
@@ -18,13 +19,13 @@ input[type="tel"],
 div[contenteditable]:not(.ck-widget),
 p[contenteditable],
 td[contenteditable] {
-  @include ipt_common;
+  @include mixins.ipt_common;
   min-height: 28px;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-  accent-color: $red;
+  accent-color: vars.$red;
 }
 
 input[type="radio"][readonly],
@@ -47,7 +48,7 @@ input[type="checkbox"] {
 }
 
 input[type="radio"],
-input[type="checkbox"]{accent-color:$red;}
+input[type="checkbox"]{accent-color:vars.$red;}
 input[type="radio"][readonly],
 input[type="radio"][readonly] + label,
 label:has(input[type="radio"][readonly]),
@@ -92,11 +93,11 @@ input, select{
   &.w_auto{width:auto;}
 }
 input[type=number]{-moz-appearance:textfield;} // firefox hide arrrow
-::-webkit-input-placeholder{color:$gray;}
-:-ms-input-placeholder{color:$gray;}
+::-webkit-input-placeholder{color:vars.$gray;}
+:-ms-input-placeholder{color:vars.$gray;}
 ::placeholder,
 .opt_label,
-select{color:$gray;}
+select{color:vars.$gray;}
 select{
   option,
   &:has(option[selected]){color:#333;}
@@ -113,11 +114,11 @@ input[type="number"]::-webkit-inner-spin-button {appearance:none;-moz-appearance
 input[type="datetime-local"],
 input[type="time"],
 input[type="date"]{width:auto;min-width:104px;
-  &::after{position:absolute;z-index:1;right:5px;top:50%;transform:translateY(-50%);color:$red;}
+  &::after{position:absolute;z-index:1;right:5px;top:50%;transform:translateY(-50%);color:vars.$red;}
 }
-input[type="datetime-local"]::after{@include fontello('\f133');font-size:15px;padding-right:10px;}
-input[type="date"]::after{@include fontello('\f133');font-size:15px;}
-input[type="time"]::after{@include fontello('\eb02');font-size:18px;}
+input[type="datetime-local"]::after{@include mixins.fontello('\f133');font-size:15px;padding-right:10px;}
+input[type="date"]::after{@include mixins.fontello('\f133');font-size:15px;}
+input[type="time"]::after{@include mixins.fontello('\eb02');font-size:18px;}
 .period_custom{display:inline-flex;justify-content:space-between;align-items:center;gap:10px;position:relative;vertical-align:middle;
   input{width:auto;padding-right:4px;letter-spacing:-.05em;
     &::-webkit-date-and-time-value{text-align:left;}

@@ -153,12 +153,12 @@
           <section class="box_compact">
             <ul class="search_list">
               <li>
-                <select name="" id="" title="부서">
+                <select name="" id="deptSelect" title="부서 선택">
                   <option value="">본인 부서 기본값</option>                 
                 </select>
               </li>
               <li>
-                <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+                <input type="text" id="empNameSearch" placeholder="사원명 검색" list="nameList" autocomplete="off" aria-label="사원명 검색">
                 <datalist id="nameList">
   <optgroup label="개발본부">
     <option value="대장발핑">개발본부</option>
@@ -175,12 +175,12 @@
 </datalist>
               </li>
               <li>
-                <button type="button" class="btn_search">검색</button>
+                <button type="button" class="btn_search" aria-label="검색 실행">검색</button>
               </li>
             </ul>            
             <div class="btn_wrap">
-              <button type="button" class="btn_red_line" onclick="document.querySelector('.p_uploadFile').showModal();">캡스업로드</button>
-              <button type="button" class="btn_gray_line">다운로드</button>
+              <button type="button" class="btn_red_line" data-action="open-upload" aria-label="캡스 데이터 업로드 팝업 열기">캡스업로드</button>
+              <button type="button" class="btn_gray_line" aria-label="근태 데이터 다운로드">다운로드</button>
             </div>
           </section>
           <section>
@@ -204,15 +204,22 @@
 <script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
 <script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
 <script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script src="../../js/ui_cmmn.js"></script>
 <script src="../../js/file_upload.js"></script>
 <script src="../../js/message.js"></script>
-<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
 <script>
-//퍼블용
-commonInit();
-$('.tab').find('li:first').addClass('on')
-$('.tab_container').find('.tab_contents:not(:first)').hide()
+$(function() {
+  // 전역 공통 초기화
+  if (typeof commonInit === 'function') commonInit();
+  
+  // 탭 초기 활성화
+  $('.tab').each(function() {
+    $(this).find('li:first').addClass('on');
+    const container = $(this).closest('.tab_wrap').next('.tab_container');
+    container.find('.tab_contents:not(:first)').hide();
+  });
+});
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">
@@ -331,9 +338,21 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
               <th scope="row">근무형태</th>
               <td>평일(09~18)</td>
               <!-- 외근(09~12),반차,휴일근무,출장,교대근무 등등 -->            
+            </tr>
+            <tr>
               <th scope="row">근태판정</th>
-              <td>
+              <td colspan="3">
                 <div class="file_input">
+                  <span>
+                    <label for="">출근 :</label>
+                    <input type="date" title="출근일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                    <input type="time" name="start_time" title="출근시각">
+                  </span>
+                  <span>
+                    <label for="">퇴근 :</label>
+                    <input type="date" min="0001-01-01" max="9999-12-31" title="퇴근일" name="end_date" min="0001-01-01" max="9999-12-31">
+                    <input type="time" title="퇴근시각" name="end_time">
+                  </span>
                   <select name="" id="">
                     <option value="">정상근무</option>
                     <option value="">지각</option>
@@ -342,13 +361,15 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
                     <option value="">결근</option>
                     <option value="">등등</option>
                   </select>
-                  <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
+                  <span class="divide">
+                    <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
+                  </span>
                 </div>
-              </td>        
+              </td>
             </tr>
             <tr>
               <th scope="row" class="required"><label for="rm">수정사유</label></th>
-              <td colspan="6"><input type="text" id="rm" placeholder="수정사유" maxlength="100" readonly /></td>
+              <td colspan="3"><input type="text" id="rm" placeholder="수정사유" maxlength="100" readonly /></td>
             </tr>
             </tbody>
           </table>          
@@ -548,8 +569,6 @@ $('.tab_container').find('.tab_contents:not(:first)').hide()
 <script>
 //퍼블용
 commonInit();
-$('.tab').find('li:first').addClass('on')
-$('.tab_container').find('.tab_contents:not(:first)').hide()
 </script>
 </body>
 </html>

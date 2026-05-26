@@ -1,0 +1,46 @@
+@use '../base/variables' as vars;
+@use '../base/mixin' as mixins;
+.box_bot{display:flex;align-items:center;margin-top:5px;}
+$reaction-types: ( like, good, confirm, fun, wow, sad );
+.reaction_area{margin-left:auto;}
+@mixin reactionIco(){
+  &::before{@include mixins.shape(20px,20px);background:url(../images/ico_emotion.png) 0 50% / auto no-repeat;}
+  @each $type in $reaction-types {
+      $index :index($reaction-types, $type);
+    &.#{$type}::before {
+      background-position-x:-31px * ($index - 1);
+    }
+  }
+}
+.reaction_area{display:flex;align-items:center;gap:15px;  
+  li{display:flex;align-items:center;justify-content:flex-start;}
+}
+.reaction_summary{display:flex;align-items:center;gap:15px;padding:5px 10px;border-radius:15px;cursor:pointer;flex-shrink:0;
+  &:hover{background-color:#f5f5f5;}
+  li{font-size:0;
+    @include reactionIco();
+  }
+  span{display:inline-block;line-height:20px;margin-left:5px;font-size:11px;}
+}
+.reaction_layer{position:absolute;right:0;top:calc(100% + 5px);width:300px;height:0;max-height:200px;overflow:hidden;background-color:#fff;
+  ul{border:1px solid vars.$gray;padding:5px;}
+  li{margin:5px 0;}
+  span{font-size:0;margin-left:auto;
+    @include reactionIco();
+  } 
+}
+.btn_reactionAdd{@include mixins.ico_only('\e805');padding:5px 7px;border-radius:3px; 
+  &:hover{background-color:#f5f5f5;}
+  &::before{font-size:16px;}
+}
+.layer_tool.on{
+  .reaction_layer{height:fit-content;overflow-y:auto;}
+  .reaction_btns{height:auto;}
+} 
+.reaction_btns{position:absolute;right:5px;top:calc(100% + 3px);width:fit-content;background-color:#fff;height:0;overflow:hidden;
+  ul{display:flex;gap:10px;padding:3px 15px;border:1px solid vars.$gray;}
+  button{font-size:0;padding:4px 3px 2px;margin-left:auto;border-bottom:2px solid transparent;
+    @include reactionIco();
+    &:hover{border-color:#666}
+  } 
+} 

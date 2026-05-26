@@ -1,0 +1,2 @@
+@use '../base/mixin' as mixins;
+.hr_attendance{@include mixins.tbl_defaultH(25px);}
