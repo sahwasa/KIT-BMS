@@ -60,6 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
     },
     g3: {
+      time: '08:00 – 17:00',
+      members: [
+        { name: '이정현', dept: '제품개발부' },
+        { name: '장서현', dept: '제품개발부' },
+      ],
+    },
+    g4: {
       time: '08:00 – 12:00',
       members: [
         { name: '황성영', dept: '제품개발부' }
@@ -74,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '김홍관','류다언','문영찬','민슬기','반미선','박상진','박지은','박창현','박지호','서정헌',
     '손병권','신새미','신현기','엄용석','오지은','윤동일','윤재원','윤정진','윤종훈',
     '이광철','이병수','이정서','이주연','이홍설','임대택','장그림','정민욱','정우성',
-    '조재휘','조현완','차지원','최경희','최희석','한지민','황성영',
+    '조재휘','조현완','차지원','최경희','최희석','한지민','황성영','이정현','장서현'
   ];
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -348,14 +355,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }).join('');
   }
 
+  const RESERVED_GROUP_KEYS = new Set(['flex', 'manual']);
+
   function renderRegularGroups() {
     const el = document.getElementById('regularList');
     if (!el) return;
-    el.innerHTML = ['g1', 'g2', 'g3'].map(id => {
+
+    const regularIds = Object.keys(GROUPS).filter(id => !RESERVED_GROUP_KEYS.has(id));
+
+    el.innerHTML = regularIds.map(id => {
       const g = GROUPS[id];
       if (!g) return '';
       const maxShow = 3;
-      return `<div class="group_card" data-group-id="${id}"><div class="group_time">${escapeHtml(g.time)}</div><div class="group_chips">${g.members.slice(0, maxShow).map(m => `<span class="chip">${escapeHtml(m.name)}</span>`).join('')}${g.members.length > maxShow ? `<span class="chip chip_more">+${g.members.length - maxShow}</span>` : ''}</div></div>`;
+      return `<div class="group_card" data-group-id="${id}">
+        <div class="group_time">${escapeHtml(g.time)}</div>
+        <div class="group_chips">
+          ${g.members.slice(0, maxShow).map(m => `<span class="chip">${escapeHtml(m.name)}</span>`).join('')}
+          ${g.members.length > maxShow ? `<span class="chip chip_more">+${g.members.length - maxShow}</span>` : ''}
+        </div>
+      </div>`;
     }).join('');
   }
 
@@ -378,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
       locale: 'ko', initialView: 'dayGridMonth', initialDate: '2026-05-01',
       headerToolbar: { left: 'prev,next today', center: 'title', right: 'approveAll flexTime' },
       customButtons: {
-        flexTime: { text: '유연근무 신청', click() { const modal = document.querySelector('.p_change_flexTime'); modal?.showModal?.() || (modal.style.display = 'block'); } },
+        flexTime: { text: '유연근무 신청', click() { const modal = document.querySelector('.p_change_flexTime'); modal?.showModal?.(); } },
         approveAll: { text: '교대근무 일괄 승인', click: approveAllManualShifts }
       },
       buttonText: { today: '오늘' }, events: Store.buildEvents(), eventOrder: 'order,start', dayMaxEvents: 3,

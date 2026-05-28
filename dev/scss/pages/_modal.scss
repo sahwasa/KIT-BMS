@@ -404,14 +404,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   }
   .approval_set .attach_list:empty::before{display:none;}
 }
-.p_modify_attendance{width:350px;
-  .p_body{padding-top:10px;}
-  .recordDate{border-bottom:1px solid #edf0f3;font-size:13px;margin-bottom:20px;padding-bottom:5px;
-    label{@include f_blind;}
-    input{border:none;background-color:#ffffff90;text-align:center;font-size:18px;}
-  }
-  .night_work{margin-left:30px;}
-}
+
 .p_confirm{max-width:300px;z-index:999991;
   .msg{display:flex;align-items:center;gap:20px;white-space:normal;overflow:visible;
     // &::before{@include shape(44px, 34px);;background:url(../images/ic_warning.png) 0 no-repeat;}
@@ -448,24 +441,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
     &:not(:first-of-type){border-left:1px solid vars.$td_border_color;}
   }
 }
-.p_dailyAttendance{width:900px;
-  .tbl_row{
-    th{width:120px;}
-    .file_input{gap:15px;}
-    .divide{@include divide($gap:15px);}
-  }
-  .attendance_record{margin-top:30px;
-    .tbl_wrap{height:auto;max-height:545px;min-height:auto;}
-  }  
-  tr:not(.caps) td{@include alignL(3 4 5 6){width:150px;};
-    &:nth-child(3),
-    &:nth-child(5){text-indent:40px;}
-  }
-  .caps{
-    td[colspan="2"]:last-of-type{text-indent:40px;}
-  }
-  .more{margin-right:auto;}
-}
+
 .flextime_status{width:400px;}
 .p_attendance_location{width:1400px;
 .legend { display:flex; align-items:center; gap:16px; }

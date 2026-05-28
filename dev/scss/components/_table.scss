@@ -39,10 +39,17 @@ td{white-space:nowrap;text-overflow:ellipsis;
   }
   tr.attention{background-color:#fef4f5;td{color:vars.$red;}}
   tbody .review{background-color:#fef4f5;}
-  .late{color:vars.$red;}
+  .late,.out{color:vars.$red;}
+}
+.has_edit-panel{
+  .select_tr{border-left:2px solid vars.$red;}
+  .expand-row > td{padding:0;border-bottom:none;}
+  .edit-panel{overflow:hidden;max-height:0;display:flex;flex-direction:column;gap:10px;transition:max-height 0.28s cubic-bezier(0.4, 0, 0.2, 1);background:#fff;
+    &--open {max-height:fit-content;padding:20px; border-bottom:1px solid vars.$td_border_color;}
+  }
 }
 .tbls_wrap{@include mixins.tbl_defaultH(50px);overflow-y:auto;
-  @include mixins.empty_txt(attr(data-empty)){background-color:transparent;};
+  &:empty{@include mixins.empty_txt(attr(data-empty)){background-color:transparent;}}
   header{position:sticky;top:0;left:0;background-color:#fff;z-index:60;border-bottom:2px solid vars.$th_border_color;padding-bottom:5px;
     &:not(:first-of-type){margin-top:20px;}
   }
@@ -71,7 +78,6 @@ td{white-space:nowrap;text-overflow:ellipsis;
    .cancellation{@extend .withdrawal;&::after{content:"취소"};}
    [--h]{text-align:left;height:var(--h);overflow-y:auto;}
 }
-.tbl_use_select td:first-child{width:60px;}
 .tbl_hover tbody tr:hover{background-color:#f9fafc;cursor:pointer;}
 .tbl_use_select{
   tbody tr.select_tr{background-color:lighten(vars.$red, 45%);}
@@ -162,4 +168,10 @@ td{white-space:nowrap;text-overflow:ellipsis;
   td{background:#fff;vertical-align:middle;white-space:nowrap;
     &:not(:first-of-type){border-left:1px solid vars.$td_border_color;}
   }
+}
+.tbl_expand{width:100%;background-color:#fff;box-shadow:1px 1px 5px 1px rgba(0,0,0,0.2);
+  th,td{height:28px;vertical-align:middle;border:1px solid vars.$td_border_color;border-width:0 0 1px 1px;padding:5px;
+    &:first-child{border-left-width:0;}
+  }
+  th{background-color:#edf0f3;border-color:vars.$th_border_color;}
 }

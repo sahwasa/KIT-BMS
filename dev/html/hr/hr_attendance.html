@@ -36,10 +36,19 @@
             <div class="btn_wrap">
               <button type="button" class="btn_red_line" data-action="open-upload" aria-label="캡스 데이터 업로드 팝업 열기">캡스업로드</button>
               <button type="button" class="btn_gray_line" aria-label="근태 데이터 다운로드">다운로드</button>
+              <span class="divide">
+                <button type="button" class="btn_action btn_action--warning" onclick="document.querySelector('.p_attendance_anomaly').showModal();">근태 이상감지 <em>3</em></button>
+                <button type="button" class="btn_action btn_action--time" onclick="document.querySelector('.p_attendance_correction').showModal();">출퇴근시각 정정요청 <em>3</em></button>
+              </span>
             </div>
           </section>
           <section>
             <div id='hrAttendance' class="hr_attendance"></div>
+            <ul class="hr_attendace_legend">
+              <li class="check">근태 이상 감지</li>
+              <li class="apply">정정요청</li>
+              <li class="modified">직권수정</li>
+            </ul>
           </section>
        </article>        
       </div>
@@ -51,11 +60,173 @@
 @@include('../../inc/pop/p_uploadFile.html')
 @@include('../../inc/pop/p_dailyAttendance.html')
 @@include('../../inc/pop/p_monthlyAttendance.html')
+@@include('../../inc/pop/p_attendanceLocation.html')
+@@include('../../inc/pop/p_attendance_anomaly.html')
+@@include('../../inc/pop/p_attendance_correction.html')
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/hr_attendance.js"></script>
 <script>
 //퍼블용
 commonInit();
+function initExpandTable({ tableSelector, colSpan, createPanelHTML, onSubmit }) {
+  let activeId = null;
+
+  function createExpandRow(id, row) {
+    const tr = document.createElement('tr');
+    tr.className = 'expand-row';
+    tr.dataset.expand = id;
+    tr.innerHTML = `<td colspan="${colSpan}"><div class="edit-panel edit-panel--open" id="panel-${id}">${createPanelHTML(id, row)}</div></td>`;
+
+    tr.querySelector('.btn_red').addEventListener('click', () => onSubmit(id, tr));
+    tr.querySelector('.btn_default').addEventListener('click', () => closeRow(id));
+    return tr;
+  }
+
+  function toggleRow(row) {
+    const id = row.dataset.id;
+    if (activeId === id) { closeRow(id); return; }
+    if (activeId) closeRow(activeId);
+    openRow(id, row);
+  }
+
+  function openRow(id, row) {
+    activeId = id;
+    document.querySelectorAll(`${tableSelector} tr[data-id]`).forEach(r => r.classList.remove('select_tr'));
+    row.classList.add('select_tr');
+    if (!document.getElementById('panel-' + id)) {
+      row.insertAdjacentElement('afterend', createExpandRow(id, row));
+    }
+  }
+
+  function closeRow(id) {
+    const panel = document.getElementById('panel-' + id);
+    if (panel) {
+      panel.classList.remove('edit-panel--open');
+      const expandTr = panel.closest('tr');
+      setTimeout(() => expandTr?.remove(), 0);
+    }
+    document.querySelector(`${tableSelector} tr[data-id="${id}"]`)?.classList.remove('select_tr');
+    if (activeId === id) activeId = null;
+  }
+
+  document.querySelector(tableSelector).addEventListener('click', (e) => {
+    const row = e.target.closest('tr[data-id]');
+    if (!row) return;
+    toggleRow(row);
+  });
+}
+// 근태 이상감지
+initExpandTable({
+  tableSelector: '.tbl_attendance_anomaly',
+  colSpan: 6,
+  createPanelHTML: (id, row) => `
+    <div class="file_input">
+      <span>
+        <label>출근</label>
+        <input type="date" title="출근일" min="0001-01-01" max="9999-12-31">
+        <input type="time" title="출근시각">
+      </span>
+      <span class="sep">→</span>
+      <span>
+        <label>퇴근</label>
+        <input type="date" title="퇴근일" min="0001-01-01" max="9999-12-31">
+        <input type="time" title="퇴근시각">
+      </span>
+      <span>
+        <label>근태판정</label>
+        <select>
+          <option>정상근무</option>
+          <option>지각</option>
+          <option>무단조퇴</option>
+          <option>지각,무단조퇴</option>
+          <option>결근</option>
+          <option selected>판정보류</option>
+          <option>판정불가</option>
+        </select>
+      </span>
+    </div>
+    <div class="file_input">
+      <label class="required">수정사유</label>
+      <input type="text" placeholder="수정사유를 입력하세요">
+    </div>
+    <div class="btn_wrap">
+      <button class="btn_red">직권수정</button>
+      <button class="btn_default">취소</button>
+    </div>
+  `,
+  onSubmit: (id, tr) => {
+    const reason = tr.querySelector('input[type="text"]');
+    if (!reason.value.trim()) { reason.focus(); return; }
+    // API 연동
+  }
+});
+
+// 출퇴근 시각 정정요청
+initExpandTable({
+  tableSelector: '.tbl_attendance_correction',
+  colSpan: 6,
+  createPanelHTML: (id, row) => `
+    <article class="attendance_record">          
+      <table class="tbl_expand tbl_hr">
+        <caption>출퇴근 기록</caption>
+        <thead>
+          <tr>
+            <th scope="col">번호</th>
+            <th scope="col">구분</th>
+            <th scope="col">출근</th>
+            <th scope="col">퇴근</th>
+            <th scope="col">근무시간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5">당일 출퇴근 기록이 없습니다.</td>
+          </tr>
+          <tr class="caps">
+            <td>1</td>
+            <td>캡스</td>              
+            <td class="late">03-05 09:01</td>
+            <td>03-06 09:00</td>
+            <td>24시간 1분</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>시스템</td>
+            <td>
+              <span class="time_record late">03-05 09:03</span>
+              <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+            </td>
+            <td>
+              <span class="time_record out">03-06 08:59</span>
+              <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button>
+            </td>
+            <td>23시간 54분</td>
+          </tr>           
+          <tr>
+            <td>3</td>
+            <td>시스템</td>
+            <td>
+              <span class="time_record">03-05 09:35</span>
+              <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+            </td>
+            <td>
+              <span class="time_record">03-06 12:00</span>
+              <button type="button" class="label_locate" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 내</button>
+            </td>
+            <td>2시간 25분</td>
+          </tr>           
+        </tbody>
+      </table>      
+    </article>    
+    <div class="btn_wrap">
+      <button class="btn_red">승인</button>
+      <button class="btn_default">반려</button>
+    </div>
+  `,
+  onSubmit: (id) => {
+    // 승인 API 연동
+  }
+});
 </script>
 </body>
 </html>

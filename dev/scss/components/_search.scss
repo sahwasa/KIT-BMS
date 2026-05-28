@@ -8,7 +8,7 @@
   button{width:27px;height:100%;@include mixins.f_blind;border-left:1px solid $b_color;
     &::before{@include mixins.fontello('\e802');color:vars.$btn_red;font-size:15px;vertical-align:middle;}
   }
-  &.long{width:276px;}
+  &.long{width:276px;}  
 }
 .search_list{display:flex;flex-flow:row wrap;align-items:center;gap:5px;margin-right:10px;}
 .search_list li{

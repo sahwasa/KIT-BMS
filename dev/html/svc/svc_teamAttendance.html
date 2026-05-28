@@ -7,11 +7,12 @@
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>부서 근태관리<span>근태관리</span></h1>
+        <h1>부서 근태현황<span>근태관리</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">사내서비스</a></li>
+            <li><a href="#">근태관리</a></li>
             <li>부서 근태현황</li>
           </ul>
         </section>
@@ -38,7 +39,7 @@
             </div>    
           </section>
           <section>
-            <div id='hrAttendance' class="hr_attendance"></div>
+            <div id='hrAttendance' class="svc_teamAttendance"></div>
           </section>
        </article>        
       </div>
@@ -47,10 +48,9 @@
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/pop/p_dailyAttendance.html')
-@@include('../../inc/pop/p_monthlyAttendance.html')
-@@include('../../inc/pop/p_attendanceLocation.html')
+@@include('../../inc/pop/p_svc_monthlyAttendance.html')
 @@include('../../inc/layout/script.html')
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
-<script src="../../js/hr_attendance.js"></script>
+<script src="../../js/svc_teamAttendance.js"></script>
 </body>
 </html>

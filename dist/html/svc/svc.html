@@ -97,7 +97,7 @@
           </header>
           <div class="noti-body">
             [현장 지진감지장치 유지관리 용역 제안]<br/>
-            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참것을 요청하셨습니다.
+            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참석을 요청하셨습니다.
           </div>
         </section>
       </div>
@@ -236,16 +236,16 @@
                 <dl>                
                   <dt>당해 근태</dt>
                   <dd><em>지각</em>1</dd>
-                  <dd><em>조퇴</em>1</dd>
+                  <dd><em>무단조퇴</em>1</dd>
                   <dd><em>결근</em>1</dd>
                 </dl>
                 <dl>                
                   <dt>이번달 근태</dt>
                   <dd><em>지각</em>1</dd>
-                  <dd><em>조퇴</em>1</dd>
+                  <dd><em>무단조퇴</em>1</dd>
                   <dd class="is_zero"><em>결근</em>0</dd>
                 </dl>
-                <dl>                
+                <dl tabindex="0" onclick="" class="attendance_anomaly">
                   <dt>근태 이상 감지</dt>
                   <dd>3건</dd>
                 </dl>                
@@ -350,7 +350,7 @@
                 <caption>유연근무 신청현황</caption>
                 <thead class="tbl_thead">
                   <tr>
-                    <th scope="col">신청자(소속)</th>
+                    <th scope="col">이름(소속)</th>
                     <th scope="col">신청시간</th>
                     <th scope="col">신청기간</th>
                     <th scope="col">사유</th>
@@ -416,6 +416,8 @@ $(function() {
     container.find('.tab_contents:not(:first)').hide();
   });
 });
+UI.toast('금일 출근 이력이 없습니다', 0);
+
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">

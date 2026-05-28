@@ -1,0 +1,95 @@
+@@include('../../inc/layout/top.html')
+<div id="wrap" class="wrap">
+  @@include('../../inc/layout/header.html')
+  @@include('../../inc/layout/nav.html')
+  <main id="content" class="container">
+    @@include('../../inc/snb/hr.html')
+    <section class="contents">
+      @@include('../../inc/snb/snb_fold.html')
+      <header class="cont_tit">
+        <h1>유연근무 신청이력<span>인사총무</span></h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>사내 서비스</li>
+            <li>인사총무</li>
+            <li>유연근무 신청이력</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body hr_flexworkMng">        
+        <section class="box_compact">
+            <ul class="search_list">
+              <li>
+                <select name="" id="" title="부서">
+                  <option value="">부서</option>                 
+                </select>
+              </li>
+              <li>
+                <input type="text" name="" id="" title="검색어" placeholder="이름 or 사번" list="">
+              </li>
+              <li>
+                <div class="period_group">
+                  <input type="radio" name="select_period" id="week"><label for="week">1주</label>
+                  <input type="radio" name="select_period" id="month"><label for="month">1달</label>
+                  <input type="radio" name="select_period" id="year"><label for="year">1년</label>
+                </div>
+                <div class="period_custom">
+                  <input type="date" title="시작일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
+                  <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0001-01-01" max="9999-12-31">
+                </div>
+              </li>              
+              <li>
+                <button type="button" class="btn_search">검색</button>
+              </li>
+            </ul>            
+            <div class="btn_wrap">
+              <button type="button" class="btn_gray_line">다운로드</button>
+            </div>
+          </section>
+        <article>          
+          <section class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>유연근무 신청이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">사원명</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">근무지</th>
+                  <th scope="col">신청 근로시간</th>
+                  <th scope="col">신청기간</th>
+                  <th scope="col">사유</th>
+                  <th scope="col">신청일시</th>
+                  <th scope="col">승인여부</th>
+                  <th scope="col">승인자</th>
+                  <th scope="col">승인일시</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>하츄핑</td>
+                  <td>IT사업본부</td>
+                  <td>본사</td>
+                  <td>10~19시</td>
+                  <td>2026-01-01 ~ 2026-12-31</td>
+                  <td><p>유연근무 신청사유</p></td>
+                  <td>2025-12-15 15:30</td>
+                  <td>대기</td>
+                  <td>뽀로로</td>
+                  <td>2025-12-15 15:30</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>        
+        </article>
+      </div>
+    </section>
+  </main>
+  @@include('../../inc/layout/footer.html')
+</div>
+@@include('../../inc/layout/script.html')
+@@include('../../inc/pop/p_leaveDtl.html')
+@@include('../../inc/pop/p_modifyLeave.html')
+</body>
+
+</html>

@@ -1,2 +1,69 @@
-@use '../base/mixin' as mixins;
-.hr_attendance{@include mixins.tbl_defaultH(25px);}
+@use '../base/variables' as vars;
+@use '../base/mixin' as *;
+@use '../vendors/fullcalendar' as calendar;
+
+$cal-status: (
+  'check':    (#ffecec, vars.$red),
+  'apply':    (#fef5ee, #f07816),
+  'modified': (#dce9fd, vars.$blue),
+);
+.hr_attendance{@include tbl_defaultH(55px);margin-bottom:15px;
+  @include calendar.attendance_mng;
+  // 이벤트 상태별 색상 (맵 루프)
+  @each $key, $colors in $cal-status {
+    .cal_#{$key} {
+      background-color: nth($colors, 1);
+      outline-color: nth($colors, 2);
+    }
+  }
+}
+.label_locate{display:inline-flex;align-items:center;gap:5px;height:22px;background-color:#edf0f3;border-radius:10px;padding:2px 13px 2px 5px;}
+.hr_attendace_legend{display:flex;align-items:center;gap:15px;
+  li{display:flex;align-items:center;gap:5px;font-size:12px;
+    &::before{@include shape(10px, 10px);border-radius:3px;flex-shrink:0;outline:1px solid transparent;}    
+  }
+  // 범례 상태별 색상 (맵 루프)
+  @each $key, $colors in $cal-status {
+    .#{$key}::before {
+      background-color: nth($colors, 1);
+      outline-color: nth($colors, 2);
+    }
+  }
+}
+.p_dailyAttendance{width:900px;
+  .tbl_row{
+    th{width:120px;}
+    .file_input{gap:15px;}
+    .divide{@include divide($gap:15px);}
+  }
+  .attendance_record{margin-top:30px;
+    .tbl_wrap{height:auto;max-height:545px;min-height:auto;}
+    th,td{border:1px solid vars.$td_border_color;border-width:0 1px 1px 0;
+      &:last-child{border-right-width:0;text-align:center;}    
+    }    
+  }
+  .more{margin-right:auto;font-weight:normal;}
+}
+.time_record{display:inline-block;width:120px;text-align:left;}
+.hr_flexworkMng .tbl_wrap{@include tbl_defaultH(25px);}
+.p_attendance_anomaly{width:1000px;
+  .p_body{padding-top:15px;}
+  .tbl_wrap{height:stretch;}
+  [data-id] td:last-child{text-align:left;} 
+  .file_input{
+    &:has(span){gap:20px;}
+    span{
+      &.sep{color:#777;}
+      &:last-of-type{margin-left:auto;}
+      select{width:auto;}
+    }
+  }
+  label{display:inline-block;width:80px;color:#777;font-weight:600;}
+  .btn_wrap{padding-top:0;}
+}
+.p_attendance_correction{width:1000px;
+   .p_body{padding-top:15px;}
+   .tbl_wrap{height:stretch;}
+   .edit-panel{background-color:#f9fafc;padding:10px;}
+  .btn_wrap{padding-top:0;}
+}

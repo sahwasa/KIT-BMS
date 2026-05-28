@@ -1,0 +1,63 @@
+<dialog class="p_attendance_anomaly" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>출퇴근 시각 정정요청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_info">
+      <h3>근태 이상감지 목록입니다.</h3>
+      <p>행을 클릭하면 직권수정 입력 패널이 열립니다. 수정사유는 필수 입력 항목입니다.</p>
+    </div>         
+    <div class="p_body">  
+      <div class="tbl_wrap tbl_attendance_anomaly has_edit-panel">
+        <table class="tbl_default tbl_use_select tbl_hover">
+          <caption>출퇴근 시각 정정요청</caption>
+          <thead>
+            <tr>
+              <th scope="col">번호</th>
+              <th scope="col">이름</th>
+              <th scope="col">근무형태</th>
+              <th scope="col">출근일시</th>
+              <th scope="col">퇴근일시</th>
+              <th scope="col">사유</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-id="anomaly1">
+              <td>1</td>
+              <td>하츄핑</td>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-18 18:00</td>
+              <td>근무지 외</td>
+            </tr>           
+            <tr data-id="anomaly2">
+              <td>2</td>
+              <td>아자핑</td>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-18 18:00</td>
+              <td>캡스데이터와 상이</td>
+            </tr>
+            <tr data-id="anomaly3">
+              <td>3</td>
+              <td>해핑</td>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-19 18:00</td>
+              <td>근무시간 25H 초과</td>
+            </tr>
+            <tr data-id="anomaly4">
+              <td>4</td>
+              <td>바로핑</td>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-18 18:00</td>
+              <td>위치정보 없음</td>
+            </tr>           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</dialog>

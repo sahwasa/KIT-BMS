@@ -2,11 +2,27 @@
 @use '../base/mixin' as mixins;
 
 //btn
+@mixin flex_lst{
+  display:flex;gap:4px;align-items:center;
+}
 .tool_wrap,
-.btn_wrap{display:flex;gap:4px;align-items:center;
+.btn_wrap{@include flex_lst();
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
   select,input{width:auto;}
+  .divide{@include mixins.divide(16px,1px);@include flex_lst();}
+}
+.btn_action{@include mixins.btn(vars.$btn_gray,true);@include flex_lst();color:#565656;
+  &::before{@include mixins.fontello('\e963');transform:translateY(1px);}
+  em{width:17px;height:17px;border-radius:50%;color:#fff;line-height:17px;font-size:11px;}
+  &--warning{
+    &::before{color:#BA7517;}
+    em{background-color:#BA7517;}
+  }
+  &--time{
+    &::before{color:#185FA5;content:"\ea87";}
+    em{background-color:#185FA5;}
+  }
 }
 .btn_more{@include mixins.img_btn(14px,14px,'ic_more.png');}
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color:#999;text-align:left;line-height:34px;

@@ -158,20 +158,18 @@
     @include cal_attendance;
   }
 }
-
-.hr_attendance{
+@mixin attendance_mng{
   .fc-timeline-events{height:inherit !important;padding-bottom:0 !important;}
   .fc-timeline-event-harness{visibility:visible !important;}
   .fc-event{height:inherit;text-align:center;background-color:transparent;border:none;margin:0 0 0 1px !important;box-sizing:border-box;padding:2px 0 1px;outline:1px solid transparent; outline-offset:-1px;}
   .fc-event-main{color:inherit;}
-  .cal_check{background-color:#ffecec;outline-color:vars.$red;}
-  .cal_modified{background-color:#dce9fd;outline-color:vars.$blue;}
   .fc-yearlyView-view th.fc-day-sat,
   .fc-yearlyView-view th.fc-day-sun {
     background: inherit !important;
     color: inherit !important;
   }
 }
+
 .teamPlan_legend{display:flex;flex-wrap:wrap;gap:8px;
   .legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-secondary);letter-spacing:-.02em;}
   .legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}

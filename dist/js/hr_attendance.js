@@ -10,7 +10,7 @@ var monthlyEvents = [
   { resourceId: '150', start: '2026-05-05', extendedProps: { type: '휴일',        time: '- / -' } },
   { resourceId: '150', start: '2026-05-06', className: 'cal_check', extendedProps: { type: '지각(09~18시)', time: '<span class="t_red">09:05</span> / 18:02' } },
   { resourceId: '150', start: '2026-05-07', extendedProps: { type: '외근(09~13시)', time: '- / 18:15' } },
-  { resourceId: '150', start: '2026-05-08', extendedProps: { type: '정상(09~18시)', time: '08:58 / 18:00' } },
+  { resourceId: '150', start: '2026-05-08', className: 'cal_apply', extendedProps: { type: '정상(09~18시)', time: '08:58 / 18:00' } },
   { resourceId: '150', start: '2026-05-11', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:05' } },
   { resourceId: '150', start: '2026-05-12', className: 'cal_modified', extendedProps: { type: '조퇴(09~18시)', time: '08:55 / <span class="t_red">16:30</span>' } },
   { resourceId: '150', start: '2026-05-13', extendedProps: { type: '정상(09~18시)', time: '08:40 / 18:20' } },
@@ -64,11 +64,11 @@ var yearlyEvents = [
 // 3. 리소스(사원) 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var RESOURCES = [
-  { id: '150', employee_id: '150', employee_name: '꾸래핑', dept: 'IT사업본부', loc: '본사', attendance: '1 / 1 / 0' },
-  { id: '151', employee_id: '151', employee_name: '바로핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 1' },
-  { id: '152', employee_id: '152', employee_name: '하츄핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0' },
-  { id: '153', employee_id: '153', employee_name: '아자핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0' },
-  { id: '154', employee_id: '154', employee_name: '차차핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0' },
+  { id: '150', employee_id: '150', employee_name: '꾸래핑', dept: 'IT사업본부', loc: '본사', attendance: '1 / 1 / 0 / 1' },
+  { id: '151', employee_id: '151', employee_name: '바로핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 1 / 0' },
+  { id: '152', employee_id: '152', employee_name: '하츄핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0 / 0' },
+  { id: '153', employee_id: '153', employee_name: '아자핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0 / 0' },
+  { id: '154', employee_id: '154', employee_name: '차차핑', dept: 'IT사업본부', loc: '본사', attendance: '0 / 0 / 0 / 0' },
 ];
 
 // =============================================
@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       {
         field: 'attendance',
-        headerContent: '지각/조퇴/결근',
-        width: '65px',
+        headerContent: '지각/무단조퇴/결근/보류',
+        width: '130px',
         cellClassNames: 'alignC',
       },
     ],

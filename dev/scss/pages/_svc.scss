@@ -1,5 +1,6 @@
 @use '../base/variables' as vars;
 @use '../base/mixin' as *;
+@use '../vendors/fullcalendar' as calendar;
 //svc
 .svc_home{@include flex_ver;
   header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
@@ -15,7 +16,8 @@
   }
   .attendance_summary{flex:.7;@include flex_ver;gap:5px;
     dl{@include box_style(10px,8px);flex:1;display:flex;justify-content:flex-end;align-items:center;gap:10px;
-      &:last-of-type{background-color:#FFF8E1;border:1px solid #FFE082;color:#C38041;
+      &.attendance_anomaly{background-color:#FFF8E1;border:1px solid #FFE082;color:#C38041;cursor:pointer;
+        &:hover{border-color:#c38041;}
         dt::before{@include fontello('\e963');margin-right:5px;transform:translateY(1px);}
         dd{color:#f59e0b;}
       }
@@ -70,6 +72,9 @@
 }
 .attendance_type{display:flex;gap:5px;align-items:center;margin-bottom:5px;
   em{font-weight:600;font-size:14px;}
+}
+.p_modify_attendance{width:450px;
+  .p_body{padding-top:10px;}
 }
 .time_summary{display:flex;padding:10px 0;
   li{flex:1;text-align:center;font-size:24px;color:vars.$blue;font-weight:600;
@@ -413,4 +418,8 @@ $_planTypes:(
     b{flex:1;text-align:right;}
   }
   .empty_txt{font-size:12px;color:#999;text-align:center;padding:10px 0;}
+}
+.svc_teamAttendance{@include tbl_defaultH(25px);
+  @include calendar.attendance_mng;
+  .fc-event{cursor:default;}
 }

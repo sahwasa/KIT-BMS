@@ -1,33 +1,51 @@
 @use '../base/variables' as vars;
-@use '../base/mixin' as mixins;
+@use '../base/mixin' as *;
 
 //badge
-.badge{@include mixins.badge_style();
-  &.draft{@include mixins.badge_color(vars.$draft)} 
-  &.ing{@include mixins.badge_color(vars.$ing)} 
-  &.approve,&.fin{@include mixins.badge_color(vars.$fin)} 
-  &.agree{@include mixins.badge_color(vars.$agree)} 
-  &.return,&.repair,&.reject{@include mixins.badge_color(vars.$reject)} 
-  &.ready,&.wait{@include mixins.badge_color(vars.$wait)} 
-  &.defer{@include mixins.badge_color(vars.$defer)} 
-  &.done{@include mixins.badge_color(vars.$done)} 
-  &.cc{@include mixins.badge_color(vars.$cc)} 
-  &.apply{@include mixins.badge_color(vars.$blue)}
-  &.default{@include mixins.badge_color(#b6b6b6)}
+.badge{@include badge_style();
+  &.draft{@include badge_color(vars.$draft)} 
+  &.ing{@include badge_color(vars.$ing)} 
+  &.approve,&.fin{@include badge_color(vars.$fin)} 
+  &.agree{@include badge_color(vars.$agree)} 
+  &.return,&.repair,&.reject{@include badge_color(vars.$reject)} 
+  &.ready,&.wait{@include badge_color(vars.$wait)} 
+  &.defer{@include badge_color(vars.$defer)} 
+  &.done{@include badge_color(vars.$done)} 
+  &.cc{@include badge_color(vars.$cc)} 
+  &.apply{@include badge_color(vars.$blue)}
+  &.default{@include badge_color(#b6b6b6)}
 }
-.i_badge{@include mixins.shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
+.i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
   &::before{font-size:14px;}
 }
 .public{background-color:#fff;border-color:#7d879f!important;color:#7d879f !important;}
 .private{background-color:#aab3c8;color:#fff !important;}
 .tags{
-  i{@include mixins.badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}}
+  i{@include badge_style(){background-color:#aab3c8;padding:0 5px;font-size:11px;line-height:13px;}}
   &:is(span){display:inline-block;line-height:16px;margin-right:5px;margin-top:5px;border-radius:3px;background-color:#aab3c8;
     i{margin-left:0;
       &+button.btn_deltag{font-size:0;
-        &::before{@include mixins.fontello('\eb2e');margin-right:5px;font-size:10px;color:#fff;vertical-align:middle;}
+        &::before{@include fontello('\eb2e');margin-right:5px;font-size:10px;color:#fff;vertical-align:middle;}
       }
     }
   }
 }
 .tbl_badge{@extend .badge;width:50px;min-width:50px;font-size:11px;font-weight:bold;}
+.tag_pm{@include badge_style(null,22px){position:relative;top:2px;background-color:#ffc938;color:#000;line-height:14px;font-size:10px;border-radius:0;font-weight:bold;}}
+.tbl_wrap .ico_org{font-size:0;}
+// ico_fontello
+.ico_org{vertical-align:middle;
+  &::before{font-size:17px;vertical-align:middle;}
+  &.use::before{@include fontello('\e903');color:#00b5da;} 
+  &.wait::before{@include fontello('\eb74');color:#f0a44f;}
+  &.suspension::before{@include fontello('\eb6f');color:#ff6363;}
+}
+.ico{
+  &_pc,
+  &_mobile{display:inline-flex;align-items:center;justify-content:center;width:21px;font-size:0;vertical-align:middle;
+    &::before{@include fontello('\f108');color:#888;}
+  }
+  &_pc::before{content:'\f108';font-size:13px;transform:translateY(1px);}
+  &_mobile::before{content:'\f10b';font-size:18px;}
+}
+.ic_modified{margin-left:auto;@include ico_only('\eb93');}

@@ -882,7 +882,7 @@ function initInteractiveDrag(selector, options = {}) {
   const settings = {
     speed: options.speed || 2.0,
     threshold: options.threshold || 10,
-    exclude: options.exclude || 'button, a, input, select, textarea, .fc-event',
+    exclude: options.exclude || 'button, input, select, textarea',
     onClick: options.onClick || null, // 드래그가 아닌 클릭 시 실행할 함수
     ...options
   };

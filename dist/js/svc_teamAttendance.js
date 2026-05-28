@@ -7,12 +7,11 @@ var monthlyEvents = [
   // 꾸래핑 (150)
   { resourceId: '150', start: '2026-05-01', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:05' } },
   { resourceId: '150', start: '2026-05-04', extendedProps: { type: '정상(09~18시)', time: '08:45 / 18:10' } },
-  { resourceId: '150', start: '2026-05-05', extendedProps: { type: '휴일',        time: '- / -' } },
-  { resourceId: '150', start: '2026-05-06', className: 'cal_check', extendedProps: { type: '지각(09~18시)', time: '<span class="t_red">09:05</span> / 18:02' } },
+  { resourceId: '150', start: '2026-05-06', extendedProps: { type: '지각(09~18시)', time: '<span class="t_red">09:05</span> / 18:02' } },
   { resourceId: '150', start: '2026-05-07', extendedProps: { type: '외근(09~13시)', time: '- / 18:15' } },
-  { resourceId: '150', start: '2026-05-08', className: 'cal_apply', extendedProps: { type: '정상(09~18시)', time: '08:58 / 18:00' } },
+  { resourceId: '150', start: '2026-05-08', extendedProps: { type: '정상(09~18시)', time: '08:58 / 18:00' } },
   { resourceId: '150', start: '2026-05-11', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:05' } },
-  { resourceId: '150', start: '2026-05-12', className: 'cal_modified', extendedProps: { type: '조퇴(09~18시)', time: '08:55 / <span class="t_red">16:30</span>' } },
+  { resourceId: '150', start: '2026-05-12', extendedProps: { type: '조퇴(09~18시)', time: '08:55 / <span class="t_red">16:30</span>' } },
   { resourceId: '150', start: '2026-05-13', extendedProps: { type: '정상(09~18시)', time: '08:40 / 18:20' } },
   { resourceId: '150', start: '2026-05-14', extendedProps: { type: '반차(09~14시)', time: '08:50 / 14:05' } },
   { resourceId: '150', start: '2026-05-15', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:10' } },
@@ -22,13 +21,12 @@ var monthlyEvents = [
   // 바로핑 (151)
   { resourceId: '151', start: '2026-05-01', extendedProps: { type: '연차',        time: '- / -' } },
   { resourceId: '151', start: '2026-05-04', extendedProps: { type: '정상(10~19시)', time: '09:50 / 19:05' } },
-  { resourceId: '151', start: '2026-05-05', extendedProps: { type: '휴일',        time: '- / -' } },
   { resourceId: '151', start: '2026-05-06', extendedProps: { type: '출장',        time: '- / -' } },
   { resourceId: '151', start: '2026-05-07', extendedProps: { type: '출장',        time: '- / -' } },
   { resourceId: '151', start: '2026-05-08', extendedProps: { type: '정상(10~19시)', time: '09:55 / 19:10' } },
   { resourceId: '151', start: '2026-05-11', extendedProps: { type: '정상(10~19시)', time: '09:45 / 19:02' } },
   { resourceId: '151', start: '2026-05-12', extendedProps: { type: '정상(10~19시)', time: '09:58 / 19:00' } },
-  { resourceId: '151', start: '2026-05-13', className: 'cal_delay', extendedProps: { type: '결근',       time: '- / -' } },
+  { resourceId: '151', start: '2026-05-13', extendedProps: { type: '결근',       time: '- / -' } },
   { resourceId: '151', start: '2026-05-14', extendedProps: { type: '정상(10~19시)', time: '09:52 / 19:05' } },
   { resourceId: '151', start: '2026-05-15', extendedProps: { type: '정상(10~19시)', time: '09:50 / 19:15' } },
   { resourceId: '151', start: '2026-05-18', extendedProps: { type: '정상(10~19시)', time: '09:40 / 19:08' } },
@@ -182,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     headerToolbar: {
       left:   'prevYear,prev,next,nextYear todayBtn',
       center: 'title',
-      right:  'monthly,yearly location',
+      right:  'monthly,yearly',
     },
     customButtons: {
       monthly: {
@@ -198,13 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
           calendar.changeView('yearlyView');
           document.querySelector('.fc-todayBtn-button').textContent = '당해';
         },
-      },
-      location: {
-        text: '위치현황',
-        click: function () {
-          document.querySelector('.p_attendance_location')?.showModal();
-        },
-      },
+      },     
       todayBtn: {
         text: '당월',
         click: function () { calendar.today(); },
@@ -256,14 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return { html: `${arg.event.extendedProps.late} / ${arg.event.extendedProps.early_leave}` };
       }
       return { html: `${arg.event.extendedProps.type}<br/>${arg.event.extendedProps.time}` };
-    },
-    eventClick: function (info) {
-      if (info.view.type === 'monthlyView') {
-        document.querySelector('.p_dailyAttendance').showModal();
-      } else if (info.view.type === 'yearlyView') {
-        document.querySelector('.p_monthlyAttendance').showModal();
-      }
-    },
+    },   
     views: {
       monthlyView: {
         type: 'resourceTimeline',

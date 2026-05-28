@@ -1,0 +1,47 @@
+<dialog class="p_attendance_correction" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>출퇴근 시각 정정요청</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_info">
+      <h3>출퇴근 시각 정정요청 목록입니다.</h3>
+      <p>행을 클릭하면 해당일 출퇴근 기록 패널이 열립니다. 변경요청 승인 시 최종 반영됩니다.</p>
+    </div>         
+    <div class="p_body">  
+      <div class="tbl_wrap tbl_attendance_correction has_edit-panel">
+        <table class="tbl_default tbl_use_select tbl_hover">
+          <caption>출퇴근 시각 정정요청</caption>
+          <thead>
+            <tr>
+              <th scope="col">번호</th>
+              <th scope="col">이름</th>
+              <th scope="col">근무형태</th>
+              <th scope="col">기존 출퇴근일시</th>
+              <th scope="col">변경 출퇴근일시</th>
+              <th scope="col">사유</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-id="correction1">
+              <td>1</td>
+              <td>하츄핑</td>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 10:58 → 26-05-18 18:00</td>
+              <td>26-05-18 09:00 → 26-05-18 18:00</td>
+              <td>출근 체크를 깜박했어요.</td>
+            </tr>            
+            <tr data-id="correction2">
+              <td>2</td>
+              <td>시진핑</td>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 10:58 → 26-05-18 18:00</td>
+              <td>26-05-18 09:00 → 26-05-18 18:00</td>
+              <td>퇴근 체크를 깜박했어요.</td>
+            </tr>            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</dialog>

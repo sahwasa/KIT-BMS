@@ -40,18 +40,18 @@
                     <option value="">무단조퇴</option>
                     <option value="">지각,무단조퇴</option>
                     <option value="">결근</option>
-                    <option value="">등등</option>
+                    <option value="">판정보류</option>
                   </select>
                   <span class="divide">
                     <button type="button" class="btn_default" onclick="document.querySelector('.p_approvalOpinion').showModal();">직권수정</button>
                   </span>
                 </div>
               </td>
-            </tr>
+            </tr>            
             <tr>
               <th scope="row" class="required"><label for="rm">수정사유</label></th>
               <td colspan="3"><input type="text" id="rm" placeholder="수정사유" maxlength="100" readonly /></td>
-            </tr>
+            </tr>            
             </tbody>
           </table>          
         </article>
@@ -67,38 +67,46 @@
                 <tr>
                   <th scope="col">번호</th>
                   <th scope="col">구분</th>
-                  <th scope="colgroup" colspan="2">출근</th>
-                  <th scope="colgroup" colspan="2">퇴근</th>
+                  <th scope="col">출근</th>
+                  <th scope="col">퇴근</th>
                   <th scope="col">근무시간</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td colspan="7">당일 출퇴근 기록이 없습니다.</td>
+                  <td colspan="5">당일 출퇴근 기록이 없습니다.</td>
                 </tr>
                 <tr class="caps">
                   <td>1</td>
                   <td>캡스</td>              
-                  <td colspan="2" class="late">09:01</td>
-                  <td colspan="2">09:00 <sup class="t_blue">+1일</sup></td>
+                  <td class="late">03-05 09:01</td>
+                  <td>03-06 09:00</td>
                   <td>24시간 1분</td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>시스템</td>
-                  <td class="late">09:03</td>
-                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
-                  <td class="out">08:59 <sup class="t_blue">+1일</sup></td>
-                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
+                  <td>
+                    <span class="time_record late">03-05 09:03</span>
+                    <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+                  </td>
+                  <td>
+                    <span class="time_record out">03-06 08:59</span>
+                    <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button>
+                  </td>
                   <td>23시간 54분</td>
                 </tr>           
                 <tr>
                   <td>3</td>
                   <td>시스템</td>
-                  <td>09:35 <sup class="t_blue">+1일</sup></td>
-                  <td><i class="ico_pc">PC</i> : 123.456.789</td>
-                  <td>12:00 <sup class="t_blue">+1일</sup></td>
-                  <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+                  <td>
+                    <span class="time_record">03-05 09:35</span>
+                    <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+                  </td>
+                  <td>
+                    <span class="time_record">03-06 12:00</span>
+                    <button type="button" class="label_locate" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 내</button>
+                  </td>
                   <td>2시간 25분</td>
                 </tr>           
               </tbody>

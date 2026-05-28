@@ -97,7 +97,7 @@
           </header>
           <div class="noti-body">
             [현장 지진감지장치 유지관리 용역 제안]<br/>
-            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참것을 요청하셨습니다.
+            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참석을 요청하셨습니다.
           </div>
         </section>
       </div>
@@ -132,6 +132,7 @@
       <li><a href="hr_leaveMng.html">연차관리</a>      
       <li><a href="hr_holidayWorkMng.html">휴일근무관리</a></li>
       <li><a href="hr_commuteLog.html">출퇴근이력</a></li>
+      <li><a href="hr_flexworkMng.html">유연근무 신청이력</a></li>
     </ul>
   </div>
 </section>
@@ -152,8 +153,16 @@
           <section class="box_compact">
             <ul class="search_list">
               <li>
+                <select name="" id="" title="검색조건">
+                  <option value="">부서</option>                 
+                  <option value="">김천</option>                 
+                  <option value="">레이더</option>                 
+                  <option value="">행안부</option>                 
+                </select>
+              </li>
+              <li>
                 <select name="" id="" title="부서">
-                  <option value="">본인 부서 기본값</option>                 
+                  <option value="">본인부서 기본값</option>
                 </select>
               </li>
               <li>
@@ -177,7 +186,7 @@
                 <button type="button" class="btn_search">검색</button>
               </li>
             </ul>            
-            <div class="btn_wrap">              
+            <div class="btn_wrap">                           
               <button type="button" class="btn_gray_line">다운로드</button>
             </div>
           </section>
@@ -205,7 +214,6 @@
   <div class="popover-count" id="popover-count"></div>
   <div class="popover-members" id="popover-members"></div>
 </dialog>
-
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>
@@ -231,6 +239,8 @@ $(function() {
     container.find('.tab_contents:not(:first)').hide();
   });
 });
+UI.toast('금일 출근 이력이 없습니다', 0);
+
 </script>
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">
