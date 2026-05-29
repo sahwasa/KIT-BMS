@@ -161,6 +161,7 @@ input[type="time"]::after{@include mixins.fontello('\eb02');font-size:18px;}
     display:grid;grid-template-columns:repeat(2, 100px 1fr);gap:15px;
   }
   .user_lst li{line-height:28px;} 
+  .ico_proj i::before{transform:translateY(1px);}
 }
 
 

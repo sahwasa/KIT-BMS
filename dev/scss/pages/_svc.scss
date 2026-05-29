@@ -49,6 +49,10 @@
   }
  
 }
+.p_attendance_anomaly_personal{width:700px;
+  .tbl_wrap{height:stretch;}
+  td:last-child{width:280px; text-align-last:left;}  
+}
 .box_compact:has(.summary){
   .summary{display:flex;padding:10px 0;
     li{flex:1;text-align:center;font-size:24px;color:vars.$gray;font-weight:600;}
@@ -73,9 +77,7 @@
 .attendance_type{display:flex;gap:5px;align-items:center;margin-bottom:5px;
   em{font-weight:600;font-size:14px;}
 }
-.p_modify_attendance{width:450px;
-  .p_body{padding-top:10px;}
-}
+.p_modify_attendance{width:450px;}
 .time_summary{display:flex;padding:10px 0;
   li{flex:1;text-align:center;font-size:24px;color:vars.$blue;font-weight:600;
     &:nth-child(1),
@@ -243,7 +245,8 @@ $_planTypes:(
   .tbl_wrap{flex:1;height:calc(100vh - 288px);}
 }
 .tbl_business{td{@include alignL(4);}@include tbl_defaultH(41px);}
-.leave_desc{display: flex;flex-direction: column;gap:vars.$columnGap;
+.leave_desc,
+.commute_log{display: flex;flex-direction: column;gap:vars.$columnGap;
    header{display:flex;align-items:center;@include tit();@include tit_bullet(h1);margin-bottom:5px;}
   .tbl_wrap{height:calc(100vh - 370px);min-height:250px;
     span{@include text_ellipsis;width:380px;text-align:left;}

@@ -47,6 +47,9 @@ $btn_red:#f05050;
 $btn_gray:#979797;
 $btn_red_line:#ff7575;
 
+//결재
+$signType:('draft':$draft,'ing':$ing,'approve':$fin,'fin':$fin,'reject':$reject,'return':$reject,'ready':$wait,'wait':$wait,'defer':$defer,'done':$done,'agree':$agree,'cc':$cc,'relay':$relay);
+
 //업무
 $titColor:('com':#000,'req':#56b1b6, 'pro':#3d6ed2, 'per':#f26c00, 'meet':#d85c82);
 $roomType:('A':#ff6347,'B':#56b1b6, 'C':#ff6bcb, 'D':#9167df, 'E':#efbb0f, 'F':#4285f4, 'G':#7f4103, 'H':#87d254);

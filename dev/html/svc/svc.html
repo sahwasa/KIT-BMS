@@ -43,9 +43,9 @@
                   <dd><em>무단조퇴</em>1</dd>
                   <dd class="is_zero"><em>결근</em>0</dd>
                 </dl>
-                <dl tabindex="0" onclick="" class="attendance_anomaly">
-                  <dt>근태 이상 감지</dt>
-                  <dd>3건</dd>
+                <dl tabindex="0" onclick="document.querySelector('.p_attendance_anomaly_personal').showModal();" class="attendance_anomaly">
+                  <dt>근태판정 보류</dt>
+                  <dd>4건</dd>
                 </dl>                
               </div>          
             </div>
@@ -178,8 +178,7 @@
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
-@@include('../../inc/pop/p_calendar_popover.html')
-
+@@include('../../inc/pop/p_attendance_anomaly_personal.html')
 @@include('../../inc/layout/script.html')
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <!-- <script src='../../plugins/google-calendar/index.global.min.js'></script> -->

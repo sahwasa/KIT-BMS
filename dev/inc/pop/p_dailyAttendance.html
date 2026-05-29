@@ -25,12 +25,13 @@
               <td colspan="3">
                 <div class="file_input">
                   <span>
-                    <label for="">출근 :</label>
+                    <label for="" class="label_badge">출근</label>
                     <input type="date" title="출근일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                     <input type="time" name="start_time" title="출근시각">
                   </span>
+                  <span class="sep">→</span>
                   <span>
-                    <label for="">퇴근 :</label>
+                    <label for="" class="label_badge">퇴근</label>
                     <input type="date" min="0001-01-01" max="9999-12-31" title="퇴근일" name="end_date" min="0001-01-01" max="9999-12-31">
                     <input type="time" title="퇴근시각" name="end_time">
                   </span>
@@ -109,6 +110,64 @@
                   </td>
                   <td>2시간 25분</td>
                 </tr>           
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="attendance_record">
+          <header class="p_body_tit">
+            <h1>직권수정 및 정정요청 이력</h1>
+          </header>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <thead>
+                <tr>
+                  <th scope="col">유형</th>
+                  <th scope="col">기존 출퇴근일시</th>
+                  <th scope="col">변경 출퇴근일시</th>
+                  <th scope="col">사유</th>
+                  <th scope="col">관리</th>
+                  <th scope="col">비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>정정요청</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>퇴근 체크 미입력</td>
+                  <td>반려(26-05-18 시진핑)</td>
+                  <td>반려시 반려사유</td>
+                </tr>
+                <tr>
+                  <td>정정요청</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>퇴근 체크 미입력</td>
+                  <td>승인(26-05-18 시진핑)</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>정정요청</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>구두 보고</td>
+                  <td>
+                    <div class="btn_wrap_small">
+                      <button type="button" class="btn_red">승인</button>
+                      <button type="button" class="btn_default" onclick="document.querySelector('.p_rejectOpinion').showModal();">반려</button>
+                    </div>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>직권수정</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>캡스 기기오류</td>
+                  <td>수정(26-05-18 시진핑)</td>
+                  <td></td>
+                </tr>
               </tbody>
             </table>
           </div>

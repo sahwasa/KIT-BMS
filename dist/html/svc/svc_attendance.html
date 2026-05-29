@@ -230,7 +230,7 @@
             <li>근무완료</li>
             <li>연장근무</li>
             <li>특별근무</li>
-            <li>퇴근미입력</li>
+            <li>판정보류/정정요청중</li>
             <li>지각,조퇴</li>
             <li>결근</li>
             <li>휴가,반차</li>
@@ -270,9 +270,19 @@
         </dd>
         <dt><label for="" class="required">사유 </label></dt>
         <dd ><input type="text" id="" /></dd>
+
+        <dt>처리상태</dt>
+        <dd class="ico_proj">
+          <i class="hold">검토 중</i>
+          <i class="done">승인</i>
+          <i class="apply">반려</i>
+        </dd>
+        <dt>반려사유</dt>
+        <dd>반려 시 반려 사유가 나옴</dd>
+
       </dl>       
       <div class="btn_wrap">
-        <button class="btn_red" type="submit">승인요청</button>
+        <button class="btn_red" type="submit">요청</button>
         <button class="btn_gray_line" type="button">닫기</button>
       </div>
     </div>

@@ -183,16 +183,16 @@
               <button type="button" class="btn_red_line" data-action="open-upload" aria-label="캡스 데이터 업로드 팝업 열기">캡스업로드</button>
               <button type="button" class="btn_gray_line" aria-label="근태 데이터 다운로드">다운로드</button>
               <span class="divide">
-                <button type="button" class="btn_action btn_action--warning" onclick="document.querySelector('.p_attendance_anomaly').showModal();">근태 이상감지 <em>3</em></button>
-                <button type="button" class="btn_action btn_action--time" onclick="document.querySelector('.p_attendance_correction').showModal();">출퇴근시각 정정요청 <em>3</em></button>
+                <button type="button" class="btn_action btn_action--warning" onclick="document.querySelector('.p_attendance_anomaly').showModal();">근태판정 보류<em>3</em></button>
+                <button type="button" class="btn_action btn_action--time" onclick="document.querySelector('.p_attendance_correction').showModal();">출퇴근시각 정정요청<em>3</em></button>
               </span>
             </div>
           </section>
           <section>
             <div id='hrAttendance' class="hr_attendance"></div>
             <ul class="hr_attendace_legend">
-              <li class="check">근태 이상 감지</li>
-              <li class="apply">정정요청</li>
+              <li class="check">근태판정 보류</li>
+              <li class="request">정정요청</li>
               <li class="modified">직권수정</li>
             </ul>
           </section>
@@ -356,12 +356,13 @@ UI.toast('금일 출근 이력이 없습니다', 0);
               <td colspan="3">
                 <div class="file_input">
                   <span>
-                    <label for="">출근 :</label>
+                    <label for="" class="label_badge">출근</label>
                     <input type="date" title="출근일" data-type="from" id="start_date" name="start-date" min="0001-01-01" max="9999-12-31">
                     <input type="time" name="start_time" title="출근시각">
                   </span>
+                  <span class="sep">→</span>
                   <span>
-                    <label for="">퇴근 :</label>
+                    <label for="" class="label_badge">퇴근</label>
                     <input type="date" min="0001-01-01" max="9999-12-31" title="퇴근일" name="end_date" min="0001-01-01" max="9999-12-31">
                     <input type="time" title="퇴근시각" name="end_time">
                   </span>
@@ -444,6 +445,64 @@ UI.toast('금일 출근 이력이 없습니다', 0);
             </table>
           </div>
         </article>
+        <article class="attendance_record">
+          <header class="p_body_tit">
+            <h1>직권수정 및 정정요청 이력</h1>
+          </header>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <thead>
+                <tr>
+                  <th scope="col">유형</th>
+                  <th scope="col">기존 출퇴근일시</th>
+                  <th scope="col">변경 출퇴근일시</th>
+                  <th scope="col">사유</th>
+                  <th scope="col">관리</th>
+                  <th scope="col">비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>정정요청</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>퇴근 체크 미입력</td>
+                  <td>반려(26-05-18 시진핑)</td>
+                  <td>반려시 반려사유</td>
+                </tr>
+                <tr>
+                  <td>정정요청</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>퇴근 체크 미입력</td>
+                  <td>승인(26-05-18 시진핑)</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>정정요청</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>구두 보고</td>
+                  <td>
+                    <div class="btn_wrap_small">
+                      <button type="button" class="btn_red">승인</button>
+                      <button type="button" class="btn_default" onclick="document.querySelector('.p_rejectOpinion').showModal();">반려</button>
+                    </div>
+                  </td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>직권수정</td>
+                  <td>05-18 10:58 → 05-18 18:00</td>
+                  <td>05-18 09:00 → 05-18 18:00</td>
+                  <td>캡스 기기오류</td>
+                  <td>수정(26-05-18 시진핑)</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
       </div>
       <div class="btn_wrap">
         <div class="more">최종수정 : 24-06-05 15:30</div>
@@ -483,7 +542,12 @@ UI.toast('금일 출근 이력이 없습니다', 0);
       <header class="p_body_tit">
         <h1>2026년 3월 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
         <span class="tool">
-          지각 : 1 / 무단조퇴 : 1 / 결근 : 0 / 보류 : 2
+          <div class="count">
+            <span>지각<em id="">0</em></span>
+            <span>무단조퇴<em id="">0</em></span>
+            <span>결근<em id="">0</em></span>
+            <span>보류<em id="">0</em></span>
+          </div>
         </span>
       </header>
       <div class="tbl_wrap">
@@ -491,36 +555,38 @@ UI.toast('금일 출근 이력이 없습니다', 0);
           <caption>월별 근태목록</caption>
           <thead>
             <tr>
-              <th scope="col" rowspan="2">근무일자</th>
-              <th scope="col" rowspan="2">근무형태</th>
-              <th scope="col" colspan="2">시스템 출근</th>
-              <th scope="col" colspan="2">시스템 퇴근</th>
+              <th scope="col">근무일자</th>
+              <th scope="col">근무형태</th>
+              <th scope="col">시스템 출근</th>
+              <th scope="col">시스템 퇴근</th>
               <th scope="col">캡스 출근</th>
               <th scope="col">캡스 퇴근</th>
-              <th scope="col" rowspan="2">근무지</th>
-              <th scope="col" rowspan="2">상태</th>
-              <th scope="col" rowspan="2">비고</th>
+              <th scope="col">근무지</th>
+              <th scope="col">상태</th>
+              <th scope="col">비고</th>
             </tr>
           </thead>
           <tbody>            
             <tr class="review">
               <td>03-06</td>
               <td>평일(10~19)</td>
-              <td>10:00</td>
-              <td><i class="ico_pc">PC</i> : 123.456.7.89</td>
-              <td>18:00</td>
-              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+              <td>
+                <span class="time_record">03-06 10:00</span>
+                <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+              </td>
+              <td>
+                <span class="time_record">03-06 18:00</span>
+                <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>본사</td>
-              <td>-</td>
-              <td>캡스시간 누락</td>
+              <td>보류</td>
+              <td>근무지 외</td>
             </tr>           
             <tr>
               <td>03-05</td>
               <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
-              <td>-</td>
-              <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -532,9 +598,10 @@ UI.toast('금일 출근 이력이 없습니다', 0);
             <tr>
               <td>03-04</td>
               <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
-              <td class="late">18:01</td>
-              <td>-</td>
-              <td>10:05<sup class="t_blue">+1일</sup></td>
+              <td>
+                <span class="time_record">03-04 08:59</span>
+                <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 내</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -545,38 +612,48 @@ UI.toast('금일 출근 이력이 없습니다', 0);
             <tr>
               <td>03-03</td>
               <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장(09~18)</button></td>
-              <td>08:50</td>
-              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
-              <td>18:05</td>
-              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+              <td><span class="time_record out">03-06 08:59</span><button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button></td>
+              <td>
+                <span class="time_record">03-03 09:35</span>
+                <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>세종시</td>
               <td>-</td>
+              <td>-</td>
             </tr>
             <tr>
               <td>03-02</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button></td>
-              <td>-</td>
-              <td>-</td>
+              <td>
+                <button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>본사</td>
+              <td>-</td>
               <td>-</td>
             </tr>
             <tr class="review">
               <td>03-01</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('휴일근무신청서 ? 결과보고서? 연결');">휴일근무(09~14)</button></td>
-              <td class="late">09:06</td>
-              <td><i class="ico_pc">PC</i>:123.456.7.89</td>
-              <td>09:00</td>
-              <td><i class="ico_pc">PC</i>:123.456.7.89</td>
-              <td>15:05 <sup class="t_blue">+1일</sup></td>
-              <td>15:05</td>
+              <td>
+                <button type="button" onclick="event.stopPropagation();alert('휴일근무신청서 ? 결과보고서? 연결');">휴일근무(09~14)</button>
+              </td>
+              <td>
+                <span class="time_record">03-01 09:03</span>
+                <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+              </td>
+              <td>
+                <span class="time_record">03-01 09:03</span>
+                <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+              </td>
+              <td>03-01 09:00</td>
+              <td>03-01 15:05 <sup class="t_blue">+1일</sup></td>
               <td>본사</td>
-              <td>상태 불일치</td>
+              <td>보류</td>
+              <td>캡스상태 불일치</td>
             </tr>          
           </tbody>
         </table>
@@ -600,7 +677,7 @@ UI.toast('금일 출근 이력이 없습니다', 0);
         <div class="legend-item"><div class="legend-dot" style="background:#BA7517;"></div>퇴근</div>
         <div class="legend-item"><div class="legend-dot" style="background:#534AB7;"></div>클러스터</div>
       </div>
-      <div class="map-wrap" id="mapWrap">
+      <div class="map-wrap" id="mapWrap" style="background: url(../../images/temp/temp_map.jpg) 50% / cover;">
         <!-- <img src="https://tile.openstreetmap.org/14/13712/6231.png" id="map-svg" alt=""> -->
         <!-- 마커 컨테이너 -->
         <!-- <div id="markerContainer" class="maker_container" > -->
@@ -627,207 +704,20 @@ UI.toast('금일 출근 이력이 없습니다', 0);
     </div>
   </form>
 </dialog>
-<script>
-const attendanceData = [
-  { name:'김철수', type:'checkin',  time:'09:02', px:25, py:22 },
-  { name:'김철수', type:'checkout', time:'18:15', px:27, py:25 },
-  { name:'이영희', type:'checkin',  time:'08:55', px:52, py:20 },
-  { name:'이영희', type:'checkout', time:'18:30', px:55, py:23 },
-  { name:'박민준', type:'checkin',  time:'09:10', px:15, py:42 },
-  { name:'최수연', type:'checkin',  time:'08:48', px:72, py:35 },
-  { name:'최수연', type:'checkout', time:'17:58', px:74, py:38 },
-  { name:'정우성', type:'checkin',  time:'09:30', px:38, py:60 },
-  { name:'정우성', type:'checkout', time:'18:20', px:40, py:63 },
-  { name:'한지민', type:'checkout', time:'18:45', px:60, py:75 },
-  { name:'한지민', type:'checkin',  time:'09:05', px:58, py:72 },
-  { name:'오세진', type:'checkin',  time:'08:50', px:84, py:55 },
-];
-
-const mapWrap = document.getElementById('mapWrap');
-const mc      = document.getElementById('markerContainer');
-let zoom      = 1;
-let pan       = { x:0, y:0 };
-let dragging  = false;
-let dragStart = { x:0, y:0 };
-let panStart  = { x:0, y:0 };
-let activeTooltip = null;
-
-const CLUSTER_ZOOM = 1.3;
-const CLUSTER_PX   = 80;
-
-function hideTooltip() {
-  if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; }
-}
-
-function showTooltip(html, cx, cy) {
-  hideTooltip();
-  const tip = document.createElement('div');
-  tip.className = 'tooltip';
-  tip.innerHTML = html;
-  mapWrap.appendChild(tip);
-
-  const mw = mapWrap.offsetWidth;
-  const mh = mapWrap.offsetHeight;
-  let tx = cx + 14, ty = cy - 80;
-  if (tx + 180 > mw) tx = cx - 194;
-  if (ty < 10) ty = cy + 20;
-  if (ty + 140 > mh) ty = mh - 150;
-  tip.style.left = tx + 'px';
-  tip.style.top  = ty + 'px';
-  activeTooltip  = tip;
-}
-
-function pxToScreen(px, py) {
-  const mw = mapWrap.offsetWidth;
-  const mh = mapWrap.offsetHeight;
-  return {
-    x: (px / 100) * mw * zoom + pan.x,
-    y: (py / 100) * mh * zoom + pan.y
-  };
-}
-
-function dist2d(a, b) {
-  return Math.sqrt((a.sx - b.sx) ** 2 + (a.sy - b.sy) ** 2);
-}
-
-function render() {
-  mc.innerHTML = '';
-  hideTooltip();
-
-  const pts = attendanceData.map(d => {
-    const s = pxToScreen(d.px, d.py);
-    return { data:d, sx:s.x, sy:s.y };
-  });
-
-  if (zoom >= CLUSTER_ZOOM) {
-    pts.forEach(p => {
-      const el = document.createElement('div');
-      el.className = `marker-wrap ${p.data.type}`;
-      el.style.cssText = `left:${p.sx}px;top:${p.sy}px;pointer-events:auto;`;
-      el.innerHTML = `
-        <div class="marker-bubble">
-          <div class="marker-dot"></div>
-          ${p.data.name}
-          <span style="opacity:0.6;font-size:11px;margin-left:2px;">${p.data.time}</span>
-        </div>
-        <div class="marker-tail"></div>
-        <div class="marker-pin"></div>`;
-      el.addEventListener('click', e => {
-        e.stopPropagation();
-        const dot   = p.data.type === 'checkin' ? '#185FA5' : '#BA7517';
-        const label = p.data.type === 'checkin' ? '출근' : '퇴근';
-        showTooltip(`
-          <div class="tooltip-name">${p.data.name}</div>
-          <div class="tooltip-row">
-            <div class="tooltip-dot" style="background:${dot};"></div>
-            ${label} · ${p.data.time}
-          </div>
-          <div class="tooltip-meta">위치 좌표 (${p.data.px.toFixed(1)}, ${p.data.py.toFixed(1)})</div>
-        `, p.sx, p.sy);
-      });
-      mc.appendChild(el);
-    });
-  } else {
-    const used     = new Array(pts.length).fill(false);
-    const clusters = [];
-    for (let i = 0; i < pts.length; i++) {
-      if (used[i]) continue;
-      const group = [pts[i]];
-      used[i] = true;
-      for (let j = i+1; j < pts.length; j++) {
-        if (!used[j] && dist2d(pts[i], pts[j]) < CLUSTER_PX) {
-          group.push(pts[j]); used[j] = true;
-        }
-      }
-      const cx = group.reduce((s,p)=>s+p.sx,0)/group.length;
-      const cy = group.reduce((s,p)=>s+p.sy,0)/group.length;
-      clusters.push({ members: group.map(p=>p.data), cx, cy });
-    }
-
-    clusters.forEach(cl => {
-      const inCnt  = cl.members.filter(m=>m.type==='checkin').length;
-      const outCnt = cl.members.filter(m=>m.type==='checkout').length;
-      const size   = Math.min(38 + cl.members.length * 5, 62);
-      let bg, border;
-      if (inCnt>0 && outCnt>0)  { bg='#534AB7'; border='#AFA9EC'; }
-      else if (inCnt>0)          { bg='#185FA5'; border='#85B7EB'; }
-      else                        { bg='#BA7517'; border='#EF9F27'; }
-
-      const el = document.createElement('div');
-      el.className = 'cluster-wrap';
-      el.style.cssText = `left:${cl.cx}px;top:${cl.cy}px;width:${size}px;height:${size}px;background:${bg};border-color:${border};pointer-events:auto;`;
-      el.textContent = cl.members.length;
-      el.addEventListener('click', e => {
-        e.stopPropagation();
-        const rows = cl.members.map(m => {
-          const dot   = m.type==='checkin' ? '#185FA5' : '#BA7517';
-          const label = m.type==='checkin' ? '출근' : '퇴근';
-          return `<div class="tooltip-row"><div class="tooltip-dot" style="background:${dot};"></div>${m.name} · ${label} ${m.time}</div>`;
-        }).join('');
-        showTooltip(`
-          <div class="tooltip-name">총 ${cl.members.length}건</div>
-          <div class="tooltip-meta" style="margin-bottom:6px;">출근 ${inCnt}건 · 퇴근 ${outCnt}건</div>
-          <hr class="tooltip-divider">${rows}
-        `, cl.cx, cl.cy);
-      });
-      mc.appendChild(el);
-    });
-  }
-
-  // const svg = document.getElementById('map-svg');
-  // svg.style.transform = `translate(${pan.x}px,${pan.y}px) scale(${zoom})`;
-  // svg.style.transformOrigin = '0 0';
-}
-
-document.getElementById('zoomIn').addEventListener('click', () => {
-  zoom = Math.min(zoom + 0.3, 3);
-  render();
-});
-document.getElementById('zoomOut').addEventListener('click', () => {
-  zoom = Math.max(zoom - 0.3, 0.6);
-  render();
-});
-
-mapWrap.addEventListener('mousedown', e => {
-  if (e.target.closest('.marker-wrap,.cluster-wrap,.zoom-ctrl')) return;
-  dragging = true;
-  dragStart = { x:e.clientX, y:e.clientY };
-  panStart  = { ...pan };
-});
-window.addEventListener('mousemove', e => {
-  if (!dragging) return;
-  pan.x = panStart.x + (e.clientX - dragStart.x);
-  pan.y = panStart.y + (e.clientY - dragStart.y);
-  render();
-});
-window.addEventListener('mouseup', () => { dragging = false; });
-
-mapWrap.addEventListener('wheel', e => {
-  e.preventDefault();
-  zoom = Math.max(0.6, Math.min(3, zoom - e.deltaY * 0.001));
-  render();
-}, { passive:false });
-
-mapWrap.addEventListener('click', e => {
-  if (!e.target.closest('.marker-wrap,.cluster-wrap')) hideTooltip();
-});
-
-render();
-</script>
 <dialog class="p_attendance_anomaly" tabindex="0">
   <form method="dialog">
     <div class="p_header">
-      <strong>출퇴근 시각 정정요청</strong>
+      <strong>근태판정 보류</strong>
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </div>   
     <div class="p_info">
-      <h3>근태 이상감지 목록입니다.</h3>
+      <h3>근태 판정보류 목록입니다.</h3>
       <p>행을 클릭하면 직권수정 입력 패널이 열립니다. 수정사유는 필수 입력 항목입니다.</p>
     </div>         
     <div class="p_body">  
       <div class="tbl_wrap tbl_attendance_anomaly has_edit-panel">
         <table class="tbl_default tbl_use_select tbl_hover">
-          <caption>출퇴근 시각 정정요청</caption>
+          <caption>근태판정 보류</caption>
           <thead>
             <tr>
               <th scope="col">번호</th>
@@ -924,6 +814,27 @@ render();
     </div>
   </form>
 </dialog>
+<dialog class="p_rejectOpinion">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>정정요청 반려</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_body">
+      <div class="approval_often">
+        <div class="p_body_tit">
+          <h1>반려사유</h1>
+        </div>
+      </div>
+      <textarea name="" id="" placeholder="반려사유를 입력해주세요."></textarea>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit">확인</button>
+        <button class="btn_gray_line">취소</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/hr_attendance.js"></script>
 <script>
@@ -983,13 +894,13 @@ initExpandTable({
   createPanelHTML: (id, row) => `
     <div class="file_input">
       <span>
-        <label>출근</label>
+        <label for="" class="label_badge">출근</label>
         <input type="date" title="출근일" min="0001-01-01" max="9999-12-31">
         <input type="time" title="출근시각">
       </span>
       <span class="sep">→</span>
       <span>
-        <label>퇴근</label>
+        <label for="" class="label_badge">퇴근</label>
         <input type="date" title="퇴근일" min="0001-01-01" max="9999-12-31">
         <input type="time" title="퇴근시각">
       </span>
@@ -1080,8 +991,8 @@ initExpandTable({
       </table>      
     </article>    
     <div class="btn_wrap">
-      <button class="btn_red">승인</button>
-      <button class="btn_default">반려</button>
+      <button class="btn_red" type="sumbmit">승인</button>
+      <button class="btn_default" type="button" onclick="document.querySelector('.p_rejectOpinion').showModal();">반려</button>
     </div>
   `,
   onSubmit: (id) => {

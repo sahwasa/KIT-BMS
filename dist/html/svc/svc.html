@@ -245,9 +245,9 @@
                   <dd><em>무단조퇴</em>1</dd>
                   <dd class="is_zero"><em>결근</em>0</dd>
                 </dl>
-                <dl tabindex="0" onclick="" class="attendance_anomaly">
-                  <dt>근태 이상 감지</dt>
-                  <dd>3건</dd>
+                <dl tabindex="0" onclick="document.querySelector('.p_attendance_anomaly_personal').showModal();" class="attendance_anomaly">
+                  <dt>근태판정 보류</dt>
+                  <dd>4건</dd>
                 </dl>                
               </div>          
             </div>
@@ -383,14 +383,59 @@
   <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
 </footer>
 </div>
-<!-- 팝오버 -->
-<dialog class="cal_popover" id="popover">
-  <button class="popover-close" id="popover-close">×</button>
-  <div class="popover-title" id="popover-title"></div>
-  <div class="popover-count" id="popover-count"></div>
-  <div class="popover-members" id="popover-members"></div>
+<dialog class="p_attendance_anomaly_personal" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>근태판정 보류</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>
+    <div class="p_info">
+      <h3>근태 판정보류 목록입니다.</h3>
+      <p>판정 보류 사유를 확인 후 정정이 필요한 경우 경영지원실에 문의 바랍니다.</p>
+    </div>
+    <div class="p_body">  
+      <div class="tbl_wrap">
+        <table class="tbl_default">
+          <caption>근태판정 보류</caption>
+          <thead>
+            <tr>
+              <th scope="col">근무형태</th>
+              <th scope="col">출근일시</th>
+              <th scope="col">퇴근일시</th>
+              <th scope="col">사유</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-18 18:00</td>
+              <td>근무지 외</td>
+            </tr>           
+            <tr>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-18 18:00</td>
+              <td>캡스데이터와 상이</td>
+            </tr>
+            <tr>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-19 18:00</td>
+              <td>근무시간 25H 초과</td>
+            </tr>
+            <tr>
+              <td>평일(09~18시)</td>
+              <td>26-05-18 08:58</td>
+              <td>26-05-18 18:00</td>
+              <td>위치정보 없음</td>
+            </tr>           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
 </dialog>
-
 <script src="../../plugins/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery.MultiFile.js"></script>

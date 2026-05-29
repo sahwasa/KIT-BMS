@@ -8,7 +8,12 @@
       <header class="p_body_tit">
         <h1>2026년 3월 <span class="divide">IT사업본부 홍길동 (사번:150)</span></h1>
         <span class="tool">
-          지각 : 1 / 무단조퇴 : 1 / 결근 : 0 / 보류 : 2
+          <div class="count">
+            <span>지각<em id="">0</em></span>
+            <span>무단조퇴<em id="">0</em></span>
+            <span>결근<em id="">0</em></span>
+            <span>보류<em id="">0</em></span>
+          </div>
         </span>
       </header>
       <div class="tbl_wrap">
@@ -16,36 +21,38 @@
           <caption>월별 근태목록</caption>
           <thead>
             <tr>
-              <th scope="col" rowspan="2">근무일자</th>
-              <th scope="col" rowspan="2">근무형태</th>
-              <th scope="col" colspan="2">시스템 출근</th>
-              <th scope="col" colspan="2">시스템 퇴근</th>
+              <th scope="col">근무일자</th>
+              <th scope="col">근무형태</th>
+              <th scope="col">시스템 출근</th>
+              <th scope="col">시스템 퇴근</th>
               <th scope="col">캡스 출근</th>
               <th scope="col">캡스 퇴근</th>
-              <th scope="col" rowspan="2">근무지</th>
-              <th scope="col" rowspan="2">상태</th>
-              <th scope="col" rowspan="2">비고</th>
+              <th scope="col">근무지</th>
+              <th scope="col">상태</th>
+              <th scope="col">비고</th>
             </tr>
           </thead>
           <tbody>            
             <tr class="review">
               <td>03-06</td>
               <td>평일(10~19)</td>
-              <td>10:00</td>
-              <td><i class="ico_pc">PC</i> : 123.456.7.89</td>
-              <td>18:00</td>
-              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+              <td>
+                <span class="time_record">03-06 10:00</span>
+                <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+              </td>
+              <td>
+                <span class="time_record">03-06 18:00</span>
+                <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>본사</td>
-              <td>-</td>
-              <td>캡스시간 누락</td>
+              <td>보류</td>
+              <td>근무지 외</td>
             </tr>           
             <tr>
               <td>03-05</td>
               <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
-              <td>-</td>
-              <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -57,9 +64,10 @@
             <tr>
               <td>03-04</td>
               <td><button type="button" onclick="event.stopPropagation();alert('외근신청서 ? 결과보고서? 연결');">외근(18~10)</button></td>
-              <td class="late">18:01</td>
-              <td>-</td>
-              <td>10:05<sup class="t_blue">+1일</sup></td>
+              <td>
+                <span class="time_record">03-04 08:59</span>
+                <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 내</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -70,38 +78,48 @@
             <tr>
               <td>03-03</td>
               <td><button type="button" onclick="event.stopPropagation();alert('출장신청서 ? 복명서? 연결');">출장(09~18)</button></td>
-              <td>08:50</td>
-              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
-              <td>18:05</td>
-              <td><button type="button" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i> : 위도/경도</button></td>
+              <td><span class="time_record out">03-06 08:59</span><button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button></td>
+              <td>
+                <span class="time_record">03-03 09:35</span>
+                <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>세종시</td>
               <td>-</td>
+              <td>-</td>
             </tr>
             <tr>
               <td>03-02</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button></td>
-              <td>-</td>
-              <td>-</td>
+              <td>
+                <button type="button" onclick="event.stopPropagation();alert('휴가신청서 연결');">휴가</button>
+              </td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>본사</td>
+              <td>-</td>
               <td>-</td>
             </tr>
             <tr class="review">
               <td>03-01</td>
-              <td><button type="button" onclick="event.stopPropagation();alert('휴일근무신청서 ? 결과보고서? 연결');">휴일근무(09~14)</button></td>
-              <td class="late">09:06</td>
-              <td><i class="ico_pc">PC</i>:123.456.7.89</td>
-              <td>09:00</td>
-              <td><i class="ico_pc">PC</i>:123.456.7.89</td>
-              <td>15:05 <sup class="t_blue">+1일</sup></td>
-              <td>15:05</td>
+              <td>
+                <button type="button" onclick="event.stopPropagation();alert('휴일근무신청서 ? 결과보고서? 연결');">휴일근무(09~14)</button>
+              </td>
+              <td>
+                <span class="time_record">03-01 09:03</span>
+                <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+              </td>
+              <td>
+                <span class="time_record">03-01 09:03</span>
+                <span class="label_locate"><i class="ico_pc">PC</i>123.456.789</span>
+              </td>
+              <td>03-01 09:00</td>
+              <td>03-01 15:05 <sup class="t_blue">+1일</sup></td>
               <td>본사</td>
-              <td>상태 불일치</td>
+              <td>보류</td>
+              <td>캡스상태 불일치</td>
             </tr>          
           </tbody>
         </table>

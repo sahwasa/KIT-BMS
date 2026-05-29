@@ -37,16 +37,16 @@
               <button type="button" class="btn_red_line" data-action="open-upload" aria-label="캡스 데이터 업로드 팝업 열기">캡스업로드</button>
               <button type="button" class="btn_gray_line" aria-label="근태 데이터 다운로드">다운로드</button>
               <span class="divide">
-                <button type="button" class="btn_action btn_action--warning" onclick="document.querySelector('.p_attendance_anomaly').showModal();">근태 이상감지 <em>3</em></button>
-                <button type="button" class="btn_action btn_action--time" onclick="document.querySelector('.p_attendance_correction').showModal();">출퇴근시각 정정요청 <em>3</em></button>
+                <button type="button" class="btn_action btn_action--warning" onclick="document.querySelector('.p_attendance_anomaly').showModal();">근태판정 보류<em>3</em></button>
+                <button type="button" class="btn_action btn_action--time" onclick="document.querySelector('.p_attendance_correction').showModal();">출퇴근시각 정정요청<em>3</em></button>
               </span>
             </div>
           </section>
           <section>
             <div id='hrAttendance' class="hr_attendance"></div>
             <ul class="hr_attendace_legend">
-              <li class="check">근태 이상 감지</li>
-              <li class="apply">정정요청</li>
+              <li class="check">근태판정 보류</li>
+              <li class="request">정정요청</li>
               <li class="modified">직권수정</li>
             </ul>
           </section>
@@ -63,6 +63,8 @@
 @@include('../../inc/pop/p_attendanceLocation.html')
 @@include('../../inc/pop/p_attendance_anomaly.html')
 @@include('../../inc/pop/p_attendance_correction.html')
+@@include('../../inc/pop/p_rejectOpinion.html')
+
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/hr_attendance.js"></script>
 <script>
@@ -122,13 +124,13 @@ initExpandTable({
   createPanelHTML: (id, row) => `
     <div class="file_input">
       <span>
-        <label>출근</label>
+        <label for="" class="label_badge">출근</label>
         <input type="date" title="출근일" min="0001-01-01" max="9999-12-31">
         <input type="time" title="출근시각">
       </span>
       <span class="sep">→</span>
       <span>
-        <label>퇴근</label>
+        <label for="" class="label_badge">퇴근</label>
         <input type="date" title="퇴근일" min="0001-01-01" max="9999-12-31">
         <input type="time" title="퇴근시각">
       </span>
@@ -219,8 +221,8 @@ initExpandTable({
       </table>      
     </article>    
     <div class="btn_wrap">
-      <button class="btn_red">승인</button>
-      <button class="btn_default">반려</button>
+      <button class="btn_red" type="sumbmit">승인</button>
+      <button class="btn_default" type="button" onclick="document.querySelector('.p_rejectOpinion').showModal();">반려</button>
     </div>
   `,
   onSubmit: (id) => {
