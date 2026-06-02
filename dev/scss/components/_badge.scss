@@ -29,7 +29,7 @@
     }
   }
 }
-.tbl_badge{@extend .badge;width:50px;min-width:50px;font-size:11px;font-weight:bold;}
+.tbl_badge{@extend .badge;min-width:50px;font-size:11px;font-weight:bold;}
 .tag_pm{@include badge_style(null,22px){position:relative;top:2px;background-color:#ffc938;color:#000;line-height:14px;font-size:10px;border-radius:0;font-weight:bold;}}
 .tbl_wrap .ico_org{font-size:0;}
 // ico_fontello

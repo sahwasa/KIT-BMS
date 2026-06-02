@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5, user-scalable=yes">
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <title>KIT 업무관리시스템</title>
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-color-picker.css">
+  <link rel="stylesheet" href="../../plugins/tui-image-editor/tui-image-editor.css">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+
+<div id="wrap" class="wrap">
+  <!-- 바로가기 메뉴 -->
+<div id="accessibility">
+  <a href="#contents">본문 바로가기</a>
+  <a href="#nav">주메뉴 바로가기</a>
+</div>
+<hr />
+<!--// 바로가기 메뉴 -->
+<header class="header">
+  <h1>
+    <a href="#">
+      <span class="logo">KITVALLEY</span>
+      업무관리시스템
+    </a>
+  </h1>    
+  <section class="gnb">
+    <ul class="gnb_lst">
+      <li><a onclick="" title="새창복사">새창복사</a></li>
+      <li><a onclick="document.getElementById('p_org_chart').showModal();" title="조직도">조직도</a></li>
+      <li><a onclick="document.getElementById('p_seating_chart').showModal();" title="자리배치도">자리배치도</a></li>
+      <li><a href="#" title="통합알림" id="my_alert">통합알림</a><i class="new_bedge">8</i></li>
+      <li><a href="http://boss2.kitvalley.com:8002/" target="_blank" title="관리자시스템">관리자시스템</a></li>
+    </ul>
+    <div class="util">
+      <div class="profile">
+        <button type="button" class="account">
+          <img src="../../images/ic_user.png" width="32px" height="32px" alt="프로필사진">
+          <strong>
+            <b>관리자님</b>
+            <span>기상/기후개발팀</span>
+          </strong>
+        </button>
+        <div class="my_layer">
+          <ul class="my_svc">
+            <li><a href="../home/user_info.html">내정보</a></li>
+            <li><a href="#">웹메일</a></li>
+            <li><a href="http://192.168.5.10/" target="_blank">웹클라우드</a></li>
+            <li><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="noti-container" style="display: none;">      
+      <!-- 'home','message','approval','work','planner','project','svc','erp''board','set'; -->
+      <div class="noti hidden approval">
+        <section class="inner_wrap">
+          <header class="noti-header">
+            <h1 class="noti-tit"><em>전자결재</em>ㅇㅇㅇ회의</h1>
+            <div class="noti_info">
+              <span class="date">12:30</span>
+              <span class="writer">권기봉</span>
+            </div>
+          </header>
+          <div class="noti-body">
+            23-04-02 OOO회의에 참석요청
+          </div>
+        </section>
+      </div>
+      <div class="noti hidden planner">
+        <section class="inner_wrap">
+          <header class="noti-header">
+            <h1 class="noti-tit"><em>일정</em>현장 지진감지장치 유지관리 용역 제안서작업.</h1>
+            <div class="noti_info">
+              <span class="date">12:30</span>
+              <span class="writer">권기봉</span>
+            </div>
+          </header>
+          <div class="noti-body">
+            [현장 지진감지장치 유지관리 용역 제안]<br/>
+            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참것을 요청하셨습니다.
+          </div>
+        </section>
+      </div>
+      <div class="noti hidden svc">
+        <section class="inner_wrap">
+          <header class="noti-header">
+            <h1 class="noti-tit"><em>사내 서비스</em>현장 지진감지장치 유지관리 용역 제안서작업.</h1>
+            <div class="noti_info">
+              <span class="date">12:30</span>
+              <span class="writer">권기봉</span>
+            </div>
+          </header>
+          <div class="noti-body">
+            [현장 지진감지장치 유지관리 용역 제안]<br/>
+            이병수님이 2024-06-17 13:30에 회의실B(지사본앞) 회의 참석을 요청하셨습니다.
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</header>
+  <nav id="nav" class="nav">
+  <h1 class="blind">메뉴</h1>
+  <ul class="nav_lst">
+    <li class="on"><a href="../../html/home/main.html">HOME</a></li>
+    <li><a href="../../html/message/message.html">사내쪽지</a></li>
+    <li><a href="../../html/approval/approval.html">전자결재</a></li>
+    <li><a href="../../html/planner/plan.html">일정</a></li>
+    <li><a href="../../html/project/projectList.html">프로젝트</a></li>
+    <li><a href="../../html/work/work.html">업무</a></li>
+    <li><a href="../../html/svc/svc.html">사내 서비스</a></li>
+    <li><a href="../../html/hr/hr_leaveMng.html">인사총무</a></li>
+    <li><a href="../../html/board/board.html">게시판</a></li>
+    <li><a href="../../html/home/pop.html">팝업샘플</a></li>
+    <!-- <li class="disabled"><a href="http://boss2.kitvalley.com/" target="_blank" title="새창열림">관리자</a></li> -->
+  </ul>
+</nav>
+  <main id="content" class="container">
+    <section class="snb">
+  <div class="snb_container hr">
+    <header>
+      <h2><a href="hr_attendance.html">인사총무</a></h2>
+    </header>
+    <ul class="snb_lst">
+      <li><a href="hr_attendance.html">근태관리</a>      
+      <li><a href="hr_planMng.html">근무표 관리</a>      
+      <li><a href="hr_leaveMng.html">연차관리</a>      
+      <li><a href="hr_holidayWorkMng.html">휴일근무관리</a></li>
+      <li><a href="hr_commuteLog.html">출퇴근이력</a></li>
+      <li><a href="hr_flexworkMng.html">유연근무 신청이력</a></li>
+      <li><a href="hr_orgChartMng.html">조직도 및 자리배치도관리</a></li>
+    </ul>
+  </div>
+</section>
+    <section class="contents">
+      <a href="#" class="evt_tgl snb_fold" data-value="off" data-on="열기" data-off=
+"닫기" title="닫기">닫기</a>
+      <header class="cont_tit">
+        <h1>조직도 및 자리배치도 관리</h1>
+        <section class="bredcrumb">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li>조직도 및 자리배치도 관리</li>
+          </ul>
+        </section>
+      </header>
+      <div class="cont_body hr_orgChartMng">
+        <article class="box_default">
+          <header>
+            <h1>파일 업로드</h1>
+          </header>
+          <div class="flex_wrap">
+            <!-- 조직도 -->
+            <div class="box_default_w">
+              <h1>조직도<span class="spec">1270 × 714 px · JPG · 최대 10MB</span></h1>
+              <div class="file_attach drop-zone" id="dz1"
+                onclick="document.getElementById('f1').click()"
+                ondragover="onDrag(event,'dz1')"
+                ondragleave="offDrag('dz1')"
+                ondrop="onDrop(event,'dz1','org')">
+                <div class="drop_zone">
+                  <div class="drop_info">
+                    <p>여기에 <span>파일을 드래그</span> 하거나 <span>클릭하여</span> 파일을 선택해주세요!</p>
+                  </div>
+                </div>
+              </div>
+              <input type="file" id="f1" accept=".jpg,.jpeg" onchange="onPick(event,'org')" />
+              <div class="preview_box" id="pv1">업로드 후 표시됩니다.</div>
+              <span id="st1" class="badge badge-wait">대기 중</span>
+              <p class="meta" id="mt1"></p>
+              <div class="btn_wrap" id="dl1">
+                <button class="btn_download" type="button" onclick="download('org')" title="다운로드">다운로드</button>
+                <div class="flex_end">
+                  <button class="btn_red" type="button" onclick="upload()">적용</button>
+                  <button class="btn_refresh" type="button" onclick="resetAll()">초기화</button>
+                </div>
+              </div>
+            </div>
+            <!-- 자리배치도 -->
+            <div class="box_default_w">
+              <h1>자리배치도<span class="spec">1537 × 714 px · JPG · 최대 10MB</span></h1>
+              <div class="file_attach drop-zone" id="dz2"
+                onclick="document.getElementById('f2').click()"
+                ondragover="onDrag(event,'dz2')"
+                ondragleave="offDrag('dz2')"
+                ondrop="onDrop(event,'dz2','seat')">
+                <div class="drop_zone">
+                  <div class="drop_info">
+                    <p>여기에 <span>파일을 드래그</span> 하거나 <span>클릭하여</span> 파일을 선택해주세요!</p>
+                  </div>
+                </div>
+              </div>
+              <input type="file" id="f2" accept=".jpg,.jpeg" onchange="onPick(event,'seat')" />
+              <div class="preview_box" id="pv2">업로드 후 표시됩니다.</div>
+              <span id="st2" class="badge badge-wait">대기 중</span>
+              <p class="meta" id="mt2"></p>
+              <div class="btn_wrap" id="dl2">
+                <button class="btn_download" type="button" onclick="download('seat')">다운로드</button>
+                <div class="flex_end">
+                  <button class="btn_red" type="button" onclick="upload()">적용</button>
+                  <button class="btn_refresh" type="button" onclick="resetAll()">초기화</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 변환 옵션 -->
+          <section class="option">
+            <header class="tit">
+              <h1>변환 옵션</h1>
+            </header>
+            <div class="box_default_w">
+              <ul class="check_group">
+                <li>
+                  <label for="o_pad">
+                    여백 <input type="number" id="o_pad" value="20" min="0" max="100" /><span class="unit">px</span>
+                  </label>
+                </li>
+                <li>
+                  <label for="o_autocrop">
+                    <input type="checkbox" id="o_autocrop" checked> 흰 여백 자동 크롭
+                  </label>
+                </li>
+                <li>
+                  <label for="o_fit">
+                    <input type="checkbox" id="o_fit" checked> 비율 유지
+                  </label>
+                </li>
+                <li>
+                  <label for="o_white">
+                    <input type="checkbox" id="o_white" checked> 배경 흰색
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+  <strong class="connect">관리자 연락처 02-8004-9050</strong>
+  <p class="copy">Copyright ⓒ2024 KITValley Co.,Ltd. All right reserved.</p>
+</footer>
+</div>
+<script src="../../plugins/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery.MultiFile.js"></script>
+<script src="../../plugins/ckeditor/build/ckeditor.js"></script>
+<script src="../../plugins/tui-image-editor/fabric.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-code-snippet.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-color-picker.min.js"></script>
+<script src="../../plugins/tui-image-editor/FileSaver.min.js"></script>
+<script src="../../plugins/tui-image-editor/tui-image-editor.min.js"></script>
+<script src="../../plugins/tributejs/dist/tribute.min.js"></script>
+<script src="../../js/ui_cmmn.js"></script>
+<script src="../../js/file_upload.js"></script>
+<script src="../../js/message.js"></script>
+<script>
+$(function() {
+  // 전역 공통 초기화
+  if (typeof commonInit === 'function') commonInit();
+  
+  // 탭 초기 활성화
+  $('.tab').each(function() {
+    $(this).find('li:first').addClass('on');
+    const container = $(this).closest('.tab_wrap').next('.tab_container');
+    container.find('.tab_contents:not(:first)').hide();
+  });
+});
+UI.toast('금일 출근 이력이 없습니다', 0);
+
+</script>
+<dialog id="p_org_chart" class="p_org_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>조직도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="../../images/asset/org.jpg" alt="조직도">
+    </div>
+  </form>
+</dialog>
+<dialog id="p_seating_chart" class="p_seating_chart">
+  <form method="dialog">
+    <header class="p_header">
+      <strong>자리배치도</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </header>
+    <div class="p_body">
+      <img src="../../images/asset/seating_chart.jpg" alt="자리배치도">
+    </div>
+  </form>
+</dialog>
+
+<script>
+const SPECS = {
+  org:  { w: 1270, h: 714, fname: 'org.jpg' },
+  seat: { w: 1537, h: 714, fname: 'seating_chart.jpg' },
+};
+const IDX = { org: '1', seat: '2' };
+const blobs = { org: null, seat: null };
+
+// ── 옵션 ──────────────────────────────────────────
+const getOptions = () => ({
+  autoCrop : document.getElementById('o_autocrop').checked,
+  fit      : document.getElementById('o_fit').checked,
+  white    : document.getElementById('o_white').checked,
+  pad      : Math.max(0, parseInt(document.getElementById('o_pad').value) || 0),
+});
+
+// ── 드래그 & 드롭 ─────────────────────────────────
+function onDrag(e, id) { e.preventDefault(); document.getElementById(id).classList.add('drag-over'); }
+function offDrag(id)   { document.getElementById(id).classList.remove('drag-over'); }
+function onDrop(e, id, type) { e.preventDefault(); offDrag(id); const f = e.dataTransfer.files[0]; if (f) process(f, type); }
+function onPick(e, type)     { if (e.target.files[0]) process(e.target.files[0], type); }
+
+// ── 흰 여백 자동 크롭 (threshold: 245) ───────────
+function autoCrop(ctx, w, h) {
+  const data = ctx.getImageData(0, 0, w, h).data;
+  const T = 245;
+  let minX = w, maxX = 0, minY = h, maxY = 0;
+
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const p = (y * w + x) * 4;
+      if (data[p] < T || data[p+1] < T || data[p+2] < T) {
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      }
+    }
+  }
+
+  return (minX > maxX || minY > maxY)
+    ? { x: 0, y: 0, w, h }
+    : { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+}
+
+// ── 단계적 축소 (step-down downscaling) ──────────
+function stepDownScale(src, targetW, targetH) {
+  let canvas = document.createElement('canvas');
+  canvas.width  = src.width;
+  canvas.height = src.height;
+  canvas.getContext('2d').drawImage(src, 0, 0);
+
+  while (canvas.width / 2 > targetW && canvas.height / 2 > targetH) {
+    const next = document.createElement('canvas');
+    next.width  = Math.round(canvas.width  / 2);
+    next.height = Math.round(canvas.height / 2);
+    const ctx = next.getContext('2d');
+    ctx.imageSmoothingEnabled  = true;
+    ctx.imageSmoothingQuality  = 'high';
+    ctx.drawImage(canvas, 0, 0, next.width, next.height);
+    canvas = next;
+  }
+
+  return canvas;
+}
+
+// ── UI 헬퍼 ──────────────────────────────────────
+function setState(i, text, className) {
+  const el = document.getElementById('st' + i);
+  el.textContent = text;
+  el.className   = className;
+}
+
+// ── 메인 변환 ────────────────────────────────────
+function process(file, type) {
+  if (!file.type.match('image/jpe?g'))    { alert('JPG 파일만 업로드 가능합니다.'); return; }
+  if (file.size > 10 * 1024 * 1024)      { alert('파일이 10MB를 초과합니다.');    return; }
+
+  const sp  = SPECS[type];
+  const i   = IDX[type];
+  const opt = getOptions();
+
+  setState(i, '변환 중...', 'badge badge-warning');
+  document.getElementById('mt' + i).textContent = '';
+
+  const objUrl = URL.createObjectURL(file);
+  const img    = new Image();
+
+  img.onerror = () => alert('이미지를 불러오지 못했습니다.');
+  img.onload  = () => {
+    const ow = img.naturalWidth, oh = img.naturalHeight;
+
+    // 원본 → 임시 캔버스
+    const tmpC   = document.createElement('canvas');
+    tmpC.width   = ow; tmpC.height = oh;
+    const tmpCtx = tmpC.getContext('2d');
+    tmpCtx.drawImage(img, 0, 0);
+    URL.revokeObjectURL(objUrl);
+
+    // 크롭 영역 결정
+    const crop = opt.autoCrop ? autoCrop(tmpCtx, ow, oh) : { x: 0, y: 0, w: ow, h: oh };
+
+    // 크롭 영역만 잘라낸 임시 캔버스
+    const cropC   = document.createElement('canvas');
+    cropC.width   = crop.w; cropC.height = crop.h;
+    cropC.getContext('2d').drawImage(tmpC, crop.x, crop.y, crop.w, crop.h, 0, 0, crop.w, crop.h);
+
+    // 출력 사이즈 계산
+    const dw = sp.w - opt.pad * 2;
+    const dh = sp.h - opt.pad * 2;
+    let sw, sh;
+    if (opt.fit) {
+      const scale = Math.min(dw / crop.w, dh / crop.h);
+      sw = Math.round(crop.w * scale);
+      sh = Math.round(crop.h * scale);
+    } else {
+      sw = dw; sh = dh;
+    }
+
+    const dx = opt.pad + Math.round((dw - sw) / 2);
+    const dy = opt.pad + Math.round((dh - sh) / 2);
+
+    // 단계적 축소 후 최종 캔버스에 그리기
+    const scaled  = stepDownScale(cropC, sw, sh);
+    const outC    = document.createElement('canvas');
+    outC.width    = sp.w; outC.height = sp.h;
+    const outCtx  = outC.getContext('2d');
+
+    if (opt.white) { outCtx.fillStyle = '#ffffff'; outCtx.fillRect(0, 0, sp.w, sp.h); }
+
+    outCtx.imageSmoothingEnabled = true;
+    outCtx.imageSmoothingQuality = 'high';
+    outCtx.drawImage(scaled, 0, 0, scaled.width, scaled.height, dx, dy, sw, sh);
+
+    // JPG 인코딩 & 미리보기
+    outC.toBlob(blob => {
+      blobs[type] = blob;
+
+      const prevUrl = URL.createObjectURL(blob);
+      document.getElementById('pv' + i).innerHTML = `<img src="${prevUrl}" alt="변환 미리보기">`;
+
+      const mb       = (blob.size / 1024 / 1024).toFixed(2);
+      const cropInfo = opt.autoCrop ? `크롭 ${crop.w}×${crop.h}px → ` : '';
+      document.getElementById('mt' + i).innerHTML =
+        `원본 ${ow}×${oh}px<br>${cropInfo}출력 ${sp.w}×${sp.h}px · 여백 ${opt.pad}px · ${mb}MB`;
+
+      setState(i, '완료', 'badge badge-success');
+      document.getElementById('mt' + i).style.display = 'block';
+      document.getElementById('dl' + i).style.display = 'flex';
+    }, 'image/jpeg', 1);
+  };
+
+  img.src = objUrl;
+}
+
+// ── 다운로드 ──────────────────────────────────────
+function download(type) {
+  const b = blobs[type];
+  if (!b) return;
+  const url = URL.createObjectURL(b);
+  const a   = document.createElement('a');
+  a.href    = url;
+  a.download = SPECS[type].fname;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// ── 초기화 ────────────────────────────────────────
+function resetAll() {
+  ['org', 'seat'].forEach(t => {
+    const i  = IDX[t];
+    blobs[t] = null;
+
+    const pv  = document.getElementById('pv' + i);
+    const img = pv.querySelector('img');
+    if (img) img.remove();
+    pv.innerText = '업로드 후 표시됩니다.';
+
+    setState(i, '대기 중', 'badge badge-wait');
+    document.getElementById('mt' + i).style.display = 'none';
+    document.getElementById('dl' + i).style.display = 'none';
+  });
+
+  document.getElementById('f1').value = '';
+  document.getElementById('f2').value = '';
+}
+</script>
+</body>
+</html>

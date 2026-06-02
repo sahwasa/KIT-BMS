@@ -10,8 +10,9 @@
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
   select,input{width:auto;}
-  .divide{@include mixins.divide(16px,1px);@include flex_lst();}
+  .divide{@include mixins.divide(16px,1px);@include flex_lst();}  
 }
+.flex_end{margin-left:auto;}
 .btn_action{@include mixins.btn(vars.$btn_gray,true);@include flex_lst();color:#565656;
   &::before{@include mixins.fontello('\e963');transform:translateY(1px);}
   em{width:17px;height:17px;border-radius:50%;color:#fff;line-height:17px;font-size:11px;}
