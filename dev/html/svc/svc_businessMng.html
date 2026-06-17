@@ -7,16 +7,16 @@
     <section class="contents">
       @@include('../../inc/snb/snb_fold.html')
       <header class="cont_tit">
-        <h1>사업자관리<span>사내 서비스</span></h1>
+        <h1>사업 담당자현황<span>사내 서비스</span></h1>
         <section class="bredcrumb">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">사내 서비스</a></li>
-            <li>사업자관리</li>
+            <li>사업 담당자현황</li>
           </ul>
         </section>
       </header>
-      <div class="cont_body">
+      <div class="cont_body svc_businessMng">
         <article>
           <div class="handle_week">
             <button class="handle_prev">이전 연도 이동</button>
@@ -26,12 +26,17 @@
           <section class="box_compact">
             <ul class="search_list">
               <li>
-                <select name="" id="" title="사업유형">
-                  <option value="">사업유형 전체</option>
+                <select name="" id="" title="업무구분">
+                  <option value="">업무구분</option>
                   <option value="">개발</option>
                   <option value="">유지보수</option>
                   <option value="">연구과제</option>
                   <option value="">물품구매</option>
+                </select>
+              </li>
+              <li>
+                <select name="" id="" title="발주기관">
+                  <option value="">발주기관</option>                
                 </select>
               </li>
               <li>
@@ -47,7 +52,7 @@
               <caption>사업 담당자 리스트</caption>
               <thead>
                 <tr>
-                  <th scope="col">사업유형</th>
+                  <th scope="col">업무구분</th>
                   <th scope="col">프로젝트명</th>
                   <th scope="col">발주기관</th>
                   <th scope="col">수행기간</th>
@@ -60,6 +65,15 @@
                 <tr tabindex="0">
                   <td>연구과제</td>
                   <td><span>2026년 (1세부) 지반변위 고려 급경사지 재해 위험성 분석기술 개발 과제(2/4차년)</span></td>
+                  <td>행정안전부</td>
+                  <td>2026-01-01 ~ 2026-12-31</td>
+                  <td>@@include('../../inc/module/module_user.html')</td>
+                  <td>@@include('../../inc/module/module_user.html')</td>
+                  <td>프로젝트 정보 비고 입력정보</td>
+                </tr>
+                <tr tabindex="0">
+                  <td>물품구매</td>
+                  <td><span>2025년 물품구매</span></td>
                   <td>행정안전부</td>
                   <td>2026-01-01 ~ 2026-12-31</td>
                   <td>@@include('../../inc/module/module_user.html')</td>

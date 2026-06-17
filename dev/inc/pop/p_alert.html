@@ -1,9 +1,30 @@
 <article class="p_alert" id="alert">
   <header>
     <h1>통합알림</h1>
-    <div class="btn_switch_single pin">
-      <input type="checkbox" id="forgroundPin">
-      <label for="forgroundPin" title="항상 위에 고정" >항상 위에 고정</label>
+    <div class="layer-container" tabindex="0">
+      <button type="button" class="btn_set">설정</button>
+      <div class="layer-wrap">
+        <dl class="set_list">
+          <dt>항상 위에 고정</dt>
+          <dd>
+            <span class="btn_toggle_single">
+              <input type="checkbox" id="forgroundPin"><label for="forgroundPin">항상 위에 고정 여부</label>                      
+            </span>           
+          </dd>
+          <dt>알림 소리</dt>
+          <dd>
+            <span class="btn_toggle_single">
+              <input type="checkbox" id="notiSound" checked><label for="notiSound">알림소리 사용여부</label>                      
+            </span>            
+          </dd>
+          <dt>진동</dt>
+          <dd>
+            <span class="btn_toggle_single">
+              <input type="checkbox" id="notiVibrate"><label for="notiVibrate">진동 사용여부</label>                      
+            </span>           
+          </dd>
+        </dl>
+      </div>
     </div>
     <button class="btnClose" onclick="$('#alert').hide();">닫기</button>
   </header>

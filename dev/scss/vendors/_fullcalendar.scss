@@ -163,11 +163,14 @@
   .fc-timeline-event-harness{visibility:visible !important;}
   .fc-event{height:inherit;text-align:center;background-color:transparent;border:none;margin:0 0 0 1px !important;box-sizing:border-box;padding:2px 0 1px;outline:1px solid transparent; outline-offset:-1px;}
   .fc-event-main{color:inherit;}
-  .fc-yearlyView-view th.fc-day-sat,
-  .fc-yearlyView-view th.fc-day-sun {
-    background: inherit !important;
-    color: inherit !important;
-  }
+  .fc-yearlyView-view{
+    th.fc-day-sat,
+    th.fc-day-sun {
+      background: inherit !important;
+      color: inherit !important;
+    }
+    .fc-timeline-lane-frame .fc-timeline-events{transform:translateY(8px);text-align:center;}
+   }
 }
 
 .teamPlan_legend{display:flex;flex-wrap:wrap;gap:8px;

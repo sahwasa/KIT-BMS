@@ -133,6 +133,40 @@
                 </div>
               </section>
             </article>
+            <article class="box_default_w attendance_main">
+              <section class=" attendance_summary">
+                <dl>                
+                  <dt>당해 근태</dt>
+                  <dd><em>지각</em>1</dd>
+                  <dd><em>무단조퇴</em>1</dd>
+                  <dd><em>결근</em>1</dd>
+                </dl>
+                <dl>                
+                  <dt>이번달 근태</dt>
+                  <dd><em>지각</em>1</dd>
+                  <dd><em>무단조퇴</em>1</dd>
+                  <dd class="is_zero"><em>결근</em>0</dd>
+                </dl>
+                <dl tabindex="0" onclick="document.querySelector('.p_attendance_anomaly_personal').showModal();" class="attendance_anomaly">
+                  <dt>근태판정 보류</dt>
+                  <dd>4건</dd>
+                </dl>                
+              </section>
+              <section class="leave_stat">
+                <header>
+                  <h1>연차현황</h1>
+                  <strong class="t_blue">총 160시간</strong>
+                  <a href="#">연차신청</a>
+                </header>
+                <div class="leave_progress">            
+                  <progress id="progress" value="20.5" min="0" max="160"></progress>
+                  <div class="leave_dtl">
+                    <span>20시간 30분</span>
+                    <span>남은시간 <strong class="t_blue">135시간 30분</strong></span>
+                  </div>
+                </div>            
+              </section>
+            </article>
           </div>
         </section>
         <section class="right">
@@ -161,7 +195,7 @@
                 </select> -->
               </div>
             </article>
-            <article class="box_default_w leave_stat">
+            <!-- <article class="box_default_w leave_stat">
               <header>
                 <h1>연차현황</h1>
                 <strong class="t_blue">총 160시간</strong>
@@ -174,7 +208,7 @@
                   <span>남은시간 <strong class="t_blue">135시간 30분</strong></span>
                 </div>
               </div>            
-            </article>
+            </article> -->
             <article class="box_default_w absentee">
               <header>
                 <h1>금일 부재자</h1>
@@ -240,6 +274,7 @@
   </main>
   @@include('../../inc/layout/footer.html')
 </div>
+@@include('../../inc/pop/p_attendance_anomaly_personal.html')
 @@include('../../inc/layout/script.html')
 <script src='../../plugins/fullcalendar-scheduler/index.global.min.js'></script>
 <script src="../../js/main_calendar.js"></script>

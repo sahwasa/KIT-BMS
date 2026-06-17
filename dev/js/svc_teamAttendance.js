@@ -52,10 +52,10 @@ var monthlyEvents = [
 // 2. 연간 뷰 이벤트 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var yearlyEvents = [
-  { resourceId: '150', start: '2026-05-01', extendedProps: { late: 1, early_leave: 1 } },
-  { resourceId: '151', start: '2026-05-01', extendedProps: { late: 0, early_leave: 0 } },
-  { resourceId: '152', start: '2026-05-01', extendedProps: { late: 0, early_leave: 0 } },
-  { resourceId: '153', start: '2026-05-01', extendedProps: { late: 0, early_leave: 0 } },
+  { resourceId: '150', start: '2026-06-01', extendedProps: { late: 1, out: 1, absent:0, pending:0 } },
+  { resourceId: '151', start: '2026-06-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
+  { resourceId: '152', start: '2026-06-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
+  { resourceId: '153', start: '2026-06-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
 ];
 
 // =============================================
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     eventContent: function (arg) {
       if (arg.view.type === 'yearlyView') {
-        return { html: `${arg.event.extendedProps.late} / ${arg.event.extendedProps.early_leave}` };
+        return { html: `${arg.event.extendedProps.late} / ${arg.event.extendedProps.out} / ${arg.event.extendedProps.absent} / ${arg.event.extendedProps.pending}` };
       }
       return { html: `${arg.event.extendedProps.type}<br/>${arg.event.extendedProps.time}` };
     },   
