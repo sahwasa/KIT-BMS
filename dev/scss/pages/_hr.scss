@@ -60,11 +60,12 @@ $cal-status: (
 .time_record{display:inline-block;width:120px;text-align:left;}
 .hr_flexworkMng .tbl_wrap{@include tbl_defaultH(25px);}
 .p_attendance_anomaly{width:1000px;
-  .tbl_wrap{height:stretch;} 
+  .tbl_wrap{@include tbl_defaultH($max:true);} 
   [data-id] td:last-child{text-align:left;} 
   .file_input{
     &:has(span){gap:20px;}
     span{
+      input[type="time"]{margin-left:5px;}
       &:last-of-type{margin-left:auto;}
       select{width:auto;}
     }
@@ -74,7 +75,7 @@ $cal-status: (
   .label_badge{width:50.5px;margin:0 15px;}
 }
 .p_attendance_correction{width:1000px;
-   .tbl_wrap{height:stretch;}
+   .tbl_wrap{@include tbl_defaultH($max:true);}
    .edit-panel{background-color:#f9fafc;padding:10px;}
   .btn_wrap{padding-top:0;}
 }

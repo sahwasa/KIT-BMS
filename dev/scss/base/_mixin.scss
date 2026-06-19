@@ -259,7 +259,7 @@ border:1px solid transparent;align-self:center;@content;}
   $tbl_MinH:407px;
   height:calc($tbl_H - $gap);min-height:calc($tbl_MinH - $gap);
   @if($max){
-    height:auto;max-height:calc($tbl_H - $gap);
+    height:stretch;max-height:calc($tbl_H - $gap);min-height:auto;
   }
 }
 
