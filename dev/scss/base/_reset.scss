@@ -1,5 +1,5 @@
-@use 'variables' as vars;
-@use 'mixin' as mixins;
+@use 'variables' as v;
+@use 'mixin' as m;
 // ========================================
 // CSS Reset & Base Styles
 // ========================================
@@ -68,7 +68,7 @@ table {
 }
 
 caption {
-  @include mixins.blind;
+  @include m.blind;
 }
 
 ul,
@@ -126,9 +126,9 @@ strong {
 /* validity */
 [required],
 .required{white-space:nowrap;
-  &::before{content:"* ";color:vars.$red;font-size:13px;font-weight:600;}
+  &::before{content:"* ";color:v.$red;font-size:13px;font-weight:600;}
 }
 .validity{font-size:12px;color:#7a7a7a;letter-spacing:-0.3px;line-height:17px;}
-.placehold{position:absolute;left:15px;top:39px;color:vars.$gray;visibility:hidden;}
+.placehold{position:absolute;left:15px;top:39px;color:v.$gray;visibility:hidden;}
 
 sup{font-size:0.8462em;letter-spacing:-.1em;line-height:1;}

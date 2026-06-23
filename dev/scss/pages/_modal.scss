@@ -1,11 +1,11 @@
-@use '../base/variables' as vars;
+@use '../base/variables' as v;
 @use '../base/mixin' as *;
 .modal,
 :modal{min-width:300px;margin:auto;padding:0;border:none;box-shadow:1.4px 1.4px 29px 0 rgba(0, 0, 0, 0.08);font-size:13px;
   &::-webkit-scrollbar{width:17px;}
   &::-webkit-scrollbar-track{background-color:transparent;}
   &::-webkit-scrollbar-thumb{background-color:#e5e6e8;border-radius:10px;background-clip:padding-box;border:5px solid transparent;}
-  ::backdrop{background-color:vars.$black;}
+  ::backdrop{background-color:v.$black;}
 }
 .modal{position:fixed;left:50%;top:50%;z-index:9999;background-color:#fff;transform:translate(-50%,-50%);}
 
@@ -122,7 +122,7 @@
       &::before{@include fontello('\e84c');position:relative;top:-1px;margin-right:3px;font-size:12px;color:#686868;vertical-align:top;transform:rotate(0deg);transition:.5s;}
     }
     .my_form{padding:5px 15px 0;}
-    li.ph{border:1px dashed vars.$red !important;}
+    li.ph{border:1px dashed v.$red !important;}
   }
   .my_form{
     ul{flex-wrap:wrap;justify-content:flex-start;overflow-y:auto;
@@ -156,13 +156,13 @@
     .doc_lst{
       li{border-bottom: 1px solid #ebebeb;padding:10px;white-space:nowrap;background-color:#fff;box-shadow:0 1px 0 rgba(0, 0, 0, .2);
         &:hover{background-color:#f9fafc;cursor:pointer;}
-        &.on{background-color:lighten(vars.$red, 45%);}
+        &.on{background-color:lighten(v.$red, 45%);}
       }
       .infoDoc{display:flex;gap:5px;margin-bottom:5px;align-items:center;
         i:last-of-type{flex-shrink:0; margin-left:auto;}
       }
       .user_module{display:inline-flex;vertical-align:middle;}
-      .badge{@include badge_style(null);padding:0 5px;border:1px solid vars.$red; vertical-align:middle;font-size:11px;color:vars.$red;}
+      .badge{@include badge_style(null);padding:0 5px;border:1px solid v.$red; vertical-align:middle;font-size:11px;color:v.$red;}
       .subject{@include flex_between;
         strong{flex-grow:1;overflow:hidden;text-overflow:ellipsis;}
       }
@@ -197,7 +197,7 @@
   .plan_cot{height:100px;overflow-y:auto;}
   .meeting_room{display: inline-block;margin-right:3px;}
   .contributor_add{display:none;}
-  [data-tglwrap]{height:34px;border-top:1px solid vars.$td_border_color;margin-top:5px;padding:4px 0 0 3px;}
+  [data-tglwrap]{height:34px;border-top:1px solid v.$td_border_color;margin-top:5px;padding:4px 0 0 3px;}
   .ls_contributor{@include user_lst;margin:5px 0;max-height:120px;overflow-y:auto;padding-right:5px;}
   .editor_wrap .ck-editor .ck-content{height:170px;}
 }
@@ -223,7 +223,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
 .tbl_default > td[contenteditable]{height:var(--h);max-height:450px;overflow-y:auto;}
 
 //alert
-.p_alert{position:absolute;top:59px;right:10px;width:300px; background-color:vars.$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;z-index:10000;
+.p_alert{position:absolute;top:59px;right:10px;width:300px; background-color:v.$white;border:3px solid #efeded;box-shadow:0 0 1px #000 inset;z-index:10000;
   header{display:flex;align-items:center;gap:8px;height:40px;padding:0 15px;border-bottom:1px solid #d7d7d7;
     h1{font-size:15px;color:#404654;font-weight:bold;letter-spacing:-.7px;}
     .btnClose{margin:0 0 0 auto;}
@@ -241,9 +241,9 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .alert_tit{@include flex_between;margin-bottom:7px;max-width:initial;padding:0;  
     h2{position:relative;flex:1 0 auto;font-size:14px;font-weight:bold;letter-spacing:-.35px;
     text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
-      &::before{@include shape(34px,34px);float:left;border-radius:50%;background:url(../images/bg_alert.png) 50% 8px no-repeat,#ffecec;font-size:14px;color:vars.$red;text-align:center;line-height:34px;margin:3px 10px 0 0;}
+      &::before{@include shape(34px,34px);float:left;border-radius:50%;background:url(../images/bg_alert.png) 50% 8px no-repeat,#ffecec;font-size:14px;color:v.$red;text-align:center;line-height:34px;margin:3px 10px 0 0;}
     }        
-    em{display:block;color:vars.$red;font-size:12px;letter-spacing:-.6px;}
+    em{display:block;color:v.$red;font-size:12px;letter-spacing:-.6px;}
     .alert_info{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;color:#b6b5b5;font-size:11px;letter-spacing:-.28px;}
   }
    $_nav_lst:'home','message','approval','work','planner','project','svc','erp''board','set';
@@ -267,9 +267,9 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
         &:first-child a{border-left-width:0;}
       }
       a{top:0;height:100%;line-height:1.5;border-radius:0;font-size:12px;letter-spacing:-.83px;color:#adadad;border-width:0 0 1px 1px;border-color:$border-color;}
-      .on a{color:#ff6664;border-bottom-color:vars.$white;}      
+      .on a{color:#ff6664;border-bottom-color:v.$white;}      
     }
-    .tab_container{background-color:vars.$white;
+    .tab_container{background-color:v.$white;
       .tab_contents{margin-top:0;}
     }
   }
@@ -282,7 +282,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .ipt_wrap dd{flex:1;}
   h2{margin:30px 0;}
   .pw_change_step01{
-    dd:first-of-type{border-bottom:1px dashed vars.$gray;padding-bottom:15px;}
+    dd:first-of-type{border-bottom:1px dashed v.$gray;padding-bottom:15px;}
   }
 }
 %msg_txt{@include ipt_common;overflow-y:auto;cursor:text;}
@@ -293,7 +293,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
     flex-direction:column;align-items:stretch;justify-content:flex-start;
     label{white-space:nowrap;line-height:28px;}    
   }
-  .dd_wrap{border-bottom:1px dashed vars.$gray;padding-bottom:10px;
+  .dd_wrap{border-bottom:1px dashed v.$gray;padding-bottom:10px;
     select{flex:0 0 100px;}
     .seltab_wrap{flex:1;}
   }
@@ -302,7 +302,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .msg_txt{@extend %msg_txt;height:200px;}
   .file_attached{width:100%;}
   .attach_list:empty::before{@include empty_box('첨부된 파일이 없습니다');}
-  .date{margin-left:auto;font-size:11px;color:vars.$gray;order:1;}
+  .date{margin-left:auto;font-size:11px;color:v.$gray;order:1;}
   dd{display:flex;gap:5px;align-items:center;}  
 }
 .p_issue_write{width:1150px;}
@@ -316,7 +316,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .proj_lst{height:100%;
     & > li{border-bottom: 1px solid #ebebeb;padding:10px;white-space:nowrap;background-color:#fff;
       &:hover{background-color:#f9fafc;cursor:pointer;}
-      &.on{background-color:lighten(vars.$red, 45%);}
+      &.on{background-color:lighten(v.$red, 45%);}
     }
     .tag_wrap{justify-content:flex-start;i{margin-right:0;}}
     .proj_desc{margin-top:5px;}        
@@ -362,7 +362,7 @@ header .btnClose{@include cancel(10px,11px,#bebebe);}
   .photo_dtl{flex:1;
     .p_header{position:relative;height:35px;align-items:center;justify-content:center;background-color:transparent;padding:0 18px;
       .pageView{flex:1;text-align:center;
-        strong{color:vars.$red;}
+        strong{color:v.$red;}
         .total::before{content:"/";margin:0 5px;}
       }
       .tool{position:absolute;right:18px;top:8px;display:flex;align-items:center;gap:15px;}

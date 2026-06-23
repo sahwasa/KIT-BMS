@@ -1,5 +1,5 @@
-@use '../base/variables' as vars;
-@use '../base/mixin' as mixins;
+@use '../base/variables' as v;
+@use '../base/mixin' as m;
 
 // approval
 @mixin approval_view_defaultH($gap:0px,$max:false){
@@ -15,17 +15,17 @@
 .my_form,.box_tool{margin-bottom:15px;
   .btn_wrap{align-self:flex-start;}
   ul{display:flex;gap:4px;
-    &:empty::before{@include mixins.empty_box('등록한 양식없음');height:28px;background-color:rgba(0, 0, 0, .05);}
+    &:empty::before{@include m.empty_box('등록한 양식없음');height:28px;background-color:rgba(0, 0, 0, .05);}
   }
-  li{background-color:vars.$white;border:1px solid #aaa;border-radius:3px;
+  li{background-color:v.$white;border:1px solid #aaa;border-radius:3px;
     a{display:block;line-height:28px;padding:0 8px;
-      &::before{@include mixins.fontello('\f0f6');font-size:14px;color:#ff6664;margin-right:4px;}
+      &::before{@include m.fontello('\f0f6');font-size:14px;color:#ff6664;margin-right:4px;}
     }
     &:hover{border-color:#e42b29;background-color:#fff5f5;color:#e42b29;font-weight:bold;}
   }
 }
-.my_approval{@include mixins.flex_between;align-items:stretch;gap:vars.$columnGap;padding-bottom:vars.$columnGap;
-  .flex_right{@include mixins.form_style();min-width:auto;} 
+.my_approval{@include m.flex_between;align-items:stretch;gap:v.$columnGap;padding-bottom:v.$columnGap;
+  .flex_right{@include m.form_style();min-width:auto;} 
 }
 %approval_list{display:flex;flex-direction:column;overflow-y:auto;gap:9px;padding:5px;width:calc(100% + 10px);max-height:541px;transform:translate(-5px,-5px);
   &>li{
@@ -34,11 +34,11 @@
 }
 .status{flex-shrink:0;width:260px;
   ul{@extend %approval_list;
-    &:empty::before{@include mixins.empty_box('요청 문서가 없습니다');height:541px;background-color:rgba(0, 0, 0, .05);}
+    &:empty::before{@include m.empty_box('요청 문서가 없습니다');height:541px;background-color:rgba(0, 0, 0, .05);}
   }
-  li{@include mixins.inner_box(8px);min-height:99px;
+  li{@include m.inner_box(8px);min-height:99px;
     strong{margin:2px 0 4px;padding-left:0;}
-    .badge{@include mixins.badge_style(null,54px);font-weight:bold;align-self:flex-start;}
+    .badge{@include m.badge_style(null,54px);font-weight:bold;align-self:flex-start;}
     dl{
       dt{float:left;min-width:55px;
         &::after{content:":";margin:0 3px;}
@@ -47,9 +47,9 @@
   }
 }  
 .ls_stand_by{@extend %approval_list;
-  &>li{@include mixins.inner_box(10px);min-height:84px;}
+  &>li{@include m.inner_box(10px);min-height:84px;}
   strong{margin-bottom:7px;}
-  i{position:absolute;right:5px;top:5px;@include mixins.shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
+  i{position:absolute;right:5px;top:5px;@include m.shape(26px, 26px);display:flex;align-items:center;justify-content:center;text-align:center;cursor:default;}
 } 
 .approval_path{display:flex;margin-top:2px;
   li{
@@ -59,22 +59,22 @@
 }
 .stand_by{
   .ls_stand_by{height:285px;
-    &:empty::before{@include mixins.empty_box('결재 대기 미확인 문서가 없습니다');background-color:#e3e3e3;}    
+    &:empty::before{@include m.empty_box('결재 대기 미확인 문서가 없습니다');background-color:#e3e3e3;}    
   }
 }
 .carbon_copy{margin-top:30px;
   .ls_stand_by{height:187px;
-    &:empty::before{@include mixins.empty_box('수신 참조 미확인 문서가 없습니다');background-color:#e3e3e3;}
+    &:empty::before{@include m.empty_box('수신 참조 미확인 문서가 없습니다');background-color:#e3e3e3;}
   }
 }
-.new_bedge{position:relative;top:-1px;@include mixins.badge_style(null);background-color:vars.$red;padding:0 7px 1px;margin-left:5px;}
+.new_bedge{position:relative;top:-1px;@include m.badge_style(null);background-color:v.$red;padding:0 7px 1px;margin-left:5px;}
 .approval_often{
   ul{flex-wrap:wrap;}
-  .explanation{@include mixins.explanation;}
-  .badge{@include mixins.badge_style(40px);display:inline;margin-left:3px;padding:0.5px 2.5px;border:1px solid #c0c5cf;background-color:#fff;color:#7c869e;font-weight:bold;}
+  .explanation{@include m.explanation;}
+  .badge{@include m.badge_style(40px);display:inline;margin-left:3px;padding:0.5px 2.5px;border:1px solid #c0c5cf;background-color:#fff;color:#7c869e;font-weight:bold;}
 }
 .approval_new{margin-top:50px;
-  header{@include mixins.tit_bullet(h1);}
+  header{@include m.tit_bullet(h1);}
   ul{flex-wrap:wrap;margin-bottom:50px;
     li{display:flex;align-items:center;min-width:155px;flex-grow:0;flex-shrink:1;flex-basis:calc((100% - 24px) / 7);
       a{position:relative;width:100%;padding:15px;padding-left:30px;font-weight:500;line-height:20px;
@@ -88,7 +88,7 @@
     h1{font-size:16px;font-weight:bold;}
   }
   .form_validity{margin-bottom:10px;}
-  .tbl_workinfo{@include mixins.flex_between;margin:3px 0 5px;gap:3px;
+  .tbl_workinfo{@include m.flex_between;margin:3px 0 5px;gap:3px;
     .btn_wrap{margin-left:auto;}
     .budget{font-size:15px;font-weight:900;}
   }
@@ -133,7 +133,7 @@
       &:last-child{text-align:right;}
     }
   }
-  .etc_info{@include mixins.explanation;padding:10px;margin-bottom:15px;background-color:#f5f7f8;border-radius:3px;
+  .etc_info{@include m.explanation;padding:10px;margin-bottom:15px;background-color:#f5f7f8;border-radius:3px;
     &::before,b{font-size:15px;color:#D6293E;vertical-align:middle;}
     p{margin-top:5px;padding-left:25px;font-size:14px;color:#737373;}
   }
@@ -141,13 +141,13 @@
 .approval_view .my_approval,
 .approval_draft .my_approval{gap:20px;}
 .approval_view .approval_set,
-.approval_draft .approval_set{margin-top:18px;@include mixins.scrollbarW();}
+.approval_draft .approval_set{margin-top:18px;@include m.scrollbarW();}
 .appr_path{counter-reset:appr_path;
-  li{@include mixins.flex_between;margin-bottom:4px;padding:6px 7px 7px 25px;border:1px solid #ebebeb;border-radius:2px;counter-increment:appr_path;font-size:11px;
+  li{@include m.flex_between;margin-bottom:4px;padding:6px 7px 7px 25px;border:1px solid #ebebeb;border-radius:2px;counter-increment:appr_path;font-size:11px;
     .user_module{left:-15px;font-size:13px;color:#000;font-weight:500;
       &::before{content:counter(appr_path)".";display:inline-block;width:15px;}
     }
-    .appr_btn_set{@include mixins.flex_between;
+    .appr_btn_set{@include m.flex_between;
       .myappr_del{margin-right:5px;}
     }
   }
@@ -170,10 +170,10 @@
   }
 }
 .appr_result{align-self:flex-end;margin-left:auto;
-  b{@include mixins.badge_style(null);padding:1px 2px 0;font-size:11px;font-weight:bold;min-width:39px;}
+  b{@include m.badge_style(null);padding:1px 2px 0;font-size:11px;font-weight:bold;min-width:39px;}
   button{line-height:21px;}  
 }
-.approval_set{@include mixins.set_style(false);  
+.approval_set{@include m.set_style(false);  
   .tab_contents :not(first).appr_path{margin-top:4px;}
   .set_list{
     .rel_doc{align-self:flex-start;line-height:28px;}
@@ -183,29 +183,29 @@
     a:hover{text-decoration:underline;}
   }
   .preview{flex-shrink:0;gap:0;font-size:11px;color:#999;align-items:center;margin-left:10px;line-height:1;
-    &::before{@include mixins.shape(1px, 10px);background-color:#ddd;margin-right:10px;}
+    &::before{@include m.shape(1px, 10px);background-color:#ddd;margin-right:10px;}
   }
-  &:not(:has(.drop_zone)) .attach_list:empty::before{@include mixins.empty_box('첨부된 파일이 없습니다');} 
-  @each $type, $color in vars.$signType{
+  &:not(:has(.drop_zone)) .attach_list:empty::before{@include m.empty_box('첨부된 파일이 없습니다');} 
+  @each $type, $color in v.$signType{
     .#{$type}{border-color:$color !important;color:$color !important;background:#fff !important;}
   }
 }
 .approval_view{
   .appr_path{@extend .view}
   .act_lst{display:flex;flex-direction:column-reverse;padding-left:3px;padding-top:7px;max-height:180px;overflow-y:auto;
-    @include mixins.tit_bullet('.date-time',3);
+    @include m.tit_bullet('.date-time',3);
     li{position:relative;border-left:1px solid #ccc;padding:0 5px 15px 10px;
       &:first-child{padding-bottom:5px;
-        &::before{position:absolute;left:-1px;top:2px;@include mixins.shape(3px,100%);background-color:#fff;}
+        &::before{position:absolute;left:-1px;top:2px;@include m.shape(3px,100%);background-color:#fff;}
       }
     }
-    .date-time{position:relative;left:-10px;top:-7px;font-size:12px;color:vars.$gray;margin-bottom:-5px;
+    .date-time{position:relative;left:-10px;top:-7px;font-size:12px;color:v.$gray;margin-bottom:-5px;
       &::before{left:-2px;}
     }
     .act_name,
     .act_type{font-weight:600;}
   }
-  .referrer_act{@include mixins.user_lst;margin-top:10px;padding-top:8px;border-top:1px solid #ccc;
+  .referrer_act{@include m.user_lst;margin-top:10px;padding-top:8px;border-top:1px solid #ccc;
     .appr_result{font-size:12px;b{margin-left:3px;}}
     $_signType:('uncheck':#b6b6b6,'check':#56b1b6, 'ing':#b49bdb, 'fin':#9167df);
     @each $type, $color in $_signType{
@@ -235,7 +235,7 @@
     &.ck-editor__editable .table .ck-table-column-resizer:hover{background:transparent;cursor:inherit;}
   }
 }
-@include mixins.desktop('.responsive_disabled'){
+@include m.desktop('.responsive_disabled'){
   .approval_view .my_approval,
   .approval_draft .my_approval{width:100%;flex-flow:column wrap;
     .approval_set{order:-1;width:100%;display:grid;gap:5px;margin-top:0;
@@ -272,7 +272,7 @@
 }
 
 
-.stamp_red{@include mixins.stamp(vars.$red);}
+.stamp_red{@include m.stamp(v.$red);}
 .file_attached{position:relative;
   .attach_list li a{display:flex;gap:7px;
     &:hover{text-decoration:underline;}
@@ -283,9 +283,17 @@
   }
 }
 .tbl_approval_outbox td,
-.tbl_approval_inbox td{@include mixins.alignL(4);}
+.tbl_approval_inbox td{@include m.alignL(4);}
 .file_upload{display:none;position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:9999;background:rgba(0, 0, 0, 0.466);
   &>*{position:absolute;}
   &>p{top:50%;left:50%;transform:translateX(-50%);font-size:20px;font-weight:bold;color:#fff;text-align:center;}
   &>i{top:39%;left:47.5%;color:#fff;font-size:65px;}
+}
+
+.list_shortwork{display:grid;grid-template-columns: repeat(auto-fill, minmax(200px, auto));gap:5px;margin-top:5px;counter-reset:shortworkday; 
+  li{position:relative;display:flex;align-items:center;gap:3px;background-color:#edf0f3;padding:3px 5px;border-radius:3px;border-left:25px solid #00000010;
+    &::before{counter-increment:shortworkday;content:counter(shortworkday);position:absolute;left:-25px;top:50%;transform:translateY(-50%);width:25px;text-align:center;font-size:11px;}
+  }
+  [readonly]{pointer-events:none;tabindex:-1;}
+  .btn_cancel{margin-left:auto;padding:0 8px;}
 }

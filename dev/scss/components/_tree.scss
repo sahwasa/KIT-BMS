@@ -1,11 +1,11 @@
-@use '../base/variables' as vars;
-@use '../base/mixin' as mixins;
+@use '../base/variables' as v;
+@use '../base/mixin' as m;
 /* tree(부서 검색 등 공통 영역이 존재하여 따로 분리) */
-.ico_leader{display:inline-block;min-width:19px;border-radius:10px;font-size:0;margin-right:5px;color:#fff;background-color:vars.$red;vertical-align:middle;text-align:center;text-indent:0;
+.ico_leader{display:inline-block;min-width:19px;border-radius:10px;font-size:0;margin-right:5px;color:#fff;background-color:v.$red;vertical-align:middle;text-align:center;text-indent:0;
   &.txt{padding-right:6px;font-size:11px;
     &::before{padding:0 2px 0 5px;}
   }
-  &::before{@include mixins.fontello('\e806');height:19px;line-height:19px;font-size:10px;}
+  &::before{@include m.fontello('\e806');height:19px;line-height:19px;font-size:10px;}
 }
 .tree_wrap{
   .etc_ogt{padding:8px 5px;padding-left:15px;border:1px solid #dddddd;border-top:none;font-size:12px;font-weight:bold;color:#000;letter-spacing:-0.12px;}
@@ -13,7 +13,7 @@
   ul{
     div:hover,
     div.hover{background-color:#f9fafc;
-      & span{color:vars.$red;font-weight:bold;}
+      & span{color:v.$red;font-weight:bold;}
     }
   }
   ul{margin:0;}
@@ -50,7 +50,7 @@
   }
   .arrow{
     &>div{margin-bottom:10px;}
-    &>span::before{position:relative;@include mixins.fontello("\f147");width:11px;line-height:11px;font-size:13px;color:vars.$red;text-align:center;}
+    &>span::before{position:relative;@include m.fontello("\f147");width:11px;line-height:11px;font-size:13px;color:v.$red;text-align:center;}
   }
   .close{
     &>span:first-child::before{content:'\f196';}

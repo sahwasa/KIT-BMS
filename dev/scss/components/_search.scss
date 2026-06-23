@@ -1,38 +1,38 @@
-@use '../base/variables' as vars;
-@use '../base/mixin' as mixins;
+@use '../base/variables' as v;
+@use '../base/mixin' as m;
 // search
 .search_box{
   $b_color:#c5c5c5;
-  @include mixins.flex_between;width:160px;height:27px;border:1px solid $b_color;border-radius:2px;overflow:hidden;
+  @include m.flex_between;width:160px;height:27px;border:1px solid $b_color;border-radius:2px;overflow:hidden;
   input{width:calc(100% - 27px);height:100%;border:none;padding:0 8px;}
-  button{width:27px;height:100%;@include mixins.f_blind;border-left:1px solid $b_color;
-    &::before{@include mixins.fontello('\e802');color:vars.$btn_red;font-size:15px;vertical-align:middle;}
+  button{width:27px;height:100%;@include m.f_blind;border-left:1px solid $b_color;
+    &::before{@include m.fontello('\e802');color:v.$btn_red;font-size:15px;vertical-align:middle;}
   }
   &.long{width:276px;}  
 }
 .search_list{display:flex;flex-flow:row wrap;align-items:center;gap:5px;margin-right:10px;}
 .search_list li{
   &:has(p.required){margin-right:15px;font-weight:bold;align-self:center;}
-  &.divide{@include mixins.divide(16px, 5px);}
+  &.divide{@include m.divide(16px, 5px);}
 }
-.btn_search{@include mixins.btn(vars.$btn_red,true);
-  &::before{@include mixins.fontello('\e802');}
+.btn_search{@include m.btn(v.$btn_red,true);
+  &::before{@include m.fontello('\e802');}
 }
-.btn_refresh{@include mixins.btn(vars.$btn_gray,true);
-  &::before{@include mixins.fontello('\e8a7');}
+.btn_refresh{@include m.btn(v.$btn_gray,true);
+  &::before{@include m.fontello('\e8a7');}
 }
 .btn_del{
-  &::before{@include mixins.fontello('\e839'){margin-right:3px;font-size:14px;};}
-  &:hover{color:vars.$red;}
+  &::before{@include m.fontello('\e839'){margin-right:3px;font-size:14px;};}
+  &:hover{color:v.$red;}
 }
 .btn_add{line-height:21px;
-  &::before{@include mixins.fontello('\f0fe'){position:relative;top:1px; margin-right:3px;font-size:14px;};}
-  &:hover{color:vars.$red;}
+  &::before{@include m.fontello('\f0fe'){position:relative;top:1px; margin-right:3px;font-size:14px;};}
+  &:hover{color:v.$red;}
 }
-.handle_week{@include mixins.flex_between;gap:15px;justify-content:center;margin-bottom:10px;padding-top:5px;
+.handle_week{@include m.flex_between;gap:15px;justify-content:center;margin-bottom:10px;padding-top:5px;
   .handle_prev,
   .handle_next{font-size:0;
-    &::before{display:block;@include mixins.fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:50%;color:#000;font-weight:bold;}
+    &::before{display:block;@include m.fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:50%;color:#000;font-weight:bold;}
     &:disabled{cursor:not-allowed;
       &::before{border-color:#d2d2d2;color:#d2d2d2;}
     }

@@ -1,5 +1,5 @@
-@use '../base/variables' as vars;
-@use '../base/mixin' as mixins;
+@use '../base/variables' as v;
+@use '../base/mixin' as m;
 
 //btn
 @mixin flex_lst{
@@ -10,11 +10,11 @@
   .more{color:#9ea4ae;letter-spacing:-.3px;font-size:12px;font-weight:bold;
   &:hover{color:#777;}}
   select,input{width:auto;}
-  .divide{@include mixins.divide(16px,1px);@include flex_lst();}  
+  .divide{@include m.divide(16px,1px);@include flex_lst();}  
 }
 .flex_end{margin-left:auto;}
-.btn_action{@include mixins.btn(vars.$btn_gray,true);@include flex_lst();color:#565656;
-  &::before{@include mixins.fontello('\e963');transform:translateY(1px);}
+.btn_action{@include m.btn(v.$btn_gray,true);@include flex_lst();color:#565656;
+  &::before{@include m.fontello('\e963');transform:translateY(1px);}
   em{width:17px;height:17px;border-radius:50%;color:#fff;line-height:17px;font-size:11px;}
   &--time{
     &::before{color:#BA7517;}
@@ -25,7 +25,7 @@
     em{background-color:#f05050;}
   }
 }
-.btn_more{@include mixins.img_btn(14px,14px,'ic_more.png');}
+.btn_more{@include m.img_btn(14px,14px,'ic_more.png');}
 .btn_tgl{display:inline-block;position:relative;width:31px;height:17px;background-color:#999;border-radius:28px;vertical-align:middle;padding:0 5px;box-sizing:border-box;font-size:0;border:1px solid;overflow:hidden;outline:none;border-color:#999;text-align:left;line-height:34px;
   &[disabled]{cursor:default;}
   &::before{position:absolute;top:2px;right:16px;display:inline-block;content:"";width:11px;height:11px;background-color:#fff;border-radius:50%;transition:.1s;}
@@ -39,16 +39,19 @@
     &::after{left:0;}
   }
 }
-.btn_download{@include mixins.ico_only('\eb8d');}
-.btn_back{@include mixins.ico_only('\e9ac');align-self:flex-end;
+.btn_download{@include m.ico_only('\eb8d');}
+.btn_back{@include m.ico_only('\e9ac');align-self:flex-end;
   &::before{font-size:20px;}
 }
-.btn_attached{@include mixins.ico_only('\e93a');font-size:12px;
+.btn_attached{@include m.ico_only('\e93a');font-size:12px;
   &::before{font-size:16px;margin-right:5px;vertical-align:middle;line-height:1;}
-  &:hover,&:hover::before{color:vars.$blue;}
+  &:hover,&:hover::before{color:v.$blue;}
 }
-.btn_modify{@include mixins.ico_only('\f14b');
+.btn_modify{@include m.ico_only('\f14b');
   &::before{font-size:16px;}
+}
+.btn_cancel{@include m.ico_only('✕');
+  &::before{font-size:11px;font-weight:700;color:v.$red;}
 }
 
 // admin : 관리자 추가 일정, personal : 개인, meeting : 회의, event : 행사, attendance :근태
@@ -74,13 +77,13 @@
   &.prio{width:90px;}
   &.meeting_room{width:230px;
     i{width:15px;height:15px;top:0;}
-    @each $type, $color in vars.$roomType{
+    @each $type, $color in v.$roomType{
       .room#{$type}{background-color:$color;}
     }
   }
   &.plan_tit_type{width:100px;
     i{width:15px;height:15px;top:0;}    
-    @each $type, $color in vars.$planType{
+    @each $type, $color in v.$planType{
       .s_#{$type}{background-color:$color;}
     }
   }
@@ -93,69 +96,69 @@
     }
     .label{height:auto;}
     span{display:inline-block;width:45px;max-width:45px;line-height:13px;color:#fff;text-align:center;border-radius:5px;align-self:center;letter-spacing:-.25px;padding:3px 5px;font-size:12px;margin:3px 0;font-weight:700;}
-    @each $type, $color in vars.$taskType{
+    @each $type, $color in v.$taskType{
       .task_#{$type}{background-color:$color;}
     }
   }
 }
 span.meeting_room{ // select없이 회의실 정보만 적어야 할 경우(브리핑 보드 상세 참고)
   i{display:inline-block;width:15px;height:15px;top:0;font-size:0;width:15px;height:15px;vertical-align:middle;margin-right:5px;}
-  @each $type, $color in vars.$roomType{
+  @each $type, $color in v.$roomType{
     .room#{$type}{background-color:$color;}
   }
 }
 $prio_fontSize:20px;
-.high_prio::before{@include mixins.fontello('\f102');color:vars.$red;font-size:$prio_fontSize;}
-.normal_prio::before{@include mixins.shape(14px, 7px);border:2px solid vars.$yellow;border-width:2px 0;margin-top:1px;}
-.low_prio::before{@include mixins.fontello('\f107');color:vars.$blue;font-size:$prio_fontSize;}.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:9%;right:2%;border-radius:50%;background-color:vars.$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
-  &::before{@include mixins.fontello('\eb3d');font-size:17px;}
-  &:hover{background-color:darken(vars.$red, 5%);}
+.high_prio::before{@include m.fontello('\f102');color:v.$red;font-size:$prio_fontSize;}
+.normal_prio::before{@include m.shape(14px, 7px);border:2px solid v.$yellow;border-width:2px 0;margin-top:1px;}
+.low_prio::before{@include m.fontello('\f107');color:v.$blue;font-size:$prio_fontSize;}.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:9%;right:2%;border-radius:50%;background-color:v.$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
+  &::before{@include m.fontello('\eb3d');font-size:17px;}
+  &:hover{background-color:darken(v.$red, 5%);}
 }
-.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:1%;right:2%;border-radius:50%;background-color:vars.$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
-  &::before{@include mixins.fontello('\eb3d');font-size:17px;}
-  &:hover{background-color:darken(vars.$red, 5%);}
+.btn_scroll {position:fixed;z-index:9998;width:40px;height:40px;bottom:1%;right:2%;border-radius:50%;background-color:v.$red;font-size:0;color:#fff;transition:0.5s;box-shadow:1px 1px 10px #b8b8b8;opacity:0;cursor:pointer;
+  &::before{@include m.fontello('\eb3d');font-size:17px;}
+  &:hover{background-color:darken(v.$red, 5%);}
+  &.show {transition:1s;opacity:1;}
 }
-.btn_scroll.show {transition:1s;opacity:1;}
 
-.btn_red{@include mixins.full_btn(vars.$btn_red_line);}
+.btn_red{@include m.full_btn(v.$btn_red_line);}
 .btn_workset .btn_default,
-.btn_red_line{@include mixins.btn(vars.$btn_red);
-  &:disabled{@include mixins.btn(vars.$btn_gray);cursor:not-allowed;
-    &:hover{background:none;color:vars.$btn_gray;}
+.btn_red_line{@include m.btn(v.$btn_red);
+  &:disabled{@include m.btn(v.$btn_gray);cursor:not-allowed;
+    &:hover{background:none;color:v.$btn_gray;}
   }
 }
-.btn_gray{@include mixins.full_btn(vars.$btn_gray);}
+.btn_gray{@include m.full_btn(v.$btn_gray);}
 .btn_dplc,
 .btn_default,
-.btn_gray_line{@include mixins.btn(vars.$btn_gray);color:#565656;}
-.btn_ogt{@include mixins.btn(#aaa);color:#111;background-color:#ebebeb;cursor:pointer;}
-.btn_form{@include mixins.form_btn;
-  &:hover{background-color:vars.$btn_gray;}
+.btn_gray_line{@include m.btn(v.$btn_gray);color:#565656;}
+.btn_ogt{@include m.btn(#aaa);color:#111;background-color:#ebebeb;cursor:pointer;}
+.btn_form{@include m.form_btn;
+  &:hover{background-color:v.$btn_gray;}
 }
-.btn_more{@include mixins.img_btn(14px,14px,'ic_more.png');margin-left:3px;}
-.myform_set{@include mixins.shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align:center;
-  &::before{@include mixins.fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
+.btn_more{@include m.img_btn(14px,14px,'ic_more.png');margin-left:3px;}
+.myform_set{@include m.shape(24px,24px);background-color:#e0e0e0;border-radius:5px;text-align:center;
+  &::before{@include m.fontello('\ea7d');font-size:16px;color:#848890;line-height:23px;}
   &:hover{outline:4px solid #bec7d2;background-color:transparent;}
 }
-.i_refresh{@include mixins.shape(20px,20px);background-color:#e0e0e0;border-radius:5px;text-align:center;
-  &::before{@include mixins.fontello('\e8a7');font-size:14px;color:#848890;line-height:20px;}
+.i_refresh{@include m.shape(20px,20px);background-color:#e0e0e0;border-radius:5px;text-align:center;
+  &::before{@include m.fontello('\e8a7');font-size:14px;color:#848890;line-height:20px;}
   &:hover{outline:4px solid #bec7d2;background-color:transparent;}
 }
 .myappr_del{font-size:0;
-  &::before{@include mixins.fontello('\e92a');margin-right:5px;font-size:16px;color:#b3b3b3;}
+  &::before{@include m.fontello('\e92a');margin-right:5px;font-size:16px;color:#b3b3b3;}
   &:hover::before{color:#353535;}
 }
-.btn_search_square{@include mixins.btn_square('\e802');}
-.btn_more_square{@include mixins.btn_square(null);position:relative;
+.btn_search_square{@include m.btn_square('\e802');}
+.btn_more_square{@include m.btn_square(null);position:relative;
   &::before,
-  &::after{@include mixins.shape(12px, 2px);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%); border-radius:1px;background-color:#848890;}
+  &::after{@include m.shape(12px, 2px);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%); border-radius:1px;background-color:#848890;}
   &::after{transform:rotate(90deg);left:25%;top:45%;}
 }
-.btn_tree{@include mixins.form_btn;color:#979797;border-color:#b4b4b4;background-color:#f7f7f7;cursor:pointer;font-weight:bold;
-  &:hover{background-color:vars.$btn_gray;}
+.btn_tree{@include m.form_btn;color:#979797;border-color:#b4b4b4;background-color:#f7f7f7;cursor:pointer;font-weight:bold;
+  &:hover{background-color:v.$btn_gray;}
 }
-.btn_approval{@include mixins.form_btn;color:#fff;border-color:vars.$btn_red;background-color:#ff949c;font-weight:bold;
-  &:hover{background-color:vars.$btn_red;}
+.btn_approval{@include m.form_btn;color:#fff;border-color:v.$btn_red;background-color:#ff949c;font-weight:bold;
+  &:hover{background-color:v.$btn_red;}
 }
 .btn_switch{display:flex;padding:2px;
   $unselectedColor:#cbcbcb;$hoverColor:#868686;
@@ -176,13 +179,13 @@ $prio_fontSize:20px;
   }
   &.border_none{
     label{border-width:0;}
-    :checked+label em{color:vars.$red;}
+    :checked+label em{color:v.$red;}
   }
   .desc{line-height:29px;margin-left:10px;font-size:12px;color:#989898;
     &::before{content:'※';margin-right:3px;}
   }
   &.after_svc{overflow:hidden;align-items:center;
-    &.divide::after{@include mixins.shape(1px, 15px);background-color:#ccc;margin-left:4px;}
+    &.divide::after{@include m.shape(1px, 15px);background-color:#ccc;margin-left:4px;}
     label{padding:2px 8px 3px;min-width:auto;background-color:#fff;color:#565656;
       &:first-of-type{border-radius:3px 0 0 3px;}
       &:last-of-type{border-radius:0 3px 3px 0;}
@@ -197,32 +200,32 @@ $prio_fontSize:20px;
 }
 .btn_switch_single{text-align:center;
   &>label{position:relative;display:block;width:100%;line-height:26px;font-size:13px;
-    &:has(input[type=checkbox]:checked){background-color:vars.$gray;color:#fff;}
+    &:has(input[type=checkbox]:checked){background-color:v.$gray;color:#fff;}
   }
   input[type=checkbox]{position:absolute;width:0px;height:0px;overflow:hidden;opacity:0;}
   &+button{width:100%;margin-top:5px;}
   &+.period_custom{display:none;}
   &.pin{
     label{width:25px;height:25px;font-size:0;line-height:1.2;border-radius:50%;}
-    label::before{@include mixins.fontello('\e93f');font-size:16px;line-height:25px;color:#A1ABC2!important;}
-    input:checked+label::before{@include mixins.fontello('\e940');}
+    label::before{@include m.fontello('\e93f');font-size:16px;line-height:25px;color:#A1ABC2!important;}
+    input:checked+label::before{@include m.fontello('\e940');}
     label:hover{background-color:#f5f5f5;}
   }
   &.bell{
     label{width:25px;height:25px;font-size:0;line-height:1.2;border-radius:50%;}
-    label::before{@include mixins.fontello('\f0f3');font-size:16px;line-height:25px;color:#A1ABC2!important;}
-    input:checked+label::before{@include mixins.fontello('\f1f7');}
+    label::before{@include m.fontello('\f0f3');font-size:16px;line-height:25px;color:#A1ABC2!important;}
+    input:checked+label::before{@include m.fontello('\f1f7');}
     label:hover{background-color:#f5f5f5;}
   }
   &.fold{
     label{display:inline-block;width:30px;height:30px;font-size:0;line-height:1.2;border-radius:50%;text-align: center;}
-    label::before{@include mixins.fontello('\e819');font-size:16px;line-height:30px;color:#A1ABC2!important;}
-    input:checked+label::before{@include mixins.fontello('\e81b');}
+    label::before{@include m.fontello('\e819');font-size:16px;line-height:30px;color:#A1ABC2!important;}
+    input:checked+label::before{@include m.fontello('\e81b');}
     label:hover{background-color:#f5f5f5;}
   }
 }
 .btn_toggle_single{display:inline-flex;flex-shrink:0;justify-content:center;vertical-align:middle;
-  $unselectedColor:#999;$hoverColor:#868686;$selectColor:vars.$tomato;
+  $unselectedColor:#999;$hoverColor:#868686;$selectColor:v.$tomato;
   input{position:absolute;opacity:0;width:0;height:0;appearance:none;outline:none;box-shadow:none;vertical-align:middle;
     &+label{position:relative;left:-1px;width:31px;height:17px;cursor:pointer;z-index:100;background-color:$unselectedColor;border-radius:28px;word-break:keep-all;white-space:nowrap;
     vertical-align:middle;outline:none;cursor:pointer;letter-spacing:-.05em;font-size:0;
@@ -237,13 +240,13 @@ $prio_fontSize:20px;
   [data-label]::after{position:absolute;right:calc(100% + 3px);content:attr(data-label);font-size:11px;line-height:17px;}
 }
 [data-selectTarget]{display:none;}
-.period_group{@include mixins.btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
+.period_group{@include m.btn_switch_group(#ff959d,#f25460,#d93945);width:118px;}
 .file_input + .btn_slideclose{margin-top:5px;}
 .btn_slideclose{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:5px;overflow:hidden;
   & > li{display:inline-block;position:relative;
     & > div:first-child{position:relative;background:#ececec;border-radius:3px;overflow:hidden;
       button{position:absolute;top:0;right:-13px;width:13px;height:100%;background:#8e8e8e;color:#fff;line-height:23px;font-size:0;transition:.3s;
-        &::after{@include mixins.fontello('\eb2e');font-size:12px;}
+        &::after{@include m.fontello('\eb2e');font-size:12px;}
       }
       p{padding:2px 10px;color:#717889;transition:.3s;}
       &:has(button):hover{background-color:#dbdbdb;
@@ -269,14 +272,14 @@ $prio_fontSize:20px;
     }
   }
 }
-.i_public{@include mixins.ico_only('\f064');}
-.i_private{@include mixins.ico_only('\f512');&::before{font-size:14px;width:15px;text-align:center;}}
-.i_ex{@include mixins.ico_only('\e877');}
+.i_public{@include m.ico_only('\f064');}
+.i_private{@include m.ico_only('\f512');&::before{font-size:14px;width:15px;text-align:center;}}
+.i_ex{@include m.ico_only('\e877');}
 .tagItem{font-size:12px;}
-.tooltip{position:absolute;top:calc(100% + 5px);right:0;background-color:vars.$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
+.tooltip{position:absolute;top:calc(100% + 5px);right:0;background-color:v.$white;padding:3px 5px;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(0,0,0,.3);z-index:1000;visibility:hidden;transition-delay:.3s;width:max-content;
   *{flex-shrink:0;}
 }
-legend{@include mixins.tit{font-weight:bold;};}
+legend{@include m.tit{font-weight:bold;};}
 .tool_lst{display:inline-flex;gap:10px;
   li{display:flex;gap:5px;align-items:center;}
   label{color:#000;}
@@ -285,26 +288,26 @@ legend{@include mixins.tit{font-weight:bold;};}
   button{font-size:12px;padding:0 4px;line-height:17px;white-space:nowrap;} 
 }
 .layer_tool{position:relative;color:#333;z-index:105000!important;
-  .btn_ellipsis{@include mixins.ico_only;
-    &::before{@include mixins.fontello('\f142');font-size:14px;padding:0 10px;}
+  .btn_ellipsis{@include m.ico_only;
+    &::before{@include m.fontello('\f142');font-size:14px;padding:0 10px;}
   }  
   .btn_layer{position:absolute;top:100%;right:0;display:inline-flex;flex-direction:column;height:0;z-index:10;overflow:hidden;box-sizing:border-box;white-space:nowrap;
     button{margin:3px 0;padding:2px 10px;}
     button:hover{background-color:#e5e6e8;}
     &:not(:has(button)){width:100px;padding:5px;white-space:inherit;
-      p{display:block;font-weight:bold;color:vars.$red;}
+      p{display:block;font-weight:bold;color:v.$red;}
     }
   }
  
-  &.on .btn_layer{height:auto;border:1px solid #666;background-color:vars.$white;}
+  &.on .btn_layer{height:auto;border:1px solid #666;background-color:v.$white;}
 }
 .layer{
   &-container{position:relative;z-index:1000;
     &:focus-within{color:red;
       .layer-wrap{display:block}
     }
-    .btn_set{@include mixins.ico_only;width:25px;height:25px;border-radius:50%;
-      &::before{@include mixins.fontello('\eb36');font-size:16px;transform: translate(1px,-1px);}
+    .btn_set{@include m.ico_only;width:25px;height:25px;border-radius:50%;
+      &::before{@include m.fontello('\eb36');font-size:16px;transform: translate(1px,-1px);}
       &:hover{background-color:#f5f5f5;}
     }
   }

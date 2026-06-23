@@ -198,306 +198,141 @@
             <button type="button" class="btn_gray">임시저장</button>
           </span>
         </article>
-        <div class="my_approval">
+        <div class="my_approval">          
           <section class="approval_form flex_right">
             <p class="form_validity required validity">표시는 필수 입력 항목입니다.</p>
-            <div class="form_wrap"> <!-- form_view : 인쇄용 -->
-              <table class="tbl_row">
-                <caption>출장복명서 양식 테이블</caption>
-                <colgroup>
-                  <col style="width:150px">
-                  <col style="width:auto">
-                </colgroup>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      <label for="form_num" class="required">제목</label>
-                    </th>
-                    <td>
-                      <input type="text" id="form_num" value="OOO기관 출장복명서">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="tit_form">
-                <h2>출장복명서</h2>
-                <table class="tbl_row">
-                  <caption>결재 상황 테이블</caption>
-                  <colgroup>
-                    <col style="width:25px;">
-                    <col style="width:150px;">
-                    <col style="width:150px;">
-                    <col style="width:150px;">
-                  </colgroup>
-                  <tbody>
-                    <tr>
-                      <th scope="col" rowspan="3">결 재</th>
-                      <th scope="col"><strong>상신</strong> 조아핑</th>
-                      <th scope="col"><strong>결재</strong> 퇴근핑</th>
-                      <th scope="col"><strong>합의</strong> 방글핑</th>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <table class="tbl_row">
-                <caption>출장복명서 양식 테이블</caption>
-                <colgroup>
-                  <col style="width:150px">
-                  <col style="width:auto">
-                </colgroup>
-                <tbody>
-                  <!-- <tr>
-                    <th scope="row">
-                      <label for="form_num" class="required">문서번호</label>
-                    </th>
-                    <td>
-                      <input type="text" id="form_num" value="KIT-">
-                    </td>
-                  </tr> -->
-                  <tr>
-                    <th scope="row">
-                      <label for="form_project" class="required">프로젝트</label>
-                    </th>
-                    <td>
-                      <span class="file_input">
-                        <select id="form_project" name="form_project">
-                          <option value="사업자 분류">사업자 분류</option>
-                        </select>
-                        <select title="기관선택">
-                          <option value="기관 선택">기관 선택</option>
-                        </select>
-                        <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList" autocomplete="off">
-                        <datalist id="projectList">
-  <option value="조기경보">기상청</option>
-  <option value="기상긴급">행안부 연구과제</option>
-  <option value="KIT업무관리">사내업무</option>
-</datalist>
-                      </span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <label for="form_businesstrip" class="required">출장구분</label>
-                    </th>
-                    <td>
-                      <ul class="check_group">
-                        <li>
-                          <input type="radio" id="form_businesstrip" name="form_businesstrip" checked>
-                          <label for="form_businesstrip">국내출장</label>
-                        </li>
-                        <li>
-                          <input type="radio" id="overseas" name="form_businesstrip">
-                          <label for="overseas">해외출장</label>
-                        </li>
-                        <li>
-                          <input type="radio" id="dispatch" name="form_businesstrip">
-                          <label for="dispatch">파견근무</label>
-                        </li>
-                        <li>
-                          <input type="radio" id="outside" name="form_businesstrip">
-                          <label for="outside">외근</label>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <label for="form_businesstrip_period" class="required">출장기간</label>
-                    </th>
-                    <td>
-                      <div class="period_custom">
-                        <input type="date" title="시작일" data-type="from" id="start_date" name="start-date"
-                          min="0001-01-01" max="9999-12-31">
-                        <input type="date" title="종료일" data-type="to" id="end_date" name="end-date" min="0000-01-01"
-                          max="9999-12-31">
-                      </div>
-                      <input type="text" title="총 출장기간" class="w_day alignC">
-                      <span>일간</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <label for="biz_traveler" class="required">출장인원</label>
-                    </th>
-                    <td>
-                      <span class="file_input">
-                        <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
-                        <datalist id="nameList">
-  <optgroup label="개발본부">
-    <option value="대장발핑">개발본부</option>
-    <option value="개발핑">개발 1팀</option>
-    <option value="새발핑">개발 1팀</option>
-    <option value="말발핑">개발 2팀</option>
-    <option value="소발핑">개발 2팀</option>
-    <option value="곰발핑">개발 2팀</option>
-  </optgroup>
-  <optgroup label="경영관리">
-    <option value="경영핑">경영관리</option>
-    <option value="관리핑">경영관리</option>
-  </optgroup>                  
-</datalist>
-                        <button type="button" class="btn_red_line">추가</button>
-                        <button type="button" class="btn_ogt">조직도</button>
-                      </span>
-                      <ul class="btn_slideclose">
-  <li>
-    <div>
-      <p>유한아름</p><button type="button">삭제</button>
-    </div>
-    <div class="tooltip">
-      <div class="user_module">
-  <figure class="user_photo"><img src="../../images/ic_user.png" alt="" loading="lazy"></figure> 
-  <em>홍OO 연구원</em><b>(재난예경보MA팀)</b>
+            <div class="form_wrap" id="form_wrap"><div class="tit_form">
+            <h2 id="title">휴가신청서</h2>
+            <table class="tbl_row approval_status" id="table_appr">
+              <caption>결재 상황 테이블</caption>
+              <tbody>
+                <tr>
+                  <th scope="col" rowspan="3">결 재</th>
+                  <th scope="col">상신</th>
+                  <th scope="col">결재</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <table class="tbl_row">
+            <caption>휴가신청서 양식 테이블</caption>
+            <colgroup>
+              <col style="width:150px">
+              <col style="width:auto">
+            </colgroup>
+            <tbody>
+              <tr id="tr_doc_num" style="display: none;">
+                <th scope="row">
+                  <label for="doc_num" class="required">문서번호</label>
+                </th>
+                <td>
+                  <span class="file_input">
+                    <input type="text" id="doc_num">
+                  </span>
+                </td>
+              </tr><tr><th scope="row"><label for="sj" class="required">문서제목</label></th><td><input type="text" maxlength="50" title="문서제목 입력" id="sj"></td></tr>
+              <tr>
+                <th scope="row">
+                  <label class="required">휴가구분</label>
+                </th>
+                <td>
+                  <ul class="check_group" id="C12type"><li><input type="radio" id="C12_1" name="C12type">
+<label for="C12_1">연차</label></li><li><input type="radio" id="C12_2" name="C12type">
+<label for="C12_2">반차</label></li><li><input type="radio" id="C12_3" name="C12type">
+<label for="C12_3">무급병가</label></li><li><input type="radio" id="C12_4" name="C12type">
+<label for="C12_4">공가</label></li><li><input type="radio" id="C12_5" name="C12type">
+<label for="C12_5">경조사</label></li><li><input type="radio" id="C12_6" name="C12type">
+<label for="C12_6">대체휴무</label></li><li><input type="radio" id="C12_7" name="C12type">
+<label for="C12_7">출산휴가</label></li><li><input type="radio" id="C12_9" name="C12type">
+<label for="C12_9">조퇴/외출</label></li><li><input type="radio" id="C12_10" name="C12type">
+<label for="C12_10">워라밸 단축근무일 지정</label></li></ul>                  
+                </td>
+              </tr>              
+              <tr id="tr_C12_1" style="display: none;">
+                <th scope="row">
+                  <label for="sdt" class="required">휴가기간</label>
+                </th>
+                <td>
+                  <input type="date" min="0000-01-01" max="9999-12-31" id="sdt" title="휴가시작" onchange="setPeriod()"> - 
+                  <input type="date" min="0000-01-01" max="9999-12-31" id="edt" title="휴가종료" onchange="setPeriod()">
+                  <input type="text" id="period" title="총 연차기간" class="w_day alignC">
+                  <span>일간</span>
+				  <span class="validity" id="remain" style="vertical-align: middle;" remndr_vcatn_day="13.5">(잔여: 13.5일)</span>
+                </td>
+              </tr>
+			        <tr id="tr_C12_2" style="display: none;">
+                <th scope="row">
+                  <label for="C12_sdt" class="required">휴가기간</label>
+                </th>
+                <td>
+                  <input type="date" min="0000-01-01" max="9999-12-31" id="C12_sdt" title="휴가시작" onchange="setPeriod()">
+				  <select id="stime" title="시각 선택" class="w_week"><option value="00">00</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14" selected="">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select>~<select id="etime" title="시각 선택" class="w_week"><option value="00">00</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18" selected="">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select>
+                  <input type="text" id="C12_2_period" title="총 반차시간" class="w_day alignC" style="border: none; text-align: right !important;" disabled="">
+                  <span>시간</span>
+				  <span class="validity" id="C12_2_remain" style="vertical-align: middle;" remndr_vcatn_hours="108">(잔여: 108시간)</span>
+                </td>
+              </tr>
+              <tr id="tr_C12_10" style="">
+                <th scope="row">단축근무일</th>
+                <td>                               
+                  <button type="button" class="btn_form" onclick="">+ 추가</button>
+                  <ul class="list_shortwork">
+                    <li>
+                      <input type="date" min="0000-01-01" max="9999-12-31" id="sdt" title="휴가시작">
+                      <input type="number" min="0" max="8" readonly title="단축근무 시간" value="1" class="w_day alignC"> 시간
+                      <button type="button" class="btn_cancel" onclick="" title="삭제">삭제</button>
+                    </li>
+                    <li>
+                      <input type="date" min="0000-01-01" max="9999-12-31" id="sdt" title="휴가시작">
+                      <input type="number" min="0" max="8" readonly title="단축근무 시간" value="1" class="w_day alignC"> 시간
+                      <button type="button" class="btn_cancel" onclick="" title="삭제">삭제</button>
+                    </li>
+                  </ul>                  
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <label for="form_leave_reason" class="required">신청 사유</label>
+                </th>
+                <td>
+                  <textarea id="form_leave_reason" title="신청 사유 입력"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <label for="form_leave_other">기타</label>
+                </th>
+                <td>
+                  <textarea id="form_leave_other" title="기타란 입력">※ 휴가별 제출 서류 (파일 첨부 또는 관련문서 등록)
+- 무급병가 : 진단서
+- 공가 : 훈련통지서
+- 경조사 : 청첩장, 가족관계증명서, 주민등록등본, 사망확인서 등
+- 대체휴무 : 출장복명서, 휴일근무신청서 등. 대체휴가는 휴일 근무일로부터 1개월 이내에 소진하는 것이 원칙입니다. 만약 불가피하게 이월해야 할 경우 별도의 기안으로 승인을 요청하시기 바랍니다.
+- 출산휴가 : 소견서, 출생증명서, 가족관계증명서, 주민등록등본 등</textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="sign_wrap">
+            <p>상기와 같이 휴가를 신청합니다.<br>
+              <span id="req_date">2026년 6월 22일</span>
+            </p>
+            <p>신청인 : <span id="my_name_doc">반미선</span> </p>
+          </div>
+        
+        
+        	  
 </div>
-    </div>
-  </li> 
-</ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row" class="required">일별 업무계획</th>
-                    <td>
-                      <div class="tbl_workinfo">
-                        <div class="btn_wrap">
-                          <button type="button" class="btn_form">일정추가</button>
-                          <button type="button" class="btn_form">삭제</button>
-                        </div>
-                      </div>
-                      <table class="tbl_default tbl_use_select tbl_hover">
-                        <caption>일별 업무계획 테이블</caption>
-                        <colgroup>
-                          <col style="width:auto;">
-                          <col style="width:120px;">
-                          <col style="width:120px;">
-                          <col style="width:auto;">
-                          <col style="width:120px;">
-                        </colgroup>
-                        <tbody>
-                          <tr>
-                            <th scope="col">선택</th>
-                            <th scope="col">일자</th>
-                            <th scope="col">출장장소</th>
-                            <th scope="col">업무내용</th>
-                            <th scope="col">교통수단</th>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox" class="row_check" title="글선택"></td>
-                            <td><input type="date" title="일자 선택"></td>
-                            <td><input type="text" title="출장장소"></input>
-                            <td class="alignL"><input type="text" title="업무내용 입력"></input>
-                            </td>
-                            <td><input type="text" title="교통수단 입력"></td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox" class="row_check" title="글선택" checked></td>
-                            <td>2023-04-14</td>
-                            <td>ㅇㅇㅇ 기관</td>
-                            <td class="alignL">유지보수</td>
-                            <td>자차</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      <label for="form_expense" class="required">출장여비</label>
-                    </th>
-                    <td>
-                      <div class="tbl_workinfo">
-                        <p class="validity">※ 총 소요예산 :
-                          <input type="number" id="form_expense" class="alignR w_money"> 원
-                        </p>
-                      </div>
-                      <table class="tbl_default tbl_hover">
-                        <caption>출장여비 테이블</caption>
-                        <colgroup>
-                          <col style="width:150px;">
-                          <col style="width:auto;">
-                          <col span="2" style="width:200px;">
-                        </colgroup>
-                        <tbody>
-                          <tr>
-                            <th scope="col">종류</th>
-                            <th scope="col">내역</th>
-                            <th scope="col">법인 금액</th>
-                            <th scope="col">개인 금액</th>
-                          </tr>
-                          <tr>
-                            <th scope="row">주유</th>
-                            <td><input type="text" title="주유 내역 입력"></td>
-                            <td><input type="text" title="주유 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="주유 개인금액 입력" class="w_money"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">톨비</th>
-                            <td><input type="text" title="톨비 내역 입력"></td>
-                            <td><input type="text" title="톨비 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="톨비 개인금액 입력" class="w_money"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">철도</th>
-                            <td><input type="text" title="철도 내역 입력"></td>
-                            <td><input type="text" title="철도 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="철도 개인금액 입력" class="w_money"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">항공</th>
-                            <td><input type="text" title="항공 내역 입력"></td>
-                            <td><input type="text" title="항공 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="항공 개인금액 입력" class="w_money"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">택시</th>
-                            <td><input type="text" title="택시 내역 입력"></td>
-                            <td><input type="text" title="택시 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="택시 개인금액 입력" class="w_money"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">버스</th>
-                            <td><input type="text" title="버스 내역 입력"></td>
-                            <td><input type="text" title="버스 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="버스 개인금액 입력" class="w_money"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">숙박</th>
-                            <td><input type="text" title="숙박 내역 입력"></td>
-                            <td><input type="text" title="숙박 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="숙박 개인금액 입력" class="w_money"></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">일비&sol;기타</th>
-                            <td><input type="text" title="일비 및 기타 내역 입력"></td>
-                            <td><input type="text" title="일비 및 기타 법인금액 입력" class="w_money"></td>
-                            <td><input type="text" title="일비 및 기타 개인금액 입력" class="w_money"></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="editor_wrap" id="editor_wrap">
-                <textarea name="editor" id="editor" title="에디터 영역"></textarea>
-              </div>
-              <div class="sign_wrap">
-                <p>상기와 같이 출장 업무를 보고합니다.<br>
-                  <span>2023년 3월 20일</span>
-                </p>
-                <p>신청인 : <span>멋쟁이</span> (인)</p>
-              </div>
-            </div>
-          </section>
+</section>
+          
           <article class="approval_set">
             <section class="box_default_w">
               <h1>결재자 지정</h1>
@@ -768,170 +603,7 @@ $(function() {
 UI.toast('금일 출근 이력이 없습니다', 0);
 
 </script>
-<article class="p_alert" id="alert">
-  <header>
-    <h1>통합알림</h1>
-    <div class="layer-container" tabindex="0">
-      <button type="button" class="btn_set">설정</button>
-      <div class="layer-wrap">
-        <dl class="set_list">
-          <dt>항상 위에 고정</dt>
-          <dd>
-            <span class="btn_toggle_single">
-              <input type="checkbox" id="forgroundPin"><label for="forgroundPin">항상 위에 고정 여부</label>                      
-            </span>           
-          </dd>
-          <dt>알림 소리</dt>
-          <dd>
-            <span class="btn_toggle_single">
-              <input type="checkbox" id="notiSound" checked><label for="notiSound">알림소리 사용여부</label>                      
-            </span>            
-          </dd>
-          <dt>진동</dt>
-          <dd>
-            <span class="btn_toggle_single">
-              <input type="checkbox" id="notiVibrate"><label for="notiVibrate">진동 사용여부</label>                      
-            </span>           
-          </dd>
-        </dl>
-      </div>
-    </div>
-    <button class="btnClose" onclick="$('#alert').hide();">닫기</button>
-  </header>
-  <section class="alert_tab">
-    <ul class="tab tab_wrap">
-      <li class="on"><a href="#tab01">읽지 않음<i class="new_bedge">8</i></a></li>
-      <li class=""><a href="#tab02">최근 2주</a></li>
-    </ul>
-    <section class="tab_container">
-      <article class="tab_contents" id="tab01">       
-       <!-- $_nav_lst:'home','message','approval','work','planner','project','svc','erp''board','set'; -->
-        <ul class="alert_lst">
-          <li>
-            <div class="alert_tit message">
-              <h2><em>쪽지</em>수신알림</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">권기봉</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p>Lorem ipsum dolor sit amet, consectetur adi...</p>
-            </div>            
-          </li>
-          <li>
-            <div class="alert_tit board">
-              <h2><em>게시판</em>2023년 조직개편 및 진급자 발표</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">권기봉</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p>사내공지 게시판에 새 글이 등록되었습니다.</p>
-            </div>            
-          </li>
-          <li>
-            <div class="alert_tit approval">
-              <h2><em>전자결재</em>휴가신청서</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">권기봉</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p>2023-05-06 상신한 <em>[문서제목]</em> 문서가 반려되었습니다.</p>
-            </div>            
-          </li>
-          <li>            
-            <div class="alert_tit approval">
-              <h2><em>전자결재</em>휴가신청서</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">홍길동</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p><em>[문서제목]</em> 문서 도착</p>
-            </div>
-            <div class="alert_result">
-              <div class="result_txt">
-                <em>결재요청</em>
-                <p>전자결재 수신함을 확인해주세요.</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="alert_tit project">
-              <h2><em>프로젝트</em>KIT업무관리시스템</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">권기봉</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p><em>[KIT업무관리시스템 프로젝트]</em>에 참여되었습니다.</p>
-            </div>            
-          </li>
-          <li>
-            <div class="alert_tit planner">
-              <h2><em>일정</em>OOO회의</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">글쓴이</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p>23-04-02에 회의참석을 요청드려요.</p>
-            </div>
-            <div class="alert_result">
-              <div class="result_txt">
-                <em>참석응답</em>
-                <p>참석여부를 응답해주세요.</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="alert_tit work">
-              <h2><em>업무</em>댓글알림</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">글쓴이</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p><em>업무제목</em>글에 댓글이 달렸습니다.</p>
-              <p>@강성부 안녕하세요? 제가 멘션을 하였답니다ㅎㅎ</p>
-            </div>            
-          </li>
-          <li>
-            <div class="alert_tit">
-              <h2><em>업무</em>프로젝트 만들기</h2>
-              <div class="alert_info">
-                <span class="date">23-02-10 12:30</span>
-                <span class="writer">권기봉</span>
-              </div>
-            </div>
-            <div class="alert_txt">
-              <p>프로젝트는 기간 안에 진행할 업무들을 묶어 관리하기 위한 공간입니다. 커다란 프로젝트라 하더라도 업무단위로 나누어 등록을 하고 완료일을 정해 맴버들과 함께 진행을 한다면 목표하는 바를 이룰 수
-                있습니다.</p>
-            </div>
-            <div class="alert_result">
-              <div class="result_txt">
-                <em>업무 종료</em>
-                모든 담당자가 업무를 완료함</p>
-              </div>
-              <span class="date">2023-01-01 12:30</span>
-            </div>
-          </li>
-        </ul>
-      </article>
-      <article class="tab_contents" id="tab02" style="display: none;">
-        <ul class="alert_lst"></ul>
-      </article>
-    </section>
-  </section>
-</article>
+
 <dialog id="p_org_chart" class="p_org_chart">
   <form method="dialog">
     <header class="p_header">
@@ -962,6 +634,95 @@ UI.toast('금일 출근 이력이 없습니다', 0);
     $('.btn_request').on('click', function () { $('.file_upload').show(); })
     $('.file_upload').on('click', function () { $(this).hide(); })
   })
+
+// $('#req_date').html(getTodayDoc());
+// $('#my_name_doc').html(myName);
+
+function setPeriod(){
+	const prd = calculateTotalDays($('#sdt').val(), $('#edt').val())
+	if (!isNaN(prd)){
+		$('#period').val(prd+1)
+	}
+	setSj()
+}
+// setComp('C12type','radio', getCodes('C12'))
+
+//남은 연차 조회
+// $.ajax({
+// 	url : "/approval/getEmplVcatn.do"
+// 	,data : {
+// 	}
+// 	,method : "POST"
+// 	,dataType : "JSON"
+// 	,success : function(data){
+// 		$('#remain').attr('remndr_vcatn_day',data.result[0].remndr_vcatn_day)
+// 		$('#remain').text('(잔여: '+$('#remain').attr('remndr_vcatn_day')+'일)')
+// 		$('#C12_2_remain').attr('remndr_vcatn_hours',data.result[0].remndr_vcatn_hours)
+// 	}
+// 	, error : function(jqXHR, textStatus, errorThrown){
+// 		console.log(jqXHR, textStatus, errorThrown);
+// 	}
+// });
+
+//반차 선택시 표시 tr 변경
+$('input[type="radio"][name="C12type"]').on('change', function () {
+	var selectedId = $('input[type="radio"][name="C12type"]:checked').attr('id');
+	if(selectedId == 'C12_2' || selectedId == 'C12_9'){
+		$('#tr_C12_1').hide()
+		$('#tr_C12_2').show()
+		$('#C12_2_period').val(calculateTimeDifference())
+		$('#C12_2_remain').text('(잔여: '+$('#C12_2_remain').attr('remndr_vcatn_hours')+'시간)')
+	}else if(selectedId=='C12_10'){
+		$('#tr_C12_1').hide()
+		$('#tr_C12_2').hide()
+		$('#tr_C12_10').show()
+	}else{
+		$('#tr_C12_1').show()
+		$('#tr_C12_2').hide()
+		$('#remain').text('(잔여: '+$('#remain').attr('remndr_vcatn_day')+'일)')
+	}
+	setSj()
+});
+
+//두 셀렉트박스 사이의 차이 계산
+function calculateTimeDifference() {	
+	setSj();
+	var stime = parseInt($('#stime').val(), 10);
+	var etime = parseInt($('#etime').val(), 10);
+	var diff = 0;
+	// 점심시간인 경우
+	if (stime <= 12 && etime >= 13) {
+	// 점심시간을 제외한 시간 계산
+	diff = (12 - stime) + (etime - 13);
+	} else {
+	diff = etime - stime;
+	}
+	return diff
+}
+
+//반차 시각 선택시 시간계산
+$('#stime, #etime').on('change', function () {
+	let duration = calculateTimeDifference()
+	$('#C12_2_period').val(duration)
+});
+
+//제목 자동설정
+function setSj(){
+	if ($("#C12_sdt").is(":visible")) {
+		//반차
+		if($('#C12_sdt').val()=='')
+			return;
+		const stime = $('#stime').val()+':00'
+		const etime = $('#etime').val()+':00'
+		$('#sj').val(doc_info.atrz_doc_nm+"("+$('input[name="C12type"]:checked').next('label').text()+":"+$('#C12_sdt').val()+" "+stime+"~"+etime+")")
+	} else {
+		//반차아님
+		if($('#sdt').val()=='')
+			return;
+		$('#sj').val(doc_info.atrz_doc_nm+"("+$('input[name="C12type"]:checked').next('label').text()+":"+$('#sdt').val()+"~"+$('#edt').val()+")")
+	}
+}
+	
 </script>
 </body>
 

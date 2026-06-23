@@ -1,27 +1,27 @@
-@use 'variables' as vars;
+@use 'variables' as v;
 @mixin mobile_only {
-  @media (max-width: #{vars.$breakpoint-mobile}) { @content; }
+  @media (max-width: #{v.$breakpoint-mobile}) { @content; }
 }
 @mixin mobile_tablet {
-  @media (min-width: #{vars.$breakpoint-mobile_tablet}) and (max-width: #{vars.$breakpoint-tablet - 1px}) { @content; }
+  @media (min-width: #{v.$breakpoint-mobile_tablet}) and (max-width: #{v.$breakpoint-tablet - 1px}) { @content; }
 }
 @mixin tablet{
-  @media (max-width: #{vars.$breakpoint-tablet}) { @content; }
+  @media (max-width: #{v.$breakpoint-tablet}) { @content; }
 }
 @mixin tablet_only{
-  @media (min-width: #{vars.$breakpoint-tablet}) and (max-width: #{vars.$breakpoint-desktop - 1px}) { @content; }
+  @media (min-width: #{v.$breakpoint-tablet}) and (max-width: #{v.$breakpoint-desktop - 1px}) { @content; }
 }
 @mixin desktop($disabled:false,$target:'.contents'){
   @if($disabled){
     #{$target}:not(:has(#{$disabled})){
-      @media (max-width: #{vars.$breakpoint-desktop}) { @content;}
+      @media (max-width: #{v.$breakpoint-desktop}) { @content;}
     }
   }@else{
-    @media (max-width: #{vars.$breakpoint-desktop}) { @content;}
+    @media (max-width: #{v.$breakpoint-desktop}) { @content;}
   }
 }
 @mixin desktop_only{
-  @media (min-width: #{vars.$breakpoint-desktop}) { @content; }
+  @media (min-width: #{v.$breakpoint-desktop}) { @content; }
 }
 @mixin hover_init{
   @media (hover:none) {
@@ -49,8 +49,8 @@
 }
 
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
-@mixin flex_layout{display:flex;justify-content:space-between;gap:vars.$columnGap;@content;}
-@mixin flex_ver{display:flex;flex-direction:column;gap:vars.$columnGap;}
+@mixin flex_layout{display:flex;justify-content:space-between;gap:v.$columnGap;@content;}
+@mixin flex_ver{display:flex;flex-direction:column;gap:v.$columnGap;}
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
 @mixin badge_style($max_w:null,$w:null){display:inline-block;width:$w; max-width:$max_w;color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
@@ -62,7 +62,7 @@ border:1px solid transparent;align-self:center;@content;}
 }
 @mixin divide($h:10px,$gap:5px){
   position:relative;display:inline-flex;align-items:center;
-  &::before{@include shape(1px,$h);background-color:vars.$gray;margin:0 15px 0 #{15 - $gap};}
+  &::before{@include shape(1px,$h);background-color:v.$gray;margin:0 15px 0 #{15 - $gap};}
 }
 @mixin fontello($ic){
   display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;@content;
@@ -105,16 +105,16 @@ border:1px solid transparent;align-self:center;@content;}
 
 @mixin btn_switch_group($def,$hover,$checked){display:inline-flex;vertical-align:middle;
   input{position:absolute;flex:1;opacity:0;
-    &+label{flex:1;cursor:pointer;border:1px solid $checked;border-left-width:0;font-size:13px;font-weight:bold;color:$hover;text-align:center;line-height:26px;background-color:vars.$white;}
+    &+label{flex:1;cursor:pointer;border:1px solid $checked;border-left-width:0;font-size:13px;font-weight:bold;color:$hover;text-align:center;line-height:26px;background-color:v.$white;}
     &+label:first-of-type{border-left-width:1px;border-radius:3px 0 0 3px;}
     &+label:last-of-type{border-radius:0 3px 3px 0;}
-    &:hover+label{background-color:$def;color:vars.$white;}
-    &:checked+label{color:vars.$white;background-color:$hover;transition:0.5s;}
+    &:hover+label{background-color:$def;color:v.$white;}
+    &:checked+label{color:v.$white;background-color:$hover;transition:0.5s;}
   }
 }
 @mixin btn_square($font){@include shape(28px,28px);background-color:#eaedf1;border-radius:2px;text-align:center;border:1px solid #c5c5c5;cursor:pointer;
   &::before{@include fontello($font);font-size:13px;color:#848890;line-height:24px;}
-  &:hover{background-color:vars.$white;box-shadow:0 0 3px rgba(0, 0, 0, .2);}
+  &:hover{background-color:v.$white;box-shadow:0 0 3px rgba(0, 0, 0, .2);}
 }
 %ico_ext{display:inline-block;width:17px;height:17px;background-image:url(../images/ico_fileExt.png);background-repeat:no-repeat;vertical-align:middle;font-size:0;overflow:hidden;text-indent:-9999px;}
 @mixin ico_ext($x,$y){background-position:#{$x} #{$y};@extend %ico_ext;}
@@ -127,7 +127,7 @@ border:1px solid transparent;align-self:center;@content;}
   h1{font-weight:bold;font-size:if($h_pd >= 20,16px,null);}
   h2{font-weight:bold;}
 }
-@mixin inner_box($pw:12px,$ph:15px){position:relative;background-color:vars.$white;border-radius:5px;padding:$pw $ph;box-shadow:0 0 5px rgba(0, 0, 0, 0.07);
+@mixin inner_box($pw:12px,$ph:15px){position:relative;background-color:v.$white;border-radius:5px;padding:$pw $ph;box-shadow:0 0 5px rgba(0, 0, 0, 0.07);
   &:hover{box-shadow:0 0 5px rgba(3, 3, 3, .2);}
   &.unidentified{background-color:#fffeed;
     strong::after{@include newmark;}
@@ -136,7 +136,7 @@ border:1px solid transparent;align-self:center;@content;}
   a{display:flex;flex-direction:column;font-size:12px;color:#717889;letter-spacing:-.3px;}
   span{display:inline-block;line-height:16px;}
 }
-@mixin newmark{@include badge_style();content:"N";background-color:vars.$red;width:17px;font-size:10px;margin-left:3px;}
+@mixin newmark{@include badge_style();content:"N";background-color:v.$red;width:17px;font-size:10px;margin-left:3px;}
 
 @mixin tit{font-size:16px;color:#000;font-weight:bold;margin-bottom:15px;
   &:has(h1){
@@ -287,7 +287,7 @@ border:1px solid transparent;align-self:center;@content;}
 
 // Global UI Placeholders
 %info_box{padding:20px 20px 15px 55px;background-color:#fcf2f2;margin-bottom:10px;
-  h3{position:relative;color:vars.$red;letter-spacing:-0.33px;
+  h3{position:relative;color:v.$red;letter-spacing:-0.33px;
     &::before{@include fontello('\f086');position:absolute;top:-6px;left:-25px;font-size:19px;transform:rotate(180deg);}
   }
   p{margin-top:5px;font-size:12px;color:#000;letter-spacing:-0.3px;}

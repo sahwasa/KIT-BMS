@@ -1,11 +1,11 @@
-@use '../base/variables' as vars;
+@use '../base/variables' as v;
 @use '../base/mixin' as *;
 @use '../vendors/fullcalendar' as calendar;
 
 $cal-status: (
-  'check':    (#ffecec, vars.$red),
+  'check':    (#ffecec, v.$red),
   'request':    (#fef5ee, #f07816),
-  'modified': (#dce9fd, vars.$blue),
+  'modified': (#dce9fd, v.$blue),
 );
 .hr_attendance{@include tbl_defaultH(55px);margin-bottom:15px;
   @include calendar.attendance_mng;
@@ -38,7 +38,7 @@ $cal-status: (
   }
   .attendance_record{margin-top:30px;
     .tbl_wrap{height:auto;max-height:545px;min-height:auto;}
-    th,td{border:1px solid vars.$td_border_color;border-width:0 1px 1px 0;
+    th,td{border:1px solid v.$td_border_color;border-width:0 1px 1px 0;
       &:last-child{border-right-width:0;text-align:center;}    
     }    
   }
@@ -48,10 +48,10 @@ $cal-status: (
 .p_monthlyAttendance{width:1100px;
   .tbl_wrap{height:auto;max-height:545px;min-height:auto;}
   th{vertical-align:middle;
-    &:not(:first-of-type){border-left:1px solid vars.$th_border_color;}
+    &:not(:first-of-type){border-left:1px solid v.$th_border_color;}
   }
   td{    
-    &:not(:first-of-type){border-left:1px solid vars.$td_border_color;}    
+    &:not(:first-of-type){border-left:1px solid v.$td_border_color;}    
     &:has(.time_record),
     &:last-child{text-align:left;}
   }
@@ -162,9 +162,9 @@ $cal-status: (
     .unit{font-size:11px;}
   }
   .badge{padding:0 10px;
-    &-success{background:vars.$green;}
-    &-warning{background:vars.$reject;}
-    &-wait{background:vars.$wait;}
+    &-success{background:v.$green;}
+    &-warning{background:v.$reject;}
+    &-wait{background:v.$wait;}
   }
   .meta{display:none;font-size:12px;margin:4px 0 10px;min-height:16px;line-height:1.6;border:1px solid #ddd;padding:5px;}
   .btn_wrap{display:none;}

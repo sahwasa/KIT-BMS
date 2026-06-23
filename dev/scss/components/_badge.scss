@@ -1,18 +1,18 @@
-@use '../base/variables' as vars;
+@use '../base/variables' as v;
 @use '../base/mixin' as *;
 
 //badge
 .badge{@include badge_style();}
-.draft{@include badge_color(vars.$draft)} 
-.ing{@include badge_color(vars.$ing)} 
-.approve,.fin{@include badge_color(vars.$fin)} 
-.agree{@include badge_color(vars.$agree)} 
-.return,.repair,.reject{@include badge_color(vars.$reject)} 
-.ready,.wait{@include badge_color(vars.$wait)} 
-.defer{@include badge_color(vars.$defer)} 
-.done{@include badge_color(vars.$done)} 
-.cc{@include badge_color(vars.$cc)} 
-.apply{@include badge_color(vars.$blue)}
+.draft{@include badge_color(v.$draft)} 
+.ing{@include badge_color(v.$ing)} 
+.approve,.fin{@include badge_color(v.$fin)} 
+.agree{@include badge_color(v.$agree)} 
+.return,.repair,.reject{@include badge_color(v.$reject)} 
+.ready,.wait{@include badge_color(v.$wait)} 
+.defer{@include badge_color(v.$defer)} 
+.done{@include badge_color(v.$done)} 
+.cc{@include badge_color(v.$cc)} 
+.apply{@include badge_color(v.$blue)}
 .default{@include badge_color(#b6b6b6)}
 .i_badge{@include shape(20px,20px);display:inline-flex !important;align-items:center;justify-content:center;border:1px solid transparent;line-height:20px !important;border-radius:50%;vertical-align:middle;
   &::before{font-size:14px;}

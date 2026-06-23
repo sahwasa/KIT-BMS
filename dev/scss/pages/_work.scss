@@ -1,30 +1,30 @@
-@use '../base/variables' as vars;
-@use '../base/mixin' as mixins;
+@use '../base/variables' as v;
+@use '../base/mixin' as m;
 // work
 .dsc{display:inline-flex;flex-direction:column;flex-shrink:0;font-size:11px;color:#b2bacd;font-weight:700;
   .date{color:#888;}
   .progress{text-align:right;
     progress{display:block;width:140px;}
-    em{color:vars.$red;width:40px;}
+    em{color:v.$red;width:40px;}
   }
 }
 .status{
-  ul{max-height:calc(100vh - 266px);min-height:363px;@include mixins.empty_txt(attr(data-empty)){background-color:transparent;};}
+  ul{max-height:calc(100vh - 266px);min-height:363px;@include m.empty_txt(attr(data-empty)){background-color:transparent;};}
   li{flex-shrink:0;
-    .tit{@include mixins.flex_between();margin-bottom:5px;}
+    .tit{@include m.flex_between();margin-bottom:5px;}
     strong{margin:0;word-break:keep-all;}
-    @include mixins.desktop{
+    @include m.desktop{
       .tit{flex-direction:column;align-items:flex-start;}
       .dsc{align-self:flex-end;}
     }
   }
-  strong{padding-left:10px;text-indent:-15px;margin:0;@include mixins.dot_list;}
+  strong{padding-left:10px;text-indent:-15px;margin:0;@include m.dot_list;}
   .task,.task_dtl{padding-left:10px;text-align:left;}
   .task{color:#000;line-height:1.2;background-color:#edf0f3;border-radius:3px;padding:5px;margin-bottom:5px;}
 }
 summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bold;}
 // com:요청받은 업무,req:요정한업무,pro:프로젝트,per:개인업무
-@each $type, $color in vars.$titColor{
+@each $type, $color in v.$titColor{
   .#{$type}{
     h2{color:$color;}      
     .work_box li::before{background-color:$color;}
@@ -34,22 +34,22 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
   }
 }
 //work home
-.work_board{@include mixins.flex_layout();align-items:stretch;word-break:keep-all;
+.work_board{@include m.flex_layout();align-items:stretch;word-break:keep-all;
   .tit{
     h1{font-size:13px;}
     .tool_wrap select{border-width:0;background-color:transparent;}
   }   
   .task_dtl{font-size:12px;color:#878c95;}
-  .this_week{flex:3;@include mixins.flex_layout();align-items:stretch;
+  .this_week{flex:3;@include m.flex_layout();align-items:stretch;
     .todo{flex:3;}
     .delay{flex:2;}
     .task_dtl,.etc{margin-top:5px;text-indent:0;}
     .etc{display:flex;align-items:center;gap:7px;font-size:12px;color:#878c95;}
-    .d_day{@include mixins.badge_style($w:42px);color:vars.$tomato;border:1px solid vars.$tomato;line-height:14px;text-align:center;}
+    .d_day{@include m.badge_style($w:42px);color:v.$tomato;border:1px solid v.$tomato;line-height:14px;text-align:center;}
   }
   .status{flex:1.5;}
   .work_board_lst{background-color:#fff;padding:15px;border:1px solid #ddd;border-radius:0 0 5px 5px;overflow-y:auto;height:calc(100vh - 266px);min-height:363px;
-  @include mixins.empty_txt(attr(data-empty));
+  @include m.empty_txt(attr(data-empty));
     &>li{
       &:has(h3){padding:20px 15px;border:1px solid #ddd;border-width:0 0 1px;}
       &:has(details){
@@ -63,7 +63,7 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
     summary{display:inline-block;cursor:pointer;
       &::-webkit-details-marker,
       &::marker{display:none;content:'';}
-      &::before{font-family:'fontello';content:'\f107';font-size:14px;color:vars.$red;} // 1depth
+      &::before{font-family:'fontello';content:'\f107';font-size:14px;color:v.$red;} // 1depth
       & h2:hover{text-decoration:underline;}
     }
   }
@@ -71,7 +71,7 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
     &[open]{border-bottom-width:0;}
   }
   .work_box{display:flex;flex-direction:column;gap:15px;padding:10px;border:1px solid #ebebeb;border-radius:2px;
-    & > li{padding-left:10px;text-indent:-10px;@include mixins.dot_list;}
+    & > li{padding-left:10px;text-indent:-10px;@include m.dot_list;}
   }
 }
 // .my_work.my_approval
@@ -90,14 +90,14 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
     .tit{flex-direction:column;align-items:flex-start;}
     .dsc{align-self:flex-end;}
   }
-  // .tab_contents{@include my_work_defaultH();display:flex;flex-direction: column;gap:10px;padding-bottom:vars.$columnGap;}
-  .tbl_scroll_wrap{@include my_work_defaultH(72px);display:flex;flex-direction: column;gap:10px;padding-bottom:vars.$columnGap;}
+  // .tab_contents{@include my_work_defaultH();display:flex;flex-direction: column;gap:10px;padding-bottom:v.$columnGap;}
+  .tbl_scroll_wrap{@include my_work_defaultH(72px);display:flex;flex-direction: column;gap:10px;padding-bottom:v.$columnGap;}
   .tbl_row{position:relative;width:100%;border:1px solid #ebebeb;border-width:0 1px;font-size:12px;
     td{vertical-align:baseline;
       &[contenteditable]{height:75px;}
     }
     .alignL{color:#6b6b6b;}
-    &+div .btn{@include mixins.btn(#aaa);padding:5px 60px;color:#111;background-color:#ebebeb;cursor:pointer;
+    &+div .btn{@include m.btn(#aaa);padding:5px 60px;color:#111;background-color:#ebebeb;cursor:pointer;
       &:hover{
         &::after{color:#fff;}
       }
@@ -118,45 +118,45 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
     }
   }
 }
-.work_todo .tbl_wrap{@include mixins.tbl_defaultH(19px);
+.work_todo .tbl_wrap{@include m.tbl_defaultH(19px);
   .project_name{font-size:11px;color:#a0a0a0;word-break:keep-all;}
 }
 .work .form_wrap{row-gap:10px;}
-.work .tbl_wrap{@include mixins.tbl_defaultH(41px);}
-.tbl_work_day{@include mixins.tbl_defaultH(66px);
+.work .tbl_wrap{@include m.tbl_defaultH(41px);}
+.tbl_work_day{@include m.tbl_defaultH(66px);
   tbody{
     th{vertical-align:middle;background-color:#f5f5f5;font-size:16px;}
-    td{@include mixins.alignL(1);
+    td{@include m.alignL(1);
       &[colspan]{text-align:center;}
     }
   }
   .tit{display:block;font-weight:bold;margin-bottom:5px;}
   .time{display:block;font-size:14px;}
 }
-.tbl_work_report{@include mixins.tbl_defaultH(63px);
-  td{@include mixins.alignL(1);
+.tbl_work_report{@include m.tbl_defaultH(63px);
+  td{@include m.alignL(1);
     &[colspan]{text-align:center;cursor:default;}
   }
   .tbl_badge{display:inline-flex;justify-content:center;gap:5px;max-width:none;padding:0 5px;
-    em{padding:0 3px;background-color:#fff;border-radius:0 3px 3px 0;color:vars.$black;letter-spacing:-.05em;margin-right:-5px;}
+    em{padding:0 3px;background-color:#fff;border-radius:0 3px 3px 0;color:v.$black;letter-spacing:-.05em;margin-right:-5px;}
   }
-  $_signType:('draft':vars.$draft,'ing':vars.$ing,'fin':vars.$fin,'reject':vars.$reject,'ready':vars.$wait,'wait':vars.$wait);
+  $_signType:('draft':v.$draft,'ing':v.$ing,'fin':v.$fin,'reject':v.$reject,'ready':v.$wait,'wait':v.$wait);
   @each $type, $color in $_signType{
     .#{$type}{border-color:$color !important;color:$color !important;background:#fff !important;}
   }
 }
-.ask_approval::after{@include mixins.badge_style();content:"결재요청";color:vars.$red;margin-left:3px;padding:0 3px;border:1px solid vars.$red;}
+.ask_approval::after{@include m.badge_style();content:"결재요청";color:v.$red;margin-left:3px;padding:0 3px;border:1px solid v.$red;}
 .tbl_todo td,
 .tbl_work_fin td,
-.tbl_work_delay td{@include mixins.alignL(3 4);}
+.tbl_work_delay td{@include m.alignL(3 4);}
 .tbl_work_share td,
 .tbl_work_reque td,
-.tbl_work_refer td{@include mixins.alignL(3);}
+.tbl_work_refer td{@include m.alignL(3);}
 .tbl_list{border-top:2px solid #c0c0c0;
   li.select_li:hover,
-  li.select_li{background-color:lighten(vars.$red, 45%);}
+  li.select_li{background-color:lighten(v.$red, 45%);}
   .tags{display:inline-flex;align-items:center;gap:3px;}
-  &>li{@include mixins.flex_between;align-items:flex-start;gap:20px;padding:10px;border-bottom:1px solid #ebebeb;align-items:stretch;
+  &>li{@include m.flex_between;align-items:flex-start;gap:20px;padding:10px;border-bottom:1px solid #ebebeb;align-items:stretch;
     h2{$_workType:('ing':#2d66d8,'my_work':#f07816);
       @each $type, $color in $_workType{
         &.#{$type}{display:flex;justify-content:center;align-items:center;width:180px;padding:5px;border:1px solid $color;border-radius:5px;background:lighten($color, 45%);box-shadow:0px 1px 8px 0 rgba(0, 0, 0, 0.07);font-weight:700;color:$color;text-align:center;word-break:keep-all;}
@@ -169,7 +169,7 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
 }
 //실적관리
 .last_week .tit strong{padding-left:15px;}
-.performance ul{@include mixins.empty_txt(attr(data-empty),true,150px);}
+.performance ul{@include m.empty_txt(attr(data-empty),true,150px);}
 .performance_write{flex:1;min-height:0;
   .tbl_week td{vertical-align:middle;}
   .tbl_performance{position:relative;
@@ -189,7 +189,7 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
           input{text-align:right;}
         }
       }
-      &>tr>th{@include mixins.alignL(2);
+      &>tr>th{@include m.alignL(2);
         &:first-child{min-width:75px;}
       }
     }
@@ -208,7 +208,7 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
 
 .tbl_report{table-layout:fixed;width:100%;color:#000;overflow:hidden;
   th,td{padding:5px;border:1px solid #ddd;text-align:center;font-size:12px;word-break:keep-all;white-space:pre-wrap;}
-  th{background-color:vars.$report_gray;}
+  th{background-color:v.$report_gray;}
   td:has(select),td:has(input),
   td:has([contenteditable]){padding:5px;}
   &.tbl_week_inner{
@@ -219,16 +219,16 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
     tbody td:nth-last-child(3),
     tbody td:nth-last-child(9),
     tfoot td:nth-child(2),
-    tfoot td:nth-child(8){background-color:vars.$report_gray;}
+    tfoot td:nth-child(8){background-color:v.$report_gray;}
     tbody td:last-child,
     tbody td:nth-last-child(2){background-color:#fff;}
   }
-  thead{background-color:vars.$report_gray;
-    th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:vars.$report_gray;}
+  thead{background-color:v.$report_gray;
+    th{font-size:13px;font-weight:bold;border-bottom-width:0;background-color:v.$report_gray;}
   }
   tfoot{select{padding:0;background:#fff;text-align:center;}}
-  $_reportType:('asis':vars.$report_blue,'tobe':vars.$report_yellow,'basic':vars.$report_gray);
-  $_reportProjType:('work_ing':vars.$proj_blue,'work_done':vars.$proj_yellow,'work_repair':vars.$proj_green,'work_delay':vars.$proj_pink);
+  $_reportType:('asis':v.$report_blue,'tobe':v.$report_yellow,'basic':v.$report_gray);
+  $_reportProjType:('work_ing':v.$proj_blue,'work_done':v.$proj_yellow,'work_repair':v.$proj_green,'work_delay':v.$proj_pink);
   @each $type, $color in $_reportType{
     &.#{$type}{
       tbody th,tfoot{background-color:$color;font-weight:bold;}
@@ -242,15 +242,15 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
   input[type=number]{text-align:center;}
   div[contenteditable]{padding:5px;border:1px solid #ddd;white-space:initial;text-align:left;}
   &.asis tbody td,
-  &.tobe tbody td{@include mixins.alignL(2);}
+  &.tobe tbody td{@include m.alignL(2);}
   &.asis_tobe{
-    td{@include mixins.alignL(3 4, true);}
-    &.write td{@include mixins.alignL(4 5, true);}
+    td{@include m.alignL(3 4, true);}
+    &.write td{@include m.alignL(4 5, true);}
     &.div{table-layout:fixed;
       tbody tr:last-child td{border-bottom-width:2px;}
     }
     &.div{
-      td{@include mixins.alignL(4 5, true);}
+      td{@include m.alignL(4 5, true);}
       & > thead tr,
       & > tbody tr{
         & th:not([colspan]):first-child,
@@ -264,7 +264,7 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
       h3{font-size:14px;margin:10px 0 5px;}
       .tbl_week td{padding:0;text-align:left;
         &:first-child,
-        &:last-child{background-color:vars.$report_gray;}
+        &:last-child{background-color:v.$report_gray;}
         & > div{text-indent:0;}
       }
       div{text-indent:-8px;padding-left:8px;background-color:transparent;}
@@ -274,7 +274,7 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
 }
 .work_new,
 .work_view,
-.my_work{@include mixins.flex_layout();
+.my_work{@include m.flex_layout();
   .work_form{flex:1;}
 }
 .lst_work_report{display:grid;grid-template-columns:repeat(4, minmax(100px, auto));gap:5px;
@@ -288,17 +288,17 @@ summary h2{display:inline-block;margin-bottom:10px;font-size:14px;font-weight:bo
   strong{font-size:16px;letter-spacing:.2em;}
   .i_approval{display:inline-block;color:#fff;letter-spacing:-0.3px;text-align:center; border-radius:5px;border:1px solid rgba(0,0,0,0);color:#e42b29;padding:0 3px;border: 1px solid #e42b29;opacity: 1;}
 }
-.reports_wrap{display:flex;gap:vars.$columnGap;
-  @include mixins.staticOrgChart;
+.reports_wrap{display:flex;gap:v.$columnGap;
+  @include m.staticOrgChart;
   .reports{flex:1;display:flex;flex-direction:column;overflow-y:auto;padding-right:10px;min-width:180px;height:calc(100vh - 248px);min-height:381px;
     .tbl_top_area{position:sticky;top:0;left:0;background-color:#fff;border-bottom:2px solid #c0c0c0;padding-bottom:5px;z-index:100;margin-bottom:0;
-      .divide{vertical-align:middle;font-size:14px;color:vars.$gray;margin-left:5px;
+      .divide{vertical-align:middle;font-size:14px;color:v.$gray;margin-left:5px;
         &::before{height:10px;}
       }
     }
     .form_wrap,
     .tbl_wrap{border-top-width:0;}    
-    .my_approval{@include mixins.empty_txt(attr(data-empty)){justify-content:center;flex:1;};}
-    .file_attached{background-color:vars.$report_gray;padding:0 10px;}
+    .my_approval{@include m.empty_txt(attr(data-empty)){justify-content:center;flex:1;};}
+    .file_attached{background-color:v.$report_gray;padding:0 10px;}
   }
 }

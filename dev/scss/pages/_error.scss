@@ -1,4 +1,4 @@
-@use '../base/mixin' as mixins;
+@use '../base/mixin' as m;
 // error
 .error_wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:50px;
   *{font-family:'Malgun Gothic';}
@@ -14,7 +14,7 @@
     &::before{margin-right:5px;}
   }
 }
-@include mixins.mobile_only{ 
+@include m.mobile_only{ 
   .error_wrap{gap:40px;
     .m_con{display:block;}
     img{width:50%;}

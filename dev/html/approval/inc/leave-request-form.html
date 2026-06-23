@@ -1,0 +1,133 @@
+<section class="approval_form flex_right">
+            <p class="form_validity required validity">표시는 필수 입력 항목입니다.</p>
+            <div class="form_wrap" id="form_wrap"><div class="tit_form">
+            <h2 id="title">휴가신청서</h2>
+            <table class="tbl_row approval_status" id="table_appr">
+              <caption>결재 상황 테이블</caption>
+              <tbody>
+                <tr>
+                  <th scope="col" rowspan="3">결 재</th>
+                  <th scope="col">상신</th>
+                  <th scope="col">결재</th>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <table class="tbl_row">
+            <caption>휴가신청서 양식 테이블</caption>
+            <colgroup>
+              <col style="width:150px">
+              <col style="width:auto">
+            </colgroup>
+            <tbody>
+              <tr id="tr_doc_num" style="display: none;">
+                <th scope="row">
+                  <label for="doc_num" class="required">문서번호</label>
+                </th>
+                <td>
+                  <span class="file_input">
+                    <input type="text" id="doc_num">
+                  </span>
+                </td>
+              </tr><tr><th scope="row"><label for="sj" class="required">문서제목</label></th><td><input type="text" maxlength="50" title="문서제목 입력" id="sj"></td></tr>
+              <tr>
+                <th scope="row">
+                  <label class="required">휴가구분</label>
+                </th>
+                <td>
+                  <ul class="check_group" id="C12type"><li><input type="radio" id="C12_1" name="C12type">
+<label for="C12_1">연차</label></li><li><input type="radio" id="C12_2" name="C12type">
+<label for="C12_2">반차</label></li><li><input type="radio" id="C12_3" name="C12type">
+<label for="C12_3">무급병가</label></li><li><input type="radio" id="C12_4" name="C12type">
+<label for="C12_4">공가</label></li><li><input type="radio" id="C12_5" name="C12type">
+<label for="C12_5">경조사</label></li><li><input type="radio" id="C12_6" name="C12type">
+<label for="C12_6">대체휴무</label></li><li><input type="radio" id="C12_7" name="C12type">
+<label for="C12_7">출산휴가</label></li><li><input type="radio" id="C12_9" name="C12type">
+<label for="C12_9">조퇴/외출</label></li><li><input type="radio" id="C12_10" name="C12type">
+<label for="C12_10">워라밸 단축근무일 지정</label></li></ul>                  
+                </td>
+              </tr>              
+              <tr id="tr_C12_1" style="display: none;">
+                <th scope="row">
+                  <label for="sdt" class="required">휴가기간</label>
+                </th>
+                <td>
+                  <input type="date" min="0000-01-01" max="9999-12-31" id="sdt" title="휴가시작" onchange="setPeriod()"> - 
+                  <input type="date" min="0000-01-01" max="9999-12-31" id="edt" title="휴가종료" onchange="setPeriod()">
+                  <input type="text" id="period" title="총 연차기간" class="w_day alignC">
+                  <span>일간</span>
+				  <span class="validity" id="remain" style="vertical-align: middle;" remndr_vcatn_day="13.5">(잔여: 13.5일)</span>
+                </td>
+              </tr>
+			        <tr id="tr_C12_2" style="display: none;">
+                <th scope="row">
+                  <label for="C12_sdt" class="required">휴가기간</label>
+                </th>
+                <td>
+                  <input type="date" min="0000-01-01" max="9999-12-31" id="C12_sdt" title="휴가시작" onchange="setPeriod()">
+				  <select id="stime" title="시각 선택" class="w_week"><option value="00">00</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14" selected="">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select>~<select id="etime" title="시각 선택" class="w_week"><option value="00">00</option><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18" selected="">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option></select>
+                  <input type="text" id="C12_2_period" title="총 반차시간" class="w_day alignC" style="border: none; text-align: right !important;" disabled="">
+                  <span>시간</span>
+				  <span class="validity" id="C12_2_remain" style="vertical-align: middle;" remndr_vcatn_hours="108">(잔여: 108시간)</span>
+                </td>
+              </tr>
+              <tr id="tr_C12_10" style="">
+                <th scope="row">단축근무일</th>
+                <td>                               
+                  <button type="button" class="btn_form" onclick="">+ 추가</button>
+                  <ul class="list_shortwork">
+                    <li>
+                      <input type="date" min="0000-01-01" max="9999-12-31" id="sdt" title="휴가시작">
+                      <input type="number" min="0" max="8" readonly title="단축근무 시간" value="1" class="w_day alignC"> 시간
+                      <button type="button" class="btn_cancel" onclick="" title="삭제">삭제</button>
+                    </li>
+                    <li>
+                      <input type="date" min="0000-01-01" max="9999-12-31" id="sdt" title="휴가시작">
+                      <input type="number" min="0" max="8" readonly title="단축근무 시간" value="1" class="w_day alignC"> 시간
+                      <button type="button" class="btn_cancel" onclick="" title="삭제">삭제</button>
+                    </li>
+                  </ul>                  
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <label for="form_leave_reason" class="required">신청 사유</label>
+                </th>
+                <td>
+                  <textarea id="form_leave_reason" title="신청 사유 입력"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <label for="form_leave_other">기타</label>
+                </th>
+                <td>
+                  <textarea id="form_leave_other" title="기타란 입력">※ 휴가별 제출 서류 (파일 첨부 또는 관련문서 등록)
+- 무급병가 : 진단서
+- 공가 : 훈련통지서
+- 경조사 : 청첩장, 가족관계증명서, 주민등록등본, 사망확인서 등
+- 대체휴무 : 출장복명서, 휴일근무신청서 등. 대체휴가는 휴일 근무일로부터 1개월 이내에 소진하는 것이 원칙입니다. 만약 불가피하게 이월해야 할 경우 별도의 기안으로 승인을 요청하시기 바랍니다.
+- 출산휴가 : 소견서, 출생증명서, 가족관계증명서, 주민등록등본 등</textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="sign_wrap">
+            <p>상기와 같이 휴가를 신청합니다.<br>
+              <span id="req_date">2026년 6월 22일</span>
+            </p>
+            <p>신청인 : <span id="my_name_doc">반미선</span> </p>
+          </div>
+        
+        
+        	  
+</div>
+</section>

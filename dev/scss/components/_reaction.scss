@@ -1,10 +1,10 @@
-@use '../base/variables' as vars;
-@use '../base/mixin' as mixins;
+@use '../base/variables' as v;
+@use '../base/mixin' as m;
 .box_bot{display:flex;align-items:center;margin-top:5px;}
 $reaction-types: ( like, good, confirm, fun, wow, sad );
 .reaction_area{margin-left:auto;}
 @mixin reactionIco(){
-  &::before{@include mixins.shape(20px,20px);background:url(../images/ico_emotion.png) 0 50% / auto no-repeat;}
+  &::before{@include m.shape(20px,20px);background:url(../images/ico_emotion.png) 0 50% / auto no-repeat;}
   @each $type in $reaction-types {
       $index :index($reaction-types, $type);
     &.#{$type}::before {
@@ -23,13 +23,13 @@ $reaction-types: ( like, good, confirm, fun, wow, sad );
   span{display:inline-block;line-height:20px;margin-left:5px;font-size:11px;}
 }
 .reaction_layer{position:absolute;right:0;top:calc(100% + 5px);width:300px;height:0;max-height:200px;overflow:hidden;background-color:#fff;
-  ul{border:1px solid vars.$gray;padding:5px;}
+  ul{border:1px solid v.$gray;padding:5px;}
   li{margin:5px 0;}
   span{font-size:0;margin-left:auto;
     @include reactionIco();
   } 
 }
-.btn_reactionAdd{@include mixins.ico_only('\e805');padding:5px 7px;border-radius:3px; 
+.btn_reactionAdd{@include m.ico_only('\e805');padding:5px 7px;border-radius:3px; 
   &:hover{background-color:#f5f5f5;}
   &::before{font-size:16px;}
 }
@@ -38,7 +38,7 @@ $reaction-types: ( like, good, confirm, fun, wow, sad );
   .reaction_btns{height:auto;}
 } 
 .reaction_btns{position:absolute;right:5px;top:calc(100% + 3px);width:fit-content;background-color:#fff;height:0;overflow:hidden;
-  ul{display:flex;gap:10px;padding:3px 15px;border:1px solid vars.$gray;}
+  ul{display:flex;gap:10px;padding:3px 15px;border:1px solid v.$gray;}
   button{font-size:0;padding:4px 3px 2px;margin-left:auto;border-bottom:2px solid transparent;
     @include reactionIco();
     &:hover{border-color:#666}
