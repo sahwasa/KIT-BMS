@@ -37,6 +37,7 @@ label:has(input[type="checkbox"][readonly]),
 select[readonly] {
   pointer-events: none;
 }
+[readonly]{pointer-events:none;tabindex:-1;}
 
 input[type="radio"] {
   border-radius: 50%;

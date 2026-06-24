@@ -1,0 +1,255 @@
+<dialog id="p_SetShortworkday" class="p_set_shortworkday" tabindex="0">
+  <form method="dialog">
+    <div class="p_header">
+      <strong>근로단축일</strong>
+      <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
+    </div>   
+    <div class="p_body">
+      <div class="tbl_top_area">
+        <div class="handle_week">
+          <button type="button" class="handle_prev">이전 년 이동</button>
+          <span id="yearLabel">2026</span>
+          <button type="button" class="handle_next">다음 년 이동</button>
+        </div>
+        <div class="tool_wrap">
+          <label for="shotWork_time" class="shortwork_time">단축근로(시간)</label><input type="number" id="shotWork_time" min="0" max="8" value="2" readonly />
+        </div>
+      </div>
+
+      <!-- 요일 헤더 -->
+      <div class="col_header" aria-hidden="true">
+        <span class="col_month"></span>
+        <span class="col_week"></span>
+        <span>월</span>
+        <span>화</span>
+        <span>수</span>
+        <span>목</span>
+        <span>금</span>
+      </div>
+      <div class="tbl_wrap">
+        <!-- 주차 테이블 (JS로 생성) -->
+        <table class="tbl_shortwork" id="tblShortwork">
+          <tbody id="tbodyShortwork"></tbody>
+        </table>
+      </div>
+      <div class="btn_wrap">
+        <button class="btn_red" type="submit" id="btnSave">저장</button>
+        <button class="btn_gray_line btn_close" type="button">닫기</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+<script>
+const ShortworkPopup = (function () {
+  'use strict';
+
+  /* =====================
+     설정 상수
+  ===================== */
+  const MIN_YEAR = 2026;
+  const MAX_YEAR = 9999;
+  const MONTH_NAMES = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  const DAY_NAMES  = ['월','화','수','목','금']; // col 0~4
+
+  /* =====================
+     상태
+  ===================== */
+  let currentYear = 2026;
+  // selected: { [dateStr: string]: boolean } — 선택된 날짜 Set 역할
+  const selected = {};
+
+  /* =====================
+     DOM 참조
+  ===================== */
+  const yearLabel  = document.getElementById('yearLabel');
+  const btnPrev    = document.querySelector('.handle_prev');
+  const btnNext    = document.querySelector('.handle_next');
+  const tbody      = document.getElementById('tbodyShortwork');
+  const btnSave    = document.getElementById('btnSave');
+
+  /* =====================
+     날짜 유틸
+  ===================== */
+  /**
+   * 해당 연도의 모든 평일을 주차별로 그룹핑하여 반환
+   * @returns {Array<{weekKey, month, weekNum, days: Array<{dateStr, label}|null>}>}
+   *   days 인덱스: 0=월, 1=화, 2=수, 3=목, 4=금 / 해당 날짜 없으면 null
+   */
+  function buildWeeks(year) {
+    const weeks = [];
+
+    // 주 데이터 생성 헬퍼: mon(월요일 Date) 기준으로 월~금 수집
+    function makeEntry(mon) {
+      const weekKey = toDateStr(mon);
+      const days = [null, null, null, null, null];
+      const monthCount = {};
+      for (let col = 0; col < 5; col++) {
+        const day = new Date(mon);
+        day.setDate(mon.getDate() + col);
+        if (day.getFullYear() === year) {
+          days[col] = { dateStr: toDateStr(day), label: `<em>${day.getDate()}일</em><span>(${DAY_NAMES[col]})</span>` };
+          const m = day.getMonth();
+          monthCount[m] = (monthCount[m] || 0) + 1;
+        }
+      }
+      if (!Object.keys(monthCount).length) return null;
+      // 대표 월: 해당 연도 날짜가 가장 많은 달 (동수면 앞 달)
+      const repMonth = parseInt(
+        Object.entries(monthCount).sort((a, b) => b[1] - a[1] || a[0] - b[0])[0][0]
+      );
+      const weekNum = weeks.filter(w => w.month === repMonth).length + 1;
+      return { weekKey, month: repMonth, weekNum, days };
+    }
+
+    // 1월 1일이 화~금이면 그 주 월요일은 전년도 → 경계 주 먼저 처리
+    const jan1 = new Date(year, 0, 1);
+    const jan1dow = jan1.getDay();
+    if (jan1dow >= 2 && jan1dow <= 5) {
+      const mon = new Date(jan1);
+      mon.setDate(jan1.getDate() - (jan1dow - 1));
+      const entry = makeEntry(mon);
+      if (entry) weeks.push(entry);
+    }
+
+    // 해당 연도 첫 월요일부터 7일씩 순회
+    const d = new Date(year, 0, 1);
+    while (d.getDay() !== 1) d.setDate(d.getDate() + 1);
+    while (d.getFullYear() === year) {
+      const entry = makeEntry(d);
+      if (entry) weeks.push(entry);
+      d.setDate(d.getDate() + 7);
+    }
+
+    return weeks;
+  }
+
+  function toDateStr(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+
+  /* =====================
+     렌더링
+  ===================== */
+  function render() {
+    const weeks = buildWeeks(currentYear);
+
+    // 월별 rowspan 계산
+    const rowspanMap = {}; // month → count
+    weeks.forEach(w => { rowspanMap[w.month] = (rowspanMap[w.month] || 0) + 1; });
+
+    let html = '';
+    let prevMonth = -1;
+
+    weeks.forEach((w, idx) => {
+      const isFirstInMonth = w.month !== prevMonth;
+      const isFirstRow     = idx === 0;
+
+      const rowClass = (isFirstInMonth && !isFirstRow) ? ' class="row_month_start"' : '';
+      html += `<tr${rowClass}>`;
+
+      // 월 셀 (rowspan)
+      if (isFirstInMonth) {
+        html += `<td class="td_month" rowspan="${rowspanMap[w.month]}">${MONTH_NAMES[w.month]}</td>`;
+      }
+
+      // 주차 셀
+      html += `<td class="td_week">${w.weekNum}W</td>`;
+
+      // 평일 5컬럼
+      for (let col = 0; col < 5; col++) {
+        const day = w.days[col];
+        if (!day) {
+          html += `<td class="td_day"></td>`;
+        } else {
+          const isSel = !!selected[day.dateStr];
+          html += `<td class="td_day">
+            <button type="button"
+              class="btn_day${isSel ? ' on' : ''}"
+              data-week="${w.weekKey}"
+              data-date="${day.dateStr}"
+              aria-pressed="${isSel}"
+              aria-label="${day.dateStr} 근로단축일 선택"
+            >${day.label}</button>
+          </td>`;
+        }
+      }
+
+      html += `</tr>`;
+      prevMonth = w.month;
+    });
+
+    tbody.innerHTML = html;
+    yearLabel.textContent = currentYear;
+    btnPrev.disabled = currentYear <= MIN_YEAR;
+    btnNext.disabled = currentYear >= MAX_YEAR;
+  }
+
+  /* =====================
+     이벤트
+  ===================== */
+  // 날짜 버튼 클릭 (이벤트 위임)
+  tbody.addEventListener('click', function (e) {
+    const btn = e.target.closest('.btn_day');
+    if (!btn || btn.disabled) return;
+
+    const weekKey = btn.dataset.week;
+    const dateStr = btn.dataset.date;
+
+    if (selected[dateStr]) {
+      delete selected[dateStr]; // 재클릭 → 해제
+    } else {
+      selected[dateStr] = true;
+    }
+    render();
+  });
+
+  // 이전 연도
+  btnPrev.addEventListener('click', function () {
+    if (currentYear > MIN_YEAR) { currentYear--; render(); }
+  });
+
+  // 다음 연도
+  btnNext.addEventListener('click', function () {
+    if (currentYear < MAX_YEAR) { currentYear++; render(); }
+  });
+
+  // 저장
+  btnSave.addEventListener('click', function () {
+    const result = Object.keys(selected).sort();
+
+    if (!result.length) {
+      alert('선택된 근로단축일이 없습니다.');
+      return;
+    }
+    // TODO: 서버 전송 처리
+    console.log('저장할 근로단축일:', result);
+    alert(`저장되었습니다.\n${result.join('\n')}`);
+  });
+
+  /* =====================
+     open / close
+  ===================== */
+  const dialog = document.getElementById('p_SetShortworkday');
+
+  function open() {
+    dialog.showModal();
+    render();
+  }
+
+  function close() {
+    dialog.close();
+  }
+
+  // 닫기 버튼
+  document.querySelectorAll('.btn_close').forEach(btn => {
+    btn.addEventListener('click', close);
+  });
+
+
+  return { open, close };
+
+})();
+</script>

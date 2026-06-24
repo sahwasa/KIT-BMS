@@ -293,7 +293,6 @@
 .list_shortwork{display:grid;grid-template-columns: repeat(auto-fill, minmax(200px, auto));gap:5px;margin-top:5px;counter-reset:shortworkday; 
   li{position:relative;display:flex;align-items:center;gap:3px;background-color:#edf0f3;padding:3px 5px;border-radius:3px;border-left:25px solid #00000010;
     &::before{counter-increment:shortworkday;content:counter(shortworkday);position:absolute;left:-25px;top:50%;transform:translateY(-50%);width:25px;text-align:center;font-size:11px;}
-  }
-  [readonly]{pointer-events:none;tabindex:-1;}
+  } 
   .btn_cancel{margin-left:auto;padding:0 8px;}
 }

@@ -2,7 +2,7 @@
 @use '../base/mixin' as m;
 // table
 
-.tbl_top_area{@include m.flex_between;margin-bottom:9px;
+.tbl_top_area{position:relative;@include m.flex_between;margin-bottom:9px;
   .tool_wrap{margin-left:auto;}
   .flex_right{display:flex;margin-left:auto;gap:5px;flex-shrink:0;}
   .divide{@include m.divide(16px, 5px);

@@ -32,7 +32,7 @@
 .handle_week{@include m.flex_between;gap:15px;justify-content:center;margin-bottom:10px;padding-top:5px;
   .handle_prev,
   .handle_next{font-size:0;
-    &::before{display:block;@include m.fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:50%;color:#000;font-weight:bold;}
+    &::before{display:block;@include m.fontello('\f105');font-size:15px;width:20px;line-height:18px;border:1px solid #a2a2a2;border-radius:50%;color:#000;font-weight:bold;vertical-align:middle;}
     &:disabled{cursor:not-allowed;
       &::before{border-color:#d2d2d2;color:#d2d2d2;}
     }
@@ -42,4 +42,11 @@
     &:hover{background-color:#edf0f3;border-radius:5px;}
   }
   span{font-size:18px;font-weight:bold;white-space:nowrap;}
+  @at-root .tbl_top_area .handle_week{flex:1;padding-top:0;}
+  & + .tool_wrap{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    &:has(input){margin-top:-5px;}
+    .shortwork_time{color:#777;
+      & + input{width:30px;text-align: center;}
+    }
+  }
 }
