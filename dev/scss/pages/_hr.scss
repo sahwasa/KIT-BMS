@@ -4,7 +4,7 @@
 
 $cal-status: (
   'check':    (#ffecec, v.$red),
-  'request':    (#fef5ee, #f07816),
+  'request':    (#e5ffe2, v.$green),
   'modified': (#dce9fd, v.$blue),
 );
 .hr_attendance{@include tbl_defaultH(55px);margin-bottom:15px;
@@ -41,6 +41,9 @@ $cal-status: (
     th,td{border:1px solid v.$td_border_color;border-width:0 1px 1px 0;
       &:last-child{border-right-width:0;text-align:center;}    
     }    
+    td:nth-child(3),
+    td:nth-child(4){text-align:left;text-indent:12%;}
+    span{text-indent:0;}
   }
   .label_badge{width:40px;}
   .more{margin-right:auto;font-weight:normal;}
@@ -55,7 +58,7 @@ $cal-status: (
     &:has(.time_record),
     &:last-child{text-align:left;}
   }
-  .time_record{float:left;width:110px;padding-left:10px;}
+  .time_record{float:left;width:100px;padding-left:10px;}
 }
 .time_record{display:inline-block;width:120px;text-align:left;}
 .hr_flexworkMng .tbl_wrap{@include tbl_defaultH(25px);}

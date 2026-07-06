@@ -160,8 +160,8 @@
 }
 @mixin attendance_mng{
   .fc-timeline-events{height:inherit !important;padding-bottom:0 !important;}
-  .fc-timeline-event-harness{visibility:visible !important;}
-  .fc-event{height:inherit;text-align:center;background-color:transparent;border:none;margin:0 0 0 1px !important;box-sizing:border-box;padding:2px 0 1px;outline:1px solid transparent; outline-offset:-1px;}
+  .fc-timeline-event-harness{visibility:visible !important;bottom:0;}
+  .fc-event{position:absolute;left:0;right:0;top:0;bottom:0;height:inherit;text-align:center;background-color:transparent;border:none;margin:0 0 0 1px !important;box-sizing:border-box;padding:2px 0 1px;outline:1px solid transparent;outline-offset:-1px;}
   .fc-event-main{color:inherit;}
   .fc-yearlyView-view{
     th.fc-day-sat,

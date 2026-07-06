@@ -416,9 +416,9 @@ $_planTypes:(
   }
   .empty_txt{font-size:12px;color:#999;text-align:center;padding:10px 0;}
 }
-.svc_teamAttendance{@include tbl_defaultH(25px);
+.svc_teamAttendance{@include tbl_defaultH(55px);
   @include calendar.attendance_mng;
-
+  margin-bottom:15px;
   .fc-event{cursor:default;}
 }
 .svc_businessMng{
