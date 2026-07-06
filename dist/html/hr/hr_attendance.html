@@ -404,7 +404,7 @@ UI.toast('금일 출근 이력이 없습니다', 0);
                   <th scope="col">출근</th>
                   <th scope="col">퇴근</th>
                   <th scope="col">근무시간</th>
-                  <th scope="col">비고</th>
+                  <!-- <th scope="col">비고</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -417,7 +417,7 @@ UI.toast('금일 출근 이력이 없습니다', 0);
                   <td class="late">03-05 09:01</td>
                   <td>03-06 09:00</td>
                   <td>24시간 1분</td>
-                  <td>-</td>
+                  <!-- <td>-</td> -->
                 </tr>
                 <tr>
                   <td>2</td>
@@ -431,7 +431,7 @@ UI.toast('금일 출근 이력이 없습니다', 0);
                     <button type="button" class="label_locate"  onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 외</button>
                   </td>
                   <td>23시간 54분</td>
-                  <td>정정요청</td>
+                  <!-- <td>정정요청</td> -->
                 </tr>           
                 <tr>
                   <td>3</td>
@@ -445,7 +445,7 @@ UI.toast('금일 출근 이력이 없습니다', 0);
                     <button type="button" class="label_locate" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 내</button>
                   </td>
                   <td>2시간 25분</td>
-                  <td>승인완료</td>
+                  <!-- <td>승인완료</td> -->
                 </tr>           
                 <tr>
                   <td>4</td>
@@ -459,7 +459,7 @@ UI.toast('금일 출근 이력이 없습니다', 0);
                     <button type="button" class="label_locate" onclick="alert('추후 지도에 위치 팝업')"><i class="ico_mobile">Mobile</i>근무지 내</button>
                   </td>
                   <td>2시간 25분</td>
-                  <td>판정보류</td>
+                  <!-- <td>판정보류</td> -->
                 </tr>           
               </tbody>
             </table>
@@ -692,14 +692,48 @@ UI.toast('금일 출근 이력이 없습니다', 0);
       <button class="btnClose ico_org cancel" aria-label="close">닫기</button>
     </header>
     <div class="p_body">
-      <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#185FA5;"></div>출근</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#BA7517;"></div>퇴근</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#534AB7;"></div>클러스터</div>
-      </div>
+      <section class="map-top">
+        <ul class="search_list">
+          <li>
+            <input type="date" min="0000-01-01" max="9999-12-31" id="" title="휴가시작" onchange="setPeriod()" />
+          </li>       
+          <li>
+            <input type="text" id="" placeholder="사원명 검색" list="nameList" autocomplete="off">
+            <datalist id="nameList">
+              <optgroup label="개발본부">
+                <option value="대장발핑">개발본부</option>
+                <option value="개발핑">개발 1팀</option>
+                <option value="새발핑">개발 1팀</option>
+                <option value="말발핑">개발 2팀</option>
+                <option value="소발핑">개발 2팀</option>
+                <option value="곰발핑">개발 2팀</option>
+              </optgroup>
+              <optgroup label="경영관리">
+                <option value="경영핑">경영관리</option>
+                <option value="관리핑">경영관리</option>
+              </optgroup>                  
+            </datalist>
+            </li>
+            <li>
+              <button type="button" class="btn_search">검색</button>
+            </li>
+          </ul>                   
+        <div class="tool legend-wrap">
+        <!-- $cal-status: (
+          'clockin': #185FA5,
+          'clockout': #BA7517,
+          'cluster': #534AB7,
+        ); -->
+          <ul class="legend-location">
+            <li class="is-clockin">출근</li>
+            <li class="is-clockout">퇴근</li>
+            <li class="is-cluster">클러스터</li>
+          </ul>      
+        </div>
+      </section>
       <div class="map-wrap" id="mapWrap" style="background: url(../../images/temp/temp_map.jpg) 50% / cover;">
         <!-- 마커 컨테이너 -->
-        <div id="" class="maker_container" >
+        <div id="" class="maker-container" >
           <div class="maker checkin" style="left: 461.5px; top: 198.648px;">
             <strong>하츄핑</strong><span>09:40</span>
           </div>
@@ -714,9 +748,9 @@ UI.toast('금일 출근 이력이 없습니다', 0);
           <hr class="tooltip-divider"><div class="tooltip-row"><div class="tooltip-dot" style="background:#185FA5;"></div>하츄핑 · 출근 09:02</div><div class="tooltip-row"><div class="tooltip-dot" style="background:#BA7517;"></div>하츄핑 · 퇴근 18:15</div>
         </div>
         <!-- 줌 컨트롤 -->
-        <div class="zoom_ctrl">
-          <button type="button" class="zoom_btn" id="zoomIn">+</button>
-          <button type="button" class="zoom_btn" id="zoomOut">−</button>
+        <div class="zoom-ctrl">
+          <button type="button" class="zoom-btn" id="zoomIn">+</button>
+          <button type="button" class="zoom-btn" id="zoomOut">−</button>
         </div>
       </div>
     </div>
