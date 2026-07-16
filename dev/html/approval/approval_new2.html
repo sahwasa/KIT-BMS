@@ -25,8 +25,9 @@
           </span>
         </article>
         <div class="my_approval">          
-          @@include('inc/leave-request-form.html')
+          <!-- @@include('inc/leave-request-form.html') -->
           <!-- @@include('inc/businesstrip-report-form.html') -->
+          @@include('inc/businesstrip-reg-form.html')
           <article class="approval_set">
             <section class="box_default_w">
               <h1>결재자 지정</h1>
@@ -220,103 +221,7 @@
   @@include('../../inc/layout/footer.html')
 </div>
 @@include('../../inc/layout/script.html')
-<script>
-  $(function () {
-    setEditor();
-    fileDropEvt();
-    $('.btn_request').on('click', function () { $('.file_upload').show(); })
-    $('.file_upload').on('click', function () { $(this).hide(); })
-  })
 
-// $('#req_date').html(getTodayDoc());
-// $('#my_name_doc').html(myName);
-
-function setPeriod(){
-	const prd = calculateTotalDays($('#sdt').val(), $('#edt').val())
-	if (!isNaN(prd)){
-		$('#period').val(prd+1)
-	}
-	setSj()
-}
-// setComp('C12type','radio', getCodes('C12'))
-
-//남은 연차 조회
-// $.ajax({
-// 	url : "/approval/getEmplVcatn.do"
-// 	,data : {
-// 	}
-// 	,method : "POST"
-// 	,dataType : "JSON"
-// 	,success : function(data){
-// 		$('#remain').attr('remndr_vcatn_day',data.result[0].remndr_vcatn_day)
-// 		$('#remain').text('(잔여: '+$('#remain').attr('remndr_vcatn_day')+'일)')
-// 		$('#C12_2_remain').attr('remndr_vcatn_hours',data.result[0].remndr_vcatn_hours)
-// 	}
-// 	, error : function(jqXHR, textStatus, errorThrown){
-// 		console.log(jqXHR, textStatus, errorThrown);
-// 	}
-// });
-
-//반차 선택시 표시 tr 변경
-$('input[type="radio"][name="C12type"]').on('change', function () {
-	var selectedId = $('input[type="radio"][name="C12type"]:checked').attr('id');
-	if(selectedId == 'C12_2' || selectedId == 'C12_9'){
-		$('#tr_C12_1').hide()
-		$('#tr_C12_2').show()
-		$('#C12_2_period').val(calculateTimeDifference())
-		$('#C12_2_remain').text('(잔여: '+$('#C12_2_remain').attr('remndr_vcatn_hours')+'시간)')
-	}else if(selectedId=='C12_10'){
-		$('#tr_C12_1').hide()
-		$('#tr_C12_2').hide()
-		$('#tr_C12_10').show()
-	}else{
-		$('#tr_C12_1').show()
-		$('#tr_C12_2').hide()
-		$('#remain').text('(잔여: '+$('#remain').attr('remndr_vcatn_day')+'일)')
-	}
-	setSj()
-});
-
-//두 셀렉트박스 사이의 차이 계산
-function calculateTimeDifference() {	
-	setSj();
-	var stime = parseInt($('#stime').val(), 10);
-	var etime = parseInt($('#etime').val(), 10);
-	var diff = 0;
-	// 점심시간인 경우
-	if (stime <= 12 && etime >= 13) {
-	// 점심시간을 제외한 시간 계산
-	diff = (12 - stime) + (etime - 13);
-	} else {
-	diff = etime - stime;
-	}
-	return diff
-}
-
-//반차 시각 선택시 시간계산
-$('#stime, #etime').on('change', function () {
-	let duration = calculateTimeDifference()
-	$('#C12_2_period').val(duration)
-});
-
-//제목 자동설정
-function setSj(){
-	if ($("#C12_sdt").is(":visible")) {
-		//반차
-		if($('#C12_sdt').val()=='')
-			return;
-		const stime = $('#stime').val()+':00'
-		const etime = $('#etime').val()+':00'
-		$('#sj').val(doc_info.atrz_doc_nm+"("+$('input[name="C12type"]:checked').next('label').text()+":"+$('#C12_sdt').val()+" "+stime+"~"+etime+")")
-	} else {
-		//반차아님
-		if($('#sdt').val()=='')
-			return;
-		$('#sj').val(doc_info.atrz_doc_nm+"("+$('input[name="C12type"]:checked').next('label').text()+":"+$('#sdt').val()+"~"+$('#edt').val()+")")
-	}
-}
-	
-</script>
 </body>
 
 </html>

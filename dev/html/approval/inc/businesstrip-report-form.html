@@ -76,14 +76,20 @@
                 <option value="기관 선택">기관 선택</option>
               </select>
               <input type="text" id="" placeholder="프로젝트명을 입력하세요." list="projectList" autocomplete="off">
-              @@include('../../inc/data/data_project_name.html')
+              @@include('../../../inc/data/data_project_name.html')
             </span>
           </td>
         </tr>
         <tr>
-          <th scope="row">
+          <th scope="row" rowspan="2">
             <label for="form_businesstrip" class="required">출장구분</label>
           </th>
+          <td>
+            <input type="checkbox" id="replc_yn">
+            <label for="replc_yn">출장신청서 대체 (※ 출장신청서 미작성시)</label>
+          </td>
+        </tr>
+        <tr>
           <td>
             <ul class="check_group">
               <li>
@@ -97,10 +103,6 @@
               <li>
                 <input type="radio" id="dispatch" name="form_businesstrip">
                 <label for="dispatch">파견근무</label>
-              </li>
-              <li>
-                <input type="radio" id="outside" name="form_businesstrip">
-                <label for="outside">외근</label>
               </li>
             </ul>
           </td>
@@ -127,11 +129,11 @@
           <td>
             <span class="file_input">
               <input type="text" id="biz_traveler" list="nameList" autocomplete="off">
-              @@include('../../inc/data/data_emp_name.html')
+              @@include('../../../inc/data/data_emp_name.html')
               <button type="button" class="btn_red_line">추가</button>
               <button type="button" class="btn_ogt">조직도</button>
             </span>
-            @@include('../../inc/module/module_slide_user.html')
+            @@include('../../../inc/module/module_slide_user.html')
           </td>
         </tr>
         <tr>

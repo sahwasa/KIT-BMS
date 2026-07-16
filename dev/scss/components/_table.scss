@@ -136,8 +136,9 @@ td{white-space:nowrap;text-overflow:ellipsis;
 .ico_attach::before{@include m.fontello('\ec66');color:#848484;font-size:14px;}
 .tbl_badge{@extend %tbl_badge;}
 .check_group{display:inline-flex;justify-content:flex-start;
-  li{margin-right:10px;}
+  li{margin-right:10px;line-height:28px;}
   *{align-self:center;vertical-align:middle;}
+  &.divide{@include m.divide;}
 }
 @for $left from 1 to 10{
   .alignL_#{$left}{

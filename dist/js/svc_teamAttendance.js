@@ -5,57 +5,57 @@ var calendar;
 // =============================================
 var monthlyEvents = [
   // 꾸래핑 (150)
-  { resourceId: '150', start: '2026-05-01', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:05' } },
-  { resourceId: '150', start: '2026-05-04', extendedProps: { type: '정상(09~18시)', time: '08:45 / 18:10' } },
-  { resourceId: '150', start: '2026-05-06', extendedProps: { type: '지각(09~18시)', time: '<span class="t_red">09:05</span> / 18:02' } },
-  { resourceId: '150', start: '2026-05-07', extendedProps: { type: '외근(09~13시)', time: '- / 18:15' } },
-  { resourceId: '150', start: '2026-05-08', extendedProps: { type: '정상(09~18시)', time: '08:58 / 18:00' } },
-  { resourceId: '150', start: '2026-05-11', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:05' } },
-  { resourceId: '150', start: '2026-05-12', extendedProps: { type: '조퇴(09~18시)', time: '08:55 / <span class="t_red">16:30</span>' } },
-  { resourceId: '150', start: '2026-05-13', extendedProps: { type: '정상(09~18시)', time: '08:40 / 18:20' } },
-  { resourceId: '150', start: '2026-05-14', extendedProps: { type: '반차(09~14시)', time: '08:50 / 14:05' } },
-  { resourceId: '150', start: '2026-05-15', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:10' } },
-  { resourceId: '150', start: '2026-05-18', extendedProps: { type: '정상(09~18시)', time: '08:48 / 18:03' } },
-  { resourceId: '150', start: '2026-05-19', extendedProps: { type: '정상(09~18시)', time: '08:55 / -' } },
+  { resourceId: '150', start: '2026-07-01', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:05' } },
+  { resourceId: '150', start: '2026-07-04', extendedProps: { type: '정상(09~18시)', time: '08:45 / 18:10' } },
+  { resourceId: '150', start: '2026-07-06', extendedProps: { type: '지각(09~18시)', time: '<span class="t_red">09:05</span> / 18:02' } },
+  { resourceId: '150', start: '2026-07-07', extendedProps: { type: '외근(09~13시)', time: '- / 18:15' } },
+  { resourceId: '150', start: '2026-07-08', extendedProps: { type: '정상(09~18시)', time: '08:58 / 18:00' } },
+  { resourceId: '150', start: '2026-07-11', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:05' } },
+  { resourceId: '150', start: '2026-07-12', extendedProps: { type: '조퇴(09~18시)', time: '08:55 / <span class="t_red">16:30</span>' } },
+  { resourceId: '150', start: '2026-07-13', extendedProps: { type: '정상(09~18시)', time: '08:40 / 18:20' } },
+  { resourceId: '150', start: '2026-07-14', extendedProps: { type: '반차(09~14시)', time: '08:50 / 14:05' } },
+  { resourceId: '150', start: '2026-07-15', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:10' } },
+  { resourceId: '150', start: '2026-07-18', extendedProps: { type: '정상(09~18시)', time: '08:48 / 18:03' } },
+  { resourceId: '150', start: '2026-07-19', extendedProps: { type: '정상(09~18시)', time: '08:55 / -' } },
 
   // 바로핑 (151)
-  { resourceId: '151', start: '2026-05-01', extendedProps: { type: '연차',        time: '- / -' } },
-  { resourceId: '151', start: '2026-05-04', extendedProps: { type: '정상(10~19시)', time: '09:50 / 19:05' } },
-  { resourceId: '151', start: '2026-05-06', extendedProps: { type: '출장',        time: '- / -' } },
-  { resourceId: '151', start: '2026-05-07', extendedProps: { type: '출장',        time: '- / -' } },
-  { resourceId: '151', start: '2026-05-08', extendedProps: { type: '정상(10~19시)', time: '09:55 / 19:10' } },
-  { resourceId: '151', start: '2026-05-11', extendedProps: { type: '정상(10~19시)', time: '09:45 / 19:02' } },
-  { resourceId: '151', start: '2026-05-12', extendedProps: { type: '정상(10~19시)', time: '09:58 / 19:00' } },
-  { resourceId: '151', start: '2026-05-13', extendedProps: { type: '결근',       time: '- / -' } },
-  { resourceId: '151', start: '2026-05-14', extendedProps: { type: '정상(10~19시)', time: '09:52 / 19:05' } },
-  { resourceId: '151', start: '2026-05-15', extendedProps: { type: '정상(10~19시)', time: '09:50 / 19:15' } },
-  { resourceId: '151', start: '2026-05-18', extendedProps: { type: '정상(10~19시)', time: '09:40 / 19:08' } },
-  { resourceId: '151', start: '2026-05-19', extendedProps: { type: '정상(10~19시)', time: '09:55 / -' } },
+  { resourceId: '151', start: '2026-07-01', extendedProps: { type: '연차',        time: '- / -' } },
+  { resourceId: '151', start: '2026-07-04', extendedProps: { type: '정상(10~19시)', time: '09:50 / 19:05' } },
+  { resourceId: '151', start: '2026-07-06', extendedProps: { type: '출장',        time: '- / -' } },
+  { resourceId: '151', start: '2026-07-07', extendedProps: { type: '출장',        time: '- / -' } },
+  { resourceId: '151', start: '2026-07-08', extendedProps: { type: '정상(10~19시)', time: '09:55 / 19:10' } },
+  { resourceId: '151', start: '2026-07-11', extendedProps: { type: '정상(10~19시)', time: '09:45 / 19:02' } },
+  { resourceId: '151', start: '2026-07-12', extendedProps: { type: '정상(10~19시)', time: '09:58 / 19:00' } },
+  { resourceId: '151', start: '2026-07-13', extendedProps: { type: '결근',       time: '- / -' } },
+  { resourceId: '151', start: '2026-07-14', extendedProps: { type: '정상(10~19시)', time: '09:52 / 19:05' } },
+  { resourceId: '151', start: '2026-07-15', extendedProps: { type: '정상(10~19시)', time: '09:50 / 19:15' } },
+  { resourceId: '151', start: '2026-07-18', extendedProps: { type: '정상(10~19시)', time: '09:40 / 19:08' } },
+  { resourceId: '151', start: '2026-07-19', extendedProps: { type: '정상(10~19시)', time: '09:55 / -' } },
 
   // 하츄핑 (152)
-  { resourceId: '152', start: '2026-05-01', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:10' } },
-  { resourceId: '152', start: '2026-05-04', extendedProps: { type: '정상(09~18시)', time: '08:45 / 18:05' } },
-  { resourceId: '152', start: '2026-05-08', extendedProps: { type: '정상(09~18시)', time: '08:55 / 18:00' } },
-  { resourceId: '152', start: '2026-05-11', extendedProps: { type: '정상(09~18시)', time: '08:48 / 18:12' } },
-  { resourceId: '152', start: '2026-05-15', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:05' } },
-  { resourceId: '152', start: '2026-05-18', extendedProps: { type: '오전반차',    time: '13:50 / 18:05' } },
-  { resourceId: '152', start: '2026-05-19', extendedProps: { type: '정상(09~18시)', time: '08:45 / -' } },
+  { resourceId: '152', start: '2026-07-01', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:10' } },
+  { resourceId: '152', start: '2026-07-04', extendedProps: { type: '정상(09~18시)', time: '08:45 / 18:05' } },
+  { resourceId: '152', start: '2026-07-08', extendedProps: { type: '정상(09~18시)', time: '08:55 / 18:00' } },
+  { resourceId: '152', start: '2026-07-11', extendedProps: { type: '정상(09~18시)', time: '08:48 / 18:12' } },
+  { resourceId: '152', start: '2026-07-15', extendedProps: { type: '정상(09~18시)', time: '08:52 / 18:05' } },
+  { resourceId: '152', start: '2026-07-18', extendedProps: { type: '오전반차',    time: '13:50 / 18:05' } },
+  { resourceId: '152', start: '2026-07-19', extendedProps: { type: '정상(09~18시)', time: '08:45 / -' } },
 
   // 아자핑 (153)
-  { resourceId: '153', start: '2026-05-01', extendedProps: { type: '정상(09~18시)', time: '08:40 / 18:20' } },
-  { resourceId: '153', start: '2026-05-04', extendedProps: { type: '정상(09~18시)', time: '08:55 / 18:10' } },
-  { resourceId: '153', start: '2026-05-11', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:05' } },
-  { resourceId: '153', start: '2026-05-19', extendedProps: { type: '정상(09~18시)', time: '08:58 / -' } },
+  { resourceId: '153', start: '2026-07-01', extendedProps: { type: '정상(09~18시)', time: '08:40 / 18:20' } },
+  { resourceId: '153', start: '2026-07-04', extendedProps: { type: '정상(09~18시)', time: '08:55 / 18:10' } },
+  { resourceId: '153', start: '2026-07-11', extendedProps: { type: '정상(09~18시)', time: '08:50 / 18:05' } },
+  { resourceId: '153', start: '2026-07-19', extendedProps: { type: '정상(09~18시)', time: '08:58 / -' } },
 ];
 
 // =============================================
 // 2. 연간 뷰 이벤트 데이터 (실제 DB 연동 시 교체)
 // =============================================
 var yearlyEvents = [
-  { resourceId: '150', start: '2026-06-01', extendedProps: { late: 1, out: 1, absent:0, pending:0 } },
-  { resourceId: '151', start: '2026-06-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
-  { resourceId: '152', start: '2026-06-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
-  { resourceId: '153', start: '2026-06-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
+  { resourceId: '150', start: '2026-07-01', extendedProps: { late: 1, out: 1, absent:0, pending:0 } },
+  { resourceId: '151', start: '2026-07-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
+  { resourceId: '152', start: '2026-07-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
+  { resourceId: '153', start: '2026-07-01', extendedProps: { late: 0, out: 0, absent:0, pending:0 } },
 ];
 
 // =============================================
